@@ -1,0 +1,18 @@
+rows 131072 (independent standard normal inputs, seed 1)
+network: task accuracy 0.9529, errors 6180
+
+exact_rewrite.py
+  joint: task accuracy 0.9529, agreement with network 0.9998, network errors reproduced 0.9971, KL(network || program) 1.79e-06 nats
+  single-unit agreement, units 0-15: 1.000 1.000 1.000 1.000 1.000 1.000 1.000 0.999 1.000 1.000 1.000 1.000 1.000 1.000 1.000 1.000
+  worst unit: 7 at 0.9994
+
+full_account.py
+  joint: task accuracy 0.9525, agreement with network 0.9964, network errors reproduced 0.9613, KL(network || program) 6.69e-04 nats
+  single-unit agreement, units 0-15: 0.997 0.997 0.999 0.998 0.999 0.999 0.997 0.995 0.997 0.999 0.996 0.998 0.998 0.998 0.998 0.998
+  worst unit: 7 at 0.9955
+
+idealised_account.py
+  joint: task accuracy 0.9646, agreement with network 0.9318, network errors reproduced 0.0519, KL(network || program) 1.80e+00 nats
+  single-unit agreement, units 0-15: 0.634 0.350 0.675 0.909 0.955 0.746 0.395 0.335 0.489 0.976 0.706 0.675 0.683 0.835 0.718 0.830
+  worst unit: 7 at 0.3348
+

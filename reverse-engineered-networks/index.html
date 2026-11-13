@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reverse-engineered neural networks: three worked examples</title>
+<style>
+  body { margin: 0; background: #fff; color: #1d1d1f;
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 36px 20px 64px; }
+  h1 { font-size: 26px; line-height: 1.25; margin: 0 0 8px; }
+  .sub { color: #5f6368; margin: 0 0 28px; }
+  .item { border: 1px solid #e3e3e6; border-radius: 10px; padding: 18px 20px; margin: 0 0 18px; }
+  .item h2 { font-size: 19px; margin: 0 0 4px; }
+  .size { color: #5f6368; font-size: 14px; margin: 0 0 10px; }
+  .item p { margin: 6px 0; }
+  .files { margin: 12px 0 0; padding: 0; list-style: none; }
+  .files li { margin: 4px 0; }
+  .files a { color: #1a5fb4; font-weight: 600; text-decoration: none; }
+  .files a:hover { text-decoration: underline; }
+  .files span { color: #5f6368; font-size: 14px; }
+  .note { background: #f7f7f9; border-radius: 8px; padding: 12px 16px; font-size: 14px; color: #3c4043; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Reverse-engineered neural networks: three worked examples</h1>
+  <p class="sub">Small networks trained on known tasks, taken apart to show how they compute the task internally.
+  Each folder has a short explainer page (start there), a short paper and the code.</p>
+
+  <div class="item">
+    <h2>1. A 432-parameter RNN that finds the second-largest number</h2>
+    <p class="size">ARC's AlgZoo model M(16,10): a one-layer ReLU RNN with 16 hidden units, reading 10 numbers.</p>
+    <p>The network keeps the running maximum and the runner-up. Each one carries a rotating "clock" that records how long ago it arrived, and that clock tells the network the answer's position. An idealised program in 171 numbers solves the task as well as the network does, but makes different mistakes. A fuller program matches the network on 99.6% of inputs. It is no shorter than the network, though, and most of its coefficients are uninterpreted. The core algorithm is clear, but a complete short explanation was not found.</p>
+    <ul class="files">
+      <li><a href="1-algzoo-second-argmax-432/explainer.html">Explainer</a> <span>(start here)</span></li>
+      <li><a href="1-algzoo-second-argmax-432/paper.pdf">Paper</a> <span>(8 pages)</span></li>
+      <li><a href="1-algzoo-second-argmax-432/code/README.md">Code and weights</a> <span>(NumPy; <code>verify.py</code> checks each account against the network)</span></li>
+      <li><a href="1-algzoo-second-argmax-432/original-papers/README.md">Original working papers</a> <span>(longer, internal drafts)</span></li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <h2>2. Two tiny RNNs (8 and 21 parameters), and one we could not crack</h2>
+    <p class="size">AlgZoo's median(2,10) and 2nd_argmax(3,3), plus a 352-weight argmedian RNN as a counterexample.</p>
+    <p>Trained to output the median, the 8-parameter network actually computes a leaky running mean, in one line of code. The 21-parameter network splits its input space into three regions with different rules, and one region, where all its outputs are exactly zero, causes most of its errors. The 352-weight network was not explained: agents found a few true pieces, but no account that predicts it.</p>
+    <ul class="files">
+      <li><a href="2-tiny-algzoo-rnns/explainer.html">Explainer</a> <span>(start here)</span></li>
+      <li><a href="2-tiny-algzoo-rnns/paper.pdf">Paper</a> <span>(5 pages)</span></li>
+      <li><a href="2-tiny-algzoo-rnns/code/README.md">Code and weights</a> <span>(NumPy, a few seconds per script)</span></li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <h2>3. Small transformers trained on text from a known Python program</h2>
+    <p class="size">2-layer and 6-layer transformers trained on stories and lists produced by a Python generator.</p>
+    <p>Because the true generator is known, we can check what the network learned against it. Single pieces of the network turn on at the points where the generator makes a choice that depends on earlier text, such as whether the next word is "she" or "he". Programs written by reading the network reproduce its next-word predictions closely. These programs are only partly explanations, though: much of their size is lookup tables, and the vocabulary's ordering gave away some of the generator's word classes.</p>
+    <ul class="files">
+      <li><a href="3-transformers-trained-on-python-generators/explainer.html">Explainer</a> <span>(start here)</span></li>
+      <li><a href="3-transformers-trained-on-python-generators/paper.pdf">Paper</a> <span>(7 pages)</span></li>
+      <li><a href="3-transformers-trained-on-python-generators/README.md">Code, generator source and extras</a> <span>(the generator runs; the recovered programs need an internal harness)</span></li>
+    </ul>
+  </div>
+
+  <p class="note">All three are recent, unpublished work by Goodfire's parameter-decomposition team, done largely by AI research agents with human direction.
+  Numbers in the explainers and papers either come from scripts in the bundle or are labelled with their source.
+  The original working pages in <code>original-papers/</code> and <code>extras/</code> use internal terms. The explainers and papers do not.</p>
+</main>
+</body>
+</html>

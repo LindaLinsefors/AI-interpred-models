@@ -1,0 +1,22 @@
+bs=64 seed=1 epoch 1 loss 1.4978 acc 0.2673 t=5s
+bs=64 seed=1 epoch 50 loss 0.5636 acc 0.7811 t=154s
+bs=64 seed=1 epoch 100 loss 0.5082 acc 0.8039 t=325s
+bs=64 seed=1 epoch 150 loss 0.4431 acc 0.8323 t=464s
+bs=64 seed=1 epoch 200 loss 0.3804 acc 0.8596 t=589s
+bs=64 seed=1 epoch 250 loss 0.3338 acc 0.8787 t=699s
+bs=64 seed=1 epoch 300 loss 0.3125 acc 0.8876 t=807s
+bs=64 seed=1 epoch 350 loss 0.2838 acc 0.8980 t=899s
+bs=64 seed=1 epoch 400 loss 0.2659 acc 0.9051 t=984s
+bs=64 seed=1 epoch 450 loss 0.2493 acc 0.9115 t=1077s
+bs=64 seed=1 epoch 500 loss 0.2352 acc 0.9165 t=1164s
+bs=64 seed=1 epoch 550 loss 0.2277 acc 0.9190 t=1252s
+bs=64 seed=1 epoch 600 loss 0.2164 acc 0.9237 t=1331s
+bs=64 seed=1 epoch 650 loss 0.2051 acc 0.9283 t=1407s
+bs=64 seed=1 epoch 700 loss 0.2036 acc 0.9283 t=1485s
+bs=64 seed=1 epoch 750 loss 0.2003 acc 0.9290 t=1564s
+bs=64 seed=1 epoch 800 loss 0.1989 acc 0.9304 t=1642s
+bs=64 seed=1 epoch 850 loss 0.1906 acc 0.9330 t=1721s
+bs=64 seed=1 epoch 900 loss 0.1888 acc 0.9338 t=1800s
+bs=64 seed=1 epoch 950 loss 0.1920 acc 0.9329 t=1878s
+bs=64 seed=1 epoch 1000 loss 0.1867 acc 0.9348 t=1956s
+{'batch_size': 64, 'seed': 1, 'epochs': 1000, 'acc_uniform': 0.9350185394287109, 'acc_gauss': 0.9450016021728516}

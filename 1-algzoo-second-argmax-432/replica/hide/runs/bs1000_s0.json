@@ -1,0 +1,1 @@
+{"batch_size": 1000, "seed": 0, "epochs": 1000, "acc_uniform": 0.7796993255615234, "acc_gauss": 0.7935237884521484}

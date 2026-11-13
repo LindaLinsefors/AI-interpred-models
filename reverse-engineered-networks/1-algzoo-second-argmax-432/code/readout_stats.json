@@ -1,0 +1,17 @@
+{
+ "n": 16076,
+ "rest_argmax_is_max": 0.8749688977357551,
+ "comp_argmin_is_max": 0.7585842249315751,
+ "comp_argmax_is_runnerup": 0.12664842000497636,
+ "rest_argmax_is_runnerup": 0.0766981836277681,
+ "median_comp_at_max": -28.384391219993184,
+ "median_rest_at_max": 44.34816214251376,
+ "median_comp_at_runnerup": 12.194114274079164,
+ "median_rest_at_runnerup": 14.629647766565562,
+ "comp_prefers_runnerup_over_max": 0.9678402587708386,
+ "rest_prefers_runnerup_over_max": 0.08410052251803932,
+ "acc": 0.9543418760885792,
+ "runnerup_is_last_frac": 0.09745,
+ "acc_when_runnerup_last": 0.9599794766546947,
+ "acc_when_max_last": 0.9306329113924051
+}

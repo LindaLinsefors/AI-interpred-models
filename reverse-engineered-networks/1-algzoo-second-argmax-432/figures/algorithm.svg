@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" width="900" height="370" font-family="DejaVu Sans, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52514e"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="370" fill="#ffffff"/>
+  <text x="450" y="22" text-anchor="middle" font-size="14" fill="#52514e">Every step runs the same 16 ReLU units: h_t = ReLU(w·x_t + W·h_(t−1))</text>
+  <rect x="8" y="140" width="104" height="70" rx="8" fill="#f4f4f2" stroke="#c9c8c2"/>
+  <text x="60" y="168" text-anchor="middle" font-size="15" font-weight="bold" fill="#0b0b0b">input x</text>
+  <text x="60" y="190" text-anchor="middle" font-size="13" fill="#52514e">one per step</text>
+  <rect x="150" y="40" width="300" height="270" rx="10" fill="#eef4fc" stroke="#2a78d6"/>
+  <text x="300" y="64" text-anchor="middle" font-size="15" font-weight="bold" fill="#0b0b0b">1. Compare x with memory</text>
+  <rect x="164" y="76" width="272" height="62" rx="6" fill="#ffffff" stroke="#c9c8c2"/>
+  <text x="176" y="97" font-size="14" font-weight="bold" fill="#0b0b0b">record unit (4)</text>
+  <text x="176" y="116" font-size="13" fill="#52514e">fires when x beats the maximum M,</text>
+  <text x="176" y="132" font-size="13" fill="#52514e">roughly 10·max(x − M, 0)</text>
+  <rect x="164" y="146" width="272" height="80" rx="6" fill="#ffffff" stroke="#c9c8c2"/>
+  <text x="176" y="167" font-size="14" font-weight="bold" fill="#0b0b0b">comparators (1, 6, 7, 8)</text>
+  <text x="176" y="186" font-size="13" fill="#52514e">fire when x is below a threshold θ</text>
+  <text x="176" y="202" font-size="13" fill="#52514e">near S and M that swings with the</text>
+  <text x="176" y="218" font-size="13" fill="#52514e">clock: g·max(θ − x, 0)</text>
+  <rect x="164" y="234" width="272" height="64" rx="6" fill="#ffffff" stroke="#c9c8c2"/>
+  <text x="176" y="255" font-size="14" font-weight="bold" fill="#0b0b0b">one-step pulses (5, 9)</text>
+  <text x="176" y="273" font-size="13" fill="#52514e">5: after a record or new runner-up</text>
+  <text x="176" y="289" font-size="13" fill="#52514e">9: after a record</text>
+  <rect x="495" y="40" width="225" height="270" rx="10" fill="#fdf0ea" stroke="#eb6834"/>
+  <text x="607" y="64" text-anchor="middle" font-size="15" font-weight="bold" fill="#0b0b0b">2. Update memory</text>
+  <text x="509" y="92" font-size="14" font-weight="bold" fill="#0b0b0b">two levels</text>
+  <text x="509" y="111" font-size="13" fill="#52514e">M: largest value so far</text>
+  <text x="509" y="127" font-size="13" fill="#52514e">S: runner-up so far</text>
+  <text x="509" y="157" font-size="14" font-weight="bold" fill="#0b0b0b">a clock</text>
+  <text x="509" y="176" font-size="13" fill="#52514e">turns ~42° per step; a</text>
+  <text x="509" y="192" font-size="13" fill="#52514e">record restarts it, so its</text>
+  <text x="509" y="208" font-size="13" fill="#52514e">angle ≈ age of M</text>
+  <text x="509" y="238" font-size="14" font-weight="bold" fill="#0b0b0b">history waves</text>
+  <text x="509" y="257" font-size="13" fill="#52514e">ages of earlier candidates,</text>
+  <text x="509" y="273" font-size="13" fill="#52514e">including the runner-up</text>
+  <rect x="760" y="110" width="132" height="130" rx="8" fill="#f4f4f2" stroke="#c9c8c2"/>
+  <text x="826" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#0b0b0b">3. After step 9:</text>
+  <text x="826" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="#0b0b0b">linear readout</text>
+  <text x="826" y="174" text-anchor="middle" font-size="13" fill="#52514e">ages → positions;</text>
+  <text x="826" y="191" text-anchor="middle" font-size="13" fill="#52514e">comparators push</text>
+  <text x="826" y="208" text-anchor="middle" font-size="13" fill="#52514e">the max down and</text>
+  <text x="826" y="225" text-anchor="middle" font-size="13" fill="#52514e">the runner-up up</text>
+  <line x1="112" y1="175" x2="148" y2="175" stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="450" y1="175" x2="493" y2="175" stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="720" y1="175" x2="758" y2="175" stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path d="M607,310 L607,342 L300,342 L300,312" fill="none" stroke="#52514e" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="454" y="362" text-anchor="middle" font-size="13" fill="#52514e">thresholds for the next step come from memory</text>
+</svg>

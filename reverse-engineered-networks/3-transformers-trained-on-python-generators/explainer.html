@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transformers trained on a known Python program: what reverse engineering recovered</title>
+<style>
+:root { --text:#1d1d1f; --muted:#5f6368; --line:#e3e3e6; --panel:#f6f6f4; --accent:#2a78d6; --good:#1b7f3b; --warn:#8a5a00; }
+* { box-sizing:border-box; }
+body { margin:0; background:#fff; color:var(--text); font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width:900px; margin:0 auto; padding:32px 20px 72px; }
+h1 { font-size:27px; line-height:1.25; margin:0 0 6px; }
+h2 { font-size:20px; margin:40px 0 10px; padding-top:8px; border-top:1px solid var(--line); }
+h3 { font-size:16px; margin:22px 0 6px; }
+.sub { color:var(--muted); font-size:14px; margin:0 0 22px; }
+.answer { background:var(--panel); border-left:4px solid var(--accent); border-radius:6px; padding:12px 18px; }
+.answer ul { margin:6px 0; padding-left:20px; } .answer li { margin:5px 0; }
+figure { margin:18px 0; } figure svg { width:100%; height:auto; display:block; margin:0 auto; }
+figure svg text { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; }
+figure.narrow svg { max-width:680px; }
+figcaption { color:var(--muted); font-size:14px; margin-top:6px; }
+pre { background:#f6f8fa; border:1px solid var(--line); border-radius:6px; padding:10px 12px; overflow-x:auto; font:12.5px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; margin:6px 0; }
+mark { background:#fff1c2; }
+code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:0.9em; }
+p code, li code, td code { background:#f1f0ec; padding:0 4px; border-radius:3px; }
+.pair { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+.pair > div > .lab { font-size:13px; font-weight:600; color:var(--muted); margin:4px 0 2px; }
+.pair > div { min-width:0; }
+@media (max-width:720px) { .pair { grid-template-columns:1fr; } }
+.sample { font-family:ui-monospace, Menlo, monospace; font-size:13.5px; background:var(--panel); padding:10px 14px; border-radius:6px; }
+table { border-collapse:collapse; width:100%; font-size:14.5px; margin:10px 0; }
+th, td { border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+th { color:var(--muted); font-weight:600; } td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+details { border:1px solid var(--line); border-radius:6px; padding:8px 14px; margin:12px 0; background:#fff; }
+details > summary { cursor:pointer; font-weight:600; color:#333; }
+details[open] > summary { margin-bottom:8px; }
+.ex { border:1px solid var(--line); border-radius:8px; padding:10px 16px 12px; margin:16px 0; }
+.ex h3 { margin-top:6px; }
+.tag { display:inline-block; font-size:12px; font-weight:600; padding:1px 8px; border-radius:10px; margin-left:6px; vertical-align:middle; }
+.tag.good { color:var(--good); background:#e6f4ea; } .tag.warn { color:var(--warn); background:#fff4dc; }
+.diagram { overflow-x:auto; } .diagram svg { width:100%; min-width:640px; height:auto; }
+.small { font-size:14px; color:var(--muted); }
+</style></head><body><main>
+
+<h1>Transformers trained on text from a known Python program: what reverse engineering recovered</h1>
+<p class="sub">From the Goodfire parameter-decomposition team (experiments of October 2026). Written for readers outside the team. It assumes familiarity with transformers and KL divergence, and nothing about our tools. <code>paper.pdf</code> gives the same story with more detail and references.</p>
+
+<div class="answer">
+<b>Short answer.</b>
+<ul>
+<li>We wrote a ~450-line Python program (grammar plus word lists) that generates simple children's stories, trained small transformers on its text, and then tried to recover the program from the trained network. Because we wrote the generator, we know the right answer.</li>
+<li><b>Parts of the network line up with the program's decision points.</b> After the weights are split into rank-1 pieces, single pieces are needed exactly where the generator may copy a character's name or close a quote (F1 = 1.000). Other pieces mark where it may say "she" or "he" for the last-named character (precision 1.00, recall 0.85).</li>
+<li><b>LLM agents wrote Python programs that reproduce the network closely, without seeing the generator.</b> Swapped in for the network's parts, the programs reach a KL from the network of 0.044 nats per token (a program built on the decomposition) and 0.011 (a program written without one). For reference, the true generator, lightly smoothed, scores 0.010 and a 4-gram language model 0.40. A low score means the program matches the network's outputs; it does not by itself mean the program is close to the generator.</li>
+<li><b>The recovered programs are not clean explanations.</b> They are readable parsers of the story grammar plus large fitted tables; the 0.011 program has more than ten times as many fitted numbers as the network has weights. The agents could also read word classes off the vocabulary, because the tokenizer numbers words class by class. Character-name identity is a dense code that no short rule describes. On a harder generator with hidden variables, the programs recovered the visible world but not the hidden rules.</li>
+</ul>
+</div>
+
+<figure class="diagram">
+<svg viewBox="0 0 880 230" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker></defs>
+<rect x="10" y="80" width="150" height="62" rx="8" fill="#e6f4ea" stroke="#1b7f3b"/>
+<text x="85" y="104" text-anchor="middle" font-weight="600">Python generator</text>
+<text x="85" y="122" text-anchor="middle" fill="#444">the true program</text>
+<line x1="160" y1="111" x2="210" y2="111" stroke="#666" marker-end="url(#a)"/>
+<text x="186" y="158" text-anchor="middle" fill="#666" font-size="11">trained on</text><text x="186" y="172" text-anchor="middle" fill="#666" font-size="11">500M words</text>
+<rect x="212" y="80" width="150" height="62" rx="8" fill="#f3f2ef" stroke="#8a8983"/>
+<text x="287" y="104" text-anchor="middle" font-weight="600">Trained transformer</text>
+<text x="287" y="122" text-anchor="middle" fill="#444">2 or 4 layers, width 192</text>
+<line x1="362" y1="100" x2="420" y2="50" stroke="#666" marker-end="url(#a)"/>
+<line x1="362" y1="122" x2="420" y2="178" stroke="#666" marker-end="url(#a)"/>
+<rect x="422" y="20" width="200" height="62" rx="8" fill="#e8f1fb" stroke="#2a78d6"/>
+<text x="522" y="44" text-anchor="middle" font-weight="600">Parameter decomposition</text>
+<text x="522" y="62" text-anchor="middle" fill="#444">weights → rank-1 pieces</text>
+<line x1="622" y1="51" x2="660" y2="51" stroke="#666" marker-end="url(#a)"/>
+<rect x="662" y="20" width="208" height="62" rx="8" fill="#e8f1fb" stroke="#2a78d6"/>
+<text x="766" y="40" text-anchor="middle" font-weight="600">Agents write a program</text>
+<text x="766" y="57" text-anchor="middle" fill="#444">for each piece's activation,</text>
+<text x="766" y="73" text-anchor="middle" fill="#444">then merge them into one</text>
+<rect x="422" y="148" width="448" height="62" rx="8" fill="#fbefe3" stroke="#d9822b"/>
+<text x="646" y="172" text-anchor="middle" font-weight="600">Agents write one program for all layer outputs directly</text>
+<text x="646" y="190" text-anchor="middle" fill="#444">no decomposition; they see the trained model and its training text</text>
+<text x="646" y="112" text-anchor="middle" fill="#333" font-size="12">Either way: swap the programs in for the network's parts, run the hybrid,</text>
+<text x="646" y="128" text-anchor="middle" fill="#333" font-size="12">and measure the KL between its next-word distribution and the original's.</text>
+</svg>
+<figcaption>The experiment. The agents never see the generator's code; we compare what they recover against it.</figcaption>
+</figure>
+
+<h2>1. The generator</h2>
+<p>The generator writes lowercase stories over a 1,358-word vocabulary. Each grammar rule is a Python coroutine that yields the exact probability distribution of the next word. Word classes never overlap, so replaying any text recovers the generator's full state and its exact next-word distribution. Its entropy is 2.26 nats per word. Besides a grammar with subject–verb agreement ("the dog runs", "the dogs run", "i am"), the text has four features that need memory beyond the last few words:</p>
+<ul>
+<li><b>Names introduced and copied:</b> a story opens with 1–3 characters ("a girl named nadia and a boy named paul ."), whose names come back later.</li>
+<li><b>Pronouns:</b> "he/she/his/her" refer to the gender of the most recently named character, sometimes ~100 words back.</li>
+<li><b>Quotes:</b> opened and closed by the same <code>"</code> token.</li>
+<li><b>Counted lists:</b> "she made a list of four things : 1 …, 2 …, 3 …, 4 … ." The announced length decides when "," turns into ".".</li>
+</ul>
+<p class="sample">once there was a girl named nadia and a boy named paul and a girl named ella . both paul and ella play and love nadia . she rests . the ants take ella . she teaches her camel at the tower . … a heavy chair says , &quot; i am gray . &quot; she made a list of four things : 1 a hammer , 2 the cat , 3 a fox , 4 the mice . the mouse reads a baker . … [EOS] once there was a girl named emily . …</p>
+<details><summary>The list rule, as the generator writes it</summary>
+<pre><code>def make_list(s: State) -&gt; Program:
+    &quot;&quot;&quot;&#x27;a list of three things : 1 a red ball , 2 the cats , 3 some cakes .&#x27;&quot;&quot;&quot;
+    yield from say(&quot;a list of&quot;)
+    s.list_length = lx.NUMBER_WORDS.index((yield [(1.0, NUMBER)])) + 2
+    yield from say(&quot;things :&quot;)
+    for k in range(1, s.list_length + 1):
+        s.list_item = k
+        yield from say(str(k))
+        yield from noun_rest((yield [(1.0, Words(&quot;determiners&quot;, [&quot;the&quot;, &quot;a&quot;, &quot;some&quot;]))]))
+<mark>        yield from say(&quot;,&quot; if k &lt; s.list_length else &quot;.&quot;)</mark>
+    s.list_item = s.list_length = 0</code></pre>
+</details>
+<p class="small">The tokenizer is word-level: each word or punctuation mark is one token, so "per word" and "per token" are the same here. It numbers the vocabulary class by class (function words, then girl names, boy names, nouns, plural nouns, places, adjectives, verbs, …), so a word's token id reveals its class.</p>
+
+<h2>2. The trained models</h2>
+<p>We trained a 2-layer and a 4-layer Llama-style transformer (model width 192, MLP width 768, 6 attention heads; the 2-layer model has about 1.1–1.3 million weights) on 500M words of generator text. Both learned the generator almost exactly: KL(generator ‖ model) is 0.0017 nats per word for the 2-layer model and 0.0018 for the 4-layer one. Positions whose next word is a copied name, a pronoun, a list number or list-ending punctuation, or a closing quote make up 15% of the text, but they carry 54% of a trigram model's KL from the network. These positions are where a description that misses long-range state fails.</p>
+
+<h2>3. What is inside: pieces that mark the generator's decisions</h2>
+<p><b>Parameter decomposition</b> splits each weight matrix into many rank-1 pieces ("components"). Each piece reads one direction of its input and writes one fixed direction. Alongside the pieces, the method learns for every token which pieces are needed to reproduce the network's output there (their "causal importance"), and it is trained so that only a few are. For the 2-layer model, about 54 of its 4,224 pieces are needed per token. Below, a piece is <i>active</i> at a token when it is needed there, and its <i>activation</i> is the number it reads.</p>
+<p>We replayed the generator on held-out text and labelled every position with the choice the generator was facing, for example "a character's name may come next". For each label we found the single piece whose being active best predicts the label, and report its precision, recall and F1.</p>
+<figure><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508.982812 208.677656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T19:55:40.268137</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 208.677656 
+L 508.982812 208.677656 
+L 508.982812 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 62.070547 176.473555 
+L 501.782813 176.473555 
+L 501.782813 7.2 
+L 62.070547 7.2 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 82.057468 176.473555 
+L 101.632288 176.473555 
+L 101.632288 29.279159 
+L 82.057468 29.279159 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 133.570151 176.473555 
+L 153.144971 176.473555 
+L 153.144971 29.279159 
+L 133.570151 29.279159 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 185.082835 176.473555 
+L 204.657655 176.473555 
+L 204.657655 41.054711 
+L 185.082835 41.054711 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 236.595518 176.473555 
+L 256.170338 176.473555 
+L 256.170338 41.3491 
+L 236.595518 41.3491 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 288.108202 176.473555 
+L 307.683021 176.473555 
+L 307.683021 78.589282 
+L 288.108202 78.589282 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 339.620885 176.473555 
+L 359.195705 176.473555 
+L 359.195705 101.404413 
+L 339.620885 101.404413 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 391.133569 176.473555 
+L 410.708388 176.473555 
+L 410.708388 95.516637 
+L 391.133569 95.516637 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 442.646252 176.473555 
+L 462.221072 176.473555 
+L 462.221072 95.516637 
+L 442.646252 95.516637 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 101.632288 176.473555 
+L 121.207107 176.473555 
+L 121.207107 29.573548 
+L 101.632288 29.573548 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 153.144971 176.473555 
+L 172.719791 176.473555 
+L 172.719791 29.573548 
+L 153.144971 29.573548 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 204.657655 176.473555 
+L 224.232474 176.473555 
+L 224.232474 41.054711 
+L 204.657655 41.054711 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 256.170338 176.473555 
+L 275.745158 176.473555 
+L 275.745158 41.3491 
+L 256.170338 41.3491 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 307.683021 176.473555 
+L 327.257841 176.473555 
+L 327.257841 36.491685 
+L 307.683021 36.491685 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 359.195705 176.473555 
+L 378.770525 176.473555 
+L 378.770525 99.932469 
+L 359.195705 99.932469 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 410.708388 176.473555 
+L 430.283208 176.473555 
+L 430.283208 71.965534 
+L 410.708388 71.965534 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 462.221072 176.473555 
+L 481.795891 176.473555 
+L 481.795891 88.156917 
+L 462.221072 88.156917 
+z
+" clip-path="url(#pd9203b3eca)" style="fill: #9cc2ef"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="md3bfcecd6f" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="101.632288" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(79.823694 189.922529)">may copy a</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(71.848499 198.92458)">character name</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="153.144971" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(134.123682 189.923115)">may close</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(134.969776 198.925166)">the quote</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="204.657655" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(188.824451 189.922529)">may say</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(190.531287 198.92458)">she/her</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="256.170338" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(240.337135 189.922529)">may say</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(244.851197 198.92458)">he/his</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="307.683021" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(287.641029 189.923115)">list digit or</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(280.736928 198.925166)">list-ending , / .</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="359.195705" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle" x="359.195705" y="189.172383" transform="rotate(-0 359.195705 189.172383)">inside a quote</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="410.708388" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle" x="410.708388" y="189.172383" transform="rotate(-0 410.708388 189.172383)">inside a list</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#md3bfcecd6f" x="462.221072" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(441.089236 189.923115)">last-named</text>
+      <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(429.389236 198.925166)">character is a girl</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_9">
+      <defs>
+       <path id="mdc362dec7e" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mdc362dec7e" x="62.070547" y="176.473555" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="55.070547" y="180.272383" transform="rotate(-0 55.070547 180.272383)">0.00</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mdc362dec7e" x="62.070547" y="139.674956" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="55.070547" y="143.473784" transform="rotate(-0 55.070547 143.473784)">0.25</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#mdc362dec7e" x="62.070547" y="102.876357" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="55.070547" y="106.675185" transform="rotate(-0 55.070547 106.675185)">0.50</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mdc362dec7e" x="62.070547" y="66.077758" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="55.070547" y="69.876586" transform="rotate(-0 55.070547 69.876586)">0.75</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#mdc362dec7e" x="62.070547" y="29.279159" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="55.070547" y="33.077987" transform="rotate(-0 55.070547 33.077987)">1.00</text>
+     </g>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(14.939473 137.787402) rotate(-90)">F1 of the best single</text>
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(25.741934 134.458809) rotate(-90)">piece (1 = perfect)</text>
+    </g>
+   </g>
+   <g id="line2d_14">
+    <path d="M 333.439363 176.473555 
+L 333.439363 7.2 
+" clip-path="url(#pd9203b3eca)" style="fill: none; stroke-dasharray: 2.96,1.28; stroke-dashoffset: 0; stroke: #8a8983; stroke-width: 0.8"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 62.070547 176.473555 
+L 62.070547 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 62.070547 176.473555 
+L 501.782813 176.473555 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #333333" x="204.657655" y="18.975552" transform="rotate(-0 204.657655 18.975552)">decision points ("this choice is open now")</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #333333" x="410.708388" y="18.975552" transform="rotate(-0 410.708388 18.975552)">persistent state</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_21">
+     <path d="M 416.681563 40.791577 
+L 432.681563 40.791577 
+L 432.681563 35.191577 
+L 416.681563 35.191577 
+z
+" style="fill: #2a78d6"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="439.081563" y="40.791577" transform="rotate(-0 439.081563 40.791577)">2-layer model</text>
+    </g>
+    <g id="patch_22">
+     <path d="M 416.681563 52.792202 
+L 432.681563 52.792202 
+L 432.681563 47.192202 
+L 416.681563 47.192202 
+z
+" style="fill: #9cc2ef"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="439.081563" y="52.792202" transform="rotate(-0 439.081563 52.792202)">4-layer model</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd9203b3eca">
+   <rect x="62.070547" y="7.2" width="439.712266" height="169.273555"/>
+  </clipPath>
+ </defs>
+</svg>
+
+<figcaption><b>Single pieces mark most of the generator's decision points, but not its persistent state.</b> Left of the dashed line: positions where the generator <i>may</i> make a given choice next. Right: state variables that hold over many positions. Best single piece across all weight matrices; 261,632 held-out positions. In the 2-layer model, list counting is split across pieces (best F1 0.67); the 4-layer model has one piece for it (0.95).</figcaption></figure>
+<p>These pieces encode "this choice is open now", not the outcome. The quote-closing piece predicts that the next word is <code>"</code> with precision 0.61, close to the generator's own 0.6 probability of closing a quote there. The she/he pieces are active only when the last-named character has that gender, even when that character was named ~100 words earlier. Persistent states such as "inside a quote" have no single always-on piece.</p>
+
+<h3>Side by side: the generator and programs written for single pieces</h3>
+<p>For each active piece, an LLM agent (Claude Haiku 5.5) that saw the network, its training text and the piece's activations wrote a short Python program predicting the activation token by token. It never saw the generator. Below, each program sits next to the generator code it corresponds to. "Fit" is the share of the variance of the piece's activation that the program explains on held-out text (1 = perfect, 0 = no better than a constant). Layers are numbered from 0, so "layer 1" is the second of the two layers.</p>
+
+<div class="ex"><h3>Quotes: one bit of state <span class="tag good">fit 0.97</span></h3>
+<div class="pair"><div><div class="lab">Generator</div><pre><code>def speech(s: State) -&gt; Program:
+    yield from say(&#x27;, &quot;&#x27;)
+    s.in_quote = True
+    w = yield QUOTE_SUBJECT
+    while w != &#x27;&quot;&#x27;:
+        ...                                    # one quoted sentence, ending in &quot;.&quot; or &quot;!&quot;
+<mark>        w = yield mix((0.6, one(&#x27;&quot;&#x27;)), (0.4, QUOTE_SUBJECT))</mark>
+    s.in_quote = False</code></pre></div>
+<div><div class="lab">Program for layer-1 attention-output piece 59</div><pre><code>QUOTE_MARK = &#x27;&quot;&#x27;
+SENTENCE_END = frozenset({&quot;.&quot;, &quot;!&quot;})
+INSIDE_QUOTE_VALUE = -0.29
+
+def step(carry, prefix, upstream):
+    inside_quote = bool(carry)
+    token = prefix.token_strings[-1].strip()
+    value = 0.0
+    if token == QUOTE_MARK:
+<mark>        inside_quote = not inside_quote</mark>
+    elif token in SENTENCE_END and inside_quote:
+        value = INSIDE_QUOTE_VALUE
+    return inside_quote, {SUBJECT: value}</code></pre></div></div>
+<p class="small">The piece's activation is −0.29 at a sentence end inside a quote: exactly where the generator decides whether to close the quote. The program carries one bit, as the generator's <code>in_quote</code> does.</p></div>
+
+<div class="ex"><h3>Pronouns: who was named last <span class="tag good">fit 0.94</span></h3>
+<div class="pair"><div><div class="lab">Generator</div><pre><code>def subject_start(s: State) -&gt; Dist:
+    several = len(s.characters) &gt; 1
+    return mix(
+<mark>        (0.25, one(PRONOUN[s.last.gender])),   # &quot;she&quot; or &quot;he&quot;: the LAST-NAMED character</mark>
+        (0.35, s.names()),                     # copy one of the story&#x27;s character names
+        (0.05 * several, one(&quot;they&quot;)),
+        (0.05 * several, one(&quot;both&quot;)),
+        (0.30, SUBJECT_DETERMINER),
+    )</code></pre></div>
+<div><div class="lab">Program for layer-1 MLP-output piece 259 (excerpt)</div><pre><code>FEMALE_END = 0.9   # sentence end, character is female
+MALE_END = 0.05    # sentence end, character is male
+SHE_VALUE = 0.3    # the word &quot;she&quot; itself
+
+def step(carry, prefix, upstream):
+    # carry: (sex of the latest cue: 1, -1 or 0; inside quotes; previous word)
+    sex, in_quote, previous = carry if carry is not None else (0, False, &quot;&quot;)
+    word = prefix.token_strings[-1].strip().lower()
+    value = 0.0
+    if word == &quot;.&quot; and not in_quote:
+<mark>        value = FEMALE_END if sex == 1 else (MALE_END if sex == -1 else 0.0)</mark>
+    ...                       # same at a closing quote; SHE_VALUE on &quot;she&quot;
+    if word == &#x27;&quot;&#x27;:
+        in_quote = not in_quote
+    cue = cue_sex(word)       # he/she/his/her, girl/boy, or a clearly gendered name
+    if cue:
+        sex = cue
+    return (sex, in_quote, word), {PREDICTS[0]: float(value)}</code></pre></div></div>
+<p class="small">The piece is high on a narrated sentence end when the current character is female, the position where "she" may come next. The program tracks the sex of the latest character cue, the generator's <code>s.last.gender</code> in other words. Piece 318 is the "he" twin (fit 0.94). This agent did not use the vocabulary order; it guessed names' genders from US birth records.</p></div>
+
+<div class="ex"><h3>Lists: the items, but not the count <span class="tag warn">the count is not tracked</span></h3>
+<div class="pair"><div><div class="lab">Generator</div><pre><code>def make_list(s: State) -&gt; Program:
+    &quot;&quot;&quot;&#x27;a list of three things : 1 a red ball , 2 the cats , 3 some cakes .&#x27;&quot;&quot;&quot;
+    yield from say(&quot;a list of&quot;)
+    s.list_length = lx.NUMBER_WORDS.index((yield [(1.0, NUMBER)])) + 2
+    yield from say(&quot;things :&quot;)
+    for k in range(1, s.list_length + 1):
+        s.list_item = k
+        yield from say(str(k))
+        yield from noun_rest((yield [(1.0, Words(&quot;determiners&quot;, [&quot;the&quot;, &quot;a&quot;, &quot;some&quot;]))]))
+<mark>        yield from say(&quot;,&quot; if k &lt; s.list_length else &quot;.&quot;)</mark>
+    s.list_item = s.list_length = 0</code></pre></div>
+<div><div class="lab">Program for layer-1 MLP-output piece 755 (condensed; fit 0.92)</div><pre><code># Fires on the noun naming each numbered list item, e.g. &quot;1 a hen , 2 a short dry witch&quot;.
+PLURAL_VALUE, SINGULAR_VALUE = 0.76, 0.62
+
+def step(carry, prefix, upstream):
+    words = [s.strip() for s in prefix.token_strings]
+    value = 0.0
+    if is_item_noun(words[-1]):
+        for gap in (2, 3, 4):              # the list number sits `gap` tokens back
+            if words[-1 - gap].isdigit() and words[-2 - gap] in (&quot;,&quot;, &quot;:&quot;) \
+                    and all(w.isalpha() for w in words[-gap:-1]):
+                value = PLURAL_VALUE if words[-1].endswith(&quot;s&quot;) else SINGULAR_VALUE
+    return carry, {SUBJECT: value}</code></pre></div></div>
+<p class="small">This piece is active on each list item's noun, and its program finds those nouns. What decides "," against "." is whether the item number equals the announced length. In an audit of ten per-piece programs, none tracked both numbers. Five of the ten agents noticed that their piece changed with list position. None kept it, and at least four said it barely improved their fit. Most of the list-ending error came from two such programs, for pieces 658 and 442 (fit 0.98 each; both are in <code>code/</code>). The positions where the count decides the next word (a list number, or the "," or "." after an item) are 6% of the text, so the fit barely sees them. With all programs swapped in, those positions cost 0.88 nats each. Adding one feature, "this is the last item", to the two programs cut that to 0.12, while their fit changed by 0.001.</p></div>
+
+<div class="ex"><h3>Character names: no short rule <span class="tag warn">fit 0.00</span></h3>
+<div class="pair"><div><div class="lab">Generator</div><pre><code># where the generator may write a character name:
+<mark>subject_start:  (0.35, s.names())                         # after &quot;.&quot; or a closing quote</mark>
+object_phrase:  w = yield mix((0.6, determiners), *owner,
+<mark>                              (0.15, s.names()))           # after a transitive verb</mark>
+subject_rest:   if w == &quot;both&quot;:                            # &quot;both mia and leo&quot;
+<mark>                    first = yield [(1.0, s.names())]</mark>
+                    yield from say(&quot;and&quot;)
+                    s.last = s.character((yield [(1.0, s.names(exclude=first))]))</code></pre></div>
+<div><div class="lab">Program for layer-1 attention-output piece 189</div><pre><code># Component 189 of layer 1&#x27;s attention output.
+# At sentence ends, closing quotes and some transitive verbs, two layer-1 attention heads
+# attend to the story&#x27;s protagonist name and copy it here. The sign depends on WHICH name
+# (&quot;julia&quot; about -0.19, &quot;mabel&quot; about +0.12). No short rule found: name length, final letter,
+# initial vowel, popularity, gender and word frequency each correlate at most 0.15.
+
+def step(carry, prefix, upstream):
+<mark>    return carry, {SUBJECT: 0.0}          # the agent&#x27;s honest answer: predict zero</mark></code></pre></div></div>
+<p class="small">Which name to copy is the hardest part. At name positions, the layer-1 attention heads write each of the 195 names as its own dense vector. The per-name vectors have no clusters: 59 directions hold 99% of their variance, and no direction holds more than 4%. About 106 pieces carry parts of this name code; at the layer-1 attention output, about 65 of them each respond to roughly 30 names. The agents' instructions discouraged lookup tables. In 12 of 13 audited sessions the agent fitted a table over names, then dropped it, and the median of a related fit score on these pieces was 0.07. When tables over words were allowed, it rose to 0.85.</p></div>
+
+<h2>4. One program for the whole model</h2>
+<p>To test whether programs together capture the network, we swap them in for all the parts they cover at once (here, all 816 active pieces of the attention and MLP output matrices), run the hybrid network, and measure</p>
+<p style="text-align:center;font-family:Georgia,serif;font-size:17px">KL(network ‖ hybrid) = mean over positions of &nbsp;Σ<sub>w</sub> p<sub>network</sub>(w) · log [ p<sub>network</sub>(w) / p<sub>hybrid</sub>(w) ]</p>
+<p>in nats per token. Two reference points use the same formula with the hybrid replaced by another model: a Kneser–Ney 4-gram model trained on the same text scores 0.40, and the true generator scores 0.010. The generator assigns probability zero to most words at most positions, so for this reference it is mixed with a uniform distribution at weight 10<sup>−6</sup>. (The 0.0017 in section 2 is the KL in the other direction, which needs no smoothing.) These are reference points, not a floor: a program fitted to the network can score as well as the generator without being any closer to it.</p>
+<figure class="narrow"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 510.511875 266.50491" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T19:55:39.852692</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 266.50491 
+L 510.511875 266.50491 
+L 510.511875 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 249.909375 191.95305 
+L 500.174375 191.95305 
+L 500.174375 7.2 
+L 249.909375 7.2 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M -95708.344301 29.263684 
+L 460.950113 29.263684 
+L 460.950113 15.597866 
+L -95708.344301 15.597866 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #8a8983"/>
+   </g>
+   <g id="patch_4">
+    <path d="M -95708.344301 51.305327 
+L 440.476249 51.305327 
+L 440.476249 37.639509 
+L -95708.344301 37.639509 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #8a8983"/>
+   </g>
+   <g id="patch_5">
+    <path d="M -95708.344301 73.34697 
+L 432.947744 73.34697 
+L 432.947744 59.681152 
+L -95708.344301 59.681152 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #8a8983"/>
+   </g>
+   <g id="patch_6">
+    <path d="M -95708.344301 95.388613 
+L 463.789209 95.388613 
+L 463.789209 81.722794 
+L -95708.344301 81.722794 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_7">
+    <path d="M -95708.344301 117.430256 
+L 423.233537 117.430256 
+L 423.233537 103.764437 
+L -95708.344301 103.764437 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_8">
+    <path d="M -95708.344301 139.471898 
+L 340.749308 139.471898 
+L 340.749308 125.80608 
+L -95708.344301 125.80608 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_9">
+    <path d="M -95708.344301 161.513541 
+L 284.335393 161.513541 
+L 284.335393 147.847723 
+L -95708.344301 147.847723 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #d9822b"/>
+   </g>
+   <g id="patch_10">
+    <path d="M -95708.344301 183.555184 
+L 277.157164 183.555184 
+L 277.157164 169.889366 
+L -95708.344301 169.889366 
+z
+" clip-path="url(#p7c2068f93e)" style="fill: #1b7f3b"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mdabb05b156" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mdabb05b156" x="278.862309" y="191.95305" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <!-- $\mathdefault{10^{-2}}$ -->
+      <g transform="translate(267.112309 208.35305)">
+       <text>
+        <tspan x="0" y="-0.674688" style="font-size: 10px; font-family: 'DejaVu Sans'">1</tspan>
+        <tspan x="6.362305" y="-0.674688" style="font-size: 10px; font-family: 'DejaVu Sans'">0</tspan>
+        <tspan x="12.820312" y="-4.804688" style="font-size: 7px; font-family: 'DejaVu Sans'">−</tspan>
+        <tspan x="18.685547" y="-4.804688" style="font-size: 7px; font-family: 'DejaVu Sans'">2</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mdabb05b156" x="375.041875" y="191.95305" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <!-- $\mathdefault{10^{-1}}$ -->
+      <g transform="translate(363.291875 208.25305)">
+       <text>
+        <tspan x="0" y="-0.762187" style="font-size: 10px; font-family: 'DejaVu Sans'">1</tspan>
+        <tspan x="6.362305" y="-0.762187" style="font-size: 10px; font-family: 'DejaVu Sans'">0</tspan>
+        <tspan x="12.820312" y="-4.892187" style="font-size: 7px; font-family: 'DejaVu Sans'">−</tspan>
+        <tspan x="18.685547" y="-4.892187" style="font-size: 7px; font-family: 'DejaVu Sans'">1</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mdabb05b156" x="471.221441" y="191.95305" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <!-- $\mathdefault{10^{0}}$ -->
+      <g transform="translate(462.421441 208.35305)">
+       <text>
+        <tspan x="0" y="-0.674688" style="font-size: 10px; font-family: 'DejaVu Sans'">1</tspan>
+        <tspan x="6.362305" y="-0.674688" style="font-size: 10px; font-family: 'DejaVu Sans'">0</tspan>
+        <tspan x="12.820312" y="-4.804688" style="font-size: 7px; font-family: 'DejaVu Sans'">0</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <defs>
+       <path id="m93f4b59790" d="M 0 0 
+L 0 2 
+" style="stroke: #000000; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#m93f4b59790" x="249.909375" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m93f4b59790" x="257.524993" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m93f4b59790" x="263.963906" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m93f4b59790" x="269.541546" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m93f4b59790" x="274.461374" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m93f4b59790" x="307.815244" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m93f4b59790" x="324.751624" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m93f4b59790" x="336.768178" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m93f4b59790" x="346.088941" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m93f4b59790" x="353.704559" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m93f4b59790" x="360.143472" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m93f4b59790" x="365.721112" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m93f4b59790" x="370.640939" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m93f4b59790" x="403.994809" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m93f4b59790" x="420.93119" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_19">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m93f4b59790" x="432.947744" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_20">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m93f4b59790" x="442.268506" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_21">
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#m93f4b59790" x="449.884124" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#m93f4b59790" x="456.323037" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_23">
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#m93f4b59790" x="461.900678" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_24">
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#m93f4b59790" x="466.820505" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_25">
+     <g id="line2d_25">
+      <g>
+       <use xlink:href="#m93f4b59790" x="500.174375" y="191.95305" style="stroke: #000000; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(261.154609 222.494866)">KL from the trained model's next-word distribution</text>
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(280.670547 233.297327)">(nats per token, log scale; lower is better)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_26">
+      <defs>
+       <path id="m7130fc1472" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="22.430775" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="26.229994" transform="rotate(-0 242.909375 26.229994)">Bigram language model</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_27">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="44.472418" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="48.271637" transform="rotate(-0 242.909375 48.271637)">Trigram language model</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="66.514061" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="70.31328" transform="rotate(-0 242.909375 70.31328)">4-gram language model</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="88.555704" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="92.354922" transform="rotate(-0 242.909375 92.354922)">One merged program, word tables banned</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="110.597346" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="114.396565" transform="rotate(-0 242.909375 114.396565)">One program per piece (816 programs)</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="132.638989" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="136.438208" transform="rotate(-0 242.909375 136.438208)">One merged program, word tables allowed</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_32">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="154.680632" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="158.479851" transform="rotate(-0 242.909375 158.479851)">One program, no decomposition (whole layers)</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#m7130fc1472" x="249.909375" y="176.722275" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="242.909375" y="180.521494" transform="rotate(-0 242.909375 180.521494)">True generator (smoothed)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_11">
+    <path d="M 249.909375 191.95305 
+L 249.909375 7.2 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 249.909375 191.95305 
+L 500.174375 191.95305 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="464.164795" y="24.768666" transform="rotate(-0 464.164795 24.768666)">0.782</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="443.690932" y="46.810309" transform="rotate(-0 443.690932 46.810309)">0.479</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="436.162426" y="68.851951" transform="rotate(-0 436.162426 68.851951)">0.400</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="467.003891" y="90.893594" transform="rotate(-0 467.003891 90.893594)">0.837</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="426.44822" y="112.935237" transform="rotate(-0 426.44822 112.935237)">0.317</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="343.963991" y="134.97688" transform="rotate(-0 343.963991 134.97688)">0.044</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="287.550075" y="157.018523" transform="rotate(-0 287.550075 157.018523)">0.011</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="280.371846" y="179.060165" transform="rotate(-0 280.371846 179.060165)">0.010</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_13">
+     <path d="M 124.839375 242.18241 
+L 140.839375 242.18241 
+L 140.839375 236.58241 
+L 124.839375 236.58241 
+z
+" style="fill: #8a8983; stroke: #8a8983; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_21">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="147.239375" y="242.18241" transform="rotate(-0 147.239375 242.18241)">n-gram baselines</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 124.839375 254.183035 
+L 140.839375 254.183035 
+L 140.839375 248.583035 
+L 124.839375 248.583035 
+z
+" style="fill: #2a78d6; stroke: #2a78d6; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="147.239375" y="254.183035" transform="rotate(-0 147.239375 254.183035)">programs built on the decomposition</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 311.324375 242.18241 
+L 327.324375 242.18241 
+L 327.324375 236.58241 
+L 311.324375 236.58241 
+z
+" style="fill: #d9822b; stroke: #d9822b; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="333.724375" y="242.18241" transform="rotate(-0 333.724375 242.18241)">program written without a decomposition</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 311.324375 254.183035 
+L 327.324375 254.183035 
+L 327.324375 248.583035 
+L 311.324375 248.583035 
+z
+" style="fill: #1b7f3b; stroke: #1b7f3b; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="333.724375" y="254.183035" transform="rotate(-0 333.724375 254.183035)">the true program</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7c2068f93e">
+   <rect x="249.909375" y="7.2" width="250.265" height="184.75305"/>
+  </clipPath>
+ </defs>
+</svg>
+
+<figcaption><b>Programs written without seeing the generator reproduce the network closely.</b> Joint KL over 2.09M held-out positions of the 2-layer model. Each program set replaces all the parts it covers at once; the n-gram models replace the whole network.</figcaption></figure>
+<ul>
+<li><b>One program per piece</b> (816 programs) scores 0.317, already better than every n-gram model. Most of its error is at name and list-ending positions, for the reasons in section 3.</li>
+<li><b>Merged programs.</b> A team of two stronger agents (an OpenAI GPT-6 model and Claude Opus 5.5) merged the per-piece programs into one, so that shared state such as a list counter is computed once. With tables banned, the merged program got list endings exactly right (KL 0.000) and ordinary tokens nearly so (0.002), but failed at name positions, for a joint 0.837. In a second attempt with tables over words allowed, the team kept the earlier per-piece list programs instead of its own list counter, and reached <b>0.044</b>. That program is ~8.1k lines; 591 of its 816 outputs reproduce earlier per-piece programs and 225 come from refitted tables of story characters and roles. Its remaining error splits evenly between list endings and name positions.</li>
+<li><b>Without a decomposition,</b> the same kind of agent team wrote one program for the four layer outputs directly, in about an hour (effort was not equalised with the decomposition route). It reached <b>0.011</b>. It is a ~230-line streaming parser of the story grammar (word class, roles, agreement, quotes, list counter, cast of characters) plus ~16M fitted coefficients (82 MB) that map its features linearly onto the layer outputs. Its word lists match the generator's word for word and in the same order, consistent with reading them off the class-ordered vocabulary.</li>
+</ul>
+<div class="ex"><h3>The program written without a decomposition recovered where names are copied</h3>
+<div class="pair"><div><div class="lab">Generator: where a name may be written</div><pre><code># where the generator may write a character name:
+<mark>subject_start:  (0.35, s.names())                         # after &quot;.&quot; or a closing quote</mark>
+object_phrase:  w = yield mix((0.6, determiners), *owner,
+<mark>                              (0.15, s.names()))           # after a transitive verb</mark>
+subject_rest:   if w == &quot;both&quot;:                            # &quot;both mia and leo&quot;
+<mark>                    first = yield [(1.0, s.names())]</mark>
+                    yield from say(&quot;and&quot;)
+<mark>                    s.last = s.character((yield [(1.0, s.names(exclude=first))]))</mark></code></pre></div>
+<div><div class="lab">Recovered program (excerpt)</div><pre><code># The key nonlocal operation is COPY: average the eligible cast&#x27;s name vectors ONLY
+# where a name is grammatically permitted ...
+copy_slot = None
+<mark>if word in (&#x27;.&#x27;,&#x27;!&#x27;) and not q:                   copy_slot = &#x27;sentence_boundary&#x27;</mark>
+<mark>elif word == &#x27;&quot;&#x27; and quote:                       copy_slot = &#x27;closing_quote&#x27;</mark>
+<mark>elif c in (&#x27;vt&#x27;,&#x27;vt_s&#x27;) and not q:                copy_slot = &#x27;object_name&#x27;</mark>
+<mark>elif word == &#x27;both&#x27;:                              copy_slot = &#x27;first_joint_name&#x27;</mark>
+elif word == &#x27;and&#x27; and s[&#x27;joint&#x27;] and s[&#x27;joint_names&#x27;] == 1:
+<mark>                                                  copy_slot = &#x27;second_joint_name&#x27;</mark>
+if copy_slot and s[&#x27;cast&#x27;]:
+    available = s[&#x27;cast&#x27;]
+    if copy_slot == &#x27;second_joint_name&#x27;:
+        available = [name for name in available if name != s[&#x27;last_name&#x27;]]
+    n = len(available)
+    for name in available:
+        f.append(((&#x27;copy_identity&#x27;, name), 1./n))     # -&gt; fitted 4x192 vector per name
+        f.append(((&#x27;copy_identity2&#x27;, name), 1./n**2))</code></pre></div></div>
+<p class="small">The five name positions the program lists are exactly the generator's: after a narrated sentence end or a closing quote, after a transitive verb outside quotes, after "both", and the second name after "both X and", excluding X. Which name, and how each name is written into the network, is in fitted per-name vectors, not in readable rules.</p></div>
+
+<h2>5. A harder generator with hidden variables</h2>
+<p>A second generator (~750 lines) adds a visible world (characters move between places, take and give things, count coins, talk, and answer questions about the story) and four hidden families that the text never states: a theme per story (16 options), a temperament per character (4), a hidden kind per noun (12) that restricts which adjectives and verbs fit, and 8 "laws" (XOR rules over hidden halves of the place and name sets). Ignoring them costs 0.154 nats per word. Of the model sizes we trained, a 6-layer, width-384 transformer learned this world best (KL 0.012 from the generator); smaller ones learned the laws less well.</p>
+<table>
+<tr><th>Program for all 12 layer outputs at once</th><th class="n">joint KL</th><th class="n">size<br><span style="font-weight:400">(gzipped)</span></th></tr>
+<tr><td>No decomposition, best accuracy (after four sessions, each refining the last)</td><td class="n"><b>0.043</b></td><td class="n">1.51 MB</td></tr>
+<tr><td>No decomposition, best small version</td><td class="n">0.061</td><td class="n">0.74 MB</td></tr>
+<tr><td>Decomposition, one program per active piece (5,123 programs, never merged)</td><td class="n">0.633</td><td class="n">1.95 MB</td></tr>
+<tr><td>Decomposition with the pieces' true activations (best case for that route)</td><td class="n">0.003</td><td class="n">–</td></tr>
+<tr><td>Baseline: predict each layer output from the current token alone</td><td class="n">4.36</td><td class="n">–</td></tr>
+<tr><td><i>The true generator's source, for comparison</i></td><td class="n">–</td><td class="n">14.8 KB</td></tr>
+</table>
+<figure class="narrow"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 419.34125 194.54042" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T19:55:40.456769</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 194.54042 
+L 419.34125 194.54042 
+L 419.34125 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 10.38125 84.816 
+L 412.14125 84.816 
+L 412.14125 7.2 
+L 10.38125 7.2 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 10.38125 70.263 
+L 33.338964 70.263 
+L 33.338964 21.753 
+L 10.38125 21.753 
+z
+" clip-path="url(#p3d9fdc8247)" style="fill: #d9822b; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 33.338964 70.263 
+L 240.778311 70.263 
+L 240.778311 21.753 
+L 33.338964 21.753 
+z
+" clip-path="url(#p3d9fdc8247)" style="fill: #8a8983; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 240.778311 70.263 
+L 294.073005 70.263 
+L 294.073005 21.753 
+L 240.778311 21.753 
+z
+" clip-path="url(#p3d9fdc8247)" style="fill: #b5b4ae; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 294.073005 70.263 
+L 406.401821 70.263 
+L 406.401821 21.753 
+L 294.073005 21.753 
+z
+" clip-path="url(#p3d9fdc8247)" style="fill: #d6d5d0; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m65f12d2538" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m65f12d2538" x="10.38125" y="84.816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="10.38125" y="99.413656" transform="rotate(-0 10.38125 99.413656)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m65f12d2538" x="92.373087" y="84.816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="92.373087" y="99.413656" transform="rotate(-0 92.373087 99.413656)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m65f12d2538" x="174.364923" y="84.816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="174.364923" y="99.413656" transform="rotate(-0 174.364923 99.413656)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m65f12d2538" x="256.35676" y="84.816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="256.35676" y="99.413656" transform="rotate(-0 256.35676 99.413656)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m65f12d2538" x="338.348597" y="84.816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="338.348597" y="99.413656" transform="rotate(-0 338.348597 99.413656)">4</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="211.26125" y="112.654594" transform="rotate(-0 211.26125 112.654594)">Size of the program's source (MB); 94% of it is packed numeric tables</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_7">
+    <path d="M 10.38125 84.816 
+L 412.14125 84.816 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="legend_1">
+    <g id="patch_8">
+     <path d="M 17.58125 146.21667 
+L 33.58125 146.21667 
+L 33.58125 140.61667 
+L 17.58125 140.61667 
+z
+" style="fill: #d9822b; stroke: #d9822b; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="39.98125" y="146.21667" transform="rotate(-0 39.98125 146.21667)">Readable code: a symbolic world simulator (~800 lines with word lists): 0.28 MB</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 17.58125 158.217295 
+L 33.58125 158.217295 
+L 33.58125 152.617295 
+L 17.58125 152.617295 
+z
+" style="fill: #8a8983; stroke: #8a8983; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="39.98125" y="158.217295" transform="rotate(-0 39.98125 158.217295)">Fitted vector per concept value (13,443 × 384): 2.53 MB</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 17.58125 170.21792 
+L 33.58125 170.21792 
+L 33.58125 164.61792 
+L 17.58125 164.61792 
+z
+" style="fill: #b5b4ae; stroke: #b5b4ae; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="39.98125" y="170.21792" transform="rotate(-0 39.98125 170.21792)">Fitted 1,024-unit mixing network: 0.65 MB</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 17.58125 182.218545 
+L 33.58125 182.218545 
+L 33.58125 176.618545 
+L 17.58125 176.618545 
+z
+" style="fill: #d6d5d0; stroke: #d6d5d0; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start" x="39.98125" y="182.218545" transform="rotate(-0 39.98125 182.218545)">Fitted linear readout to the 12 layer writes: 1.37 MB</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p3d9fdc8247">
+   <rect x="10.38125" y="7.2" width="401.76" height="77.616"/>
+  </clipPath>
+ </defs>
+</svg>
+
+<figcaption><b>The accurate program is mostly fitted numbers.</b> Sizes in the table are of gzipped source with comments stripped. The bar shows an earlier no-decomposition version (KL 0.054; 4.85 MB of source before compression).</figcaption></figure>
+<p>What the readable part recovered: the visible world (cast, genders, places, who holds what, coins, lists, questions and answers, who "he"/"she" refer to), and the existence of 16 story themes, which it infers from word-to-theme affinities. What it did not recover as rules: temperament (approximated by each character's event history), noun kinds (a per-noun lookup instead), and the laws (no explicit representation). The decomposition route was not matched in effort: it had one inexpensive agent per piece and no merging round (one was started and stopped early).</p>
+
+<h2>6. Limits</h2>
+<ul>
+<li><b>Fitting outputs is not explaining the computation.</b> Every program here reads only the text, never the network's internal values. So when one of the network's pieces is edited (held at its mean, or given its value from another text), the hybrid gets that edited piece, but the downstream programs cannot respond. For the 12 most influential pieces, the hybrid's KL from the edited network was 0.36 (mean) and 0.50 (swap), about the same as simply ignoring the edit (0.41 and 0.60). This is expected by construction. It shows that a good KL on ordinary text cannot tell a program that tracks the network's computation from one that only predicts its text.</li>
+<li><b>The programs are partly tables.</b> In every accurate program, the readable part is a parser of the grammar, and the map from parsed facts to the network's numbers is fitted. On the harder generator, the hidden rules end up inside fitted numbers.</li>
+<li><b>The vocabulary gave away the word classes.</b> Because token ids are grouped by class, a program can recover the generator's word lists without inferring them. How much of the grammar the agents found independently is therefore unclear; the parsing logic and the name positions are their own.</li>
+<li><b>Scope.</b> Small models, two synthetic languages, one or a few attempts per setting; the decomposition and no-decomposition routes had unequal effort.</li>
+</ul>
+
+<h2>7. What is in this folder</h2>
+<table>
+<tr><th>File</th><th>What it is</th></tr>
+<tr><td><code>paper.pdf</code></td><td>The same results as a short paper, with methods and references.</td></tr>
+<tr><td><code>code/</code></td><td>Both generators, seven agent-written programs for single pieces, and the readable parts of the whole-model programs. The programs need the team's harness to run; <code>README.md</code> describes their interface.</td></tr>
+<tr><td><code>extras/</code></td><td>Original pages from the team, written for colleagues; <code>README.md</code> has a glossary of their internal terms.</td></tr>
+</table>
+</main></body></html>

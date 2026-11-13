@@ -1,0 +1,52 @@
+tracr:
+  type: article
+  title: "Tracr: Compiled Transformers as a Laboratory for Interpretability"
+  author: ["Lindner, David", "Kramár, János", "Farquhar, Sebastian", "Rahtz, Matthew", "McGrath, Thomas", "Mikulik, Vladimir"]
+  date: 2023
+  serial-number:
+    arxiv: "2301.05062"
+  url: https://arxiv.org/abs/2301.05062
+rasp:
+  type: article
+  title: "Thinking Like Transformers"
+  author: ["Weiss, Gail", "Goldberg, Yoav", "Yahav, Eran"]
+  date: 2021
+  url: https://arxiv.org/abs/2106.06981
+ltp:
+  type: article
+  title: "Learning Transformer Programs"
+  author: ["Friedman, Dan", "Wettig, Alexander", "Chen, Danqi"]
+  date: 2023
+  url: https://arxiv.org/abs/2306.01128
+apd:
+  type: article
+  title: "Interpretability in Parameter Space: Minimizing Mechanistic Description Length with Attribution-based Parameter Decomposition"
+  author: ["Braun, Dan", "Bushnaq, Lucius", "Heimersheim, Stefan", "Mendel, Jake", "Sharkey, Lee"]
+  date: 2025
+  url: https://arxiv.org/abs/2501.14926
+spd:
+  type: article
+  title: "Stochastic Parameter Decomposition"
+  author: ["Bushnaq, Lucius", "Braun, Dan", "Sharkey, Lee"]
+  date: 2025
+  url: https://arxiv.org/abs/2506.20790
+goodfire:
+  type: web
+  title: "Interpreting Language Model Parameters"
+  author: ["Bushnaq, Lucius", "Braun, Dan", "Clive-Griffin, Oliver", "Bussmann, Bart", "Hu, Nathan", "Ivanitskiy, Michael", "Linsefors, Linda", "Sharkey, Lee"]
+  date: 2026-05-05
+  url: https://www.goodfire.com/research/interpreting-lm-parameters
+llama:
+  type: article
+  title: "LLaMA: Open and Efficient Foundation Language Models"
+  author: ["Touvron, Hugo", "others"]
+  date: 2023
+  url: https://arxiv.org/abs/2302.13971
+kn:
+  type: article
+  title: "Improved backing-off for m-gram language modeling"
+  author: ["Kneser, Reinhard", "Ney, Hermann"]
+  date: 1995
+  parent:
+    type: proceedings
+    title: "Proceedings of ICASSP 1995"

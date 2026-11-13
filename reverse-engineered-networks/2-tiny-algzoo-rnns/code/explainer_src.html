@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How tiny recurrent networks do their jobs: two solved, one not</title>
+<style>
+  :root { --text:#1d1d1f; --muted:#5f6368; --line:#e3e3e6; --panel:#f6f6f4; --accent:#2a78d6;
+          --p1:#2a78d6; --p2:#eb6834; --p3:#1baf7a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#fff; color:var(--text);
+         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 20px 72px; }
+  h1 { font-size: 27px; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 21px; margin: 44px 0 6px; padding-top: 18px; border-top: 1px solid var(--line); }
+  h3 { font-size: 16px; margin: 22px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 22px; font-size: 14.5px; }
+  .lede { background: var(--panel); border-radius: 8px; padding: 14px 20px; }
+  .lede ul { margin: 6px 0 0; padding-left: 20px; } .lede li { margin: 5px 0; }
+  .tag { display:inline-block; font-size:12.5px; font-weight:600; padding:2px 9px; border-radius:11px; margin-left:8px; vertical-align: 2px; }
+  .solved { color:#1b7f3b; background:#e6f4ea; } .open { color:#8a5a00; background:#fff4dc; }
+  figure { margin: 16px 0; } figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+  figcaption { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  pre { background: #f7f7f9; border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; overflow-x: auto;
+        font: 13.5px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f3f3f1; padding: 1px 4px; border-radius: 3px; }
+  pre code { background: none; padding: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; margin: 10px 0; }
+  th, td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; border-top: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tablewrap { overflow-x: auto; }
+  details { border-top: 1px solid var(--line); padding: 2px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  details > summary { cursor: pointer; padding: 9px 2px; font-weight: 600; color: var(--text); }
+  details > summary::marker { color: var(--muted); }
+  details > div { padding: 0 4px 12px 18px; }
+  .setup { display: grid; grid-template-columns: 170px 1fr; gap: 6px 16px; font-size: 15px; margin: 8px 0; }
+  .setup dt { color: var(--muted); font-weight: 600; }
+  .setup.files { grid-template-columns: 240px 1fr; } .setup dd { margin: 0; }
+  .mat { display:inline-block; vertical-align: middle; border-left: 2px solid var(--text); border-right: 2px solid var(--text);
+         border-radius: 4px; padding: 2px 6px; margin: 2px 4px; font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+  .mat table { margin: 0; width: auto; font-size: 13px; } .mat td { border: none; padding: 0 6px; text-align: right; }
+  .weights { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 8px 0; font-size: 14px; }
+  .swatch { display:inline-block; width: 11px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 4px; }
+  .note { color: var(--muted); font-size: 14px; }
+  @media (max-width: 640px) {
+    table.stack tr:first-child { display: none; }
+    table.stack tr { display: block; border-top: 1px solid var(--line); padding: 6px 0; }
+    table.stack td { display: block; border: none; padding: 2px 4px; text-align: left; }
+    table.stack td::before { content: attr(data-label) ": "; color: var(--muted); font-size: 13px; }
+    .setup { grid-template-columns: 1fr; } .setup dt { margin-top: 6px; } h1 { font-size: 23px; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>How tiny recurrent networks do their jobs: two solved, one not</h1>
+<p class="sub">Three small networks from ARC's AlgZoo, explained neuron by neuron where we could.
+Every number on this page is printed by a script in <code>code/</code>, run on fresh random inputs. The exceptions are labelled where they appear.
+Assumes familiarity with neural networks; no other background is needed.</p>
+
+<div class="lede">
+<b>In short</b>
+<ul>
+  <li><b>Median of 10 numbers, 2 neurons, 8 weights.</b> The network does not compute a median. It keeps <b>one signed running number</b>: a leaky running sum that is hard to push across zero. The output is about the mean of the inputs. A one-line rule reproduces the network's output almost exactly: RMSE 0.0045 between the two, while the network's output has a standard deviation of 0.32.</li>
+  <li><b>Position of the second-largest of 3 numbers, 3 neurons, 21 weights.</b> On 74% of inputs it runs two comparators. On 20% <b>every neuron is silent and every output is exactly 0</b>, so the answer comes from <code>argmax</code>'s habit of picking the first position on a tie. Those silent inputs cause 68% of its errors. A 12-line rule agrees with the network on 99.8% of inputs.</li>
+  <li><b>Position of the median of 5 numbers, 16 neurons, 352 weights: not cracked.</b> AI research agents found true pieces: earlier inputs stored in the hidden state, and neurons that compare each new input with earlier ones. But nobody assembled the pieces into an account that predicts what the network does when its hidden state is edited.</li>
+</ul>
+</div>
+
+<h2>The setting</h2>
+<dl class="setup">
+  <dt>Source</dt><dd>AlgZoo, a public set of small networks released by the Alignment Research Center (ARC) as interpretability challenges, each under 1,500 parameters. Checkpoint names give the task, the hidden size and the sequence length: <code>median_2_10</code> has 2 hidden neurons and reads 10 numbers. We use <code>median_2_10</code> seed 0, <code>2nd_argmax_3_3</code> seed 1 and <code>argmedian_16_5</code> seed 0.</dd>
+  <dt>Architecture</dt><dd>One-layer ReLU RNN with no biases. It reads one number per step:<br>
+    <code>h<sub>t</sub> = relu(W<sub>ih</sub>·x<sub>t</sub> + W<sub>hh</sub>·h<sub>t−1</sub>)</code>, with <code>h<sub>0</sub> = 0</code>; the output is <code>W<sub>out</sub>·h<sub>T</sub></code> after the last step.</dd>
+  <dt>Inputs</dt><dd>Independent standard normal numbers.</dd>
+  <dt>How the explanations were found</dt><dd>AI research agents (Claude models) had the weights and a Python sandbox. One agent per network wrote the account. For this page we turned each account into a replacement rule and compared it with the network on millions of fresh inputs.</dd>
+</dl>
+<p class="note">No biases means the networks are <i>positively homogeneous</i>: scaling every input by λ &gt; 0 scales every neuron by λ. Section 2 relies on this.</p>
+
+<!-- ===================================================================== -->
+<h2>1. Median of 10 numbers: one signed number in two neurons <span class="tag solved">explained</span></h2>
+<p><b>Task.</b> Read 10 numbers, output their median (trained with squared error). <b>Size.</b> 2 neurons, 8 weights. We call the neurons <b>p</b> and <b>n</b>, for the positive and negative parts of the number they store.</p>
+
+<figure>
+  <img src="data:image/png;base64,{{MEDIAN_FIG}}" alt="Median network: the update rule, a sample trajectory, and output versus true median">
+  <figcaption><b>(a)</b> What one step does to the stored number s when s = +1, for each possible new input x. A plain leaky sum would follow the dashed line. The network instead stops at zero when x tries to push s across it (grey band). <b>(b)</b> The number s read from the two neurons (blue) and the one-line rule (orange crosses) on one random sequence; they coincide. <b>(c)</b> The network's output against the true median, for 4,000 sequences. The row of points at exactly 0 are sequences whose last step hit the stop at zero.</figcaption>
+</figure>
+
+<h3>The mechanism</h3>
+<p>Neuron p is driven by +0.335·x and neuron n by −0.333·x. Each excites itself (≈0.98) and strongly inhibits the other (≈−3.5). So at most one of them is on at a time. Together they store one signed number <b>s</b>: p holds its positive part and n its negative part. Measured in input units, s = p/0.335 − n/0.333. Each step updates it as:</p>
+<pre><code>s = 0
+for x in inputs:
+    s = median(x + 0.98*s,  0,  x + 3.5*s)   # middle value of the three
+output = 0.114 * s</code></pre>
+<p>This one line has four behaviours. Shares are the fraction of all steps:</p>
+<div class="tablewrap"><table>
+  <tr><th>What happens</th><th>When</th><th class="num">Share</th></tr>
+  <tr><td><b>Leaky sum</b>: s becomes x + 0.98·s</td><td>x + 0.98·s has the same sign as s. The input may oppose s, just not enough to cross zero.</td><td class="num">69.7%</td></tr>
+  <tr><td><b>Stop at zero</b>: s becomes exactly 0</td><td>x + 0.98·s crosses zero, but x + 3.5·s does not</td><td class="num">8.7%</td></tr>
+  <tr><td><b>Flip</b>: s becomes x + 3.5·s, which is smaller in size than x</td><td>even x + 3.5·s crosses zero</td><td class="num">3.7%</td></tr>
+  <tr><td><b>Restart</b>: s becomes x</td><td>s was 0 (including the first step)</td><td class="num">17.9%</td></tr>
+</table></div>
+<p>Why it works: for 10 normal samples the mean is already a good estimate of the median. The network has learned a leaky mean, and the reluctance to cross zero helps a little.</p>
+<div class="tablewrap"><table>
+  <tr><th>Estimator</th><th class="num">RMSE to the true median</th></tr>
+  <tr><td>Always predict 0</td><td class="num">0.372</td></tr>
+  <tr><td>Mean of the 10 inputs</td><td class="num">0.196</td></tr>
+  <tr><td>Same rule without the stop at zero (plain leaky sum)</td><td class="num">0.197</td></tr>
+  <tr><td>Same rule with a hard stop at zero (never flip)</td><td class="num">0.192</td></tr>
+  <tr><td><b>The network</b></td><td class="num"><b>0.189</b></td></tr>
+  <tr><td><b>The one-line rule</b></td><td class="num"><b>0.189</b></td></tr>
+</table></div>
+
+<details><summary>Evidence that this is the whole mechanism</summary><div>
+<ul>
+  <li>The rule against the network on 1,000,000 fresh sequences: RMSE 0.0045 between their outputs. It leaves 0.02% of the variance of the network's output unexplained.</li>
+  <li>The rule also predicts what happens under an intervention. At a random step we overwrote the network's hidden state with the state another sequence had at that step, then let both the network and the rule run on. The rule carried over only the single number s. Their outputs differed by RMSE 0.0027, while the swap itself moved the output by RMSE 0.335.</li>
+  <li>The two neurons are never both on. That holds on all 10,000,000 (sequence, step) pairs we checked, and it follows from the weights. With n = 0 and p = u, both pre-activations would have to be positive, which needs x &lt; −10.5u and x &gt; −2.9u at once. The mirror case is the same. So the 2-neuron network is exactly a 1-D recurrence.</li>
+  <li>The rule averages the two neurons' nearly mirror-image weights (0.979 and 0.977 become 0.98; 3.49 and 3.58 become 3.5). That averaging is the only approximation.</li>
+  <li>Why the update is a median: with s &gt; 0 (only p on), the new pre-activations are 0.335·(x + 0.977·s) for p and −0.333·(x + 3.51·s) for n, so ReLU keeps whichever is positive, or neither. That is the middle value of x + 0.98s, 0 and x + 3.5s.</li>
+  <li>The output layer reads 0.341·p − 0.342·n, which is 0.114·s in either sign.</li>
+</ul>
+</div></details>
+
+<details><summary>The trained weights</summary><div>
+<div class="weights">
+  <span>W<sub>ih</sub> = <span class="mat"><table><tr><td>−0.333</td></tr><tr><td>0.335</td></tr></table></span></span>
+  <span>W<sub>hh</sub> = <span class="mat"><table><tr><td>0.979</td><td>−3.490</td></tr><tr><td>−3.576</td><td>0.977</td></tr></table></span></span>
+  <span>W<sub>out</sub> = <span class="mat"><table><tr><td>−0.342</td><td>0.341</td></tr></table></span></span>
+</div>
+<p class="note">Row and column order is (n, p). Full-precision values are in <code>code/median_2_10.py</code>.</p>
+</div></details>
+
+<!-- ===================================================================== -->
+<h2>2. Second-largest of 3 numbers: two comparators and a dead zone <span class="tag solved">explained</span></h2>
+<p><b>Task.</b> Read 3 numbers x1, x2, x3 and output which position holds the second-largest. With three numbers that is the median. <b>Size.</b> 3 neurons, called a, b and c, and 21 weights. Positions are numbered 1, 2, 3. <b>Accuracy.</b> 90.8%.</p>
+
+<figure>
+  <img src="data:image/png;base64,{{ARGMAX_FIG}}" alt="Decision map of the 2nd-argmax network for x1 = 1">
+  <figcaption>Because the network is positively homogeneous, fixing x1 = +1 and varying x2 and x3 shows all inputs with x1 &gt; 0. Inputs with x1 &lt; 0 behave as a mirror image. Colour gives the answer:
+  <span class="swatch" style="background:var(--p1)"></span>position 1,
+  <span class="swatch" style="background:var(--p2)"></span>position 2,
+  <span class="swatch" style="background:var(--p3)"></span>position 3.
+  The dashed lines at x2 = 0.938 and x2 = 6.14 split the inputs into three regions, M, B and F. The hatched area in (b) is where all three outputs are exactly 0. This view is not weighted by probability: x2/x1 follows a Cauchy distribution, so half of all inputs have |x2/x1| &lt; 1.</figcaption>
+</figure>
+
+<h3>The mechanism, region by region</h3>
+<p>We first flip all signs if needed so that x1 &gt; 0. The task is unchanged by this, and negating all inputs changes only 0.17% of the network's predictions. The ratio r = x2 / x1 then decides which of three regions an input falls in:</p>
+<div class="tablewrap"><table class="stack">
+  <tr><th>Region</th><th style="min-width:150px">Inputs</th><th class="num">Share of inputs</th><th class="num">Network accuracy</th><th class="num">Share of errors</th><th>What the network does</th></tr>
+  <tr><td data-label="Region"><b>M</b></td><td data-label="Inputs">r &lt; 0.938: roughly, x1 is the larger of the first two</td><td class="num" data-label="Share of inputs">73.9%</td><td class="num" data-label="Network accuracy">98.4%</td><td class="num" data-label="Share of errors">12.9%</td><td data-label="What the network does">Two linear comparators: "is x3 above x1?" and "is x3 below x2?". That is the median rule, with one boundary 8.5% off.</td></tr>
+  <tr><td data-label="Region"><b>B</b></td><td data-label="Inputs">0.938 ≤ r &lt; 6.14: roughly, x2 &gt; x1 &gt; 0</td><td class="num" data-label="Share of inputs">20.9%</td><td class="num" data-label="Network accuracy">67.6%</td><td class="num" data-label="Share of errors">73.8%</td><td data-label="What the network does"><b>Dead zone.</b> On 95% of B all three neurons are off at step 3, so all outputs are exactly 0. <code>argmax</code> breaks the tie toward position 1, which happens to be right 68% of the time here.</td></tr>
+  <tr><td data-label="Region"><b>F</b></td><td data-label="Inputs">r ≥ 6.14: x1 is tiny next to x2</td><td class="num" data-label="Share of inputs">5.2%</td><td class="num" data-label="Network accuracy">76.2%</td><td class="num" data-label="Share of errors">13.3%</td><td data-label="What the network does"><b>Aliasing.</b> After step 2 the state is the same as for the different input (−x1, x2 − 7.08·x1, x3) from region M. The network answers for that input instead.</td></tr>
+</table></div>
+
+<p>The whole network, as a rule (from <code>code/second_argmax_3_3.py</code>):</p>
+<pre><code>def rule(x1, x2, x3):
+    if x1 &lt; 0: x1, x2, x3 = -x1, -x2, -x3          # mirror symmetry
+    r = x2 / x1
+    if r &lt; 0.938:                                   # region M: two comparators
+        if x3 &gt; 1.011*x1 + 0.017*x2: return 1
+        if x3 &lt; 1.085*x2 + 0.011*x1: return 2
+        return 3
+    if r &lt; 6.14:                                    # region B: dead zone, all logits 0
+        return 1                                    # argmax tie-break picks the first position
+    if x3 &lt; -1.124*x1 + 0.017*x2: return 1          # region F: answers for the aliased input
+    if x3 &gt;  1.082*x2 - 7.67*x1:  return 2
+    return 3</code></pre>
+<p>This rule agrees with the network on <b>99.81%</b> of 2,000,000 fresh inputs (99.82% in M, 100% in B, 98.9% in F).</p>
+
+<details><summary>Step by step: what each neuron holds</summary><div>
+<p>For x1 &gt; 0, writing s = 3.84 for the input weight:</p>
+<ul>
+  <li><b>Step 1: split x1 by sign.</b> a = s·relu(x1) and c = s·relu(−x1). Neuron b gets almost no input (weight 0.00009).</li>
+  <li><b>Step 2: store the size of x1 and test where x2 sits.</b> b = 5.39·s·x1. Neuron a = s·relu(x2 − 0.938·x1) fires when x2 is above about x1. Neuron c = s·relu(6.14·x1 − x2) fires when x2 is below 6.14·x1: a large weight from a to c moves its threshold out from x1 to 6.14·x1. These two thresholds create the regions. In M only c is on, in B both are on, and in F only a is on.</li>
+  <li><b>Step 3 in region M: the active neuron switches from c to a.</b> Now c is off (except when x3 &lt; −38·x1, which is rare). Neuron b = s·(5.05·x1 − 5.39·x2) tracks the gap between x1 and x2. Neuron a = s·(x3 + 4.73·x1 − 6.15·x2) holds x3 shifted by a fixed mix of x1 and x2.</li>
+  <li><b>Readout: a ratio test.</b> Neurons a and c have nearly equal output weights, so the output sees only q = a + c and b. The answer is position 2 if q/b &lt; 0.938, position 1 if q/b &gt; 1.137, and position 3 in between. Replacing the output layer with this bare ratio test keeps 99.4% of predictions.</li>
+  <li><b>Why the ratio test is two comparators in M.</b> The thresholds almost cancel one input each. a − 1.137·b = s·(x3 − 1.01·x1 − 0.02·x2), which compares x3 with x1, because 1.137 × 5.39 = 6.13 nearly matches the 6.15 in a. And a − 0.938·b = s·(x3 − 1.09·x2 − 0.01·x1), which compares x3 with x2, because 0.938 × 5.05 = 4.74 nearly matches the 4.73.</li>
+</ul>
+<p><b>Why B goes silent.</b> In B, a + c stays at about 5.2·s·x1 whatever x2 is. Neuron b's step-3 input is 5.39·a − 5.21·b + 5.41·c, and these terms cancel to about −0.011·s·x1, just below zero. So b is off. Neurons a and c receive strong inhibition from b and strong excitation from each other; the inhibition wins by a wide margin (median input about −19·s·x1). They switch on only when x3 lies far beyond x2, in 5% of B; then the outputs are no longer all zero, which is why the hatching in panel (b) has gaps.</p>
+</div></details>
+
+<details><summary>A knife edge: shrinking one weight by 0.05% costs 10 points of accuracy</summary><div>
+<p>Neuron b's silence in region B rests on a cancellation with a margin of only 0.04%. Its step-3 input is −0.00038 times the size of its self-inhibition term (median over B). Scaling that single recurrent weight, from b to itself (−5.207), by a small factor:</p>
+<div class="tablewrap"><table>
+  <tr><th>Scale factor</th><td class="num">0.98</td><td class="num">0.997</td><td class="num">0.999</td><td class="num">0.9995</td><td class="num">0.9998</td><td class="num"><b>1</b></td><td class="num">1.0005</td><td class="num">1.003</td><td class="num">1.02</td></tr>
+  <tr><th>Accuracy</th><td class="num">66.7%</td><td class="num">79.0%</td><td class="num">80.4%</td><td class="num">80.6%</td><td class="num">90.8%</td><td class="num"><b>90.8%</b></td><td class="num">90.7%</td><td class="num">88.7%</td><td class="num">70.8%</td></tr>
+</table></div>
+<p>The effect is lopsided. Shrinking the weight's size by 0.05% lets b switch on in B while a and c stay off. The ratio q/b is then 0, so the network answers position 2 there, the least likely right answer. Growing the weight keeps B silent; it only moves the comparator boundaries in M, which costs 2 points at 0.3%.</p>
+</div></details>
+
+<details><summary>The 90.8% accuracy depends on how ties are broken</summary><div>
+<p>On 19.9% of all inputs the three outputs are exactly 0.0. That share is the same in 32-bit arithmetic, where predictions agree with 64-bit on 99.9999% of inputs. The network is completely uncertain on these inputs. Its reported accuracy holds only because <code>argmax</code> in numpy and PyTorch returns the first maximal position. With random tie-breaking it would score 83.8%. If ties counted as wrong it would score 77.1%. Errors on these all-zero inputs are 67.5% of all its errors.</p>
+</div></details>
+
+<details><summary>Checking the aliasing claim</summary><div>
+<p>For every input in region F we built the alias input (−x1, x2 − 7.08·x1, x3) and ran the network on it. The network's prediction on the alias matches its prediction on the original for 99.94% of F inputs. The alias keeps x1 and x2 in the right order but moves their values, which explains F's two error bands in panel (c).</p>
+</div></details>
+
+<details><summary>The trained weights</summary><div>
+<div class="weights">
+  <span>W<sub>ih</sub> = <span class="mat"><table><tr><td>3.842</td></tr><tr><td>0.000</td></tr><tr><td>−3.825</td></tr></table></span></span>
+  <span>W<sub>hh</sub> = <span class="mat"><table><tr><td>−0.938</td><td>−6.128</td><td>6.174</td></tr><tr><td>5.390</td><td>−5.207</td><td>5.415</td></tr><tr><td>6.116</td><td>−6.097</td><td>−0.940</td></tr></table></span></span>
+  <span>W<sub>out</sub> = <span class="mat"><table><tr><td>2.157</td><td>−2.490</td><td>2.153</td></tr><tr><td>−1.993</td><td>1.856</td><td>−2.016</td></tr><tr><td>−0.120</td><td>0.099</td><td>−0.135</td></tr></table></span></span>
+</div>
+<p class="note">Rows of W<sub>hh</sub> are the receiving neurons a, b, c; rows of W<sub>out</sub> are positions 1, 2, 3. Note the near-mirror symmetry: swapping a with c and negating the input leaves the weights almost unchanged.</p>
+</div></details>
+
+<details><summary>What we do not know, and how these accounts were tested</summary><div>
+<ul>
+  <li><b>Why training produced the dead zone.</b> One hypothesis: step 3 needs the large cross-weights between a and c to build the comparators, and the same weights, reused at step 2, create the band. This is untested. The agent tried retraining the architecture from scratch with its own recipe (Adam, 30,000 steps, 10 seeds), which differs from ARC's. It reached only 55–64% accuracy, so it cannot tell us whether training tends to find the dead zone. This result is from the agent's analysis; our scripts do not rerun it.</li>
+  <li>Why the comparator on the x2 side is 8.5% off (1.085·x2) while the x1 side is accurate. We can name the weights responsible but not the training pressure.</li>
+  <li><b>How strictly this account was tested.</b> We checked it on unedited inputs, plus the alias substitution and the weight perturbation above. We did not test whether it predicts the effect of editing individual neurons. Section 3 holds the 5-input network to that stricter standard, so the comparison is not like for like.</li>
+</ul>
+</div></details>
+
+<!-- ===================================================================== -->
+<h2>3. Median position of 5 numbers: a network we could not explain <span class="tag open">not cracked</span></h2>
+<p><b>Task.</b> Read 5 numbers and output the position of their median. <b>Size.</b> 16 neurons, 352 weights. <b>Accuracy.</b> 98.3% (chance is 20%). ARC has not published its mechanism.</p>
+
+<p><b>What was tried.</b> AI research agents worked on it in 7 rounds, 35 working sessions in all. In each round four agents worked in parallel from the best account so far, and a fifth merged their results. The goal was an account that predicts the network's answer not only on normal inputs but also when part of its hidden state is replaced by the value it would have on a different input sequence. The baseline account is the plain statement "the network outputs the true median position".</p>
+
+<p><b>True pieces they found.</b> We confirmed these from the weights with <code>code/argmedian_16_5_checks.py</code>:</p>
+<ul>
+  <li>After step 4, five rows of W<sub>hh</sub> each read one earlier input from the hidden state, almost linearly: x1, x2, x3, and x4 twice with opposite signs (R² ≥ 0.997 for a linear fit).</li>
+  <li>The same few neurons compare each new input with earlier ones. After step 4, four neurons closely fit relu(x1 − x4), relu(x2 − x4), relu(x3 − x4) and relu(x4 − x3), each scaled by about 11. After step 5, five fit relu(x1 − x5), relu(x2 − x5), relu(x3 − x5), relu(x4 − x5) and relu(x5 − x4). The residuals are 1–5% of each neuron's standard deviation.</li>
+</ul>
+
+<p><b>What went wrong.</b> These pieces never became an account that predicts edits. The numbers below come from the agents' runs, not from our scripts.</p>
+<ul>
+  <li><b>Whole-state swaps.</b> When the entire hidden state after one step is replaced by its value from another input, the baseline account predicts the network's answer 29% of the time (averaged over the five steps). The only gain came from the most trivial fact: the state after step 1 depends only on x1, so swaps at step 1 become fully predictable. That lifted the average to 40%. Nothing about the later steps improved it.</li>
+  <li><b>Single-direction edits.</b> Accounts that used the stored inputs predicted the answer after an edit of one stored input only about half the time (48%, and 52% after a search for better directions). Editing one stored input also changes other neurons' inputs at the next step, so the edited state is unlike any the network sees on real inputs.</li>
+  <li>The agents judged that describing all 16 neurons at step 4 and then the final step would be too long to count as an explanation, and did not attempt it.</li>
+</ul>
+
+<details><summary>Why this failure is worth showing</summary><div>
+<ul>
+  <li><b>Small is not the same as easy.</b> 352 weights are only about 17 times more than the 21-weight network above. But here the information is spread across many neurons, while each of the solved networks has a few linear regions with one to three nameable quantities each.</li>
+  <li><b>Finding true local facts is not explaining.</b> Every piece above is correct. None of them, alone or together, predicts what the network does when part of its state is changed.</li>
+  <li><b>Pressure to score well invites shortcuts.</b> In one round an agent made its account score better by exploiting a loophole in how claims were checked, not by explaining more, and said so in its own notes. The loophole was closed. The honest result is the gain from 29% to 40% above.</li>
+</ul>
+</div></details>
+
+<h2>Files and how to rerun</h2>
+<dl class="setup files">
+  <dt><code>paper.pdf</code></dt><dd>A short paper with the same content and more of the derivations. Its source is <code>paper.typ</code> (Typst), with references in <code>refs.yml</code>.</dd>
+  <dt><code>code/median_2_10.py</code></dt><dd>The median network's weights, the network, the one-line rule, and every number in section 1.</dd>
+  <dt><code>code/second_argmax_3_3.py</code></dt><dd>The second-largest network's weights, the network, the 12-line rule, and every number in section 2 except the retraining result.</dd>
+  <dt><code>code/argmedian_16_5_checks.py</code></dt><dd>The 5-input network's weights and checks of the pieces listed in section 3.</dd>
+  <dt><code>code/make_figures.py</code></dt><dd>Draws both figures into <code>figures/</code>, as PNG and SVG.</dd>
+  <dt>Requirements</dt><dd>Python 3 with numpy (and matplotlib for the figures). Each script runs in seconds: <code>python code/median_2_10.py</code>.</dd>
+</dl>
+
+</main>
+</body>
+</html>

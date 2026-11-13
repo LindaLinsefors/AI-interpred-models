@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8"><title>The last-item problem (task:2394)</title>
+<style>body{font:16px/1.55 system-ui,sans-serif;max-width:820px;margin:2.5em auto;padding:0 1em;color:#222}
+table{border-collapse:collapse;margin:1em 0}th,td{border-bottom:1px solid #ddd;padding:.35em .8em;text-align:left}
+th{border-bottom:2px solid #999}blockquote{margin:1em 0;padding:.4em 1em;background:#f6f8fa;border-left:3px solid #ccc;font-family:ui-monospace,Menlo,monospace;font-size:14px}
+code{font-size:13px;background:#f3f3f3;padding:0 .2em}</style></head><body><h1>A tiny missing detail that breaks lists: the last-item problem</h1>
+<p><em>agent:1dkced5j, for human:braun and human:lucius (task:2394)</em></p>
+<p><strong>In short:</strong> on the generator-corpus 2L (p-8641051d), the Haiku programs for h.1.mlp.down_proj:658 and :442 reach CVE 0.99. Even so, they cause most of the joint-replacement KL at the tokens just after a list item. That's where the model must choose "," (more items follow) or "." (that was the last one). The programs don't track whether the current item is the last one. These positions are only 6% of tokens, so leaving them out costs almost no CVE. But the KL there is 0.88 nats per token, against 0.015 everywhere else. Adding just the last-item feature by hand raises CVE by 0.001 and cuts the KL at those tokens from 0.88 to 0.12.</p>
+<table>
+<thead>
+<tr>
+<th>programs swapped in</th>
+<th>KL, all tokens</th>
+<th>KL at list-ending tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all 816 o/down programs (joint)</td>
+<td>0.317</td>
+<td>0.88</td>
+</tr>
+<tr>
+<td>only layer 1 down_proj's programs (true activations elsewhere)</td>
+<td>0.183</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td>all 816, with the last-item feature added to 658 and 442</td>
+<td><strong>0.273</strong></td>
+<td><strong>0.12</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Setup</h2>
+<p>The generator announces each list's length up front:</p>
+<blockquote>
+<p>she made a list of four things : 1 a hammer , 2 the cat , 3 a fox , 4 the mice .</p>
+</blockquote>
+<p>Where an item could end, the next token is fully determined. It's "," if more items follow and "." after the last item. After the ",", it's the next item's digit. Getting these right means comparing the item number with the announced length. Together these list-ending positions make up 6% of tokens.</p>
+<p>With all 816 o/down programs swapped in (v816, default brief), the joint KL to the target is 0.317. At the list-ending positions it is 0.88, against 0.015 at all other tokens apart from name slots. Even at 6% of tokens, 0.88 adds about 0.05 to the overall average.</p>
+<h2>Where that KL comes from</h2>
+<p>Single-component attribution puts most of it on two programs with CVE 0.99. With programs everywhere else, giving one component its true activation removes this much of the 0.88:</p>
+<table>
+<thead>
+<tr>
+<th>component</th>
+<th>program CVE</th>
+<th>KL removed at list-ending positions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h.1.mlp.down_proj:658</td>
+<td>0.99</td>
+<td>0.81</td>
+</tr>
+<tr>
+<td>h.1.mlp.down_proj:442</td>
+<td>0.99</td>
+<td>0.63</td>
+</tr>
+</tbody>
+</table>
+<p>(The two removals overlap.)</p>
+<p>These programs are good explanations everywhere except at the end of a list.</p>
+<h2>Why the agents left it out</h2>
+<p>Of the 10 audited sessions, five saw that their component changes with position in the list. Four of those dropped it because it bought too little CVE. The 658 agent wrote that it "looks like a genuine counting mechanism", then dropped it as adding "only 0.04%". The 110 agent cited the brief's preference for short programs. No program tracks both the announced length and the item number, so none can tell the last item apart. The agents also got no KL feedback during their sessions (<code>e2e_recon</code> was null).</p>
+<h2>The test (agent:ftrgmgrk's)</h2>
+<p>We kept the agents' 658 and 442 programs unchanged and added one feature. Inside a list, each program gets a constant set by two things: the token's role (digit, item words, or the closing ","/".") and whether this is the last item. The constants were fitted on the agents' own eval rows. Nearly all of the effect is one of them: +0.33 on the words of the last item. We then reran joint replacement with all other 814 programs in place.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CVE (658 / 442)</th>
+<th>KL at list-ending positions</th>
+<th>joint KL (all tokens)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>agents' programs</td>
+<td>0.986 / 0.986</td>
+<td>0.88</td>
+<td>0.317</td>
+</tr>
+<tr>
+<td>+ last-item feature on 658</td>
+<td>0.987 / —</td>
+<td>0.28</td>
+<td>0.283</td>
+</tr>
+<tr>
+<td>+ last-item feature on both</td>
+<td>0.987 / 0.986</td>
+<td><strong>0.12</strong></td>
+<td><strong>0.273</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>What it means</h2>
+<p>CVE averages a component's fit over every token. A feature that matters only at 6% of tokens can barely change it, even when the output depends on it there. So agents chasing CVE drop it. A per-session score that looks at the output would keep it. Two examples are the component's own KL contribution, or fit weighted by how much ablating the component changes the output. agent:ftrgmgrk is taking such a score to a red-team.</p>
+<p>What this doesn't cover: most of the remaining 0.273 KL sits at name slots. That's a different failure. The brief's ban on large tables kept agents from submitting the per-name tables they had found (<code>lore:2026-10-23--finding--task2394-brief-table-ban-blocks-name-code-programs</code>).</p>
+<p>Details: <code>lore:2026-10-23--finding--task2394-last-item-feature-plus-0-001-cve-removes-87pct-count-kl</code> and <code>lore:2026-10-23--finding--task2394-list-count-kl-sits-in-high-cve-programs-pooled-scores-hide-it</code>.</p></body></html>

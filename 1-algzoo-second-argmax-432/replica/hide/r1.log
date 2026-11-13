@@ -1,0 +1,261 @@
+✓ Initialized. View run at 
+https://modal.com/apps/linda-linsefors/main/ap-1rckQTdtIQoz2EfSv4s0xz
+✓ Created objects.
+├── 🔨 Created mount C:\Users\linda\VS Code Workspace\AI interpred 
+│   models\1-algzoo-second-argmax-432\replica\hide\modal_sweep.py
+├── 🔨 Created mount C:\Users\linda\VS Code Workspace\AI interpred 
+│   models\1-algzoo-second-argmax-432\replica\hide\batched.py
+└── 🔨 Created function train_job.
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+bs=32 bias=none seed=101 epoch 1 best loss 1.4093 median 1.4599 best acc 0.3392 t=1s
+bs=16 bias=none seed=100 epoch 1 best loss 1.3091 median 1.4228 best acc 0.4231 t=2s
+bs=64 bias=none seed=100 epoch 1 best loss 1.4728 median 1.5188 best acc 0.3312 t=1s
+bs=16 bias=none seed=101 epoch 1 best loss 1.3683 median 1.4300 best acc 0.3663 t=2s
+bs=256 bias=none seed=100 epoch 1 best loss 1.6563 median 1.7149 best acc 0.2805 t=0s
+bs=64 bias=none seed=101 epoch 1 best loss 1.4587 median 1.5154 best acc 0.3277 t=1s
+bs=256 bias=none seed=101 epoch 1 best loss 1.6442 median 1.7064 best acc 0.2699 t=0s
+/usr/local/lib/python3.11/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+bs=32 bias=none seed=100 epoch 1 best loss 1.3984 median 1.4659 best acc 0.3361 t=1s
+bs=128 bias=none seed=101 epoch 1 best loss 1.5376 median 1.5943 best acc 0.3008 t=0s
+bs=128 bias=none seed=100 epoch 1 best loss 1.5520 median 1.6010 best acc 0.3157 t=0s
+bs=256 bias=none seed=100 epoch 50 best loss 0.4912 median 0.6914 best acc 0.8074 t=10s
+bs=256 bias=none seed=101 epoch 50 best loss 0.5307 median 0.6921 best acc 0.7935 t=10s
+bs=128 bias=none seed=101 epoch 50 best loss 0.4651 median 0.6074 best acc 0.8275 t=17s
+bs=256 bias=none seed=100 epoch 100 best loss 0.4218 median 0.5804 best acc 0.8417 t=20s
+bs=256 bias=none seed=101 epoch 100 best loss 0.3927 median 0.5921 best acc 0.8534 t=20s
+bs=128 bias=none seed=100 epoch 50 best loss 0.4564 median 0.6130 best acc 0.8259 t=17s
+bs=64 bias=none seed=100 epoch 50 best loss 0.4765 median 0.5831 best acc 0.8254 t=30s
+bs=64 bias=none seed=101 epoch 50 best loss 0.4599 median 0.5903 best acc 0.8342 t=30s
+bs=256 bias=none seed=100 epoch 150 best loss 0.3626 median 0.5259 best acc 0.8780 t=31sbs=256 bias=none seed=101 epoch 150 best loss 0.3498 median 0.5278 best acc 0.8725 t=30s
+
+bs=128 bias=none seed=101 epoch 100 best loss 0.3875 median 0.4872 best acc 0.8624 t=34s
+bs=128 bias=none seed=100 epoch 100 best loss 0.3926 median 0.5229 best acc 0.8600 t=34s
+bs=256 bias=none seed=100 epoch 200 best loss 0.3134 median 0.4803 best acc 0.8981 t=41s
+bs=256 bias=none seed=101 epoch 200 best loss 0.3163 median 0.4869 best acc 0.8840 t=41s
+bs=256 bias=none seed=101 epoch 250 best loss 0.2883 median 0.4535 best acc 0.8952 t=51s
+bs=256 bias=none seed=100 epoch 250 best loss 0.2846 median 0.4587 best acc 0.9088 t=51s
+bs=128 bias=none seed=101 epoch 150 best loss 0.3265 median 0.4470 best acc 0.8812 t=51s
+bs=128 bias=none seed=100 epoch 150 best loss 0.3549 median 0.4662 best acc 0.8747 t=51s
+bs=32 bias=none seed=101 epoch 50 best loss 0.5280 median 0.6525 best acc 0.8005 t=60s
+bs=32 bias=none seed=100 epoch 50 best loss 0.5428 median 0.6376 best acc 0.8241 t=58s
+bs=64 bias=none seed=100 epoch 100 best loss 0.4129 median 0.5134 best acc 0.8575 t=60s
+bs=64 bias=none seed=101 epoch 100 best loss 0.4103 median 0.5228 best acc 0.8548 t=60s
+bs=256 bias=none seed=101 epoch 300 best loss 0.2778 median 0.4204 best acc 0.9000 t=61s
+bs=256 bias=none seed=100 epoch 300 best loss 0.2770 median 0.4274 best acc 0.9127 t=61s
+bs=128 bias=none seed=101 epoch 200 best loss 0.2996 median 0.4016 best acc 0.8963 t=68s
+bs=256 bias=none seed=101 epoch 350 best loss 0.2731 median 0.4075 best acc 0.9016 t=71s
+bs=256 bias=none seed=100 epoch 350 best loss 0.2418 median 0.4210 best acc 0.9227 t=72s
+bs=128 bias=none seed=100 epoch 200 best loss 0.3280 median 0.4327 best acc 0.8930 t=68s
+bs=256 bias=none seed=101 epoch 400 best loss 0.2655 median 0.3983 best acc 0.9046 t=81s
+bs=256 bias=none seed=100 epoch 400 best loss 0.2371 median 0.4069 best acc 0.9261 t=82s
+bs=128 bias=none seed=101 epoch 250 best loss 0.2545 median 0.3742 best acc 0.9076 t=84s
+bs=64 bias=none seed=100 epoch 150 best loss 0.3711 median 0.4637 best acc 0.8792 t=90s
+bs=64 bias=none seed=101 epoch 150 best loss 0.3546 median 0.4666 best acc 0.8813 t=90s
+bs=128 bias=none seed=100 epoch 250 best loss 0.3081 median 0.4143 best acc 0.8985 t=85s
+bs=256 bias=none seed=101 epoch 450 best loss 0.2593 median 0.3893 best acc 0.9079 t=91s
+bs=256 bias=none seed=100 epoch 450 best loss 0.2222 median 0.3940 best acc 0.9301 t=92s
+bs=256 bias=none seed=101 epoch 500 best loss 0.2524 median 0.3750 best acc 0.9111 t=101s
+bs=256 bias=none seed=100 epoch 500 best loss 0.2149 median 0.3866 best acc 0.9322 t=102s
+bs=128 bias=none seed=101 epoch 300 best loss 0.2413 median 0.3523 best acc 0.9116 t=101s
+bs=128 bias=none seed=100 epoch 300 best loss 0.2834 median 0.3939 best acc 0.9123 t=102s
+bs=16 bias=none seed=100 epoch 50 best loss 0.6680 median 0.7427 best acc 0.7894 t=111s
+bs=16 bias=none seed=101 epoch 50 best loss 0.6683 median 0.7665 best acc 0.7514 t=111s
+bs=256 bias=none seed=101 epoch 550 best loss 0.2457 median 0.3687 best acc 0.9160 t=111s
+bs=256 bias=none seed=100 epoch 550 best loss 0.2127 median 0.3780 best acc 0.9346 t=113s
+bs=32 bias=none seed=101 epoch 100 best loss 0.4768 median 0.5844 best acc 0.8398 t=119s
+bs=32 bias=none seed=100 epoch 100 best loss 0.4929 median 0.5738 best acc 0.8523 t=117s
+bs=64 bias=none seed=100 epoch 200 best loss 0.3325 median 0.4252 best acc 0.8944 t=120s
+bs=64 bias=none seed=101 epoch 200 best loss 0.3035 median 0.4260 best acc 0.9015 t=120s
+bs=128 bias=none seed=101 epoch 350 best loss 0.2296 median 0.3396 best acc 0.9186 t=118s
+bs=256 bias=none seed=101 epoch 600 best loss 0.2382 median 0.3645 best acc 0.9185 t=121s
+bs=256 bias=none seed=100 epoch 600 best loss 0.2027 median 0.3773 best acc 0.9372 t=123s
+bs=128 bias=none seed=100 epoch 350 best loss 0.2630 median 0.3798 best acc 0.9168 t=119s
+bs=256 bias=none seed=101 epoch 650 best loss 0.2331 median 0.3556 best acc 0.9203 t=131s
+bs=256 bias=none seed=100 epoch 650 best loss 0.2023 median 0.3720 best acc 0.9379 t=133s
+bs=128 bias=none seed=101 epoch 400 best loss 0.2149 median 0.3255 best acc 0.9231 t=135s
+bs=128 bias=none seed=100 epoch 400 best loss 0.2510 median 0.3673 best acc 0.9227 t=136s
+bs=256 bias=none seed=101 epoch 700 best loss 0.2321 median 0.3533 best acc 0.9217 t=142s
+bs=256 bias=none seed=100 epoch 700 best loss 0.1968 median 0.3692 best acc 0.9399 t=143s
+bs=64 bias=none seed=100 epoch 250 best loss 0.3014 median 0.3924 best acc 0.9150 t=150s
+bs=64 bias=none seed=101 epoch 250 best loss 0.2791 median 0.3974 best acc 0.9115 t=149s
+bs=256 bias=none seed=101 epoch 750 best loss 0.2269 median 0.3511 best acc 0.9235 t=152s
+bs=256 bias=none seed=100 epoch 750 best loss 0.1949 median 0.3708 best acc 0.9403 t=154s
+bs=128 bias=none seed=101 epoch 450 best loss 0.2001 median 0.3166 best acc 0.9316 t=152s
+bs=128 bias=none seed=100 epoch 450 best loss 0.2432 median 0.3558 best acc 0.9283 t=153s
+bs=256 bias=none seed=101 epoch 800 best loss 0.2246 median 0.3473 best acc 0.9235 t=162s
+bs=256 bias=none seed=100 epoch 800 best loss 0.1889 median 0.3686 best acc 0.9420 t=164s
+bs=128 bias=none seed=101 epoch 500 best loss 0.1931 median 0.3138 best acc 0.9338 t=169s
+bs=256 bias=none seed=101 epoch 850 best loss 0.2223 median 0.3454 best acc 0.9246 t=172s
+bs=256 bias=none seed=100 epoch 850 best loss 0.1902 median 0.3655 best acc 0.9426 t=174s
+bs=128 bias=none seed=100 epoch 500 best loss 0.2282 median 0.3467 best acc 0.9300 t=170s
+bs=32 bias=none seed=100 epoch 150 best loss 0.4403 median 0.5196 best acc 0.8690 t=175s
+bs=32 bias=none seed=101 epoch 150 best loss 0.4234 median 0.5408 best acc 0.8563 t=179s
+bs=64 bias=none seed=100 epoch 300 best loss 0.2807 median 0.3655 best acc 0.9250 t=179s
+bs=64 bias=none seed=101 epoch 300 best loss 0.2596 median 0.3711 best acc 0.9178 t=179s
+bs=256 bias=none seed=101 epoch 900 best loss 0.2194 median 0.3404 best acc 0.9262 t=182s
+bs=256 bias=none seed=100 epoch 900 best loss 0.1911 median 0.3628 best acc 0.9422 t=184s
+bs=128 bias=none seed=101 epoch 550 best loss 0.1895 median 0.3018 best acc 0.9375 t=186s
+bs=256 bias=none seed=101 epoch 950 best loss 0.2168 median 0.3407 best acc 0.9274 t=192s
+bs=128 bias=none seed=100 epoch 550 best loss 0.2195 median 0.3352 best acc 0.9316 t=188s
+bs=256 bias=none seed=100 epoch 950 best loss 0.1901 median 0.3598 best acc 0.9420 t=195s
+bs=256 bias=none seed=101 epoch 1000 best loss 0.2179 median 0.3393 best acc 0.9265 t=202s
+DONE bs=256 seed=101 {} best unif acc 0.9271 best gauss acc 0.9413
+saved none_bs256_s101.pt
+bs=128 bias=none seed=101 epoch 600 best loss 0.1817 median 0.2996 best acc 0.9414 t=203s
+bs=256 bias=none seed=100 epoch 1000 best loss 0.1877 median 0.3601 best acc 0.9439 t=205s
+DONE bs=256 seed=100 {} best unif acc 0.9418 best gauss acc 0.9506
+saved none_bs256_s100.pt
+bs=64 bias=none seed=100 epoch 350 best loss 0.2580 median 0.3449 best acc 0.9318 t=209s
+bs=64 bias=none seed=101 epoch 350 best loss 0.2464 median 0.3538 best acc 0.9242 t=209s
+bs=128 bias=none seed=100 epoch 600 best loss 0.2151 median 0.3298 best acc 0.9342 t=205s
+bs=16 bias=none seed=100 epoch 100 best loss 0.5663 median 0.6779 best acc 0.8258 t=223s
+bs=16 bias=none seed=101 epoch 100 best loss 0.5949 median 0.6967 best acc 0.7798 t=223s
+bs=128 bias=none seed=101 epoch 650 best loss 0.1794 median 0.2958 best acc 0.9424 t=219s
+bs=128 bias=none seed=100 epoch 650 best loss 0.2094 median 0.3287 best acc 0.9357 t=222s
+bs=32 bias=none seed=100 epoch 200 best loss 0.4086 median 0.4791 best acc 0.8823 t=234s
+bs=32 bias=none seed=101 epoch 200 best loss 0.3834 median 0.4915 best acc 0.8737 t=238s
+bs=128 bias=none seed=101 epoch 700 best loss 0.1743 median 0.2912 best acc 0.9443 t=236s
+bs=64 bias=none seed=100 epoch 400 best loss 0.2354 median 0.3318 best acc 0.9384 t=239s
+bs=64 bias=none seed=101 epoch 400 best loss 0.2234 median 0.3320 best acc 0.9313 t=239s
+bs=128 bias=none seed=100 epoch 700 best loss 0.2078 median 0.3224 best acc 0.9379 t=239s
+bs=128 bias=none seed=101 epoch 750 best loss 0.1702 median 0.2859 best acc 0.9460 t=253s
+bs=128 bias=none seed=100 epoch 750 best loss 0.2027 median 0.3204 best acc 0.9365 t=256s
+bs=64 bias=none seed=100 epoch 450 best loss 0.2241 median 0.3168 best acc 0.9412 t=269s
+bs=64 bias=none seed=101 epoch 450 best loss 0.2135 median 0.3191 best acc 0.9348 t=269s
+bs=128 bias=none seed=101 epoch 800 best loss 0.1714 median 0.2861 best acc 0.9456 t=270s
+bs=128 bias=none seed=100 epoch 800 best loss 0.1998 median 0.3169 best acc 0.9403 t=273s
+bs=128 bias=none seed=101 epoch 850 best loss 0.1678 median 0.2832 best acc 0.9489 t=287s
+bs=32 bias=none seed=100 epoch 250 best loss 0.3726 median 0.4499 best acc 0.8923 t=292s
+bs=128 bias=none seed=100 epoch 850 best loss 0.1999 median 0.3135 best acc 0.9402 t=290s
+bs=32 bias=none seed=101 epoch 250 best loss 0.3524 median 0.4560 best acc 0.8850 t=298s
+bs=64 bias=none seed=100 epoch 500 best loss 0.2068 median 0.3052 best acc 0.9462 t=299s
+bs=64 bias=none seed=101 epoch 500 best loss 0.2010 median 0.3095 best acc 0.9386 t=299s
+bs=128 bias=none seed=101 epoch 900 best loss 0.1687 median 0.2814 best acc 0.9481 t=304s
+bs=128 bias=none seed=100 epoch 900 best loss 0.1982 median 0.3120 best acc 0.9407 t=307s
+bs=128 bias=none seed=101 epoch 950 best loss 0.1652 median 0.2806 best acc 0.9496 t=321s
+bs=64 bias=none seed=100 epoch 550 best loss 0.2005 median 0.2962 best acc 0.9473 t=329s
+bs=64 bias=none seed=101 epoch 550 best loss 0.1922 median 0.3001 best acc 0.9409 t=329s
+bs=128 bias=none seed=100 epoch 950 best loss 0.1966 median 0.3103 best acc 0.9405 t=324s
+bs=16 bias=none seed=100 epoch 150 best loss 0.5264 median 0.6278 best acc 0.8443 t=334s
+bs=16 bias=none seed=101 epoch 150 best loss 0.5416 median 0.6438 best acc 0.8110 t=334s
+bs=128 bias=none seed=101 epoch 1000 best loss 0.1650 median 0.2782 best acc 0.9502 t=338s
+DONE bs=128 seed=101 {} best unif acc 0.9483 best gauss acc 0.9574
+saved none_bs128_s101.pt
+bs=128 bias=none seed=100 epoch 1000 best loss 0.1931 median 0.3099 best acc 0.9416 t=341s
+saved none_bs128_s100.pt
+DONE bs=128 seed=100 {} best unif acc 0.9418 best gauss acc 0.9499
+bs=32 bias=none seed=100 epoch 300 best loss 0.3226 median 0.4230 best acc 0.9008 t=350s
+bs=32 bias=none seed=101 epoch 300 best loss 0.3301 median 0.4276 best acc 0.8954 t=357s
+bs=64 bias=none seed=100 epoch 600 best loss 0.1877 median 0.2908 best acc 0.9518 t=359s
+bs=64 bias=none seed=101 epoch 600 best loss 0.1893 median 0.2934 best acc 0.9439 t=359s
+bs=64 bias=none seed=100 epoch 650 best loss 0.1812 median 0.2832 best acc 0.9532 t=389s
+bs=64 bias=none seed=101 epoch 650 best loss 0.1826 median 0.2839 best acc 0.9454 t=388s
+bs=32 bias=none seed=100 epoch 350 best loss 0.2965 median 0.3945 best acc 0.9088 t=409s
+bs=32 bias=none seed=101 epoch 350 best loss 0.2992 median 0.3976 best acc 0.9017 t=417s
+bs=64 bias=none seed=100 epoch 700 best loss 0.1751 median 0.2775 best acc 0.9549 t=419s
+bs=64 bias=none seed=101 epoch 700 best loss 0.1751 median 0.2760 best acc 0.9489 t=418s
+bs=16 bias=none seed=100 epoch 200 best loss 0.4666 median 0.5850 best acc 0.8645 t=446s
+bs=16 bias=none seed=101 epoch 200 best loss 0.4811 median 0.5997 best acc 0.8316 t=446s
+bs=64 bias=none seed=101 epoch 750 best loss 0.1752 median 0.2728 best acc 0.9479 t=448s
+bs=64 bias=none seed=100 epoch 750 best loss 0.1720 median 0.2732 best acc 0.9539 t=449s
+bs=32 bias=none seed=100 epoch 400 best loss 0.2653 median 0.3664 best acc 0.9183 t=467s
+bs=32 bias=none seed=101 epoch 400 best loss 0.2797 median 0.3829 best acc 0.9111 t=477s
+bs=64 bias=none seed=101 epoch 800 best loss 0.1710 median 0.2701 best acc 0.9499 t=478sbs=64 bias=none seed=100 epoch 800 best loss 0.1671 median 0.2742 best acc 0.9567 t=479s
+
+bs=64 bias=none seed=101 epoch 850 best loss 0.1704 median 0.2681 best acc 0.9499 t=508s
+bs=64 bias=none seed=100 epoch 850 best loss 0.1649 median 0.2720 best acc 0.9567 t=508s
+bs=32 bias=none seed=100 epoch 450 best loss 0.2518 median 0.3444 best acc 0.9240 t=525s
+bs=32 bias=none seed=101 epoch 450 best loss 0.2664 median 0.3627 best acc 0.9171 t=536s
+bs=64 bias=none seed=101 epoch 900 best loss 0.1709 median 0.2716 best acc 0.9499 t=538s
+bs=64 bias=none seed=100 epoch 900 best loss 0.1590 median 0.2702 best acc 0.9575 t=538s
+bs=16 bias=none seed=100 epoch 250 best loss 0.4180 median 0.5434 best acc 0.8811 t=557s
+bs=16 bias=none seed=101 epoch 250 best loss 0.4378 median 0.5507 best acc 0.8495 t=557s
+bs=64 bias=none seed=101 epoch 950 best loss 0.1649 median 0.2648 best acc 0.9517 t=568s
+bs=64 bias=none seed=100 epoch 950 best loss 0.1573 median 0.2668 best acc 0.9584 t=568s
+bs=32 bias=none seed=100 epoch 500 best loss 0.2394 median 0.3288 best acc 0.9291 t=584s
+bs=32 bias=none seed=101 epoch 500 best loss 0.2444 median 0.3443 best acc 0.9252 t=596s
+bs=64 bias=none seed=101 epoch 1000 best loss 0.1661 median 0.2666 best acc 0.9516 t=598s
+bs=64 bias=none seed=100 epoch 1000 best loss 0.1587 median 0.2663 best acc 0.9590 t=598s
+saved none_bs64_s101.pt
+DONE bs=64 seed=101 {} best unif acc 0.9510 best gauss acc 0.9598
+DONE bs=64 seed=100 {} best unif acc 0.9574 best gauss acc 0.9630
+saved none_bs64_s100.pt
+bs=32 bias=none seed=100 epoch 550 best loss 0.2240 median 0.3174 best acc 0.9340 t=642s
+bs=32 bias=none seed=101 epoch 550 best loss 0.2337 median 0.3366 best acc 0.9295 t=656s
+bs=16 bias=none seed=100 epoch 300 best loss 0.3818 median 0.5019 best acc 0.8931 t=668s
+bs=16 bias=none seed=101 epoch 300 best loss 0.3970 median 0.5185 best acc 0.8682 t=669s
+bs=32 bias=none seed=100 epoch 600 best loss 0.2103 median 0.3093 best acc 0.9385 t=701s
+bs=32 bias=none seed=101 epoch 600 best loss 0.2215 median 0.3230 best acc 0.9357 t=716s
+bs=32 bias=none seed=100 epoch 650 best loss 0.2063 median 0.3000 best acc 0.9414 t=759s
+bs=32 bias=none seed=101 epoch 650 best loss 0.2084 median 0.3203 best acc 0.9409 t=775s
+bs=16 bias=none seed=100 epoch 350 best loss 0.3521 median 0.4720 best acc 0.9016 t=780s
+bs=16 bias=none seed=101 epoch 350 best loss 0.3539 median 0.4843 best acc 0.8830 t=780s
+bs=32 bias=none seed=100 epoch 700 best loss 0.1953 median 0.2953 best acc 0.9426 t=817s
+bs=32 bias=none seed=101 epoch 700 best loss 0.2016 median 0.3151 best acc 0.9443 t=835s
+bs=32 bias=none seed=100 epoch 750 best loss 0.1884 median 0.2906 best acc 0.9454 t=876s
+bs=16 bias=none seed=100 epoch 400 best loss 0.3214 median 0.4414 best acc 0.9129 t=891s
+bs=16 bias=none seed=101 epoch 400 best loss 0.3219 median 0.4566 best acc 0.8956 t=892s
+bs=32 bias=none seed=101 epoch 750 best loss 0.1914 median 0.3091 best acc 0.9475 t=895s
+bs=32 bias=none seed=100 epoch 800 best loss 0.1811 median 0.2853 best acc 0.9476 t=934s
+bs=32 bias=none seed=101 epoch 800 best loss 0.1822 median 0.3077 best acc 0.9495 t=955s
+bs=32 bias=none seed=100 epoch 850 best loss 0.1851 median 0.2817 best acc 0.9479 t=992s
+bs=16 bias=none seed=100 epoch 450 best loss 0.3039 median 0.4225 best acc 0.9170 t=1003s
+bs=16 bias=none seed=101 epoch 450 best loss 0.2939 median 0.4399 best acc 0.9057 t=1003s
+bs=32 bias=none seed=101 epoch 850 best loss 0.1858 median 0.3040 best acc 0.9497 t=1014s
+bs=32 bias=none seed=100 epoch 900 best loss 0.1804 median 0.2771 best acc 0.9478 t=1051s
+bs=32 bias=none seed=101 epoch 900 best loss 0.1714 median 0.2993 best acc 0.9521 t=1074s
+bs=32 bias=none seed=100 epoch 950 best loss 0.1769 median 0.2756 best acc 0.9493 t=1109s
+bs=16 bias=none seed=100 epoch 500 best loss 0.2788 median 0.4032 best acc 0.9237 t=1114s
+bs=16 bias=none seed=101 epoch 500 best loss 0.2726 median 0.4164 best acc 0.9109 t=1114s
+bs=32 bias=none seed=101 epoch 950 best loss 0.1674 median 0.2976 best acc 0.9545 t=1134s
+bs=32 bias=none seed=100 epoch 1000 best loss 0.1785 median 0.2759 best acc 0.9492 t=1168s
+saved none_bs32_s100.pt
+DONE bs=32 seed=100 {} best unif acc 0.9507 best gauss acc 0.9564
+bs=32 bias=none seed=101 epoch 1000 best loss 0.1721 median 0.2979 best acc 0.9541 t=1194s
+DONE bs=32 seed=101 {} best unif acc 0.9552 best gauss acc 0.9605
+saved none_bs32_s101.pt
+bs=16 bias=none seed=100 epoch 550 best loss 0.2660 median 0.3824 best acc 0.9286 t=1226s
+bs=16 bias=none seed=101 epoch 550 best loss 0.2551 median 0.4023 best acc 0.9177 t=1226s
+bs=16 bias=none seed=100 epoch 600 best loss 0.2484 median 0.3679 best acc 0.9334 t=1337s
+bs=16 bias=none seed=101 epoch 600 best loss 0.2417 median 0.3827 best acc 0.9243 t=1337s
+bs=16 bias=none seed=100 epoch 650 best loss 0.2391 median 0.3526 best acc 0.9362 t=1448s
+bs=16 bias=none seed=101 epoch 650 best loss 0.2304 median 0.3690 best acc 0.9287 t=1449s
+bs=16 bias=none seed=100 epoch 700 best loss 0.2304 median 0.3506 best acc 0.9381 t=1560s
+bs=16 bias=none seed=101 epoch 700 best loss 0.2228 median 0.3590 best acc 0.9305 t=1560s
+bs=16 bias=none seed=100 epoch 750 best loss 0.2231 median 0.3453 best acc 0.9409 t=1671s
+bs=16 bias=none seed=101 epoch 750 best loss 0.2160 median 0.3514 best acc 0.9339 t=1671s
+bs=16 bias=none seed=100 epoch 800 best loss 0.2176 median 0.3357 best acc 0.9421 t=1783s
+bs=16 bias=none seed=101 epoch 800 best loss 0.2128 median 0.3424 best acc 0.9360 t=1783s
+bs=16 bias=none seed=100 epoch 850 best loss 0.2062 median 0.3344 best acc 0.9423 t=1894s
+bs=16 bias=none seed=101 epoch 850 best loss 0.2101 median 0.3378 best acc 0.9376 t=1894s
+bs=16 bias=none seed=100 epoch 900 best loss 0.2029 median 0.3254 best acc 0.9437 t=2005s
+bs=16 bias=none seed=101 epoch 900 best loss 0.2013 median 0.3376 best acc 0.9392 t=2006s
+bs=16 bias=none seed=100 epoch 950 best loss 0.2010 median 0.3259 best acc 0.9442 t=2117s
+bs=16 bias=none seed=101 epoch 950 best loss 0.2009 median 0.3329 best acc 0.9398 t=2117s
+bs=16 bias=none seed=100 epoch 1000 best loss 0.2032 median 0.3239 best acc 0.9446 t=2228s
+DONE bs=16 seed=100 {} best unif acc 0.9456 best gauss acc 0.9531
+saved none_bs16_s100.pt
+bs=16 bias=none seed=101 epoch 1000 best loss 0.1987 median 0.3313 best acc 0.9408 t=2229s
+saved none_bs16_s101.pt
+DONE bs=16 seed=101 {} best unif acc 0.9411 best gauss acc 0.9507
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/linda-linsefors/main/ap-1rckQTdtIQoz2EfSv4s0xz
