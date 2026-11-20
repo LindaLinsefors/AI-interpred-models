@@ -1,0 +1,26 @@
+[INTERVENTION n = 800000, N(0,1), seeds 1080, 1081]
+check: 'all paths, all firings' reproduces the oracle patch of B6(ii): identical answers in 1.000000 of sequences; oracle accuracy 0.9317
+excess removed from | agreement with the network | task accuracy | change of accuracy (pp)
+none (network) | 1.0000 | 0.9531 | +0.00
+all paths (oracle size on true records) | 0.9641 | 0.9241 | -2.90
+level only | 0.9650 | 0.9306 | -2.26
+runner only | 0.9970 | 0.9527 | -0.05
+level + runner | 0.9661 | 0.9313 | -2.18
+clock only | 0.9785 | 0.9401 | -1.30
+short only | 0.9759 | 0.9393 | -1.38
+h2 only | 0.9881 | 0.9477 | -0.55
+h3 only | 0.9908 | 0.9490 | -0.42
+alt only | 0.9973 | 0.9528 | -0.03
+trans only | 0.9673 | 0.9274 | -2.57
+echo only | 0.9991 | 0.9530 | -0.02
+all 9 ordinary modes | 0.9570 | 0.9202 | -3.29
+unit 4 self-inhibition only | 0.9967 | 0.9520 | -0.11
+unit 5 only | 0.9870 | 0.9474 | -0.57
+unit 9 only | 0.9980 | 0.9529 | -0.02
+readout only | 0.9952 | 0.9489 | -0.42
+all except level | 0.9571 | 0.9206 | -3.26
+all except level + runner | 0.9601 | 0.9231 | -3.00
+all except clock | 0.9622 | 0.9258 | -2.73
+all except u4 | 0.9648 | 0.9248 | -2.83
+level + runner + u4 | 0.9637 | 0.9297 | -2.35
+level + runner + clock + u4 | 0.9617 | 0.9258 | -2.74

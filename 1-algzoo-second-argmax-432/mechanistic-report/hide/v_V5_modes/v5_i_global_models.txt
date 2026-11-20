@@ -1,0 +1,33 @@
+seeds [5060, 5061], 200k sequences each
+========================================================================================================================
+states with a1 >= 1 and S > 0.05 (the claim's set)   n = 2262368
+   (0) z/w4 = e^{i (a1-1) 42.75deg} (M - S)                [literal, no decay, nothing fitted] complex parameters    0   uncentred R2 = 0.9155   rms error / rms |z| = 0.291
+   (1) z/w4 = lam^(a1-1) (M - S)                             [eigenvalue incl. decay, nothing fitted] complex parameters    0   uncentred R2 = 0.8916   rms error / rms |z| = 0.329
+   (2) z/w4 = k lam^(a1-1) (M - c S), fitted k = 1.075@   -7.1, c = 0.84                  complex parameters    2   uncentred R2 = 0.9471   rms error / rms |z| = 0.230
+   (3) z/w4 = alpha(a1) (M - S)                                                           complex parameters    9   uncentred R2 = 0.9396   rms error / rms |z| = 0.246
+   (4) z/w4 = alpha(a1) (M - S) + beta(a1) S                                              complex parameters   18   uncentred R2 = 0.9630   rms error / rms |z| = 0.192
+   (5) z/w4 = alpha(a1) (M - S) + beta(a2) S                 [a second record, rotating with the runner-up's age] complex parameters   19   uncentred R2 = 0.9485   rms error / rms |z| = 0.227
+       (5) alpha(a1), a1 = 1..9: 1.072@   +0.5  1.091@  +32.7  1.063@  +76.5  1.058@ +121.6  1.090@ +164.8  1.089@ -153.8  1.079@ -113.0  1.043@  -71.9  0.990@  -29.8
+       (5) beta(a2),  a2 = 0..9: 0.071@  -17.5  0.081@  +10.5  0.035@  -31.0  0.094@   +1.8  0.119@  +36.1  0.118@  +77.6  0.106@ +113.0  0.077@ +164.5  0.080@ -119.0  0.126@  -66.9
+       (5) phase steps of beta over a2 (deg):  [ 28.  -41.4  32.7  34.3  41.5  35.4  51.5  76.5  52.1]
+   (6) z/w4 = alpha(a1, a2) (M - S) + beta(a1, a2) S        [the per-cell model of claim M5] complex parameters  162   uncentred R2 = 0.9848   rms error / rms |z| = 0.123
+========================================================================================================================
+ALL states with a1 >= 1 and M > 0, with S+ = max(S, 0) in place of S   n = 2706409
+   (0) z/w4 = e^{i (a1-1) 42.75deg} (M - S)                [literal, no decay, nothing fitted] complex parameters    0   uncentred R2 = 0.9313   rms error / rms |z| = 0.262
+   (1) z/w4 = lam^(a1-1) (M - S)                             [eigenvalue incl. decay, nothing fitted] complex parameters    0   uncentred R2 = 0.9126   rms error / rms |z| = 0.296
+   (2) z/w4 = k lam^(a1-1) (M - c S), fitted k = 1.057@   -6.2, c = 0.83                  complex parameters    2   uncentred R2 = 0.9561   rms error / rms |z| = 0.210
+   (3) z/w4 = alpha(a1) (M - S)                                                           complex parameters    9   uncentred R2 = 0.9493   rms error / rms |z| = 0.225
+   (4) z/w4 = alpha(a1) (M - S) + beta(a1) S                                              complex parameters   18   uncentred R2 = 0.9706   rms error / rms |z| = 0.172
+   (5) z/w4 = alpha(a1) (M - S) + beta(a2) S                 [a second record, rotating with the runner-up's age] complex parameters   19   uncentred R2 = 0.9572   rms error / rms |z| = 0.207
+       (5) alpha(a1), a1 = 1..9: 1.037@   +0.3  1.061@  +33.7  1.038@  +77.2  1.037@ +122.0  1.072@ +165.1  1.077@ -153.7  1.069@ -113.1  1.033@  -72.1  0.979@  -30.0
+       (5) beta(a2),  a2 = 0..9: 0.079@  -12.8  0.087@  +12.5  0.038@  -20.6  0.101@   +3.1  0.126@  +35.2  0.122@  +75.0  0.107@ +109.8  0.074@ +161.4  0.076@ -117.7  0.125@  -65.3
+       (5) phase steps of beta over a2 (deg):  [ 25.3 -33.1  23.7  32.1  39.8  34.8  51.6  80.9  52.4]
+   (6) z/w4 = alpha(a1, a2) (M - S) + beta(a1, a2) S        [the per-cell model of claim M5] complex parameters  162   uncentred R2 = 0.9877   rms error / rms |z| = 0.111
+========================================================================================================================
+CONDITIONING of the mode basis (not invariant under per-unit rescaling; shown for raw units and for unit-rms units)
+   [raw] eigenvalue condition numbers |L_k| |R_k| / |L_k . R_k| (1 = normal matrix): level 1.9, runner 2.6, clock 3.7, h2 2.7, alt 1.7, h3 2.4, short 5.5, trans 5.3, echo 2.3
+   [raw] cosines of the principal angles between the clock plane and the short plane: [0.763 0.63 ]   (angles [40.2 51. ] deg)
+   [raw] cos(level eigenvector, runner eigenvector) = 0.5651;  |cos| between level eigenvector and the clock plane = 0.3996
+   [unit rms] eigenvalue condition numbers |L_k| |R_k| / |L_k . R_k| (1 = normal matrix): level 3.2, runner 4.0, clock 5.3, h2 5.8, alt 3.2, h3 6.0, short 10.9, trans 7.9, echo 2.9
+   [unit rms] cosines of the principal angles between the clock plane and the short plane: [0.821 0.517]   (angles [34.8 58.8] deg)
+   [unit rms] cos(level eigenvector, runner eigenvector) = 0.6158;  |cos| between level eigenvector and the clock plane = 0.6098

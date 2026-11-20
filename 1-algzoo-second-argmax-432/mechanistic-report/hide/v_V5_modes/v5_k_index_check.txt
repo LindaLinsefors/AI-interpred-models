@@ -1,0 +1,17 @@
+per-position cancellation |all 13| / |comparator part| at p = 0..9: [0.247 0.141 0.09  0.065 0.054 0.055 0.057 0.084 0.192 0.46 ]
+phase(comparator part) - phase(wave part) at p = 0..9 (deg): [-177.3 -178.  -179.3 -179.9  179.4  178.6 -178.9 -175.5 -179.2 -172.5]
+|wave part| / |comparator part| at p = 0..9: [1.241 1.136 1.089 1.065 1.052 1.049 1.054 1.024 1.191 1.432]
+
+logits per unit gap contributed by the clock mode at t = 9, for each age a1 of the max (index of the max = 9 - a1):
+ a1 | idx of max | comparator part: most negative index, value there | wave part: most positive index, value | all 13: value at idx of max, largest |value| over p=0..8 (index)
+  1 |     8      | idx 0,   -63.8 (at max:    -4.8) | idx 0,    80.4 (at max:     5.2) |   0.43, 16.65 (idx 0);  all 13 at index 9:  -1.32
+  2 |     7      | idx 7,   -58.0 (at max:   -58.0) | idx 7,    59.3 (at max:    59.3) |   1.30, 12.62 (idx 0);  all 13 at index 9:   2.64
+  3 |     6      | idx 6,   -64.9 (at max:   -64.9) | idx 6,    68.3 (at max:    68.3) |   3.42,  7.37 (idx 2);  all 13 at index 9:   5.77
+  4 |     5      | idx 5,   -70.7 (at max:   -70.7) | idx 5,    73.9 (at max:    73.9) |   3.16, 11.27 (idx 1);  all 13 at index 9:   5.62
+  5 |     4      | idx 4,   -66.0 (at max:   -66.0) | idx 4,    69.4 (at max:    69.4) |   3.38, 15.04 (idx 0);  all 13 at index 9:   2.59
+  6 |     3      | idx 3,   -65.5 (at max:   -65.5) | idx 3,    69.7 (at max:    69.7) |   4.27, 12.15 (idx 0);  all 13 at index 9:  -1.58
+  7 |     2      | idx 2,   -71.4 (at max:   -71.4) | idx 2,    77.5 (at max:    77.5) |   6.09,  6.09 (idx 2);  all 13 at index 9:  -4.65
+  8 |     1      | idx 1,   -70.4 (at max:   -70.4) | idx 1,    79.8 (at max:    79.8) |   9.40,  9.40 (idx 1);  all 13 at index 9:  -5.12
+  9 |     0      | idx 0,   -53.7 (at max:   -53.7) | idx 0,    66.4 (at max:    66.4) |  12.70, 12.70 (idx 0);  all 13 at index 9:  -2.88
+
+phase of the comparator part minus the 'tape' prediction 180 - 42.75 (8 - p) deg, p = 0..8: [  1.4   2.4  -8.5   0.8  11.4  13.1   4.1   7.3 -81. ]

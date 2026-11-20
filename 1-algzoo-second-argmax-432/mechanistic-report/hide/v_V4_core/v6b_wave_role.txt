@@ -1,0 +1,67 @@
+=== (1) wave(no 2) part of theta_row(t+1) [rows 1, 6, 7, 8, unit 4], t = 1..8, M_t > 0.3 ===
+  row 1: best c with part ~ c*h2: 0.00558 (x17.3 = 0.0966 M); centred R2 = 0.5822, uncentred R2 = 0.8616; corr(part/M, h2/M) = +0.633; mean part/M = 0.0891, std part/M = 0.0476
+  row 6: best c with part ~ c*h2: 0.00621 (x17.3 = 0.1074 M); centred R2 = 0.6615, uncentred R2 = 0.8966; corr(part/M, h2/M) = +0.690; mean part/M = 0.0991, std part/M = 0.0488
+  row 7: best c with part ~ c*h2: 0.00289 (x17.3 = 0.0499 M); centred R2 = 0.2254, uncentred R2 = 0.6239; corr(part/M, h2/M) = +0.286; mean part/M = 0.0476, std part/M = 0.0377
+  row 8: best c with part ~ c*h2: 0.00708 (x17.3 = 0.1225 M); centred R2 = 0.5605, uncentred R2 = 0.8579; corr(part/M, h2/M) = +0.570; mean part/M = 0.1142, std part/M = 0.0586
+  row 4: best c with part ~ c*h2: 0.00513 (x17.3 = 0.0888 M); centred R2 = 0.4768, uncentred R2 = 0.8210; corr(part/M, h2/M) = +0.489; mean part/M = 0.0825, std part/M = 0.0432
+  best-fit extra weight on W[row, 2] (raw units): [ 0.059   0.0682  0.038   0.0872 -0.0522]  (K5 compensation: 0.0853, 0.0999, 0.1088, 0.191, -0.128)
+  mean of wave(no 2) part / M by age of the max a1 = 0..8 (rows), columns rows 1, 6, 7, 8, unit 4:
+    a1 = 0: [0.0294 0.0336 0.0215 0.0462 0.0317]   std [0.0368 0.0397 0.0262 0.0499 0.035 ]
+    a1 = 1: [0.1281 0.1471 0.0812 0.1747 0.1196]   std [0.0203 0.0213 0.0229 0.0334 0.0224]
+    a1 = 2: [0.1402 0.1457 0.0824 0.1611 0.1125]   std [0.0147 0.0151 0.0223 0.0357 0.0197]
+    a1 = 3: [0.0858 0.1018 0.0294 0.1182 0.0623]   std [0.0152 0.0146 0.0097 0.0261 0.0108]
+    a1 = 4: [0.0603 0.0733 0.0026 0.0767 0.0469]   std [0.0253 0.0173 0.0071 0.0146 0.0097]
+    a1 = 5: [0.0473 0.0609 0.0086 0.0634 0.0597]   std [0.0279 0.021  0.0064 0.0124 0.0103]
+    a1 = 6: [0.0703 0.0736 0.0375 0.0788 0.0974]   std [0.0214 0.0204 0.0146 0.0212 0.0212]
+    a1 = 7: [0.1147 0.1039 0.0769 0.1095 0.1439]   std [0.017  0.019  0.0291 0.0347 0.0339]
+    a1 = 8: [0.145  0.1292 0.1097 0.1394 0.1711]   std [0.0212 0.0242 0.0366 0.0456 0.0375]
+
+=== (2) ablations of the wave(no 2) -> comparator weights in the real network (intact accuracy first) ===
+  intact                                                                         acc 0.9536   same as intact 1.0000
+  A   zero wave(no 2) -> comparators + unit 4                                    acc 0.5456   same as intact 0.5503
+  A-fit  A + best-fit level replacement on W[row,2] (least squares on real data) acc 0.8205   same as intact 0.8271
+  A'-fit same for the four comparators only (unit 4 untouched)                   acc 0.8255   same as intact 0.8330
+  wave -> comparator weights in threshold gauge, W[j,u]/g_j (rows j = 1,6,7,8; columns u = [0, 3, 10, 11, 12, 13, 14, 15] ):
+ [[-0.0102  0.0011  0.0023  0.0008  0.0041  0.0028  0.0075  0.0019]
+ [-0.0084  0.0025  0.0025  0.0017  0.0036  0.0015  0.0078 -0.0007]
+ [-0.0016 -0.0006 -0.0003  0.0023  0.0053  0.0016 -0.     -0.001 ]
+ [-0.0004  0.      0.0031  0.0045  0.0034  0.0001  0.0026 -0.0011]]
+  common-level part (mean over j): [-0.0052  0.0008  0.0019  0.0023  0.0041  0.0015  0.0045 -0.0002]
+  difference part norms per unit: [0.0085 0.0023 0.0026 0.0027 0.0015 0.0019 0.0066 0.0025]   level part norms (|mean|*2): [0.0103 0.0015 0.0038 0.0046 0.0082 0.003  0.009  0.0004]
+  P1  wave(no 2) -> comparators: keep ONLY the common-level part                 acc 0.5795   same as intact 0.5851
+  P2  wave(no 2) -> comparators: keep ONLY the difference part                   acc 0.8311   same as intact 0.8442
+  P3  unit 2 -> comparators made exactly uniform (b2 -> mean b2)                 acc 0.6567   same as intact 0.6649
+  P3' unit 2 -> comparators and unit 4 all with the same threshold weight mean(b2) acc 0.6558   same as intact 0.6641
+  P4  wave(no 2) -> comparators: REMOVE the component in the clock plane of Bc   acc 0.5853   same as intact 0.5906
+  P5  wave(no 2) -> comparators: keep ONLY the component in the clock plane of Bc acc 0.7635   same as intact 0.7733
+  |ell . (W[COMP,u]/g)| per wave unit u (clock-coordinate kick per unit activation): [0.0112 0.0039 0.0038 0.0019 0.0021 0.0007 0.0111 0.0018]
+
+=== (3) sources of z_c = ell . theta(t+1): mean of z_c^source * exp(-i phase_a) / M_t by age (t <= 8, M > 0.3) ===
+   phase_a = angle of the componentwise median of total z_c / M at that age; each entry: real part (along the total), imaginary part
+    a :   total |median|               comp              unit2              unit4           wave_no2            pulse59
+    0 :   0.627 @ 358.5    -0.000  -0.001i    +0.033  -0.003i    +0.610  +0.016i    -0.016  -0.012i    -0.002  -0.003i
+    1 :   0.583 @  33.5    +0.578  +0.081i    +0.063  -0.054i    +0.000  -0.000i    -0.079  +0.016i    +0.022  -0.046i
+    2 :   0.450 @  72.1    +0.501  +0.018i    +0.016  -0.080i    +0.000  -0.000i    -0.051  +0.067i    -0.005  +0.010i
+    3 :   0.361 @ 120.4    +0.397  -0.033i    -0.052  -0.069i    -0.000  -0.000i    +0.021  +0.088i    +0.005  +0.011i
+    4 :   0.326 @ 167.3    +0.329  -0.019i    -0.084  -0.009i    -0.001  -0.000i    +0.082  +0.038i    +0.007  +0.003i
+    5 :   0.323 @ 218.6    +0.311  -0.028i    -0.055  +0.056i    -0.002  +0.001i    +0.058  -0.029i    +0.005  -0.003i
+    6 :   0.322 @ 262.8    +0.301  -0.005i    -0.001  +0.071i    -0.000  +0.004i    +0.019  -0.044i    +0.002  -0.008i
+    7 :   0.347 @ 308.8    +0.310  +0.003i    +0.048  +0.047i    +0.002  +0.003i    -0.012  -0.041i    -0.006  -0.009i
+    8 :   0.360 @ 346.2    +0.326  +0.032i    +0.067  +0.008i    +0.002  +0.000i    -0.026  -0.026i    -0.010  -0.004i
+   same, mean ABSOLUTE size |z_c^source| / M:
+    0 :   total 0.627   comp 0.002   unit2 0.033   unit4 0.611   wave_no2 0.026   pulse59 0.007
+    1 :   total 0.590   comp 0.585   unit2 0.083   unit4 0.000   wave_no2 0.082   pulse59 0.053
+    2 :   total 0.469   comp 0.508   unit2 0.082   unit4 0.000   wave_no2 0.086   pulse59 0.011
+    3 :   total 0.379   comp 0.405   unit2 0.086   unit4 0.000   wave_no2 0.092   pulse59 0.013
+    4 :   total 0.342   comp 0.338   unit2 0.084   unit4 0.001   wave_no2 0.091   pulse59 0.008
+    5 :   total 0.328   comp 0.321   unit2 0.078   unit4 0.002   wave_no2 0.067   pulse59 0.007
+    6 :   total 0.331   comp 0.311   unit2 0.071   unit4 0.004   wave_no2 0.054   pulse59 0.009
+    7 :   total 0.350   comp 0.319   unit2 0.067   unit4 0.004   wave_no2 0.052   pulse59 0.011
+    8 :   total 0.365   comp 0.335   unit2 0.068   unit4 0.002   wave_no2 0.047   pulse59 0.011
+
+=== (4) answers of the hybrids (true answer = runner-up position) ===
+  intact                      : P(runner-up) 0.9536  P(max) 0.0095  P(third) 0.0298  P(other) 0.0071;  accuracy by position of the true answer 0..9: [0.9509 0.964  0.9621 0.9598 0.9593 0.9505 0.9495 0.9408 0.9455 0.953 ]
+  F closed core (plain)       : P(runner-up) 0.5080  P(max) 0.2967  P(third) 0.1203  P(other) 0.0751;  accuracy by position of the true answer 0..9: [0.5712 0.6579 0.6417 0.5699 0.4653 0.3628 0.3154 0.366  0.5457 0.5862]
+      max |core of hybrid - stand-alone six-unit simulation| = 6.04e-14
+  G closed core (compensated) : P(runner-up) 0.4913  P(max) 0.1951  P(third) 0.1121  P(other) 0.2014;  accuracy by position of the true answer 0..9: [0.1415 0.1507 0.353  0.8592 0.7879 0.5857 0.4145 0.3503 0.6444 0.6197]
+      max |core of hybrid - stand-alone six-unit simulation| = 7.82e-14

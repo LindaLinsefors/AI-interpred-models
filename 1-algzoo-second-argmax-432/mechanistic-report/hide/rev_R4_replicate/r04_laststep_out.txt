@@ -1,0 +1,37 @@
+=== SECTION 6, from the weights
+coefficients of [theta_j - x_9]_+ in L_9 for units 1, 6, 7, 8: [ -5.007  -7.378 -49.902   4.04 ] ; of [x_9 - theta_4]_+: -50.701
+U[9,4] = -4.992, U[9,7] = -3.789, U[8,5] = 3.398, U[8,9] = -1.659
+d(L_9 - L_p)/dx_9, p = 0..8, all 13 ordinary units on, pulses off: [61.52 61.66 61.64 61.58 61.8  61.81 61.89 62.1  60.98]  range 61.0..62.1
+d(L_9 - L_p)/dx_9, p = 0..8, comparators cut, unit 4 on, wave units on: [-57.44 -55.13 -56.13 -56.92 -57.48 -57.81 -57.37 -54.61 -56.79]  range -57.8..-54.6
+extra slope if unit 5 / unit 9 is on at step 9 (p = 0..8): unit 5 [ 0.05  0.09  0.1   0.02 -0.03 -0.06 -0.07  0.01  1.07] ; unit 9 [-0.34 -0.1   0.23  0.31  0.5   0.58  0.24  0.19 -0.24]
+dh_9[5]/dx_8 with all 13 ordinary units on at step 8: 18.009 (x U[8,5] = 61.19) ; comparators 7 and 8 alone: 18.276 (x U[8,5] = 62.09)
+   + W[5,5] w_5 = 0.118 if unit 5 is on at step 8 ; + W[5,9] w_9 = -0.068 if unit 9 is on at step 8
+
+identity L_9 = formula + rho_9 on 200k sequences (seed 7051): max abs error 1.42e-13 (max |L_9| 301)
+measured d(L_9 - L_p)/dx_9, x_9 below all five thresholds (share 0.818): min 60.6, 5% 61.0, quartiles 61.5 / 61.7 / 61.9, 95% 62.1, max 70.0
+    share of (sequence, p) pairs inside the report's range: 0.921
+measured d(L_9 - L_p)/dx_9, x_9 above all five thresholds (share 0.088): min -58.8, 5% -57.8, quartiles -57.4 / -56.9 / -55.7, 95% -54.6, max -48.9
+    share of (sequence, p) pairs inside the report's range: 0.936
+    below + all wave units on + units 5, 9 off (share 0.289): range 60.98..62.10
+
+sweep of x_9 for fixed prefixes (seed 7052): grid -4..7 step 0.004
+prefixes with S_8 > 0: 20000 ; answers 9 somewhere: 0.9579 ; of those: exactly one interval 0.9966, two 0.0034, three or more 0.0000
+   single interval with both edges inside the grid: 0.9966 of those that answer 9 somewhere
+   lower edge vs S_8: slope 1.008, intercept -0.019, R2 0.9863, median abs error 0.022
+   upper edge vs M_8: slope 0.998, intercept +0.001, R2 0.9959, median abs error 0.013
+   edges in units g = (x_9 - S_8)/(M_8 - S_8): lower median -0.021 quartiles -0.063 / 0.025, 5% -0.46 ; upper median 1.002 quartiles 0.972 / 1.027, 95% 1.26
+   answer just below the lower edge is the old runner-up's position: 0.967 ; just above the upper edge is the old max's position: 0.912
+   all prefixes (8000, no filter): answers 9 somewhere 0.9604 ; one interval 0.9975 of those
+
+dh_9[5]/dx_8 by finite difference (seed 7053), unit 5 on at step 9, gates unchanged:
+   comparators 7, 8 on and unit 4 off at step 8               n= 21307  5% 17.96 quartiles 18.00 / 18.01 / 18.06 95% 18.18
+     of which all 13 ordinary on and pulses off at step 8     n=  6009  5% 18.01 quartiles 18.01 / 18.01 / 18.01 95% 18.01
+   comparator 8 off, 7 on, unit 4 off                         n= 10172  5% 7.50 quartiles 7.54 / 7.56 / 7.76 95% 7.77
+   all comparators off and unit 4 on (new max at 8)           n= 19274  5% 11.90 quartiles 11.94 / 11.95 / 12.00 95% 12.19
+
+readout-weight ablations (n = 400k, seed 7054): accuracy all / max last / runner-up last / runner-up at 8
+   none        0.9534 / 0.9361 / 0.9537 / 0.9425
+   U[8,5] = 0  0.8636 / 0.8382 / 0.9605 / 0.0158
+   U[9,7] = 0  0.5503 / 0.9356 / 0.9837 / 0.5237
+   U[9,4] = 0  0.9380 / 0.7706 / 0.9650 / 0.9114
+   U[8,9] = 0  0.9522 / 0.9403 / 0.9470 / 0.9524

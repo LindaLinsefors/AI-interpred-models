@@ -1,0 +1,90 @@
+2052956 records (D1 selection, g >= 1), seeds 5000..5009
+
+[1] centred R2 of y over ALL records (pooled, natural weights) for nested descriptions y ~ c1(.) (M0 - S0) + c2(.) M0
+    0.373   one c1, one c2 for everything (c1 = 41.0, c2 = 3.83)
+    0.754   cosine law: c1 = K (1 - cos(42.75 Delta)), one c2 (K = 47.0, c2 = 2.96)
+    0.757   cosine law with a free c2 per Delta (K = 45.9)
+    0.630   linear law: c1 = a Delta, one c2 (a = 18.1)
+    0.761   free (c1, c2) per Delta  [the lead's D1 table; 8 groups]
+    0.881   free (c1, c2) per SIGNED separation pM0 - pS0 (15 groups)
+    0.526   free (c1, c2) per age of the old runner-up (9 groups)
+    0.391   free (c1, c2) per age of the old max (8 groups)
+    0.964   free (c1, c2) per pair of ages (aM, aS) (64 groups)
+    0.964   free (c1, c2) per configuration (t, pM0, pS0) (204 groups)
+
+[2] pooled c1(Delta) (natural weights) against one-parameter-family laws; relative error per Delta
+    Delta:                               1       2       3       4       5       6       7       8
+    my pooled c1:                     17.5    43.7    73.1    88.1    80.9    64.0    42.7    54.6
+    -- fit on Delta 1..7 (unweighted least squares on the c1 values)
+       R2 =  0.874  K(1-cos(42.75 D)), K=46.5                        pred:   12.4   42.9   75.3   92.4   85.2   57.4   23.8    2.3  | obs/pred:  1.42  1.02  0.97  0.95  0.95  1.12  1.80 23.99
+       R2 =  0.948  K(1-cos(w D)), K=45.5, w=40.42                   pred:   10.9   38.3   69.1   88.7   87.7   66.5   35.3    9.0  | obs/pred:  1.61  1.14  1.06  0.99  0.92  0.96  1.21  6.07
+       R2 =  0.957  K(1-0.951^D cos(42.75 D)), K=49.9                pred:   15.1   46.4   76.5   90.2   82.2   58.5   32.8   18.2  | obs/pred:  1.16  0.94  0.96  0.98  0.98  1.09  1.30  3.01
+       R2 =  0.998  K(1-r^D cos(w D)), K=51.3, r=0.920, w=41.05      pred:   15.7   45.3   73.2   86.7   81.9   63.8   42.7   28.8  | obs/pred:  1.12  0.96  1.00  1.02  0.99  1.00  1.00  1.90
+       R2 = -0.474  a D, a=12.6                                      pred:   12.6   25.2   37.8   50.4   63.0   75.6   88.2  100.8  | obs/pred:  1.39  1.73  1.93  1.75  1.28  0.85  0.48  0.54
+       R2 =  0.863  a D + b D^2, a=36.1, b=-4.20                     pred:   31.9   55.4   70.6   77.3   75.6   65.5   47.1   20.2  | obs/pred:  0.55  0.79  1.04  1.14  1.07  0.98  0.91  2.71
+       R2 =  0.000  constant 58.6                                    pred:   58.6   58.6   58.6   58.6   58.6   58.6   58.6   58.6  | obs/pred:  0.30  0.75  1.25  1.50  1.38  1.09  0.73  0.93
+    -- fit on Delta 1..8 (unweighted least squares on the c1 values)
+       R2 =  0.150  K(1-cos(42.75 D)), K=46.7                        pred:   12.4   43.0   75.6   92.8   85.5   57.6   23.9    2.3  | obs/pred:  1.41  1.02  0.97  0.95  0.95  1.11  1.79 23.89
+       R2 =  0.570  K(1-cos(w D)), K=44.6, w=36.90                   pred:    8.9   32.2   60.4   82.3   89.1   78.1   53.7   25.6  | obs/pred:  1.96  1.36  1.21  1.07  0.91  0.82  0.80  2.13
+       R2 =  0.610  K(1-0.951^D cos(42.75 D)), K=51.1                pred:   15.4   47.5   78.3   92.4   84.1   59.9   33.5   18.6  | obs/pred:  1.14  0.92  0.93  0.95  0.96  1.07  1.27  2.94
+       R2 =  0.929  K(1-r^D cos(w D)), K=56.1, r=0.848, w=40.45      pred:   19.9   49.7   73.9   83.6   78.8   65.6   52.1   44.1  | obs/pred:  0.88  0.88  0.99  1.05  1.03  0.98  0.82  1.24
+       R2 = -0.857  a D, a=10.8                                      pred:   10.8   21.6   32.4   43.2   53.9   64.7   75.5   86.3  | obs/pred:  1.62  2.03  2.26  2.04  1.50  0.99  0.57  0.63
+       R2 =  0.749  a D + b D^2, a=32.1, b=-3.36                     pred:   28.8   50.8   66.1   74.8   76.7   71.8   60.3   42.1  | obs/pred:  0.61  0.86  1.11  1.18  1.06  0.89  0.71  1.30
+       R2 =  0.000  constant 58.1                                    pred:   58.1   58.1   58.1   58.1   58.1   58.1   58.1   58.1  | obs/pred:  0.30  0.75  1.26  1.52  1.39  1.10  0.74  0.94
+
+[3] omitted variable: excess of the new max e = (x_t - M0)/M0. c1 by Delta within terciles of e (natural weights)
+    tercile edges of e: 0.257, 0.729
+    small e  : c1 =   17.0   42.0   68.6   82.3   74.8   54.6   31.7   53.4   P(y>0) = 0.969 0.976 0.975 0.990 0.966 0.943 0.866 0.990
+    middle e : c1 =   17.8   45.8   78.1   93.9   87.5   74.0   54.5   56.6   P(y>0) = 0.971 0.988 0.978 0.991 0.973 0.947 0.907 0.996
+    large e  : c1 =   18.5   45.1   77.1   95.0   88.5   76.2   59.0   56.1   P(y>0) = 0.940 0.993 0.984 0.987 0.967 0.941 0.859 0.996
+    e < 0.05 : c1 =   16.9   39.8   63.1   78.5   70.8   46.8   26.6   50.2   P(y>0) = 0.950 0.953 0.968 0.985 0.946 0.931 0.793 0.972   (n = 158191)
+    Delta=1: adding (x_t - M0) as a third regressor: coefficient   0.59, c1   17.5 ->   17.6, R2 0.648 -> 0.650
+    Delta=2: adding (x_t - M0) as a third regressor: coefficient   1.34, c1   43.7 ->   43.9, R2 0.720 -> 0.722
+    Delta=3: adding (x_t - M0) as a third regressor: coefficient   2.67, c1   73.1 ->   73.4, R2 0.672 -> 0.674
+    Delta=4: adding (x_t - M0) as a third regressor: coefficient   4.10, c1   88.1 ->   88.5, R2 0.669 -> 0.673
+    Delta=5: adding (x_t - M0) as a third regressor: coefficient   4.74, c1   80.9 ->   81.4, R2 0.728 -> 0.735
+    Delta=6: adding (x_t - M0) as a third regressor: coefficient   5.85, c1   64.0 ->   64.7, R2 0.818 -> 0.840
+    Delta=7: adding (x_t - M0) as a third regressor: coefficient   7.55, c1   42.7 ->   43.5, R2 0.386 -> 0.425
+    Delta=8: adding (x_t - M0) as a third regressor: coefficient   3.42, c1   54.6 ->   54.9, R2 0.943 -> 0.953
+
+[4] which is older? c1, c2, R2, P(y>0) by SIGNED separation pM0 - pS0 (negative: old runner-up YOUNGER than the old max)
+    pM0 - pS0 = -8: n =    4926  c1 =   54.6  c2 =   0.68  R2 = 0.943  P(y>0) = 0.994   c1/(1-cos) = 1115.7
+    pM0 - pS0 = -7: n =   16373  c1 =   46.2  c2 =   3.32  R2 = 0.406  P(y>0) = 0.874   c1/(1-cos) =   90.3
+    pM0 - pS0 = -6: n =   37244  c1 =   60.5  c2 =   2.26  R2 = 0.758  P(y>0) = 0.961   c1/(1-cos) =   49.0
+    pM0 - pS0 = -5: n =   71291  c1 =   63.0  c2 =   5.10  R2 = 0.688  P(y>0) = 0.958   c1/(1-cos) =   34.4
+    pM0 - pS0 = -4: n =  123463  c1 =   60.7  c2 =   7.25  R2 = 0.645  P(y>0) = 0.994   c1/(1-cos) =   30.5
+    pM0 - pS0 = -3: n =  201883  c1 =   52.7  c2 =   5.18  R2 = 0.657  P(y>0) = 0.967   c1/(1-cos) =   32.6
+    pM0 - pS0 = -2: n =  321415  c1 =   39.8  c2 =  -0.66  R2 = 0.771  P(y>0) = 0.980   c1/(1-cos) =   43.2
+    pM0 - pS0 = -1: n =  499196  c1 =   21.2  c2 =  -0.03  R2 = 0.719  P(y>0) = 0.956   c1/(1-cos) =   79.9
+    pM0 - pS0 = +1: n =  321262  c1 =   11.2  c2 =   1.66  R2 = 0.630  P(y>0) = 0.966   c1/(1-cos) =   42.3
+    pM0 - pS0 = +2: n =  201484  c1 =   51.6  c2 =   5.32  R2 = 0.860  P(y>0) = 0.995   c1/(1-cos) =   56.0
+    pM0 - pS0 = +3: n =  123723  c1 =  109.2  c2 =   4.08  R2 = 0.950  P(y>0) = 0.998   c1/(1-cos) =   67.5
+    pM0 - pS0 = +4: n =   71254  c1 =  139.7  c2 =   1.80  R2 = 0.979  P(y>0) = 0.982   c1/(1-cos) =   70.3
+    pM0 - pS0 = +5: n =   37853  c1 =  116.5  c2 =   2.78  R2 = 0.983  P(y>0) = 0.989   c1/(1-cos) =   63.6
+    pM0 - pS0 = +6: n =   16572  c1 =   71.9  c2 =  -3.96  R2 = 0.966  P(y>0) = 0.906   c1/(1-cos) =   58.3
+    pM0 - pS0 = +7: n =    5017  c1 =   29.6  c2 =  -1.79  R2 = 0.811  P(y>0) = 0.890   c1/(1-cos) =   58.0
+
+[5] D2 with the composition held fixed: records at t <= 4 whose top two stay unchanged up to t + 5 (same records at every k)
+    g >= 1 (D1 records): n = 165280, Delta in [np.int64(1), np.int64(2), np.int64(3)]: c1 = 26.4, 26.7, 17.1, 18.0, 19.2, 20.1 | c2 = -0.07, 1.65, 6.37, 6.85, 6.84, 7.61 | P(y>0) = 0.972, 0.995, 0.998, 0.998, 0.997, 0.997
+    per Delta within that cohort:
+      Delta=1 (n = 112134): c1 = 21.3, 22.3, 10.9, 12.1, 13.2, 13.3
+      Delta=2 (n = 43304): c1 = 38.5, 36.8, 30.9, 30.3, 32.3, 34.3
+      Delta=3 (n = 9842): c1 = 38.8, 38.8, 37.9, 41.1, 41.1, 46.9
+    cohorts by last valid k (records with top two unchanged up to t + K, t <= 9 - K), c1 at k = 0..K:
+      K=1 (n = 1409409): 38.9, 42.5
+      K=2 (n = 930606): 36.0, 39.2, 34.3
+      K=3 (n = 580381): 32.4, 34.9, 29.2, 29.5
+      K=4 (n = 332068): 28.9, 30.3, 23.5, 23.8, 25.4
+      K=5 (n = 165280): 26.4, 26.7, 17.1, 18.0, 19.2, 20.1
+    per (Delta, k), top two unchanged (all records valid at k, natural weights):
+      Delta=1:   17.5   19.5   13.1   13.6   13.9   13.3
+      Delta=2:   43.7   46.1   41.8   39.1   37.7   34.3
+      Delta=3:   73.1   77.9   71.9   64.7   59.7   46.9
+      Delta=4:   88.1   95.7   86.4   76.7   60.7      -
+      Delta=5:   80.9   85.9   78.2   67.5      -      -
+      Delta=6:   64.0   70.4   72.1      -      -      -
+      Delta=7:   42.7   62.9      -      -      -      -
+
+[6] index convention check (seed 5020, 200k): P(argmax_{i >= 9-t} s_t[i] + t - 9 == second argmax of x_0..x_t | S_t > 0)
+    t = 1..9: 0.993 0.987 0.972 0.966 0.969 0.970 0.969 0.968 0.961
+    shifted-by-one convention (negative control): 0.216 0.093 0.077 0.055 0.042 0.033 0.027 0.022 0.018

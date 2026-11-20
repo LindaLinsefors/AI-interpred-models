@@ -1,0 +1,24 @@
+(a) K0: max |lhs - rhs| over 14400000 threshold values: 3.9968028886505635e-15   (typical |theta|: 0.856 )
+    and h_k = g_k [theta_k - x_t]_+ for the comparators: max error 1.4210854715202004e-14
+    and h_4 = w_4 [x_t - theta_4]_+ : max error 7.105427357601002e-15
+
+(b) independent running max / age agree with running_stats: True True
+    K3: mean (sd) of the parts of theta_j(t+1)/M_t;  columns: unit 2 | wave units except 2 | comparators | total
+       theta_1:  0.827 (0.075) |  0.094 (0.041) | -0.042 (0.305) |  0.893 (0.264)
+       theta_6:  0.844 (0.076) |  0.103 (0.036) |  0.029 (0.068) |  0.979 (0.131)
+       theta_7:  0.887 (0.080) |  0.043 (0.038) | -0.022 (0.054) |  0.910 (0.097)
+       theta_8:  0.881 (0.080) |  0.113 (0.046) | -0.259 (0.415) |  0.733 (0.346)
+       theta_4:  0.841 (0.076) |  0.085 (0.038) | -0.019 (0.034) |  0.908 (0.071)
+    K4: median h_2(t) / (17.3 M_{t-1}) by age of the max at t = 1..9 (M_{t-1} > 0.3): [1.024, 1.018, 1.068, 1.05, 0.978, 0.899, 0.853, 0.859, 0.918]
+        the same with M_t in the denominator and the least-squares constant instead of 17.3: h_2 ~ c M_t, states with a1 >= 1, M > 0.3: c = 17.3
+
+(c) K6.  eigenvalue 0.9375 @ 42.56 deg;  |l . 1| = 0.0132 ;  |l . b2| = 0.00464  -> per unit M with h_2 = 17.3 M: 0.08
+    age | phase of median | e24: bM, bS, uncentred R2 | centred R2 of the same fit | rms of the perpendicular (imaginary) part / rms of the real part | complex fit z ~ aM M + aS S+: |aM|@phase, |aS|@phase, uncentred R2, centred R2 | IQR of the phase of z_c (deg), states with (M - S+)/M > 0.3
+     1  |   33.5 |  0.926  -0.841 0.9971 | 0.9912 | 0.084 | 0.928@  37.3  0.854@ 223.6  0.9956  0.9867 |   4.3   n=445471
+     2  |   72.0 |  0.830  -0.782 0.9948 | 0.9855 | 0.114 | 0.834@  77.4  0.793@ 261.5  0.9885  0.9681 |   5.2   n=352885
+     3  |  120.5 |  0.745  -0.718 0.9950 | 0.9868 | 0.105 | 0.745@ 120.4  0.718@ 300.6  0.9843  0.9588 |   6.5   n=276762
+     4  |  167.3 |  0.676  -0.615 0.9915 | 0.9756 | 0.130 | 0.677@ 165.6  0.618@ 341.9  0.9774  0.9373 |   7.3   n=213001
+     5  |  218.6 |  0.621  -0.520 0.9712 | 0.9103 | 0.162 | 0.625@ 212.6  0.530@  27.3  0.9519  0.8581 |   8.7   n=158567
+     6  |  262.8 |  0.622  -0.495 0.9598 | 0.8695 | 0.159 | 0.623@ 260.8  0.499@  75.4  0.9399  0.8140 |   8.0   n=111388
+     7  |  308.8 |  0.663  -0.510 0.9597 | 0.8626 | 0.146 | 0.664@ 306.0  0.513@ 122.5  0.9408  0.8081 |   8.5   n=69507
+     8  |  346.2 |  0.728  -0.571 0.9652 | 0.8822 | 0.123 | 0.728@ 346.7  0.572@ 165.5  0.9516  0.8415 |   7.6   n=32841

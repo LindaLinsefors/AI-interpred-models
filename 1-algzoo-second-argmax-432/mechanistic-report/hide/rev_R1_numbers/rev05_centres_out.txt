@@ -1,0 +1,14 @@
+(1) orbit centre per unit M = mean over ages a = 2..9 of the mean of (W h_(t-1))_u / M, for three bins of S+/M (age = age of the max in h_(t-1) + 1)
+   unit:              0      1      2      3      6      7      8     10     11     12     13     14     15
+   S/M in (-1.00, 0.05]:   13.94   7.66  14.47   3.29   8.80  10.76   8.57  10.96  11.00  16.24   6.66  13.41   9.37
+   S/M in ( 0.45, 0.55]:    8.45   8.90  16.07   2.85   9.57  11.65  10.68   8.02   7.65  11.29   5.95  11.19   6.59
+   S/M in ( 0.85, 0.95]:    4.40   9.91  17.77   2.98  10.32  12.66  12.18   5.76   5.18   7.85   5.94   9.35   5.12
+   change per unit S/M (bin 3 - bin 1)/0.9:  -10.60   2.50   3.67  -0.34   1.68   2.10   4.01  -5.77  -6.46  -9.32  -0.80  -4.51  -4.72
+   runner eigenvector x 10.157 x 5.2:         -8.73   2.85   4.79   1.84   2.32   2.68   2.26  -5.99  -6.77  -7.87   1.79  -6.12  -1.67
+
+(2) e18 (clock radius x0 one step before the overtaking): P(answer = old max) under e18's selection and with conditions relaxed
+   e18: g>=2, S0>0.2, M0-S0>0.1, third=q0, 3<=tr<=8: n= 152690  unmodified 0.990   x0: 0.019   x0.5: 0.342   x2: 0.746
+   g>=2, S0>0, any gap, tr<=8                      : n= 302511  unmodified 0.974   x0: 0.049   x0.5: 0.298   x2: 0.748
+   g>=2, S0>0, any gap, tr<=9                      : n= 412933  unmodified 0.967   x0: 0.061   x0.5: 0.363   x2: 0.752
+   g>=1, S0>0, any gap, tr<=9 (arm F: age>=2 at the record): n= 516268  unmodified 0.968   x0: 0.111   x0.5: 0.437   x2: 0.697
+   g==1 only, S0>0                                 : n= 103335  unmodified 0.970   x0: 0.313   x0.5: 0.733   x2: 0.479

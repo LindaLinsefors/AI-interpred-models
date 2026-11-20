@@ -1,0 +1,18 @@
+accuracy N(0,1), seed 5000, n=200000: 0.9532
+run_iv identity max |diff| vs run: 0.0
+OMEGA deg: 42.74778082781026  |lam_clock|: 0.9508767904359704
+level   lam = 1.0099 @    0.00   L.R = 1.000000-0.000000j   L.conj(R) = 1.00e+00+8.91e-17j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 6.22e-15   |L A - lam L| = 2.22e-16
+runner  lam = 0.9735 @    0.00   L.R = 1.000000-0.000000j   L.conj(R) = 1.00e+00+2.32e-16j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 6.11e-16   |L A - lam L| = 6.22e-15
+clock   lam = 0.9509 @   42.75   L.R = 1.000000+0.000000j   L.conj(R) = -1.11e-16+1.41e-16j   L.kick4 = 1.000000-0.000000j   |A R - lam R| = 2.79e-15   |L A - lam L| = 1.36e-15
+h2      lam = 0.9370 @   83.28   L.R = 1.000000-0.000000j   L.conj(R) = 0.00e+00-1.11e-16j   L.kick4 = 1.000000-0.000000j   |A R - lam R| = 1.17e-15   |L A - lam L| = 5.83e-15
+alt     lam = 0.9283 @  180.00   L.R = 1.000000+0.000000j   L.conj(R) = 1.00e+00-6.76e-16j   L.kick4 = 1.000000-0.000000j   |A R - lam R| = 2.58e-16   |L A - lam L| = 3.67e-15
+h3      lam = 0.8373 @  124.78   L.R = 1.000000+0.000000j   L.conj(R) = 2.22e-16+7.29e-17j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 7.14e-16   |L A - lam L| = 3.46e-15
+short   lam = 0.7350 @   42.99   L.R = 1.000000-0.000000j   L.conj(R) = -5.55e-17-1.39e-17j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 1.81e-15   |L A - lam L| = 2.90e-15
+trans   lam = 0.2310 @    0.00   L.R = 1.000000+0.000000j   L.conj(R) = 1.00e+00-1.71e-16j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 4.77e-15   |L A - lam L| = 1.03e-15
+echo    lam = 0.0010 @    0.00   L.R = 1.000000+0.000000j   L.conj(R) = 1.00e+00-1.90e-15j   L.kick4 = 1.000000+0.000000j   |A R - lam R| = 1.44e-16   |L A - lam L| = 1.36e-14
+f=0 k=0: |z' - target| = 2.28e-14, other coords changed by 2.84e-13, pulse units by 0.00e+00
+f=0.5 k=0: |z' - target| = 1.92e-14, other coords changed by 3.41e-13, pulse units by 0.00e+00
+f=1 k=1: |z' - target| = 2.28e-14, other coords changed by 2.84e-13, pulse units by 0.00e+00
+f=1 k=-2: |z' - target| = 2.98e-14, other coords changed by 3.41e-13, pulse units by 0.00e+00
+f=2 k=0: |z' - target| = 2.51e-14, other coords changed by 2.84e-13, pulse units by 0.00e+00
+fraction of squared norm of LEFT[clock] on comparators: 0.9658969558260172

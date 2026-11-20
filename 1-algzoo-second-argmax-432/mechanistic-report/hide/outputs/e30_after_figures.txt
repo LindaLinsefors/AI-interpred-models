@@ -1,0 +1,113 @@
+
+======== A. comparator terms of the update rule, l[k] g_k / w4   [report: comparator 7 off: -0.06, -5.39]
+  level   k=1: +0.0290  k=6: +0.0695  k=7: -0.0548  k=8: -0.0433   sum +0.0004
+  runner  k=1: +1.4092  k=6: -0.2024  k=7: -5.3848  k=8: +4.0985   sum -0.0795
+  clock   k=1: 0.8001 at -123.88  k=6: 1.3077 at  159.25  k=7: 1.3767 at   28.67  k=8: 0.6699 at  -44.64   sum 0.0193
+
+======== K. readout columns U[0..7, j]: fit a cos(om i) + b sin(om i) + c   [report: clock frequency 42.75, R2 .974 .943 .991 .988]
+  unit 1: R2 at 42.75 = 0.974;  best frequency 48.63 deg per index, R2 = 0.980
+  unit 6: R2 at 42.75 = 0.943;  best frequency 49.07 deg per index, R2 = 0.996
+  unit 7: R2 at 42.75 = 0.991;  best frequency 44.36 deg per index, R2 = 0.992
+  unit 8: R2 at 42.75 = 0.988;  best frequency 44.88 deg per index, R2 = 0.994
+
+======== L. eigenvalues of Sigma = U_o A pinv(U_o) against those of A   [report: level, runner, clock absent]
+  A: 1.0099 at    0.00   nearest eigenvalue of Sigma is 0.165 away
+  A: 0.9735 at    0.00   nearest eigenvalue of Sigma is 0.128 away
+  A: 0.9509 at   42.75   nearest eigenvalue of Sigma is 0.257 away
+  A: 0.9370 at   83.28   nearest eigenvalue of Sigma is 0.017 away
+  A: 0.9283 at  180.00   nearest eigenvalue of Sigma is 0.004 away
+  A: 0.8373 at  124.78   nearest eigenvalue of Sigma is 0.004 away
+  A: 0.7350 at   42.99   nearest eigenvalue of Sigma is 0.046 away
+  A: 0.2310 at    0.00   nearest eigenvalue of Sigma is 0.026 away
+  A: 0.0010 at    0.00   nearest eigenvalue of Sigma is 0.256 away
+  Sigma: 0.932@180.0  0.925@82.5  0.845@0.0  0.834@124.6  0.694@41.2  0.676@0.0  0.257@0.0
+
+1000000 N(0,1) sequences, seed 3030; accuracy 0.9531
+
+======== B. median margin (s[pS] - s[pM]) / M at t = 9 by distance D   [report, gap 0.3-0.5: 4.8 7.8 10.2 13.7 16.8 16.4 17.9 21.9]
+  gap 0.05-0.15  all pairs      :    4.5    5.9    7.7   12.1   12.1    9.3    9.1   10.4
+                 without pos. 8 :    4.6    6.2    8.5   13.1   12.1    8.6    7.6
+                 V part, without:    6.7   14.2   22.2   29.0   27.7   13.5    6.6
+  gap 0.15-0.30  all pairs      :    5.0    7.4    8.8   13.9   17.4   16.2   15.9   18.9
+                 without pos. 8 :    5.0    7.3    9.1   14.9   17.6   15.1   13.3
+                 V part, without:    8.6   19.9   34.6   47.0   47.7   28.5   11.8
+  gap 0.30-0.50  all pairs      :    4.8    7.8   10.2   13.6   16.9   16.4   18.1   21.8
+                 without pos. 8 :    4.8    7.3   10.1   13.4   15.6   14.0   13.4
+                 V part, without:   10.7   29.7   51.3   65.3   64.5   40.8   15.8
+  gap 0.50-0.80  all pairs      :    4.3    6.9   10.4   12.1   14.0   13.1   15.2   22.3
+                 without pos. 8 :    4.3    6.6   10.0   11.7   12.3   10.8    9.7
+                 V part, without:   13.5   42.0   71.7   88.4   83.7   52.8   19.3
+  share of pairs that include position 8, D = 1..8: 0.12 0.14 0.17 0.20 0.25 0.33 0.50 1.00
+
+======== C. alpha(a): mean over the runner-up's ages of |c1|, z ~ c1 (M - S) + c2 S on S > 0.05   [report: ... 0.85, 0.82, 0.81]
+  phi(a)  : [  0.5  36.4  79.3 123.2 166.  208.7 251.  294.  337.8]
+  alpha(a): [1.011 1.032 0.991 0.951 0.917 0.882 0.852 0.823 0.803]
+  signed median of phi(a) - arg z, and median |.|, by relative gap <0.1, 0.1-0.3, 0.3-0.6, >0.6   [report: 'it lags']
+    ages 1-1: signed    1.9    0.6    0.8    0.5    absolute   23.2    9.4    3.2    0.6
+    ages 2-4: signed   27.7   12.2    5.3    0.7    absolute   31.5   14.5    6.4    1.1
+    ages 5-9: signed   18.1    7.3    3.2    0.9    absolute   19.8    8.7    4.1    1.1
+  tie radius, age 1: median |z| / M = 0.2126  (n = 68349)   [report: 0.21 at age 1, 0.15 at age 8]
+  tie radius, age 4: median |z| / M = 0.1607  (n = 51215)   [report: 0.21 at age 1, 0.15 at age 8]
+  tie radius, age 8: median |z| / M = 0.1433  (n = 16856)   [report: 0.21 at age 1, 0.15 at age 8]
+
+======== D. level(t) / (w4 M_(t-1)) when M_(t-1) arrived at step t-1   [report: 0.99]
+  all such states: median 1.0083;  with a runner-up above 0.05: 0.9837;  first input (no runner-up): 1.0148
+  maximum 2-2 steps old at step t: median 0.9279
+  maximum 3-5 steps old at step t: median 0.9158
+  maximum 6-9 steps old at step t: median 0.9286
+
+======== E. comparators set to zero after step 8   [report: rates 0.80 1.00 0.42 0.71 0.93 1.00 for k = 1..6; 'every miss answers position 8']
+  k = 1: P(maximum) = 0.793;  of the 14394 other answers: position 8 in 1.000, the true runner-up in 0.026 (runner-up at position 8: 0.026)
+  k = 2: P(maximum) = 0.997;  of the 215 other answers: position 8 in 0.921, the true runner-up in 0.153 (runner-up at position 8: 0.074)
+  k = 3: P(maximum) = 0.418;  of the 40326 other answers: position 8 in 0.997, the true runner-up in 0.025 (runner-up at position 8: 0.023)
+  k = 4: P(maximum) = 0.707;  of the 20315 other answers: position 8 in 0.988, the true runner-up in 0.025 (runner-up at position 8: 0.013)
+  k = 5: P(maximum) = 0.934;  of the 4580 other answers: position 8 in 0.930, the true runner-up in 0.051 (runner-up at position 8: 0.002)
+  k = 6: P(maximum) = 1.000;  of the 0 other answers: position 8 in nan, the true runner-up in nan (runner-up at position 8: nan)
+  k = 1..6 pooled: position 8 in 0.991 of the other answers; runner-up (not at 8) in 0.007
+
+======== I. unit value / old maximum at the step of a new maximum (t_r) and one step before, by age k of the old maximum at t_r
+  unit  0, old maximum 2 steps old: median  6.20 M one step before,  0.00 M at the new maximum (exactly zero in 1.00);  U[7,0] = -2.90  (old maximum's index one step later: U[6,0] = +1.24)
+  unit 11, old maximum 5 steps old: median  3.28 M one step before,  0.00 M at the new maximum (exactly zero in 0.65);  U[4,11] = -4.56  (old maximum's index one step later: U[3,11] = +0.29)
+  unit 10, old maximum 6 steps old: median  4.10 M one step before,  0.00 M at the new maximum (exactly zero in 0.87);  U[3,10] = -3.87  (old maximum's index one step later: U[2,10] = -2.81)
+  unit 12, old maximum 3 steps old: median  9.59 M one step before,  3.20 M at the new maximum (exactly zero in 0.00);  U[6,12] = -2.22  (old maximum's index one step later: U[5,12] = -2.79)
+  unit 15, old maximum 7 steps old: median  8.46 M one step before, 13.22 M at the new maximum (exactly zero in 0.00);  U[2,15] = +2.62  (old maximum's index one step later: U[1,15] = +2.30)
+  unit 14, old maximum 8 steps old: median 15.38 M one step before,  7.17 M at the new maximum (exactly zero in 0.00);  U[1,14] = +0.61  (old maximum's index one step later: U[0,14] = -5.14)
+  unit 13, old maximum 4 steps old: median  6.13 M one step before,  8.19 M at the new maximum (exactly zero in 0.00);  U[5,13] = +2.09  (old maximum's index one step later: U[4,13] = +0.18)
+
+======== J. resting gate pattern (13 units on, units 4, 5, 9 off)   [report: 10% of states, never at ages 1-2, 2% at ages 5 and 6; at most four consecutive steps]
+  all states 0.1033;  last step 0.2906
+  by age 0..9 of the maximum, maximum > 0: 0.00 0.00 0.00 28.78 26.27 4.11 2.62 53.98 64.00 61.03 (%)
+  by age 0..9 of the maximum, maximum > 0 and runner-up > 0.05: 0.00 0.00 0.01 22.38 27.28 2.40 2.22 53.08 63.50 60.65 (%)
+  by age 0..9 of the maximum, maximum > 0.3: 0.00 0.00 0.01 28.07 26.13 3.56 2.12 53.82 63.96 61.03 (%)
+  longest run of consecutive resting steps, number of sequences: {0: 333645, 1: 474787, 2: 164714, 3: 26191, 4: 621, 5: 31, 6: 11}
+  number of resting states at ages 0, 1, 2 of a positive maximum: [0, 0, 67] of [2236961, 1735962, 1360530]
+  sequences with at least 3, 4, 5 consecutive resting steps: 0.0269, 0.00066, 0.000042
+
+======== C'. signed median of phi(a) - arg z per age of the maximum (M > 0.3), relative gap 0.1-0.3 and 0.3-0.6   [report: 'lags by 8-15' and 'by 3-7']
+  gap 0.1-0.3, ages 1..9:   0.6  12.6  11.4  12.0   7.1   6.0   7.2   8.4  11.8   absolute:   9.4  14.7  15.0  13.9   9.2   7.9   8.3   8.7  11.9
+  gap 0.3-0.6, ages 1..9:   0.8   5.7   4.7   5.0   3.3   2.5   2.7   4.0   5.6   absolute:   3.2   6.5   6.5   5.9   4.5   3.7   3.4   4.2   5.6
+
+======== G. P(answer = third) in four bins of (S - T)/S: <=3%, 3-8%, 8-20%, 20-50% (third above 0.2)
+  maximum arrives after both candidates   : 0.205 0.050 0.018 0.004
+  maximum at position 9                   : 0.278 0.100 0.040 0.010
+  maximum arrives before both candidates  : 0.313 0.086 0.022 0.004
+  maximum at position 0                   : 0.341 0.136 0.038 0.007
+  single arrangements (runner-up, third, maximum), 400k rearranged sequences each   [report: (2,1,9), (6,5,9), (7,6,9): 0.23-0.25 in the third bin]
+    (0, 7, 9): 0.635 0.617 0.547 0.371   n = [22687, 36946, 81035, 146013]
+    (8, 0, 9): 0.863 0.699 0.230 0.005   n = [22687, 36946, 81035, 146013]
+    (7, 0, 9): 0.263 0.272 0.215 0.012   n = [22687, 36946, 81035, 146013]
+    (7, 8, 9): 0.960 0.716 0.141 0.001   n = [22687, 36946, 81035, 146013]
+    (2, 1, 9): 0.583 0.393 0.269 0.056   n = [22687, 36946, 81035, 146013]
+    (6, 5, 9): 0.169 0.270 0.246 0.050   n = [22687, 36946, 81035, 146013]
+    (7, 6, 9): 0.181 0.236 0.215 0.046   n = [22687, 36946, 81035, 146013]
+
+======== M. six more samples of 1M sequences: alpha(9), tie radius at ages 1 and 8, runs of resting steps
+  seed 3040: alpha(9) = 0.8039, tie radius age 1 = 0.2126, age 8 = 0.1424, longest run 6
+  seed 3041: alpha(9) = 0.8040, tie radius age 1 = 0.2130, age 8 = 0.1442, longest run 6
+  seed 3042: alpha(9) = 0.8054, tie radius age 1 = 0.2128, age 8 = 0.1425, longest run 6
+  seed 3043: alpha(9) = 0.8043, tie radius age 1 = 0.2125, age 8 = 0.1444, longest run 6
+  seed 3044: alpha(9) = 0.8062, tie radius age 1 = 0.2130, age 8 = 0.1456, longest run 7
+  seed 3045: alpha(9) = 0.8050, tie radius age 1 = 0.2128, age 8 = 0.1457, longest run 7
+  alpha(9): mean 0.8048 +- 0.0004
+  tie radius, pooled: age 1 0.2128, age 8 0.1442 (n = 102901)
+  sequences with five or more consecutive resting steps: 296 of 6000000

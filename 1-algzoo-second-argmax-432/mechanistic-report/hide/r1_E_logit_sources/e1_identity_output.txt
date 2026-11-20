@@ -1,0 +1,18 @@
+normal   seed 1000 n=200000: max|h9 err| = 1.52e-13   max|logit err| = 8.93e-13   max|selected-position err| = 8.93e-13   (max|logit| = 311.9, max|h9| = 122.5)
+   min clip amount = 0.00e+00 (must be >= 0), min pulse = 0.00e+00
+   comparator 1: max|c - |w_j| (x - theta_j)_+| = 3.73e-14
+   comparator 6: max|c - |w_j| (x - theta_j)_+| = 2.31e-14
+   comparator 7: max|c - |w_j| (x - theta_j)_+| = 2.13e-14
+   comparator 8: max|c - |w_j| (x - theta_j)_+| = 3.38e-14
+   unit 4: max|h4 - w_4 (x - theta_4)_+| = 1.40e-14
+   control without the clip term: max|h9 err| = 48.9
+   rms logits 30.04;  rms of class sums: raw 18.63, pulses 19.01, clips 20.72
+uniform  seed 1001 n=200000: max|h9 err| = 5.68e-14   max|logit err| = 3.52e-13   max|selected-position err| = 3.52e-13   (max|logit| = 107.7, max|h9| = 34.8)
+   min clip amount = 0.00e+00 (must be >= 0), min pulse = 0.00e+00
+   comparator 1: max|c - |w_j| (x - theta_j)_+| = 1.63e-14
+   comparator 6: max|c - |w_j| (x - theta_j)_+| = 8.38e-15
+   comparator 7: max|c - |w_j| (x - theta_j)_+| = 8.22e-15
+   comparator 8: max|c - |w_j| (x - theta_j)_+| = 1.51e-14
+   unit 4: max|h4 - w_4 (x - theta_4)_+| = 6.61e-15
+   control without the clip term: max|h9 err| = 18.8
+   rms logits 17.92;  rms of class sums: raw 10.75, pulses 11.03, clips 11.71

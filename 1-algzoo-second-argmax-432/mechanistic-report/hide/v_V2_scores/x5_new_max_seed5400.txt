@@ -1,0 +1,48 @@
+seeds 5400..5409; 2000000 sequences
+
+=== 1. comparators at the step of a new maximum ===
+P(all four comparators exactly zero at t) by relative margin r = (x_t - M_{t-1})/M_{t-1}; bins [0, 0.05, 0.15, 0.3, 0.5, 1.0, inf]
+t=3: all 0.9709 | 0.497 0.995 1.000 1.000 1.000 1.000   share of events per bin: 0.057 0.103 0.132 0.141 0.230 0.337
+t=4: all 0.9364 | 0.365 0.791 0.991 1.000 1.000 1.000   share of events per bin: 0.061 0.112 0.137 0.146 0.231 0.312
+t=5: all 0.9028 | 0.301 0.660 0.925 1.000 1.000 1.000   share of events per bin: 0.066 0.118 0.146 0.150 0.232 0.289
+t=6: all 0.8764 | 0.273 0.598 0.865 0.993 1.000 1.000   share of events per bin: 0.070 0.126 0.155 0.155 0.230 0.264
+t=7: all 0.8585 | 0.247 0.557 0.843 0.995 1.000 1.000   share of events per bin: 0.075 0.133 0.162 0.161 0.232 0.237
+t=8: all 0.8423 | 0.230 0.540 0.831 0.990 1.000 1.000   share of events per bin: 0.081 0.141 0.170 0.165 0.227 0.216
+t=9: all 0.8509 | 0.252 0.591 0.879 0.994 1.000 1.000   share of events per bin: 0.087 0.152 0.176 0.169 0.225 0.192
+when at least one comparator is on: rms over old inputs of centred V_t relative to centred s_t (pooled), and P(old max = argmax s_t) with / without a comparator on
+t=3: n_on =   4783  rms(V)/rms(s) = 0.070   P(hit | some comparator on) = 0.9902   P(hit | all zero) = 0.9957
+t=4: n_on =  12068  rms(V)/rms(s) = 0.134   P(hit | some comparator on) = 0.9873   P(hit | all zero) = 0.9946
+t=5: n_on =  19122  rms(V)/rms(s) = 0.202   P(hit | some comparator on) = 0.9858   P(hit | all zero) = 0.9923
+t=6: n_on =  24041  rms(V)/rms(s) = 0.236   P(hit | some comparator on) = 0.9870   P(hit | all zero) = 0.9905
+t=7: n_on =  26486  rms(V)/rms(s) = 0.225   P(hit | some comparator on) = 0.9884   P(hit | all zero) = 0.9884
+t=8: n_on =  27996  rms(V)/rms(s) = 0.263   P(hit | some comparator on) = 0.9814   P(hit | all zero) = 0.9823
+t=9: n_on =  24946  rms(V)/rms(s) = 0.240   P(hit | some comparator on) = 0.9686   P(hit | all zero) = 0.9633
+
+=== 2. how much of R^2(s_t ~ shifted m_{t-1}) is a generic profile? ===
+t | R^2 all old inputs (slope) | without the old max's position (slope) | template (t, g, M) alone | residual-vs-residual R^2 (slope) | other event's m, same (t, g) | old max entry only: corr(s_t[old max] - mean, m_{t-1}[old max] - mean)
+t=3 | 0.955 (0.71) | nan (nan) | 0.863 | 0.776 (0.64) | 0.739 | 0.932
+t=4 | 0.772 (1.06) | 0.610 (1.08) | 0.848 | 0.702 (0.79) | 0.525 | 0.768
+t=5 | 0.771 (1.26) | 0.646 (1.35) | 0.831 | 0.646 (1.00) | 0.523 | 0.904
+t=6 | 0.876 (1.24) | 0.826 (1.27) | 0.809 | 0.795 (1.12) | 0.567 | 0.943
+t=7 | 0.911 (1.08) | 0.878 (1.05) | 0.786 | 0.851 (1.02) | 0.562 | 0.959
+t=8 | 0.891 (0.96) | 0.853 (0.93) | 0.757 | 0.849 (0.94) | 0.511 | 0.956
+t=9 | 0.873 (0.92) | 0.830 (0.90) | 0.717 | 0.856 (0.94) | 0.453 | 0.956
+
+=== 3. intervention at a new maximum: h_{t-1}[COMP] := 0, then the real step t ===
+t | R^2(s_t intervened vs s_t real; 1 - SS_diff/SS_tot, centred over old inputs) | slope-free corr^2 | P(old max = argmax) real -> intervened | P(all comparators zero at t) real -> intervened | R^2(intervened s_t ~ shifted m_{t-1}) | control: wipe units 10,11,12,15 instead: R^2 vs real, P(old max = argmax)
+t=3 | 0.677 | 0.962 | 0.9955 -> 0.9979 | 0.971 -> 0.924 | 0.975 (slope 1.08) | 0.532, 0.8444
+t=4 | 0.846 | 0.848 | 0.9941 -> 0.9953 | 0.936 -> 0.921 | 0.926 (slope 1.02) | 0.387, 0.6165
+t=5 | 0.793 | 0.844 | 0.9917 -> 0.9745 | 0.903 -> 0.938 | 0.913 (slope 0.95) | 0.564, 0.6471
+t=6 | 0.892 | 0.911 | 0.9900 -> 0.9714 | 0.876 -> 0.951 | 0.956 (slope 1.06) | 0.411, 0.5766
+t=7 | 0.927 | 0.932 | 0.9884 -> 0.9687 | 0.859 -> 0.961 | 0.946 (slope 0.98) | 0.323, 0.4641
+t=8 | 0.930 | 0.930 | 0.9821 -> 0.9654 | 0.842 -> 0.967 | 0.937 (slope 0.94) | 0.287, 0.4084
+t=9 | 0.902 | 0.906 | 0.9641 -> 0.9580 | 0.851 -> 0.969 | 0.954 (slope 0.97) | -0.008, 0.3608
+
+intervened runs: where does argmax of s_t (old inputs) go when it is not the old max?  P(= old runner-up position)
+t=3: P(miss) = 0.0021;  of the misses, argmax = old runner-up: 0.983
+t=4: P(miss) = 0.0047;  of the misses, argmax = old runner-up: 0.990
+t=5: P(miss) = 0.0255;  of the misses, argmax = old runner-up: 0.828
+t=6: P(miss) = 0.0286;  of the misses, argmax = old runner-up: 0.861
+t=7: P(miss) = 0.0313;  of the misses, argmax = old runner-up: 0.886
+t=8: P(miss) = 0.0346;  of the misses, argmax = old runner-up: 0.907
+t=9: P(miss) = 0.0420;  of the misses, argmax = old runner-up: 0.878

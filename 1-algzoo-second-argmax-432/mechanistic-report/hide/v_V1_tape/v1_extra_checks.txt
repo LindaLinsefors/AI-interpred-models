@@ -1,0 +1,35 @@
+=== (1) T2 conventions (seed 6001, 200k) ===
+ t=3: claim convention (pos 0-8) 0.9918 | all 10 positions, mean over 10 removed 0.7435 | index 9 alone (centred across states) -27.0121
+       per-position R2, Sigma model (pos 0-8 centring): 1.000 0.999 0.999 0.880 0.982 0.998 0.999 0.987 0.952
+       per-position R2, pure shift l1[i] ~ l0[i+1]:     0.918 0.979 0.962 0.619 0.912 0.939 0.940 0.377 -6.365
+       share of the centred variance of l1 at each position: 0.108 0.234 0.189 0.029 0.059 0.155 0.134 0.049 0.044
+ t=5: claim convention (pos 0-8) 0.9912 | all 10 positions, mean over 10 removed 0.6276 | index 9 alone (centred across states) -7.9115
+       per-position R2, Sigma model (pos 0-8 centring): 1.000 0.998 0.999 0.934 0.978 0.999 0.998 0.968 0.960
+       per-position R2, pure shift l1[i] ~ l0[i+1]:     0.970 0.975 0.919 0.788 0.923 0.905 0.892 0.385 -10.267
+       share of the centred variance of l1 at each position: 0.283 0.221 0.098 0.050 0.083 0.106 0.086 0.034 0.038
+ t=7: claim convention (pos 0-8) 0.9846 | all 10 positions, mean over 10 removed 0.4502 | index 9 alone (centred across states) -4.8852
+       per-position R2, Sigma model (pos 0-8 centring): 0.998 0.992 0.998 0.910 0.971 0.998 0.997 0.931 0.943
+       per-position R2, pure shift l1[i] ~ l0[i+1]:     0.952 0.951 0.882 0.704 0.864 0.819 0.811 0.234 -22.654
+       share of the centred variance of l1 at each position: 0.284 0.196 0.109 0.065 0.087 0.101 0.089 0.036 0.033
+
+=== (2) effective dimensionality (seed 6002, 200k; states with S_t > 0.2; everything divided by M_t) ===
+ t=5 tape U h_t (valid positions)  : cumulative variance of PCs [0.75  0.876 0.949 0.976 0.993 1.   ]  participation ratio 1.71  #PCs for 95%: 4, 99%: 5
+ t=5 tape, per-state mean removed  : cumulative variance of PCs [0.834 0.93  0.962 0.991 1.    1.   ]  participation ratio 1.42  #PCs for 95%: 3, 99%: 4
+ t=5 hidden state h_t (16 units)   : cumulative variance of PCs [0.701 0.862 0.922 0.955 0.969 0.981 0.986 0.991 0.994 0.996]  participation ratio 1.91  #PCs for 95%: 4, 99%: 8
+ t=5 ordinary part h_t[ORD]        : cumulative variance of PCs [0.724 0.888 0.94  0.965 0.978 0.984 0.989 0.993 0.996 0.997]  participation ratio 1.80  #PCs for 95%: 4, 99%: 8
+ t=9 tape U h_t (valid positions)  : cumulative variance of PCs [0.502 0.754 0.897 0.938 0.959 0.975 0.987 0.994 0.999 1.   ]  participation ratio 2.95  #PCs for 95%: 5, 99%: 8
+ t=9 tape, per-state mean removed  : cumulative variance of PCs [0.5   0.754 0.897 0.939 0.96  0.975 0.987 0.995 1.    1.   ]  participation ratio 2.96  #PCs for 95%: 5, 99%: 8
+ t=9 hidden state h_t (16 units)   : cumulative variance of PCs [0.559 0.716 0.858 0.906 0.937 0.954 0.969 0.979 0.989 0.992]  participation ratio 2.77  #PCs for 95%: 6, 99%: 10
+ t=9 ordinary part h_t[ORD]        : cumulative variance of PCs [0.575 0.735 0.879 0.922 0.953 0.968 0.978 0.987 0.991 0.994]  participation ratio 2.63  #PCs for 95%: 5, 99%: 9
+
+=== (3) the ordinary-unit part of the actual tape (seed 6002) ===
+ t | centred R2 of U_o h_t[ORD] for the actual U h_t over valid positions (per-state mean removed) | same, states with all pulse units off | share of states with a pulse unit on
+ 1 | 0.1313 | 1.0000 | 0.7515
+ 2 | 0.4600 | 1.0000 | 0.6992
+ 3 | 0.5870 | 1.0000 | 0.6307
+ 4 | 0.7178 | 1.0000 | 0.5660
+ 5 | 0.8012 | 1.0000 | 0.5094
+ 6 | 0.8593 | 1.0000 | 0.4633
+ 7 | 0.8921 | 1.0000 | 0.4267
+ 8 | 0.9099 | 1.0000 | 0.3967
+ 9 | 0.9241 | 1.0000 | 0.3734

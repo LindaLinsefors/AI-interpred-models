@@ -1,0 +1,91 @@
+=== (a) R^2 of s_t on shifted s_{t-1}, old positions, per-state mean removed ===
+    columns per t: shift by one [slope 1 | fitted slope (slope)] ; resting-map prediction U_o A h_{t-1}[ORD] [slope 1] ; controls with fitted slope: same index | shift by two
+--- no event, any S
+   t=2: n= 266981  shift1 -0.962 |  0.751 ( 0.40)   resting -0.295   same-index    nan   shift2    nan
+   t=3: n= 399986  shift1 -3.012 |  0.454 ( 0.27)   resting -1.281   same-index  0.162   shift2  0.025
+   t=4: n= 479697  shift1 -4.454 |  0.336 ( 0.21)   resting -1.203   same-index  0.049   shift2  0.002
+   t=5: n= 532822  shift1 -4.183 |  0.252 ( 0.19)   resting -0.423   same-index  0.000   shift2  0.000
+   t=6: n= 571848  shift1 -1.689 |  0.236 ( 0.26)   resting  0.450   same-index  0.069   shift2  0.001
+   t=7: n= 599658  shift1 -0.712 |  0.337 ( 0.36)   resting  0.679   same-index  0.277   shift2  0.014
+   t=8: n= 621778  shift1 -0.293 |  0.422 ( 0.43)   resting  0.754   same-index  0.364   shift2  0.054
+   t=9: n= 639680  shift1 -0.003 |  0.471 ( 0.50)   resting  0.816   same-index  0.386   shift2  0.098
+--- no event, S_{t-1}>0.1
+   t=2: n= 117279  shift1 -0.088 |  0.896 ( 0.49)   resting -0.096   same-index    nan   shift2    nan
+   t=3: n= 249908  shift1 -2.025 |  0.520 ( 0.31)   resting -1.362   same-index  0.271   shift2  0.046
+   t=4: n= 363719  shift1 -3.722 |  0.360 ( 0.23)   resting -1.222   same-index  0.065   shift2  0.003
+   t=5: n= 451646  shift1 -3.775 |  0.259 ( 0.20)   resting -0.395   same-index  0.000   shift2  0.000
+   t=6: n= 518145  shift1 -1.546 |  0.242 ( 0.27)   resting  0.465   same-index  0.070   shift2  0.001
+   t=7: n= 565704  shift1 -0.659 |  0.342 ( 0.37)   resting  0.685   same-index  0.279   shift2  0.014
+   t=8: n= 600639  shift1 -0.269 |  0.426 ( 0.44)   resting  0.756   same-index  0.365   shift2  0.055
+   t=9: n= 626749  shift1  0.008 |  0.474 ( 0.50)   resting  0.817   same-index  0.386   shift2  0.099
+--- no event, S>0.1, 4 comparators on at t
+   t=2: n= 115590  shift1 -0.096 |  0.893 ( 0.49)   resting -0.100   same-index    nan   shift2    nan
+   t=3: n= 246131  shift1 -2.052 |  0.518 ( 0.31)   resting -1.377   same-index  0.271   shift2  0.045
+   t=4: n= 359241  shift1 -3.747 |  0.358 ( 0.23)   resting -1.224   same-index  0.065   shift2  0.003
+   t=5: n= 447133  shift1 -3.795 |  0.258 ( 0.20)   resting -0.392   same-index  0.000   shift2  0.000
+   t=6: n= 512829  shift1 -1.561 |  0.240 ( 0.27)   resting  0.467   same-index  0.070   shift2  0.001
+   t=7: n= 559260  shift1 -0.672 |  0.341 ( 0.37)   resting  0.688   same-index  0.280   shift2  0.014
+   t=8: n= 592939  shift1 -0.281 |  0.424 ( 0.44)   resting  0.760   same-index  0.367   shift2  0.055
+   t=9: n= 618068  shift1 -0.002 |  0.472 ( 0.50)   resting  0.820   same-index  0.389   shift2  0.098
+--- no event, S>0.1, positions of age>=2 at t only
+   t=4: n= 363719  shift1  0.563 |  0.721 ( 0.68)   resting -1.784   same-index  0.103   shift2  0.083
+   t=5: n= 451646  shift1  0.742 |  0.793 ( 0.80)   resting -0.417   same-index  0.000   shift2  0.001
+   t=6: n= 518145  shift1  0.890 |  0.893 ( 1.06)   resting  0.557   same-index  0.089   shift2  0.059
+   t=7: n= 565704  shift1  0.933 |  0.933 ( 0.99)   resting  0.751   same-index  0.309   shift2  0.215
+   t=8: n= 600639  shift1  0.936 |  0.940 ( 0.94)   resting  0.810   same-index  0.378   shift2  0.327
+   t=9: n= 626749  shift1  0.957 |  0.958 ( 0.97)   resting  0.863   same-index  0.389   shift2  0.367
+--- new runner-up, S>0.1
+   t=2: n=  25889  shift1 -6.105 |  0.000 ( 0.01)   resting -1.509   same-index    nan   shift2    nan
+   t=3: n=  50688  shift1 -3.660 |  0.143 ( 0.16)   resting -1.515   same-index  0.009   shift2  0.024
+   t=4: n=  68096  shift1 -4.228 |  0.065 ( 0.11)   resting -1.442   same-index  0.016   shift2  0.017
+   t=5: n=  77644  shift1 -2.669 |  0.018 ( 0.08)   resting -0.644   same-index  0.016   shift2  0.026
+   t=6: n=  80255  shift1 -1.213 |  0.022 ( 0.12)   resting -0.024   same-index  0.051   shift2  0.016
+   t=7: n=  79609  shift1 -0.655 |  0.063 ( 0.23)   resting  0.186   same-index  0.152   shift2  0.003
+   t=8: n=  77065  shift1 -0.460 |  0.106 ( 0.30)   resting  0.283   same-index  0.181   shift2  0.002
+   t=9: n=  73027  shift1 -0.264 |  0.152 ( 0.38)   resting  0.364   same-index  0.196   shift2  0.015
+--- new max, S>0.1
+   t=2: n=  26093  shift1 -5.727 |  0.737 (-0.51)   resting -1.200   same-index    nan   shift2    nan
+   t=3: n=  51028  shift1 -3.556 |  0.109 ( 0.15)   resting -1.108   same-index  0.015   shift2  0.027
+   t=4: n=  68364  shift1 -2.777 |  0.053 ( 0.12)   resting -0.693   same-index  0.001   shift2  0.001
+   t=5: n=  77071  shift1 -1.487 |  0.017 ( 0.10)   resting -0.194   same-index  0.004   shift2  0.000
+   t=6: n=  79982  shift1 -0.717 |  0.025 ( 0.15)   resting  0.106   same-index  0.035   shift2  0.000
+   t=7: n=  79733  shift1 -0.386 |  0.059 ( 0.27)   resting  0.212   same-index  0.109   shift2  0.001
+   t=8: n=  76914  shift1 -0.249 |  0.091 ( 0.34)   resting  0.249   same-index  0.130   shift2  0.011
+   t=9: n=  72924  shift1 -0.149 |  0.125 ( 0.40)   resting  0.309   same-index  0.142   shift2  0.024
+
+=== (b) one input followed over a no-event step (S_{t-1} > 0.2): r = (s[p]-s[p2])/M before (r0) and after (r1) ===
+    'other' inputs (neither max nor runner-up), by age AFTER the step:
+    age      n     med r0    med r1   med(r1/r0)   LS0 slope r1~r0   corr    R2(r1=r0)   P(sign kept)
+    1    2136764    -50.34    -11.90     0.235        0.148      0.398   -117.224     0.9942
+    2    2137599    -13.05    -13.86     1.064        1.043      0.973      0.938     0.9943
+    3    2138037    -15.11    -14.62     1.057        0.939      0.872      0.739     0.9965
+    4    2063304    -14.89    -16.09     1.092        1.097      0.988      0.949     0.9965
+    5    1897403    -16.50    -16.62     1.024        1.042      0.985      0.965     0.9967
+    6    1643029    -17.73    -20.50     1.176        1.178      0.994      0.919     0.9975
+    7    1312225    -22.52    -23.12     1.035        0.976      0.974      0.945     0.9977
+    8     919847    -26.62    -25.65     0.964        0.894      0.968      0.887     0.9980
+    9     479597    -31.36    -30.99     0.988        0.955      0.987      0.964     0.9983
+    same, restricted to inputs with v = (x_p - S)/M in (-0.7,-0.5]  (median r by age; a pure shift keeps it constant):
+      v in (-0.7,-0.5]: a1: -36.8->-11.4  a2: -12.8->-13.7  a3: -15.0->-14.4  a4: -14.9->-16.0  a5: -16.7->-16.4  a6: -17.7->-20.3  a7: -22.9->-23.3  a8: -27.7->-26.7  a9: -33.1->-32.7
+      v in (-inf,-2.0]: a1: -152.7->-16.0  a2: -18.2->-19.1  a3: -21.0->-18.4  a4: -19.0->-20.4  a5: -21.5->-21.8  a6: -24.2->-28.4  a7: -33.3->-32.9  a8: -38.8->-36.4  a9: -44.2->-44.1
+      v in (-0.1,-0.05]: a1: -4.2->-5.0  a2: -4.5->-4.8  a3: -4.3->-5.3  a4: -4.7->-5.2  a5: -5.0->-5.0  a6: -5.2->-5.6  a7: -5.9->-6.0  a8: -6.8->-6.8  a9: -7.4->-7.0
+    the max (p = p1), by age AFTER the step:
+    1     597694    -21.72    -14.22     0.647        0.613      0.972     -1.117     0.9858
+    2     597082    -12.77     -4.24     0.409        0.353      0.359     -9.932     0.9942
+    3     545775     -4.53     -4.82     1.096        1.091      0.947      0.866     0.9955
+    4     471391     -5.08     -5.75     1.086        1.063      0.945      0.861     0.9969
+    5     387001     -6.22     -7.29     1.154        1.176      0.896      0.695     0.9962
+    6     302202     -8.05     -9.96     1.149        1.129      0.978      0.912     0.9966
+    7     219709    -11.15    -10.45     0.948        0.947      0.994      0.978     0.9962
+    8     142182    -11.49    -10.23     0.895        0.889      0.989      0.932     0.9917
+    9      68732    -11.35    -11.02     0.945        0.900      0.963      0.885     0.9908
+    'other' inputs, ages>=2 after the step, split by age of the runner-up after the step (a2):  med(r1/r0), corr
+      a2=1: n= 2141597 med ratio  1.060 corr  0.971
+      a2=2: n= 1728891 med ratio  1.034 corr  0.925
+      a2=3: n= 1727967 med ratio  1.081 corr  0.980
+      a2=4: n= 1690639 med ratio  1.042 corr  0.970
+      a2=5: n= 1576729 med ratio  1.070 corr  0.971
+      a2=6: n= 1383189 med ratio  1.082 corr  0.977
+      a2=7: n= 1122050 med ratio  1.101 corr  0.983
+      a2=8: n=  799064 med ratio  1.049 corr  0.988
+      a2=9: n=  420915 med ratio  1.041 corr  0.991

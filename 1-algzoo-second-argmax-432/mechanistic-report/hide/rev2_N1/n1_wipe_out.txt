@@ -1,0 +1,26 @@
+share of sequences: {"report's selection (S > 0.2, M - S > 0.2)": 0.696, 'S > 0.2, M - S <= 0.2': 0.269, 'S > 0, any gap': 0.989, 'all sequences with M > 0': 0.999}
+unperturbed P(answer = runner-up): {"report's selection (S > 0.2, M - S > 0.2)": 0.9686, 'S > 0.2, M - S <= 0.2': 0.9462, 'S > 0, any gap': 0.9607, 'all sequences with M > 0': 0.9537}
+
+report's selection (S > 0.2, M - S > 0.2)
+   t0<=7: P(answer = max) = 0.9859   P(answer = runner-up) = 0.0018   n = 779626
+   t0=8: P(answer = max) = 0.8556   P(answer = runner-up) = 0.0050   n = 222883
+   t0=9: P(answer = max) = 0.4933   P(answer = runner-up) = 0.0507   n = 250767
+   t0 <= 7 by lag k = 1..7: P(max) = [0.999 1.    0.975 0.941 0.992 1.    1.   ]
+
+S > 0.2, M - S <= 0.2
+   t0<=7: P(answer = max) = 0.8354   P(answer = runner-up) = 0.0668   n = 301000
+   t0=8: P(answer = max) = 0.7079   P(answer = runner-up) = 0.0675   n = 85971
+   t0=9: P(answer = max) = 0.4372   P(answer = runner-up) = 0.0729   n = 96609
+   t0 <= 7 by lag k = 1..7: P(max) = [0.783 0.903 0.765 0.747 0.902 0.994 0.988]
+
+S > 0, any gap
+   t0<=7: P(answer = max) = 0.9444   P(answer = runner-up) = 0.0196   n = 1107669
+   t0=8: P(answer = max) = 0.8157   P(answer = runner-up) = 0.0221   n = 316634
+   t0=9: P(answer = max) = 0.4779   P(answer = runner-up) = 0.0569   n = 356166
+   t0 <= 7 by lag k = 1..7: P(max) = [0.94  0.973 0.916 0.888 0.967 0.998 0.997]
+
+all sequences with M > 0
+   t0<=7: P(answer = max) = 0.9443   P(answer = runner-up) = 0.0195   n = 1118646
+   t0=8: P(answer = max) = 0.8160   P(answer = runner-up) = 0.0220   n = 319746
+   t0=9: P(answer = max) = 0.4781   P(answer = runner-up) = 0.0569   n = 359664
+   t0 <= 7 by lag k = 1..7: P(max) = [0.94  0.973 0.916 0.888 0.966 0.998 0.996]

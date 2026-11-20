@@ -1,0 +1,16 @@
+class A (nothing above S+_t arrives after t): mean contribution of the clock component of h_t at the max's own position, by gate variant
+  t=2 n=4653: actual: -34.90  free: +6.52  actual, last step free: -34.90  free, last step actual: +6.53  actual but pulses 5,9 gated off: -34.69
+        final step: comparators clipped (1,6,7,8) [0.003 0.001 0.    0.   ]  pulses on (4,5,9) [0.    0.086 0.   ] | steps t+1..8: clipped [0.003 0.    0.    0.001]  pulses on [0.    0.148 0.002]
+  t=3 n=10239: actual: -36.13  free: +5.48  actual, last step free: -34.85  free, last step actual: +2.50  actual but pulses 5,9 gated off: -35.67
+        final step: comparators clipped (1,6,7,8) [0.002 0.001 0.    0.   ]  pulses on (4,5,9) [0.    0.078 0.   ] | steps t+1..8: clipped [0.002 0.    0.    0.001]  pulses on [0.    0.131 0.002]
+  t=4 n=17897: actual: -37.48  free: +4.85  actual, last step free: -37.00  free, last step actual: -5.81  actual but pulses 5,9 gated off: -37.07
+        final step: comparators clipped (1,6,7,8) [0.003 0.001 0.    0.001]  pulses on (4,5,9) [0.    0.076 0.   ] | steps t+1..8: clipped [0.002 0.    0.    0.001]  pulses on [0.    0.127 0.004]
+  t=5 n=27963: actual: -37.66  free: +4.49  actual, last step free: -36.63  free, last step actual: -10.11  actual but pulses 5,9 gated off: -37.46
+        final step: comparators clipped (1,6,7,8) [0.003 0.001 0.    0.001]  pulses on (4,5,9) [0.    0.077 0.   ] | steps t+1..8: clipped [0.002 0.001 0.    0.001]  pulses on [0.    0.133 0.006]
+  t=6 n=40370: actual: -29.66  free: +4.27  actual, last step free: -24.13  free, last step actual: -8.59  actual but pulses 5,9 gated off: -29.54
+        final step: comparators clipped (1,6,7,8) [0.003 0.001 0.    0.002]  pulses on (4,5,9) [0.    0.081 0.   ] | steps t+1..8: clipped [0.004 0.001 0.    0.002]  pulses on [0.    0.154 0.007]
+  t=7 n=54723: actual: -17.92  free: +4.20  actual, last step free: -12.86  free, last step actual: -7.42  actual but pulses 5,9 gated off: -17.87
+        final step: comparators clipped (1,6,7,8) [0.004 0.001 0.    0.003]  pulses on (4,5,9) [0.    0.085 0.   ] | steps t+1..8: clipped [0.006 0.003 0.    0.002]  pulses on [0.    0.213 0.01 ]
+  t=8 n=71351: actual: -9.24  free: +3.88  actual, last step free: +3.88  free, last step actual: -9.24  actual but pulses 5,9 gated off: -9.24
+        final step: comparators clipped (1,6,7,8) [0.008 0.002 0.    0.003]  pulses on (4,5,9) [0.    0.202 0.007] | steps t+1..8: clipped [0. 0. 0. 0.]  pulses on [0. 0. 0.]
+wave units on-share at steps 6..9 in class A (t=5): [0.948 1.    0.832 0.762 0.804 0.952 0.997 1.    0.86 ]  units [0, 2, 3, 10, 11, 12, 13, 14, 15]

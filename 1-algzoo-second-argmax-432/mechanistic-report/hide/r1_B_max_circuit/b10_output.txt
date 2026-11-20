@@ -1,0 +1,27 @@
+(a) all earlier inputs negative: n = 797253 states; theta_4 min 0.00000, max 0.04157, mean 0.00306; fraction with theta_4 > 0: 1.000000
+    in units of the largest (least negative) earlier input: median theta_4/|M| = 0.0015
+
+(b) sag = M - theta_4 = eps*M + kappa*(M - S+), least squares by age (states with M > 0)
+age | eps | kappa | R2c of the fit to theta_4 | slow part (level+runner terms): c_M, c_S | clock term: c_M, c_S | short term: c_M, c_S
+0 | 0.0099 | 0.0034 | 0.9999 | 0.003, +0.959 | +0.001, +0.015 | -0.001, -0.042
+1 | 0.0202 | 0.0016 | 0.9998 | 0.833, +0.173 | +0.160, -0.135 | -0.035, -0.009
+2 | 0.0175 | 0.0233 | 0.9998 | 0.810, +0.175 | +0.141, -0.109 | +0.003, -0.045
+3 | 0.0265 | 0.0997 | 0.9995 | 0.813, +0.172 | +0.047, -0.022 | +0.013, -0.055
+4 | 0.0393 | 0.1965 | 0.9977 | 0.818, +0.163 | -0.068, +0.071 | +0.014, -0.044
+5 | 0.0576 | 0.2556 | 0.9917 | 0.822, +0.151 | -0.137, +0.114 | +0.005, -0.019
+6 | 0.0615 | 0.2534 | 0.9873 | 0.827, +0.138 | -0.131, +0.100 | -0.006, +0.003
+7 | 0.0456 | 0.2012 | 0.9891 | 0.827, +0.135 | -0.059, +0.039 | -0.012, +0.015
+8 | 0.0251 | 0.1243 | 0.9926 | 0.826, +0.137 | +0.040, -0.039 | -0.011, +0.014
+
+(c) pooled over ages >= 2 (M > 0): slow part of theta_4 (level + runner terms) = c_M M + c_S S+
+    c_M = 0.8159, c_S = 0.1625, R2c = 0.9981
+    theta_4 - (level + runner + clock terms): mean -0.0106, sd 0.0282  (all other modes and pulses)
+    theta_4 - (level + runner terms): sd 0.0970;  sd of theta_4 - M: 0.1256
+    correlation between the clock term and theta_4 - M (ages >= 2): 0.6737
+    age 2: corr(clock term, theta_4 - M) = -0.898; mean clock term / M = +0.0899; mean (theta_4 - M)/M = -0.0297
+    age 3: corr(clock term, theta_4 - M) = -0.692; mean clock term / M = +0.0355; mean (theta_4 - M)/M = -0.0752
+    age 4: corr(clock term, theta_4 - M) = +0.906; mean clock term / M = -0.0294; mean (theta_4 - M)/M = -0.1297
+    age 5: corr(clock term, theta_4 - M) = +0.984; mean clock term / M = -0.0725; mean (theta_4 - M)/M = -0.1695
+    age 6: corr(clock term, theta_4 - M) = +0.982; mean clock term / M = -0.0727; mean (theta_4 - M)/M = -0.1676
+    age 7: corr(clock term, theta_4 - M) = +0.924; mean clock term / M = -0.0362; mean (theta_4 - M)/M = -0.1266
+    age 8: corr(clock term, theta_4 - M) = -0.692; mean clock term / M = +0.0160; mean (theta_4 - M)/M = -0.0736

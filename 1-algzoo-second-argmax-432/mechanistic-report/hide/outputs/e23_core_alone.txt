@@ -1,0 +1,38 @@
+extra effective weight from unit 2 (variant B) into core units {2: np.float64(0.031), 4: np.float64(-0.128), 1: np.float64(0.085), 6: np.float64(0.1), 7: np.float64(0.109), 8: np.float64(0.191)}
+
+variant A:
+   unit 2: R2 of activation = 0.9647   gate agreement = 0.9617
+   unit 4: R2 of activation = 0.9811   gate agreement = 0.9777
+   unit 1: R2 of activation = 0.9318   gate agreement = 0.9592
+   unit 6: R2 of activation = 0.9641   gate agreement = 0.9747
+   unit 7: R2 of activation = 0.9791   gate agreement = 0.9827
+   unit 8: R2 of activation = 0.8770   gate agreement = 0.9399
+   unit 4 fires: real 0.2020, simulated 0.2267; P(sim fires | new max) = 0.9001 (real 0.8991); P(sim fires | not new max) = 0.0434 (real 0.0123)
+   R2 of unit 2 by step: [np.float64(1.0), np.float64(0.998), np.float64(0.983), np.float64(0.961), np.float64(0.942), np.float64(0.929), np.float64(0.916), np.float64(0.898), np.float64(0.859)]
+
+variant B:
+   unit 2: R2 of activation = 0.9909   gate agreement = 0.9617
+   unit 4: R2 of activation = 0.9947   gate agreement = 0.9885
+   unit 1: R2 of activation = 0.9885   gate agreement = 0.9874
+   unit 6: R2 of activation = 0.9954   gate agreement = 0.9931
+   unit 7: R2 of activation = 0.9927   gate agreement = 0.9918
+   unit 8: R2 of activation = 0.9913   gate agreement = 0.9867
+   unit 4 fires: real 0.2020, simulated 0.1897; P(sim fires | new max) = 0.8758 (real 0.8991); P(sim fires | not new max) = 0.0030 (real 0.0123)
+   R2 of unit 2 by step: [np.float64(1.0), np.float64(1.0), np.float64(0.994), np.float64(0.989), np.float64(0.985), np.float64(0.981), np.float64(0.976), np.float64(0.972), np.float64(0.971)]
+
+yardstick: thresholds = c_j * running max of the earlier inputs, c_j = {4: 0.935, 1: 0.805, 6: 0.794, 7: 0.948, 8: 0.636} ; unit 2 = ReLU(w_2 x_t + 17.3 * running max)
+
+variant yardstick (no dynamics):
+   unit 2: R2 of activation = 0.9789   gate agreement = 0.9636
+   unit 4: R2 of activation = 0.9969   gate agreement = 0.9916
+   unit 1: R2 of activation = 0.8793   gate agreement = 0.9502
+   unit 6: R2 of activation = 0.8762   gate agreement = 0.9426
+   unit 7: R2 of activation = 0.9881   gate agreement = 0.9886
+   unit 8: R2 of activation = 0.8201   gate agreement = 0.9237
+   unit 4 fires: real 0.2020, simulated 0.2030; P(sim fires | new max) = 0.8999 (real 0.8991); P(sim fires | not new max) = 0.0134 (real 0.0123)
+   R2 of unit 2 by step: [np.float64(1.0), np.float64(0.999), np.float64(0.996), np.float64(0.992), np.float64(0.985), np.float64(0.962), np.float64(0.929), np.float64(0.908), np.float64(0.91)]
+
+centred R2 of activations over all steps, side by side (a lenient measure: compare with the yardstick);  units [2, 4, 1, 6, 7, 8]
+   A                          0.965   0.981   0.932   0.964   0.979   0.877
+   B                          0.991   0.995   0.988   0.995   0.993   0.991
+   yardstick (no dynamics)    0.979   0.997   0.879   0.876   0.988   0.820

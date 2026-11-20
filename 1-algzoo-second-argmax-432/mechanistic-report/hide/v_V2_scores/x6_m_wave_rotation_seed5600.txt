@@ -1,0 +1,72 @@
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V2_scores\x6_m_wave_rotation.py:49: RuntimeWarning: divide by zero encountered in divide
+  ratio[t].append((Zb / Za)[quiet][:40000])
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V2_scores\x6_m_wave_rotation.py:49: RuntimeWarning: invalid value encountered in divide
+  ratio[t].append((Zb / Za)[quiet][:40000])
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V2_scores\x6_m_wave_rotation.py:51: RuntimeWarning: divide by zero encountered in divide
+  ratio_ev[t].append((Zb / Za)[ev][:40000])
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V2_scores\x6_m_wave_rotation.py:51: RuntimeWarning: invalid value encountered in divide
+  ratio_ev[t].append((Zb / Za)[ev][:40000])
+seeds 5600..5609; selected rows 1599615
+
+=== a. the lead's regression for V, m and s = m + V, aligned on d = i - p1 (i <= 7), averaged over a1 = 2..9 ===
+d:             -7      -6      -5      -4      -3      -2      -1      +0      +1      +2      +3      +4      +5      +6      +7
+A^V(d):    -32.6    13.7    61.0    81.9    59.2     7.1   -41.5   -62.3   -48.3    -5.9    39.7    59.7    47.3    13.8   -24.8
+A^m(d):     29.3   -17.2   -61.9   -79.5   -59.1   -10.4    37.7    54.5    40.4     2.5   -40.5   -59.4   -47.3   -16.3    23.3
+A^s(d):     -3.3    -3.5    -0.9     2.4     0.1    -3.3    -3.8    -7.8    -8.0    -3.3    -0.8     0.2    -0.1    -2.5    -1.6
+B^V(d):      3.9     2.1     6.4    10.6    10.8     6.5     0.7    -3.0    -2.4     3.6    10.4    13.3    10.9     4.6    -2.9
+B^m(d):    -21.6   -14.2   -18.3   -22.2   -20.7   -13.0     1.3    18.8     8.6    -2.2   -10.8   -13.4    -8.1     0.5     8.1
+B^s(d):    -17.7   -12.1   -11.9   -11.6   -10.0    -6.5     2.0    15.7     6.2     1.5    -0.4    -0.1     2.8     5.1     5.2
+C^V(d):    -11.3    -7.5    -6.1    -5.2    -4.5    -4.7    -5.2    -5.1    -4.1    -3.8    -3.5    -3.7    -4.5    -4.7    -3.5
+C^m(d):      5.8     2.1     1.1     0.8     0.5     0.7     0.9     0.4    -0.5    -0.7    -1.0    -0.9    -0.3    -0.4    -1.7
+C^s(d):     -5.5    -5.3    -5.0    -4.4    -4.0    -4.0    -4.4    -4.7    -4.6    -4.5    -4.5    -4.5    -4.8    -5.1    -5.2
+cosine fit of A^V(d): amplitude  66.2, phase  -176.3 deg (180 = trough at the max, 0 = crest at the max), offset +3.5, R^2 0.977
+cosine fit of A^m(d): amplitude  62.6, phase     3.2 deg (180 = trough at the max, 0 = crest at the max), offset -6.3, R^2 0.976
+cosine fit of A^s(d): amplitude   3.7, phase  -166.9 deg (180 = trough at the max, 0 = crest at the max), offset -2.8, R^2 0.793
+A^s by a1 (rows) and index i = 0..9 (the net coefficient of M - S in the final score; the max is at i = 9 - a1):
+a1=2 p1=7     -3.3    -2.7    -0.1     2.6     2.9     0.3    -2.1    -4.3    -3.5     3.6
+a1=3 p1=6     -4.2    -0.4     2.7    -0.7    -2.5    -3.2    -6.0    -4.2     0.8     2.5
+a1=4 p1=5     -2.3     2.0    -0.6    -4.4    -3.8    -7.6    -7.2    -2.2    -1.9     2.1
+a1=5 p1=4      2.5    -1.2    -5.3    -4.0    -9.4    -9.0    -4.1    -2.9    -3.3     3.4
+a1=6 p1=3     -0.0    -4.6    -5.4   -10.2    -8.4    -3.9    -1.9    -1.3    -3.1     5.0
+a1=7 p1=2     -3.1    -4.9    -9.2    -8.7    -2.8    -1.0    -0.3    -1.3    -2.3     5.5
+a1=8 p1=1     -3.3    -7.9    -9.2    -3.4     0.9     1.1    -0.3    -2.7    -0.0     5.6
+a1=9 p1=0     -7.8    -9.0    -3.6     1.0     1.5     1.4    -2.3    -1.6     2.5     6.6
+B^s by a1 and index (coefficient of S in the final score):
+a1=2 p1=7    -17.7    -8.0    -6.4    -4.5     0.5    -0.6     5.6    25.1    13.1   -29.8
+a1=3 p1=6    -16.1    -9.9    -7.7    -6.4    -2.6     3.7    22.9    10.9    12.1   -32.8
+a1=4 p1=5    -19.4   -12.3   -10.4    -6.9     4.4    20.4    10.6     9.9    11.7   -36.2
+a1=5 p1=4    -21.9   -12.4    -6.2     1.5    15.8     7.2     7.2     8.9     9.4   -39.5
+a1=6 p1=3    -21.1    -8.8    -0.1    11.3     5.2     2.9     5.1     6.5     8.6   -40.7
+a1=7 p1=2    -14.0    -0.5     9.4     2.2    -0.5    -0.6     2.2     5.5     6.3   -40.9
+a1=8 p1=1     -0.7     9.5     3.0    -5.1    -4.7    -2.6     2.5     4.9     4.3   -39.9
+a1=9 p1=0     11.4     4.6    -5.6   -10.9    -6.5     0.4     5.4     5.2     6.6   -36.4
+per a1: cosine fit of A^m_i over i = 0..7: amplitude, position of the CREST, R^2  (V's trough amplitude for comparison)
+a1=2 p1=7: m amp  69.2, crest at i =  6.96, R^2 0.988;   V amp  72.2;  ratio m/V 0.96
+a1=3 p1=6: m amp  74.4, crest at i =  6.07, R^2 0.986;   V amp  77.6;  ratio m/V 0.96
+a1=4 p1=5: m amp  72.6, crest at i =  5.25, R^2 0.985;   V amp  76.3;  ratio m/V 0.95
+a1=5 p1=4: m amp  60.2, crest at i =  4.36, R^2 0.981;   V amp  64.9;  ratio m/V 0.93
+a1=6 p1=3: m amp  48.9, crest at i =  3.12, R^2 0.982;   V amp  53.4;  ratio m/V 0.92
+a1=7 p1=2: m amp  55.7, crest at i =  1.88, R^2 0.973;   V amp  59.8;  ratio m/V 0.93
+a1=8 p1=1: m amp  62.5, crest at i =  1.00, R^2 0.981;   V amp  66.9;  ratio m/V 0.93
+a1=9 p1=0: m amp  58.9, crest at i =  0.14, R^2 0.978;   V amp  63.9;  ratio m/V 0.92
+share of the per-state variance of V over i = 0..7 that is an omega-sinusoid: 0.969;  rms over states and positions of the centred vector: 37.9
+share of the per-state variance of m over i = 0..7 that is an omega-sinusoid: 0.897;  rms over states and positions of the centred vector: 45.6
+share of the per-state variance of s over i = 0..7 that is an omega-sinusoid: 0.721;  rms over states and positions of the centred vector: 22.1
+per sequence (a1 >= 2): Z_m / Z_V: median real part -1.028, median imaginary part 0.009;  |Z_m + Z_V| / |Z_V| median 0.361
+
+=== b. longitudinal rotation of the comparators' complex amplitude between t and t + 1 (index space) ===
+quiet steps (all four on at both steps, S_t > 0.1, max not the current input, x_{t+1} < S_t): arg(Z_{t+1}/Z_t) in deg: median [IQR];  |Z_{t+1}/Z_t| median
+t=3->4: n = 400000  angle median  39.86 [-14.63,  46.42]   modulus median 1.095
+t=4->5: n = 400000  angle median  40.01 [ 25.62,  45.55]   modulus median 1.062
+t=5->6: n = 400000  angle median  41.56 [ 35.52,  49.30]   modulus median 1.040
+t=6->7: n = 400000  angle median  42.00 [ 36.14,  49.06]   modulus median 1.062
+t=7->8: n = 400000  angle median  40.50 [ 34.75,  47.81]   modulus median 1.049
+t=8->9: n = 400000  angle median  39.85 [ 35.00,  46.76]   modulus median 1.022
+pooled: angle median 40.57, mean of unit phasors -> 35.01; P(20 < angle < 65) = 0.758
+steps with a new runner-up at t + 1 and all four still on: n = 223827, angle median 44.29 [38.26, 52.66], modulus median 0.863
+
+=== c. amplitude Re K against M, S, max(T, 0), x9 (a1 >= 2; t = 9; T = third largest of the sequence) ===
+Re K ~ [M, S, x9]: coefficients   65.96  -58.58    0.00   uncentred R^2 = 0.9652   centred R^2 = 0.9003
+Re K ~ [M, S, T+, x9]: coefficients   66.06  -53.42   -7.90    0.40   uncentred R^2 = 0.9666   centred R^2 = 0.9044
+Re K ~ [M, x9]: coefficients   28.94   -1.10   uncentred R^2 = 0.8092   centred R^2 = 0.4534
+Re K ~ [M - S, x9]: coefficients   73.15   -0.70   uncentred R^2 = 0.9519   centred R^2 = 0.8623

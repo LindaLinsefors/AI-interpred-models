@@ -1,0 +1,39 @@
+=== 1. created logit at p0 vs clock part of the comparator excess (per sequence, g >= 2) ===
+  corr = 0.762;  created ~ 0.700 * C_clock + 8.67;  mean created 28.29, mean C_clock 28.02, sd of the difference 15.41
+    s=3: corr 0.248  mean created  11.02  mean C_clock  16.03  sd(diff) 19.32
+    s=4: corr 0.257  mean created  17.71  mean C_clock  13.25  sd(diff) 16.69
+    s=5: corr 0.618  mean created  23.95  mean C_clock  23.37  sd(diff) 16.50
+    s=6: corr 0.777  mean created  28.80  mean C_clock  33.62  sd(diff) 17.52
+    s=7: corr 0.745  mean created  31.41  mean C_clock  33.38  sd(diff) 17.34
+    s=8: corr 0.832  mean created  33.04  mean C_clock  30.09  sd(diff) 13.28
+    s=9: corr 0.868  mean created  29.38  mean C_clock  27.42  sd(diff) 10.93
+  margin p0 - q0: corr(created, C_clock) = 0.803
+
+=== 2./3./4. fresh data (seed 1080) ===
+  2. idealised clock conversion on real clock coordinates (n = 136233): mean predicted bump at p0 (vs bystanders) = 32.32  [measured C_clock mean on the s06c sample: 28.02];  predicted peak among positions < s is at p0 in 0.785
+     predicted bump per unit r = |lam z|: mean 6.56 (IQR 5.11 .. 8.33);  r / (10.157 (M0-S0)): median 1.24
+     by s: predicted mean bump | fraction with peak at p0
+       s=3:  17.91 | 0.906     (measured C_clock mean  16.03)
+       s=4:  22.48 | 0.883     (measured C_clock mean  13.25)
+       s=5:  28.77 | 0.837     (measured C_clock mean  23.37)
+       s=6:  33.96 | 0.812     (measured C_clock mean  33.62)
+       s=7:  36.79 | 0.794     (measured C_clock mean  33.38)
+       s=8:  36.08 | 0.776     (measured C_clock mean  30.09)
+       s=9:  31.60 | 0.699     (measured C_clock mean  27.42)
+
+  3. record at s = 9 (n = 37922): argmax over the OLD positions 0..8 only
+     actual readout:      p0 0.9524   q0 0.0432
+     comparators unclipped: p0 0.0332   q0 0.9140
+     mean logit[p0] - logit[q0]: actual 22.27; unclipped -9.92
+
+=== 4. F5: the old runner-up's logit (vs bystanders) without and with the record, by s (g >= 2) ===
+    s | no record | with record | change | relative change | sd of change | P(q0 logit lower with the record)
+    3 |   12.62   |    7.18     |  -5.44 |  -43.1%        |   9.46       | 0.753
+    4 |   14.99   |    9.60     |  -5.40 |  -36.0%        |  14.58       | 0.634
+    5 |   16.37   |   11.30     |  -5.07 |  -31.0%        |  19.92       | 0.602
+    6 |   18.37   |   13.38     |  -4.99 |  -27.2%        |  21.68       | 0.586
+    7 |   20.21   |   15.48     |  -4.73 |  -23.4%        |  23.76       | 0.589
+    8 |   21.89   |   18.49     |  -3.40 |  -15.5%        |  24.58       | 0.553
+    9 |   23.68   |   20.59     |  -3.09 |  -13.1%        |  22.03       | 0.566
+  all |   20.08   |   15.89     |  -4.19 |  -20.9%        |  21.88       | 0.586
+  pairwise: P(act[p0] > act[q0]) = 0.9831;  P(act[p0] > cf[q0]) = 0.9565  (old max's new logit against the runner-up's UNCHANGED logit);  P(cf[p0] > act[q0]) = 0.4167 (old max's old logit against the runner-up's lowered logit)

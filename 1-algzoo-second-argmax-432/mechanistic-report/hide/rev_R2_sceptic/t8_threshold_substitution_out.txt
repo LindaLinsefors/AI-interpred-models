@@ -1,0 +1,11 @@
+baseline accuracy 0.9532
+modes read by the five threshold units | accuracy | agreement | R2 of the five thresholds' recurrent drive (vs the real run) | unit 4: fires on non-records / misses records
+  ['level', 'runner', 'clock', 'h2', 'alt', 'h3', 'short', 'trans', 'echo']      | 0.9532 | 1.0000 | 1.000 1.000 1.000 1.000 1.000 | 0.0120 / 0.0009
+  ['level', 'runner', 'clock']                                                   | 0.5339 | 0.5403 | 0.987 0.994 0.997 0.969 0.999 | 0.0151 / 0.0027
+  ['level', 'runner', 'clock', 'short']                                          | 0.5932 | 0.5943 | 0.992 0.999 1.000 0.951 1.000 | 0.0093 / 0.0014
+  ['level', 'runner', 'clock', 'trans']                                          | 0.4790 | 0.4837 | 0.964 0.998 0.997 0.929 0.999 | 0.0163 / 0.0031
+  ['level', 'runner', 'clock', 'short', 'trans']                                 | 0.7316 | 0.7396 | 0.994 0.997 1.000 0.999 1.000 | 0.0117 / 0.0007
+  ['level', 'runner', 'clock', 'short', 'trans', 'echo']                         | 0.7317 | 0.7396 | 0.994 0.997 1.000 0.999 1.000 | 0.0117 / 0.0010
+  ['level', 'runner', 'clock', 'h2', 'alt', 'h3']                                | 0.5399 | 0.5468 | 0.980 0.985 0.998 0.964 0.997 | 0.0153 / 0.0043
+  ['level', 'runner', 'clock', 'short', 'trans', 'echo', 'h2']                   | 0.9005 | 0.9153 | 1.000 0.999 1.000 1.000 1.000 | 0.0120 / 0.0008
+  ['level', 'runner', 'clock', 'short', 'trans', 'echo', 'h2', 'h3']             | 0.9524 | 0.9899 | 1.000 1.000 1.000 1.000 1.000 | 0.0120 / 0.0008

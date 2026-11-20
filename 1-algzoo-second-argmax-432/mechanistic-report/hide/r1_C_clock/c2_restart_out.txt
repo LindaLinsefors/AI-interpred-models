@@ -1,0 +1,179 @@
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\r1_C_clock\c2_restart.py:118: RuntimeWarning: divide by zero encountered in divide
+  print(f"      activations at s+1 relative to h4(s): h5/h4 median {np.median(H[Bq, sq + 1, 5] / K4 / h4s):.3f} [IQR {np.percentile(H[Bq, sq + 1, 5] / K4 / h4s, 25):.3f}, {np.percentile(H[Bq, sq + 1, 5] / K4 / h4s, 75):.3f}],"
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\r1_C_clock\c2_restart.py:119: RuntimeWarning: divide by zero encountered in divide
+  f" on {np.mean(H[Bq, sq + 1, 5] > 0):.3f};  h9/h4 median {np.median(H[Bq, sq + 1, 9] / K4 / h4s):.3f} [IQR {np.percentile(H[Bq, sq + 1, 9] / K4 / h4s, 25):.3f}, {np.percentile(H[Bq, sq + 1, 9] / K4 / h4s, 75):.3f}], on {np.mean(H[Bq, sq + 1, 9] > 0):.3f}"
+=== A. [EXACT] from the weights ===
+LEFT['clock'] on the wave units (|.|@deg):  u0:0.110@  +15.7  u2:0.046@  +23.6  u3:0.036@  -90.1  u10:0.139@   +9.2  u11:0.109@  -93.0  u12:0.119@ -136.4  u13:0.044@   +8.6  u14:0.217@ +142.7  u15:0.116@ -141.9
+coordinates of the pulse columns:  LC.W[ORD,4] = 1.000@   -0.0  LC.W[ORD,5] = 0.074@ -137.9  LC.W[ORD,9] = 0.912@   -4.4   LC.w[ORD] = 0.107@  -51.5
+
+Survival through 'all four comparators zero':  z_after = sum_n s_n m_n + (for pairs) s~_n conj(m_n),
+  s_n = LC[wave].RIGHT_n[wave],  s~_n = LC[wave].conj(RIGHT_n[wave])
+  level  : s = 0.1376@ -138.2
+  runner : s = 0.0107@  +36.2
+  clock  : s = 0.4944@  -68.0   s~ = 0.0354@ +145.7
+  h2     : s = 0.1117@ -176.6   s~ = 0.0411@ +179.5
+  alt    : s = 0.0150@ +153.9
+  h3     : s = 0.0665@ -163.1   s~ = 0.0553@ +126.5
+  short  : s = 0.4649@ +126.1   s~ = 0.0950@ +169.7
+  trans  : s = 0.6806@   -0.4
+  echo   : s = 0.0028@ +172.1
+  (check: s_clock + LC[comp].RC[comp] = (1+0j) )
+
+impulse x = (1, 0.0, 0.0, ...): h4(0)/K4 = 1.000;  z(t)/K4 for t = 0..9:
+   0.004@ -105.7  0.965@   +0.1  0.964@  +36.4  0.908@  +79.6  0.862@ +123.4  0.820@ +166.2  0.774@ -150.9  0.736@ -108.2  0.699@  -65.4  0.665@  -22.7
+   phase increments: [36.3 43.2 43.8 42.8 42.9 42.7 42.7 42.7]  modulus ratios: [0.998 0.942 0.949 0.951 0.944 0.951 0.951 0.951]
+   t=1: carried 0.004@  -62.9  p4 1.000@   -0.0  clip6 0.055@ +159.2  clip8 0.021@  -44.6   | h5(t-1) = 0.00, h9(t-1) = 0.00
+   t=2: carried 0.918@  +42.8  p5 0.089@ -137.9  p9 0.134@   -4.4  clipwave 0.040@  +27.0   | h5(t-1) = 12.21, h9(t-1) = 1.49
+   t=3: carried 0.917@  +79.1  p5 0.006@ -137.9  clipwave 0.005@ -141.9   | h5(t-1) = 0.81, h9(t-1) = 0.00
+
+impulse x = (1, -1.0, -1.0, ...): h4(0)/K4 = 1.000;  z(t)/K4 for t = 0..9:
+   0.004@ -105.7  0.995@   +0.3  1.012@  +36.0  0.969@  +79.2  0.931@ +122.7  0.893@ +165.1  0.846@ -152.7  0.799@ -110.6  0.749@  -68.1  0.703@  -25.0
+   phase increments: [35.7 43.2 43.5 42.4 42.2 42.1 42.5 43.1]  modulus ratios: [1.017 0.958 0.961 0.96  0.947 0.944 0.938 0.938]
+   t=1: carried 0.004@  -62.9  echo 0.011@ +128.5  p4 1.000@   -0.0   | h5(t-1) = 0.00, h9(t-1) = 0.00
+   t=2: carried 0.946@  +43.0  echo 0.011@ +128.5  p5 0.091@ -137.9  p9 0.155@   -4.4  clipwave 0.049@  +15.7   | h5(t-1) = 12.49, h9(t-1) = 1.72
+   t=3: carried 0.962@  +78.7  echo 0.011@ +128.5   | h5(t-1) = 0.00, h9(t-1) = 0.00
+
+prediction for a pure impulse (h5(s+1) = W[5,4] h4, h9(s+1) = W[9,4] h4, no clipping):
+   z(s+2)/z(s+1) = lam + CP5 W[5,4] + CP9 W[9,4] = 0.951@  +42.7 + 0.088@ -137.9 + 0.133@   -4.4 = 0.958@  +37.0
+
+=== B. [MEASURED n=400k sequences, seed 1200] ===   decomposition check (max abs error): 1.809444196716021e-13
+records at s=1..8 over a positive old max: 454626
+  comparators off at the record step (1,6,7,8): [0.974 0.98  0.991 0.988]   all four off: 0.9422
+  unit 4 on at the record step: 0.99995   units 5, 9 on at the record step: [0.479 0.302]
+  wave units on at the record step [0, 2, 3, 10, 11, 12, 13, 14, 15]: [0.768 0.999 0.777 0.957 0.96  0.996 0.992 0.792 0.724]
+  unit 4 on at non-record steps t>=1: 0.01228
+
+  unit-4 kick h4(s)/K4 against the true gap M_new - M_old:
+    regression h4/K4 ~ a (Mnew - Mold): a = 1.0306, R2 = 0.9927 (for a = 1)
+    (M_old - theta_4)/(M_old - S_old+) by age of the old max at s-1 [median, IQR], and share of records with theta_4 > M_new (missed)
+      a_old=0: +0.012 [+0.012, +0.022]   missed 0.0001   n=155503
+      a_old=1: +0.028 [+0.021, +0.058]   missed 0.0000   n=105383
+      a_old=2: +0.051 [+0.037, +0.081]   missed 0.0001   n=72313
+      a_old=3: +0.149 [+0.127, +0.208]   missed 0.0000   n=49289
+      a_old=4: +0.282 [+0.240, +0.390]   missed 0.0000   n=33091
+      a_old=5: +0.406 [+0.329, +0.593]   missed 0.0000   n=21415
+      a_old=6: +0.431 [+0.334, +0.653]   missed 0.0000   n=12199
+      a_old=7: +0.330 [+0.234, +0.508]   missed 0.0009   n=5433
+
+  z(s)/K4 at the record step (comparators zero -> wave units only):
+    rms |z(s)| = 0.2097   rms |z(s-1)| = 0.4666   rms h4/K4 = 0.8170
+    z(s) ~ a Mnew + b Mold + c Sold:  a = 0.029@  -35.4  b = 0.165@  -24.7  c = 0.242@ +137.2  EV = 0.306
+    z(s) ~ a Mnew + b Mold + c Sold + d z(s-1) + e conj z(s-1):  a = 0.024@  -30.8  b = 0.140@  -74.8  c = 0.210@ +112.8  d = 0.386@  -11.8  e = 0.050@ -156.7  EV = 0.835
+    exact prediction for d, e (from A): lam * s_clock = 0.470@  -25.2,  conj(lam) * s~_clock = 0.034@ +103.0
+
+  z(s+1) = h4(s) + lam z(s) + CP5 h5(s) + CP9 h9(s) + ECHO x_{s+1} + clips(s+1); all terms /K4.
+  --- all records: n = 454626
+      z(s+1) ~ c (Mnew - Mold): c = 0.973@   +0.8, EV = 0.8883;   z(s+1) ~ c h4(s)/K4: c = 0.939@   +0.8, EV = 0.8846
+      term      rms/rms(h4)   LS coefficient on h4(s)/K4   share of gate on
+      p4           1.0000      1.0000@   -0.0        1.000
+      carried      0.2440      0.0776@  +25.5        1.000
+      p5           0.0450      0.0169@ -137.9        0.479
+      p9           0.0572      0.0148@   -4.4        0.302
+      echo         0.0129      0.0000@ +128.5        1.000
+      clip1        0.2809      0.0402@ -123.9        0.147
+      clip6        0.7291      0.2605@ +159.2        0.283
+      clip7        0.4496      0.0539@  +28.7        0.130
+      clip8        0.3598      0.1246@  -44.6        0.267
+      clipwave     0.0290      0.0063@ -126.3        0.439
+      remainder r = z(s+1)/K4 - h4(s)/K4: rms 0.2817 vs rms h4/K4 0.8170  (sum|r|^2/sum|h4|^2 = 0.1189)
+      r ~ z(s-1)                                    : EV 0.266  coefs 0.311@  +25.9
+      r ~ z(s-1), conj                              : EV 0.278  coefs 0.332@  +30.1  0.075@  -71.3
+      r ~ Mold, Sold                                : EV 0.047  coefs 0.112@   +7.8  0.195@ +175.5
+      r ~ z(s-1), conj, Mold, Sold                  : EV 0.328  coefs 0.383@  +33.1  0.065@ -123.4  0.134@  -55.1  0.183@ +145.8
+      r ~ z(s-1), conj, Mold, Sold, Mnew, x_{s+1}   : EV 0.592  coefs 0.388@  +33.4  0.067@ -119.9  0.301@  -22.6  0.207@ +149.9  0.123@ +178.3  0.121@ -172.7
+      by age of the old max at s-1:  r ~ b Mold + c Sold  (the old clock is ~ (Mold - Sold) rho e^{i phi(a_old)})
+        a_old=0: b = 0.162@  -27.2  c = 0.134@ +137.7  EV 0.140 | r ~ d z(s-1) + e conj: d = 0.645@  +65.0 e = 0.240@  -76.9 EV 0.056 | rms r 0.258  rms z(s-1) 0.090  n=155503
+        a_old=1: b = 0.284@   -0.6  c = 0.285@ +171.9  EV 0.333 | r ~ d z(s-1) + e conj: d = 0.395@  +73.9 e = 0.401@  -65.5 EV 0.342 | rms r 0.273  rms z(s-1) 0.585  n=105383
+        a_old=2: b = 0.269@  +51.2  c = 0.221@ -141.9  EV 0.351 | r ~ d z(s-1) + e conj: d = 0.148@  +48.7 e = 0.147@  +64.1 EV 0.351 | rms r 0.266  rms z(s-1) 0.594  n=72313
+        a_old=3: b = 0.276@ +111.2  c = 0.160@  -82.3  EV 0.432 | r ~ d z(s-1) + e conj: d = 0.197@  +76.5 e = 0.200@ +154.6 EV 0.423 | rms r 0.280  rms z(s-1) 0.566  n=49289
+        a_old=4: b = 0.318@ +161.6  c = 0.162@  -13.3  EV 0.502 | r ~ d z(s-1) + e conj: d = 0.397@  +82.6 e = 0.280@ -148.0 EV 0.498 | rms r 0.313  rms z(s-1) 0.535  n=33091
+        a_old=5: b = 0.446@ -154.1  c = 0.280@  +33.8  EV 0.615 | r ~ d z(s-1) + e conj: d = 0.455@  +50.4 e = 0.131@  -31.9 EV 0.617 | rms r 0.374  rms z(s-1) 0.533  n=21415
+        a_old=6: b = 0.467@ -124.0  c = 0.270@  +59.9  EV 0.668 | r ~ d z(s-1) + e conj: d = 0.548@  +47.4 e = 0.197@  +18.5 EV 0.675 | rms r 0.391  rms z(s-1) 0.525  n=12199
+        a_old=7: b = 0.484@  -94.3  c = 0.293@  +85.1  EV 0.658 | r ~ d z(s-1) + e conj: d = 0.642@  +28.7 e = 0.119@  +61.4 EV 0.672 | rms r 0.400  rms z(s-1) 0.525  n=5433
+  --- quiet next step (x_{s+1} < M_old, i.e. no new max / runner-up at s+1; S+ unchanged): n = 334427
+      z(s+1) ~ c (Mnew - Mold): c = 1.113@   +1.3, EV = 0.9522;   z(s+1) ~ c h4(s)/K4: c = 1.068@   +1.2, EV = 0.9462
+      term      rms/rms(h4)   LS coefficient on h4(s)/K4   share of gate on
+      p4           1.0000      1.0000@   -0.0        1.000
+      carried      0.2684      0.0830@  +27.2        1.000
+      p5           0.0493      0.0188@ -137.9        0.476
+      p9           0.0631      0.0170@   -4.4        0.301
+      echo         0.0116      0.0045@ +128.5        1.000
+      clip1        0.0004      0.0000@ -123.9        0.000
+      clip6        0.0242      0.0029@ +159.2        0.025
+      clip7        0.0001      0.0000@  +28.7        0.000
+      clip8        0.0063      0.0005@  -44.6        0.009
+      clipwave     0.0319      0.0074@ -126.1        0.454
+      remainder r = z(s+1)/K4 - h4(s)/K4: rms 0.2116 vs rms h4/K4 0.8007  (sum|r|^2/sum|h4|^2 = 0.0698)
+      r ~ z(s-1)                                    : EV 0.649  coefs 0.338@  +19.1
+      r ~ z(s-1), conj                              : EV 0.662  coefs 0.337@  +22.8  0.053@  -34.3
+      r ~ Mold, Sold                                : EV 0.257  coefs 0.194@   +5.6  0.249@ +176.9
+      r ~ z(s-1), conj, Mold, Sold                  : EV 0.841  coefs 0.385@  +34.0  0.070@ -124.9  0.196@  -33.5  0.232@ +153.9
+      r ~ z(s-1), conj, Mold, Sold, Mnew, x_{s+1}   : EV 0.846  coefs 0.384@  +33.9  0.070@ -125.4  0.186@  -43.0  0.231@ +152.9  0.021@  +29.0  0.008@  -69.2
+      by age of the old max at s-1:  r ~ b Mold + c Sold  (the old clock is ~ (Mold - Sold) rho e^{i phi(a_old)})
+        a_old=0: b = 0.245@  -17.0  c = 0.180@ +151.0  EV 0.848 | r ~ d z(s-1) + e conj: d = 0.775@  +60.2 e = 0.363@  -61.7 EV 0.258 | rms r 0.175  rms z(s-1) 0.099  n=109981
+        a_old=1: b = 0.364@   +0.3  c = 0.340@ +173.8  EV 0.930 | r ~ d z(s-1) + e conj: d = 0.387@  +65.4 e = 0.385@  -59.3 EV 0.942 | rms r 0.230  rms z(s-1) 0.632  n=76573
+        a_old=2: b = 0.325@  +41.0  c = 0.265@ -148.5  EV 0.919 | r ~ d z(s-1) + e conj: d = 0.181@  +37.1 e = 0.175@  +51.8 EV 0.926 | rms r 0.212  rms z(s-1) 0.637  n=53711
+        a_old=3: b = 0.262@  +95.7  c = 0.160@  -98.4  EV 0.885 | r ~ d z(s-1) + e conj: d = 0.173@  +65.1 e = 0.201@ +141.7 EV 0.869 | rms r 0.195  rms z(s-1) 0.603  n=37498
+        a_old=4: b = 0.236@ +154.6  c = 0.104@  -19.5  EV 0.870 | r ~ d z(s-1) + e conj: d = 0.347@  +81.2 e = 0.261@ -161.0 EV 0.860 | rms r 0.196  rms z(s-1) 0.567  n=25607
+        a_old=5: b = 0.366@ -147.7  c = 0.234@  +43.3  EV 0.886 | r ~ d z(s-1) + e conj: d = 0.395@  +48.3 e = 0.061@   -7.5 EV 0.889 | rms r 0.269  rms z(s-1) 0.561  n=16968
+        a_old=6: b = 0.422@ -114.8  c = 0.247@  +70.0  EV 0.907 | r ~ d z(s-1) + e conj: d = 0.454@  +49.7 e = 0.144@  +47.9 EV 0.918 | rms r 0.317  rms z(s-1) 0.553  n=9747
+        a_old=7: b = 0.480@  -83.2  c = 0.291@  +97.4  EV 0.909 | r ~ d z(s-1) + e conj: d = 0.559@  +35.0 e = 0.092@ +121.5 EV 0.927 | rms r 0.354  rms z(s-1) 0.550  n=4342
+  --- next step x_{s+1} between M_old and M_new (a2 = 0 at s+1): n = 60055
+      z(s+1) ~ c (Mnew - Mold): c = 0.735@   +1.1, EV = 0.9088;   z(s+1) ~ c h4(s)/K4: c = 0.721@   +1.1, EV = 0.9034
+      term      rms/rms(h4)   LS coefficient on h4(s)/K4   share of gate on
+      p4           1.0000      1.0000@   -0.0        1.000
+      carried      0.1357      0.0591@  +19.3        1.000
+      p5           0.0248      0.0104@ -137.9        0.483
+      p9           0.0285      0.0077@   -4.4        0.276
+      echo         0.0091      0.0075@  -51.5        1.000
+      clip1        0.0203      0.0046@ -123.9        0.112
+      clip6        0.6553      0.5576@ +159.2        1.000
+      clip7        0.0002      0.0000@  +28.7        0.000
+      clip8        0.3142      0.2609@  -44.6        0.972
+      clipwave     0.0137      0.0026@ -127.7        0.285
+      remainder r = z(s+1)/K4 - h4(s)/K4: rms 0.4044 vs rms h4/K4 1.1051  (sum|r|^2/sum|h4|^2 = 0.1339)
+      r ~ z(s-1)                                    : EV 0.070  coefs 0.314@  +77.2
+      r ~ z(s-1), conj                              : EV 0.132  coefs 0.438@  +64.9  0.328@ -111.5
+      r ~ Mold, Sold                                : EV 0.233  coefs 0.324@ +172.0  0.010@ +179.1
+      r ~ z(s-1), conj, Mold, Sold                  : EV 0.318  coefs 0.407@  +28.0  0.058@  -92.1  0.396@ -169.6  0.096@  +53.6
+      r ~ z(s-1), conj, Mold, Sold, Mnew, x_{s+1}   : EV 0.968  coefs 0.421@  +29.9  0.077@  -87.0  0.830@   -2.7  0.154@ +150.5  0.024@ +138.7  0.761@ -176.5
+      by age of the old max at s-1:  r ~ b Mold + c Sold  (the old clock is ~ (Mold - Sold) rho e^{i phi(a_old)})
+        a_old=0: b = 0.303@ -171.8  c = 0.129@  +43.7  EV 0.154 | r ~ d z(s-1) + e conj: d = 0.491@ +152.1 e = 0.657@ +155.5 EV 0.024 | rms r 0.374  rms z(s-1) 0.062  n=22730
+        a_old=1: b = 0.131@ +173.4  c = 0.096@ +165.6  EV 0.078 | r ~ d z(s-1) + e conj: d = 0.678@ +103.6 e = 0.629@  -90.8 EV 0.065 | rms r 0.348  rms z(s-1) 0.438  n=14430
+        a_old=2: b = 0.340@ +133.7  c = 0.164@  -89.6  EV 0.245 | r ~ d z(s-1) + e conj: d = 0.205@ +152.4 e = 0.292@ +142.6 EV 0.228 | rms r 0.370  rms z(s-1) 0.446  n=9289
+        a_old=3: b = 0.606@ +150.2  c = 0.293@  -43.1  EV 0.499 | r ~ d z(s-1) + e conj: d = 0.422@ +103.5 e = 0.390@ -159.8 EV 0.475 | rms r 0.441  rms z(s-1) 0.423  n=5846
+        a_old=4: b = 0.859@ +169.2  c = 0.463@  -12.6  EV 0.674 | r ~ d z(s-1) + e conj: d = 0.758@  +88.7 e = 0.658@ -116.0 EV 0.659 | rms r 0.533  rms z(s-1) 0.407  n=3755
+        a_old=5: b = 1.018@ -173.5  c = 0.559@   +7.5  EV 0.733 | r ~ d z(s-1) + e conj: d = 0.963@  +55.8 e = 0.697@  -58.3 EV 0.721 | rms r 0.620  rms z(s-1) 0.411  n=2183
+        a_old=6: b = 0.997@ -158.4  c = 0.572@  +21.4  EV 0.736 | r ~ d z(s-1) + e conj: d = 1.049@  +31.7 e = 0.736@   -7.7 EV 0.731 | rms r 0.582  rms z(s-1) 0.389  n=1270
+
+  step s+2 (a1 = 2):  z(s+2) = lam z(s+1) + CP4 h4(s+1) + CP5 h5(s+1) + CP9 h9(s+1) + ECHO x_{s+2} + clips(s+2)
+  --- all with a1 = 2 at s+2: n = 311573
+      activations at s+1 relative to h4(s): h5/h4 median 2.045 [IQR 1.548, 3.267], on 1.000;  h9/h4 median 0.324 [IQR 0.218, 0.563], on 0.998   (W[5,4] = 1.187, W[9,4] = 0.146);  h4(s+1) on: 0.0027
+      term      LS coefficient on z(s+1)   (sum = z(s+2)/z(s+1) in the LS sense)
+      p4         0.0000@   +9.9    rms/rms z(s+1) 0.0006
+      carried    0.9509@  +42.7    rms/rms z(s+1) 0.9509
+      p5         0.1195@ -139.6    rms/rms z(s+1) 0.1275
+      p9         0.2143@   -6.4    rms/rms z(s+1) 0.2353
+      echo       0.0013@ +125.9    rms/rms z(s+1) 0.0102
+      clip1      0.0685@ -125.1    rms/rms z(s+1) 0.1724
+      clip6      0.0074@ +158.0    rms/rms z(s+1) 0.0449
+      clip7      0.0000@  -61.0    rms/rms z(s+1) 0.0000
+      clip8      0.0183@  -45.8    rms/rms z(s+1) 0.0678
+      clipwave   0.0334@   -6.1    rms/rms z(s+1) 0.0622
+      sum       0.9470@  +30.1    direct LS z(s+2) ~ c z(s+1): 0.9470@  +30.1  EV 0.9583
+      phase advance arg z(s+2) - arg z(s+1): median 28.8, IQR [21.9, 32.7]
+  --- quiet: no new runner-up at s+1 or s+2 (a2 >= 3 at s+2): n = 224304
+      activations at s+1 relative to h4(s): h5/h4 median 2.377 [IQR 1.722, 3.921], on 1.000;  h9/h4 median 0.396 [IQR 0.260, 0.702], on 0.998   (W[5,4] = 1.187, W[9,4] = 0.146);  h4(s+1) on: 0.0000
+      term      LS coefficient on z(s+1)   (sum = z(s+2)/z(s+1) in the LS sense)
+      p4         0.0000@ -151.6    rms/rms z(s+1) 0.0000
+      carried    0.9509@  +42.7    rms/rms z(s+1) 0.9509
+      p5         0.1202@ -139.8    rms/rms z(s+1) 0.1290
+      p9         0.2242@   -6.7    rms/rms z(s+1) 0.2487
+      echo       0.0039@ +126.4    rms/rms z(s+1) 0.0105
+      clip1      0.0011@ -125.5    rms/rms z(s+1) 0.0118
+      clip6      0.0000@ -162.1    rms/rms z(s+1) 0.0031
+      clip7      0.0000@  -68.5    rms/rms z(s+1) 0.0000
+      clip8      0.0000@  -14.3    rms/rms z(s+1) 0.0006
+      clipwave   0.0322@  -13.6    rms/rms z(s+1) 0.0671
+      sum       1.0114@  +32.0    direct LS z(s+2) ~ c z(s+1): 1.0114@  +32.0  EV 0.9897
+      phase advance arg z(s+2) - arg z(s+1): median 29.5, IQR [23.6, 33.1]

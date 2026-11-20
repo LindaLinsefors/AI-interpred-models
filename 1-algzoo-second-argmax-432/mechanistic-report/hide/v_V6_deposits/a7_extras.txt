@@ -1,0 +1,60 @@
+[1] per-configuration c1, sub-families: free-frequency and damped fits
+  runner-up OLDER (aS > aM >= 2) (n = 84):
+     K (1 - cos(42.75 D)): K = 65.7, R2 = 0.913
+     free w: K = 65.6, w = 42.98 deg, R2 = 0.913
+     damped K (1 - r^D cos(42.75 D)): K = 62.0, r = 1.043, R2 = 0.919
+     linear a D: R2 = 0.527;  parabola a D + b D^2: R2 = 0.677;  free function of D: R2 = 0.926
+  runner-up YOUNGER (aM > aS >= 2) (n = 84):
+     K (1 - cos(42.75 D)): K = 42.5, R2 = 0.900
+     free w: K = 42.5, w = 42.72 deg, R2 = 0.900
+     damped K (1 - r^D cos(42.75 D)): K = 43.7, r = 0.978, R2 = 0.902
+     linear a D: R2 = 0.542;  parabola a D + b D^2: R2 = 0.744;  free function of D: R2 = 0.905
+  both ages >= 2 (n = 168):
+     K (1 - cos(42.75 D)): K = 54.1, R2 = 0.796
+     free w: K = 54.1, w = 42.88 deg, R2 = 0.796
+     damped K (1 - r^D cos(42.75 D)): K = 52.7, r = 1.019, R2 = 0.797
+     linear a D: R2 = 0.467;  parabola a D + b D^2: R2 = 0.614;  free function of D: R2 = 0.799
+  both ages >= 2, two amplitudes (older / younger runner-up): K = 65.7 / 42.5, R2 = 0.916
+  mean c1 by Delta, runner-up older | younger (both ages >= 2), and the ratio to (1 - cos(42.75 D)):
+     D=1: older   12.4 (ratio  46.6, 28 configs, range 4.7..21.2) | younger   11.4 (ratio  43.0, 28 configs, range 2.3..17.4)
+     D=2: older   55.0 (ratio  59.6, 21 configs, range 33.1..77.3) | younger   42.3 (ratio  45.9, 21 configs, range 28.1..55.4)
+     D=3: older  109.5 (ratio  67.7, 15 configs, range 65.0..133.1) | younger   67.4 (ratio  41.6, 15 configs, range 52.5..85.7)
+     D=4: older  138.6 (ratio  69.7, 10 configs, range 99.7..149.8) | younger   81.8 (ratio  41.2, 10 configs, range 68.8..112.9)
+     D=5: older  116.1 (ratio  63.4, 6 configs, range 101.8..122.4) | younger   78.6 (ratio  42.9, 6 configs, range 73.5..95.1)
+     D=6: older   71.5 (ratio  57.9, 3 configs, range 64.4..75.4) | younger   56.1 (ratio  45.5, 3 configs, range 52.3..63.3)
+     D=7: older   29.3 (ratio  57.4, 1 configs, range 29.3..29.3) | younger   21.6 (ratio  42.2, 1 configs, range 21.6..21.6)
+
+[2] D3 (2341290 new-runner-up events): pooled centred R2 of y ~ k1(.) (x_t - S0) + k2(.) M
+    0.531   one (k1, k2): k1 = 46.1
+    0.604   per t (the lead's table, 8 groups)
+    0.543   per age of the max aM (9 groups)
+    0.743   per age of the old runner-up aS (9 groups)
+    0.949   per (aM, aS) (72 groups)
+    0.949   per (t, aM, aS) (240 groups)
+    k1 by (aM = age of the max, aS = age of the old runner-up) at the event, pooled over t  [rows aM, columns aS]
+       aS:      1      2      3      4      5      6      7      8      9
+    aM=1:      -   29.3   36.1   53.5   84.2   94.2  100.3   86.8   70.9
+    aM=2:   40.9      -    9.8   40.4   96.3  134.8  122.6   80.8   31.3
+    aM=3:   28.7   19.6      -    7.1   62.1  125.3  149.5  121.2   58.2
+    aM=4:   21.9   47.0   16.4      -   29.9   84.2  136.7  140.6  103.7
+    aM=5:   40.7   53.1   34.1   31.6      -   51.6   84.3   91.9   82.8
+    aM=6:   53.0   57.2   51.3   42.3   33.4      -   31.6   43.8   52.8
+    aM=7:   39.4   52.1   57.9   54.0   42.4   31.4      -   29.6   48.6
+    aM=8:   37.5   42.4   61.9   75.7   72.9   55.6   37.7      -   34.0
+    aM=9:   49.2   16.3   51.4   86.9  111.9  100.9   52.8   23.7      -
+    k1 by age of the max alone (aM = 1..9):   47.9   48.7   40.4   43.6   47.4   45.8   45.0   53.5   61.8
+    k1 by t for a FIXED age of the max (aM = 2): t=3:  24.7 t=4:  30.3 t=5:  47.5 t=6:  63.5 t=7:  75.0 t=8:  75.2 t=9:  69.3
+    k1 by t for a FIXED pair (aM, aS) = (1, 2): t=2:  29.2 t=3:  29.3 t=4:  29.4 t=5:  29.4 t=6:  29.4 t=7:  29.4 t=8:  29.5 t=9:  29.5
+
+[3] D2 under the lead's actual selection (g >= 0, top two unchanged), seeds 5000..5004 x 400k
+    all records valid at k (the lead's D2): c1 = 40.7, 42.4, 35.5, 31.8, 28.5, 23.8   (lead: 40.7, 42.6, 35.3, 32.1, 28.6, 23.8)
+    mean Delta of the records entering each k: 2.34, 2.18, 2.01, 1.83, 1.64, 1.44 | mean t: 6.00, 5.54, 5.04, 4.51, 3.93, 3.32 | share g = 0: 0.20, 0.21, 0.22, 0.25, 0.28, 0.32
+    fixed cohorts (records whose top two stay unchanged up to t + K): c1 at k = 0..K
+      K=1 (n = 889500): 38.8, 42.4
+      K=2 (n = 599653): 36.3, 39.4, 35.5
+      K=3 (n = 385098): 32.8, 35.3, 31.1, 31.8
+      K=4 (n = 229429): 29.5, 30.9, 26.3, 27.1, 28.5
+      K=5 (n = 121639): 26.6, 26.7, 20.7, 21.8, 23.1, 23.8
+    fixed cohort K = 5 split by g: 
+      g = 0 (n = 38914): 27.3, 26.8, 28.8, 30.1, 31.5, 31.8
+      g >= 1 (n = 82725): 26.3, 26.6, 17.0, 17.8, 19.1, 19.9

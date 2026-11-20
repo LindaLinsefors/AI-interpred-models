@@ -1,0 +1,52 @@
+lambda = 0.69049+0.63412j: |lambda| = 0.9375, angle = 42.563 deg
+check ell @ Bc - lam * ell: 1.2560739669470201e-15   ell.(w4 b4) = (1.0000000000000002+2.0816681711721685e-17j)
+ell = [-0.4912-0.3624j -0.9853+0.6149j  1.3523+0.3061j  0.1336-0.5679j]
+|ell| per component: [0.6104 1.1614 1.3865 0.5834]  phases (deg): [-143.5841  148.0322   12.7559  -76.7616]
+|ell . 1| = 0.0132   (claimed 0.013);  ell.1 = 0.0094-0.0093j
+ell . b2 = 0.00461-0.00055j, |ell.b2| * 17.3 = 0.0803  (what unit 2 = 17.3 M leaks into z_c, per unit M)
+|ell|_2 = 1.9960,  |ell.1| / (|ell|_2 * 2) = 0.0033
+
+=== K6, reading: t <= 9 (theta(10) included); states with a1(t) = a, M_t > 0.3; n = 800000 sequences (seeds 5006, 5007) ===
+  a :      n   phase(deg) [claimed]  |median z/M|   b_M [claimed]   b_S   b_S/b_M [claimed]   uncentred R2
+  1 : 1268399     33.1  [ 33.5]    0.563      0.926 [0.93]   -0.835   -0.902 [-0.91]      0.9964
+  2 : 1021135     71.6  [ 72.0]    0.435      0.829 [0.83]   -0.774   -0.934 [-0.94]      0.9937
+  3 :  817285    120.1  [120.5]    0.350      0.745 [0.75]   -0.715   -0.959 [-0.96]      0.9943
+  4 :  646805    167.1  [167.3]    0.315      0.677 [0.68]   -0.618   -0.914 [-0.91]      0.9912
+  5 :  501159    218.6  [218.6]    0.310      0.622 [0.62]   -0.527   -0.847 [-0.84]      0.9712
+  6 :  374993    263.0  [262.8]    0.309      0.622 [0.62]   -0.503   -0.808 [-0.80]      0.9598
+  7 :  264689    309.0  [308.8]    0.334      0.662 [0.66]   -0.515   -0.778 [-0.77]      0.9609
+  8 :  167395    345.8  [346.2]    0.348      0.723 [0.73]   -0.573   -0.792 [-0.78]      0.9662
+
+=== K6, reading: t <= 8; states with a1(t) = a, M_t > 0.3; n = 800000 sequences (seeds 5006, 5007) ===
+  a :      n   phase(deg) [claimed]  |median z/M|   b_M [claimed]   b_S   b_S/b_M [claimed]   uncentred R2
+  1 : 1188909     33.5  [ 33.5]    0.584      0.926 [0.93]   -0.841   -0.908 [-0.91]      0.9971
+  2 :  941586     72.0  [ 72.0]    0.449      0.830 [0.83]   -0.781   -0.941 [-0.94]      0.9948
+  3 :  738064    120.5  [120.5]    0.362      0.745 [0.75]   -0.717   -0.963 [-0.96]      0.9950
+  4 :  567393    167.3  [167.3]    0.327      0.676 [0.68]   -0.615   -0.910 [-0.91]      0.9915
+  5 :  421605    218.6  [218.6]    0.323      0.621 [0.62]   -0.519   -0.836 [-0.84]      0.9712
+  6 :  295593    262.8  [262.8]    0.322      0.621 [0.62]   -0.493   -0.794 [-0.80]      0.9600
+  7 :  185792    308.9  [308.8]    0.347      0.661 [0.66]   -0.508   -0.768 [-0.77]      0.9601
+  8 :   88231    346.3  [346.2]    0.360      0.726 [0.73]   -0.570   -0.785 [-0.78]      0.9652
+
+=== sampling noise: the two seeds separately (t <= 9) ===
+  seed 5006: phase [ 33.0714  71.5412 120.1088 167.1269 218.6495 262.9893 308.9043 345.7146]
+  seed 5006: b_M   [0.9255 0.8289 0.7451 0.6769 0.6218 0.6218 0.6617 0.7234]
+  seed 5006: ratio [-0.9019 -0.934  -0.959  -0.9137 -0.8466 -0.8077 -0.7787 -0.7918]
+  seed 5006: R2u   [0.9964 0.9937 0.9943 0.9912 0.9713 0.9599 0.9609 0.9662]
+  seed 5007: phase [ 33.079   71.5987 120.0439 167.1017 218.6313 262.9715 309.0547 345.7915]
+  seed 5007: b_M   [0.9257 0.829  0.7451 0.6768 0.6221 0.6223 0.6616 0.7234]
+  seed 5007: ratio [-0.902  -0.9343 -0.9592 -0.9138 -0.847  -0.8083 -0.7782 -0.7912]
+  seed 5007: R2u   [0.9964 0.9937 0.9943 0.9912 0.9712 0.9597 0.9609 0.9663]
+
+=== alternative definition of the 'median' phase: angle of the mean of z/M, and median of the angles ===
+  a = 1: angle(mean) =   33.0, angle(componentwise median) =   33.1, median of angles =   34.1; IQR of angle about it: [-7.368   3.6721]
+  a = 2: angle(mean) =   73.6, angle(componentwise median) =   71.6, median of angles =   74.4; IQR of angle about it: [-6.5568  5.7491]
+  a = 3: angle(mean) =  119.8, angle(componentwise median) =  120.1, median of angles =  119.0; IQR of angle about it: [-6.4343  4.1932]
+  a = 4: angle(mean) =  169.5, angle(componentwise median) =  167.1, median of angles =  167.1; IQR of angle about it: [-3.9849 10.8392]
+  a = 5: angle(mean) =  218.0, angle(componentwise median) =  218.6, median of angles =  215.5; IQR of angle about it: [-8.2489  7.8652]
+  a = 6: angle(mean) =  266.2, angle(componentwise median) =  263.0, median of angles =  263.6; IQR of angle about it: [-4.388  10.8172]
+  a = 7: angle(mean) =  309.2, angle(componentwise median) =  309.0, median of angles =  307.5; IQR of angle about it: [-6.7566  7.4509]
+  a = 8: angle(mean) =  347.6, angle(componentwise median) =  345.8, median of angles =  346.6; IQR of angle about it: [-3.8726  8.5178]
+
+=== age 0 (new max at t) for reference: z_c(t+1) should be ~ the increment, phase ~ 0 ===
+  a = 0: n = 1267707, phase = -1.5, |median z/M| = 0.604, b_M = 1.003, b_S = -0.916, ratio = -0.913, R2u = 0.9956

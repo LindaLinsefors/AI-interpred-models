@@ -1,0 +1,7 @@
+[MEASURED n = 400k, seed 1035] steps u = 1..8 with a positive standing max before x_u
+class of x_u | share | P(h5(u+1) > 0) | mean h5(u+1)/(10.157 M) | P(h9(u+1) > 0) | mean h9(u+1)/(10.157 M) | level change at u+2 from units 5, 9: mean (k5 h5 + k9 h9)/(10.157 M)
+low | 0.6752 | 0.0659 | 0.0107 | 0.0000 | 0.0000 | -0.0008
+runner | 0.1522 | 0.9985 | 0.4804 | 0.0029 | 0.0002 | -0.0348
+false | 0.0103 | 1.0000 | 0.8946 | 0.5258 | 0.0395 | -0.0697
+record | 0.1623 | 0.9999 | 1.0072 | 0.9928 | 0.1517 | -0.0920
+new runner-up steps: h5(u+1)/10.157 = +0.893 x_u -0.546 S+_old +0.113 M   (R2c 0.794, n = 426304)

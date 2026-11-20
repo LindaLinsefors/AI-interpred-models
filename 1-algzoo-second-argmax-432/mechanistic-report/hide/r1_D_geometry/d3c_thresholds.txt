@@ -1,0 +1,14 @@
+threshold contribution per unit of (mode coordinate / 10.157):  real modes: value;  rotating pairs: amplitude @ phase offset (deg)
+unit             level         runner          clock             h2            alt             h3          short          trans           echo
+   4            0.796          0.035    0.160@  353    0.024@  289          0.003    0.021@   10    0.078@  245          0.003          0.000 
+   1            0.631          0.050    0.715@  206    0.097@  214         -0.002    0.028@  233    0.290@  133          0.206          0.000 
+   6            0.749          0.040    0.397@  281    0.060@  289          0.010    0.061@  332    0.134@  202         -0.085          0.000 
+   7            0.782          0.038    0.234@  356    0.020@   87         -0.001    0.020@  201    0.064@  241          0.005          0.000 
+   8            0.748          0.034    0.726@  125    0.054@   97         -0.002    0.019@  180    0.416@   28         -0.369          0.000 
+
+with the measured coordinates (S/M = 0: level 0.94 M, runner 1.9 M, clock rho M; S/M -> 1: level 0.92 M, runner 7 M, clock ~0.25 M):
+   unit 4: centre of theta = (0.815) M + (0.180) S;   swing = +-0.160 * |z|/10.157   -> at S = 0, a = 2 (|z| = 0.96 M): theta in [0.66, 0.97] M
+   unit 1: centre of theta = (0.689) M + (0.257) S;   swing = +-0.715 * |z|/10.157   -> at S = 0, a = 2 (|z| = 0.96 M): theta in [0.00, 1.38] M
+   unit 6: centre of theta = (0.779) M + (0.202) S;   swing = +-0.397 * |z|/10.157   -> at S = 0, a = 2 (|z| = 0.96 M): theta in [0.40, 1.16] M
+   unit 7: centre of theta = (0.808) M + (0.194) S;   swing = +-0.234 * |z|/10.157   -> at S = 0, a = 2 (|z| = 0.96 M): theta in [0.58, 1.03] M
+   unit 8: centre of theta = (0.768) M + (0.175) S;   swing = +-0.726 * |z|/10.157   -> at S = 0, a = 2 (|z| = 0.96 M): theta in [0.07, 1.47] M

@@ -1,0 +1,46 @@
+(1) error table from N(0,1), T > 0: 1982794 sequences, 24x24 cells, 477 cells with n >= 50
+| inputs (fresh seeds) | share with T > 0 | accuracy, T > 0 | same, in covered cells | predicted from E(g1, g2) | coverage |
+|---|---|---|---|---|---|
+| N(0,1) + 0 | 0.9457 | 0.9603 | 0.9608 | 0.9606 | 0.9990 |
+| N(0,1) + 0.5 | 0.9980 | 0.9522 | 0.9532 | 0.9489 | 0.9980 |
+| N(0,1) + 1 | 1.0000 | 0.9403 | 0.9419 | 0.9352 | 0.9965 |
+| N(0,1) + 2 | 1.0000 | 0.9118 | 0.9153 | 0.9082 | 0.9921 |
+| N(0,1) + 3 | 1.0000 | 0.8812 | 0.8872 | 0.8835 | 0.9860 |
+| Unif(-1,1) | 0.9452 | 0.9444 | 0.9464 | 0.9451 | 0.9958 |
+| Unif(0,1) | 1.0000 | 0.8920 | 0.8999 | 0.8888 | 0.9817 |
+
+(2) runner-up moved to s*M, third < -0.3 M (n = 3301, seed 1060): P(net answers the runner-up's position)
+| s = S/M | P(answer = p_S) |
+|---|---|
+| -0.25 | 0.1503 |
+| -0.20 | 0.1675 |
+| -0.15 | 0.2042 |
+| -0.10 | 0.3075 |
+| -0.05 | 0.5120 |
+| -0.04 | 0.5723 |
+| -0.03 | 0.6428 |
+| -0.02 | 0.7019 |
+| -0.01 | 0.7589 |
+| +0.00 | 0.8288 |
+| +0.01 | 0.8619 |
+| +0.02 | 0.8894 |
+| +0.03 | 0.9085 |
+| +0.04 | 0.9206 |
+| +0.05 | 0.9300 |
+| +0.10 | 0.9564 |
+| +0.15 | 0.9667 |
+| +0.20 | 0.9761 |
+| +0.25 | 0.9809 |
+smallest s on the grid at which the answer is p_S: quantiles 5/25/50/75/95% = -0.25 / -0.12 / -0.05 / -0.01 / +0.05;  never within the grid: 0.0161;  already at s = -0.25: 0.1503
+median of that s by order and adjacency: S before M: -0.04 (n=1642); S after M: -0.05 (n=1659); S right after M: -0.04 (n=323); S right before M: -0.05 (n=321); S at position 9: -0.11 (n=324)
+P(answer = p_S) at s = -0.05 / +0.05 / +0.10 by where the runner-up is:
+   S before M: 0.477 / 0.887 / 0.928
+   S after M, not adjacent, not last: 0.488 / 0.984 / 0.989
+   S right after M: 0.368 / 0.910 / 0.957
+   S at position 9: 0.914 / 0.997 / 1.000
+
+(3) answers when exactly one input is positive (M > 0 >= S), N(0,1), seeds 1000..1007
+n = 20518.  answer - p_M distribution: -9:0.059  -8:0.056  -7:0.028  -6:0.069  -5:0.080  -4:0.114  -3:0.038  -2:0.025  -1:0.193  +0:0.202  +1:0.015  +2:0.019  +3:0.020  +4:0.040  +5:0.015
+   P(answer = pS) = 0.233  P(answer = pM) = 0.202  P(answer = pM-1) = 0.193  P(answer = pM+1) = 0.015  P(answer = 9) = 0.045  P(answer = pT) = 0.109
+no positive input (M <= 0): n = 2103.  answer distribution over positions: 0:0.526 1:0.220 2:0.073 3:0.049 4:0.027 5:0.017 6:0.014 7:0.021 8:0.028 9:0.025
+   P(answer = pM (largest, negative)) = 0.301  P(answer = pS) = 0.123  P(answer = 9) = 0.025  P(answer = argmin) = 0.035

@@ -1,0 +1,104 @@
+=== M1. Zero-padding identity: h_t(x_0..x_t) == h_9(0,..,0,x_0..x_t) ===
+max |h_9(padded) - h_t| over t = 0..9 and 400k sequences: 0.0
+t | P(restricted argmax = runner-up | S_t>0) | same, all states | P(unrestricted argmax falls on a padding index | S_t>0) | P(unrestricted argmax = runner-up | S_t>0)
+1 | 0.992 | 0.689 | 0.0612 | 0.931
+2 | 0.987 | 0.676 | 0.0493 | 0.940
+3 | 0.971 | 0.777 | 0.0214 | 0.951
+4 | 0.965 | 0.839 | 0.0131 | 0.958
+5 | 0.968 | 0.892 | 0.0048 | 0.965
+6 | 0.969 | 0.925 | 0.0036 | 0.967
+7 | 0.970 | 0.945 | 0.0020 | 0.968
+8 | 0.968 | 0.953 | 0.0008 | 0.967
+9 | 0.961 | 0.953 | 0.0000 | 0.961
+
+=== M2. Sigma = Uo A pinv(Uo) ===
+relative residual (Frobenius): 0.09494258395334089
+singular values of Uo: [18.881 17.869  8.235  5.598  4.299  3.511  3.062  2.329  2.151  0.293]
+column sums over positions, 1^T Uo: [-0.234 -0.301 -0.584 -0.17  -1.078 -0.529  0.418  0.635  0.214 -0.092  0.066 -0.028 -0.42 ]
+|1^T Uo| / (sqrt(10) * |Uo|_2): 0.02787656612390652
+Sigma:
+   -0.03   0.97  -0.05  -0.13  -0.11  -0.09  -0.08  -0.09   0.05  -0.01
+   -0.07   0.09   0.93  -0.02  -0.07   0.02  -0.03   0.00  -0.14   0.02
+   -0.05  -0.10  -0.08   0.90  -0.09  -0.11  -0.12  -0.16  -0.22  -0.05
+   -0.04  -0.39  -0.23  -0.24   0.89  -0.33  -0.31  -0.34  -0.28  -0.18
+   -0.15   0.15  -0.05  -0.18  -0.06   1.00  -0.07  -0.12  -0.05   0.04
+    0.03  -0.18  -0.08  -0.13  -0.17  -0.15   0.93  -0.21   0.01  -0.05
+    0.05  -0.21  -0.08  -0.13  -0.19  -0.15  -0.17   0.93  -0.06  -0.06
+    0.03  -0.42  -0.11  -0.14  -0.28  -0.15  -0.18   0.00   0.34  -0.14
+    0.07  -0.06  -0.19   0.03   0.08  -0.04   0.12   0.06   0.27  -0.00
+    1.62   1.55   1.31   1.42   1.41   1.44   1.28   1.22   1.50   1.55
+max |entry| off the shift diagonal, rows 0-6: 0.3872376503451351  rows 0-8: 0.4216162983675776
+row 9: [1.615 1.553 1.31  1.42  1.412 1.445 1.282 1.224 1.499 1.548]  mean 1.4309363013622132
+eig(A)     (one of each pair): 1.010@0.0  0.973@0.0  0.951@42.7  0.937@83.3  0.928@180.0  0.837@124.8  0.735@43.0  0.231@0.0  0.001@0.0
+eig(Sigma) (one of each pair): 0.932@180.0  0.925@82.5  0.845@0.0  0.834@124.6  0.694@41.2  0.676@0.0  0.257@0.0
+eig(pure shift + Sigma's row 9): 2.492@0.0  0.994@37.0  0.963@72.3  0.940@110.1  0.936@146.2  0.914@180.0
+  mode 1.010@   0.00: |Uo r|/|r| = 0.533
+  mode 0.973@   0.00: |Uo r|/|r| = 2.431
+  mode 0.951@  42.75: |Uo r|/|r| = 0.631
+  mode 0.937@  83.28: |Uo r|/|r| = 3.390
+  mode 0.928@ 180.00: |Uo r|/|r| = 3.122
+  mode 0.837@ 124.78: |Uo r|/|r| = 2.989
+  mode 0.735@  42.99: |Uo r|/|r| = 6.544
+  mode 0.231@   0.00: |Uo r|/|r| = 5.860
+  mode 0.001@   0.00: |Uo r|/|r| = 2.455
+
+=== M3. Direct slope of each logit in x_t through the comparators and through all on-units ===
+U[i,COMP] . w[COMP], i = 0..9: [-11.535  -3.54   -2.968  -2.789  -2.711  -4.912  -5.62   -3.549  -3.769  58.247]
+U[i,ORD] . w[ORD],  i = 0..9: [-4.321 -4.466 -4.448 -4.388 -4.602 -4.613 -4.692 -4.905 -3.784 57.194]
+index 9 minus mean of indices 0-8 (comparators only): 62.84625007804285
+index 9 minus each of 0-8 (all 13 ordinary units on): [61.515 61.661 61.642 61.582 61.796 61.807 61.886 62.099 60.978]
+U[9,4]*w4: -50.70088754969129   U[8,5]: 3.3975682258605957
+
+=== M4. Threshold law: which age does phi(a) refer to? ===
+clock eigenvalue: 0.9508767904359704 42.74778082781026
+from the weights: theta_j(t+1) contains  Re( z(t) * c_j ),  c_j = 2 W[j,ORD].R_clock / g_j  (unit 4: -2 W[4,ORD].R/w4)
+  unit 1: K*|c_j| = 0.715   arg c_j =  -154.4 deg
+  unit 6: K*|c_j| = 0.397   arg c_j =   -79.3 deg
+  unit 7: K*|c_j| = 0.234   arg c_j =    -3.9 deg
+  unit 8: K*|c_j| = 0.726   arg c_j =   125.1 deg
+  unit 4: K*|c_j| = 0.160   arg c_j =    -6.6 deg
+report: C = 0.715, 0.397, 0.234, 0.726, 0.160 ; delta = -154, -79, -4, +125, -7 for units 1, 6, 7, 8, 4
+medians of (theta_j - S)/(M - S) by 'steps since the max arrived when the threshold is applied' (S>0, gap>0.2M):
+  unit 1:   0.84  -0.07   0.22   0.80   1.31   1.43   1.14   0.59   0.09
+  unit 6:  -0.06   0.65   1.05   1.20   1.08   0.80   0.50   0.33   0.36
+  unit 7:   1.03   1.02   1.01   0.87   0.68   0.55   0.55   0.66   0.84
+  unit 8:  -0.01   0.32   0.05   0.03   0.41   0.98   1.42   1.49   1.16
+  unit 4:   0.98   0.96   0.94   0.85   0.73   0.63   0.62   0.70   0.82
+fit  u_j(a) = const_j + C_j rho(a') cos(phi(a') + delta_j)  with report's C, delta, phi, rho; rms residual over applied ages 2..9
+   convention X: a' = a (age when applied)      convention Y: a' = a - 1 (age in the state the threshold is read from)
+  unit 1: X: const  0.64, rms resid 0.410    Y: const  0.66, rms resid 0.107
+  unit 6: X: const  0.73, rms resid 0.254    Y: const  0.71, rms resid 0.090
+  unit 7: X: const  0.78, rms resid 0.135    Y: const  0.77, rms resid 0.030
+  unit 8: X: const  0.75, rms resid 0.392    Y: const  0.79, rms resid 0.095
+  unit 4: X: const  0.79, rms resid 0.092    Y: const  0.78, rms resid 0.022
+
+=== M5. Impulse x = (1,0,..,0): plane offset vs level mode ===
+|n| = 34.986678540486345   in-plane radius (rms) = 22.101438431388296   variance in 2 PCs = 0.9984148812192866
+mode coordinates of the mean state m (per K): {'level': np.float64(0.957), 'runner': np.float64(2.257), 'clock': np.float64(0.066), 'h2': np.float64(0.014), 'alt': np.float64(0.01), 'h3': np.float64(0.01), 'short': np.float64(0.026), 'trans': np.float64(0.016), 'echo': np.float64(0.056)}
+norm of each mode's part of m: {'level': 42.73, 'runner': 7.71, 'clock': 1.81, 'h2': 0.23, 'alt': 0.05, 'h3': 0.1, 'short': 0.5, 'trans': 0.67, 'echo': 0.09}  |m| = 38.18283245013026
+norm of each mode's part of n (component perpendicular to the plane): {'level': 37.63, 'runner': 6.91, 'clock': 0.22, 'h2': 0.22, 'alt': 0.05, 'h3': 0.1, 'short': 0.36, 'trans': 0.55, 'echo': 0.09}
+cos(n, level vector) = 0.8662929484912356   cos(m, level vector) = 0.9828873150937969   cos(n, level part of m) = 0.8662929484912355
+impulse, t = 1..9: level/K: [1.006 0.927 0.931 0.942 0.951 0.961 0.971 0.98  0.99 ]
+   ratios level(t+1)/level(t): [0.921 1.004 1.011 1.01  1.01  1.01  1.01  1.01 ]
+   runner/K: [1.087 2.37  2.441 2.363 2.299 2.234 2.174 2.117 2.061]
+   |clock|/K: [0.966 0.964 0.908 0.862 0.82  0.774 0.736 0.699 0.665]  phase: [  0.1  36.4  79.6 123.4 166.2 209.1 251.8 294.6 337.3]
+   report rho(a) = 1.02*0.951^(a-2), a = 1..9: [1.073 1.02  0.97  0.922 0.877 0.834 0.793 0.754 0.718]
+
+=== M6. Theta_5 = 0.01265 runner - 0.02872 level with runner = K(2M+5S), level = 0.93 K M ===
+coefficient of M: -0.014317273011779819   coefficient of S: 0.6424287159442901
+
+=== M7. What the dots hide in h_2(t+1) = 0.969 h_2 + 1.731 h_4 + ... ===
+W[2, :] = [-0.084 -0.102  0.969  0.039  1.731 -0.01  -0.103  0.023  0.155 -0.229  0.015  0.018  0.055  0.04   0.027 -0.047]
+  mean share of unit 2's recurrent input from self (unit 2): 0.885
+  mean share of unit 2's recurrent input from unit 4: 0.100
+  mean share of unit 2's recurrent input from comparators: -0.013
+  mean share of unit 2's recurrent input from units 5, 9: -0.006
+  mean share of unit 2's recurrent input from other wave units: 0.035
+  median h_2 / M over states with max age >= 2 and M > 0: 17.713108894026405
+
+=== M8. New positive maximum above a positive old maximum: all four comparators off ===
+P(all four off | new max over positive old max) = 0.9362855860917649
+   excess over old max / old gap(S+) in [0, 0.25): n = 60427, P(all off) = 0.616
+   excess over old max / old gap(S+) in [0.25, 0.5): n = 47043, P(all off) = 0.887
+   excess over old max / old gap(S+) in [0.5, 1.0): n = 67736, P(all off) = 0.976
+   excess over old max / old gap(S+) in [1.0, 1000000000.0): n = 269591, P(all off) = 0.997

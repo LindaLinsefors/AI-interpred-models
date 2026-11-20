@@ -1,0 +1,199 @@
+seeds 5600..5606; I2-selected n = 286189
+
+[1] negative entries and clipping.  'neg' = fraction of intervened states with a negative entry; 'depth' = median over
+    those states of (most negative entry) / |h[ORD]| before the intervention
+  f = 0     neg = 0.090 depth = -0.006 | raw:     P(p0) = 0.0185  P(t_r) = 0.7763  P(q0) = 0.1644  p0-2: 0.023 p0-1: 0.015 p0+1: 0.013 p0+2: 0.017
+                                              | clipped: P(p0) = 0.0185  P(t_r) = 0.7771  P(q0) = 0.1635  p0-2: 0.023 p0-1: 0.015 p0+1: 0.013 p0+2: 0.017
+                                              | raw, only the states WITHOUT a negative entry (n = 260440): P(p0) = 0.0185  P(t_r) = 0.7868  p0-1: 0.016  p0+1: 0.014
+  f = 0.25  neg = 0.084 depth = -0.004 | raw:     P(p0) = 0.0946  P(t_r) = 0.7691  P(q0) = 0.1202  p0-2: 0.016 p0-1: 0.020 p0+1: 0.014 p0+2: 0.017
+                                              | clipped: P(p0) = 0.0944  P(t_r) = 0.7698  P(q0) = 0.1197  p0-2: 0.016 p0-1: 0.020 p0+1: 0.014 p0+2: 0.017
+                                              | raw, only the states WITHOUT a negative entry (n = 262071): P(p0) = 0.0985  P(t_r) = 0.7720  p0-1: 0.021  p0+1: 0.015
+  f = 0.5   neg = 0.082 depth = -0.003 | raw:     P(p0) = 0.3408  P(t_r) = 0.5981  P(q0) = 0.0533  p0-2: 0.004 p0-1: 0.018 p0+1: 0.006 p0+2: 0.009
+                                              | clipped: P(p0) = 0.3409  P(t_r) = 0.5986  P(q0) = 0.0528  p0-2: 0.004 p0-1: 0.018 p0+1: 0.006 p0+2: 0.008
+                                              | raw, only the states WITHOUT a negative entry (n = 262729): P(p0) = 0.3541  P(t_r) = 0.5886  p0-1: 0.020  p0+1: 0.006
+  f = 0.75  neg = 0.080 depth = -0.001 | raw:     P(p0) = 0.8899  P(t_r) = 0.1011  P(q0) = 0.0080  p0-2: 0.000 p0-1: 0.004 p0+1: 0.002 p0+2: 0.001
+                                              | clipped: P(p0) = 0.8897  P(t_r) = 0.1013  P(q0) = 0.0080  p0-2: 0.000 p0-1: 0.004 p0+1: 0.002 p0+2: 0.001
+                                              | raw, only the states WITHOUT a negative entry (n = 263173): P(p0) = 0.8966  P(t_r) = 0.0945  p0-1: 0.004  p0+1: 0.002
+  f = 1.25  neg = 0.953 depth = -0.038 | raw:     P(p0) = 0.9591  P(t_r) = 0.0369  P(q0) = 0.0023  p0-2: 0.000 p0-1: 0.000 p0+1: 0.003 p0+2: 0.001
+                                              | clipped: P(p0) = 0.9276  P(t_r) = 0.0533  P(q0) = 0.0095  p0-2: 0.000 p0-1: 0.007 p0+1: 0.010 p0+2: 0.002
+                                              | raw, only the states WITHOUT a negative entry (n = 13313): P(p0) = 0.9678  P(t_r) = 0.0311  p0-1: 0.000  p0+1: 0.000
+  f = 1.5   neg = 0.984 depth = -0.076 | raw:     P(p0) = 0.8932  P(t_r) = 0.0718  P(q0) = 0.0170  p0-2: 0.000 p0-1: 0.004 p0+1: 0.028 p0+2: 0.003
+                                              | clipped: P(p0) = 0.8384  P(t_r) = 0.1012  P(q0) = 0.0228  p0-2: 0.000 p0-1: 0.025 p0+1: 0.030 p0+2: 0.005
+                                              | raw, only the states WITHOUT a negative entry (n = 4658): P(p0) = 0.9412  P(t_r) = 0.0507  p0-1: 0.000  p0+1: 0.001
+  f = 2     neg = 0.996 depth = -0.154 | raw:     P(p0) = 0.7452  P(t_r) = 0.1354  P(q0) = 0.0483  p0-2: 0.000 p0-1: 0.029 p0+1: 0.079 p0+2: 0.010
+                                              | clipped: P(p0) = 0.6759  P(t_r) = 0.1846  P(q0) = 0.0369  p0-2: 0.000 p0-1: 0.084 p0+1: 0.043 p0+2: 0.012
+                                              | raw, only the states WITHOUT a negative entry (n = 1184): P(p0) = 0.6233  P(t_r) = 0.0997  p0-1: 0.000  p0+1: 0.262
+  f = 3     neg = 1.000 depth = -0.316 | raw:     P(p0) = 0.5918  P(t_r) = 0.2532  P(q0) = 0.0488  p0-2: 0.000 p0-1: 0.051 p0+1: 0.071 p0+2: 0.027
+                                              | clipped: P(p0) = 0.4682  P(t_r) = 0.3179  P(q0) = 0.0497  p0-2: 0.001 p0-1: 0.123 p0+1: 0.049 p0+2: 0.035
+  k = -2    neg = 0.379 depth = -0.029 | raw:     P(p0) = 0.0020  P(t_r) = 0.3436  P(q0) = 0.3516  p0-2: 0.000 p0-1: 0.000 p0+1: 0.154 p0+2: 0.320
+                                              | clipped: P(p0) = 0.0022  P(t_r) = 0.3622  P(q0) = 0.3309  p0-2: 0.000 p0-1: 0.000 p0+1: 0.152 p0+2: 0.318
+                                              | raw, only the states WITHOUT a negative entry (n = 177636): P(p0) = 0.0020  P(t_r) = 0.3785  p0-1: 0.000  p0+1: 0.203
+  k = -1    neg = 0.407 depth = -0.020 | raw:     P(p0) = 0.0935  P(t_r) = 0.2483  P(q0) = 0.3174  p0-2: 0.000 p0-1: 0.000 p0+1: 0.475 p0+2: 0.154
+                                              | clipped: P(p0) = 0.0906  P(t_r) = 0.2515  P(q0) = 0.3096  p0-2: 0.000 p0-1: 0.000 p0+1: 0.482 p0+2: 0.152
+                                              | raw, only the states WITHOUT a negative entry (n = 169670): P(p0) = 0.0852  P(t_r) = 0.2829  p0-1: 0.000  p0+1: 0.483
+  k = +1    neg = 0.679 depth = -0.040 | raw:     P(p0) = 0.4598  P(t_r) = 0.0650  P(q0) = 0.2142  p0-2: 0.076 p0-1: 0.380 p0+1: 0.000 p0+2: 0.000
+                                              | clipped: P(p0) = 0.4129  P(t_r) = 0.0790  P(q0) = 0.2105  p0-2: 0.075 p0-1: 0.415 p0+1: 0.000 p0+2: 0.000
+                                              | raw, only the states WITHOUT a negative entry (n = 91753): P(p0) = 0.6266  P(t_r) = 0.0884  p0-1: 0.198  p0+1: 0.000
+  k = +2    neg = 0.638 depth = -0.054 | raw:     P(p0) = 0.0714  P(t_r) = 0.2301  P(q0) = 0.2522  p0-2: 0.249 p0-1: 0.296 p0+1: 0.000 p0+2: 0.001
+                                              | clipped: P(p0) = 0.0572  P(t_r) = 0.2575  P(q0) = 0.2375  p0-2: 0.241 p0-1: 0.292 p0+1: 0.000 p0+2: 0.000
+                                              | raw, only the states WITHOUT a negative entry (n = 103588): P(p0) = 0.0762  P(t_r) = 0.3779  p0-1: 0.284  p0+1: 0.000
+
+[2] the same intervention on each mode (z' = f z; z' = z exp(i k angle_mode) for complex modes).
+    size = median |change of h| / |h[ORD]| for f = 0;  |z| = median |mode coordinate| / (10.157 M0)
+  level   size = 1.075  |z| = 0.913
+     f = 0   : raw P(p0) = 0.3023  P(t_r) = 0.0055  P(q0) = 0.1244  p0-2: 0.033 p0-1: 0.063 p0+1: 0.104 p0+2: 0.099 | clipped P(p0) = 0.2268 P(t_r) = 0.0000  neg = 1.00
+     f = 0.5 : raw P(p0) = 0.6345  P(t_r) = 0.0008  P(q0) = 0.1260  p0-2: 0.007 p0-1: 0.051 p0+1: 0.132 p0+2: 0.082 | clipped P(p0) = 0.5365 P(t_r) = 0.0001  neg = 1.00
+     f = 2   : raw P(p0) = 0.0049  P(t_r) = 0.9946  P(q0) = 0.0004  p0-2: 0.000 p0-1: 0.000 p0+1: 0.000 p0+2: 0.000 | clipped P(p0) = 0.0049 P(t_r) = 0.9946  neg = 0.00
+  runner  size = 0.464  |z| = 5.556
+     f = 0   : raw P(p0) = 0.2178  P(t_r) = 0.5500  P(q0) = 0.0699  p0-2: 0.001 p0-1: 0.005 p0+1: 0.005 p0+2: 0.047 | clipped P(p0) = 0.2143 P(t_r) = 0.5736  neg = 0.67
+     f = 0.5 : raw P(p0) = 0.5131  P(t_r) = 0.3860  P(q0) = 0.0534  p0-2: 0.000 p0-1: 0.002 p0+1: 0.002 p0+2: 0.031 | clipped P(p0) = 0.5201 P(t_r) = 0.4019  neg = 0.55
+     f = 2   : raw P(p0) = 0.4613  P(t_r) = 0.0583  P(q0) = 0.1767  p0-2: 0.014 p0-1: 0.017 p0+1: 0.130 p0+2: 0.104 | clipped P(p0) = 0.3327 P(t_r) = 0.0962  neg = 1.00
+  clock   size = 0.335  |z| = 0.462
+     f = 0   : raw P(p0) = 0.0185  P(t_r) = 0.7763  P(q0) = 0.1644  p0-2: 0.023 p0-1: 0.015 p0+1: 0.013 p0+2: 0.017 | clipped P(p0) = 0.0185 P(t_r) = 0.7771  neg = 0.09
+     f = 0.5 : raw P(p0) = 0.3408  P(t_r) = 0.5981  P(q0) = 0.0533  p0-2: 0.004 p0-1: 0.018 p0+1: 0.006 p0+2: 0.009 | clipped P(p0) = 0.3409 P(t_r) = 0.5986  neg = 0.08
+     f = 2   : raw P(p0) = 0.7452  P(t_r) = 0.1354  P(q0) = 0.0483  p0-2: 0.000 p0-1: 0.029 p0+1: 0.079 p0+2: 0.010 | clipped P(p0) = 0.6759 P(t_r) = 0.1846  neg = 1.00
+     k = -1  : raw P(p0) = 0.0935  P(t_r) = 0.2483  P(q0) = 0.3174  p0-2: 0.000 p0-1: 0.000 p0+1: 0.475 p0+2: 0.154 | clipped P(p0) = 0.0906 p0-1: 0.000 p0+1: 0.482  neg = 0.41
+     k = +1  : raw P(p0) = 0.4598  P(t_r) = 0.0650  P(q0) = 0.2142  p0-2: 0.076 p0-1: 0.380 p0+1: 0.000 p0+2: 0.000 | clipped P(p0) = 0.4129 p0-1: 0.415 p0+1: 0.000  neg = 0.68
+  h2      size = 0.100  |z| = 0.276
+     f = 0   : raw P(p0) = 0.8279  P(t_r) = 0.0635  P(q0) = 0.0145  p0-2: 0.000 p0-1: 0.009 p0+1: 0.086 p0+2: 0.010 | clipped P(p0) = 0.8395 P(t_r) = 0.0639  neg = 0.68
+     f = 0.5 : raw P(p0) = 0.9479  P(t_r) = 0.0251  P(q0) = 0.0068  p0-2: 0.000 p0-1: 0.000 p0+1: 0.021 p0+2: 0.005 | clipped P(p0) = 0.9560 P(t_r) = 0.0257  neg = 0.64
+     f = 2   : raw P(p0) = 0.9366  P(t_r) = 0.0123  P(q0) = 0.0376  p0-2: 0.000 p0-1: 0.016 p0+1: 0.022 p0+2: 0.011 | clipped P(p0) = 0.9134 P(t_r) = 0.0256  neg = 0.70
+     k = -1  : raw P(p0) = 0.7615  P(t_r) = 0.0659  P(q0) = 0.0897  p0-2: 0.001 p0-1: 0.000 p0+1: 0.145 p0+2: 0.022 | clipped P(p0) = 0.7660 p0-1: 0.000 p0+1: 0.124  neg = 0.80
+     k = +1  : raw P(p0) = 0.7143  P(t_r) = 0.0727  P(q0) = 0.0468  p0-2: 0.000 p0-1: 0.083 p0+1: 0.109 p0+2: 0.019 | clipped P(p0) = 0.7468 p0-1: 0.069 p0+1: 0.059  neg = 0.60
+  alt     size = 0.030  |z| = 0.264
+     f = 0   : raw P(p0) = 0.9702  P(t_r) = 0.0205  P(q0) = 0.0041  p0-2: 0.000 p0-1: 0.001 p0+1: 0.008 p0+2: 0.000 | clipped P(p0) = 0.9662 P(t_r) = 0.0217  neg = 0.63
+     f = 0.5 : raw P(p0) = 0.9860  P(t_r) = 0.0115  P(q0) = 0.0015  p0-2: 0.000 p0-1: 0.000 p0+1: 0.002 p0+2: 0.000 | clipped P(p0) = 0.9856 P(t_r) = 0.0121  neg = 0.60
+     f = 2   : raw P(p0) = 0.9843  P(t_r) = 0.0092  P(q0) = 0.0048  p0-2: 0.000 p0-1: 0.003 p0+1: 0.002 p0+2: 0.001 | clipped P(p0) = 0.9820 P(t_r) = 0.0106  neg = 0.67
+  h3      size = 0.090  |z| = 0.272
+     f = 0   : raw P(p0) = 0.9282  P(t_r) = 0.0364  P(q0) = 0.0110  p0-2: 0.000 p0-1: 0.008 p0+1: 0.024 p0+2: 0.003 | clipped P(p0) = 0.9072 P(t_r) = 0.0453  neg = 0.62
+     f = 0.5 : raw P(p0) = 0.9750  P(t_r) = 0.0165  P(q0) = 0.0056  p0-2: 0.000 p0-1: 0.001 p0+1: 0.006 p0+2: 0.001 | clipped P(p0) = 0.9711 P(t_r) = 0.0196  neg = 0.47
+     f = 2   : raw P(p0) = 0.9421  P(t_r) = 0.0140  P(q0) = 0.0269  p0-2: 0.000 p0-1: 0.002 p0+1: 0.032 p0+2: 0.009 | clipped P(p0) = 0.9361 P(t_r) = 0.0194  neg = 0.85
+     k = -1  : raw P(p0) = 0.8278  P(t_r) = 0.0705  P(q0) = 0.0227  p0-2: 0.000 p0-1: 0.026 p0+1: 0.072 p0+2: 0.003 | clipped P(p0) = 0.7730 p0-1: 0.103 p0+1: 0.052  neg = 0.69
+     k = +1  : raw P(p0) = 0.8429  P(t_r) = 0.0336  P(q0) = 0.0495  p0-2: 0.000 p0-1: 0.037 p0+1: 0.056 p0+2: 0.030 | clipped P(p0) = 0.8418 p0-1: 0.036 p0+1: 0.059  neg = 0.82
+  short   size = 0.163  |z| = 0.269
+     f = 0   : raw P(p0) = 0.8466  P(t_r) = 0.0690  P(q0) = 0.0753  p0-2: 0.000 p0-1: 0.000 p0+1: 0.037 p0+2: 0.037 | clipped P(p0) = 0.7694 P(t_r) = 0.1244  neg = 0.53
+     f = 0.5 : raw P(p0) = 0.9520  P(t_r) = 0.0299  P(q0) = 0.0160  p0-2: 0.000 p0-1: 0.000 p0+1: 0.009 p0+2: 0.007 | clipped P(p0) = 0.9111 P(t_r) = 0.0487  neg = 0.48
+     f = 2   : raw P(p0) = 0.8662  P(t_r) = 0.0362  P(q0) = 0.0656  p0-2: 0.016 p0-1: 0.064 p0+1: 0.012 p0+2: 0.000 | clipped P(p0) = 0.7787 P(t_r) = 0.0534  neg = 0.82
+     k = -1  : raw P(p0) = 0.8944  P(t_r) = 0.0381  P(q0) = 0.0552  p0-2: 0.000 p0-1: 0.001 p0+1: 0.038 p0+2: 0.027 | clipped P(p0) = 0.8708 p0-1: 0.009 p0+1: 0.036  neg = 0.68
+     k = +1  : raw P(p0) = 0.8686  P(t_r) = 0.0831  P(q0) = 0.0371  p0-2: 0.000 p0-1: 0.006 p0+1: 0.024 p0+2: 0.016 | clipped P(p0) = 0.8691 p0-1: 0.005 p0+1: 0.023  neg = 0.56
+  trans   size = 0.040  |z| = 0.039
+     f = 0   : raw P(p0) = 0.9893  P(t_r) = 0.0094  P(q0) = 0.0009  p0-2: 0.000 p0-1: 0.000 p0+1: 0.000 p0+2: 0.000 | clipped P(p0) = 0.9836 P(t_r) = 0.0145  neg = 0.63
+     f = 0.5 : raw P(p0) = 0.9905  P(t_r) = 0.0085  P(q0) = 0.0007  p0-2: 0.000 p0-1: 0.000 p0+1: 0.001 p0+2: 0.000 | clipped P(p0) = 0.9887 P(t_r) = 0.0101  neg = 0.62
+     f = 2   : raw P(p0) = 0.9862  P(t_r) = 0.0117  P(q0) = 0.0017  p0-2: 0.000 p0-1: 0.000 p0+1: 0.001 p0+2: 0.000 | clipped P(p0) = 0.9792 P(t_r) = 0.0154  neg = 0.52
+  echo    size = 0.328  |z| = 7.970
+     f = 0   : raw P(p0) = 0.9913  P(t_r) = 0.0077  P(q0) = 0.0007  p0-2: 0.000 p0-1: 0.000 p0+1: 0.001 p0+2: 0.000 | clipped P(p0) = 0.9891 P(t_r) = 0.0091  neg = 0.56
+     f = 0.5 : raw P(p0) = 0.9912  P(t_r) = 0.0077  P(q0) = 0.0007  p0-2: 0.000 p0-1: 0.000 p0+1: 0.001 p0+2: 0.000 | clipped P(p0) = 0.9904 P(t_r) = 0.0083  neg = 0.55
+     f = 2   : raw P(p0) = 0.8151  P(t_r) = 0.0094  P(q0) = 0.0200  p0-2: 0.011 p0-1: 0.029 p0+1: 0.027 p0+2: 0.024 | clipped P(p0) = 0.9561 P(t_r) = 0.0083  neg = 0.60
+
+    size-matched random perturbations of h[ORD] (same norm as removing the clock mode, per state):
+     random Gaussian direction, all 13 units:        P(p0) = 0.4357  P(t_r) = 0.1436  P(q0) = 0.1419  p0-2: 0.017 p0-1: 0.098 p0+1: 0.168 p0+2: 0.068
+     same, clipped at 0:                             P(p0) = 0.4253  P(t_r) = 0.1749  P(q0) = 0.1343  p0-2: 0.017 p0-1: 0.108 p0+1: 0.153 p0+2: 0.061
+     random direction on the comparators, clipped:   P(p0) = 0.4935  P(t_r) = 0.1301  P(q0) = 0.1286  p0-2: 0.014 p0-1: 0.047 p0+1: 0.133 p0+2: 0.073
+     minus ANOTHER sequence's clock part (rescaled):  P(p0) = 0.2799  P(t_r) = 0.3263  P(q0) = 0.1762  p0-2: 0.033 p0-1: 0.127 p0+1: 0.131 p0+2: 0.051
+     minus its own clock part (= f 0, for reference): P(p0) = 0.0185  P(t_r) = 0.7763  P(q0) = 0.1644  p0-2: 0.023 p0-1: 0.015 p0+1: 0.013 p0+2: 0.017
+     clock phase randomised (radius kept):            P(p0) = 0.2037  P(t_r) = 0.2865  P(q0) = 0.2182  p0-2: 0.067 p0-1: 0.087 p0+1: 0.069 p0+2: 0.066
+     clock phase + 180 deg (f = -1):                  P(p0) = 0.0010  P(t_r) = 0.4725  P(q0) = 0.1891  p0-2: 0.033 p0-1: 0.007 p0+1: 0.001 p0+2: 0.002
+
+[3] rotation z' = z exp(i k omega): does the answer go to p0 - k?  Conditioned on that position existing,
+    and split by whether it coincides with q0 (the prefix runner-up, a natural fallback answer).
+  k = -2: target p0+2 exists in 1.000; P(ans = target | exists) = 0.3196 (clipped 0.3179);  | target = q0 (n=53419): 0.7009;  | target != q0 (n=232770): 0.2321 (clipped 0.2354)
+         among target != q0: p0-3: 0.000 p0-2: 0.000 p0-1: 0.000 p0+0: 0.002 p0+1: 0.187 p0+2: 0.232 p0+3: 0.274  t_r: 0.361  q0: 0.271
+         the input at the target position: median x/M0 = -0.29; P(x < 0) = 0.67; P(ans = target | x_target < 0) = 0.2031
+         by age of the old max (2..7): P(ans = target | exists, != q0) = 0.000 0.379 0.229 0.259 0.279 0.413
+  k = -1: target p0+1 exists in 1.000; P(ans = target | exists) = 0.4749 (clipped 0.4824);  | target = q0 (n=53791): 0.9619;  | target != q0 (n=232398): 0.3622 (clipped 0.3735)
+         among target != q0: p0-3: 0.000 p0-2: 0.000 p0-1: 0.000 p0+0: 0.107 p0+1: 0.362 p0+2: 0.190 p0+3: 0.146  t_r: 0.305  q0: 0.168
+         the input at the target position: median x/M0 = -0.29; P(x < 0) = 0.67; P(ans = target | x_target < 0) = 0.3147
+         by age of the old max (2..7): P(ans = target | exists, != q0) = 0.292 0.187 0.352 0.437 0.598 0.606
+  k = +1: target p0-1 exists in 0.758; P(ans = target | exists) = 0.5017 (clipped 0.5471);  | target = q0 (n=38123): 0.9617;  | target != q0 (n=178919): 0.4037 (clipped 0.4601)
+         among target != q0: p0-3: 0.011 p0-2: 0.121 p0-1: 0.404 p0+0: 0.423 p0+1: 0.000 p0+2: 0.000 p0+3: 0.018  t_r: 0.041  q0: 0.123
+         the input at the target position: median x/M0 = -0.29; P(x < 0) = 0.67; P(ans = target | x_target < 0) = 0.3379
+         by age of the old max (2..7): P(ans = target | exists, != q0) = 0.293 0.302 0.476 0.586 0.564 nan
+  k = +2: target p0-2 exists in 0.536; P(ans = target | exists) = 0.4638 (clipped 0.4487);  | target = q0 (n=25707): 0.9481;  | target != q0 (n=127827): 0.3664 (clipped 0.3545)
+         among target != q0: p0-3: 0.161 p0-2: 0.366 p0-1: 0.297 p0+0: 0.059 p0+1: 0.000 p0+2: 0.001 p0+3: 0.034  t_r: 0.085  q0: 0.205
+         the input at the target position: median x/M0 = -0.29; P(x < 0) = 0.67; P(ans = target | x_target < 0) = 0.2808
+         by age of the old max (2..7): P(ans = target | exists, != q0) = 0.328 0.421 0.360 0.357 nan nan
+  signed displacement, answers restricted to old positions (ans < t_r) other than q0: mean(ans - p0) and P(<0), P(>0)
+  k = -2: n = 86329 (0.302)  mean = +1.652  P(ans < p0) = 0.0506  P(ans > p0) = 0.9426
+  k = -1: n = 123809 (0.433)  mean = +0.895  P(ans < p0) = 0.0000  P(ans > p0) = 0.7839
+  k = -0.5: n = 225867 (0.789)  mean = +0.113  P(ans < p0) = 0.0000  P(ans > p0) = 0.1051
+  k = +0.5: n = 251620 (0.879)  mean = -0.043  P(ans < p0) = 0.0434  P(ans > p0) = 0.0001
+  k = +1: n = 206167 (0.720)  mean = -0.357  P(ans < p0) = 0.3596  P(ans > p0) = 0.0021
+  k = +2: n = 147552 (0.516)  mean = -0.921  P(ans < p0) = 0.8090  P(ans > p0) = 0.0524
+
+[4] logit margins at t = 9 as a function of f (units of M0): median of s[p0] - s[t_r], of s[p0] - s[q0], and of
+    s[p0] - max over the other nine positions; raw | clipped
+  f = 0   :  -19.36   -7.01  -20.36  P(p0) = 0.019  |   -19.39   -6.98  -20.37  P(p0) = 0.018
+  f = 0.25:  -10.77   +0.47  -11.33  P(p0) = 0.095  |   -10.78   +0.49  -11.34  P(p0) = 0.094
+  f = 0.5 :   -2.28   +6.55   -2.67  P(p0) = 0.341  |    -2.28   +6.55   -2.68  P(p0) = 0.341
+  f = 0.75:   +6.91  +12.89   +5.44  P(p0) = 0.890  |    +6.91  +12.90   +5.44  P(p0) = 0.890
+  f = 1   :  +14.86  +18.95  +10.24  P(p0) = 0.991  |   +14.86  +18.95  +10.24  P(p0) = 0.991
+  f = 1.25:  +18.43  +21.91  +10.20  P(p0) = 0.959  |   +16.37  +20.74   +8.90  P(p0) = 0.928
+  f = 1.5 :  +20.17  +23.05   +8.31  P(p0) = 0.893  |   +16.66  +20.96   +6.91  P(p0) = 0.838
+  f = 2   :  +21.27  +24.65   +5.65  P(p0) = 0.745  |   +15.63  +20.34   +4.57  P(p0) = 0.676
+  f = 3   :  +18.52  +26.02   +3.50  P(p0) = 0.592  |    +8.76  +18.95   -1.60  P(p0) = 0.468
+
+[5] the same clock interventions at other steps (lead: t_r - 1).  P(p0), P(t_r), P(q0); |z| = median |z_clock| / (10.157 M0) there
+  step t_r-3 (n=217069, |z| = 0.57) f = 0   : P(p0) = 0.0633  P(t_r) = 0.6854  P(q0) = 0.2066  p0-1: 0.025  p0+1: 0.011
+  step t_r-3 (n=217069, |z| = 0.57) f = 0.5 : P(p0) = 0.5457  P(t_r) = 0.3603  P(q0) = 0.0863  p0-1: 0.016  p0+1: 0.004
+  step t_r-3 (n=217069, |z| = 0.57) k = +1  : P(p0) = 0.4843  P(t_r) = 0.0958  P(q0) = 0.1462  p0-1: 0.337  p0+1: 0.000
+  step t_r-3 (n=217069, |z| = 0.57) k = -1  : P(p0) = 0.1168  P(t_r) = 0.1045  P(q0) = 0.3243  p0-1: 0.000  p0+1: 0.555
+  step t_r-2 (n=286189, |z| = 0.51) f = 0   : P(p0) = 0.0703  P(t_r) = 0.7210  P(q0) = 0.1653  p0-1: 0.017  p0+1: 0.013
+  step t_r-2 (n=286189, |z| = 0.51) f = 0.5 : P(p0) = 0.5030  P(t_r) = 0.4192  P(q0) = 0.0709  p0-1: 0.015  p0+1: 0.006
+  step t_r-2 (n=286189, |z| = 0.51) k = +1  : P(p0) = 0.4605  P(t_r) = 0.0812  P(q0) = 0.1972  p0-1: 0.361  p0+1: 0.000
+  step t_r-2 (n=286189, |z| = 0.51) k = -1  : P(p0) = 0.1277  P(t_r) = 0.1645  P(q0) = 0.3253  p0-1: 0.000  p0+1: 0.512
+  step t_r-1 (n=286189, |z| = 0.46) f = 0   : P(p0) = 0.0185  P(t_r) = 0.7763  P(q0) = 0.1644  p0-1: 0.015  p0+1: 0.013
+  step t_r-1 (n=286189, |z| = 0.46) f = 0.5 : P(p0) = 0.3408  P(t_r) = 0.5981  P(q0) = 0.0533  p0-1: 0.018  p0+1: 0.006
+  step t_r-1 (n=286189, |z| = 0.46) k = +1  : P(p0) = 0.4598  P(t_r) = 0.0650  P(q0) = 0.2142  p0-1: 0.380  p0+1: 0.000
+  step t_r-1 (n=286189, |z| = 0.46) k = -1  : P(p0) = 0.0935  P(t_r) = 0.2483  P(q0) = 0.3174  p0-1: 0.000  p0+1: 0.475
+  step t_r+0 (n=286189, |z| = 0.21) f = 0   : P(p0) = 0.9649  P(t_r) = 0.0308  P(q0) = 0.0030  p0-1: 0.003  p0+1: 0.001
+  step t_r+0 (n=286189, |z| = 0.21) f = 0.5 : P(p0) = 0.9783  P(t_r) = 0.0205  P(q0) = 0.0009  p0-1: 0.001  p0+1: 0.000
+  step t_r+0 (n=286189, |z| = 0.21) k = +1  : P(p0) = 0.9643  P(t_r) = 0.0219  P(q0) = 0.0096  p0-1: 0.007  p0+1: 0.002
+  step t_r+0 (n=286189, |z| = 0.21) k = -1  : P(p0) = 0.9382  P(t_r) = 0.0500  P(q0) = 0.0072  p0-1: 0.000  p0+1: 0.010
+  step t_r+1 (n=286189, |z| = 0.43) f = 0   : P(p0) = 0.7620  P(t_r) = 0.1667  P(q0) = 0.0317  p0-1: 0.020  p0+1: 0.040
+  step t_r+1 (n=286189, |z| = 0.43) f = 0.5 : P(p0) = 0.8173  P(t_r) = 0.1378  P(q0) = 0.0178  p0-1: 0.012  p0+1: 0.030
+  step t_r+1 (n=286189, |z| = 0.43) k = +1  : P(p0) = 0.7756  P(t_r) = 0.2063  P(q0) = 0.0088  p0-1: 0.013  p0+1: 0.003
+  step t_r+1 (n=286189, |z| = 0.43) k = -1  : P(p0) = 0.9371  P(t_r) = 0.0206  P(q0) = 0.0184  p0-1: 0.002  p0+1: 0.037
+
+[6] apply the clock change only to the wave units / only to the comparators (at t_r - 1)
+  f = 0    all 13           : P(p0) = 0.0185  P(t_r) = 0.7763  P(q0) = 0.1644  p0-2: 0.023 p0-1: 0.015 p0+1: 0.013 p0+2: 0.017  | clipped P(p0) = 0.0185 p0-1: 0.015 p0+1: 0.013  neg = 0.09
+  f = 0    wave only        : P(p0) = 0.0218  P(t_r) = 0.7503  P(q0) = 0.1685  p0-2: 0.023 p0-1: 0.012 p0+1: 0.027 p0+2: 0.029  | clipped P(p0) = 0.0218 p0-1: 0.012 p0+1: 0.027  neg = 0.07
+  f = 0    comparators only : P(p0) = 0.9981  P(t_r) = 0.0008  P(q0) = 0.0007  p0-2: 0.000 p0-1: 0.000 p0+1: 0.001 p0+2: 0.000  | clipped P(p0) = 0.9982 p0-1: 0.000 p0+1: 0.001  neg = 0.03
+  f = 0.5  all 13           : P(p0) = 0.3408  P(t_r) = 0.5981  P(q0) = 0.0533  p0-2: 0.004 p0-1: 0.018 p0+1: 0.006 p0+2: 0.009  | clipped P(p0) = 0.3409 p0-1: 0.018 p0+1: 0.006  neg = 0.08
+  f = 0.5  wave only        : P(p0) = 0.3428  P(t_r) = 0.5721  P(q0) = 0.0712  p0-2: 0.005 p0-1: 0.021 p0+1: 0.020 p0+2: 0.017  | clipped P(p0) = 0.3426 p0-1: 0.021 p0+1: 0.020  neg = 0.06
+  f = 0.5  comparators only : P(p0) = 0.9989  P(t_r) = 0.0004  P(q0) = 0.0003  p0-2: 0.000 p0-1: 0.000 p0+1: 0.000 p0+2: 0.000  | clipped P(p0) = 0.9989 p0-1: 0.000 p0+1: 0.000  neg = 0.03
+  f = 2    all 13           : P(p0) = 0.7452  P(t_r) = 0.1354  P(q0) = 0.0483  p0-2: 0.000 p0-1: 0.029 p0+1: 0.079 p0+2: 0.010  | clipped P(p0) = 0.6759 p0-1: 0.084 p0+1: 0.043  neg = 1.00
+  f = 2    wave only        : P(p0) = 0.8322  P(t_r) = 0.0574  P(q0) = 0.0393  p0-2: 0.000 p0-1: 0.084 p0+1: 0.023 p0+2: 0.003  | clipped P(p0) = 0.7894 p0-1: 0.109 p0+1: 0.010  neg = 0.99
+  f = 2    comparators only : P(p0) = 0.7674  P(t_r) = 0.1754  P(q0) = 0.0426  p0-2: 0.007 p0-1: 0.012 p0+1: 0.008 p0+2: 0.006  | clipped P(p0) = 0.7875 p0-1: 0.010 p0+1: 0.007  neg = 0.27
+  k = +1   all 13           : P(p0) = 0.4598  P(t_r) = 0.0650  P(q0) = 0.2142  p0-2: 0.076 p0-1: 0.380 p0+1: 0.000 p0+2: 0.000  | clipped P(p0) = 0.4129 p0-1: 0.415 p0+1: 0.000  neg = 0.68
+  k = +1   wave only        : P(p0) = 0.5189  P(t_r) = 0.0538  P(q0) = 0.1969  p0-2: 0.064 p0-1: 0.345 p0+1: 0.004 p0+2: 0.000  | clipped P(p0) = 0.4208 p0-1: 0.429 p0+1: 0.005  neg = 0.66
+  k = +1   comparators only : P(p0) = 0.9199  P(t_r) = 0.0492  P(q0) = 0.0199  p0-2: 0.000 p0-1: 0.000 p0+1: 0.022 p0+2: 0.006  | clipped P(p0) = 0.9208 p0-1: 0.000 p0+1: 0.023  neg = 0.13
+  k = -1   all 13           : P(p0) = 0.0935  P(t_r) = 0.2483  P(q0) = 0.3174  p0-2: 0.000 p0-1: 0.000 p0+1: 0.475 p0+2: 0.154  | clipped P(p0) = 0.0906 p0-1: 0.000 p0+1: 0.482  neg = 0.41
+  k = -1   wave only        : P(p0) = 0.1789  P(t_r) = 0.3110  P(q0) = 0.2314  p0-2: 0.000 p0-1: 0.000 p0+1: 0.358 p0+2: 0.129  | clipped P(p0) = 0.1772 p0-1: 0.000 p0+1: 0.361  neg = 0.29
+  k = -1   comparators only : P(p0) = 0.9401  P(t_r) = 0.0232  P(q0) = 0.0108  p0-2: 0.000 p0-1: 0.004 p0+1: 0.031 p0+2: 0.002  | clipped P(p0) = 0.9410 p0-1: 0.004 p0+1: 0.031  neg = 0.14
+  comparators at the record step t_r (unperturbed): fraction of sequences with all four comparators off = 0.8116; number of comparators on: 0: 0.812 1: 0.151 2: 0.037 3: 0.000 4: 0.000
+  wipe the comparators at t_r - 1 (I1-style, just before the record): P(p0) = 0.8679  P(t_r) = 0.0001  P(q0) = 0.0381  p0-2: 0.000 p0-1: 0.009 p0+1: 0.001 p0+2: 0.086
+  wipe the comparators at t_r (the record step):                      P(p0) = 0.9992  P(t_r) = 0.0001  P(q0) = 0.0005  p0-2: 0.000 p0-1: 0.000 p0+1: 0.000 p0+2: 0.000
+
+[7] rotate several modes by k of their own steps (complex: exp(i k angle_n); alt: (-1)^k; real positive modes untouched)
+  k = -1 clock only                  : P(p0) = 0.0935  P(t_r) = 0.2483  P(q0) = 0.3174  p0-2: 0.000 p0-1: 0.000 p0+1: 0.475 p0+2: 0.154  | P(ans = p0+1 | exists, != q0) = 0.3622 (clipped 0.3735)
+  k = -1 h2 only                     : P(p0) = 0.7615  P(t_r) = 0.0659  P(q0) = 0.0897  p0-2: 0.001 p0-1: 0.000 p0+1: 0.145 p0+2: 0.022  | P(ans = p0+1 | exists, != q0) = 0.0927 (clipped 0.0831)
+  k = -1 short only                  : P(p0) = 0.8944  P(t_r) = 0.0381  P(q0) = 0.0552  p0-2: 0.000 p0-1: 0.001 p0+1: 0.038 p0+2: 0.027  | P(ans = p0+1 | exists, != q0) = 0.0112 (clipped 0.0106)
+  k = -1 h3 only                     : P(p0) = 0.8278  P(t_r) = 0.0705  P(q0) = 0.0227  p0-2: 0.000 p0-1: 0.026 p0+1: 0.072 p0+2: 0.003  | P(ans = p0+1 | exists, != q0) = 0.0674 (clipped 0.0596)
+  k = -1 alt only                    : P(p0) = 0.8391  P(t_r) = 0.0442  P(q0) = 0.0135  p0-2: 0.000 p0-1: 0.006 p0+1: 0.110 p0+2: 0.001  | P(ans = p0+1 | exists, != q0) = 0.1232 (clipped 0.1277)
+  k = -1 clock + short               : P(p0) = 0.1502  P(t_r) = 0.1747  P(q0) = 0.3313  p0-2: 0.000 p0-1: 0.000 p0+1: 0.480 p0+2: 0.157  | P(ans = p0+1 | exists, != q0) = 0.3677 (clipped 0.3748)
+  k = -1 clock + h2                  : P(p0) = 0.0361  P(t_r) = 0.2206  P(q0) = 0.2994  p0-2: 0.000 p0-1: 0.000 p0+1: 0.578 p0+2: 0.154  | P(ans = p0+1 | exists, != q0) = 0.4853 (clipped 0.4932)
+  k = -1 all 5 oscillating           : P(p0) = 0.0005  P(t_r) = 0.0510  P(q0) = 0.2083  p0-2: 0.000 p0-1: 0.000 p0+1: 0.915 p0+2: 0.031  | P(ans = p0+1 | exists, != q0) = 0.9064 (clipped 0.7593)
+  k = -1 the 4 others, not the clock : P(p0) = 0.5181  P(t_r) = 0.0994  P(q0) = 0.0739  p0-2: 0.001 p0-1: 0.062 p0+1: 0.311 p0+2: 0.005  | P(ans = p0+1 | exists, != q0) = 0.3000 (clipped 0.2754)
+  k = +1 clock only                  : P(p0) = 0.4598  P(t_r) = 0.0650  P(q0) = 0.2142  p0-2: 0.076 p0-1: 0.380 p0+1: 0.000 p0+2: 0.000  | P(ans = p0-1 | exists, != q0) = 0.4037 (clipped 0.4601)
+  k = +1 h2 only                     : P(p0) = 0.7143  P(t_r) = 0.0727  P(q0) = 0.0468  p0-2: 0.000 p0-1: 0.083 p0+1: 0.109 p0+2: 0.019  | P(ans = p0-1 | exists, != q0) = 0.0815 (clipped 0.0623)
+  k = +1 short only                  : P(p0) = 0.8686  P(t_r) = 0.0831  P(q0) = 0.0371  p0-2: 0.000 p0-1: 0.006 p0+1: 0.024 p0+2: 0.016  | P(ans = p0-1 | exists, != q0) = 0.0073 (clipped 0.0063)
+  k = +1 h3 only                     : P(p0) = 0.8429  P(t_r) = 0.0336  P(q0) = 0.0495  p0-2: 0.000 p0-1: 0.037 p0+1: 0.056 p0+2: 0.030  | P(ans = p0-1 | exists, != q0) = 0.0250 (clipped 0.0252)
+  k = +1 alt only                    : P(p0) = 0.8391  P(t_r) = 0.0442  P(q0) = 0.0135  p0-2: 0.000 p0-1: 0.006 p0+1: 0.110 p0+2: 0.001  | P(ans = p0-1 | exists, != q0) = 0.0047 (clipped 0.0501)
+  k = +1 clock + short               : P(p0) = 0.3755  P(t_r) = 0.0977  P(q0) = 0.1786  p0-2: 0.064 p0-1: 0.447 p0+1: 0.000 p0+2: 0.001  | P(ans = p0-1 | exists, != q0) = 0.5286 (clipped 0.5790)
+  k = +1 clock + h2                  : P(p0) = 0.2628  P(t_r) = 0.1109  P(q0) = 0.1883  p0-2: 0.061 p0-1: 0.539 p0+1: 0.009 p0+2: 0.003  | P(ans = p0-1 | exists, != q0) = 0.6542 (clipped 0.6743)
+  k = +1 all 5 oscillating           : P(p0) = 0.1344  P(t_r) = 0.1075  P(q0) = 0.1350  p0-2: 0.010 p0-1: 0.721 p0+1: 0.005 p0+2: 0.001  | P(ans = p0-1 | exists, != q0) = 0.9552 (clipped 0.9519)
+  k = +1 the 4 others, not the clock : P(p0) = 0.4595  P(t_r) = 0.1941  P(q0) = 0.0552  p0-2: 0.000 p0-1: 0.161 p0+1: 0.133 p0+2: 0.043  | P(ans = p0-1 | exists, != q0) = 0.2341 (clipped 0.2319)
+  one extra resting step for every mode, h[ORD] -> A h[ORD] (k = +1 with decay, all nine modes):
+     P(p0) = 0.1041  P(t_r) = 0.1311  P(q0) = 0.1421  p0-2: 0.001 p0-1: 0.740 p0+1: 0.004 p0+2: 0.001  | P(ans = p0-1 | exists, != q0) = 0.9732
+     all modes except the clock: P(p0) = 0.4817  P(t_r) = 0.2227  P(q0) = 0.0521  p0-2: 0.000 p0-1: 0.101 p0+1: 0.146 p0+2: 0.039  | P(ans = p0-1 | exists, != q0) = 0.1517
+     the clock only (with decay): P(p0) = 0.4570  P(t_r) = 0.0715  P(q0) = 0.2186  p0-2: 0.076 p0-1: 0.375 p0+1: 0.000 p0+2: 0.000  | P(ans = p0-1 | exists, != q0) = 0.3908

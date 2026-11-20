@@ -1,0 +1,151 @@
+## A2.1 literal classes, steps t >= 1 (n = 9437184 steps)
+
+| class | n | share | P(4 on) | P(1 on) | P(6 on) | P(7 on) | P(8 on) | comparator OFF sets (top 4) |
+|---|---|---|---|---|---|---|---|---|
+| R | 2021649 | 0.2142 | 0.8988 | 0.1185 | 0.1120 | 0.1060 | 0.1091 | off{1,6,7,8} 0.858; off{} 0.098; off{6,7,8} 0.013; off{1,7,8} 0.010 |
+| N | 2024284 | 0.2145 | 0.0446 | 0.7496 | 0.7242 | 0.9597 | 0.5258 | off{} 0.431; off{6,8} 0.187; off{1,8} 0.117; off{8} 0.092 |
+| L | 5391251 | 0.5713 | 0.0001 | 0.9952 | 0.9950 | 0.9999 | 0.9969 | off{} 0.989; off{1} 0.004; off{6} 0.003; off{6,8} 0.002 |
+
+## A2.2 fine classes, steps t >= 1
+
+| fine class | n | share | P(4 on) | P(1 on) | P(6 on) | P(7 on) | P(8 on) | comparator OFF sets (top 4) |
+|---|---|---|---|---|---|---|---|---|
+| R+  x>M>0 | 1295370 | 0.1373 | 0.9999 | 0.0279 | 0.0200 | 0.0083 | 0.0164 | off{1,6,7,8} 0.937; off{6,7,8} 0.019; off{1,7,8} 0.015; off{1,6,7} 0.012 |
+| R+0 x>0>=M (first positive) | 523283 | 0.0554 | 0.9974 | 0.0023 | 0.0003 | 0.0012 | 0.0004 | off{1,6,7,8} 0.997; off{6,7,8} 0.002; off{1,6,8} 0.001; off{6,8} 0.000 |
+| R-  0>x>M (all negative) | 202996 | 0.0215 | 0.0000 | 0.9953 | 0.9870 | 0.9997 | 0.9813 | off{} 0.977; off{8} 0.007; off{6,8} 0.007; off{6} 0.004 |
+| N+  q in [0,.25) | 424794 | 0.0450 | 0.0021 | 0.7558 | 0.6760 | 0.9974 | 0.4858 | off{6,8} 0.308; off{} 0.249; off{1} 0.220; off{8} 0.185 |
+| N+  q in [.25,.5) | 359626 | 0.0381 | 0.0070 | 0.6412 | 0.6518 | 0.9904 | 0.2339 | off{6,8} 0.323; off{1,8} 0.282; off{8} 0.159; off{} 0.140 |
+| N+  q in [.5,.75) | 288037 | 0.0305 | 0.0534 | 0.5940 | 0.5366 | 0.9173 | 0.1199 | off{6,8} 0.326; off{1,8} 0.307; off{8} 0.153; off{1,6,8} 0.077 |
+| N+  q in [.75,1) | 225965 | 0.0239 | 0.3163 | 0.3171 | 0.3436 | 0.7645 | 0.1033 | off{1,6,8} 0.433; off{1,8} 0.173; off{6,8} 0.124; off{7,8} 0.081 |
+| N-  S<x<0<M | 522873 | 0.0554 | 0.0000 | 0.9947 | 0.9741 | 1.0000 | 0.9810 | off{} 0.968; off{6,8} 0.019; off{6} 0.007; off{1} 0.005 |
+| N-  S<x<M<0 | 202989 | 0.0215 | 0.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9999 | off{} 1.000; off{8} 0.000; off{6,8} 0.000; off{6} 0.000 |
+| L   r<0 (x<0<S) | 3155796 | 0.3344 | 0.0000 | 1.0000 | 0.9999 | 1.0000 | 0.9999 | off{} 1.000; off{6} 0.000; off{6,8} 0.000; off{1} 0.000 |
+| L   r in [0,.25) | 472246 | 0.0500 | 0.0000 | 1.0000 | 0.9997 | 1.0000 | 0.9999 | off{} 1.000; off{6} 0.000; off{6,8} 0.000; off{1} 0.000 |
+| L   r in [.25,.5) | 438279 | 0.0464 | 0.0000 | 0.9999 | 0.9993 | 1.0000 | 0.9997 | off{} 0.999; off{6} 0.000; off{6,8} 0.000; off{1} 0.000 |
+| L   r in [.5,.7) | 308498 | 0.0327 | 0.0000 | 0.9989 | 0.9959 | 1.0000 | 0.9990 | off{} 0.995; off{6} 0.003; off{1} 0.001; off{6,8} 0.001 |
+| L   r in [.7,.9) | 266025 | 0.0282 | 0.0000 | 0.9802 | 0.9704 | 1.0000 | 0.9855 | off{} 0.947; off{6} 0.019; off{1} 0.019; off{6,8} 0.010 |
+| L   r in [.9,1) | 117675 | 0.0125 | 0.0059 | 0.8263 | 0.8583 | 0.9941 | 0.8954 | off{} 0.650; off{1} 0.147; off{6} 0.080; off{8} 0.046 |
+| L   x<S<=0<M | 513600 | 0.0544 | 0.0000 | 1.0000 | 0.9994 | 1.0000 | 0.9997 | off{} 0.999; off{6,8} 0.000; off{6} 0.000; off{1} 0.000 |
+| L   x<S<M<0 | 119132 | 0.0126 | 0.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | off{} 1.000 |
+
+## A2.3 most common full patterns per fine class (t >= 1)
+
+| fine class | distinct patterns | top-4 coverage | top 4 patterns (freq within class) |
+|---|---|---|---|
+| R+  x>M>0 | 509 | 0.519 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.216<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.133<br>pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.098<br>pulses on [4] comp off [1 6 7 8] wave off [15] 0.071 |
+| R+0 x>0>=M (first positive) | 244 | 0.603 | pulses on [4] comp off [1 6 7 8] wave off [3 13 14 15] 0.196<br>pulses on [4] comp off [1 6 7 8] wave off [2 13 14 15] 0.168<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.162<br>pulses on [4] comp off [1 6 7 8] wave off [13 14] 0.077 |
+| R-  0>x>M (all negative) | 102 | 0.939 | pulses on [-] comp off [-] wave off [0 2 13] 0.513<br>pulses on [-] comp off [-] wave off [-] 0.256<br>pulses on [-] comp off [-] wave off [0 2] 0.123<br>pulses on [-] comp off [-] wave off [2] 0.047 |
+| N+  q in [0,.25) | 326 | 0.512 | pulses on [5 9] comp off [6 8] wave off [-] 0.281<br>pulses on [-] comp off [1] wave off [0 14] 0.096<br>pulses on [-] comp off [-] wave off [-] 0.074<br>pulses on [-] comp off [8] wave off [15] 0.061 |
+| N+  q in [.25,.5) | 356 | 0.472 | pulses on [5 9] comp off [6 8] wave off [-] 0.290<br>pulses on [-] comp off [1 8] wave off [0 14] 0.081<br>pulses on [-] comp off [8] wave off [15] 0.052<br>pulses on [-] comp off [1 8] wave off [-] 0.048 |
+| N+  q in [.5,.75) | 407 | 0.488 | pulses on [5 9] comp off [6 8] wave off [-] 0.291<br>pulses on [-] comp off [1 8] wave off [0 14] 0.079<br>pulses on [-] comp off [1 8] wave off [15] 0.060<br>pulses on [-] comp off [1 8] wave off [-] 0.059 |
+| N+  q in [.75,1) | 372 | 0.434 | pulses on [5 9] comp off [1 6 8] wave off [-] 0.168<br>pulses on [5 9] comp off [6 8] wave off [-] 0.109<br>pulses on [-] comp off [1 6 8] wave off [0 14] 0.105<br>pulses on [-] comp off [1 8] wave off [15] 0.052 |
+| N-  S<x<0<M | 131 | 0.915 | pulses on [5 9] comp off [-] wave off [-] 0.655<br>pulses on [-] comp off [-] wave off [0] 0.100<br>pulses on [-] comp off [-] wave off [0 14] 0.083<br>pulses on [-] comp off [-] wave off [-] 0.076 |
+| N-  S<x<M<0 | 96 | 0.766 | pulses on [-] comp off [-] wave off [0 2 12] 0.291<br>pulses on [-] comp off [-] wave off [0 2 10 11 12] 0.224<br>pulses on [-] comp off [-] wave off [-] 0.161<br>pulses on [-] comp off [-] wave off [0 2 11 12] 0.090 |
+| L   r<0 (x<0<S) | 175 | 0.404 | pulses on [-] comp off [-] wave off [-] 0.159<br>pulses on [5 9] comp off [-] wave off [-] 0.110<br>pulses on [-] comp off [-] wave off [15] 0.069<br>pulses on [5] comp off [-] wave off [-] 0.066 |
+| L   r in [0,.25) | 98 | 0.415 | pulses on [-] comp off [-] wave off [-] 0.194<br>pulses on [5 9] comp off [-] wave off [-] 0.084<br>pulses on [-] comp off [-] wave off [10] 0.071<br>pulses on [5] comp off [-] wave off [-] 0.066 |
+| L   r in [.25,.5) | 101 | 0.415 | pulses on [-] comp off [-] wave off [-] 0.195<br>pulses on [5 9] comp off [-] wave off [-] 0.084<br>pulses on [-] comp off [-] wave off [10] 0.070<br>pulses on [5] comp off [-] wave off [-] 0.066 |
+| L   r in [.5,.7) | 115 | 0.411 | pulses on [-] comp off [-] wave off [-] 0.193<br>pulses on [5 9] comp off [-] wave off [-] 0.083<br>pulses on [-] comp off [-] wave off [10] 0.069<br>pulses on [5] comp off [-] wave off [-] 0.066 |
+| L   r in [.7,.9) | 160 | 0.389 | pulses on [-] comp off [-] wave off [-] 0.188<br>pulses on [5 9] comp off [-] wave off [-] 0.069<br>pulses on [-] comp off [-] wave off [10] 0.067<br>pulses on [-] comp off [-] wave off [15] 0.065 |
+| L   r in [.9,1) | 407 | 0.312 | pulses on [-] comp off [-] wave off [-] 0.147<br>pulses on [-] comp off [-] wave off [10] 0.062<br>pulses on [-] comp off [-] wave off [15] 0.061<br>pulses on [-] comp off [-] wave off [11] 0.042 |
+| L   x<S<=0<M | 220 | 0.800 | pulses on [5 9] comp off [-] wave off [-] 0.300<br>pulses on [-] comp off [-] wave off [0] 0.233<br>pulses on [-] comp off [-] wave off [-] 0.185<br>pulses on [-] comp off [-] wave off [15] 0.082 |
+| L   x<S<M<0 | 186 | 0.646 | pulses on [-] comp off [-] wave off [12] 0.267<br>pulses on [-] comp off [-] wave off [2] 0.180<br>pulses on [-] comp off [-] wave off [2 11 12] 0.105<br>pulses on [-] comp off [-] wave off [11 12] 0.094 |
+
+## A2.3b most common full patterns per literal class (t >= 1)
+
+| class | distinct patterns | top-6 coverage | top 6 patterns (freq within class) |
+|---|---|---|---|
+| R | 715 | 0.454 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.139<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.102<br>pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.063<br>pulses on [4] comp off [1 6 7 8] wave off [3 13 14 15] 0.052<br>pulses on [-] comp off [-] wave off [0 2 13] 0.051<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.048 |
+| N | 743 | 0.481 | pulses on [5 9] comp off [-] wave off [-] 0.169<br>pulses on [5 9] comp off [6 8] wave off [-] 0.169<br>pulses on [-] comp off [-] wave off [-] 0.060<br>pulses on [-] comp off [-] wave off [0 2 12] 0.029<br>pulses on [-] comp off [8] wave off [15] 0.028<br>pulses on [-] comp off [-] wave off [0] 0.026 |
+| L | 662 | 0.524 | pulses on [-] comp off [-] wave off [-] 0.169<br>pulses on [5 9] comp off [-] wave off [-] 0.116<br>pulses on [-] comp off [-] wave off [15] 0.067<br>pulses on [-] comp off [-] wave off [10] 0.059<br>pulses on [5] comp off [-] wave off [-] 0.058<br>pulses on [-] comp off [-] wave off [0] 0.055 |
+
+## A2.4 conditioned on the previous step: effective (positive-part) classes; steps t >= 2
+
+| class t-1 | class t | n | P(4 on) | P(5 on) | P(9 on) | P(all 4 comp on) | P(all 4 comp off) | P(0 off) | distinct | top 3 full patterns |
+|---|---|---|---|---|---|---|---|---|---|---|
+| R* | R* | 287579 | 0.9998 | 0.9952 | 0.9063 | 0.0000 | 0.9842 | 0.0027 | 144 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.609<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.124<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.089 |
+| R* | N* | 289004 | 0.0129 | 1.0000 | 0.9998 | 0.0004 | 0.0002 | 0.0002 | 75 | pulses on [5 9] comp off [6 8] wave off [-] 0.745<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.085<br>pulses on [5 9] comp off [6 8] wave off [3] 0.051 |
+| R* | L* | 1137147 | 0.0000 | 1.0000 | 0.9964 | 0.9748 | 0.0000 | 0.0070 | 127 | pulses on [5 9] comp off [-] wave off [-] 0.623<br>pulses on [5 9] comp off [-] wave off [3] 0.148<br>pulses on [5 9] comp off [-] wave off [3 15] 0.108 |
+| N* | R* | 158158 | 0.9999 | 0.9921 | 0.0279 | 0.0000 | 0.9181 | 0.3753 | 194 | pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.228<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 3] 0.127<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 14] 0.091 |
+| N* | N* | 157946 | 0.1095 | 0.9981 | 0.0019 | 0.1296 | 0.0004 | 0.3791 | 243 | pulses on [5] comp off [1 8] wave off [-] 0.131<br>pulses on [5] comp off [1] wave off [0] 0.071<br>pulses on [5] comp off [8] wave off [-] 0.054 |
+| N* | L* | 878453 | 0.0003 | 0.9999 | 0.0436 | 0.9894 | 0.0000 | 0.3289 | 206 | pulses on [5] comp off [-] wave off [-] 0.262<br>pulses on [5] comp off [-] wave off [0 3] 0.135<br>pulses on [5] comp off [-] wave off [0] 0.110 |
+| L* | R* | 980500 | 0.9987 | 0.0323 | 0.0000 | 0.0000 | 0.9348 | 0.2341 | 518 | pulses on [4] comp off [1 6 7 8] wave off [-] 0.209<br>pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.129<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.098 |
+| L* | N* | 719936 | 0.0948 | 0.0582 | 0.0000 | 0.1982 | 0.0001 | 0.3179 | 502 | pulses on [-] comp off [8] wave off [15] 0.080<br>pulses on [-] comp off [1 8] wave off [0 14] 0.072<br>pulses on [-] comp off [8] wave off [-] 0.072 |
+| L* | L* | 3779885 | 0.0001 | 0.0701 | 0.0002 | 0.9915 | 0.0000 | 0.2292 | 584 | pulses on [-] comp off [-] wave off [-] 0.274<br>pulses on [-] comp off [-] wave off [15] 0.099<br>pulses on [-] comp off [-] wave off [0] 0.092 |
+
+## A2.5 conditioned on the two previous steps: effective (positive-part) classes; steps t >= 2 (t >= 3 for literal classes)
+
+| class t-2 | class t-1 | class t | n | P(4 on) | P(5 on) | P(9 on) | P(0 off) | P(all comp on) | distinct | top-3 cov | top 3 full patterns |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| R* | R* | R* | 59131 | 1.0000 | 0.9993 | 0.9761 | 0.0131 | 0.0000 | 70 | 0.850 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.362<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.343<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.145 |
+| R* | R* | N* | 59913 | 0.0190 | 1.0000 | 1.0000 | 0.0011 | 0.0000 | 47 | 0.824 | pulses on [5 9] comp off [6 8] wave off [-] 0.647<br>pulses on [5 9] comp off [6 8] wave off [3] 0.120<br>pulses on [5 9] comp off [6 8] wave off [15] 0.056 |
+| R* | R* | L* | 287758 | 0.0000 | 1.0000 | 0.9999 | 0.0272 | 0.9799 | 48 | 0.859 | pulses on [5 9] comp off [-] wave off [-] 0.412<br>pulses on [5 9] comp off [-] wave off [3] 0.315<br>pulses on [5 9] comp off [-] wave off [3 15] 0.131 |
+| R* | N* | R* | 60021 | 1.0000 | 0.9886 | 0.0062 | 0.9888 | 0.0000 | 60 | 0.738 | pulses on [4 5] comp off [1 6 7 8] wave off [0 3] 0.334<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 14] 0.240<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 3 15] 0.163 |
+| R* | N* | N* | 59884 | 0.0283 | 1.0000 | 0.0001 | 0.9999 | 0.0102 | 44 | 0.422 | pulses on [5] comp off [1] wave off [0] 0.188<br>pulses on [5] comp off [1 8] wave off [0] 0.127<br>pulses on [5] comp off [1 8] wave off [0 3] 0.107 |
+| R* | N* | L* | 289234 | 0.0001 | 1.0000 | 0.0133 | 0.9989 | 0.9916 | 63 | 0.898 | pulses on [5] comp off [-] wave off [0 3] 0.410<br>pulses on [5] comp off [-] wave off [0] 0.335<br>pulses on [5] comp off [-] wave off [0 3 15] 0.153 |
+| R* | L* | R* | 228710 | 0.9998 | 0.0360 | 0.0000 | 0.9946 | 0.0000 | 126 | 0.778 | pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.554<br>pulses on [4] comp off [1 6 7 8] wave off [0 3 15] 0.113<br>pulses on [4] comp off [1 6 7 8] wave off [0 15] 0.111 |
+| R* | L* | N* | 228417 | 0.0209 | 0.0713 | 0.0000 | 1.0000 | 0.0003 | 118 | 0.587 | pulses on [-] comp off [1 8] wave off [0 14] 0.228<br>pulses on [-] comp off [1] wave off [0 14] 0.215<br>pulses on [-] comp off [1 6 8] wave off [0 14] 0.144 |
+| R* | L* | L* | 848699 | 0.0000 | 0.0831 | 0.0000 | 0.9981 | 0.9785 | 214 | 0.753 | pulses on [-] comp off [-] wave off [0] 0.401<br>pulses on [-] comp off [-] wave off [0 15] 0.178<br>pulses on [-] comp off [-] wave off [0 3 15] 0.174 |
+| N* | R* | R* | 16118 | 0.9996 | 1.0000 | 0.9878 | 0.0002 | 0.0000 | 48 | 0.840 | pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.333<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [15] 0.299<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.207 |
+| N* | R* | N* | 16359 | 0.0174 | 1.0000 | 0.9998 | 0.0000 | 0.0036 | 36 | 0.790 | pulses on [5 9] comp off [6 8] wave off [-] 0.370<br>pulses on [5 9] comp off [6 8] wave off [3 15] 0.217<br>pulses on [5 9] comp off [6 8] wave off [15] 0.202 |
+| N* | R* | L* | 114626 | 0.0000 | 1.0000 | 0.9955 | 0.0002 | 0.9774 | 39 | 0.849 | pulses on [5 9] comp off [-] wave off [3 15] 0.311<br>pulses on [5 9] comp off [-] wave off [-] 0.271<br>pulses on [5 9] comp off [-] wave off [15] 0.267 |
+| N* | N* | R* | 16245 | 0.9998 | 0.9944 | 0.0665 | 0.0001 | 0.0001 | 109 | 0.627 | pulses on [4 5] comp off [1 6 7 8] wave off [15] 0.320<br>pulses on [4 5] comp off [1 6 7 8] wave off [3 15] 0.194<br>pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.113 |
+| N* | N* | N* | 16241 | 0.1672 | 0.9934 | 0.0054 | 0.0001 | 0.1778 | 136 | 0.440 | pulses on [5] comp off [1 8] wave off [15] 0.188<br>pulses on [5] comp off [8] wave off [3 15] 0.143<br>pulses on [5] comp off [8] wave off [15] 0.108 |
+| N* | N* | L* | 114299 | 0.0003 | 0.9997 | 0.0718 | 0.0004 | 0.9916 | 93 | 0.600 | pulses on [5] comp off [-] wave off [15] 0.300<br>pulses on [5] comp off [-] wave off [-] 0.164<br>pulses on [5] comp off [-] wave off [3 15] 0.136 |
+| N* | L* | R* | 98027 | 0.9999 | 0.0485 | 0.0001 | 0.0200 | 0.0000 | 231 | 0.567 | pulses on [4] comp off [1 6 7 8] wave off [15] 0.324<br>pulses on [4] comp off [1 6 7 8] wave off [3 15] 0.181<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.062 |
+| N* | L* | N* | 98690 | 0.1388 | 0.0568 | 0.0000 | 0.0044 | 0.2370 | 298 | 0.445 | pulses on [-] comp off [1 8] wave off [15] 0.168<br>pulses on [-] comp off [8] wave off [15] 0.151<br>pulses on [-] comp off [8] wave off [3 15] 0.127 |
+| N* | L* | L* | 589431 | 0.0003 | 0.0719 | 0.0002 | 0.0269 | 0.9952 | 238 | 0.488 | pulses on [-] comp off [-] wave off [15] 0.296<br>pulses on [-] comp off [-] wave off [3 12 15] 0.101<br>pulses on [-] comp off [-] wave off [-] 0.090 |
+| L* | R* | R* | 212330 | 0.9998 | 0.9936 | 0.8806 | 0.0000 | 0.0000 | 113 | 0.834 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.708<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.064<br>pulses on [4 5] comp off [1 6 7 8] wave off [14] 0.061 |
+| L* | R* | N* | 212732 | 0.0108 | 1.0000 | 0.9998 | 0.0000 | 0.0002 | 51 | 0.927 | pulses on [5 9] comp off [6 8] wave off [-] 0.801<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.097<br>pulses on [5 9] comp off [6 8] wave off [3] 0.029 |
+| L* | R* | L* | 734763 | 0.0000 | 1.0000 | 0.9951 | 0.0002 | 0.9724 | 101 | 0.913 | pulses on [5 9] comp off [-] wave off [-] 0.760<br>pulses on [5 9] comp off [-] wave off [3] 0.086<br>pulses on [5 9] comp off [-] wave off [3 15] 0.067 |
+| L* | N* | R* | 81892 | 1.0000 | 0.9942 | 0.0362 | 0.0000 | 0.0000 | 131 | 0.614 | pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.418<br>pulses on [4 5] comp off [1 6 7 8] wave off [3 15] 0.129<br>pulses on [4 5] comp off [1 6 7 8] wave off [15] 0.068 |
+| L* | N* | N* | 81821 | 0.1576 | 0.9977 | 0.0026 | 0.0000 | 0.2073 | 188 | 0.407 | pulses on [5] comp off [1 8] wave off [-] 0.240<br>pulses on [5] comp off [8] wave off [-] 0.100<br>pulses on [5] comp off [8] wave off [15] 0.067 |
+| L* | N* | L* | 474920 | 0.0004 | 0.9999 | 0.0553 | 0.0000 | 0.9874 | 143 | 0.600 | pulses on [5] comp off [-] wave off [-] 0.445<br>pulses on [5] comp off [-] wave off [10] 0.092<br>pulses on [5] comp off [-] wave off [3 11] 0.062 |
+| L* | L* | R* | 653763 | 0.9982 | 0.0286 | 0.0000 | 0.0001 | 0.0000 | 393 | 0.545 | pulses on [4] comp off [1 6 7 8] wave off [-] 0.305<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.147<br>pulses on [4] comp off [1 6 7 8] wave off [15] 0.093 |
+| L* | L* | N* | 392829 | 0.1267 | 0.0510 | 0.0000 | 0.0000 | 0.3036 | 305 | 0.365 | pulses on [-] comp off [8] wave off [-] 0.129<br>pulses on [-] comp off [1 8] wave off [-] 0.123<br>pulses on [-] comp off [-] wave off [-] 0.113 |
+| L* | L* | L* | 2341755 | 0.0001 | 0.0649 | 0.0002 | 0.0015 | 0.9954 | 392 | 0.638 | pulses on [-] comp off [-] wave off [-] 0.419<br>pulses on [-] comp off [-] wave off [10] 0.123<br>pulses on [-] comp off [-] wave off [11] 0.096 |
+
+## A2.4 conditioned on the previous step: literal classes; steps t >= 2
+
+| class t-1 | class t | n | P(4 on) | P(5 on) | P(9 on) | P(all 4 comp on) | P(all 4 comp off) | P(0 off) | distinct | top 3 full patterns |
+|---|---|---|---|---|---|---|---|---|---|---|
+| R | R | 419166 | 0.9274 | 0.6899 | 0.6218 | 0.0695 | 0.9168 | 0.0019 | 299 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.418<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.106<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.085 |
+| R | N | 419168 | 0.0089 | 0.9353 | 0.9292 | 0.2953 | 0.0001 | 0.0002 | 142 | pulses on [5 9] comp off [6 8] wave off [-] 0.524<br>pulses on [5 9] comp off [-] wave off [-] 0.219<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.058 |
+| R | L | 1078301 | 0.0000 | 0.9658 | 0.9579 | 0.9794 | 0.0000 | 0.0092 | 209 | pulses on [5 9] comp off [-] wave off [-] 0.572<br>pulses on [5 9] comp off [-] wave off [3] 0.154<br>pulses on [5 9] comp off [-] wave off [3 15] 0.113 |
+| N | R | 419753 | 0.9273 | 0.3810 | 0.0105 | 0.0695 | 0.8887 | 0.3558 | 388 | pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.193<br>pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.087<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.070 |
+| N | N | 419516 | 0.0497 | 0.3992 | 0.0007 | 0.3714 | 0.0002 | 0.5498 | 398 | pulses on [-] comp off [-] wave off [0] 0.103<br>pulses on [-] comp off [-] wave off [0 14] 0.081<br>pulses on [-] comp off [1] wave off [0 14] 0.077 |
+| N | L | 1080066 | 0.0002 | 0.8327 | 0.0355 | 0.9913 | 0.0000 | 0.3616 | 348 | pulses on [5] comp off [-] wave off [-] 0.217<br>pulses on [5] comp off [-] wave off [0 3] 0.110<br>pulses on [5] comp off [-] wave off [0] 0.097 |
+| L | R | 658903 | 0.9819 | 0.0391 | 0.0000 | 0.0166 | 0.8916 | 0.2117 | 454 | pulses on [4] comp off [1 6 7 8] wave off [-] 0.257<br>pulses on [4] comp off [1 6 7 8] wave off [15] 0.126<br>pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.070 |
+| L | N | 660851 | 0.0979 | 0.0493 | 0.0000 | 0.3129 | 0.0001 | 0.2411 | 537 | pulses on [-] comp off [-] wave off [-] 0.115<br>pulses on [-] comp off [8] wave off [15] 0.076<br>pulses on [-] comp off [8] wave off [-] 0.067 |
+| L | L | 3232884 | 0.0001 | 0.0730 | 0.0001 | 0.9918 | 0.0000 | 0.2046 | 458 | pulses on [-] comp off [-] wave off [-] 0.272<br>pulses on [-] comp off [-] wave off [15] 0.108<br>pulses on [-] comp off [-] wave off [10] 0.098 |
+
+## A2.5 conditioned on the two previous steps: literal classes; steps t >= 2 (t >= 3 for literal classes)
+
+| class t-2 | class t-1 | class t | n | P(4 on) | P(5 on) | P(9 on) | P(0 off) | P(all comp on) | distinct | top-3 cov | top 3 full patterns |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| R | R | R | 81523 | 0.9560 | 0.7791 | 0.7067 | 0.0095 | 0.0415 | 179 | 0.614 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.379<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.127<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.107 |
+| R | R | N | 81795 | 0.0120 | 0.9631 | 0.9570 | 0.0008 | 0.2096 | 100 | 0.771 | pulses on [5 9] comp off [6 8] wave off [-] 0.556<br>pulses on [5 9] comp off [-] wave off [-] 0.160<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.056 |
+| R | R | L | 244107 | 0.0000 | 0.9718 | 0.9672 | 0.0311 | 0.9834 | 157 | 0.806 | pulses on [5 9] comp off [-] wave off [-] 0.437<br>pulses on [5 9] comp off [-] wave off [3] 0.213<br>pulses on [5 9] comp off [-] wave off [3 15] 0.155 |
+| R | N | R | 81572 | 0.9562 | 0.4771 | 0.0037 | 0.7685 | 0.0406 | 174 | 0.484 | pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.244<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 3] 0.125<br>pulses on [4 5] comp off [1 6 7 8] wave off [0 3 15] 0.114 |
+| R | N | N | 81109 | 0.0181 | 0.5124 | 0.0000 | 0.9571 | 0.2254 | 124 | 0.292 | pulses on [-] comp off [1] wave off [0 14] 0.102<br>pulses on [-] comp off [1 8] wave off [0 14] 0.098<br>pulses on [-] comp off [-] wave off [0 14] 0.092 |
+| R | N | L | 244962 | 0.0001 | 0.8503 | 0.0119 | 0.9667 | 0.9931 | 178 | 0.732 | pulses on [5] comp off [-] wave off [0 3] 0.280<br>pulses on [5] comp off [-] wave off [0] 0.272<br>pulses on [5] comp off [-] wave off [0 3 15] 0.181 |
+| R | L | R | 163128 | 0.9727 | 0.0394 | 0.0000 | 0.8428 | 0.0249 | 218 | 0.596 | pulses on [4] comp off [1 6 7 8] wave off [0 14] 0.283<br>pulses on [4] comp off [1 6 7 8] wave off [0 3 15] 0.158<br>pulses on [4] comp off [1 6 7 8] wave off [0 15] 0.155 |
+| R | L | N | 163458 | 0.0218 | 0.0580 | 0.0000 | 0.9721 | 0.1500 | 159 | 0.335 | pulses on [-] comp off [1 8] wave off [0 14] 0.125<br>pulses on [-] comp off [1] wave off [0 14] 0.118<br>pulses on [-] comp off [1] wave off [0] 0.091 |
+| R | L | L | 658564 | 0.0001 | 0.0869 | 0.0000 | 0.9796 | 0.9765 | 230 | 0.775 | pulses on [-] comp off [-] wave off [0] 0.326<br>pulses on [-] comp off [-] wave off [0 15] 0.225<br>pulses on [-] comp off [-] wave off [0 3 15] 0.224 |
+| N | R | R | 81359 | 0.9559 | 0.7803 | 0.7046 | 0.0000 | 0.0425 | 187 | 0.653 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.464<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.104<br>pulses on [4] comp off [1 6 7 8] wave off [3 14] 0.085 |
+| N | R | N | 81828 | 0.0102 | 0.9629 | 0.9570 | 0.0000 | 0.2088 | 101 | 0.768 | pulses on [5 9] comp off [6 8] wave off [-] 0.554<br>pulses on [5 9] comp off [-] wave off [-] 0.151<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.063 |
+| N | R | L | 244857 | 0.0000 | 0.9725 | 0.9653 | 0.0002 | 0.9811 | 139 | 0.872 | pulses on [5 9] comp off [-] wave off [-] 0.539<br>pulses on [5 9] comp off [-] wave off [3 15] 0.192<br>pulses on [5 9] comp off [-] wave off [15] 0.141 |
+| N | N | R | 81604 | 0.9566 | 0.4638 | 0.0167 | 0.0000 | 0.0417 | 223 | 0.440 | pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.184<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.161<br>pulses on [4] comp off [1 6 7 8] wave off [14] 0.095 |
+| N | N | N | 81598 | 0.0665 | 0.4726 | 0.0012 | 0.0000 | 0.3128 | 208 | 0.431 | pulses on [-] comp off [-] wave off [-] 0.167<br>pulses on [5] comp off [1 8] wave off [-] 0.138<br>pulses on [-] comp off [1 8] wave off [-] 0.126 |
+| N | N | L | 244521 | 0.0002 | 0.8352 | 0.0416 | 0.0003 | 0.9888 | 177 | 0.567 | pulses on [5] comp off [-] wave off [-] 0.324<br>pulses on [5] comp off [-] wave off [15] 0.153<br>pulses on [5] comp off [-] wave off [3 15] 0.089 |
+| N | L | R | 162503 | 0.9727 | 0.0293 | 0.0001 | 0.0121 | 0.0255 | 307 | 0.552 | pulses on [4] comp off [1 6 7 8] wave off [15] 0.266<br>pulses on [4] comp off [1 6 7 8] wave off [-] 0.175<br>pulses on [4] comp off [1 6 7 8] wave off [3 15] 0.111 |
+| N | L | N | 164422 | 0.0979 | 0.0342 | 0.0000 | 0.0027 | 0.3338 | 322 | 0.424 | pulses on [-] comp off [-] wave off [-] 0.152<br>pulses on [-] comp off [8] wave off [15] 0.143<br>pulses on [-] comp off [1 8] wave off [15] 0.129 |
+| N | L | L | 659808 | 0.0003 | 0.0644 | 0.0002 | 0.0241 | 0.9957 | 274 | 0.508 | pulses on [-] comp off [-] wave off [15] 0.287<br>pulses on [-] comp off [-] wave off [-] 0.130<br>pulses on [-] comp off [-] wave off [3 12 15] 0.091 |
+| L | R | R | 81269 | 0.9880 | 0.9267 | 0.8664 | 0.0000 | 0.0112 | 155 | 0.784 | pulses on [4 5 9] comp off [1 6 7 8] wave off [-] 0.543<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3] 0.139<br>pulses on [4 5 9] comp off [1 6 7 8] wave off [3 15] 0.101 |
+| L | R | N | 81517 | 0.0134 | 0.9910 | 0.9875 | 0.0000 | 0.0744 | 80 | 0.784 | pulses on [5 9] comp off [6 8] wave off [-] 0.638<br>pulses on [5 9] comp off [1 6 8] wave off [-] 0.078<br>pulses on [5 9] comp off [6 8] wave off [3] 0.068 |
+| L | R | L | 414553 | 0.0000 | 0.9936 | 0.9828 | 0.0000 | 0.9720 | 108 | 0.874 | pulses on [5 9] comp off [-] wave off [-] 0.644<br>pulses on [5 9] comp off [-] wave off [3] 0.139<br>pulses on [5 9] comp off [-] wave off [3 15] 0.090 |
+| L | N | R | 81686 | 0.9869 | 0.7459 | 0.0328 | 0.0000 | 0.0124 | 221 | 0.412 | pulses on [4 5] comp off [1 6 7 8] wave off [-] 0.264<br>pulses on [4 5] comp off [1 6 7 8] wave off [3 15] 0.088<br>pulses on [4 5] comp off [1 6 7 8] wave off [15] 0.060 |
+| L | N | N | 81804 | 0.1530 | 0.7558 | 0.0024 | 0.0000 | 0.3137 | 239 | 0.239 | pulses on [5] comp off [1 8] wave off [-] 0.120<br>pulses on [5] comp off [-] wave off [-] 0.060<br>pulses on [5] comp off [8] wave off [-] 0.059 |
+| L | N | L | 415730 | 0.0004 | 0.9451 | 0.0585 | 0.0000 | 0.9899 | 191 | 0.540 | pulses on [5] comp off [-] wave off [-] 0.372<br>pulses on [5] comp off [-] wave off [10] 0.103<br>pulses on [5] comp off [-] wave off [3 11] 0.065 |
+| L | L | R | 333272 | 0.9909 | 0.0438 | 0.0000 | 0.0002 | 0.0083 | 259 | 0.606 | pulses on [4] comp off [1 6 7 8] wave off [-] 0.409<br>pulses on [4] comp off [1 6 7 8] wave off [15] 0.118<br>pulses on [4] comp off [1 6 7 8] wave off [10] 0.078 |
+| L | L | N | 332971 | 0.1353 | 0.0525 | 0.0000 | 0.0000 | 0.3826 | 312 | 0.342 | pulses on [-] comp off [-] wave off [-] 0.145<br>pulses on [-] comp off [8] wave off [-] 0.109<br>pulses on [-] comp off [-] wave off [10] 0.087 |
+| L | L | L | 1914512 | 0.0001 | 0.0713 | 0.0000 | 0.0003 | 0.9957 | 227 | 0.673 | pulses on [-] comp off [-] wave off [-] 0.413<br>pulses on [-] comp off [-] wave off [10] 0.148<br>pulses on [-] comp off [-] wave off [11] 0.112 |

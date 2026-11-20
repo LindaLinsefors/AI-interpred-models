@@ -1,0 +1,82 @@
+seeds 5300..5304; 1000000 sequences
+
+=== a. t = 9, S > 0, p1 < 9: distribution of argmax m over indices 0..8 (columns) by position of the max (rows p1 = 0..8) ===
+[[0.302 0.445 0.079 0.01  0.012 0.01  0.021 0.105 0.015]
+ [0.    0.992 0.002 0.001 0.001 0.    0.001 0.002 0.   ]
+ [0.    0.016 0.977 0.001 0.    0.    0.    0.001 0.004]
+ [0.    0.    0.002 0.993 0.001 0.    0.    0.    0.003]
+ [0.    0.    0.001 0.003 0.993 0.    0.    0.001 0.   ]
+ [0.    0.003 0.002 0.004 0.027 0.93  0.005 0.012 0.018]
+ [0.002 0.002 0.004 0.003 0.003 0.02  0.889 0.045 0.032]
+ [0.007 0.005 0.001 0.002 0.    0.    0.    0.975 0.01 ]
+ [0.001 0.006 0.002 0.002 0.006 0.001 0.001 0.018 0.965]]
+P(argmax m = p1) by p1: [0.302 0.992 0.977 0.993 0.993 0.93  0.889 0.975 0.965]
+P(argmax m = p2) by p1: [0.319 0.007 0.02  0.006 0.006 0.064 0.099 0.023 0.035]
+P(m[p1] > m[i]) by p1 (rows) and other index i (columns 0..8):
+[[  nan 0.421 0.876 0.975 0.978 0.981 0.957 0.782 0.941]
+ [1.      nan 0.998 0.999 0.999 1.    0.999 0.998 1.   ]
+ [1.    0.984   nan 0.999 1.    1.    1.    0.999 0.996]
+ [1.    1.    0.998   nan 0.999 1.    1.    1.    0.997]
+ [1.    1.    0.999 0.996   nan 1.    1.    0.999 1.   ]
+ [1.    0.997 0.998 0.996 0.972   nan 0.995 0.988 0.981]
+ [0.998 0.997 0.995 0.997 0.997 0.979   nan 0.953 0.967]
+ [0.993 0.995 0.999 0.998 1.    1.    1.      nan 0.99 ]
+ [0.999 0.994 0.998 0.998 0.994 0.999 0.999 0.982   nan]]
+
+=== b. the current input in m (S_t > 0, p1 < t): P(index 9 is the largest entry of m over indices 9-t..9); median (m[9] - m[p1])/M ===
+t=2: P(current input first in m) = 0.9920;  median (m[9]-m[p1])/M =    1.37;  linear fit (m[9]-m[p1])/M ~ 1.7 + -0.0 x_t/M   corr = -0.113;  P(m[9] > m[p1]) for x_t/M < 0: 0.996, for 0 < x_t/M < 0.5: 1.000, for x_t/M > 0.5: 0.999
+t=3: P(current input first in m) = 0.9901;  median (m[9]-m[p1])/M =    2.23;  linear fit (m[9]-m[p1])/M ~ 2.4 + -1.0 x_t/M   corr = -0.517;  P(m[9] > m[p1]) for x_t/M < 0: 0.999, for 0 < x_t/M < 0.5: 1.000, for x_t/M > 0.5: 0.982
+t=4: P(current input first in m) = 0.8806;  median (m[9]-m[p1])/M =    2.11;  linear fit (m[9]-m[p1])/M ~ 1.8 + -1.7 x_t/M   corr = -0.778;  P(m[9] > m[p1]) for x_t/M < 0: 0.928, for 0 < x_t/M < 0.5: 0.847, for x_t/M > 0.5: 0.815
+t=5: P(current input first in m) = 0.7414;  median (m[9]-m[p1])/M =    1.36;  linear fit (m[9]-m[p1])/M ~ 1.6 + -0.8 x_t/M   corr = -0.407;  P(m[9] > m[p1]) for x_t/M < 0: 0.768, for 0 < x_t/M < 0.5: 0.722, for x_t/M > 0.5: 0.705
+t=6: P(current input first in m) = 0.6301;  median (m[9]-m[p1])/M =    0.93;  linear fit (m[9]-m[p1])/M ~ 0.9 + -0.8 x_t/M   corr = -0.313;  P(m[9] > m[p1]) for x_t/M < 0: 0.647, for 0 < x_t/M < 0.5: 0.621, for x_t/M > 0.5: 0.592
+t=7: P(current input first in m) = 0.5343;  median (m[9]-m[p1])/M =    0.42;  linear fit (m[9]-m[p1])/M ~ -0.7 + -0.6 x_t/M   corr = -0.131;  P(m[9] > m[p1]) for x_t/M < 0: 0.554, for 0 < x_t/M < 0.5: 0.517, for x_t/M > 0.5: 0.503
+t=8: P(current input first in m) = 0.4563;  median (m[9]-m[p1])/M =   -0.43;  linear fit (m[9]-m[p1])/M ~ -1.9 + -0.5 x_t/M   corr = -0.082;  P(m[9] > m[p1]) for x_t/M < 0: 0.480, for 0 < x_t/M < 0.5: 0.442, for x_t/M > 0.5: 0.428
+t=9: P(current input first in m) = 0.5112;  median (m[9]-m[p1])/M =    0.28;  linear fit (m[9]-m[p1])/M ~ -0.6 + -1.6 x_t/M   corr = -0.206;  P(m[9] > m[p1]) for x_t/M < 0: 0.538, for 0 < x_t/M < 0.5: 0.510, for x_t/M > 0.5: 0.466
+
+=== c. specificity (S_t > 0, p1 < t; argmax over older inputs) ===
+t   full score s: P(=p1) P(=p2)  |  without comparators: P(=p1) P(=p2)
+2   0.3502 0.5007   |   0.9719 0.0279
+3   0.2112 0.6527   |   0.9425 0.0571
+4   0.1423 0.7255   |   0.9484 0.0503
+5   0.0992 0.7782   |   0.9523 0.0449
+6   0.0788 0.8136   |   0.9581 0.0392
+7   0.0639 0.8378   |   0.9640 0.0335
+8   0.0544 0.8529   |   0.9662 0.0313
+9   0.0491 0.8622   |   0.8908 0.0644
+t=5: removing four WAVE units instead (all 126 subsets): P(argmax = p1): min 0.0013, median 0.1032, max 0.2884 (subset (2, 3, 14, 15), P(=p2) there 0.3837);  P(argmax = p2): min 0.1601, median 0.2967, max 0.5524
+      subset (10, 11, 12, 15): P(=p1) = 0.0785, P(=p2) = 0.3851
+t=9: removing four WAVE units instead (all 126 subsets): P(argmax = p1): min 0.0050, median 0.0465, max 0.1360 (subset (0, 12, 14, 15), P(=p2) there 0.2163);  P(argmax = p2): min 0.1024, median 0.1801, max 0.4047
+      subset (10, 11, 12, 15): P(=p1) = 0.0261, P(=p2) = 0.1985
+
+=== d. V itself (all four comparators on, S_t > 0.1, p1 < t): P(argmin V over older inputs = p1) by a1 = 1..9, rows t = 2..9 ===
+2 0.993 1.000   -     -     -     -     -     -     -  
+3 0.975 1.000 0.760   -     -     -     -     -     -  
+4 0.970 1.000 0.607 0.970   -     -     -     -     -  
+5 0.964 0.999 0.596 0.767 0.997   -     -     -     -  
+6 0.964 0.995 0.604 0.783 0.841 0.995   -     -     -  
+7 0.959 0.969 0.625 0.806 0.858 0.815 0.993   -     -  
+8 0.957 0.927 0.632 0.821 0.876 0.808 0.871 0.951   -  
+9 0.956 0.934 0.629 0.838 0.893 0.817 0.851 0.904 0.060
+pooled over t: 0.967 0.980 0.635 0.832 0.896 0.865 0.909 0.928 0.060
+P(argmax V over older inputs = p2) by a1, rows t:
+2 0.993 0.998   -     -     -     -     -     -     -  
+3 0.501 0.588 0.482   -     -     -     -     -     -  
+4 0.333 0.332 0.297 0.303   -     -     -     -     -  
+5 0.253 0.252 0.255 0.271 0.222   -     -     -     -  
+6 0.207 0.211 0.202 0.240 0.192 0.173   -     -     -  
+7 0.179 0.178 0.173 0.188 0.258 0.151 0.134   -     -  
+8 0.149 0.152 0.149 0.162 0.163 0.153 0.119 0.128   -  
+9 0.108 0.132 0.126 0.120 0.119 0.141 0.139 0.123 0.107
+t = 9, indices 0..7 only: P(argmin V = p1) by a1 = 2..9: 0.935 0.629 0.838 0.893 0.817 0.851 0.904 0.060
+t = 9, indices 0..7 only: P(|argmin V - p1| <= 1) by a1 = 2..9: 0.935 0.976 0.948 0.987 0.996 0.996 0.980 0.833
+
+=== e. margin of the max in m over the best other older input, in units of M: median and P(margin > 0) by a1; gap bins (0,.05], (.05,.15], (.3,.5] ===
+a1=1:  median   1.93  P>0 0.675   |   median   6.09  P>0 0.865   |   median  15.65  P>0 0.999
+a1=2:  median   6.35  P>0 0.864   |   median   9.69  P>0 0.991   |   median  14.71  P>0 1.000
+a1=3:  median   0.11  P>0 0.509   |   median   2.03  P>0 0.655   |   median   6.61  P>0 0.976
+a1=4:  median   0.38  P>0 0.536   |   median   2.59  P>0 0.773   |   median  10.66  P>0 0.992
+a1=5:  median   6.14  P>0 0.936   |   median   8.01  P>0 0.998   |   median  13.03  P>0 1.000
+a1=6:  median   5.29  P>0 0.915   |   median   7.96  P>0 0.995   |   median  11.20  P>0 1.000
+a1=7:  median   5.62  P>0 0.888   |   median   9.18  P>0 0.983   |   median  12.58  P>0 1.000
+a1=8:  median   4.45  P>0 0.922   |   median   6.67  P>0 0.993   |   median  10.16  P>0 1.000
+a1=9:  median  -6.15  P>0 0.189   |   median  -4.09  P>0 0.291   |   median  -2.95  P>0 0.314

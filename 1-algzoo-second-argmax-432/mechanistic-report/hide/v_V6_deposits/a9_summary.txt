@@ -1,0 +1,98 @@
+[1] D1 at Delta = 7: per-seed (400k sequences each) values
+    c1:       40.8   41.7   43.2   42.2   45.2   42.3   42.4   41.7   43.0   44.7   sd 1.37
+    c2:       2.09   2.37   1.41   2.65   1.22   2.41   2.37   1.88   1.76   1.50   sd 0.49
+    R2cen:   0.369  0.367  0.374  0.394  0.409  0.390  0.390  0.381  0.386  0.398   sd 0.013
+    P(y>0):  0.873  0.883  0.873  0.885  0.881  0.885  0.886  0.871  0.873  0.868   sd 0.0068
+    n per seed about 2139; the lead's sample has n = 3308, so its s.e. is about sd * sqrt(2139/3308) = c1 1.10, R2 0.011, P 0.0055
+    pooled over my 10 seeds: c1 42.7, c2 1.97, R2 0.386, P(y>0) 0.878  (lead: 41.8, 2.05, 0.36, 0.893)
+
+[2] D1 split by the age of the old runner-up at the record (natural weights; s.e. of c1 over the 10 seeds)
+    aS >= 2 (old runner-up at least two steps before the record)
+      Delta       n     c1  (s.e.)    c2  R2cen  P(y>0)  c1/(1-cos)
+          1  641864   11.9 (0.02)   1.69  0.676   0.972       45.0
+          2  403970   48.7 (0.08)   2.35  0.782   0.990       52.9
+          3  246682   87.7 (0.19)   5.74  0.846   0.994       54.2
+          4  142464  109.2 (0.24)   5.41  0.848   0.987       54.9
+          5   75367   97.2 (0.29)   5.14  0.876   0.982       53.1
+          6   33262   63.8 (0.20)  -1.36  0.881   0.941       51.7
+          7    9916   25.4 (0.35)  -2.84  0.635   0.747       49.7
+    aS = 1 (old runner-up is the input right before the record)
+      Delta       n     c1  (s.e.)    c2  R2cen  P(y>0)  c1/(1-cos)
+          1  178594   34.5 (0.01)  -2.68  0.995   0.916      129.8
+          2  118929   32.9 (0.03)  -2.09  0.976   0.973       35.7
+          3   78924   39.3 (0.07)  -1.58  0.917   0.932       24.2
+          4   52253   41.8 (0.08)   2.43  0.941   0.996       21.0
+          5   33777   51.1 (0.18)   0.58  0.893   0.939       27.9
+          6   20554   63.6 (0.53)   3.37  0.762   0.949       51.6
+          7   11474   55.9 (0.61)   6.84  0.641   0.991      109.2
+          8    4926   54.6 (0.16)   0.68  0.943   0.994     1115.7
+    aS >= 2, runner-up OLDER than old max
+      Delta       n     c1  (s.e.)    c2  R2cen  P(y>0)  c1/(1-cos)
+          1  321262   11.2 (0.04)   1.66  0.630   0.966       42.3
+          2  201484   51.6 (0.12)   5.32  0.860   0.995       56.0
+          3  123723  109.2 (0.13)   4.08  0.950   0.998       67.5
+          4   71254  139.7 (0.19)   1.80  0.979   0.982       70.3
+          5   37853  116.5 (0.17)   2.78  0.983   0.989       63.6
+          6   16572   71.9 (0.12)  -3.96  0.966   0.906       58.3
+          7    5017   29.6 (0.22)  -1.79  0.811   0.890       58.0
+    aS >= 2, runner-up YOUNGER than old max
+      Delta       n     c1  (s.e.)    c2  R2cen  P(y>0)  c1/(1-cos)
+          1  320602   12.6 (0.03)   1.72  0.734   0.978       47.6
+          2  202486   45.8 (0.07)  -0.59  0.801   0.984       49.7
+          3  122959   66.1 (0.17)   7.40  0.864   0.990       40.8
+          4   71210   79.1 (0.25)   8.89  0.830   0.992       39.8
+          5   37514   77.5 (0.37)   7.57  0.807   0.974       42.3
+          6   16690   55.8 (0.28)   1.21  0.794   0.976       45.3
+          7    4899   21.4 (0.30)  -4.02  0.605   0.601       41.8
+    share of D1 records with aS = 1: 0.243; by Delta 1..8: 0.22 0.23 0.24 0.27 0.31 0.38 0.54 1.00
+
+[3] regression design, by Delta (all D1 records): c1 from (a) the lead's fit, (b) with intercept, (c) ratio regression y/M0 ~ c1 r + c2, (d) ratio regression on r <= 0.3 only
+    Delta=1: (a)   17.5  (b)   17.6 [c2  -0.17, c0  0.78]  (c)   17.8 [c2   0.73]  (d)   15.6 [c2   1.17]
+    Delta=2: (a)   43.7  (b)   43.8 [c2   1.70, c0  0.29]  (c)   43.5 [c2   2.13]  (d)   33.5 [c2   3.75]
+    Delta=3: (a)   73.1  (b)   73.2 [c2   4.66, c0  0.57]  (c)   73.8 [c2   5.10]  (d)   82.5 [c2   3.65]
+    Delta=4: (a)   88.1  (b)   88.3 [c2   4.23, c0  1.67]  (c)   89.6 [c2   5.68]  (d)  106.1 [c2   3.07]
+    Delta=5: (a)   80.9  (b)   81.3 [c2   2.25, c0  2.57]  (c)   82.9 [c2   4.55]  (d)  102.4 [c2   1.75]
+    Delta=6: (a)   64.0  (b)   64.7 [c2  -3.57, c0  4.37]  (c)   67.6 [c2   0.34]  (d)   78.5 [c2  -1.20]
+    Delta=7: (a)   42.7  (b)   43.6 [c2  -3.12, c0  5.87]  (c)   46.5 [c2   2.27]  (d)   48.4 [c2   2.30]
+    Delta=8: (a)   54.6  (b)   55.0 [c2  -1.70, c0  2.80]  (c)   54.6 [c2   1.40]  (d)   37.8 [c2   3.83]
+    linearity: median of y/M0 by relative gap r = (M0 - S0)/M0, per Delta  [bins (0,.03] (.03,.08] (.08,.2] (.2,.5] (.5,1)]; then P(y<0) per bin
+    Delta=1:   1.13   2.10   3.20   6.38  11.49   | P(y<0): 0.355 0.176 0.055 0.007 0.000
+    Delta=2:   3.50   6.38   7.73  15.32  29.62   | P(y<0): 0.190 0.035 0.003 0.005 0.000
+    Delta=3:   3.94   9.68  16.55  31.14  54.46   | P(y<0): 0.230 0.094 0.009 0.000 0.000
+    Delta=4:   3.19   8.60  18.83  37.40  64.49   | P(y<0): 0.180 0.009 0.000 0.000 0.000
+    Delta=5:   1.70   7.50  16.47  33.17  60.02   | P(y<0): 0.360 0.094 0.006 0.002 0.000
+    Delta=6:   0.34   2.74   8.86  23.90  44.32   | P(y<0): 0.458 0.209 0.033 0.003 0.000
+    Delta=7:   3.21   5.99   9.59  13.01  26.05   | P(y<0): 0.258 0.226 0.193 0.099 0.008
+    Delta=8:   4.37   5.94   8.99  17.83  37.09   | P(y<0): 0.040 0.016 0.005 0.003 0.000
+
+[4] before the record (t - 1) vs after (t): b = s_{t-1}[old max] - s_{t-1}[old runner-up]  (seed 5030, 400k)
+    Delta=1: P(before < 0) = 0.997, median before/M0 =  -4.58, median after/M0 =   6.23, P(after > 0) = 0.960  (n = 81796)
+    Delta=2: P(before < 0) = 0.997, median before/M0 =  -7.20, median after/M0 =  15.24, P(after > 0) = 0.987  (n = 52383)
+    Delta=3: P(before < 0) = 0.995, median before/M0 =  -8.37, median after/M0 =  25.98, P(after > 0) = 0.980  (n = 32847)
+    Delta=4: P(before < 0) = 0.989, median before/M0 = -12.34, median after/M0 =  30.32, P(after > 0) = 0.990  (n = 19391)
+    Delta=5: P(before < 0) = 0.991, median before/M0 = -17.93, median after/M0 =  26.96, P(after > 0) = 0.969  (n = 10900)
+    Delta=6: P(before < 0) = 0.989, median before/M0 = -18.03, median after/M0 =  19.30, P(after > 0) = 0.941  (n = 5395)
+    Delta=7: P(before < 0) = 0.975, median before/M0 = -19.92, median after/M0 =  11.64, P(after > 0) = 0.887  (n = 2186)
+    Delta=8: P(before < 0) = 0.984, median before/M0 = -18.90, median after/M0 =  14.21, P(after > 0) = 1.000  (n = 495)
+    all: P(before < 0) = 0.995, P(after > 0) = 0.972
+
+[5] D4 (max last, controlled sampling): share of all 'answers the third' errors carried by sub-families of configurations
+    g = 0 (pS = pM - 1; outside D1)           :  36/240 configs (15%); share of errors per bin 0.32 0.35 0.23 0.11 | error rate inside 0.447 0.122 0.027 0.003 | outside 0.164 0.039 0.016 0.004
+    pM = 9 (record on the last step)          :  72/240 configs (30%); share of errors per bin 0.40 0.60 0.68 0.81 | error rate inside 0.275 0.104 0.040 0.010 | outside 0.177 0.029 0.008 0.001
+    g = 0 or pM = 9                           : 100/240 configs (42%); share of errors per bin 0.65 0.83 0.84 0.92 | error rate inside 0.320 0.103 0.035 0.008 | outside 0.125 0.016 0.005 0.001
+    third right before the max (pT = pM - 1)  :  36/240 configs (15%); share of errors per bin 0.09 0.13 0.06 0.02 | error rate inside 0.129 0.046 0.007 0.001 | outside 0.220 0.053 0.019 0.004
+    all max-last configurations: error rate per bin 0.206 0.052 0.017 0.004
+
+[6] the eight configurations with D = 7 or 8 (max last): P(answer = pT) per bin; D1-type regression at the record; cosine-law c1 = 45 (1 - cos(42.75 D))
+    (pS,pT,pM)=(0,8,9) D=8 aM=9 aS=1      : 0.034 0.010 0.005 0.001 | c1 =  54.6 (law  2.2), c2 =  0.66, R2 = 0.940, P(y>0) = 0.993
+    (pS,pT,pM)=(8,0,9) D=8 aM=1 aS=9 [g=0]: 0.859 0.693 0.224 0.005 | c1 =  63.2 (law  2.2), c2 = -5.54, R2 = 0.974, P(y>0) = 0.819
+    (pS,pT,pM)=(0,7,9) D=7 aM=9 aS=2      : 0.632 0.618 0.546 0.370 | c1 =  21.6 (law 23.0), c2 = -3.98, R2 = 0.607, P(y>0) = 0.609
+    (pS,pT,pM)=(7,0,9) D=7 aM=2 aS=9      : 0.268 0.264 0.214 0.012 | c1 =  29.3 (law 23.0), c2 = -1.68, R2 = 0.808, P(y>0) = 0.891
+    (pS,pT,pM)=(1,8,9) D=7 aM=8 aS=1      : 0.029 0.005 0.006 0.011 | c1 =  56.3 (law 23.0), c2 =  6.59, R2 = 0.655, P(y>0) = 0.992
+    (pS,pT,pM)=(8,1,9) D=7 aM=1 aS=8 [g=0]: 0.661 0.091 0.001 0.000 | c1 =  83.8 (law 23.0), c2 = -2.06, R2 = 0.994, P(y>0) = 0.945
+    (pS,pT,pM)=(0,7,8) D=7 aM=8 aS=1      : 0.066 0.012 0.000 0.000 | c1 =  55.4 (law 23.0), c2 =  7.00, R2 = 0.633, P(y>0) = 0.991
+    (pS,pT,pM)=(7,0,8) D=7 aM=1 aS=8 [g=0]: 0.509 0.037 0.000 0.000 | c1 =  84.2 (law 23.0), c2 = -2.60, R2 = 0.995, P(y>0) = 0.938
+
+[7] old max's mean footprint over slots 0..8 after a record at t = 9 (a8_traces.npz), aM = 2..9: one common frequency for all eight profiles
+    best common frequency 43.00 deg per slot (pooled R2 0.905); at 42.75: R2 0.905; at 36: 0.847; at 50: 0.819; at 83.28 (2nd harmonic): 0.047
+    frequencies whose SSE is within 10% of the minimum: 40.75 .. 45.25 deg

@@ -1,0 +1,17 @@
+regime: comparators 7 and 8 both on at step s (n = 1981107, 0.708 of step-sequence pairs, s = 2..8)
+[FIT] theta_5 := x_s - pre5(s+1)/18.01  ~  -0.025 M1+ +0.740 M2+ +0.125 M3+ -0.015   R^2 = 0.958
+   (M1+, M2+, M3+ = positive parts of the three largest of x_0..x_(s-1));  mean theta_5 - M2+ = -0.173, mean theta_5 - M3+ = +0.169
+   P(theta_5 < M2+) = 0.971,  P(theta_5 < M3+) = 0.371
+   step 4: d h5_(s+1)/d x_s where unit 5 fires and x_s below theta_7, theta_8          : median  18.04, IQR  18.01.. 18.12  (n = 1113)
+   step 4: d h5_(s+1)/d x_s where unit 5 fires and theta_8 < x_s < theta_7             : median   7.66, IQR   7.55..  7.76  (n = 2808)
+   step 4: d h5_(s+1)/d x_s where unit 5 fires and x_s above theta_4, theta_7, theta_8 : median  12.00, IQR  11.95.. 12.20  (n = 3987)
+   step 7: d h5_(s+1)/d x_s where unit 5 fires and x_s below theta_7, theta_8          : median  18.01, IQR  17.99.. 18.06  (n = 1973)
+   step 7: d h5_(s+1)/d x_s where unit 5 fires and theta_8 < x_s < theta_7             : median   7.55, IQR   7.54..  7.76  (n = 1252)
+   step 7: d h5_(s+1)/d x_s where unit 5 fires and x_s above theta_4, theta_7, theta_8 : median  11.95, IQR  11.94.. 12.00  (n = 2488)
+
+mean h5_(s+1) and mean h4_s by rank of x_s in its prefix (s = 2..8), positive x_s only:
+   rank 1: P(h5>0) = 1.000, mean h5 =  12.73; mean h4_s =   6.79;  mean x_s = 1.22
+   rank 2: P(h5>0) = 0.999, mean h5 =   6.62; mean h4_s =   0.06;  mean x_s = 0.73
+   rank 3: P(h5>0) = 0.387, mean h5 =   0.92; mean h4_s =   0.00;  mean x_s = 0.50
+   rank 4: P(h5>0) = 0.071, mean h5 =   0.10; mean h4_s =   0.00;  mean x_s = 0.38
+[FIT] records: h5_(s+1) ~ 1.207 h4_s +7.013 M1+(before) +0.433   R^2 = 0.915  (n = 503958)

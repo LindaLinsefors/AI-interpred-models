@@ -1,0 +1,100 @@
+[1] c2 by (aM, aS), mean over t  [rows aM = age of old max at the record, columns aS = age of old runner-up]
+       aS:      1      2      3      4      5      6      7      8      9
+    aM=1:      -  -0.58  -1.56   0.17   0.43   2.78   2.76  -2.33  -5.54
+    aM=2:  -2.22      -   1.99   7.30   4.52   0.87   1.84  -3.54  -1.68
+    aM=3:  -1.74   0.66      -   1.23   4.02   2.48   1.73   4.34  -4.72
+    aM=4:  -1.52  -1.70   0.12      -   0.94   2.40   3.63   3.81   2.42
+    aM=5:   2.36   7.08   1.47   3.24      -   1.42   4.01   5.56   2.65
+    aM=6:   0.57   8.49   6.78   1.06   3.52      -   2.09   5.23   3.46
+    aM=7:   3.31   7.63   8.61   8.67   2.55   3.43      -  -0.25   0.14
+    aM=8:   6.79   2.03   7.58   9.80   7.27  -1.43   0.55      -  -0.02
+    aM=9:   0.66  -3.98  -0.91   5.42   3.38   1.61  -2.23   3.20      -
+    break-even relative gap -c2/c1 (the old runner-up is ahead on average when (M0 - S0)/M0 is below this; negative = never)
+    aM=1:      -  0.028  0.051 -0.003 -0.005 -0.028 -0.027  0.028  0.088
+    aM=2:  0.067      - -0.256 -0.211 -0.046 -0.006 -0.016  0.047  0.057
+    aM=3:  0.055 -0.041      - -0.222 -0.070 -0.020 -0.012 -0.036  0.073
+    aM=4:  0.039  0.031 -0.009      - -0.049 -0.031 -0.027 -0.027 -0.024
+    aM=5: -0.057 -0.107 -0.049 -0.638      - -0.068 -0.054 -0.056 -0.027
+    aM=6: -0.011 -0.123 -0.126 -0.029 -0.351      - -0.193 -0.136 -0.053
+    aM=7: -0.052 -0.104 -0.107 -0.119 -0.060 -0.348      -  0.024 -0.003
+    aM=8: -0.122 -0.039 -0.097 -0.105 -0.091  0.029 -0.063      -  0.001
+    aM=9: -0.012  0.184  0.014 -0.057 -0.030 -0.019  0.069 -1.419      -
+    final P(answer = pT), bin (.03,.08], by (aM, aS) at the record, mean over t (i.e. over pM)
+    aM=1:      -  0.095  0.231  0.116  0.055  0.030  0.036  0.064  0.693
+    aM=2:  0.110      -  0.068  0.002  0.002  0.007  0.004  0.223  0.264
+    aM=3:  0.025  0.053      -  0.068  0.000  0.000  0.000  0.001  0.434
+    aM=4:  0.054  0.001  0.078      -  0.023  0.001  0.000  0.001  0.010
+    aM=5:  0.001  0.001  0.003  0.027      -  0.010  0.000  0.000  0.001
+    aM=6:  0.031  0.003  0.004  0.004  0.023      -  0.010  0.003  0.020
+    aM=7:  0.046  0.053  0.032  0.010  0.019  0.031      -  0.247  0.081
+    aM=8:  0.009  0.138  0.052  0.013  0.003  0.030  0.042      -  0.332
+    aM=9:  0.010  0.618  0.171  0.059  0.097  0.030  0.045  0.004      -
+    same, only pM = 9 (record on the last step; the answer is read at once)
+    aM=1:      -  0.176  0.492  0.107  0.050  0.015  0.008  0.091  0.693
+    aM=2:  0.715      -  0.240  0.010  0.012  0.025  0.010  0.275  0.264
+    aM=3:  0.140  0.154      -  0.275  0.002  0.000  0.001  0.000  0.434
+    aM=4:  0.284  0.004  0.283      -  0.105  0.004  0.000  0.002  0.010
+    aM=5:  0.002  0.000  0.003  0.060      -  0.020  0.001  0.000  0.001
+    aM=6:  0.123  0.001  0.004  0.006  0.061      -  0.023  0.005  0.020
+    aM=7:  0.130  0.009  0.011  0.007  0.026  0.066      -  0.394  0.081
+    aM=8:  0.005  0.021  0.034  0.017  0.005  0.047  0.081      -  0.332
+    aM=9:  0.010  0.618  0.171  0.059  0.097  0.030  0.045  0.004      -
+    P(y < 0) at the record step, bin (.03,.08], by (aM, aS), mean over t
+    aM=1:      -  0.238  0.538  0.084  0.046  0.014  0.010  0.114  0.725
+    aM=2:  0.574      -  0.138  0.008  0.007  0.016  0.012  0.331  0.313
+    aM=3:  0.158  0.115      -  0.141  0.001  0.000  0.001  0.001  0.450
+    aM=4:  0.409  0.019  0.169      -  0.037  0.002  0.000  0.001  0.013
+    aM=5:  0.004  0.000  0.002  0.023      -  0.011  0.000  0.000  0.001
+    aM=6:  0.235  0.003  0.004  0.005  0.026      -  0.018  0.004  0.022
+    aM=7:  0.180  0.017  0.012  0.004  0.012  0.028      -  0.279  0.082
+    aM=8:  0.006  0.023  0.043  0.020  0.005  0.039  0.067      -  0.333
+    aM=9:  0.015  0.641  0.190  0.076  0.107  0.037  0.051  0.008      -
+    spread over t of that P(y < 0) (max - min)
+    aM=1:      -  0.159  0.133  0.067  0.038  0.008  0.004  0.024      -
+    aM=2:  0.222      -  0.197  0.007  0.009  0.018  0.003  0.063      -
+    aM=3:  0.151  0.147      -  0.279  0.002  0.000  0.001  0.000      -
+    aM=4:  0.225  0.025  0.254      -  0.108  0.005  0.000  0.001      -
+    aM=5:  0.003  0.001  0.003  0.060      -  0.018  0.001  0.000      -
+    aM=6:  0.219  0.001  0.002  0.005  0.052      -  0.018  0.003      -
+    aM=7:  0.084  0.011  0.007  0.005  0.023  0.061      -  0.231      -
+    aM=8:  0.001  0.000  0.013  0.000  0.000  0.017  0.034      -      -
+    aM=9:      -      -      -      -      -      -      -      -      -
+
+[2] Spearman rank correlation over configurations between a failure rate and candidate predictors
+    all 240 max-last configurations:
+       P(y<0) at record, bin (.03,.08]   : with -(cosine-law lead) +0.37 | with -(actual c1) +0.44 | with break-even gap -c2/c1 +0.56 | with Delta -0.21
+       P(y<0) at record, bin (.08,.2]    : with -(cosine-law lead) +0.60 | with -(actual c1) +0.72 | with break-even gap -c2/c1 +0.26 | with Delta -0.47
+       final P(ans = pT), bin (.03,.08]  : with -(cosine-law lead) +0.23 | with -(actual c1) +0.27 | with break-even gap -c2/c1 +0.26 | with Delta -0.05
+       final P(ans = pT), bin (.08,.2]   : with -(cosine-law lead) +0.50 | with -(actual c1) +0.56 | with break-even gap -c2/c1 +0.16 | with Delta -0.35
+    g >= 1 (204):
+       P(y<0) at record, bin (.03,.08]   : with -(cosine-law lead) +0.38 | with -(actual c1) +0.46 | with break-even gap -c2/c1 +0.42 | with Delta -0.22
+       P(y<0) at record, bin (.08,.2]    : with -(cosine-law lead) +0.61 | with -(actual c1) +0.70 | with break-even gap -c2/c1 +0.20 | with Delta -0.45
+       final P(ans = pT), bin (.03,.08]  : with -(cosine-law lead) +0.29 | with -(actual c1) +0.34 | with break-even gap -c2/c1 +0.07 | with Delta -0.13
+       final P(ans = pT), bin (.08,.2]   : with -(cosine-law lead) +0.51 | with -(actual c1) +0.57 | with break-even gap -c2/c1 +0.03 | with Delta -0.35
+    g >= 1 and aS >= 2 (168):
+       P(y<0) at record, bin (.03,.08]   : with -(cosine-law lead) +0.45 | with -(actual c1) +0.50 | with break-even gap -c2/c1 +0.17 | with Delta -0.30
+       P(y<0) at record, bin (.08,.2]    : with -(cosine-law lead) +0.67 | with -(actual c1) +0.74 | with break-even gap -c2/c1 +0.05 | with Delta -0.52
+       final P(ans = pT), bin (.03,.08]  : with -(cosine-law lead) +0.28 | with -(actual c1) +0.39 | with break-even gap -c2/c1 +0.05 | with Delta -0.12
+       final P(ans = pT), bin (.08,.2]   : with -(cosine-law lead) +0.53 | with -(actual c1) +0.62 | with break-even gap -c2/c1 +0.01 | with Delta -0.38
+    pM = 9, g >= 1 (56):
+       P(y<0) at record, bin (.03,.08]   : with -(cosine-law lead) +0.44 | with -(actual c1) +0.53 | with break-even gap -c2/c1 +0.45 | with Delta -0.13
+       P(y<0) at record, bin (.08,.2]    : with -(cosine-law lead) +0.66 | with -(actual c1) +0.76 | with break-even gap -c2/c1 +0.33 | with Delta -0.30
+       final P(ans = pT), bin (.03,.08]  : with -(cosine-law lead) +0.45 | with -(actual c1) +0.53 | with break-even gap -c2/c1 +0.44 | with Delta -0.15
+       final P(ans = pT), bin (.08,.2]   : with -(cosine-law lead) +0.68 | with -(actual c1) +0.75 | with break-even gap -c2/c1 +0.32 | with Delta -0.32
+
+[3] cosine law K (1 - cos(42.75 Delta)) fitted to the per-configuration c1 in sub-families (R2 over configurations; 'const' = R2 of the mean is 0 by definition)
+    old runner-up OLDER than old max (aS > aM), aM >= 2                  n =  84: K =  65.7, R2 =  0.913 | with intercept:  71.4 (1-cos) +  -8.1, R2 = 0.921 | mean c1  65.1, range 4.7..149.8
+    old runner-up YOUNGER (aS < aM), aS >= 2                             n =  84: K =  42.5, R2 =  0.900 | with intercept:  41.3 (1-cos) +   1.6, R2 = 0.901 | mean c1  44.0, range 2.3..112.9
+    old runner-up arrived the step before the record (aS = 1), aM >= 2   n =  36: K =  28.6, R2 = -3.374 | with intercept:   4.1 (1-cos) +  36.7, R2 = 0.073 | mean c1  41.3, range 31.6..63.5
+    g = 0 (aM = 1; excluded by D1)                                       n =  36: K =  47.5, R2 =  0.398 | with intercept:  34.4 (1-cos) +  19.7, R2 = 0.495 | mean c1  58.2, range 19.9..101.7
+    both ages >= 2                                                       n = 168: K =  54.1, R2 =  0.796 | with intercept:  56.4 (1-cos) +  -3.2, R2 = 0.798 | mean c1  54.6, range 2.3..149.8
+    all g >= 1                                                           n = 204: K =  49.1, R2 =  0.639 | with intercept:  46.5 (1-cos) +   3.8, R2 = 0.642 | mean c1  52.2, range 2.3..149.8
+    c1 in the aS = 1 column vs the cosine law (K = 45):
+       aM = 2 (Delta = 1): c1 =  33.3   law  12.0   c2 = -2.22   P(y>0) = 0.868
+       aM = 3 (Delta = 2): c1 =  31.9   law  41.5   c2 = -1.74   P(y>0) = 0.955
+       aM = 4 (Delta = 3): c1 =  38.8   law  72.9   c2 = -1.52   P(y>0) = 0.909
+       aM = 5 (Delta = 4): c1 =  41.4   law  89.4   c2 =  2.36   P(y>0) = 0.996
+       aM = 6 (Delta = 5): c1 =  50.7   law  82.4   c2 =  0.57   P(y>0) = 0.936
+       aM = 7 (Delta = 6): c1 =  63.2   law  55.5   c2 =  3.31   P(y>0) = 0.946
+       aM = 8 (Delta = 7): c1 =  55.8   law  23.0   c2 =  6.79   P(y>0) = 0.991
+       aM = 9 (Delta = 8): c1 =  54.6   law   2.2   c2 =  0.66   P(y>0) = 0.993

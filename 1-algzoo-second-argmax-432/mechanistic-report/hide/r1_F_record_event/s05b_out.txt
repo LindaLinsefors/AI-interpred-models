@@ -1,0 +1,28 @@
+################ s05b ################
+n = 307719 relabel sequences with g >= 2; unmodified P(ans = p0) = 0.9671
+
+=== A. rotation direction control (only sequences where both p0-k and p0+k are valid earlier positions != q0) ===
+   clock  k=+1: n = 153788   P(ans = p0-k) [with the rotation] = 0.379   P(ans = p0+k) [against] = 0.000
+   clock  k=-1: n = 153788   P(ans = p0-k) [with the rotation] = 0.294   P(ans = p0+k) [against] = 0.001
+   all5   k=+1: n = 153788   P(ans = p0-k) [with the rotation] = 0.740   P(ans = p0+k) [against] = 0.003
+   all5   k=-1: n = 153788   P(ans = p0-k) [with the rotation] = 0.690   P(ans = p0+k) [against] = 0.000
+
+=== B. zeroing a mode at s-1: P(ans = p0), all / only where the record is still gated as a record ===
+   clock         : all 0.106   gated (0.969 of cases) 0.104   not gated 0.155
+   all5          : all 0.160   gated (0.999 of cases) 0.160   not gated 0.085
+   all-but-clock : all 0.696   gated (0.846 of cases) 0.718   not gated 0.579
+   h2            : all 0.832   gated (0.868 of cases) 0.849   not gated 0.721
+   h3            : all 0.881   gated (0.863 of cases) 0.893   not gated 0.805
+   short         : all 0.831   gated (0.842 of cases) 0.852   not gated 0.716
+   alt           : all 0.945   gated (0.865 of cases) 0.953   not gated 0.894
+
+=== C. pulses of the OLD max (steps p0+1, p0+2 < s) vs pulses of the NEW record (s+1, s+2): P(ans = p0) and where it goes ===
+   (unit 5 fired at p0+1 in 1.000; unit 0 was off at p0+2 in 0.999 of the cases with p0+2 < s)
+   old max, unit 5 off at +1      : n = 307719  P(ans = p0) 0.020  [unmodified 0.967]   ans = s 0.400   ans = q0 0.322   ans = p0+-1 0.366
+   old max, unit 9 off at +1      : n = 307719  P(ans = p0) 0.900  [unmodified 0.967]   ans = s 0.016   ans = q0 0.064   ans = p0+-1 0.039
+   old max, units 5, 9 off at +1  : n = 307719  P(ans = p0) 0.004  [unmodified 0.967]   ans = s 0.387   ans = q0 0.316   ans = p0+-1 0.381
+   old max, unit 0 linear at +2   : n = 246373  P(ans = p0) 0.970  [unmodified 0.967]   ans = s 0.016   ans = q0 0.008   ans = p0+-1 0.003
+   new max, unit 5 off at +1      : n = 237278  P(ans = p0) 0.927  [unmodified 0.973]   ans = s 0.000   ans = q0 0.035   ans = p0+-1 0.048
+   new max, unit 9 off at +1      : n = 237278  P(ans = p0) 0.529  [unmodified 0.973]   ans = s 0.445   ans = q0 0.012   ans = p0+-1 0.009
+   new max, units 5, 9 off at +1  : n = 237278  P(ans = p0) 0.943  [unmodified 0.973]   ans = s 0.000   ans = q0 0.029   ans = p0+-1 0.031
+   new max, unit 0 linear at +2   : n = 175540  P(ans = p0) 0.587  [unmodified 0.973]   ans = s 0.327   ans = q0 0.024   ans = p0+-1 0.056

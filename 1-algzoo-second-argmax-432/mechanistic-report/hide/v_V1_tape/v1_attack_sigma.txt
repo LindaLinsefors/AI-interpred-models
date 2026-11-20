@@ -1,0 +1,75 @@
+REAL network:
+   rel.resid                  0.0949
+   rel.resid rows0-8          0.0271
+   mean superdiag             0.9356
+   min superdiag              0.8858
+   max|other| rows0-6         0.3872
+   mean cos(u_iA,u_i+1)       0.9865
+   T2 R2 t=3                  0.9918
+   t=5                        0.9912
+   t=7                        0.9847
+   pure-shift R2 t=3          0.9529
+   t=5                        0.9728
+   t=7                        0.9681
+
+NULL randA  (300 draws): mean, sd, [min, max], and how many draws reach the real value
+   rel.resid                  0.4651   0.1052  [  0.2032,   0.7676]   draws at least as extreme as real: 0
+   rel.resid rows0-8          0.4648   0.1068  [  0.1904,   0.7682]   draws at least as extreme as real: 0
+   mean superdiag             0.0963   1.0001  [ -2.5354,   2.5399]   draws at least as extreme as real: 64
+   min superdiag             -5.7711   2.8394  [-15.5884,  -0.0333]   draws at least as extreme as real: 0
+   max|other| rows0-6         8.2683   3.0152  [  3.3360,  19.9859]   draws at least as extreme as real: 0
+   mean cos(u_iA,u_i+1)      -0.0074   0.1841  [ -0.4759,   0.5605]   draws at least as extreme as real: 0
+
+NULL rotA  (300 draws): mean, sd, [min, max], and how many draws reach the real value
+   rel.resid                  0.4630   0.1055  [  0.1852,   0.7504]   draws at least as extreme as real: 0
+   rel.resid rows0-8          0.4626   0.1066  [  0.1832,   0.7504]   draws at least as extreme as real: 0
+   mean superdiag            -0.0724   0.9679  [ -2.2580,   2.4365]   draws at least as extreme as real: 41
+   min superdiag             -5.9044   2.9609  [-17.2563,  -0.5608]   draws at least as extreme as real: 0
+   max|other| rows0-6         8.2926   3.0486  [  2.3654,  23.9715]   draws at least as extreme as real: 0
+   mean cos(u_iA,u_i+1)       0.0815   0.1730  [ -0.3926,   0.6545]   draws at least as extreme as real: 0
+
+NULL randU  (300 draws): mean, sd, [min, max], and how many draws reach the real value
+   rel.resid                  0.4621   0.0812  [  0.2362,   0.6876]   draws at least as extreme as real: 0
+   rel.resid rows0-8          0.4646   0.0825  [  0.2298,   0.7003]   draws at least as extreme as real: 0
+   mean superdiag            -0.0158   0.3629  [ -1.2348,   1.3828]   draws at least as extreme as real: 4
+   min superdiag             -1.3025   0.8569  [ -5.4750,  -0.0322]   draws at least as extreme as real: 0
+   max|other| rows0-6         2.7630   1.2846  [  1.0990,  10.8385]   draws at least as extreme as real: 0
+   mean cos(u_iA,u_i+1)      -0.0007   0.1037  [ -0.2829,   0.2782]   draws at least as extreme as real: 0
+   T2 R2 t=3                  0.4570   0.5636  [ -3.1212,   0.9897]   draws at least as extreme as real: 0
+   t=5                        0.5110   0.4668  [ -1.6662,   0.9632]   draws at least as extreme as real: 0
+   t=7                        0.5508   0.4286  [ -1.9156,   0.9765]   draws at least as extreme as real: 0
+   pure-shift R2 t=3         -1.5450   0.8193  [ -4.6880,   0.4686]   draws at least as extreme as real: 0
+   t=5                       -1.4052   0.6980  [ -4.0588,   0.4061]   draws at least as extreme as real: 0
+   t=7                       -1.3142   0.6247  [ -3.2928,   0.3648]   draws at least as extreme as real: 0
+
+NULL permU  (300 draws): mean, sd, [min, max], and how many draws reach the real value
+   rel.resid                  0.4376   0.1010  [  0.1945,   0.7375]   draws at least as extreme as real: 0
+   rel.resid rows0-8          0.4370   0.1028  [  0.1935,   0.7437]   draws at least as extreme as real: 0
+   mean superdiag             0.0663   0.8073  [ -3.1696,   2.8217]   draws at least as extreme as real: 39
+   min superdiag             -4.2416   2.0662  [-11.4785,   0.4016]   draws at least as extreme as real: 0
+   max|other| rows0-6         6.4516   2.2571  [  2.3888,  13.7121]   draws at least as extreme as real: 0
+   mean cos(u_iA,u_i+1)       0.1091   0.1785  [ -0.4322,   0.5476]   draws at least as extreme as real: 0
+   T2 R2 t=3                 -0.7080   1.5545  [ -7.2892,   0.9229]   draws at least as extreme as real: 0
+   t=5                       -0.5006   1.3640  [ -8.0244,   0.9100]   draws at least as extreme as real: 0
+   t=7                       -0.7344   1.4225  [ -6.0173,   0.8673]   draws at least as extreme as real: 0
+   pure-shift R2 t=3         -0.8913   0.9915  [ -5.4187,   0.5344]   draws at least as extreme as real: 0
+   t=5                       -0.5339   0.5980  [ -3.3642,   0.5042]   draws at least as extreme as real: 0
+   t=7                       -0.4930   0.4969  [ -3.4261,   0.5316]   draws at least as extreme as real: 0
+
+NULL rowrot  (300 draws): mean, sd, [min, max], and how many draws reach the real value
+   rel.resid                  0.0949   0.0000  [  0.0949,   0.0949]   draws at least as extreme as real: 163
+   rel.resid rows0-8          0.0950   0.0084  [  0.0596,   0.1199]   draws at least as extreme as real: 0
+   mean superdiag             0.0157   0.1999  [ -0.6242,   0.6391]   draws at least as extreme as real: 0
+   min superdiag             -0.7358   0.4415  [ -2.3724,   0.2760]   draws at least as extreme as real: 0
+   max|other| rows0-6         1.5904   0.3345  [  0.8494,   3.1113]   draws at least as extreme as real: 0
+   mean cos(u_iA,u_i+1)       0.0033   0.1999  [ -0.5290,   0.4806]   draws at least as extreme as real: 0
+   T2 R2 t=3                  0.7296   0.0780  [  0.3617,   0.9047]   draws at least as extreme as real: 0
+   t=5                        0.6185   0.0982  [  0.0415,   0.8586]   draws at least as extreme as real: 0
+   t=7                        0.4547   0.1098  [  0.0357,   0.7683]   draws at least as extreme as real: 0
+   pure-shift R2 t=3         -1.6092   0.6775  [ -5.7952,   0.0081]   draws at least as extreme as real: 0
+   t=5                       -1.7623   0.6160  [ -4.3698,  -0.3235]   draws at least as extreme as real: 0
+   t=7                       -1.9707   0.5261  [ -3.4729,  -0.6938]   draws at least as extreme as real: 0
+
+Share of |h[ORD]|^2 in the 3-dim null space of U_o, real states t=3,5,7: [0.7107, 0.5137, 0.4567]
+  (a random 3-dim subspace would hold a share of about 3/13 = 0.231 of an isotropic state)
+  PCA of h[ORD] at t=5: cumulative variance share of the top PCs (uncentred second moment): [0.807 0.91  0.971 0.984 0.992 0.994 0.996 0.997 0.999 0.999 1.    1.    1.   ]

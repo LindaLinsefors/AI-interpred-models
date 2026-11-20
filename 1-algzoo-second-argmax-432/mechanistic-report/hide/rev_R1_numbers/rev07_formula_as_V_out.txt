@@ -1,0 +1,6 @@
+n = 602547 of 1000000 sequences (t = 9, all four comparators on, S > 0.1, max and runner-up at positions 0-7); argmax over positions 0-7
+  true scores s = m + V:                         runner-up first 0.975, max first 0.006
+  m alone:                                       runner-up first 0.076, max first 0.873
+  m + [-60 (M - 0.87 S) cos(42.75 (p - p_M))]:   runner-up first 0.610, max first 0.120;   rms error of the law 15.3 logits (rms of V centred over positions 38.3; median margin of the runner-up in s: 8.9)
+  m + [-66.2 (M - 0.891 S) cos(42.75 (p - p_M))]:   runner-up first 0.628, max first 0.068;   rms error of the law 15.1 logits (rms of V centred over positions 38.3; median margin of the runner-up in s: 8.9)
+  R2 of the per-age regression V ~ A (M-S) + B S + C x_9, ages 1..9: all ten indices [0.971 0.965 0.963 0.971 0.955 0.914 0.896 0.888 0.879]   indices 0-7 only [0.939 0.947 0.946 0.957 0.925 0.835 0.83  0.833 0.814]

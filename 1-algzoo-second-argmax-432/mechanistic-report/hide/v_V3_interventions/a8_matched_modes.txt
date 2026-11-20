@@ -1,0 +1,15 @@
+I2 pool: seeds 5960..5966, n = 285880
+  minus the clock part (f = 0, lead)           raw: P(p0) = 0.0188  P(t_r) = 0.7754  P(q0) = 0.1647  | clipped: P(p0) = 0.0187  P(t_r) = 0.7763  P(q0) = 0.1638
+  random phase in the clock plane, same norm   raw: P(p0) = 0.3311  P(t_r) = 0.2639  P(q0) = 0.1789  | clipped: P(p0) = 0.2819  P(t_r) = 0.2992  P(q0) = 0.1716
+  random phase in the h2 plane, same norm      raw: P(p0) = 0.5128  P(t_r) = 0.0881  P(q0) = 0.1363  | clipped: P(p0) = 0.5143  P(t_r) = 0.1311  P(q0) = 0.1231
+  random phase in the h3 plane, same norm      raw: P(p0) = 0.7431  P(t_r) = 0.0529  P(q0) = 0.0772  | clipped: P(p0) = 0.6905  P(t_r) = 0.0772  P(q0) = 0.0820
+  random phase in the short plane, same norm   raw: P(p0) = 0.6508  P(t_r) = 0.1450  P(q0) = 0.0986  | clipped: P(p0) = 0.5627  P(t_r) = 0.1850  P(q0) = 0.1090
+  +- the level direction, same norm            raw: P(p0) = 0.4962  P(t_r) = 0.3904  P(q0) = 0.0425  | clipped: P(p0) = 0.4792  P(t_r) = 0.3903  P(q0) = 0.0439
+  +- the runner direction, same norm           raw: P(p0) = 0.4654  P(t_r) = 0.2864  P(q0) = 0.1311  | clipped: P(p0) = 0.4073  P(t_r) = 0.3329  P(q0) = 0.1267
+  +- the alt direction, same norm              raw: P(p0) = 0.5092  P(t_r) = 0.0454  P(q0) = 0.1221  | clipped: P(p0) = 0.4885  P(t_r) = 0.0610  P(q0) = 0.1039
+  +- the trans direction, same norm            raw: P(p0) = 0.9476  P(t_r) = 0.0414  P(q0) = 0.0090  | clipped: P(p0) = 0.8197  P(t_r) = 0.1168  P(q0) = 0.0291
+  random Gaussian direction, same norm         raw: P(p0) = 0.4361  P(t_r) = 0.1425  P(q0) = 0.1433  | clipped: P(p0) = 0.4256  P(t_r) = 0.1735  P(q0) = 0.1360
+  removal direction of h2, scaled to the clock's norm (median factor 3.17) raw: P(p0) = 0.3765  P(t_r) = 0.1454  P(q0) = 0.0327  | clipped: P(p0) = 0.4060  P(t_r) = 0.1716  P(q0) = 0.0485
+  removal direction of h3, scaled to the clock's norm (median factor 3.52) raw: P(p0) = 0.6163  P(t_r) = 0.0933  P(q0) = 0.0667  | clipped: P(p0) = 0.6156  P(t_r) = 0.0864  P(q0) = 0.0904
+  removal direction of short, scaled to the clock's norm (median factor 1.94) raw: P(p0) = 0.6783  P(t_r) = 0.1478  P(q0) = 0.0935  | clipped: P(p0) = 0.5625  P(t_r) = 0.2316  P(q0) = 0.1185
+  removal direction of runner, scaled to the clock's norm (median factor 0.69) raw: P(p0) = 0.3620  P(t_r) = 0.4885  P(q0) = 0.0920  | clipped: P(p0) = 0.3623  P(t_r) = 0.5303  P(q0) = 0.0615

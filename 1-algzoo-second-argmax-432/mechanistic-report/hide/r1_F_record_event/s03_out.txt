@@ -1,0 +1,123 @@
+F5: level coordinate ~ c * 10.157 * M within age cells (M>0), no intercept
+   age 0: c = 0.362  R2 = 0.3162   | with S+: [0.007 0.925]  R2 = 0.9938   n = 894323
+   age 1: c = 0.994  R2 = 0.9944   | with S+: [ 1.008 -0.033]  R2 = 0.9948   n = 693974
+   age 2: c = 0.918  R2 = 0.9963   | with S+: [ 0.928 -0.021]  R2 = 0.9966   n = 544196
+   age 3: c = 0.917  R2 = 0.9967   | with S+: [ 0.937 -0.037]  R2 = 0.9974   n = 427565
+   age 4: c = 0.914  R2 = 0.9965   | with S+: [ 0.947 -0.058]  R2 = 0.9981   n = 333940
+   age 5: c = 0.919  R2 = 0.9957   | with S+: [ 0.958 -0.068]  R2 = 0.9979   n = 256187
+   age 6: c = 0.924  R2 = 0.9932   | with S+: [ 0.964 -0.067]  R2 = 0.9953   n = 191163
+   age 7: c = 0.930  R2 = 0.9897   | with S+: [ 0.964 -0.057]  R2 = 0.9911   n = 134648
+   age 8: c = 0.934  R2 = 0.9873   | with S+: [ 0.962 -0.045]  R2 = 0.9882   n = 84979
+   age 9: c = 0.938  R2 = 0.9866   | with S+: [ 0.961 -0.037]  R2 = 0.9872   n = 40146
+
+F6: clock z/10.157 ~ alpha(a) (M - S+) + beta(a) S+   (complex LSQ, M>0)
+   age 1: alpha =  1.005@   0.3 (phi =    0.3)   beta =  0.141@   6.7   R2 = 0.9810
+   age 2: alpha =  1.018@  36.3 (phi =   36.3)   beta =  0.193@  -0.6   R2 = 0.9741
+   age 3: alpha =  0.983@  79.3 (phi =   79.3)   beta =  0.169@  38.7   R2 = 0.9650
+   age 4: alpha =  0.944@ 123.1 (phi =  123.1)   beta =  0.153@  91.4   R2 = 0.9778
+   age 5: alpha =  0.913@ 165.9 (phi =  165.9)   beta =  0.173@ 149.2   R2 = 0.9705
+   age 6: alpha =  0.881@-151.4 (phi =  208.6)   beta =  0.187@-165.5   R2 = 0.9585
+   age 7: alpha =  0.853@-109.0 (phi =  251.0)   beta =  0.206@-122.4   R2 = 0.9423
+   age 8: alpha =  0.820@ -66.0 (phi =  294.0)   beta =  0.219@ -83.5   R2 = 0.9291
+   age 9: alpha =  0.797@ -22.2 (phi =  337.8)   beta =  0.217@ -48.5   R2 = 0.9136
+   phi(a) for a=1..9: [  0.3  36.3  79.3 123.1 165.9 208.6 251.  294.  337.8]   lead: 0, 37, 80, 123, 166, 209, 252, 294, 338
+   rho(a) for a=1..9: [1.005 1.018 0.983 0.944 0.913 0.881 0.853 0.82  0.797]
+
+other modes: m_k/10.157 ~ alpha_k(a) (M - S+) + beta_k(a) S+ by age of the max (M>0): alpha | beta | R2
+  mode runner
+     age 1:   0.877 |   6.524 | 0.956
+     age 2:   2.017 |   7.506 | 0.984
+     age 3:   1.910 |   7.647 | 0.987
+     age 4:   1.835 |   7.802 | 0.992
+     age 5:   1.706 |   7.574 | 0.982
+     age 6:   1.705 |   7.208 | 0.964
+     age 7:   1.743 |   6.905 | 0.959
+     age 8:   1.754 |   6.708 | 0.963
+     age 9:   1.725 |   6.579 | 0.970
+  mode h2
+     age 1:  1.021@  -1.0 |  0.213@  -5.0 | 0.839
+     age 2:  0.097@  20.6 |  0.424@ -48.3 | 0.431
+     age 3:  0.074@ 105.1 |  0.387@  26.0 | 0.411
+     age 4:  0.038@-144.2 |  0.299@  98.8 | 0.398
+     age 5:  0.108@ -63.0 |  0.130@-171.6 | 0.142
+     age 6:  0.105@   8.1 |  0.163@ -77.8 | 0.174
+     age 7:  0.071@  83.6 |  0.193@ -31.6 | 0.115
+     age 8:  0.080@ 174.3 |  0.151@  -6.1 | 0.038
+     age 9:  0.088@-119.8 |  0.116@  -2.3 | 0.026
+  mode alt
+     age 1:   1.048 |   0.274 | 0.866
+     age 2:   0.162 |   0.502 | 0.611
+     age 3:  -0.144 |  -0.309 | 0.389
+     age 4:   0.137 |   0.258 | 0.274
+     age 5:   0.002 |  -0.140 | 0.060
+     age 6:   0.002 |   0.162 | 0.094
+     age 7:   0.037 |   0.002 | 0.002
+     age 8:  -0.010 |   0.152 | 0.049
+     age 9:   0.019 |   0.021 | 0.002
+  mode h3
+     age 1:  0.997@  -1.2 |  0.234@ -21.1 | 0.902
+     age 2:  0.060@  13.1 |  0.531@ -34.2 | 0.756
+     age 3:  0.029@ 178.8 |  0.251@  72.7 | 0.332
+     age 4:  0.076@ -61.3 |  0.108@-144.6 | 0.101
+     age 5:  0.048@  30.0 |  0.103@  -9.2 | 0.121
+     age 6:  0.022@-101.8 |  0.057@   9.2 | 0.023
+     age 7:  0.046@ -39.3 |  0.091@ -42.1 | 0.059
+     age 8:  0.025@  53.8 |  0.119@ -23.8 | 0.050
+     age 9:  0.020@-177.8 |  0.100@ -17.8 | 0.027
+  mode short
+     age 1:  0.984@  -2.6 |  0.528@ -82.4 | 0.808
+     age 2:  0.242@  34.0 |  0.567@ -97.3 | 0.490
+     age 3:  0.194@  80.2 |  0.489@ -73.0 | 0.454
+     age 4:  0.174@ 130.7 |  0.360@ -48.8 | 0.412
+     age 5:  0.164@-176.8 |  0.216@ -18.7 | 0.327
+     age 6:  0.179@-128.9 |  0.128@  12.0 | 0.256
+     age 7:  0.168@ -93.5 |  0.048@  90.9 | 0.111
+     age 8:  0.143@ -50.4 |  0.131@-168.2 | 0.144
+     age 9:  0.138@  -0.9 |  0.248@-137.1 | 0.246
+  mode trans
+     age 1:   1.001 |  -0.069 | 0.981
+     age 2:   0.149 |  -0.106 | 0.720
+     age 3:   0.046 |  -0.073 | 0.322
+     age 4:   0.021 |  -0.061 | 0.282
+     age 5:   0.008 |  -0.031 | 0.171
+     age 6:  -0.004 |  -0.012 | 0.039
+     age 7:  -0.002 |  -0.021 | 0.070
+     age 8:   0.008 |  -0.041 | 0.131
+     age 9:   0.015 |  -0.045 | 0.167
+  mode echo
+     age 1:   7.311 |  -4.129 | 0.160
+     age 2:   5.616 |  -3.273 | 0.089
+     age 3:   5.549 |  -2.346 | 0.076
+     age 4:   5.190 |  -1.802 | 0.062
+     age 5:   4.842 |  -1.350 | 0.052
+     age 6:   4.431 |  -1.000 | 0.043
+     age 7:   4.148 |  -0.822 | 0.037
+     age 8:   3.949 |  -0.663 | 0.032
+     age 9:   3.769 |  -0.488 | 0.030
+
+F7: readout of level and clock while all 13 ordinary units are on
+   U[:,ORD].RIGHT[level] = [-0.45 -0.52 -0.53 -0.51 -0.31 -0.43 -0.48 -0.42 -0.17  1.94]
+   clock via comparators (2|R|@deg):  6.59@-161  8.40@-117  8.42@ -85  7.26@ -33  7.10@  20  7.39@  65  6.44@  99  5.56@ 145  2.82@  99  1.35@ 102
+   clock via wave units  (2|R|@deg):  8.18@  17  9.54@  61  9.16@  94  7.74@ 147  7.48@-159  7.75@-114  6.79@ -83  5.70@ -40  3.36@ -82  1.94@ -86
+   clock total           (2|R|@deg):  1.63@   6  1.18@  47  0.75@  86  0.47@ 146  0.38@-148  0.40@ -88  0.37@-103  0.47@-111  0.54@ -86  0.62@-102
+   |total| / (|comp| + |wave|) = 0.058;  |total|/|wave| = 0.110
+   mode level : |comp part| =   4.75  |wave part| =   6.90  |total| =   2.34   fraction of LEFT norm^2 on comparators = 0.041
+   mode runner: |comp part| =   0.32  |wave part| =   0.63  |total| =   0.82   fraction of LEFT norm^2 on comparators = 0.506
+   mode clock : |comp part| =  10.30  |wave part| =  11.30  |total| =   1.24   fraction of LEFT norm^2 on comparators = 0.966
+   mode h2    : |comp part| =   1.11  |wave part| =   3.89  |total| =   3.54   fraction of LEFT norm^2 on comparators = 0.606
+   mode alt   : |comp part| =   0.14  |wave part| =   1.40  |total| =   1.40   fraction of LEFT norm^2 on comparators = 0.106
+   mode h3    : |comp part| =   0.60  |wave part| =   3.45  |total| =   3.40   fraction of LEFT norm^2 on comparators = 0.347
+   mode short : |comp part| =   6.24  |wave part| =   9.96  |total| =  11.16   fraction of LEFT norm^2 on comparators = 0.916
+   mode trans : |comp part| =  26.27  |wave part| =  19.66  |total| =  24.74   fraction of LEFT norm^2 on comparators = 0.976
+   mode echo  : |comp part| =   0.39  |wave part| =   0.08  |total| =   0.38   fraction of LEFT norm^2 on comparators = 0.712
+
+F8: free-flow logit kernels of the pulses at the pulse's own reference position
+   age 0: unit4 at own pos 9:  -4.99 (others max  0.75 min -0.15) | unit5 at pos 8:   3.40 | unit9 at pos 8:  -1.66, at pos 7:   0.22
+   age 1: unit4 at own pos 8:  -6.63 (others max  1.11 min  0.28) | unit5 at pos 7:   3.37 | unit9 at pos 7:   0.57, at pos 6:  -1.92
+   age 2: unit4 at own pos 7:  -3.48 (others max  1.09 min -1.52) | unit5 at pos 6:   3.66 | unit9 at pos 6:  -0.07, at pos 5:  -2.80
+   age 3: unit4 at own pos 6:  -3.84 (others max  1.07 min -1.66) | unit5 at pos 5:   3.82 | unit9 at pos 5:   0.33, at pos 4:  -3.02
+   age 4: unit4 at own pos 5:  -3.82 (others max  1.06 min -1.59) | unit5 at pos 4:   3.90 | unit9 at pos 4:   0.79, at pos 3:  -3.37
+   age 5: unit4 at own pos 4:  -3.97 (others max  1.26 min -1.50) | unit5 at pos 3:   4.16 | unit9 at pos 3:   1.43, at pos 2:  -3.14
+   age 6: unit4 at own pos 3:  -4.12 (others max  1.40 min -1.49) | unit5 at pos 2:   3.95 | unit9 at pos 2:   1.62, at pos 1:  -3.07
+   age 7: unit4 at own pos 2:  -3.88 (others max  1.82 min -1.73) | unit5 at pos 1:   3.59 | unit9 at pos 1:   1.29, at pos 0:  -3.17
+   age 8: unit4 at own pos 1:  -3.32 (others max  2.12 min -1.39) | unit5 at pos 0:   3.67 | unit9 at pos 0:   1.29, at pos -1:    nan

@@ -1,0 +1,30 @@
+=== (1) [EXACT per sample] contribution of the clock component of h_t to the final logits: U J_{9<-t} (2 Re(z_t RIGHT_clock)), gates of the real run ===
+   rows: final rank of the input that is the max at step t (1 = still the max at the end, 2 = it ends as the runner-up, i.e. the correct answer, 3+ = overtaken twice)
+   columns: mean contribution at that input's own position | mean over the other nine positions | mean total logit there minus mean of the others | share of runs where the contribution at the own position is the largest of the ten
+   final rank 1: n =  719471 |  -25.43 |   +2.75 |  +16.29 | 0.147   [own-position contribution per unit of gap (M - S+)_t, LS slope: -32.14]
+   final rank 2: n =  264539 |  +10.34 |   -1.32 |  +39.70 | 0.238   [own-position contribution per unit of gap (M - S+)_t, LS slope: +15.64]
+   final rank 3+: n =  190973 |  +12.91 |   -1.57 |   -6.64 | 0.405   [own-position contribution per unit of gap (M - S+)_t, LS slope: +33.97]
+   final rank 2, by the age of the max at step t: mean own-position contribution / mean over other positions
+      a=1: +5.48/-0.70  a=2: +15.73/-2.00  a=3: +9.74/-1.31  a=4: +3.17/-0.54  a=5: +5.02/-0.70  a=6: +28.77/-3.39  a=7: +32.73/-3.72  a=8: +30.09/-3.23
+   final rank 1 (no later record), by the age of the max at step t: mean own-position contribution / mean over other positions
+      a=1: -27.41/+3.01  a=2: -24.99/+2.56  a=3: -33.76/+3.48  a=4: -42.91/+4.57  a=5: -38.48/+4.34  a=6: +4.28/-0.43  a=7: +11.47/-0.93  a=8: +13.96/-0.85
+
+=== (2) [INTERVENTION] phase shift by k steps at step t: clock only, versus every rotating mode by k of its own steps (h2, h3, short: exp(i k angle_n); alt: (-1)^k) ===
+   class A: nothing above S+_t arrives after t;  C1: exactly one later record and nothing else above the old max's level M_t... (the then-max ends as the runner-up)
+   set                                  k | class A: changed, new-old=-k (of all runs) | class 'max at t ends as runner-up': changed, new-old=-k (of all runs), still correct
+   clock only                           -2 | 0.241  0.033  (n=454241) | 0.941  0.405  0.041  (n=264539)
+   clock only                           -1 | 0.159  0.042  (n=454241) | 0.827  0.503  0.156  (n=264539)
+   clock only                           +1 | 0.210  0.031  (n=454241) | 0.553  0.337  0.429  (n=264539)
+   clock only                           +2 | 0.323  0.008  (n=454241) | 0.895  0.221  0.086  (n=264539)
+   clock + h2 + h3                      -2 | 0.646  0.207  (n=454241) | 0.917  0.499  0.068  (n=264539)
+   clock + h2 + h3                      -1 | 0.565  0.315  (n=454241) | 0.805  0.563  0.182  (n=264539)
+   clock + h2 + h3                      +1 | 0.554  0.319  (n=454241) | 0.644  0.432  0.338  (n=264539)
+   clock + h2 + h3                      +2 | 0.686  0.167  (n=454241) | 0.904  0.225  0.079  (n=264539)
+   all rotating modes + alt             -2 | 0.764  0.403  (n=454241) | 0.819  0.487  0.167  (n=264539)
+   all rotating modes + alt             -1 | 0.731  0.516  (n=454241) | 0.715  0.611  0.275  (n=264539)
+   all rotating modes + alt             +1 | 0.671  0.515  (n=454241) | 0.677  0.410  0.305  (n=264539)
+   all rotating modes + alt             +2 | 0.772  0.343  (n=454241) | 0.845  0.230  0.137  (n=264539)
+   all but the clock (h2,h3,short,alt)  -2 | 0.739  0.332  (n=454241) | 0.481  0.043  0.509  (n=264539)
+   all but the clock (h2,h3,short,alt)  -1 | 0.686  0.464  (n=454241) | 0.306  0.203  0.686  (n=264539)
+   all but the clock (h2,h3,short,alt)  +1 | 0.710  0.452  (n=454241) | 0.404  0.108  0.577  (n=264539)
+   all but the clock (h2,h3,short,alt)  +2 | 0.800  0.318  (n=454241) | 0.471  0.021  0.516  (n=264539)

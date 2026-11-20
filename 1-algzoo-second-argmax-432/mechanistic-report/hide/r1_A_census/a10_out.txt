@@ -1,0 +1,13 @@
+accuracy: 0.953
+exact threshold mismatches: 0 of 1500000
+resting share: 0.10411333333333334
+literal class shares t>=1: {'R': 0.2151, 'N': 0.2141, 'L': 0.5709}
+4 on(t) <=> R*(t): accuracy 0.9910  (n = 300000)
+4 on(t) <=> 7 off(t): accuracy 0.9957  (n = 300000)
+9 on(t) <=> 4 on(t-1): accuracy 0.9895  (n = 270000)
+9 on(t) <=> 4 on(t-1) and 8 off(t-1): accuracy 0.9915  (n = 270000)
+5 on(t) <=> R*(t-1) or N*(t-1): accuracy 0.9635  (n = 270000)
+5 on(t) <=> x_(t-1) > 0.75 S+ (and > 0): accuracy 0.9838  (n = 270000)
+0 off(t) <=> 7 on(t-1) and 9 on(t-1): accuracy 0.9740  (n = 270000)
+0 off(t) <=> R*(t-2) and not R*(t-1): accuracy 0.9959  (n = 240000)
+0 off(t) <=> 7 on(t-1) and 9 on(t-1) [t>=2]: accuracy 0.9935  (n = 240000)

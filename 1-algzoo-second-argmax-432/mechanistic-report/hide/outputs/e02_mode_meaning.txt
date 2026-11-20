@@ -1,0 +1,71 @@
+=== level and runner coordinates (all steps t>=1, no intercept: the net is homogeneous) ===
+  level   ~ M+        : R2 = 0.7640   coef = [8.568]
+  level   ~ M+,S+     : R2 = 0.7814   coef = [7.407 2.267]
+  level   ~ M+,S+,x_t : R2 = 0.8515   coef = [ 7.361  2.711 -1.823]
+  runner  ~ M+        : R2 = 0.5369   coef = [43.158]
+  runner  ~ M+,S+     : R2 = 0.8805   coef = [11.506 61.822]
+  runner  ~ M+,S+,x_t : R2 = 0.8984   coef = [11.365 63.182 -5.583]
+
+=== level coordinate / (10.157 * M) by age of max (steps with M > 0.3) ===
+  age 0: median 0.264  IQR [0.008, 0.618]  n=393602
+  age 1: median 1.006  IQR [0.976, 1.014]  n=317423
+  age 2: median 0.926  IQR [0.903, 0.933]  n=255398
+  age 3: median 0.919  IQR [0.903, 0.936]  n=204369
+  age 4: median 0.916  IQR [0.899, 0.932]  n=161573
+  age 5: median 0.920  IQR [0.901, 0.939]  n=125136
+  age 6: median 0.924  IQR [0.902, 0.946]  n=93632
+  age 7: median 0.929  IQR [0.905, 0.952]  n=66227
+  age 8: median 0.932  IQR [0.909, 0.957]  n=41914
+  age 9: median 0.935  IQR [0.912, 0.962]  n=19907
+
+=== complex modes, normalised by 10.157*M: median amplitude and phase by age of max (M > 0.3) ===
+  mode clock  (free rotation 42.75 deg/step, radius 0.951)
+    age 0: |median| = 0.011  phase =   -48.7 deg   amp IQR [0.007, 0.144]   phase IQR [ -57.0,   26.9]
+    age 1: |median| = 0.647  phase =     0.0 deg   amp IQR [0.414, 0.964]   phase IQR [  -0.9,    2.1]
+    age 2: |median| = 0.611  phase =    30.0 deg   amp IQR [0.409, 0.838]   phase IQR [  -5.9,    6.1]
+    age 3: |median| = 0.513  phase =    71.7 deg   amp IQR [0.357, 0.735]   phase IQR [  -7.8,    8.3]
+    age 4: |median| = 0.474  phase =   117.1 deg   amp IQR [0.314, 0.656]   phase IQR [  -7.9,    6.1]
+    age 5: |median| = 0.455  phase =   160.5 deg   amp IQR [0.308, 0.627]   phase IQR [  -4.5,    5.9]
+    age 6: |median| = 0.445  phase =  -155.2 deg   amp IQR [0.298, 0.601]   phase IQR [  -6.1,    4.3]
+    age 7: |median| = 0.433  phase =  -114.9 deg   amp IQR [0.292, 0.587]   phase IQR [  -4.8,    6.3]
+    age 8: |median| = 0.422  phase =   -71.4 deg   amp IQR [0.285, 0.568]   phase IQR [  -7.1,    4.8]
+    age 9: |median| = 0.396  phase =   -31.6 deg   amp IQR [0.274, 0.544]   phase IQR [  -7.5,    7.5]
+  mode h2  (free rotation 83.28 deg/step, radius 0.937)
+    age 0: |median| = 0.027  phase =   -39.4 deg   amp IQR [0.024, 0.433]   phase IQR [ -48.7,   61.2]
+    age 1: |median| = 0.763  phase =    -2.2 deg   amp IQR [0.618, 0.989]   phase IQR [ -10.5,    4.1]
+    age 2: |median| = 0.171  phase =   -22.2 deg   amp IQR [0.140, 0.455]   phase IQR [ -39.3,   24.4]
+    age 3: |median| = 0.157  phase =    31.9 deg   amp IQR [0.141, 0.445]   phase IQR [ -43.0,   48.1]
+    age 4: |median| = 0.135  phase =   108.3 deg   amp IQR [0.100, 0.341]   phase IQR [ -39.6,   50.9]
+    age 5: |median| = 0.049  phase =  -132.6 deg   amp IQR [0.107, 0.295]   phase IQR [ -83.9,   59.2]
+    age 6: |median| = 0.075  phase =   -38.9 deg   amp IQR [0.116, 0.343]   phase IQR [ -72.6,   62.2]
+    age 7: |median| = 0.077  phase =    18.1 deg   amp IQR [0.126, 0.394]   phase IQR [ -79.1,   64.7]
+    age 8: |median| = 0.041  phase =    78.5 deg   amp IQR [0.146, 0.465]   phase IQR [ -82.6,   78.7]
+    age 9: |median| = 0.035  phase =   -71.1 deg   amp IQR [0.179, 0.548]   phase IQR [ -53.4,   82.5]
+  mode h3  (free rotation 124.78 deg/step, radius 0.837)
+    age 0: |median| = 0.010  phase =   -27.2 deg   amp IQR [0.015, 0.241]   phase IQR [  -7.0,   97.1]
+    age 1: |median| = 0.713  phase =    -0.9 deg   amp IQR [0.502, 0.975]   phase IQR [ -13.0,    3.1]
+    age 2: |median| = 0.291  phase =   -29.7 deg   amp IQR [0.172, 0.452]   phase IQR [ -12.4,   37.2]
+    age 3: |median| = 0.113  phase =    90.8 deg   amp IQR [0.131, 0.321]   phase IQR [ -67.6,   37.9]
+    age 4: |median| = 0.071  phase =  -118.6 deg   amp IQR [0.110, 0.305]   phase IQR [ -92.4,   46.7]
+    age 5: |median| = 0.090  phase =   -16.2 deg   amp IQR [0.099, 0.293]   phase IQR [ -38.2,   69.0]
+    age 6: |median| = 0.041  phase =   -32.4 deg   amp IQR [0.105, 0.289]   phase IQR [ -99.2,  103.9]
+    age 7: |median| = 0.058  phase =   -66.1 deg   amp IQR [0.110, 0.314]   phase IQR [ -42.5,  138.8]
+    age 8: |median| = 0.070  phase =   -45.9 deg   amp IQR [0.119, 0.378]   phase IQR [ -81.0,  112.3]
+    age 9: |median| = 0.078  phase =   -38.7 deg   amp IQR [0.135, 0.440]   phase IQR [ -78.2,   87.5]
+  mode short  (free rotation 42.99 deg/step, radius 0.735)
+    age 0: |median| = 0.043  phase =  -105.0 deg   amp IQR [0.015, 0.585]   phase IQR [ -67.4,   14.9]
+    age 1: |median| = 0.670  phase =   -16.8 deg   amp IQR [0.649, 0.997]   phase IQR [ -37.3,   16.3]
+    age 2: |median| = 0.211  phase =   -51.0 deg   amp IQR [0.240, 0.515]   phase IQR [ -45.7,   75.6]
+    age 3: |median| = 0.129  phase =   -53.4 deg   amp IQR [0.185, 0.452]   phase IQR [ -35.4,   88.3]
+    age 4: |median| = 0.107  phase =   -40.5 deg   amp IQR [0.150, 0.357]   phase IQR [ -34.4,   84.7]
+    age 5: |median| = 0.071  phase =   -48.6 deg   amp IQR [0.113, 0.243]   phase IQR [ -65.0,   40.7]
+    age 6: |median| = 0.048  phase =   -65.5 deg   amp IQR [0.096, 0.209]   phase IQR [ -62.0,   69.8]
+    age 7: |median| = 0.035  phase =   -27.3 deg   amp IQR [0.083, 0.187]   phase IQR [ -79.7,   66.1]
+    age 8: |median| = 0.019  phase =   -62.0 deg   amp IQR [0.076, 0.211]   phase IQR [ -69.5,  108.0]
+    age 9: |median| = 0.037  phase =  -119.3 deg   amp IQR [0.071, 0.289]   phase IQR [ -93.5,   67.9]
+
+=== real modes normalised by 10.157*M, by age of max (M > 0.3): median [IQR] ===
+  runner :  1.327[-0.035, 3.907]   3.080[ 0.961, 4.846]   4.682[ 2.946, 6.126]   5.047[ 3.463, 6.380]   5.340[ 3.912, 6.576]   5.306[ 3.866, 6.558]   5.225[ 3.755, 6.490]   5.143[ 3.767, 6.332]   5.052[ 3.800, 6.171]   4.982[ 3.864, 6.040]
+  alt    :  0.007[-0.072, 0.175]   0.854[ 0.587, 0.997]   0.294[ 0.139, 0.530]  -0.158[-0.396,-0.050]   0.098[-0.038, 0.464]  -0.034[-0.329, 0.158]   0.056[-0.129, 0.349]  -0.003[-0.264, 0.246]   0.066[-0.179, 0.373]  -0.012[-0.312, 0.338]
+  trans  : -0.011[-0.102,-0.002]   0.529[ 0.236, 0.969]   0.033[-0.033, 0.111]  -0.001[-0.054, 0.037]  -0.009[-0.055, 0.022]  -0.008[-0.035, 0.019]  -0.004[-0.029, 0.023]  -0.005[-0.030, 0.021]  -0.006[-0.036, 0.020]  -0.007[-0.037, 0.018]
+  echo   : -4.111[-9.720,-0.040]   3.014[-4.151,11.708]   1.847[-4.937,10.170]   1.898[-4.732, 9.864]   1.724[-4.807, 9.398]   1.585[-4.777, 9.008]   1.441[-4.852, 8.651]   1.241[-4.887, 8.290]   1.131[-4.941, 7.999]   1.312[-4.765, 7.919]

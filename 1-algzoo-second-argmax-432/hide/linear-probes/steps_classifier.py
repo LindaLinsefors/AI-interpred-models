@@ -11,7 +11,7 @@ note this baseline knows t, the probe does not).
 
 Run:  python steps_classifier.py [n_train] [seed]     (default 200,000 train rows, seed 0)
 Writes steps_classifier.csv and age_probes.npz (weights) into this folder,
-steps_classifier.png into OUT (../../<this folder's name>/).
+steps_classifier.png into OUT (../../archived-probed/<this folder's name>/).
 """
 import sys
 from concurrent.futures import ProcessPoolExecutor

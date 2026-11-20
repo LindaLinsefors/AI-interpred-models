@@ -1,0 +1,53 @@
+=== (1) single clamps after the final maximum (at s), 2 x 400k sequences (seeds 7081-7082)
+  unit 0 linear at s+2 | all sequences, M>0                        n= 639540  P(correct) 0.6725 (baseline 0.9551)  P(answer = max) 0.2545 (baseline 0.0089)
+  unit 0 linear at s+2 | g>=2, S>0 (r03)                           n= 184844  P(correct) 0.5955 (baseline 0.9732)  P(answer = max) 0.3135 (baseline 0.0048)
+  unit 0 linear at s+2 | g>=2, S>0, s==2                           n=   8750  P(correct) 0.7353 (baseline 0.9666)  P(answer = max) 0.0746 (baseline 0.0006)
+  unit 0 linear at s+2 | g>=2, S>0, s>=3 (arm F)                   n= 176094  P(correct) 0.5885 (baseline 0.9735)  P(answer = max) 0.3254 (baseline 0.0050)
+  unit 0 linear at s+2 | runner-up after max, S>0                  n= 386931  P(correct) 0.7643 (baseline 0.9596)  P(answer = max) 0.1868 (baseline 0.0079)
+  unit 0 linear at s+2 | runner-up before max (any gap g>=1), S>0  n= 246345  P(correct) 0.5424 (baseline 0.9668)  P(answer = max) 0.3611 (baseline 0.0045)
+  unit 5 off at s+1 | all sequences, M>0                           n= 719677  P(correct) 0.8770 (baseline 0.9562)  P(answer = max) 0.0000 (baseline 0.0087)
+  unit 5 off at s+1 | g>=2, S>0 (r03)                              n= 246705  P(correct) 0.9297 (baseline 0.9733)  P(answer = max) 0.0000 (baseline 0.0053)
+  unit 5 off at s+1 | g>=2, S>0, s==2                              n=   8750  P(correct) 0.9960 (baseline 0.9666)  P(answer = max) 0.0000 (baseline 0.0006)
+  unit 5 off at s+1 | g>=2, S>0, s>=3 (arm F)                      n= 237955  P(correct) 0.9273 (baseline 0.9735)  P(answer = max) 0.0000 (baseline 0.0055)
+  unit 5 off at s+1 | runner-up after max, S>0                     n= 395623  P(correct) 0.8597 (baseline 0.9597)  P(answer = max) 0.0000 (baseline 0.0078)
+  unit 5 off at s+1 | runner-up before max (any gap g>=1), S>0     n= 316969  P(correct) 0.9135 (baseline 0.9681)  P(answer = max) 0.0000 (baseline 0.0051)
+  unit 9 off at s+1 | all sequences, M>0                           n= 719677  P(correct) 0.6736 (baseline 0.9562)  P(answer = max) 0.2968 (baseline 0.0087)
+  unit 9 off at s+1 | g>=2, S>0 (r03)                              n= 246705  P(correct) 0.5121 (baseline 0.9733)  P(answer = max) 0.4628 (baseline 0.0053)
+  unit 9 off at s+1 | g>=2, S>0, s==2                              n=   8750  P(correct) 0.0745 (baseline 0.9666)  P(answer = max) 0.9213 (baseline 0.0006)
+  unit 9 off at s+1 | g>=2, S>0, s>=3 (arm F)                      n= 237955  P(correct) 0.5282 (baseline 0.9735)  P(answer = max) 0.4459 (baseline 0.0055)
+  unit 9 off at s+1 | runner-up after max, S>0                     n= 395623  P(correct) 0.8553 (baseline 0.9597)  P(answer = max) 0.1122 (baseline 0.0078)
+  unit 9 off at s+1 | runner-up before max (any gap g>=1), S>0     n= 316969  P(correct) 0.4609 (baseline 0.9681)  P(answer = max) 0.5171 (baseline 0.0051)
+  units 5,9 off at s+1 | all sequences, M>0                        n= 719677  P(correct) 0.8867 (baseline 0.9562)  P(answer = max) 0.0000 (baseline 0.0087)
+  units 5,9 off at s+1 | g>=2, S>0 (r03)                           n= 246705  P(correct) 0.9449 (baseline 0.9733)  P(answer = max) 0.0000 (baseline 0.0053)
+  units 5,9 off at s+1 | g>=2, S>0, s==2                           n=   8750  P(correct) 0.9919 (baseline 0.9666)  P(answer = max) 0.0000 (baseline 0.0006)
+  units 5,9 off at s+1 | g>=2, S>0, s>=3 (arm F)                   n= 237955  P(correct) 0.9432 (baseline 0.9735)  P(answer = max) 0.0000 (baseline 0.0055)
+  units 5,9 off at s+1 | runner-up after max, S>0                  n= 395623  P(correct) 0.8502 (baseline 0.9597)  P(answer = max) 0.0000 (baseline 0.0078)
+  units 5,9 off at s+1 | runner-up before max (any gap g>=1), S>0  n= 316969  P(correct) 0.9478 (baseline 0.9681)  P(answer = max) 0.0000 (baseline 0.0051)
+
+=== (2) logit of the old max p0 (and old runner-up q0) minus the mean over bystander positions; final max at s>=3, g>=2
+  all (S0 any sign)                    n=307980  p0: without new max 12.93 -> actual 40.82 (created 27.89) ; q0: 17.82 -> 14.09 ; with the old pulse removed: p0 without new max -11.45, actual 15.14 (created 26.59)
+  old runner-up S0 > 0 (arm F, s06c)   n=272131  p0: without new max 13.50 -> actual 41.87 (created 28.37) ; q0: 20.07 -> 15.89 ; with the old pulse removed: p0 without new max -11.65, actual 15.72 (created 27.37)
+  g >= 3 and s >= 4 (arm F, s05c)      n=237317  p0: without new max 12.02 -> actual 40.92 (created 28.91) ; q0: 18.09 -> 14.34 ; with the old pulse removed: p0 without new max -12.28, actual 15.68 (created 27.95)
+
+=== (3) unit 0 OFF at s+2 after a new maximum at s = 1..7 with M0 > 0, by what follows (seed 7083)
+  all new maxima                                       share 1.000  P(unit 0 off at s+2) 0.8681
+  no newer max at s+1, s+2 (both < Mn)                 share 0.757  P(unit 0 off at s+2) 0.9975
+  x_(s+1), x_(s+2) < M0 (below the new runner-up)      share 0.545  P(unit 0 off at s+2) 0.9969
+  x_(s+1), x_(s+2) < old runner-up S0+                 share 0.363  P(unit 0 off at s+2) 0.9983
+  x_(s+1) > Mn (another new max at once)               share 0.137  P(unit 0 off at s+2) 0.0549
+  M0 < x_(s+1) < Mn (new runner-up at s+1)             share 0.136  P(unit 0 off at s+2) 0.9980
+  x_(s+1) < M0, x_(s+2) > Mn                           share 0.091  P(unit 0 off at s+2) 0.9960
+  x_(s+1) < M0, M0 < x_(s+2) < Mn                      share 0.091  P(unit 0 off at s+2) 0.9999
+
+=== (4) Theta_5 against 0.01265 m_runner - 0.02872 m_level (coordinates of h_(t-1)), steps t = 2..8 with S > 0 (seed 7083)
+  comparators 7, 8 on at t (the formula's condition)   n=1563629  |remainder|/M: median 0.064, 90% 0.225, 99% 0.312 ; Theta5/M median 0.439 ; R2 of the two-term form 0.767
+    of which unit 4 silent                             n=1563165  |remainder|/M: median 0.063, 90% 0.225, 99% 0.312 ; Theta5/M median 0.439 ; R2 of the two-term form 0.767
+    of which unit 4 fires                              n=    464  |remainder|/M: median 0.121, 90% 0.255, 99% 0.312 ; Theta5/M median 0.743 ; R2 of the two-term form 0.721
+
+=== (5) unit 5 := 0 at t+1 after inputs below the runner-up (seeds 7084-7086, 3 x 400k)
+  none                       accuracy 0.9531  agreement 1.0000
+  every x_t < S              accuracy 0.9589  agreement 0.9905
+  S>0, 0.9 <= x/S < 1        accuracy 0.9584  agreement 0.9927
+  S>0, 0.5 <= x/S < 0.9      accuracy 0.9537  agreement 0.9978
+  S>0, x/S < 0.5             accuracy 0.9532  agreement 0.9998
+  unit 5 on at t+1 after: positive new max 0.9976 ; positive new runner-up 0.9986 ; input below the runner-up 0.0646 ; negative input below the runner-up 0.0011

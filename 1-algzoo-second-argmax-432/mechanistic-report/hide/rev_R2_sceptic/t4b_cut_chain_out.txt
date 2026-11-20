@@ -1,0 +1,22 @@
+baseline: accuracy 0.9528, P(answer = max) 0.0098; margin runner-up - max on 'old max' sequences (n = 296996): median 14.4, in units of M: 10.3
+units linearised at own age | accuracy | P(answer = max), all sequences | on 'old max' sequences: P(answer = max), median change of margin (in M)
+  (0,)               | 0.7501 | 0.1771 | 0.0450     -2.1
+  (12,)              | 0.9527 | 0.0099 | 0.0108     +0.0
+  (11,)              | 0.9494 | 0.0117 | 0.0127     -0.0
+  (10,)              | 0.9441 | 0.0176 | 0.0358     -2.4
+  (0, 12)            | 0.7354 | 0.1812 | 0.0317     -1.6
+  (0, 11)            | 0.6759 | 0.2544 | 0.1005     -2.4
+  (0, 10)            | 0.7305 | 0.2057 | 0.1264     -4.3
+  (12, 11)           | 0.9479 | 0.0123 | 0.0137     -0.0
+  (12, 10)           | 0.9444 | 0.0176 | 0.0355     -2.3
+  (11, 10)           | 0.9154 | 0.0489 | 0.1146     -4.8
+  (0, 12, 11)        | 0.6333 | 0.2803 | 0.0924     -1.8
+  (0, 12, 10)        | 0.7287 | 0.1942 | 0.0708     -3.2
+  (0, 11, 10)        | 0.4902 | 0.4707 | 0.6490    -12.7
+  (12, 11, 10)       | 0.9061 | 0.0593 | 0.1413     -5.2
+  (0, 12, 11, 10)    | 0.3931 | 0.5722 | 0.8323    -20.4
+
+control: four other wave units linearised on the same steps (ages 2, 4, 5, 6 of the max)
+  [3, 13, 14, 15]    | accuracy 0.9495 | P(answer = max) 0.0107
+  [2, 3, 13, 14]     | accuracy 0.9481 | P(answer = max) 0.0105
+  [3, 13, 14, 15] on all steps | accuracy 0.8592 | P(answer = max) 0.0389

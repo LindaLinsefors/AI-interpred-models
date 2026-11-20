@@ -4,7 +4,7 @@ linear_probes.py, read from value_probes.npz); points from every step t where th
 target is defined, coloured by t.
 
 Run:  python scatter_values.py      (run linear_probes.py first; same n_train and seed)
-Writes scatter_values.png into OUT (../../<this folder's name>/).
+Writes scatter_values.png into OUT (../../archived-probed/<this folder's name>/).
 """
 import matplotlib.pyplot as plt
 import numpy as np

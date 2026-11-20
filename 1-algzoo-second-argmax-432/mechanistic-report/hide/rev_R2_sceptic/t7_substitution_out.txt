@@ -1,0 +1,9 @@
+fitting set: n = 630047 (0.788 of sequences); network accuracy on it 0.9683
+  (i)  closed form on indices 0..7, per-sequence offset taken from the true V   : agreement with the network 0.6279   accuracy 0.6312   (R2 of V over indices 0..7: 0.846)
+  (ii) closed form on indices 0..8, per-sequence offset taken from the true V   : agreement with the network 0.4678   accuracy 0.4716   (R2 of V over indices 0..7: 0.834)
+  (iii) regression on (M - S, S, x_9) per age of the max, all ten indices       : agreement with the network 0.8425   accuracy 0.8431   (R2 of V over indices 0..7: 0.959)
+  (iii') regression on (M - S, S, T+, x_9) per (age of max, age of runner-up) cell: agreement with the network 0.9587   accuracy 0.9668   (R2 of V over indices 0..7: 0.986)
+  (iv) comparators' share of all nine modes (sanity: must be exact)             : agreement with the network 1.0000   accuracy 0.9683   (R2 of V over indices 0..7: 1.000)
+  (iv) comparators' share of level + runner + clock + echo                      : agreement with the network 0.6966   accuracy 0.6913   (R2 of V over indices 0..7: 0.853)
+  (iv) comparators' share of level + runner + clock + echo + short              : agreement with the network 0.7949   accuracy 0.7875   (R2 of V over indices 0..7: 0.713)
+  (iv) comparators' share of level + runner + clock + echo + short + trans      : agreement with the network 0.9408   accuracy 0.9289   (R2 of V over indices 0..7: 0.983)

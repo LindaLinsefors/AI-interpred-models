@@ -1,0 +1,63 @@
+rule = pos; regressors = ['g', 'S', 'T', 'x']; ages 2..9
+
+================ u(a), a = 2..9 ================
+PCA about the mean over ages: variance shares = [0.595 0.402 0.001 0.001 0.001]  (first two together 0.9974)
+   |mean| = 38.87;  rms distance from the mean = 24.09;  rms off the PC0-PC1 plane = 1.23
+   principal angles, PCA plane vs clock plane (deg): [5.  7.9]
+   cos(mean, level eigvec) = 0.9901;  mean in mode coords/10.157: level 0.952, runner 1.726
+   perpendicular from the origin to the PCA plane: |n| = 35.55, cos(n, level eigvec) = 0.8799
+   in-plane radius about the mean, per age: [28.46 26.19 22.58 21.65 23.16 24.37 23.21 22.08]
+   in-plane rotation per step about the mean (deg): [34.5 44.7 50.  45.9 39.1 38.6 42.7]   mean 42.21
+spiral fit u(a) = c + Re(q lam^a): |lam| = 0.9732, angle = 42.04 deg; residual rms = 1.288  (unexplained share of the variance about the mean = 0.0029)
+   centre c: |c| = 39.21, cos(c, level eigvec) = 0.9920; c in mode coords/10.157: level 0.952, runner 1.729, clock 0.020, h2 0.010, alt 0.022, h3 0.010, short 0.009, trans 0.016, echo 0.101
+   spiral plane vs clock plane, principal angles (deg): [5.  7.9];  13-dim radius (phase-averaged) at a=2: 26.34, at a=9: 21.78
+   centre c per unit [0, 1, 2, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15]:
+     [13.53  7.17 14.03  2.95  8.34 10.57  9.07 11.3  11.84 16.81  6.13 12.63  9.29]
+   radius |q_i| |lam|^2 per unit (a = 2):
+     [13.55  8.07  4.41  2.18  4.6   3.1   9.86 13.68 12.79 18.03  2.64 13.45 11.08]
+   mode content: share of the variance about the mean (covariance share | own variance) and share of |mean|^2
+     level     0.0073 |  0.0006     mean:   1.0835
+     runner    0.0045 |  0.0004     mean:  -0.0681
+     clock     1.0600 |  1.1452     mean:  -0.0082
+     h2        0.0005 |  0.0030     mean:   0.0014
+     alt      -0.0000 |  0.0003     mean:   0.0002
+     h3        0.0003 |  0.0008     mean:   0.0009
+     short    -0.0876 |  0.0279     mean:  -0.0008
+     trans     0.0147 |  0.0070     mean:  -0.0068
+     echo      0.0003 |  0.0000     mean:  -0.0019
+
+================ v(a), a = 2..9 ================
+PCA about the mean over ages: variance shares = [0.533 0.428 0.026 0.006 0.005]  (first two together 0.9613)
+   |mean| = 35.65;  rms distance from the mean = 12.96;  rms off the PC0-PC1 plane = 2.55
+   principal angles, PCA plane vs clock plane (deg): [16.7 17.7]
+   cos(mean, level eigvec) = 0.8974;  mean in mode coords/10.157: level 0.933, runner 6.013
+   perpendicular from the origin to the PCA plane: |n| = 34.76, cos(n, level eigvec) = 0.8217
+   in-plane radius about the mean, per age: [13.75 11.7  11.42 12.53 11.78 11.59 13.84 14.65]
+   in-plane rotation per step about the mean (deg): [24.  47.2 43.2 38.9 52.1 44.3 31.6]   mean 40.17
+spiral fit v(a) = c + Re(q lam^a): |lam| = 1.0234, angle = 39.33 deg; residual rms = 2.759  (unexplained share of the variance about the mean = 0.0453)
+   centre c: |c| = 35.84, cos(c, level eigvec) = 0.8987; c in mode coords/10.157: level 0.935, runner 6.029, clock 0.100, h2 0.177, alt 0.115, h3 0.158, short 0.348, trans 0.058, echo 0.013
+   spiral plane vs clock plane, principal angles (deg): [16.6 17.5];  13-dim radius (phase-averaged) at a=2: 11.85, at a=9: 13.93
+   centre c per unit [0, 1, 2, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15]:
+     [ 6.17  9.84 17.1   3.54 10.1  12.58 12.57  9.34  8.25 10.15  5.82  9.88  6.04]
+   radius |q_i| |lam|^2 per unit (a = 2):
+     [4.16 1.44 1.46 2.31 1.14 0.79 0.83 8.14 6.58 8.44 0.62 5.67 6.15]
+   mode content: share of the variance about the mean (covariance share | own variance) and share of |mean|^2
+     level     0.0279 |  0.0082     mean:   1.0488
+     runner    0.0727 |  0.0614     mean:  -0.0905
+     clock     0.5188 |  0.3838     mean:   0.0123
+     h2        0.0132 |  0.1456     mean:   0.0045
+     alt      -0.0028 |  0.0097     mean:   0.0013
+     h3        0.0130 |  0.0458     mean:   0.0119
+     short     0.3734 |  0.4967     mean:  -0.0122
+     trans    -0.0171 |  0.0212     mean:   0.0227
+     echo      0.0009 |  0.0010     mean:   0.0012
+
+================ R^2 of truncated descriptions (states with a1 = 2..9, pooled) ================
+  description                                                                      all 13 units: centred / uncentred | wave units: centred
+  free u(a), v(a) (least squares)                                                  0.9416 / 0.9788 | 0.9071
+  u, v -> level + runner + clock + echo parts only                                 0.8990 / 0.9546 | 0.8418
+  u, v -> level + clock + echo                                                     0.8251 / 0.8377 | 0.7386
+  u -> level + runner + clock + echo; v -> level + runner + echo (no S rotation)   0.8574 / 0.9399 | 0.7746
+  u, v -> level + runner + echo (no rotation at all)                               0.4651 / 0.7747 | 0.2040
+  u = c_u + spiral, v = c_v + spiral (the two spiral fits above)                   0.9344 / 0.9762 | 0.8968
+  u = c_u + spiral, v = c_v (constant)                                             0.8471 / 0.9417 | 0.7569

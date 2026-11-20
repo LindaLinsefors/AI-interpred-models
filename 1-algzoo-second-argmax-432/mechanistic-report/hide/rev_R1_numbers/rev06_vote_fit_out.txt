@@ -1,0 +1,10 @@
+A(d) ~ -66.6 cos(42.75 d) + 4.3   R2 0.950      (report: -60 cos)
+B(d) ~ -7.3 cos(42.75 d) + 4.6   R2 0.691      (report: 'same shape with an amplitude of about 8')
+=> V ~ -66.6 [ (M - S) + 0.109 S ] cos = -66.6 (M - 0.89 S) cos   plus offsets 4.3 (M - S) + 4.6 S
+   d >= 0: amplitude of A -62.2
+   d <= 0: amplitude of A -69.3
+direct state-level fit, idx 0..7, ages 2..9:  V ~ -66.2 (M - 0.891 S) cos(42.75 (p - p_M)),  R2 (uncentred) 0.858
+   the report's formula -60 (M - 0.87 S) cos: R2 (uncentred) 0.853
+index 8: A(a1, 8) for a1 = 2..9: [-25.8 -26.8 -20.3  -3.5  15.3  26.3  24.   10.3]   -60 cos(42.75 (a1 - 1)): [-44.1  -4.7  37.1  59.3  49.9  14.  -29.3 -57.1]
+   state-level R2 of the formula at index 8 (uncentred): -3.521;  correlation 0.039
+index 9: mean over a1 = 1..9 of A, B: -47.3 -56.8  => V[9] ~ -47.3 M + -9.4 S + 58.2 x_9;  A by age: [-54.7 -54.2 -59.2 -56.  -47.7 -39.2 -34.8 -36.6 -43.5]

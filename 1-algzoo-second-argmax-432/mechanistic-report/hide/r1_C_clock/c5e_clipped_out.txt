@@ -1,0 +1,20 @@
+edit   | plain edit: changed, accuracy | clipped edit: changed, accuracy, clock coordinate actually obtained relative to the target (LS, |.|@deg) | class R (max at t ends as runner-up): changed / new-old=-k, plain | clipped
+k=-2   | 0.3526  0.6461 | 0.3533  0.6458  0.980@   -0.8 | 0.941 / 0.404 | 0.941 / 0.405
+k=-1   | 0.2718  0.7205 | 0.2781  0.7150  0.968@   -0.5 | 0.825 / 0.508 | 0.822 / 0.499
+k=+1   | 0.2407  0.7502 | 0.2429  0.7489  0.957@   -2.7 | 0.553 / 0.336 | 0.510 / 0.292
+k=+2   | 0.3799  0.6159 | 0.4004  0.5961  0.859@   +0.7 | 0.896 / 0.223 | 0.879 / 0.160
+f=0    | 0.3027  0.6924 | 0.3068  0.6887  - | 0.873 / nan | 0.870 / nan
+f=0.5  | 0.1994  0.7908 | 0.1999  0.7906  1.004@   -0.3 | 0.487 / nan | 0.481 / nan
+f=2    | 0.2951  0.6973 | 0.2675  0.7248  0.911@   +3.1 | 0.400 / nan | 0.362 / nan
+
+thresholds for x_{t+1} after a clipped phase shift: D(target = natural age a+k), D(unshifted = natural age a), mean over (a, k) cells
+   mean D(target) = 0.034, mean D(unshifted) = 0.325, target closer in 1.00 of 26 cells
+
+(ii) final state h_9 only, clipped edit: share of answers changed (plain edit in brackets)
+   k=-2  : 0.1251 (0.1049)   accuracy 0.8639 (0.8821; baseline 0.9570)
+   k=-1  : 0.0667 (0.0557)   accuracy 0.9155 (0.9252; baseline 0.9570)
+   k=+1  : 0.1188 (0.0595)   accuracy 0.8670 (0.9239; baseline 0.9570)
+   k=+2  : 0.2180 (0.1113)   accuracy 0.7724 (0.8768; baseline 0.9570)
+   f=0   : 0.0850 (0.0775)   accuracy 0.9012 (0.9076; baseline 0.9570)
+   f=0.5 : 0.0407 (0.0373)   accuracy 0.9383 (0.9408; baseline 0.9570)
+   f=2   : 0.2675 (0.0884)   accuracy 0.7212 (0.8952; baseline 0.9570)

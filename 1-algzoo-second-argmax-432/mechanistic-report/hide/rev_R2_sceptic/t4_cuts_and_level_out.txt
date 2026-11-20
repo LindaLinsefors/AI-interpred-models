@@ -1,0 +1,75 @@
+(A) baseline accuracy 0.9532, n = 1000000
+ share of steps (max > 0) on which the unit is cut, at its 'own' age / at all other ages >= 1:
+   unit 0: 0.999 / 0.005;   median pre-activation / M when cut at own age: -3.35
+   unit 12: 0.296 / 0.005;   median pre-activation / M when cut at own age: -0.28
+   unit 11: 0.919 / 0.001;   median pre-activation / M when cut at own age: -0.49
+   unit 10: 0.950 / 0.013;   median pre-activation / M when cut at own age: -0.49
+  ReLU removed, units [0], all steps                        : accuracy 0.7642 (-18.90 pp)   changed 0.2244   of changed: -> max 0.657
+  ReLU removed, units [12], all steps                       : accuracy 0.9528 (-0.03 pp)   changed 0.0045   of changed: -> max 0.066
+  ReLU removed, units [11], all steps                       : accuracy 0.9500 (-0.32 pp)   changed 0.0124   of changed: -> max 0.185
+  ReLU removed, units [10], all steps                       : accuracy 0.9445 (-0.87 pp)   changed 0.0195   of changed: -> max 0.414
+  ReLU removed, units [10, 11, 12], all steps               : accuracy 0.9094 (-4.38 pp)   changed 0.0636   of changed: -> max 0.727
+  ReLU removed, units [0, 10, 11, 12], all steps            : accuracy 0.4246 (-52.86 pp)   changed 0.5689   of changed: -> max 0.904
+  ReLU removed, units [15], all steps                       : accuracy 0.8805 (-7.26 pp)   changed 0.0932   of changed: -> max 0.317
+  ReLU removed, units [3], all steps                        : accuracy 0.9431 (-1.00 pp)   changed 0.0213   of changed: -> max 0.236
+  ReLU removed, units [0, 3, 10, 11, 12, 13, 14, 15, 2], all steps: accuracy 0.4437 (-50.95 pp)   changed 0.5512   of changed: -> max 0.880
+  ReLU removed, units [0], only at own age of the max       : accuracy 0.7512 (-20.19 pp)   changed 0.2356   of changed: -> max 0.723
+  ReLU removed, units [12], only at own age of the max      : accuracy 0.9531 (-0.01 pp)   changed 0.0018   of changed: -> max 0.104
+  ReLU removed, units [11], only at own age of the max      : accuracy 0.9498 (-0.34 pp)   changed 0.0106   of changed: -> max 0.211
+  ReLU removed, units [10], only at own age of the max      : accuracy 0.9443 (-0.88 pp)   changed 0.0167   of changed: -> max 0.505
+  ReLU removed, units [10, 11, 12], only at own age of the max: accuracy 0.9066 (-4.65 pp)   changed 0.0610   of changed: -> max 0.824
+  ReLU removed, units [0, 10, 11, 12], only at own age of the max: accuracy 0.3933 (-55.99 pp)   changed 0.5969   of changed: -> max 0.946
+  ReLU removed, units [10, 11, 12], all steps EXCEPT own age: accuracy 0.9525 (-0.06 pp)   changed 0.0082   of changed: -> max 0.043
+
+(B) level removed at t0, later inputs -> -|x_t| (arm D 'negreal'); scored on sequences with S(t0) > 0
+  t0 = 3: n = 102921, reference accuracy 0.9722
+     level x 0.0, free                            : accuracy 0.1102   agreement with reference 0.1099
+     level x 0.0, wave gates frozen               : accuracy 0.3866   agreement with reference 0.3815
+     level x 0.0, comparator + pulse gates frozen : accuracy 0.2530   agreement with reference 0.2566
+     level x 0.0, all gates frozen                : accuracy 0.3065   agreement with reference 0.3081
+     level x 0.5, free                            : accuracy 0.2938   agreement with reference 0.2888
+     level x 0.5, wave gates frozen               : accuracy 0.3720   agreement with reference 0.3683
+     level x 0.5, comparator + pulse gates frozen : accuracy 0.4077   agreement with reference 0.4052
+     level x 0.5, all gates frozen                : accuracy 0.4075   agreement with reference 0.4086
+     clock x 1.5, free                            : accuracy 0.7500   agreement with reference 0.7418
+     clock x 1.5, wave gates frozen               : accuracy 0.7226   agreement with reference 0.7184
+     clock x 1.5, comparator + pulse gates frozen : accuracy 0.7511   agreement with reference 0.7422
+     clock x 1.5, all gates frozen                : accuracy 0.7235   agreement with reference 0.7185
+     level x 1.5, free                            : accuracy 0.8475   agreement with reference 0.8395
+     level x 1.5, wave gates frozen               : accuracy 0.0759   agreement with reference 0.0828
+     level x 1.5, comparator + pulse gates frozen : accuracy 0.8544   agreement with reference 0.8470
+     level x 1.5, all gates frozen                : accuracy 0.0751   agreement with reference 0.0817
+  t0 = 5: n = 178258, reference accuracy 0.9714
+     level x 0.0, free                            : accuracy 0.2101   agreement with reference 0.2069
+     level x 0.0, wave gates frozen               : accuracy 0.4937   agreement with reference 0.4935
+     level x 0.0, comparator + pulse gates frozen : accuracy 0.2491   agreement with reference 0.2459
+     level x 0.0, all gates frozen                : accuracy 0.4192   agreement with reference 0.4179
+     level x 0.5, free                            : accuracy 0.3313   agreement with reference 0.3277
+     level x 0.5, wave gates frozen               : accuracy 0.5610   agreement with reference 0.5604
+     level x 0.5, comparator + pulse gates frozen : accuracy 0.3934   agreement with reference 0.3906
+     level x 0.5, all gates frozen                : accuracy 0.5800   agreement with reference 0.5805
+     clock x 1.5, free                            : accuracy 0.8151   agreement with reference 0.8129
+     clock x 1.5, wave gates frozen               : accuracy 0.8313   agreement with reference 0.8358
+     clock x 1.5, comparator + pulse gates frozen : accuracy 0.8149   agreement with reference 0.8127
+     clock x 1.5, all gates frozen                : accuracy 0.8313   agreement with reference 0.8357
+     level x 1.5, free                            : accuracy 0.8440   agreement with reference 0.8477
+     level x 1.5, wave gates frozen               : accuracy 0.0777   agreement with reference 0.0766
+     level x 1.5, comparator + pulse gates frozen : accuracy 0.8340   agreement with reference 0.8395
+     level x 1.5, all gates frozen                : accuracy 0.0716   agreement with reference 0.0704
+  t0 = 7: n = 217014, reference accuracy 0.9706
+     level x 0.0, free                            : accuracy 0.1982   agreement with reference 0.1993
+     level x 0.0, wave gates frozen               : accuracy 0.4718   agreement with reference 0.4787
+     level x 0.0, comparator + pulse gates frozen : accuracy 0.2098   agreement with reference 0.2112
+     level x 0.0, all gates frozen                : accuracy 0.5645   agreement with reference 0.5730
+     level x 0.5, free                            : accuracy 0.3711   agreement with reference 0.3723
+     level x 0.5, wave gates frozen               : accuracy 0.6611   agreement with reference 0.6710
+     level x 0.5, comparator + pulse gates frozen : accuracy 0.4094   agreement with reference 0.4116
+     level x 0.5, all gates frozen                : accuracy 0.7016   agreement with reference 0.7120
+     clock x 1.5, free                            : accuracy 0.8166   agreement with reference 0.8282
+     clock x 1.5, wave gates frozen               : accuracy 0.8608   agreement with reference 0.8753
+     clock x 1.5, comparator + pulse gates frozen : accuracy 0.8167   agreement with reference 0.8283
+     clock x 1.5, all gates frozen                : accuracy 0.8608   agreement with reference 0.8753
+     level x 1.5, free                            : accuracy 0.9131   agreement with reference 0.9196
+     level x 1.5, wave gates frozen               : accuracy 0.4478   agreement with reference 0.4484
+     level x 1.5, comparator + pulse gates frozen : accuracy 0.9094   agreement with reference 0.9168
+     level x 1.5, all gates frozen                : accuracy 0.4457   agreement with reference 0.4463

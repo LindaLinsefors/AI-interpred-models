@@ -1,0 +1,10 @@
+lead's sample: seed 2020, 1.5M sequences; selected states 5856833
+  unit  0 at a1=2: 1.0000 (n=170348, se=0.0000)   1.0000 (n=136608, se=0.0000)   1.0000 (n=109047, se=0.0000)
+  unit 11 at a1=5: 0.9809 (n=137061, se=0.0004)   0.9945 (n=102770, se=0.0002)   0.8560 (n=46696, se=0.0016)
+  unit 10 at a1=6: 0.9721 (n=111912, se=0.0005)   0.9777 (n=80516, se=0.0005)   0.9755 (n=27051, se=0.0009)
+  unit 12 at a1=4: 0.2751 (n=157380, se=0.0011)   0.4215 (n=122809, se=0.0014)   0.2062 (n=75058, se=0.0015)
+  largest median of h_12/M: bin1: 15.33  bin2: 21.95  bin3: 31.08
+  half-range unit 1: bin1: 2.29  bin2: 4.01  bin3: 6.26
+  half-range unit 8: bin1: 2.18  bin2: 4.41  bin3: 6.60
+  half-range unit 6: bin1: 1.77  bin2: 3.59  bin3: 5.67
+  half-range unit 7: bin1: 1.19  bin2: 1.87  bin3: 4.12

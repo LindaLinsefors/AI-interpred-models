@@ -1,0 +1,20 @@
+intact accuracy (n = 200000, seed 5020): 0.9529
+
+--- unit 2 -> comparators: b2 = [0.0477 0.0487 0.0512 0.0508]; its non-uniform part [-0.0019 -0.0009  0.0016  0.0012], norm 0.00290 (x 17.3 M = 0.0502 M) ---
+  P3  non-uniform part removed:                                acc 0.6569
+  P3b non-uniform part DOUBLED:                                acc 0.6335
+  P3c non-uniform part halved:                                 acc 0.8001
+  common shift of the same norm (+0.00145 on all four):          acc 0.9373
+  common shift of the same norm (-0.00145 on all four):          acc 0.9322
+  random zero-mean pattern of the same norm ADDED (8 draws):   acc [0.8509 0.5538 0.7378 0.6074 0.7628 0.7682 0.7911 0.8675]  mean 0.7424
+
+--- wave(no 2) -> comparators (threshold gauge, 4 x 8): |difference part|_F = 0.01215, |common-level part|_F = 0.01735 ---
+  P1  difference part removed:                                 acc 0.5789
+  P2  common-level part removed:                               acc 0.8304
+  random difference pattern of norm |difference part| ADDED (8 draws): acc [0.4382 0.7559 0.3751 0.7477 0.4335 0.5912 0.5086 0.5896]  mean 0.5550
+  random common-level pattern of the same norm ADDED (8 draws):        acc [0.9144 0.9292 0.9196 0.8853 0.9386 0.9048 0.8519 0.9128]  mean 0.9071
+
+--- for scale: the comparator block Bc ---
+  Bc -> Bc P (input common level removed exactly; changes Bc by |.|_F = 0.0082): acc 0.9286
+  Bc -> P Bc (output common level removed; changes Bc by 1.491): acc 0.7182
+  random perturbation of Bc with the same norm as Bc - Bc P (8 draws): acc [0.9144 0.9489 0.9501 0.9481 0.9425 0.9476 0.9511 0.9429]  mean 0.9432

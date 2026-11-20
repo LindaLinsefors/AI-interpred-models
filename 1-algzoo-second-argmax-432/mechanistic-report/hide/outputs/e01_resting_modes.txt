@@ -1,0 +1,79 @@
+eigenvalues of the resting map (13 ordinary units):
+   0  |lam| = 1.0099   angle =     0.00 deg   lam = 1.0099+0.0000j
+   1  |lam| = 0.9735   angle =     0.00 deg   lam = 0.9735+0.0000j
+   2  |lam| = 0.9509   angle =    42.75 deg   lam = 0.6983+0.6454j
+   3  |lam| = 0.9509   angle =   -42.75 deg   lam = 0.6983-0.6454j
+   4  |lam| = 0.9370   angle =   -83.28 deg   lam = 0.1096-0.9306j
+   5  |lam| = 0.9370   angle =    83.28 deg   lam = 0.1096+0.9306j
+   6  |lam| = 0.9283   angle =   180.00 deg   lam = -0.9283+0.0000j
+   7  |lam| = 0.8373   angle =  -124.78 deg   lam = -0.4776-0.6877j
+   8  |lam| = 0.8373   angle =   124.78 deg   lam = -0.4776+0.6877j
+   9  |lam| = 0.7350   angle =    42.99 deg   lam = 0.5376+0.5012j
+  10  |lam| = 0.7350   angle =   -42.99 deg   lam = 0.5376-0.5012j
+  11  |lam| = 0.2310   angle =     0.00 deg   lam = 0.2310+0.0000j
+  12  |lam| = 0.0010   angle =     0.00 deg   lam = 0.0010+0.0000j
+
+level eigenvalue: 1.0098858055602684
+level right eigenvector on ordinary units (normalised so unit 2 = 1):
+  unit  0:   1.348
+  unit  1:   0.510
+  unit  2:   1.000
+  unit  3:   0.185
+  unit  6:   0.630
+  unit  7:   0.788
+  unit  8:   0.704
+  unit 10:   1.057
+  unit 11:   1.136
+  unit 12:   1.585
+  unit 13:   0.429
+  unit 14:   1.227
+  unit 15:   0.811
+all positive: True
+pulse pre-activations under the level vector (W[PULSE, ORD] @ v, same normalisation): [-0.624  0.402 -4.783]
+
+runner eigenvalue: 0.973485776738106
+runner right eigenvector (normalised to max |entry| = 1):
+  unit  0:   1.000
+  unit  1:  -0.326
+  unit  2:  -0.549
+  unit  3:  -0.211
+  unit  6:  -0.266
+  unit  7:  -0.307
+  unit  8:  -0.259
+  unit 10:   0.686
+  unit 11:   0.775
+  unit 12:   0.902
+  unit 13:  -0.205
+  unit 14:   0.702
+  unit 15:   0.192
+
+echo eigenvalue: 0.0009887042212430926   cos(angle between echo eigenvector and w[ORD]) = 0.997963337734613
+A @ w[ORD]  (what a unit input leaves in the ordinary units one step later, if all 13 stay on):
+  unit  0:  -0.432
+  unit  1:  -0.086
+  unit  2:  -0.005
+  unit  3:  -0.250
+  unit  6:   0.034
+  unit  7:   0.020
+  unit  8:   0.128
+  unit 10:  -0.027
+  unit 11:   0.016
+  unit 12:   0.004
+  unit 13:  -0.039
+  unit 14:  -0.392
+  unit 15:  -0.187
+W[PULSE, ORD] @ w[ORD] (what it sends to pulses 4, 5, 9): [ 0.01  18.009 84.335]
+mode coordinates of the input direction  Linv @ w[ORD]  (|.|):
+  mode  0 (|lam|=1.010,    0.00 deg): |coef| = 0.1965
+  mode  1 (|lam|=0.973,    0.00 deg): |coef| = 0.3451
+  mode  2 (|lam|=0.951,   42.75 deg): |coef| = 0.2111
+  mode  3 (|lam|=0.951,  -42.75 deg): |coef| = 0.2111
+  mode  4 (|lam|=0.937,  -83.28 deg): |coef| = 0.3189
+  mode  5 (|lam|=0.937,   83.28 deg): |coef| = 0.3189
+  mode  6 (|lam|=0.928,  180.00 deg): |coef| = 0.0753
+  mode  7 (|lam|=0.837, -124.78 deg): |coef| = 0.2648
+  mode  8 (|lam|=0.837,  124.78 deg): |coef| = 0.2648
+  mode  9 (|lam|=0.735,   42.99 deg): |coef| = 0.3538
+  mode 10 (|lam|=0.735,  -42.99 deg): |coef| = 0.3538
+  mode 11 (|lam|=0.231,    0.00 deg): |coef| = 2.0060
+  mode 12 (|lam|=0.001,    0.00 deg): |coef| = 24.0581

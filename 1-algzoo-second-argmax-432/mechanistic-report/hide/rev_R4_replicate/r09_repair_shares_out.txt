@@ -1,0 +1,5 @@
+n = 2097152 ; accuracy 0.9531 ; (b1) 0.9566 ; (c) 0.9589
+  (b1) on 'max~runner-up, max first'         [gaps with positive parts]: class errors 8427 (0.0857 of all) ; fixed 0.6553 +- 0.0052 ; new 0.0452
+  (b1) on 'max~runner-up, max first'         [raw third, T>0]: class errors 8427 (0.0857 of all) ; fixed 0.6553 +- 0.0052 ; new 0.0452
+  (c) on 'runner-up~third, runner-up first'  [gaps with positive parts]: class errors 27392 (0.2787 of all) ; fixed 0.4075 +- 0.0030 ; new 0.0214
+  (c) on 'runner-up~third, runner-up first'  [raw third, T>0]: class errors 26647 (0.2711 of all) ; fixed 0.4178 +- 0.0030 ; new 0.0218

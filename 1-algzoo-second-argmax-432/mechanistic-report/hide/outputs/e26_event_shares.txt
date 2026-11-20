@@ -1,0 +1,4 @@
+new max         : share of steps 1..9 = 0.2145   unit 4 on at that step = 0.8989   unit 5 on at the next step = 0.8987
+new runner-up   : share of steps 1..9 = 0.2139   unit 4 on at that step = 0.0448   unit 5 on at the next step = 0.6388
+below runner-up : share of steps 1..9 = 0.5716   unit 4 on at that step = 0.0001   unit 5 on at the next step = 0.0646
+all 13 ordinary units on: 0.2516 of states at t=1..9;  resting pattern (and pulses off): 0.1149

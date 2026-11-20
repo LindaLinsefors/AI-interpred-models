@@ -1,0 +1,15 @@
+baseline: answer = runner-up 0.9533, answer = max 0.0092
+wipe at step t0 = pM + k (the final max is at pM; only sequences whose max arrived at pM <= 8 - k and S_final > 0.2, max - runner-up > 0.2):
+   k | P(answer = max)  P(answer = runner-up)  P(other) |  control (wave units 10,11,12,15 wiped): P(max)  P(runner-up)
+   1 |     0.868            0.013             0.119  |            0.008   0.325      n = 187655
+   2 |     0.873            0.014             0.114  |            0.004   0.224      n = 166936
+   3 |     0.753            0.023             0.224  |            0.000   0.241      n = 145739
+   4 |     0.816            0.004             0.180  |            0.003   0.298      n = 124582
+   5 |     0.977            0.003             0.020  |            0.000   0.542      n = 103721
+   6 |     0.999            0.000             0.001  |            0.000   0.276      n = 83029
+
+same, split by whether the wipe is at the last step (t0 = 9) or earlier (k = 2):
+   t0 = 9: P(max) = 0.000  P(runner-up) = 0.109   n = 21197
+   t0 = 8: P(max) = 0.997  P(runner-up) = 0.000   n = 21157
+   t0 <= 7: P(max) = 1.000  P(runner-up) = 0.000   n = 124582
+   t0 <= 5: P(max) = 1.000  P(runner-up) = 0.000   n = 83029

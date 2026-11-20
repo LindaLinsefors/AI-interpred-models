@@ -1,0 +1,411 @@
+sequences: n = 323790; network answers p0 in 0.9630
+
+=== all s = 3..9, g >= 2: n = 272233 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.51             20.08            -16.81            -11.87
+  (1) old state read with no-record gates                         3.59             20.98              2.53             -3.00
+  (2a) old state re-read, direct paths: conversion               27.80             -2.45             28.32             -0.47
+  (2b) old state -> unit 5 at s+1 -> ...                         -3.35             -0.54              7.95              1.44
+  (2c) old state -> unit 9 at s+1 -> ...                          0.95             -0.33             -0.40             -0.03
+  (4a) record pulse h4(s), direct                                 3.85              1.02            -19.63             -1.49
+  (4b) record pulse -> unit 5 at s+1 -> ...                      -3.00             -0.49              8.87              1.94
+  (4c) record pulse -> unit 9 at s+1 -> ...                       0.09             -0.01             -2.78             -0.93
+  (3a) x_s into wave units                                       12.08             -2.23             -6.63             -1.81
+  (3b) later inputs x_(s+1)..x_9                                 -0.21             -0.05              2.61             -4.45
+  actual logits = sum of (1)..(4)                                41.80             15.89             20.85             -8.80
+      [inputs x_s'..x_9 in the counterfactual]                    9.92             -0.90            -19.35             -8.88
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -18.78             -3.75             45.30              3.06
+     runner                                                       8.94              1.69             -9.91             -0.88
+     clock                                                       34.78              0.01             -3.41             -2.68
+     h2                                                           1.41              0.59             -0.65              0.00
+     alt                                                          0.18             -0.05              0.07             -0.14
+     h3                                                           0.61             -0.10             -1.70             -0.53
+     short                                                        0.85             -1.94              2.89              1.47
+     trans                                                       -0.42             -0.55             -0.47             -0.37
+     echo                                                        -0.69              1.93             -2.99             -0.16
+     pulses                                                       0.92             -0.30             -0.81             -0.24
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                       -6.17             -2.43             12.43              1.60
+     runner                                                       2.36              1.69             -4.26             -0.09
+     clock                                                        0.63              0.16              0.48              0.18
+     h2                                                          -0.01              0.03              0.26              0.04
+     alt                                                         -0.03              0.03              0.03              0.01
+     h3                                                           0.01              0.00              0.17              0.10
+     short                                                        0.05             -0.19             -1.07             -0.36
+     trans                                                       -0.03              0.01             -0.02              0.03
+     echo                                                         0.59             -0.33             -0.51             -0.16
+     pulses                                                       0.19              0.15              0.05              0.09
+  split of (1) by mode of h_(s-1):
+     level                                                       47.41             13.88             13.67             18.00
+     runner                                                     -24.13             -8.75            -13.60            -21.05
+     clock                                                      -18.96             -3.08             -0.82             -0.55
+     h2                                                           1.12              3.68              1.28              0.63
+     alt                                                          0.25              0.94             -0.25              0.15
+     h3                                                           0.37              1.33              0.97              0.21
+     short                                                        0.21              5.47             -1.02             -1.17
+     trans                                                       -0.06              0.20             -0.04             -0.04
+     echo                                                        -0.68              6.45              2.64              0.95
+     pulses                                                      -1.95              0.87             -0.31             -0.13
+
+=== s = 3..7, g >= 2: n = 146680 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.46             17.71              3.33             -6.88
+  (1) old state read with no-record gates                        -2.78             19.29             10.97             -0.50
+  (2a) old state re-read, direct paths: conversion               36.93             -3.78             22.26             -3.31
+  (2b) old state -> unit 5 at s+1 -> ...                         -6.26             -1.03              4.40              2.81
+  (2c) old state -> unit 9 at s+1 -> ...                          1.23             -0.62             -1.07             -0.25
+  (4a) record pulse h4(s), direct                                 6.98              1.78             -2.99             -1.85
+  (4b) record pulse -> unit 5 at s+1 -> ...                      -5.63             -0.90              5.31              3.75
+  (4c) record pulse -> unit 9 at s+1 -> ...                       0.19             -0.03             -4.47             -1.41
+  (3a) x_s into wave units                                        9.04             -1.91            -12.17             -3.99
+  (3b) later inputs x_(s+1)..x_9                                 -0.34             -0.09              4.00             -0.78
+  actual logits = sum of (1)..(4)                                39.37             12.70             26.25             -5.53
+      [inputs x_s'..x_9 in the counterfactual]                   16.24             -1.58             -7.63             -6.38
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -21.89             -6.72             62.85              4.66
+     runner                                                      15.33              2.40            -25.07             -1.37
+     clock                                                       37.98             -0.50             -9.54             -7.13
+     h2                                                           1.34              0.19             -1.41             -0.24
+     alt                                                          0.20             -0.09              0.11             -0.25
+     h3                                                           0.99             -0.11             -3.08             -0.90
+     short                                                        3.17             -1.04              7.28              3.20
+     trans                                                       -0.60             -0.46             -1.13             -0.56
+     echo                                                        -1.32              2.54             -6.06             -0.36
+     pulses                                                       1.73              0.02             -1.68             -0.36
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                      -11.78             -4.52              0.81              3.74
+     runner                                                       4.46              3.19              2.43             -0.79
+     clock                                                        0.90              0.33              0.87              0.18
+     h2                                                          -0.02              0.07              0.29              0.09
+     alt                                                         -0.05              0.05             -0.00              0.02
+     h3                                                           0.03              0.01              0.68              0.14
+     short                                                        0.04             -0.44             -2.54             -0.59
+     trans                                                       -0.08              0.02              0.16              0.03
+     echo                                                         1.10             -0.62              0.18             -0.39
+     pulses                                                       0.36              0.26              0.45              0.14
+  split of (1) by mode of h_(s-1):
+     level                                                       61.12             17.85             12.56             21.74
+     runner                                                     -31.53            -11.34             -3.50            -20.57
+     clock                                                      -27.16             -4.15             -1.83             -1.36
+     h2                                                           0.78              3.50              2.01              0.82
+     alt                                                          0.07              0.90             -0.60              0.06
+     h3                                                          -0.08              0.76              1.81              0.31
+     short                                                       -1.64              2.59             -4.05             -3.17
+     trans                                                        0.09              0.18              0.26              0.04
+     echo                                                        -1.06              8.42              5.11              2.15
+     pulses                                                      -3.37              0.57             -0.82             -0.52
+
+=== all s = 3..9, g = 1: n = 51557 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                19.66             22.82             -4.23             -4.94
+  (1) old state read with no-record gates                        -0.01             23.82             -8.20             -5.60
+  (2a) old state re-read, direct paths: conversion               44.03             -1.89             47.46             10.35
+  (2b) old state -> unit 5 at s+1 -> ...                          3.83             -0.60              8.60              3.11
+  (2c) old state -> unit 9 at s+1 -> ...                          0.57             -0.72              2.61              1.28
+  (4a) record pulse h4(s), direct                                -1.10              1.97            -12.76             -1.13
+  (4b) record pulse -> unit 5 at s+1 -> ...                       3.78             -0.88              7.94              3.07
+  (4c) record pulse -> unit 9 at s+1 -> ...                      -1.42             -0.07             -3.53             -1.60
+  (3a) x_s into wave units                                       -1.89              0.14             -8.57             -3.93
+  (3b) later inputs x_(s+1)..x_9                                  0.30             -0.14              1.79             -3.25
+  actual logits = sum of (1)..(4)                                48.10             21.63             35.32              2.29
+      [inputs x_s'..x_9 in the counterfactual]                   19.67             -0.99              3.97              0.66
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                     -139.79              0.75            130.01             17.99
+     runner                                                     -51.73              2.02             31.64              4.38
+     clock                                                       -1.00              2.31              3.13              0.67
+     h2                                                          -1.17              0.92             -0.97             -0.16
+     alt                                                         -0.17             -0.09              0.15             -0.08
+     h3                                                          -0.51              0.19             -1.26             -0.46
+     short                                                        0.03             -3.66             -2.07             -0.58
+     trans                                                       -5.45              0.33              4.89              0.89
+     echo                                                       210.63             -3.52           -146.09            -18.03
+     pulses                                                      33.19             -1.14             28.02              5.71
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                      -34.29             -1.47            -88.41            -38.45
+     runner                                                     -13.13              2.48            -33.05            -13.75
+     clock                                                       -1.07              0.72             -2.20             -1.05
+     h2                                                          -0.20              0.48             -0.26             -0.20
+     alt                                                          0.02             -0.02              0.01              0.01
+     h3                                                           0.04              0.06              0.23              0.07
+     short                                                        0.60             -0.61              0.93              0.53
+     trans                                                       -1.37              0.82             -3.33             -1.53
+     echo                                                        51.59             -2.97            132.02             56.64
+     pulses                                                       2.21             -0.82              5.28              2.12
+  split of (1) by mode of h_(s-1):
+     level                                                      154.50              9.43             75.76             31.60
+     runner                                                      17.37              1.94              5.82            -11.57
+     clock                                                       -0.95             -0.70             -0.80             -0.86
+     h2                                                           0.91              3.54              1.89              0.39
+     alt                                                          0.39              0.90             -0.07              0.27
+     h3                                                          -0.84             -0.02             -0.37             -0.51
+     short                                                       -3.64              9.40             -3.84             -2.82
+     trans                                                        3.74             -0.13              2.06              0.94
+     echo                                                      -163.35             -6.80            -84.00            -24.40
+     pulses                                                      -8.14              6.26             -4.65              1.36
+
+=== s = 4, g >= 2: n = 19545 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.82             14.99             -1.15             -1.13
+  (1) old state read with no-record gates                        -6.84             17.46             17.83              8.61
+  (2a) old state re-read, direct paths: conversion               37.52             -5.10             18.16            -10.33
+  (2b) old state -> unit 5 at s+1 -> ...                         -4.37             -0.84              1.92              1.73
+  (2c) old state -> unit 9 at s+1 -> ...                          0.01             -1.54             -3.14             -1.17
+  (4a) record pulse h4(s), direct                                 4.33              1.81              2.76              1.86
+  (4b) record pulse -> unit 5 at s+1 -> ...                      -4.09             -0.72              0.77              1.06
+  (4c) record pulse -> unit 9 at s+1 -> ...                       1.13             -0.03             -5.37             -2.40
+  (3a) x_s into wave units                                        5.22             -1.18            -19.34             -7.68
+  (3b) later inputs x_(s+1)..x_9                                 -1.37             -0.27              2.90              3.44
+  actual logits = sum of (1)..(4)                                31.53              9.60             16.50             -4.89
+      [inputs x_s'..x_9 in the counterfactual]                   20.66             -2.47            -18.98             -9.74
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -36.59             -9.83             76.14             10.49
+     runner                                                      22.34              5.12            -28.29             -6.31
+     clock                                                       39.71             -1.71            -22.83            -15.95
+     h2                                                           2.24              0.38             -3.38              0.80
+     alt                                                         -0.12             -0.33              0.27             -0.57
+     h3                                                           1.01             -0.20             -5.15             -1.86
+     short                                                        5.43             -0.97             14.43              7.98
+     trans                                                       -1.07             -0.01             -1.76             -0.77
+     echo                                                         1.18              1.90             -8.38             -2.99
+     pulses                                                       3.39              0.55             -2.90             -1.15
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                       -9.41             -4.19             -8.85             -1.91
+     runner                                                       2.73              3.12              8.48              3.56
+     clock                                                        1.39              0.05              1.39              0.50
+     h2                                                           0.01             -0.01              0.79              0.27
+     alt                                                         -0.02              0.06             -0.05              0.00
+     h3                                                           0.09              0.08              1.50              0.59
+     short                                                        0.02             -0.32             -4.91             -2.13
+     trans                                                        0.04             -0.25              0.15             -0.01
+     echo                                                         0.06             -1.74             -1.05             -1.06
+     pulses                                                       0.73              0.83              1.33              0.76
+  split of (1) by mode of h_(s-1):
+     level                                                       63.47             21.14             19.48             26.73
+     runner                                                     -28.08            -14.55             -6.20            -16.40
+     clock                                                      -31.28             -4.11             -1.84             -2.25
+     h2                                                           1.22              4.23              4.10              0.58
+     alt                                                          0.21              1.03             -0.67              0.52
+     h3                                                          -0.56             -0.45              1.64             -0.46
+     short                                                       -1.98             -0.77             -6.69             -4.73
+     trans                                                        0.10              0.41              0.56              0.17
+     echo                                                        -3.01             12.10             10.82              6.76
+     pulses                                                      -6.93             -1.56             -3.37             -2.31
+
+=== s = 6, g >= 2: n = 38500 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.41             18.37              5.32             -5.95
+  (1) old state read with no-record gates                        -3.01             20.20              8.86             -2.85
+  (2a) old state re-read, direct paths: conversion               39.51             -3.60             22.76             -3.30
+  (2b) old state -> unit 5 at s+1 -> ...                         -7.17             -1.36              7.73              6.16
+  (2c) old state -> unit 9 at s+1 -> ...                          1.82             -0.35             -0.62              0.14
+  (4a) record pulse h4(s), direct                                 8.18              1.84             -7.35             -6.15
+  (4b) record pulse -> unit 5 at s+1 -> ...                      -6.46             -1.05              9.32              7.74
+  (4c) record pulse -> unit 9 at s+1 -> ...                      -0.04             -0.03             -4.36             -0.86
+  (3a) x_s into wave units                                        9.55             -2.21            -11.96             -3.05
+  (3b) later inputs x_(s+1)..x_9                                 -0.17             -0.06              4.70             -0.47
+  actual logits = sum of (1)..(4)                                42.21             13.38             29.07             -2.64
+      [inputs x_s'..x_9 in the counterfactual]                   16.42             -1.82             -3.54             -3.10
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -20.49             -6.96             54.22             -3.54
+     runner                                                      15.74              1.69            -21.68              3.41
+     clock                                                       40.50             -0.01             -4.91             -4.41
+     h2                                                           1.15              0.11             -1.01             -0.53
+     alt                                                          0.22             -0.11             -0.32             -0.36
+     h3                                                           1.05              0.17             -2.61             -0.62
+     short                                                        2.74             -0.84              5.29              1.03
+     trans                                                       -0.18             -0.56             -0.62             -0.22
+     echo                                                        -2.29              3.60             -4.07              2.11
+     pulses                                                       1.06             -0.68             -1.53             -0.19
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                      -12.62             -5.38              9.01             12.84
+     runner                                                       5.21              3.57             -1.66             -5.52
+     clock                                                        0.35              0.55              0.25             -0.47
+     h2                                                          -0.12              0.03              0.19              0.02
+     alt                                                         -0.03              0.05              0.01              0.03
+     h3                                                          -0.04             -0.09              0.28             -0.26
+     short                                                        0.20             -0.39             -1.69              0.49
+     trans                                                       -0.10              0.23              0.13             -0.03
+     echo                                                         1.51             -0.33              0.51             -0.57
+     pulses                                                       0.29              0.06              0.08             -0.23
+  split of (1) by mode of h_(s-1):
+     level                                                       66.08             16.92             13.80             21.07
+     runner                                                     -36.25            -11.19             -4.42            -21.52
+     clock                                                      -29.38             -4.03             -3.13             -1.73
+     h2                                                           0.91              3.02              1.36              0.98
+     alt                                                          0.42              1.07              0.21              0.38
+     h3                                                          -0.56              0.85              1.52              0.22
+     short                                                       -2.16              3.29             -3.93             -3.25
+     trans                                                        0.06              0.01              0.15              0.02
+     echo                                                         0.00              8.08              2.83              0.57
+     pulses                                                      -2.13              2.18              0.46              0.41
+
+=== s = 8, g >= 2: n = 58210 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.48             21.89              6.77            -38.20
+  (1) old state read with no-record gates                         7.91             22.29              6.73            -17.93
+  (2a) old state re-read, direct paths: conversion               20.72             -1.30              6.20             -0.62
+  (2b) old state -> unit 5 at s+1 -> ...                          0.12              0.06             26.12             -0.34
+  (2c) old state -> unit 9 at s+1 -> ...                          1.34              0.02              0.85              0.48
+  (4a) record pulse h4(s), direct                                 0.40              0.26            -45.14              1.04
+  (4b) record pulse -> unit 5 at s+1 -> ...                       0.17             -0.03             28.08             -0.37
+  (4c) record pulse -> unit 9 at s+1 -> ...                      -0.04              0.00             -1.75             -0.80
+  (3a) x_s into wave units                                       16.04             -2.84             -0.65              0.10
+  (3b) later inputs x_(s+1)..x_9                                 -0.15              0.02              2.15            -18.84
+  actual logits = sum of (1)..(4)                                46.52             18.49             22.57            -37.28
+      [inputs x_s'..x_9 in the counterfactual]                    5.57             -0.39              0.05            -20.27
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -18.32             -2.41              1.40              0.00
+     runner                                                       4.64              1.26              1.55             -1.67
+     clock                                                       33.53              0.88              4.73              1.70
+     h2                                                           2.08              1.12              0.36              0.36
+     alt                                                          0.26              0.06              0.04             -0.01
+     h3                                                           0.22             -0.01             -0.09             -0.22
+     short                                                       -1.42             -3.04             -3.28             -0.47
+     trans                                                       -0.42             -0.50              0.50             -0.22
+     echo                                                         0.14              1.85              0.89              0.07
+     pulses                                                       0.03             -0.50              0.12             -0.14
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                        0.85              0.04             56.08             -1.97
+     runner                                                      -0.19             -0.15            -26.06              1.58
+     clock                                                        0.66             -0.06              0.05              0.37
+     h2                                                          -0.00             -0.02              0.48             -0.03
+     alt                                                         -0.00             -0.01              0.14             -0.01
+     h3                                                          -0.01             -0.03             -0.91              0.10
+     short                                                        0.14              0.24              1.41             -0.21
+     trans                                                        0.06              0.00             -0.50              0.05
+     echo                                                        -0.03              0.00             -2.84              0.21
+     pulses                                                      -0.02              0.06             -0.88              0.06
+  split of (1) by mode of h_(s-1):
+     level                                                       37.73             11.26              8.14             20.93
+     runner                                                     -19.94             -6.10             -4.30            -40.55
+     clock                                                      -12.15             -2.59             -0.74              1.62
+     h2                                                           1.17              3.86             -0.24              0.09
+     alt                                                          0.43              1.01              0.20              0.38
+     h3                                                           0.62              1.68              0.71             -0.17
+     short                                                        0.66              7.70              1.21              0.52
+     trans                                                       -0.02              0.05             -0.26             -0.25
+     echo                                                        -0.49              4.05              0.86             -1.31
+     pulses                                                      -0.11              1.37              1.15              0.80
+
+=== s = 9, g >= 2: n = 67343 ===   mean logit relative to bystanders
+  term                                                    p0 (old max)      q0 (old 2nd)       s (new max)   later positions
+  no-record counterfactual, total                                13.66             23.68            -81.08              0.01
+  (1) old state read with no-record gates                        13.73             23.55            -19.46              4.47
+  (2a) old state re-read, direct paths: conversion               14.01             -0.56             60.66              5.84
+  (2b) old state -> unit 5 at s+1 -> ...                          0.00              0.00              0.00              0.00
+  (2c) old state -> unit 9 at s+1 -> ...                          0.00              0.00              0.00              0.00
+  (4a) record pulse h4(s), direct                                 0.03              0.02            -33.83             -2.89
+  (4b) record pulse -> unit 5 at s+1 -> ...                       0.00              0.00              0.00              0.00
+  (4c) record pulse -> unit 9 at s+1 -> ...                       0.00              0.00              0.00              0.00
+  (3a) x_s into wave units                                       15.26             -2.42              0.26              1.28
+  (3b) later inputs x_(s+1)..x_9                                  0.00             -0.00              0.00             -0.00
+  actual logits = sum of (1)..(4)                                43.04             20.59              7.62              8.70
+      [inputs x_s'..x_9 in the counterfactual]                   -0.07              0.13            -61.62             -4.46
+  split of (2a) conversion by mode of h_(s-1):
+     level                                                      -12.37              1.56             45.03              2.20
+     runner                                                      -1.25              0.53             13.18              0.86
+     clock                                                       28.90              0.39              2.92              3.23
+     h2                                                           0.97              1.01              0.14              0.21
+     alt                                                          0.05             -0.04              0.04              0.00
+     h3                                                           0.12             -0.15             -0.08             -0.01
+     short                                                       -2.25             -2.93             -1.35             -0.61
+     trans                                                       -0.05             -0.78              0.13             -0.08
+     echo                                                        -0.03              0.65              0.36              0.10
+     pulses                                                      -0.07             -0.80              0.29             -0.06
+  split of (2b)+(2c) by mode of h_(s-1):
+     level                                                        0.00              0.00              0.00              0.00
+     runner                                                       0.00              0.00              0.00              0.00
+     clock                                                        0.00              0.00              0.00              0.00
+     h2                                                           0.00              0.00              0.00              0.00
+     alt                                                          0.00              0.00              0.00              0.00
+     h3                                                           0.00              0.00              0.00              0.00
+     short                                                        0.00              0.00              0.00              0.00
+     trans                                                        0.00              0.00              0.00              0.00
+     echo                                                         0.00              0.00              0.00              0.00
+     pulses                                                       0.00              0.00              0.00              0.00
+  split of (1) by mode of h_(s-1):
+     level                                                       25.94              7.48             20.88              7.33
+     runner                                                     -11.62             -5.40            -43.65             -5.24
+     clock                                                       -6.98             -1.19              1.29             -0.67
+     h2                                                           1.83              3.92              1.00              0.68
+     alt                                                          0.49              0.97              0.12              0.16
+     h3                                                           1.14              2.28             -0.62              0.31
+     short                                                        3.85              9.82              3.66              1.72
+     trans                                                       -0.44              0.37             -0.50             -0.05
+     echo                                                        -0.03              4.23             -1.19              0.29
+     pulses                                                      -0.43              1.07             -0.45             -0.06
+
+=== regressions (g >= 2), bystander-referenced: term ~ a (M0-S0) + b S0 + c (Mn-M0)  [no intercept] ===
+  logit[p0] no-record counterfactual, total                   :     4.99 (M0-S0)   +16.34 S0    +1.10 (Mn-M0)   R2 = 0.167   mean   13.51
+  logit[p0] (1) old state read with no-record gates           :   -16.74 (M0-S0)   +15.63 S0    +0.26 (Mn-M0)   R2 = 0.095   mean    3.59
+  logit[p0] (2a) old state re-read, direct paths: conversion  :    44.14 (M0-S0)    -5.17 S0   +25.26 (Mn-M0)   R2 = 0.126   mean   27.80
+  logit[p0] (2b) old state -> unit 5 at s+1 -> ...            :    -8.57 (M0-S0)    -0.18 S0    +0.43 (Mn-M0)   R2 = 0.104   mean   -3.35
+  logit[p0] (2c) old state -> unit 9 at s+1 -> ...            :     1.66 (M0-S0)    +0.92 S0    -0.57 (Mn-M0)   R2 = 0.001   mean    0.95
+  logit[p0] (4a) record pulse h4(s), direct                   :     5.21 (M0-S0)    -0.83 S0    +4.39 (Mn-M0)   R2 = 0.055   mean    3.85
+  logit[p0] (4b) record pulse -> unit 5 at s+1 -> ...         :    -3.70 (M0-S0)    +0.78 S0    -3.85 (Mn-M0)   R2 = 0.054   mean   -3.00
+  logit[p0] (4c) record pulse -> unit 9 at s+1 -> ...         :     0.02 (M0-S0)    -0.03 S0    +0.20 (Mn-M0)   R2 = 0.001   mean    0.09
+  logit[p0] (3a) x_s into wave units                          :    30.77 (M0-S0)   +16.89 S0   -21.75 (Mn-M0)   R2 = 0.144   mean   12.08
+  logit[p0] (3b) later inputs x_(s+1)..x_9                    :    -0.17 (M0-S0)    +0.12 S0    -0.39 (Mn-M0)   R2 = 0.000   mean   -0.21
+  logit[p0] actual logits = sum of (1)..(4)                   :    52.62 (M0-S0)   +28.13 S0    +3.96 (Mn-M0)   R2 = 0.563   mean   41.80
+  logit[p0]     conversion, clock part                        :    63.15 (M0-S0)    +8.11 S0    +7.69 (Mn-M0)   R2 = 0.495   mean   34.78
+  logit[p0]     conversion, level part                        :   -26.83 (M0-S0)   -22.05 S0   +11.99 (Mn-M0)   R2 = 0.045   mean  -18.78
+  logit[p0]     conversion, runner part                       :     3.37 (M0-S0)    +7.75 S0    +4.80 (Mn-M0)   R2 = 0.014   mean    8.94
+
+  logit[q0] no-record counterfactual, total                   :     4.98 (M0-S0)   +26.44 S0    +1.13 (Mn-M0)   R2 = 0.397   mean   20.08
+  logit[q0] (1) old state read with no-record gates           :     5.80 (M0-S0)   +27.22 S0    +1.23 (Mn-M0)   R2 = 0.117   mean   20.98
+  logit[q0] (2a) old state re-read, direct paths: conversion  :    -2.20 (M0-S0)    +0.03 S0    -3.07 (Mn-M0)   R2 = 0.001   mean   -2.45
+  logit[q0] (2b) old state -> unit 5 at s+1 -> ...            :    -0.58 (M0-S0)    -0.47 S0    +0.01 (Mn-M0)   R2 = 0.001   mean   -0.54
+  logit[q0] (2c) old state -> unit 9 at s+1 -> ...            :     0.03 (M0-S0)    -0.70 S0    +0.25 (Mn-M0)   R2 = 0.000   mean   -0.33
+  logit[q0] (4a) record pulse h4(s), direct                   :     0.25 (M0-S0)    +0.44 S0    +1.19 (Mn-M0)   R2 = 0.002   mean    1.02
+  logit[q0] (4b) record pulse -> unit 5 at s+1 -> ...         :    -0.05 (M0-S0)    -0.24 S0    -0.61 (Mn-M0)   R2 = 0.001   mean   -0.49
+  logit[q0] (4c) record pulse -> unit 9 at s+1 -> ...         :     0.02 (M0-S0)    +0.01 S0    -0.06 (Mn-M0)   R2 = 0.000   mean   -0.01
+  logit[q0] (3a) x_s into wave units                          :    -2.65 (M0-S0)    -3.53 S0    +2.23 (Mn-M0)   R2 = 0.003   mean   -2.23
+  logit[q0] (3b) later inputs x_(s+1)..x_9                    :    -0.07 (M0-S0)    -0.10 S0    +0.11 (Mn-M0)   R2 = 0.000   mean   -0.05
+  logit[q0] actual logits = sum of (1)..(4)                   :     0.56 (M0-S0)   +22.67 S0    +1.28 (Mn-M0)   R2 = 0.092   mean   15.89
+  logit[q0]     conversion, clock part                        :    -0.96 (M0-S0)    +0.59 S0    -0.05 (Mn-M0)   R2 = 0.000   mean    0.01
+  logit[q0]     conversion, level part                        :     2.98 (M0-S0)    -5.31 S0    -2.60 (Mn-M0)   R2 = 0.003   mean   -3.75
+  logit[q0]     conversion, runner part                       :     2.72 (M0-S0)    +1.94 S0    -1.27 (Mn-M0)   R2 = 0.004   mean    1.69
+
+  logit[s ] no-record counterfactual, total                   :     1.22 (M0-S0)   -19.48 S0    -5.84 (Mn-M0)   R2 = 0.006   mean  -16.81
+  logit[s ] (1) old state read with no-record gates           :    12.84 (M0-S0)    -5.44 S0    +1.09 (Mn-M0)   R2 = 0.032   mean    2.53
+  logit[s ] (2a) old state re-read, direct paths: conversion  :    31.00 (M0-S0)   +29.37 S0    -5.84 (Mn-M0)   R2 = 0.084   mean   28.32
+  logit[s ] (2b) old state -> unit 5 at s+1 -> ...            :     8.79 (M0-S0)    +4.61 S0    +2.63 (Mn-M0)   R2 = 0.044   mean    7.95
+  logit[s ] (2c) old state -> unit 9 at s+1 -> ...            :     4.77 (M0-S0)    +3.20 S0    -8.48 (Mn-M0)   R2 = 0.016   mean   -0.40
+  logit[s ] (4a) record pulse h4(s), direct                   :     2.94 (M0-S0)    -5.26 S0   -32.96 (Mn-M0)   R2 = 0.289   mean  -19.63
+  logit[s ] (4b) record pulse -> unit 5 at s+1 -> ...         :     0.23 (M0-S0)    +1.46 S0   +14.86 (Mn-M0)   R2 = 0.193   mean    8.87
+  logit[s ] (4c) record pulse -> unit 9 at s+1 -> ...         :    -1.23 (M0-S0)    +0.28 S0    -4.71 (Mn-M0)   R2 = 0.378   mean   -2.78
+  logit[s ] (3a) x_s into wave units                          :   -20.49 (M0-S0)    -5.88 S0   +10.53 (Mn-M0)   R2 = 0.046   mean   -6.63
+  logit[s ] (3b) later inputs x_(s+1)..x_9                    :     4.74 (M0-S0)    +0.40 S0    +0.67 (Mn-M0)   R2 = 0.007   mean    2.61
+  logit[s ] actual logits = sum of (1)..(4)                   :    43.60 (M0-S0)   +22.74 S0   -22.20 (Mn-M0)   R2 = 0.485   mean   20.85
+  logit[s ]     conversion, clock part                        :    -9.13 (M0-S0)    +0.84 S0    -0.56 (Mn-M0)   R2 = 0.031   mean   -3.41
+  logit[s ]     conversion, level part                        :    48.12 (M0-S0)   +43.56 S0    -4.27 (Mn-M0)   R2 = 0.146   mean   45.30
+  logit[s ]     conversion, runner part                       :    -7.15 (M0-S0)    -9.50 S0    -1.62 (Mn-M0)   R2 = 0.022   mean   -9.91
+
+=== clock conversion at p0 within (s, g) cells: coefficient of (M0-S0), R2 ===
+           g=2           g=3           g=4           g=5           g=6           g=7        
+  s=3:    33.7 (0.35)     77.1 (0.50)        .              .              .              .        
+  s=4:    42.9 (0.58)     73.6 (0.72)     94.2 (0.67)        .              .              .        
+  s=5:    41.2 (0.48)     80.9 (0.84)     79.3 (0.74)     70.1 (0.51)        .              .        
+  s=6:    44.3 (0.48)     86.5 (0.85)     81.2 (0.77)     64.7 (0.57)     68.4 (0.49)        .        
+  s=7:    36.5 (0.27)     83.7 (0.75)     87.4 (0.82)     64.5 (0.60)     64.6 (0.61)     29.2 (0.18)  
+  s=8:    65.4 (0.63)     65.0 (0.47)    102.3 (0.84)     48.1 (0.48)     53.1 (0.53)     46.8 (0.46)  
+  s=9:    70.1 (0.86)     71.9 (0.86)     89.1 (0.67)     60.5 (0.57)     44.0 (0.52)     48.8 (0.51)  
+=== total change at p0 created by the record (act - cf) within (s, g) cells: coefs of (M0-S0), S0, (Mn-M0); R2 ===
+  s=3 g=2:   17.6 (M0-S0)   +3.2 S0   +0.5 (Mn-M0)  R2 = 0.72   n = 5396
+  s=4 g=2:   28.6 (M0-S0)   +7.4 S0   -1.2 (Mn-M0)  R2 = 0.72   n = 6572
+  s=4 g=4:   24.8 (M0-S0)  +14.4 S0   +2.5 (Mn-M0)  R2 = 0.36   n = 6472
+  s=5 g=2:   40.5 (M0-S0)  +12.5 S0   +0.2 (Mn-M0)  R2 = 0.71   n = 7249
+  s=5 g=4:   29.0 (M0-S0)   +8.6 S0   +2.7 (Mn-M0)  R2 = 0.59   n = 7250
+  s=6 g=2:   45.5 (M0-S0)  +13.8 S0   +3.0 (Mn-M0)  R2 = 0.65   n = 7618
+  s=6 g=4:   36.9 (M0-S0)   +8.6 S0   +4.8 (Mn-M0)  R2 = 0.72   n = 7717
+  s=6 g=6:   64.9 (M0-S0)  +18.5 S0   +1.3 (Mn-M0)  R2 = 0.76   n = 7624
+  s=7 g=2:   58.0 (M0-S0)  +12.4 S0   +4.4 (Mn-M0)  R2 = 0.66   n = 7922
+  s=7 g=4:   53.2 (M0-S0)   +9.1 S0   +4.8 (Mn-M0)  R2 = 0.83   n = 8033
+  s=7 g=6:   58.8 (M0-S0)  +10.0 S0   +2.3 (Mn-M0)  R2 = 0.85   n = 8074
+  s=8 g=2:   81.3 (M0-S0)   +8.0 S0   +1.8 (Mn-M0)  R2 = 0.86   n = 8343
+  s=8 g=4:   68.7 (M0-S0)   +6.9 S0   +2.5 (Mn-M0)  R2 = 0.92   n = 8301
+  s=8 g=6:   60.8 (M0-S0)   +8.5 S0   +3.4 (Mn-M0)  R2 = 0.85   n = 8253
+  s=9 g=2:   73.6 (M0-S0)   +5.4 S0   -1.3 (Mn-M0)  R2 = 0.91   n = 8457
+  s=9 g=4:   80.1 (M0-S0)   +3.5 S0   +2.3 (Mn-M0)  R2 = 0.96   n = 8352
+  s=9 g=6:   55.1 (M0-S0)   +6.5 S0   +4.5 (Mn-M0)  R2 = 0.86   n = 8486

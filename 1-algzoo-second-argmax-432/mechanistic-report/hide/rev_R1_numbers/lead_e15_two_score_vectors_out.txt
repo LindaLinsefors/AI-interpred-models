@@ -1,0 +1,56 @@
+(i) per step t: P(argmax m_t = max of prefix), P(argmax s_t = runner-up of prefix), on states with S_t > 0
+   t=1: m -> max 0.0081   m -> runner-up 0.9919   s -> runner-up 0.9919   s -> max 0.0081
+   t=2: m -> max 0.0045   m -> runner-up 0.6632   s -> runner-up 0.9865   s -> max 0.0040
+   t=3: m -> max 0.0059   m -> runner-up 0.4938   s -> runner-up 0.9714   s -> max 0.0043
+   t=4: m -> max 0.0949   m -> runner-up 0.3485   s -> runner-up 0.9652   s -> max 0.0048
+   t=5: m -> max 0.2147   m -> runner-up 0.2725   s -> runner-up 0.9684   s -> max 0.0048
+   t=6: m -> max 0.3146   m -> runner-up 0.2210   s -> runner-up 0.9698   s -> max 0.0051
+   t=7: m -> max 0.4029   m -> runner-up 0.1834   s -> runner-up 0.9702   s -> max 0.0051
+   t=8: m -> max 0.4761   m -> runner-up 0.1581   s -> runner-up 0.9680   s -> max 0.0058
+   t=9: m -> max 0.4295   m -> runner-up 0.1465   s -> runner-up 0.9616   s -> max 0.0074
+
+(ii) comparators' vote at t = 9, steps with all four comparators on and S > 0.1:  V[idx] ~ A (M-S) + B S + C x_9
+  rows: age of max a1 (its index is 9 - a1);  columns: logit index 0..9;  entries: A(a1, idx)
+   a1=1 (max at idx 8):    16.8    30.4    50.4    48.5    36.8     1.3   -20.3   -35.3   -83.4   -54.7   R2 = 0.971  n=42289
+   a1=2 (max at idx 7):   -32.6    17.6    64.6    84.7    48.9   -10.0   -45.9   -60.9   -25.8   -54.2   R2 = 0.965  n=42329
+   a1=3 (max at idx 6):     9.8    66.4    90.7    63.6    -0.5   -54.1   -64.3   -45.9   -26.8   -59.2   R2 = 0.963  n=43193
+   a1=4 (max at idx 5):    51.9    84.7    75.4    15.1   -45.4   -68.6   -49.7    -9.4   -20.3   -56.0   R2 = 0.971  n=43347
+   a1=5 (max at idx 4):    67.6    60.5    26.3   -33.5   -61.2   -45.8   -10.6    28.3    -3.5   -47.7   R2 = 0.956  n=46092
+   a1=6 (max at idx 3):    47.3     5.6   -30.9   -55.6   -38.4     3.2    32.7    46.7    15.3   -39.2   R2 = 0.913  n=46916
+   a1=7 (max at idx 2):     6.0   -47.1   -64.9   -42.7     6.1    48.8    56.3    38.4    26.3   -34.8   R2 = 0.897  n=46559
+   a1=8 (max at idx 1):   -33.7   -70.9   -59.7    -3.7    48.2    68.3    49.7     9.4    24.0   -36.6   R2 = 0.889  n=45309
+   a1=9 (max at idx 0):   -52.6   -56.2   -20.8    40.8    67.8    54.0    18.2   -24.9    10.3   -43.5   R2 = 0.880  n=43823
+  B(a1, idx) (coefficient of S):
+   a1=1:     9.0     0.5     2.3     5.9     8.4     9.1     6.8     1.1    -1.0   -57.8
+   a1=2:     3.9    -1.6     3.6    10.6    12.1     9.9     5.0    -2.4     1.0   -57.9
+   a1=3:     5.9     3.7     8.4    11.3     8.0     4.2     0.8    -3.0     2.3   -58.4
+   a1=4:    11.8     7.5     7.8     5.5     1.4     0.9     1.6     1.4     3.4   -58.2
+   a1=5:    16.1     7.1     3.3    -1.4    -2.7     1.6     5.5     6.5     4.2   -57.2
+   a1=6:    15.5     2.5    -2.7    -5.0    -1.8     5.9    10.1     9.4     5.6   -55.8
+   a1=7:    10.0    -4.9    -7.5    -3.4     4.4    12.4    13.5     8.3     6.6   -54.9
+   a1=8:     3.3    -8.7    -6.3     3.4    11.6    15.6    12.2     3.2     5.9   -54.9
+   a1=9:     0.6    -5.2     1.2    11.2    14.4    12.2     6.1    -2.8     3.1   -55.9
+  C(idx) (coefficient of x_9, from the a1=5 fit) vs  U[:, COMP] @ w[COMP] = [-11.5  -3.5  -3.   -2.8  -2.7  -4.9  -5.6  -3.5  -3.8  58.2]
+
+  A(a1, idx) as a function of d = idx - (9 - a1) (distance from the max's index), averaged over a1 = 2..9 with idx <= 7:
+    d = -7: mean A =   -32.6   (min   -32.6, max   -32.6, n = 1)   -cos(42.75 d) * 60 =   -29.3
+    d = -6: mean A =    13.7   (min     9.8, max    17.6, n = 2)   -cos(42.75 d) * 60 =    14.0
+    d = -5: mean A =    61.0   (min    51.9, max    66.4, n = 3)   -cos(42.75 d) * 60 =    49.9
+    d = -4: mean A =    81.9   (min    67.6, max    90.7, n = 4)   -cos(42.75 d) * 60 =    59.3
+    d = -3: mean A =    59.2   (min    47.3, max    75.4, n = 5)   -cos(42.75 d) * 60 =    37.1
+    d = -2: mean A =     7.1   (min   -10.0, max    26.3, n = 6)   -cos(42.75 d) * 60 =    -4.7
+    d = -1: mean A =   -41.5   (min   -54.1, max   -30.9, n = 7)   -cos(42.75 d) * 60 =   -44.1
+    d = +0: mean A =   -62.4   (min   -70.9, max   -52.6, n = 8)   -cos(42.75 d) * 60 =   -60.0
+    d = +1: mean A =   -48.4   (min   -59.7, max   -38.4, n = 7)   -cos(42.75 d) * 60 =   -44.1
+    d = +2: mean A =    -5.9   (min   -20.8, max     6.1, n = 6)   -cos(42.75 d) * 60 =    -4.7
+    d = +3: mean A =    39.8   (min    28.3, max    48.8, n = 5)   -cos(42.75 d) * 60 =    37.1
+    d = +4: mean A =    59.8   (min    46.7, max    68.3, n = 4)   -cos(42.75 d) * 60 =    59.3
+    d = +5: mean A =    47.4   (min    38.4, max    54.0, n = 3)   -cos(42.75 d) * 60 =    49.9
+    d = +6: mean A =    13.8   (min     9.4, max    18.2, n = 2)   -cos(42.75 d) * 60 =    14.0
+    d = +7: mean A =   -24.9   (min   -24.9, max   -24.9, n = 1)   -cos(42.75 d) * 60 =   -29.3
+
+(iii) at a new max at step t (t >= 3, old max > 0.3): compare s_t at the indices of older inputs with the shifted m_{t-1} and shifted s_{t-1}
+   t=3: s_t vs shifted m_(t-1): R2 = 0.042 (slope -0.17);   s_t vs shifted s_(t-1): R2 = 0.037   n = 61789
+   t=5: s_t vs shifted m_(t-1): R2 = 0.232 (slope 0.63);   s_t vs shifted s_(t-1): R2 = 0.004   n = 61108
+   t=7: s_t vs shifted m_(t-1): R2 = 0.678 (slope 0.90);   s_t vs shifted s_(t-1): R2 = 0.039   n = 54771
+   t=9: s_t vs shifted m_(t-1): R2 = 0.737 (slope 0.81);   s_t vs shifted s_(t-1): R2 = 0.112   n = 47275

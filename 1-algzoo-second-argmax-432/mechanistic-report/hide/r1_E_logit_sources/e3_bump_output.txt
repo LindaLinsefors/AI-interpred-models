@@ -1,0 +1,20 @@
+RM, max at steps 2..8: n = 102044; all four comparators clipped at the max's step in 0.8916
+[EXACT] identity X+C = x (KX+KS) - sum_j b_j K_j on those: max abs error 1.78e-13
+   size of the first term x (KX+KS): rms 1.72; of the second: rms 20.22
+
+bump := (X+C of the max's step at the old max's position) - (its mean over the other earlier positions);  mean 28.89, median 23.38
+  [FIT] bump ~ gap_old = M_old - S_old+        : coefficients [42.17], intercept 9.15, R^2 = 0.533
+  [FIT] bump ~ M_new - M_old                   : coefficients [-2.47], intercept 30.35, R^2 = 0.002
+  [FIT] bump ~ M_old                           : coefficients [27.11], intercept 2.58, R^2 = 0.285
+  [FIT] bump ~ gap_old and M_new - M_old       : coefficients [42.2   0.31], intercept 8.96, R^2 = 0.533
+  [FIT] bump ~ gap_old, M_new - M_old, M_old   : coefficients [35.88  1.6  10.69], intercept 0.78, R^2 = 0.564
+  by d = p1 - p2 (age of the old max when the new one arrives): slope of bump on gap_old (no intercept), R^2, and mean bump
+     d = 1: n =  19866  slope   37.3  R^2  0.209   mean bump  24.04   mean gap_old 0.544
+     d = 2: n =  20069  slope   59.7  R^2  0.531   mean bump  36.65   mean gap_old 0.544
+     d = 3: n =  16598  slope   50.1  R^2  0.552   mean bump  27.32   mean gap_old 0.487
+     d = 4: n =  12477  slope   56.6  R^2  0.893   mean bump  24.54   mean gap_old 0.418
+     d = 5: n =   9110  slope   69.3  R^2  0.913   mean bump  28.02   mean gap_old 0.374
+     d = 6: n =   6460  slope   74.8  R^2  0.748   mean bump  28.07   mean gap_old 0.331
+     d = 7: n =   4309  slope   88.8  R^2  0.723   mean bump  33.01   mean gap_old 0.323
+     d = 8: n =   2090  slope  104.5  R^2  0.679   mean bump  36.76   mean gap_old 0.299
+  correlation of bump with |z_clock| of the state just before the max arrived: 0.676;  with gap_old: 0.730

@@ -14,7 +14,7 @@ out of training and scoring for the k-th age (see targets() in linear_probes.py)
 
 Run:  python steps_classifier.py [n_train] [seed]     (default 200,000 train rows, seed 0)
 Writes steps_classifier.csv into this folder and steps_classifier.png
-into OUT (../../<this folder's name>/).
+into OUT (../../archived-probed/<this folder's name>/).
 """
 import sys
 from concurrent.futures import ProcessPoolExecutor

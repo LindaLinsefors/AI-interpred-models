@@ -1,0 +1,90 @@
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\rev_R1_numbers\rev02_data.py:74: RuntimeWarning: invalid value encountered in scalar divide
+  return 1 - ((a - p) ** 2).sum() / (a ** 2).sum()
+== (A) section 3.5 item 1 / summary: wipe the comparators once at t0 = pM + k (same sample and selection as e17)
+   P(answer = max) [P(answer = runner-up)] by k (rows) and step of the wipe t0 (columns); '.' = fewer than 500 sequences
+   k |   t0=1         t0=2         t0=3         t0=4         t0=5         t0=6         t0=7         t0=8         t0=9      |  all t0<=8        t0=9
+   0 | 0.000[0.968] 0.000[0.971] 0.000[0.968] 0.000[0.974] 0.000[0.975] 0.000[0.971] 0.000[0.970] 0.000[0.981] 0.000[0.957]|  0.000[0.970] n=187655  0.000[0.957] n=20894
+   1 | 1.000[0.000] 1.000[0.000] 1.000[0.000] 0.999[0.001] 1.000[0.000] 0.999[0.001] 0.996[0.004] 0.792[0.005] 0.021[0.109]|  0.973[0.001] n=166936  0.021[0.109] n=20719
+   2 |      .        1.000[0.000] 1.000[0.000] 1.000[0.000] 1.000[0.000] 1.000[0.000] 1.000[0.000] 0.997[0.000] 0.000[0.109]|  1.000[0.000] n=145739  0.000[0.109] n=21197
+   3 |      .             .        0.970[0.000] 0.982[0.003] 0.981[0.009] 0.975[0.009] 0.965[0.009] 0.417[0.016] 0.000[0.112]|  0.881[0.008] n=124582  0.000[0.112] n=21157
+   4 |      .             .             .        0.977[0.000] 0.966[0.000] 0.930[0.002] 0.889[0.001] 0.705[0.008] 0.431[0.013]|  0.893[0.002] n=103721  0.431[0.013] n=20861
+   5 |      .             .             .             .        0.999[0.000] 0.999[0.000] 0.977[0.008] 0.931[0.005] 0.977[0.003]|  0.977[0.003] n= 83029  0.977[0.003] n=20692
+   6 |      .             .             .             .             .        1.000[0.000] 1.000[0.000] 1.000[0.000] 0.997[0.001]|  1.000[0.000] n= 62387  0.997[0.001] n=20642
+   7 |      .             .             .             .             .             .        1.000[0.000] 1.000[0.000] 0.995[0.005]|  1.000[0.000] n= 41619  0.995[0.005] n=20768
+   8 |      .             .             .             .             .             .             .        0.990[0.006] 1.000[0.000]|  0.990[0.006] n= 20958  1.000[0.000] n=20661
+   pooled over k = 1..8, wipe at step <= 8: P(answer = max) = 0.957, P(answer = runner-up) = 0.002, other = 0.041, n = 748971
+
+== (B) section 3.2: does Sigma predict the network's ACTUAL next scores?  s_(t+1) vs Sigma s_t, positions 0-8, mean over 0-8 removed
+   (e10 instead compares U_o A h_t with Sigma U_o h_t: a hypothetical resting step, pulse units left out of s)
+    t -> t+1 | e10's quantity | real step, x_(t+1) < S_t/2, S_t > 0.1 | ... and resting gate pattern at t and t+1 | real step, any x_(t+1) below S_t |   (second number in each cell: positions 0-7 only)
+    2 -> 3 |    0.9880     | 0.888 / 0.938 (n=162571) | nan / nan (n=0) | 0.889 / 0.938 (n=187569)
+    3 -> 4 |    0.9918     | 0.873 / 0.895 (n=235891) | nan / nan (n=0) | 0.873 / 0.894 (n=273915)
+    4 -> 5 |    0.9926     | 0.890 / 0.907 (n=290606) | 0.446 / 0.493 (n=30) | 0.890 / 0.906 (n=339875)
+    5 -> 6 |    0.9911     | 0.909 / 0.931 (n=330868) | 0.993 / 0.994 (n=681) | 0.909 / 0.930 (n=389168)
+    6 -> 7 |    0.9882     | 0.909 / 0.938 (n=359412) | 0.973 / 0.977 (n=7286) | 0.908 / 0.938 (n=425026)
+    7 -> 8 |    0.9846     | 0.897 / 0.938 (n=379895) | 0.947 / 0.952 (n=29874) | 0.896 / 0.937 (n=451424)
+    8 -> 9 |    0.9819     | 0.890 / 0.940 (n=395537) | 0.950 / 0.955 (n=55937) | 0.889 / 0.939 (n=470759)
+
+== (C) section 3.4 'at a new maximum s becomes m': R2 of s_t (older inputs) against the shifted m_(t-1), three variants
+    t | e15b: inputs 0..t-2, old max >= 1 step old, mean removed, free slope | same but slope fixed at 1 ('equal') | inputs 0..t-1 (previous input included) | all four comparators cut at t / not all cut (e15b variant)
+    3 |  R2 0.956 (slope 0.71)  |  R2 0.793  |  R2 0.042 (slope -0.17)  |  0.958 / 0.943   share all cut 0.971
+    4 |  R2 0.773 (slope 1.06)  |  R2 0.770  |  R2 0.022 (slope 0.16)  |  0.772 / 0.777   share all cut 0.936
+    5 |  R2 0.771 (slope 1.26)  |  R2 0.739  |  R2 0.234 (slope 0.63)  |  0.790 / 0.668   share all cut 0.904
+    6 |  R2 0.877 (slope 1.24)  |  R2 0.844  |  R2 0.527 (slope 0.92)  |  0.895 / 0.799   share all cut 0.875
+    7 |  R2 0.910 (slope 1.08)  |  R2 0.905  |  R2 0.680 (slope 0.90)  |  0.916 / 0.898   share all cut 0.854
+    8 |  R2 0.892 (slope 0.96)  |  R2 0.891  |  R2 0.724 (slope 0.84)  |  0.897 / 0.892   share all cut 0.841
+    9 |  R2 0.872 (slope 0.92)  |  R2 0.866  |  R2 0.739 (slope 0.82)  |  0.875 / 0.879   share all cut 0.853
+
+== (D) section 5.4 / summary: 'all four comparators switch off' at a new maximum above a positive old maximum, by age g of the old maximum in h_(t-1)
+    g (state age) : n : P(all four cut) : P(unit 4 on)
+    0 :  240474 : 0.986 : 0.99987
+    1 :  164922 : 0.987 : 0.99983
+    2 :  115162 : 0.969 : 0.99970
+    3 :   80486 : 0.890 : 0.99999
+    4 :   56071 : 0.827 : 1.00000
+    5 :   38369 : 0.768 : 1.00000
+    6 :   25174 : 0.766 : 1.00000
+    7 :   14912 : 0.757 : 0.99973
+    8 :    6531 : 0.911 : 0.99832
+    all ages: P(all four cut) = 0.937, P(unit 4 on) = 0.99985, n = 742101
+
+== (E) summary / 4.1: h_2 / M (median) by age of the max (rows 1..9) and relative gap (M - S+)/M; states with M > 0.3
+    age |  (0.00,0.15]  (0.15,0.30]  (0.30,0.60]  (0.60,0.85]  (0.85,1.00] |   all
+     1  |      18.37        18.22        17.98        17.74        17.59   |  17.72
+     2  |      18.19        18.02        17.75        17.46        17.20   |  17.61
+     3  |      18.71        18.65        18.53        18.37        18.33   |  18.48
+     4  |      18.69        18.49        18.14        17.73        17.41   |  18.16
+     5  |      18.29        17.63        16.78        15.81        14.99   |  16.93
+     6  |      17.72        16.68        15.23        13.70        12.40   |  15.57
+     7  |      17.29        15.98        14.24        12.47        11.01   |  14.76
+     8  |      17.18        15.75        14.27        12.73        11.51   |  14.88
+     9  |      17.71        16.42        15.38        14.30        13.45   |  15.88
+    all ages >= 1: median 17.73, 5%..95% 14.01..18.85;  R2 of h_2 = 17.3 M (no refit): 0.951
+    supply b2*h2/M to the thresholds at 0.05*h2: median 0.89, 5%..95% 0.70..0.94
+
+== (F) section 4.1 threshold law: theta_j = A_j M + B_j S+ + (M - S+) C_j rho(a) cos(phi(a) + delta_j), a = age of the max in the state that sets the threshold (1..8)
+    centred R2 of the law against the measured thresholds (no refitting), units 1, 6, 7, 8, 4:
+      as printed in the report (rho = 1.02*0.951^(a-2), phi = 0, 37, 80, ...): [0.981 0.969 0.994 0.974 0.996]
+      arm C's version (rho = 1.06, 1.09, 1.06, 1.03, 1.04, 1.03, 1.03, 1.02; phi = 1, 34, 76, ...): [0.986 0.97  0.995 0.978 0.997]
+    median threshold position (theta - S+)/(M - S+) by state age 1..8, states with S+ > 0 and gap/M > 0.3:  measured | report's law | arm C's law
+      unit 1:  -0.05|-0.05|-0.04   0.24| 0.30| 0.24   0.81| 0.81| 0.78   1.30| 1.19| 1.24   1.41| 1.24| 1.36   1.13| 0.97| 1.08   0.61| 0.56| 0.56   0.14| 0.21| 0.09 
+      unit 6:   0.66| 0.84| 0.84   1.05| 1.05| 1.06   1.19| 1.14| 1.17   1.08| 1.01| 1.06   0.81| 0.77| 0.79   0.51| 0.54| 0.50   0.36| 0.43| 0.35   0.40| 0.50| 0.40 
+      unit 7:   1.02| 1.05| 1.05   1.01| 1.00| 1.02   0.87| 0.86| 0.88   0.68| 0.69| 0.69   0.57| 0.60| 0.57   0.57| 0.62| 0.57   0.67| 0.72| 0.69   0.84| 0.86| 0.87 
+      unit 8:   0.32| 0.27| 0.27   0.05| 0.02|-0.02   0.04| 0.08|-0.00   0.41| 0.47| 0.40   0.97| 0.94| 0.95   1.40| 1.25| 1.36   1.47| 1.26| 1.43   1.15| 0.98| 1.11 
+      unit 4:   0.96| 0.98| 0.97   0.94| 0.95| 0.96   0.85| 0.85| 0.86   0.73| 0.74| 0.74   0.64| 0.67| 0.65   0.63| 0.68| 0.64   0.71| 0.74| 0.72   0.83| 0.83| 0.84 
+
+== (G) figure panel (f): fraction of states whose top score is the runner-up so far, with and without the condition S_t > 0 (the caption says 'fraction of states')
+    t=1: given S_t > 0: 0.992   all states: 0.689   share of states with S_t > 0: 0.250
+    t=2: given S_t > 0: 0.987   all states: 0.675   share of states with S_t > 0: 0.500
+    t=3: given S_t > 0: 0.971   all states: 0.777   share of states with S_t > 0: 0.689
+    t=4: given S_t > 0: 0.965   all states: 0.840   share of states with S_t > 0: 0.813
+    t=5: given S_t > 0: 0.969   all states: 0.893   share of states with S_t > 0: 0.891
+    t=6: given S_t > 0: 0.969   all states: 0.926   share of states with S_t > 0: 0.938
+    t=7: given S_t > 0: 0.970   all states: 0.945   share of states with S_t > 0: 0.965
+    t=8: given S_t > 0: 0.967   all states: 0.953   share of states with S_t > 0: 0.981
+    t=9: given S_t > 0: 0.961   all states: 0.953   share of states with S_t > 0: 0.989
+
+== (H) section 5 parenthesis: firing rates after events (steps t = 1..8 for the delayed ones)
+    unit 4 on | positive new max: 0.99924;  | negative new max: 0.00000;  | new max above a positive old max: 0.99985
+    unit 5 on at t+1 | positive new max: 0.9991;  positive new runner-up: 0.9986;  input below the runner-up: 0.0647;  below a positive runner-up: 0.0745
+    shares of steps 1..9: new max 0.2142, new runner-up 0.2143, below 0.5715

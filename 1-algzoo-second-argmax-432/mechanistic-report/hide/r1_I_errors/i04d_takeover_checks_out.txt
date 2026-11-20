@@ -1,0 +1,34 @@
+(1) cross-validated R^2 of (p_e, p_l, p_M) cell means: 0.695  (train 29838, test 29963)
+    P(sign of eps* = sign of the cell median from the other half) = 0.843
+
+(2) less restricted sample (seed 1081, n = 60000; share of all sequences that qualify 0.791), sweep +-0.05 M:
+    crossing inside +-0.05: 0.9464; below 0.0230; above 0.0306
+    eps* quantiles 10/25/50/75/90%: -0.0241 / -0.0110 / -0.0012 / +0.0097 / +0.0257   (restricted sample of i04b: -0.0214 / -0.0097 / -0.0008 / +0.0110 / +0.0279)
+
+(3) census error rate of the S~T comparison against the prediction from the sweeps (less restricted sample)
+| g2 = (S-T)/M | S first: observed P(answer = third) | predicted P(eps* < -g2) | T first: observed | predicted P(eps* > g2) |
+|---|---|---|---|---|
+| [0, 0.005) | 0.454 | 0.461 | 0.383 | 0.398 |
+| [0.005, 0.01) | 0.315 | 0.313 | 0.279 | 0.286 |
+| [0.01, 0.02) | 0.192 | 0.192 | 0.184 | 0.182 |
+| [0.02, 0.03) | 0.101 | 0.095 | 0.110 | 0.104 |
+| [0.03, 0.05) | 0.039 | 0.039 | 0.054 | 0.048 |
+
+(4) three-value inputs (M = 1 at p_M, S-level 0.5 at p_e, later candidate swept at p_l, background b): eps* against the cell medians of the N(0,1) sweeps
+| p_e | p_l | p_M | median eps*, N(0,1) sweeps | n | three-value input, b = -1 | b = -0.3 |
+|---|---|---|---|---|---|---|
+| 0 | 7 | 9 | -0.0969 | 100 | -0.1066 | -0.1244 |
+| 0 | 8 | 9 | +0.0809 | 178 | +0.1150 | +0.0986 |
+| 0 | 9 | 4 | +0.0733 | 165 | +0.0855 | +0.0759 |
+| 0 | 9 | 6 | -0.0712 | 161 | -0.0968 | -0.0918 |
+| 3 | 4 | 0 | +0.0679 | 162 | +0.0788 | +0.0766 |
+| 8 | 9 | 6 | +0.0654 | 176 | +0.0674 | +0.0711 |
+| 1 | 7 | 0 | +0.0569 | 166 | +0.0522 | +0.0587 |
+| 4 | 6 | 7 | +0.0559 | 156 | +0.0558 | +0.0507 |
+| 2 | 7 | 0 | +0.0459 | 137 | +0.0401 | +0.0501 |
+| 7 | 8 | 9 | -0.0451 | 155 | -0.0539 | -0.0416 |
+| 3 | 5 | 0 | -0.0112 | 144 | -0.0199 | -0.0127 |
+| 1 | 4 | 0 | +0.0027 | 152 | +0.0017 | +0.0053 |
+| 2 | 5 | 8 | -0.0020 | 177 | -0.0049 | -0.0010 |
+| 0 | 3 | 1 | +0.0079 | 191 | +0.0047 | +0.0101 |
+over 360 cells with n >= 80: correlation between the cell median (N(0,1) sweeps) and the three-value eps* (b = -1, S/M = 0.5): 0.908; median absolute difference 0.0054

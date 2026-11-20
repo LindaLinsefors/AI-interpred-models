@@ -1,0 +1,28 @@
+level eigenvector: imaginary part max 9.8e-17 ; all entries positive: True
+=== SECTION 8: quiet continuation, states with max >= 2 steps old and S(t0) > 0 (2 x 200k sequences, seeds 7071-7072)
+edit            t0 = 3 / 5 / 7:  accuracy | ordinary units newly OFF at t0+1 | negative entries in the edited state (of 13)
+level x 0.00   n 137467/237274/289095   acc 0.110 / 0.210 / 0.198 | newly off 4.99 / 4.85 / 4.98 | negative 7.07 / 7.41 / 7.18
+level x 0.25   n 137467/237274/289095   acc 0.159 / 0.248 / 0.241 | newly off 3.84 / 3.81 / 3.72 | negative 5.92 / 6.17 / 5.69
+level x 0.50   n 137467/237274/289095   acc 0.293 / 0.331 / 0.369 | newly off 2.70 / 2.74 / 2.46 | negative 4.83 / 4.94 / 4.19
+level x 0.75   n 137467/237274/289095   acc 0.676 / 0.658 / 0.668 | newly off 1.77 / 1.53 / 1.19 | negative 3.19 / 3.35 / 2.69
+level x 1.00   n 137467/237274/289095   acc 0.972 / 0.972 / 0.971 | newly off 0.00 / 0.00 / 0.00 | negative 0.00 / 0.00 / 0.00
+level x 1.25   n 137467/237274/289095   acc 0.872 / 0.870 / 0.942 | newly off 0.00 / 0.00 / 0.00 | negative 0.00 / 0.00 / 0.00
+level x 1.50   n 137467/237274/289095   acc 0.845 / 0.845 / 0.912 | newly off 0.00 / 0.00 / 0.00 | negative 0.00 / 0.00 / 0.00
+clock x 0.00   n 137467/237274/289095   acc 0.918 / 0.912 / 0.924 | newly off 0.00 / 0.02 / 0.03 | negative 0.18 / 0.10 / 0.11
+clock x 0.50   n 137467/237274/289095   acc 0.955 / 0.946 / 0.959 | newly off 0.00 / 0.00 / 0.01 | negative 0.17 / 0.08 / 0.07
+clock x 1.25   n 137467/237274/289095   acc 0.912 / 0.900 / 0.907 | newly off 0.84 / 0.44 / 0.33 | negative 2.03 / 2.32 / 1.58
+clock x 1.50   n 137467/237274/289095   acc 0.748 / 0.814 / 0.816 | newly off 1.29 / 0.97 / 0.67 | negative 2.53 / 2.74 / 1.99
+
+real later inputs, states with max >= 2 steps old and M(t0) > 0, scored against the true answer:
+edit            t0 = 3 / 5 / 7:  accuracy | acc if the max at t0 stays the max | acc if it is later overtaken | units newly OFF at t0+1
+level x 0.00   acc 0.351 / 0.223 / 0.187 | kept 0.119 / 0.129 / 0.150 | overtaken 0.524 / 0.371 / 0.336 | newly off 5.74 / 5.74 / 5.92
+level x 0.25   acc 0.410 / 0.271 / 0.232 | kept 0.184 / 0.175 / 0.185 | overtaken 0.578 / 0.422 / 0.424 | newly off 4.37 / 4.43 / 4.40
+level x 0.50   acc 0.543 / 0.394 / 0.355 | kept 0.348 / 0.314 / 0.306 | overtaken 0.688 / 0.519 / 0.554 | newly off 3.21 / 3.18 / 2.88
+level x 0.75   acc 0.753 / 0.643 / 0.641 | kept 0.639 / 0.627 / 0.610 | overtaken 0.839 / 0.669 / 0.765 | newly off 1.90 / 1.69 / 1.35
+level x 1.00   acc 0.950 / 0.953 / 0.956 | kept 0.941 / 0.950 / 0.954 | overtaken 0.956 / 0.957 / 0.961 | newly off 0.00 / 0.00 / 0.00
+level x 1.25   acc 0.786 / 0.781 / 0.836 | kept 0.922 / 0.895 / 0.906 | overtaken 0.685 / 0.604 / 0.547 | newly off 0.00 / 0.00 / 0.00
+level x 1.50   acc 0.650 / 0.654 / 0.735 | kept 0.885 / 0.843 / 0.843 | overtaken 0.476 / 0.360 / 0.291 | newly off 0.00 / 0.00 / 0.00
+clock x 0.00   acc 0.685 / 0.697 / 0.768 | kept 0.911 / 0.913 / 0.913 | overtaken 0.517 / 0.358 / 0.177 | newly off 0.07 / 0.09 / 0.09
+clock x 0.50   acc 0.761 / 0.798 / 0.871 | kept 0.927 / 0.936 / 0.944 | overtaken 0.637 / 0.582 / 0.571 | newly off 0.03 / 0.04 / 0.04
+clock x 1.25   acc 0.896 / 0.887 / 0.906 | kept 0.901 / 0.909 / 0.899 | overtaken 0.893 / 0.853 / 0.933 | newly off 1.02 / 0.56 / 0.37
+clock x 1.50   acc 0.830 / 0.799 / 0.827 | kept 0.835 / 0.851 / 0.817 | overtaken 0.826 / 0.719 / 0.865 | newly off 1.74 / 1.13 / 0.73

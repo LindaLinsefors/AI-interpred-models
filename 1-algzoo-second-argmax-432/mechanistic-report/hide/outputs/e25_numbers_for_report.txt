@@ -1,0 +1,49 @@
+input weights: {0: 0.069, 1: -10.565, 2: 0.015, 3: -0.123, 4: 10.157, 5: -0.281, 6: -10.996, 7: -13.169, 8: -12.312, 9: -0.228, 10: 0.06, 11: 0.148, 12: 0.298, 13: -0.047, 14: -1.321, 15: -0.119}
+
+readout of the current input: U[9, COMP] * w[COMP] = [ 5.01  7.38 49.9  -4.04]  sum = 58.25
+U[9,4] * w[4] = -50.7    U[8,5] = 3.398   U[8,5]*18.01 = 61.19
+what one unit of input sends to units 5 and 9 one step later (all 13 non-pulse units on: W[u, ORD] @ w[ORD]):  [18.009 84.335]
+  split for unit 5: comparators [ 0.01 -0.17  7.81 10.46]  wave units total -0.105
+W[5,4]*w4 = 12.06   W[9,4]*w4 = 1.48   W[2,4]*w4 = 17.58
+unit 2 self weight 0.9688   W[2,4] = 1.7307   W[4,2] = -0.4923   W[4,4] = -0.9856
+rows of the comparator block sum (Bc 1): [-0.001 -0.012  0.001 -0.011]
+columns: what the input direction leaves in every unit one step later, W[:, ORD] @ w[ORD]:
+    {0: -0.432, 1: -0.086, 2: -0.005, 3: -0.25, 4: 0.01, 5: 18.009, 6: 0.034, 7: 0.02, 8: 0.128, 9: 84.335, 10: -0.027, 11: 0.016, 12: 0.004, 13: -0.039, 14: -0.392, 15: -0.187}
+cos(angle) between each unit's row on the comparators and the comparators' input weights:
+    unit  0: +0.000   |row| = 1.74
+    unit  1: +0.000   |row| = 1.51
+    unit  2: +0.001   |row| = 0.21
+    unit  3: +0.013   |row| = 1.73
+    unit  4: -0.004   |row| = 0.13
+    unit  5: +0.740   |row| = 1.04
+    unit  6: +0.014   |row| = 0.41
+    unit  7: -0.002   |row| = 0.28
+    unit  8: +0.004   |row| = 1.41
+    unit  9: +0.693   |row| = 5.16
+    unit 10: -0.038   |row| = 0.42
+    unit 11: -0.024   |row| = 0.67
+    unit 12: +0.024   |row| = 0.56
+    unit 13: -0.019   |row| = 0.39
+    unit 14: -0.002   |row| = 1.06
+    unit 15: -0.002   |row| = 1.06
+
+readout columns of the wave units with their most negative entry (position):
+   unit  0: min U =  -2.90 at position 7   max U =  1.96 at position 5
+   unit  2: min U =  -2.22 at position 1   max U =  1.08 at position 6
+   unit  3: min U =  -0.91 at position 5   max U =  1.70 at position 6
+   unit 10: min U =  -3.87 at position 3   max U =  2.03 at position 6
+   unit 11: min U =  -4.56 at position 4   max U =  1.27 at position 1
+   unit 12: min U =  -2.79 at position 5   max U =  1.70 at position 1
+   unit 13: min U =  -2.23 at position 2   max U =  2.09 at position 5
+   unit 14: min U =  -5.14 at position 0   max U =  1.31 at position 3
+   unit 15: min U =  -1.14 at position 3   max U =  2.62 at position 2
+
+readout columns of the comparators (positions 0..9):
+   unit 1:  [ 6.09  2.56 -1.66 -5.86 -4.89 -1.21  2.17  4.41 -1.43 -0.47]
+   unit 6:  [ 2.53  4.78  3.19 -1.22 -5.55 -5.63 -3.08  0.95  3.62 -0.67]
+   unit 7:  [-2.78  0.48  4.69  7.33  5.87  0.92 -2.85 -5.41 -5.   -3.79]
+   unit 8:  [-3.57 -6.7  -6.21 -1.49  3.1   5.49  4.39  1.44  3.64  0.33]
+   unit 1: U[p] ~ 5.81 cos(42.75 p - -29 deg) + 0.51,  R2 = 0.974
+   unit 6: U[p] ~ 5.09 cos(42.75 p - 26 deg) + -0.35,  R2 = 0.943
+   unit 7: U[p] ~ 6.21 cos(42.75 p - 131 deg) + 0.72,  R2 = 0.991
+   unit 8: U[p] ~ 6.08 cos(42.75 p - -130 deg) + -0.50,  R2 = 0.988

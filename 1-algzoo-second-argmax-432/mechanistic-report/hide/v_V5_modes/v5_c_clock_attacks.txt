@@ -1,0 +1,179 @@
+seeds [5010, 5011, 5012, 5013], 200000 sequences each; 8000000 states.  max |z_t - (lam z_(t-1) + L.w x_t)| on exact-linear steps = 1.57e-14
+========================================================================================================================
+C1  RESTING PATTERN (all 13 ordinary units have pre-activation > 0 and pulses 4, 5, 9 have pre-activation <= 0 at step t)
+   all states: P(resting) = 0.1031   P(all 13 on) = 0.2261   P(pulses off) = 0.4185
+   states t >= 1 with S > 0.05: P(resting) = 0.1170
+   by a1 (states with S > 0.05):  P(resting)  P(all13 on)  P(pulses off)  mean #ordinary units off  P(exact-linear step into t)  P(>=2 consecutive exact-linear steps ending at t)  P(>=3)  P(>=4)
+   a1=0: 0.0000   0.0000   0.0001   4.894   0.0000   0.0000   0.0000   0.0000   n=957378
+   a1=1: 0.0000   0.3555   0.0000   1.161   0.0000   0.0000   0.0000   0.0000   n=957451
+   a1=2: 0.0001   0.0003   0.6349   2.386   0.0000   0.0000   0.0000   0.0000   n=864942
+   a1=3: 0.2233   0.3914   0.7032   0.863   0.3466   0.0000   0.0000   0.0000   n=739384
+   a1=4: 0.2735   0.3166   0.7326   1.336   0.2982   0.0934   0.0000   0.0000   n=608012
+   a1=5: 0.0243   0.0280   0.7465   1.643   0.0265   0.0031   0.0008   0.0000   n=482567
+   a1=6: 0.0222   0.0267   0.7529   1.266   0.0206   0.0006   0.0001   0.0000   n=366362
+   a1=7: 0.5281   0.6922   0.7518   0.376   0.5315   0.0117   0.0003   0.0000   n=260938
+   a1=8: 0.6332   0.8149   0.7617   0.265   0.6184   0.3295   0.0065   0.0001   n=164947
+   a1=9: 0.6053   0.7728   0.7737   0.346   0.6418   0.4213   0.2108   0.0045   n=78455
+   longest run of consecutive exact-linear steps in a sequence: distribution over all sequences (max over t of run length): [0.264 0.551 0.16  0.025 0.001 0.    0.    0.    0.    0.   ]
+   by t (all states): P(resting): [0.    0.    0.058 0.083 0.074 0.054 0.08  0.157 0.234 0.29 ]
+   at t = 9: P(resting) = 0.2897  P(all 13 on) = 0.4291
+
+   clock law z/w4 ~ alpha (M-S) + beta S per a1 (pooled over a2, S > 0.05), fitted on ALL states of the a1 bin, then scored separately:
+   a1 | frac resting | R2u all | R2u resting | R2u non-resting | R2c resting | R2c non-resting || own fit resting: alpha, beta, R2u | own fit non-resting: alpha, beta, R2u
+   a1=1 | 0.000 | 0.9701 |   n/a  | 0.9701 |   n/a  | 0.9142 || n/a | 1.014@   +0.5, 0.136@   +6.1, 0.9701 
+   a1=2 | 0.000 | 0.9658 |   n/a  | 0.9658 |   n/a  | 0.9005 || n/a | 1.027@  +36.4, 0.190@   -1.7, 0.9658 
+   a1=3 | 0.223 | 0.9582 | 0.9418 | 0.9615 | 0.8360 | 0.8914 || 0.983@  +80.7, 0.120@  +64.2, 0.9584 | 0.993@  +79.6, 0.197@  +29.6, 0.9629 
+   a1=4 | 0.273 | 0.9752 | 0.9575 | 0.9794 | 0.8726 | 0.9381 || 0.916@ +124.1, 0.107@ +120.1, 0.9776 | 0.955@ +123.7, 0.191@  +81.3, 0.9818 
+   a1=5 | 0.024 | 0.9687 | 0.9671 | 0.9688 | 0.9132 | 0.9012 || 1.034@ +166.6, 0.184@ +149.6, 0.9787 | 0.915@ +166.0, 0.171@ +148.8, 0.9688 
+   a1=6 | 0.022 | 0.9572 | 0.9314 | 0.9574 | 0.8215 | 0.8621 || 1.042@ -154.5, 0.079@ -175.8, 0.9548 | 0.888@ -151.3, 0.184@ -166.1, 0.9574 
+   a1=7 | 0.528 | 0.9414 | 0.9642 | 0.9148 | 0.8820 | 0.7253 || 0.881@ -109.0, 0.175@ -135.7, 0.9674 | 0.842@ -108.3, 0.234@ -114.2, 0.9186 
+   a1=8 | 0.633 | 0.9285 | 0.9471 | 0.8988 | 0.8257 | 0.6713 || 0.822@  -67.2, 0.162@  -81.1, 0.9526 | 0.908@  -64.3, 0.274@  -87.4, 0.9143 
+   a1=9 | 0.605 | 0.9133 | 0.9286 | 0.8952 | 0.7808 | 0.6412 || 0.790@  -24.4, 0.142@  -38.6, 0.9426 | 0.878@  -19.3, 0.308@  -57.1, 0.9195 
+
+   same split, but only cells with a2 > a1 (no runner-up event since the record), gap-only model z/w4 ~ alpha (M - S):
+   a1=1: frac resting 0.000 | all: alpha=1.118@   +1.3 R2u=0.9510 R2c=0.8634 n=653438 | non-resting: alpha=1.118@   +1.3 R2u=0.9510 R2c=0.8634 n=653438 | #off>=2: alpha=1.190@   +7.5 R2u=0.9092 R2c=0.7544 n=109125
+   a1=2: frac resting 0.000 | all: alpha=1.157@  +34.1 R2u=0.9552 R2c=0.8692 n=440975 | non-resting: alpha=1.157@  +34.1 R2u=0.9552 R2c=0.8692 n=440912 | #off>=2: alpha=1.260@  +33.3 R2u=0.9430 R2c=0.8242 n=300970
+   a1=3: frac resting 0.540 | all: alpha=1.110@  +77.8 R2u=0.9572 R2c=0.8719 n=291303 | resting: alpha=1.116@  +78.7 R2u=0.9398 R2c=0.8262 n=157388 | non-resting: alpha=1.107@  +77.2 R2u=0.9698 R2c=0.8997 n=133915 | #off>=2: alpha=1.099@  +76.1 R2u=0.9868 R2c=0.9550 n=10245
+   a1=4: frac resting 0.491 | all: alpha=1.081@ +120.7 R2u=0.9561 R2c=0.8620 n=186264 | resting: alpha=1.086@ +123.4 R2u=0.9527 R2c=0.8520 n=91418 | non-resting: alpha=1.078@ +119.1 R2u=0.9604 R2c=0.8670 n=94846 | #off>=2: alpha=1.101@ +116.8 R2u=0.9795 R2c=0.9121 n=21881
+   a1=5: frac resting 0.022 | all: alpha=1.052@ +163.3 R2u=0.9507 R2c=0.8362 n=111856 | resting: alpha=1.102@ +162.1 R2u=0.7637 R2c=0.3347 n=2507 | non-resting: alpha=1.052@ +163.3 R2u=0.9516 R2c=0.8364 n=109349
+   a1=6: frac resting 0.014 | all: alpha=1.010@ -155.5 R2u=0.9467 R2c=0.8124 n=61311 | resting: alpha=1.185@ -153.4 R2u=0.8865 R2c=0.6332 n=876 | non-resting: alpha=1.010@ -155.5 R2u=0.9469 R2c=0.8108 n=60435
+   a1=7: frac resting 0.888 | all: alpha=0.976@ -115.1 R2u=0.9408 R2c=0.7791 n=28270 | resting: alpha=0.980@ -115.2 R2u=0.9391 R2c=0.7704 n=25097 | non-resting: alpha=0.950@ -113.9 R2u=0.9545 R2c=0.8433 n=3173
+   a1=8: frac resting 0.899 | all: alpha=0.931@  -74.3 R2u=0.9329 R2c=0.7458 n=8800 | resting: alpha=0.932@  -74.4 R2u=0.9326 R2c=0.7427 n=7914 | non-resting: alpha=0.926@  -73.2 R2u=0.9366 R2c=0.7726 n=886
+
+   P(unit pre-activation <= 0) by a1, states with S > 0.05 and (M-S)/M > 0.3: (computed on seed 5010 only)
+   a1   u0    u1    u2    u3    u6    u7    u8    u10   u11   u12   u13   u14   u15    | pulses 4, 5, 9 ON
+   0     0.23  1.00  0.00  0.20  1.00  1.00  1.00  0.04  0.03  0.00  0.00  0.23  0.25  |  1.00  0.48  0.30
+   1     0.00  0.00  0.00  0.18  0.36  0.00  0.35  0.00  0.00  0.00  0.00  0.00  0.15  |  0.00  1.00  1.00
+   2     1.00  0.28  0.00  0.30  0.00  0.00  0.12  0.00  0.00  0.00  0.00  0.17  0.29  |  0.00  0.38  0.00
+   3     0.00  0.11  0.00  0.03  0.00  0.00  0.20  0.00  0.00  0.01  0.00  0.00  0.51  |  0.00  0.30  0.00
+   4     0.00  0.00  0.00  0.41  0.00  0.00  0.16  0.00  0.00  0.38  0.00  0.00  0.46  |  0.00  0.26  0.00
+   5     0.00  0.00  0.00  0.30  0.00  0.00  0.03  0.00  0.95  0.00  0.00  0.00  0.18  |  0.00  0.24  0.00
+   6     0.00  0.00  0.00  0.18  0.00  0.00  0.00  0.98  0.00  0.00  0.00  0.00  0.00  |  0.00  0.22  0.00
+   7     0.00  0.00  0.00  0.02  0.01  0.00  0.00  0.21  0.00  0.00  0.00  0.00  0.00  |  0.00  0.23  0.00
+   8     0.00  0.00  0.00  0.01  0.03  0.00  0.00  0.02  0.00  0.00  0.03  0.00  0.00  |  0.00  0.22  0.00
+   9     0.03  0.08  0.00  0.06  0.02  0.00  0.00  0.00  0.00  0.00  0.03  0.00  0.00  |  0.00  0.22  0.00
+
+   most common ordinary-unit gate patterns (states with S > 0.05, a1 >= 2; seed 5010) and the eigenvalue of D A closest to the clock's:
+   freq 0.247  units off []                      nearest eigenvalue: |lam| = 0.9509, angle =  42.75 deg
+   freq 0.090  units off [10]                    nearest eigenvalue: |lam| = 0.9038, angle =  46.57 deg
+   freq 0.086  units off [15]                    nearest eigenvalue: |lam| = 0.9292, angle =  46.37 deg
+   freq 0.062  units off [11]                    nearest eigenvalue: |lam| = 0.9768, angle =  47.56 deg
+   freq 0.060  units off [0]                     nearest eigenvalue: |lam| = 1.0186, angle =  42.05 deg
+   freq 0.044  units off [0, 3, 15]              nearest eigenvalue: |lam| = 0.9310, angle =  42.11 deg
+   freq 0.039  units off [0, 15]                 nearest eigenvalue: |lam| = 0.9740, angle =  41.60 deg
+   freq 0.037  units off [0, 3]                  nearest eigenvalue: |lam| = 0.9753, angle =  41.62 deg
+   freq 0.026  units off [3, 11]                 nearest eigenvalue: |lam| = 0.9524, angle =  46.14 deg
+   freq 0.024  units off [3, 15]                 nearest eigenvalue: |lam| = 0.9252, angle =  46.07 deg
+   freq 0.022  units off [3, 12, 15]             nearest eigenvalue: |lam| = 0.8938, angle =  45.29 deg
+   freq 0.020  units off [3, 10]                 nearest eigenvalue: |lam| = 0.9163, angle =  44.36 deg
+========================================================================================================================
+C2  PER-STEP ROTATION  rho = z_(t+1) / z_t   (steps with M_t > 0.3 and M_t - max(S_t, 0) > 0.2)
+   eigenvalue: |lam| = 0.9509, angle = 42.75 deg;  input leak on a linear step: (L.w)/w4 = 0.011@  -51.5 per unit x
+   no-event steps (x_(t+1) < S_t): by age a1 at t (step a1 -> a1+1). 'slope' = sum(z1 conj z0)/sum|z0|^2 (complex LS through origin)
+   a1->  | frac exact-linear | exact-linear: slope |.|@deg, median angle [q25,q75], median |rho| | clipped (not exact-linear): same | all: same
+   1->2 | 0.000 | n/a | slope 1.009@  +33.4  ang med  32.8 [ 29.2, 35.1]  |rho| med 1.009  n=594485 | slope 1.009@  +33.4  ang med  32.8 [ 29.2, 35.1]  |rho| med 1.009  n=594485
+   2->3 | 0.461 | slope 0.954@  +43.0  ang med  43.0 [ 42.7, 43.4]  |rho| med 0.954  n=232905 | slope 0.911@  +44.7  ang med  45.0 [ 43.5, 47.5]  |rho| med 0.911  n=271939 | slope 0.929@  +44.0  ang med  43.5 [ 42.9, 45.3]  |rho| med 0.948  n=504844
+   3->4 | 0.314 | slope 0.954@  +42.8  ang med  42.8 [ 42.7, 42.8]  |rho| med 0.954  n=128637 | slope 0.925@  +45.6  ang med  44.2 [ 43.2, 48.6]  |rho| med 0.945  n=280515 | slope 0.931@  +45.0  ang med  43.3 [ 42.8, 46.3]  |rho| med 0.949  n=409152
+   4->5 | 0.019 | slope 0.954@  +42.6  ang med  42.6 [ 42.4, 42.7]  |rho| med 0.955  n=6149 | slope 0.956@  +44.3  ang med  43.6 [ 43.1, 45.3]  |rho| med 0.956  n=314287 | slope 0.956@  +44.2  ang med  43.6 [ 43.0, 45.2]  |rho| med 0.956  n=320436
+   5->6 | 0.015 | slope 0.952@  +42.5  ang med  42.5 [ 41.9, 43.0]  |rho| med 0.952  n=3637 | slope 0.949@  +43.0  ang med  42.9 [ 42.3, 43.4]  |rho| med 0.943  n=237234 | slope 0.949@  +43.0  ang med  42.9 [ 42.3, 43.4]  |rho| med 0.943  n=240871
+   6->7 | 0.583 | slope 0.949@  +42.5  ang med  42.5 [ 42.1, 42.9]  |rho| med 0.949  n=99669 | slope 0.979@  +41.9  ang med  42.2 [ 41.0, 43.1]  |rho| med 0.956  n=71300 | slope 0.962@  +42.3  ang med  42.5 [ 41.7, 42.9]  |rho| med 0.950  n=170969
+   7->8 | 0.694 | slope 0.947@  +42.7  ang med  42.7 [ 42.5, 42.8]  |rho| med 0.947  n=74812 | slope 0.965@  +40.3  ang med  40.7 [ 38.3, 42.6]  |rho| med 0.962  n=32942 | slope 0.953@  +41.8  ang med  42.6 [ 42.1, 42.8]  |rho| med 0.950  n=107754
+   8->9 | 0.724 | slope 0.947@  +42.8  ang med  42.8 [ 42.7, 43.1]  |rho| med 0.947  n=37074 | slope 0.938@  +40.0  ang med  40.2 [ 38.0, 42.2]  |rho| med 0.937  n=14150 | slope 0.944@  +41.9  ang med  42.7 [ 42.4, 43.0]  |rho| med 0.945  n=51224
+   pooled a1 >= 2: exact-linear: slope 0.952@  +42.8  ang med  42.8 [ 42.6, 43.0]  |rho| med 0.952  n=582883
+                   clipped     : slope 0.936@  +44.2  ang med  43.5 [ 42.9, 45.7]  |rho| med 0.946  n=1222367
+                   all         : slope 0.941@  +43.8  ang med  43.1 [ 42.7, 44.3]  |rho| med 0.949  n=1805250
+   clipped steps by number of ordinary units off at t+1 (a1 >= 2 at t):
+      #off = 1: slope 0.937@  +43.6  ang med  43.3 [ 42.8, 44.2]  |rho| med 0.946  n=778675
+      #off = 2: slope 0.935@  +45.5  ang med  44.7 [ 43.5, 47.2]  |rho| med 0.949  n=254905
+      #off = 3: slope 0.902@  +49.6  ang med  50.9 [ 46.9, 56.4]  |rho| med 0.931  n=97547
+      #off = 4: slope 0.855@  +46.8  ang med  49.5 [ 45.4, 53.8]  |rho| med 0.860  n=670
+
+   runner-up event at t+1 (S_t < x_(t+1) < M_t, S_t > 0.05, a1 >= 1): q = (M - x_(t+1)) / (M - S_t) = new gap / old gap
+   if the radius tracks the CURRENT gap, |rho| ~ q * (no-event |rho|); if it keeps the old gap, |rho| does not depend on q
+   q in (0.00,0.10]: median q = 0.051  median |rho| = 0.426  median angle =   19.0 [  -2.9,  29.0]  n=19232
+   q in (0.10,0.25]: median q = 0.178  median |rho| = 0.528  median angle =   30.2 [   9.7,  38.5]  n=33385
+   q in (0.25,0.50]: median q = 0.383  median |rho| = 0.673  median angle =   35.8 [  25.2,  43.6]  n=68569
+   q in (0.50,0.75]: median q = 0.632  median |rho| = 0.843  median angle =   41.3 [  35.7,  43.5]  n=88580
+   q in (0.75,0.90]: median q = 0.827  median |rho| = 0.926  median angle =   42.9 [  41.0,  43.6]  n=62770
+   q in (0.90,1.00]: median q = 0.951  median |rho| = 0.942  median angle =   43.2 [  42.7,  44.0]  n=46712
+   LS |rho| ~ 0.507 q + 0.487   (tracks current gap: slope ~0.95-1, intercept ~0;  keeps old gap: slope 0, intercept ~0.95-1)
+========================================================================================================================
+C3  PHASE LAW  phi(a1) = phase of pooled alpha (z/w4 ~ alpha (M-S) + beta S, S > 0.05)
+   linear fit of phi over a1 = 1..9: slope = 42.52 deg/step, phi(a1=1) intercept = -3.74 deg, max |residual| = 4.24 deg
+   linear fit of phi over a1 = 2..9: slope = 42.97 deg/step, phi(a1=1) intercept = -6.31 deg, max |residual| = 0.62 deg
+   phi(a1) deg: [  0.5  36.4  79.3 123.2 166.  208.7 251.  294.  337.8]   steps: [35.9 42.9 43.9 42.8 42.7 42.3 43.  43.8]
+   phase of the raw state: delta = arg z - phi(a1). States with M > 0.3, by relative gap r = (M - max(S,0))/M
+   a1 | r in (0,0.1]: median|delta|, P(|delta|<21.4) | (0.1,0.3] | (0.3,0.6] | (0.6,1.0] || all r: circ-mean delta, median |delta|, 90th pct, P(|delta|<21.4)
+   a1=1 |  22.9, 0.483 |   9.4, 0.731 |   3.2, 0.979 |   0.6, 1.000 ||   1.0,   1.5,  21.3, 0.900
+   a1=2 |  31.7, 0.270 |  14.7, 0.688 |   6.5, 0.892 |   1.1, 1.000 ||  -8.3,   5.2,  32.9, 0.826
+   a1=3 |  32.9, 0.306 |  15.1, 0.636 |   6.5, 0.876 |   1.2, 1.000 ||  -9.0,   5.9,  37.7, 0.792
+   a1=4 |  29.3, 0.339 |  13.9, 0.700 |   5.9, 0.964 |   1.0, 1.000 ||  -8.4,   6.0,  30.1, 0.825
+   a1=5 |  20.8, 0.514 |   9.3, 0.854 |   4.5, 0.993 |   1.0, 1.000 ||  -5.7,   5.0,  22.5, 0.889
+   a1=6 |  18.1, 0.584 |   7.9, 0.866 |   3.6, 0.992 |   1.1, 1.000 ||  -6.0,   4.6,  21.9, 0.895
+   a1=7 |  18.9, 0.571 |   8.4, 0.863 |   3.4, 0.991 |   1.2, 1.000 ||  -6.5,   4.9,  22.7, 0.887
+   a1=8 |  20.1, 0.518 |   8.8, 0.793 |   4.2, 0.991 |   1.6, 1.000 ||  -8.5,   5.4,  26.7, 0.851
+   a1=9 |  24.3, 0.451 |  12.0, 0.699 |   5.7, 0.971 |   2.6, 1.000 || -11.7,   7.3,  32.3, 0.796
+   decoding the age of the max from the clock phase alone: a_hat = argmin_a |arg z - phi(a)| over a = 1..t   (states with a1 >= 1, M > 0.3)
+      r in (0,0.1]: P(a_hat = a1) = 0.420   by a1 = 1..9: 0.54 0.21 0.31 0.35 0.51 0.59 0.58 0.52 0.43
+      r in (0.1,0.3]: P(a_hat = a1) = 0.724   by a1 = 1..9: 0.69 0.62 0.64 0.71 0.85 0.86 0.86 0.80 0.70
+      r in (0.3,0.6]: P(a_hat = a1) = 0.938   by a1 = 1..9: 0.96 0.86 0.88 0.97 0.99 0.99 0.99 0.99 0.98
+      r in (0.6,1.0]: P(a_hat = a1) = 1.000   by a1 = 1..9: 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00
+      r in (0,1.0]: P(a_hat = a1) = 0.847   by a1 = 1..9: 0.89 0.80 0.79 0.83 0.89 0.90 0.89 0.85 0.80
+========================================================================================================================
+C4  RADIUS LAW
+   (a) binned median of |z| / (w4 M) against S/M (states with M > 0.3, a1 fixed).  M - S predicts 1 - S/M;  M alone predicts a constant
+   S/M bin:           (-inf,-1]    (-1,-0.3]     (-0.3,0]      (0,0.1]    (0.1,0.2]    (0.2,0.3]    (0.3,0.4]    (0.4,0.5]    (0.5,0.6]    (0.6,0.7]    (0.7,0.8]    (0.8,0.9]   (0.9,0.95]     (0.95,1]
+   a1=1 med |z|/(w4 M)        0.991        0.998        1.000        0.947        0.875        0.798        0.719        0.638        0.557        0.477        0.397        0.316        0.252        0.213
+   a1=1 med Re(z e^-iphi)/        0.991        0.998        1.000        0.947        0.875        0.798        0.718        0.636        0.554        0.472        0.390        0.301        0.232        0.178   <- in-phase part
+   a1=2 med |z|/(w4 M)        1.021        1.011        1.006        0.954        0.882        0.808        0.733        0.657        0.576        0.495        0.415        0.334        0.272        0.235
+   a1=2 med Re(z e^-iphi)/        1.021        1.011        1.006        0.954        0.882        0.807        0.729        0.650        0.569        0.486        0.397        0.299        0.219        0.161   <- in-phase part
+   a1=3 med |z|/(w4 M)        0.988        0.971        0.961        0.917        0.846        0.774        0.701        0.629        0.548        0.466        0.382        0.298        0.233        0.183
+   a1=3 med Re(z e^-iphi)/        0.988        0.971        0.961        0.917        0.846        0.773        0.696        0.619        0.538        0.448        0.353        0.254        0.172        0.113   <- in-phase part
+   a1=4 med |z|/(w4 M)        0.965        0.937        0.921        0.888        0.816        0.743        0.668        0.592        0.519        0.443        0.361        0.274        0.204        0.161
+   a1=4 med Re(z e^-iphi)/        0.965        0.937        0.921        0.888        0.816        0.742        0.667        0.590        0.511        0.429        0.341        0.247        0.169        0.111   <- in-phase part
+   a1=6 med |z|/(w4 M)          n/a        0.861        0.836        0.820        0.759        0.695        0.630        0.563        0.496        0.431        0.361        0.284        0.209        0.135
+   a1=6 med Re(z e^-iphi)/          n/a        0.860        0.835        0.820        0.759        0.694        0.629        0.561        0.493        0.422        0.350        0.272        0.200        0.123   <- in-phase part
+   a1=8 med |z|/(w4 M)          n/a          n/a        0.745        0.739        0.704        0.648        0.596        0.535        0.476        0.416        0.355        0.289        0.213        0.147
+   a1=8 med Re(z e^-iphi)/          n/a          n/a        0.744        0.739        0.703        0.647        0.594        0.533        0.472        0.410        0.345        0.274        0.198        0.132   <- in-phase part
+
+   (b) real LS on the in-phase part  Re(z e^{-i phi(a1)}) / w4 ~ bM * M - bS * S   (no intercept), states with M > 0.3:
+       a1 |  S > 0.05: bM, bS, c = bS/bM, R2u, R2c  |  S < -0.05: bM, bS, R2u  (M - S predicts bS = bM also for S < 0; M - max(S,0) predicts bS = 0)  | S<-0.05: M alone R2u
+       a1=1 | 1.014, 0.879, c = 0.867, 0.9842, 0.9521 | 1.001, -0.006, 1.0000 | 0.998, 1.0000  n=281396
+       a1=2 | 1.027, 0.877, c = 0.854, 0.9902, 0.9696 | 1.004, 0.012, 1.0000 | 1.008, 1.0000  n=134969
+       a1=3 | 0.993, 0.869, c = 0.876, 0.9884, 0.9654 | 0.957, 0.022, 1.0000 | 0.962, 0.9999  n=64288
+       a1=4 | 0.951, 0.825, c = 0.867, 0.9886, 0.9652 | 0.912, 0.040, 0.9999 | 0.920, 0.9998  n=30914
+       a1=5 | 0.921, 0.759, c = 0.824, 0.9772, 0.9263 | 0.870, 0.055, 0.9998 | 0.880, 0.9997  n=14684
+       a1=6 | 0.890, 0.713, c = 0.802, 0.9646, 0.8836 | 0.822, 0.063, 0.9998 | 0.832, 0.9997  n=6787
+       a1=7 | 0.861, 0.665, c = 0.773, 0.9490, 0.8298 | 0.780, 0.055, 0.9998 | 0.788, 0.9997  n=3062
+       a1=8 | 0.827, 0.622, c = 0.753, 0.9394, 0.7958 | 0.738, 0.036, 0.9998 | 0.742, 0.9998  n=1266
+       a1=9 | 0.803, 0.612, c = 0.761, 0.9344, 0.7831 |
+
+   (c) one-parameter-family comparison, complex fit z/w4 ~ alpha (M - c S) per a1 (S > 0.05, pooled over a2): uncentred R2 for c = 0, 0.5, 0.8, 0.87, 1.0 and the best real c
+       a1=1:  c=0.00: 0.8283 (centred 0.508)  c=0.50: 0.9239 (centred 0.782)  c=0.80: 0.9677 (centred 0.907)  c=0.87: 0.9700 (centred 0.914)  c=1.00: 0.9579 (centred 0.879)   best c = 0.87: 0.9700 (centred 0.914)
+       a1=2:  c=0.00: 0.8296 (centred 0.504)  c=0.50: 0.9190 (centred 0.764)  c=0.80: 0.9576 (centred 0.876)  c=0.87: 0.9582 (centred 0.878)  c=1.00: 0.9422 (centred 0.832)   best c = 0.84: 0.9586 (centred 0.879)
+       a1=3:  c=0.00: 0.8106 (centred 0.473)  c=0.50: 0.9035 (centred 0.731)  c=0.80: 0.9481 (centred 0.856)  c=0.87: 0.9505 (centred 0.862)  c=1.00: 0.9374 (centred 0.826)   best c = 0.87: 0.9505 (centred 0.862)
+       a1=4:  c=0.00: 0.8292 (centred 0.500)  c=0.50: 0.9228 (centred 0.774)  c=0.80: 0.9682 (centred 0.907)  c=0.87: 0.9703 (centred 0.913)  c=1.00: 0.9549 (centred 0.868)   best c = 0.86: 0.9704 (centred 0.913)
+       a1=5:  c=0.00: 0.8463 (centred 0.518)  c=0.50: 0.9308 (centred 0.783)  c=0.80: 0.9666 (centred 0.895)  c=0.87: 0.9654 (centred 0.892)  c=1.00: 0.9415 (centred 0.817)   best c = 0.82: 0.9669 (centred 0.896)
+       a1=6:  c=0.00: 0.8471 (centred 0.511)  c=0.50: 0.9253 (centred 0.761)  c=0.80: 0.9557 (centred 0.858)  c=0.87: 0.9525 (centred 0.848)  c=1.00: 0.9233 (centred 0.755)   best c = 0.80: 0.9557 (centred 0.858)
+       a1=7:  c=0.00: 0.8464 (centred 0.501)  c=0.50: 0.9164 (centred 0.729)  c=0.80: 0.9392 (centred 0.803)  c=0.87: 0.9336 (centred 0.784)  c=1.00: 0.8983 (centred 0.670)   best c = 0.77: 0.9397 (centred 0.804)
+       a1=8:  c=0.00: 0.8437 (centred 0.489)  c=0.50: 0.9071 (centred 0.696)  c=0.80: 0.9240 (centred 0.752)  c=0.87: 0.9163 (centred 0.727)  c=1.00: 0.8760 (centred 0.595)   best c = 0.75: 0.9254 (centred 0.756)
+       a1=9:  c=0.00: 0.8274 (centred 0.457)  c=0.50: 0.8881 (centred 0.648)  c=0.80: 0.9046 (centred 0.700)  c=0.87: 0.8969 (centred 0.676)  c=1.00: 0.8559 (centred 0.547)   best c = 0.75: 0.9061 (centred 0.704)
+
+   (d) current gap or gap at the time of the record?  Cells with a2 < a1 (runner-up arrived after the max), S > 0.05, S_rec+ = max(runner-up at record time, 0):
+       complex LS  z/w4 ~ alpha (M - S) + gamma (S - S_rec+).   current gap: gamma = 0;   frozen gap at record: gamma = alpha
+       a1=2:  [a2=0] alpha=1.032@  +37.2 gamma/alpha=+0.193-0.438i R2u=0.9819  [a2=1] alpha=0.995@  +36.8 gamma/alpha=+0.212-0.114i R2u=0.9912  [all a2<a1] alpha=1.013@  +37.0 gamma/alpha=+0.203-0.278i R2u=0.9727
+       a1=3:  [a2=0] alpha=1.089@  +78.2 gamma/alpha=+0.120-0.271i R2u=0.9827  [a2=1] alpha=0.989@  +80.2 gamma/alpha=+0.167-0.416i R2u=0.9769  [1<a2<a1] alpha=0.932@  +81.1 gamma/alpha=+0.092-0.018i R2u=0.9929  [all a2<a1] alpha=1.003@  +79.7 gamma/alpha=+0.125-0.240i R2u=0.9593
+       a1=4:  [a2=0] alpha=0.992@ +123.2 gamma/alpha=+0.221-0.132i R2u=0.9825  [a2=1] alpha=1.048@ +121.9 gamma/alpha=+0.090-0.198i R2u=0.9839  [1<a2<a1] alpha=0.921@ +124.5 gamma/alpha=+0.094-0.109i R2u=0.9805  [all a2<a1] alpha=0.970@ +123.5 gamma/alpha=+0.124-0.139i R2u=0.9734
+       a1=5:  [a2=0] alpha=1.011@ +165.9 gamma/alpha=+0.350-0.015i R2u=0.9670  [a2=1] alpha=0.954@ +165.5 gamma/alpha=+0.214-0.068i R2u=0.9830  [1<a2<a1] alpha=0.921@ +166.0 gamma/alpha=+0.117-0.079i R2u=0.9759  [all a2<a1] alpha=0.946@ +165.9 gamma/alpha=+0.186-0.063i R2u=0.9609
+       a1=6:  [a2=0] alpha=0.955@ -150.7 gamma/alpha=+0.395-0.045i R2u=0.9613  [a2=1] alpha=0.987@ -152.4 gamma/alpha=+0.290+0.020i R2u=0.9627  [1<a2<a1] alpha=0.891@ -151.8 gamma/alpha=+0.135-0.060i R2u=0.9696  [all a2<a1] alpha=0.918@ -151.7 gamma/alpha=+0.208-0.042i R2u=0.9478
+       a1=7:  [a2=0] alpha=0.911@ -106.1 gamma/alpha=+0.409-0.131i R2u=0.9554  [a2=1] alpha=0.933@ -111.1 gamma/alpha=+0.350+0.048i R2u=0.9558  [1<a2<a1] alpha=0.872@ -109.9 gamma/alpha=+0.172-0.041i R2u=0.9447  [all a2<a1] alpha=0.886@ -109.5 gamma/alpha=+0.235-0.039i R2u=0.9331
+       a1=8:  [a2=0] alpha=0.890@  -59.4 gamma/alpha=+0.308-0.283i R2u=0.9541  [a2=1] alpha=0.843@  -66.4 gamma/alpha=+0.450-0.044i R2u=0.9527  [1<a2<a1] alpha=0.836@  -67.7 gamma/alpha=+0.204-0.039i R2u=0.9309  [all a2<a1] alpha=0.842@  -66.4 gamma/alpha=+0.253-0.070i R2u=0.9236
+       a1=9:  [a2=0] alpha=0.924@  -15.3 gamma/alpha=+0.139-0.356i R2u=0.9462  [a2=1] alpha=0.809@  -15.8 gamma/alpha=+0.352-0.301i R2u=0.9518  [1<a2<a1] alpha=0.788@  -24.3 gamma/alpha=+0.228-0.056i R2u=0.9219  [all a2<a1] alpha=0.803@  -22.2 gamma/alpha=+0.239-0.122i R2u=0.9133
+       three-regressor complex LS z/w4 ~ alpha (M - S) + beta S + gamma (S - S_rec+), all cells a2 < a1 pooled per a1:
+       a1=2: alpha=1.001@  +37.4 beta=0.114@   +7.6 gamma=0.242@  -29.2  R2u=0.9748 (without gamma: 0.9691);  centred 0.9258 (without gamma 0.9091)
+       a1=3: alpha=0.991@  +80.0 beta=0.094@  +63.0 gamma=0.213@   -2.8  R2u=0.9610 (without gamma: 0.9556);  centred 0.8946 (without gamma 0.8801)
+       a1=4: alpha=0.952@ +123.8 beta=0.122@ +106.5 gamma=0.097@  +31.2  R2u=0.9766 (without gamma: 0.9753);  centred 0.9334 (without gamma 0.9296)
+       a1=5: alpha=0.924@ +166.1 beta=0.149@ +155.7 gamma=0.039@ +110.3  R2u=0.9655 (without gamma: 0.9652);  centred 0.8934 (without gamma 0.8927)
+       a1=6: alpha=0.896@ -151.4 beta=0.166@ -166.2 gamma=0.025@ -142.1  R2u=0.9529 (without gamma: 0.9528);  centred 0.8514 (without gamma 0.8511)
+       a1=7: alpha=0.866@ -109.0 beta=0.183@ -130.1 gamma=0.046@  -67.5  R2u=0.9381 (without gamma: 0.9378);  centred 0.8004 (without gamma 0.7996)
+       a1=8: alpha=0.830@  -66.0 beta=0.193@  -95.4 gamma=0.055@  -26.4  R2u=0.9270 (without gamma: 0.9268);  centred 0.7623 (without gamma 0.7614)

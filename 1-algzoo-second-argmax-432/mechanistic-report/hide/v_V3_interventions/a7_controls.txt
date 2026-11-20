@@ -1,0 +1,45 @@
+[1] I2 pool: seeds 5900..5906, n = 286029
+    random Gaussian direction on the 13 ordinary units, |delta| = size * |h[ORD]|, clipped at 0:
+    size 0.05 : P(p0) = 0.9265  P(t_r) = 0.0425  P(q0) = 0.0223
+    size 0.1  : P(p0) = 0.8043  P(t_r) = 0.0895  P(q0) = 0.0607
+    size 0.2  : P(p0) = 0.5823  P(t_r) = 0.1546  P(q0) = 0.1070
+    size 0.335: P(p0) = 0.4109  P(t_r) = 0.1736  P(q0) = 0.1307
+    size 0.464: P(p0) = 0.3286  P(t_r) = 0.1652  P(q0) = 0.1384
+    size 0.7  : P(p0) = 0.2548  P(t_r) = 0.1432  P(q0) = 0.1394
+    size 1.0  : P(p0) = 0.2135  P(t_r) = 0.1250  P(q0) = 0.1374
+    same, wave units only:
+    size 0.1  : P(p0) = 0.8073  P(t_r) = 0.0844  P(q0) = 0.0603
+    size 0.2  : P(p0) = 0.5907  P(t_r) = 0.1520  P(q0) = 0.1017
+    size 0.335: P(p0) = 0.4238  P(t_r) = 0.1863  P(q0) = 0.1245
+    size 0.464: P(p0) = 0.3352  P(t_r) = 0.1882  P(q0) = 0.1346
+    removal of the clock  mode: median |delta|/|h[ORD]| = 0.336; on wave units only 0.316; on comparators only 0.112
+    removal of the runner mode: median |delta|/|h[ORD]| = 0.464; on wave units only 0.445; on comparators only 0.133
+    removal of the level  mode: median |delta|/|h[ORD]| = 1.075; on wave units only 0.991; on comparators only 0.415
+    removal of the h2     mode: median |delta|/|h[ORD]| = 0.100; on wave units only 0.100; on comparators only 0.007
+    removal of the short  mode: median |delta|/|h[ORD]| = 0.163; on wave units only 0.158; on comparators only 0.038
+
+[2] no intervention: clock coordinate at t_r - 1 by age a of the old max: phase of the median of z / (10.157 (M0 - S0)), and its modulus
+    age 2: n =  38416  phase =   32.1 deg  modulus = 1.239
+    age 3: n =  35449  phase =   75.3 deg  modulus = 1.187   step from previous age: +43.2 deg
+    age 4: n =  31286  phase =  117.5 deg  modulus = 1.149   step from previous age: +42.2 deg
+    age 5: n =  25619  phase =  161.3 deg  modulus = 1.133   step from previous age: +43.8 deg
+    age 6: n =  18487  phase =  203.7 deg  modulus = 1.125   step from previous age: +42.3 deg
+    age 7: n =  10004  phase =  246.4 deg  modulus = 1.082   step from previous age: +42.7 deg
+    omega = 42.75 deg.  A larger phase = an older (earlier) max, so z' = z exp(+i k omega) should move the answer to p0 - k.
+
+[3] I1 pool: seeds 5920..5921, n = 556874.  Comparator transplant at t0 = pM + k <= 7.
+    donor: another selected sequence at ITS step pM' + k'; its comparator values are multiplied by M / M'.
+    rows: age k of the recipient's max (1..6);  entries P(ans = pM) | P(runner-up) | P(ans = t0)
+    k=1: same age -> k'=1: 0.161|0.579|0.095   k'=1: 0.159|0.581|0.096   k'=2: 0.293|0.427|0.074   k'=3: 0.777|0.140|0.002   k'=4: 0.900|0.063|0.003   k'=5: 0.763|0.067|0.026   k'=6: 0.823|0.073|0.000
+    k=2: same age -> k'=2: 0.202|0.502|0.101   k'=1: 0.578|0.259|0.047   k'=2: 0.201|0.503|0.102   k'=3: 0.409|0.359|0.081   k'=4: 0.909|0.062|0.006   k'=5: 0.995|0.002|0.003   k'=6: 1.000|0.000|0.000
+    k=3: same age -> k'=3: 0.211|0.486|0.093   k'=1: 0.518|0.219|0.006   k'=2: 0.202|0.280|0.025   k'=3: 0.214|0.484|0.093   k'=4: 0.166|0.317|0.058   k'=5: 0.187|0.131|0.006   k'=6: 0.508|0.095|0.000
+    k=4: same age -> k'=4: 0.218|0.489|0.094   k'=1: 0.477|0.159|0.000   k'=2: 0.361|0.119|0.000   k'=3: 0.240|0.231|0.008   k'=4: 0.218|0.490|0.095   k'=5: 0.078|0.302|0.054   k'=6: 0.094|0.196|0.004
+    k=5: same age -> k'=5: 0.195|0.476|0.092   k'=1: 0.875|0.046|0.000   k'=2: 0.822|0.045|0.000   k'=3: 0.529|0.082|0.000   k'=4: 0.356|0.180|0.029   k'=5: 0.195|0.477|0.092   k'=6: 0.046|0.338|0.038
+    k=6: same age -> k'=6: 0.180|0.486|0.082   k'=1: 0.936|0.008|0.000   k'=2: 0.999|0.000|0.000   k'=3: 0.939|0.018|0.000   k'=4: 0.633|0.050|0.000   k'=5: 0.396|0.173|0.038   k'=6: 0.180|0.484|0.081
+    same-age donors matched on the current input (|x_t0/M - x'_t0'/M'| smallest among 64 random candidates) and on the gap ((M-S)/M):
+    k=1: 0.068|0.787|0.112   (median match error 0.081)
+    k=2: 0.121|0.696|0.119   (median match error 0.081)
+    k=3: 0.135|0.663|0.111   (median match error 0.081)
+    k=4: 0.125|0.679|0.114   (median match error 0.081)
+    k=5: 0.095|0.686|0.116   (median match error 0.081)
+    k=6: 0.097|0.673|0.103   (median match error 0.080)

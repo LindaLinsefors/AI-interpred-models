@@ -1,0 +1,9 @@
+n = 272254 sequences (final max at s>=3 overtook the runner-up, g>=2, old runner-up > 0), seeds 7111-7112
+at the old max p0, relative to bystander positions:
+  created by the new max (actual - no-new-max counterfactual): 28.31
+  clock part of the comparators' cut (their share of the propagated clock removed): 28.03
+  whole comparator cut: 21.92  (so the non-clock part is -6.12) ; unit-4 pulse: 0.95 ; remainder (gate changes etc.): 5.44
+  clock part at the old runner-up q0: -0.49 ; clock part peaks at p0 among earlier positions in 0.632
+  by s = 3..9: created [11.2 17.6 24.1 28.8 31.6 32.8 29.4]
+               clock   [15.8 13.  23.4 33.8 33.5 29.9 27.4]
+  per-sequence correlation created vs clock part: 0.76

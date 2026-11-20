@@ -1,0 +1,54 @@
+=== SECTION 7 census, n = 2097152 (seeds 7001-7008)
+accuracy 0.95309  +- 0.00015 (binomial)   per-seed [0.9529 0.953  0.9532 0.9525 0.9534 0.9538 0.9531 0.9528]
+errors 98380 ; share answering third 0.6354, max 0.2029, rank>=4 0.1617
+class: share of sequences / error rate / share of errors
+  M<=0                           0.0010  0.8791  0.0184
+  S<=0<M                         0.0098  0.7689  0.1600
+  g2<.05<=g1 (runner-up~third)   0.1528  0.1659  0.5403
+  g1<.05<=g2 (max~runner-up)     0.0776  0.0943  0.1561
+  both<.05                       0.0080  0.2821  0.0482
+  min gap [.05,.1)               0.2024  0.0133  0.0574
+  min gap [.1,.2)                0.2964  0.0028  0.0175
+  both>=.2                       0.2520  0.0004  0.0022
+runner-up not positive (classes 0+1): share of errors 0.1784
+relative gap < 0.05 (classes 2+3+4): share of errors 0.7446
+two classes together: 0.9230
+with RAW third (S-T)/M instead of (S-T+)/M: errors with S>0 and (g1<.05 or g2raw<.05): 0.7369 of errors
+   of the 'gap<0.05' errors, share whose third is not positive (gap is S/M, not S-T): 0.0150 of all errors
+T>0 and both gaps>=0.2: share 0.2254, accuracy 0.99971 (errors 139 of 472746)
+accuracy by number of positive inputs (0,1,2,3+), unconditional sample:
+  k=0  n=2060  share 0.00098  acc 0.1209 +- 0.0072  share of errors 0.0184
+  k=1  n=20475  share 0.00976  acc 0.2311 +- 0.0029  share of errors 0.1600
+  k=2  n=91665  share 0.04371  acc 0.9779 +- 0.0005  share of errors 0.0206
+  k=3  n=1982952  share 0.94555  acc 0.9603 +- 0.0001  share of errors 0.8010
+accuracy by position of the max 0..9: [0.9308 0.9495 0.9558 0.9606 0.9618 0.9635 0.9567 0.9533 0.964  0.9347]
+accuracy by position of the runner-up 0..9: [0.9495 0.9635 0.9632 0.9588 0.9599 0.9507 0.9482 0.9409 0.943  0.9531]
+
+accuracy with exactly k positive inputs, conditional sampling (n = 2^20 each, seeds 7011-7013):
+  k=0  acc 0.1194 +- 0.0003
+  k=1  acc 0.2317 +- 0.0004
+  k=2  acc 0.9785 +- 0.0001
+
+accuracy under a constant shift c (n = 2^20, seed 7020):
+  c=-3.0  acc 0.1168
+  c=-2.0  acc 0.1337
+  c=-1.0  acc 0.5463
+  c=-0.5  acc 0.8586
+  c=+0.0  acc 0.9527
+  c=+0.5  acc 0.9517
+  c=+1.0  acc 0.9396
+  c=+2.0  acc 0.9114
+  c=+3.0  acc 0.8809
+
+=== SECTION 4.3
+rms over positions 0-8 (centred): total 22.98, level 1.68 (0.073), clock 4.19 (0.182), level+clock 4.43 (0.193; 0.037 of sum of squares)
+clock coordinate of h_9 set to zero, all sequences: answers changed 0.0737 ; accuracy 0.9531 -> 0.9072 (4.59 points)
+same, sequences with M>0 and max not last (n=1886347): changed 0.0785 ; accuracy 0.9559 -> 0.9065 (4.94 points)
+best position among 0-8 changes: clock removed 0.0793 ; level+clock removed 0.0931
+clock readout 2|U_o R_clock| by position 0..9: [1.63 1.18 0.75 0.47 0.38 0.4  0.37 0.47 0.54 0.62]
+
+gate patterns: resting pattern (13 ordinary on, pulses off)
+  share of all steps 0.1032 ; by t = 0..9 [0.    0.    0.059 0.083 0.073 0.054 0.081 0.157 0.235 0.29 ]
+  share among states with running max >= 2 steps old: 0.1880 (also requiring M>0: 0.1874)
+  distinct patterns in 2^20 sequences (seeds 7001-7004): 1352 ; patterns to cover 50% of steps: 10 ; 90%: 75 ; 99%: 237
+  rms ReLU correction / rms state (ordinary units, max >= 3 steps old): clip only 0.0655 ; vs resting map incl. pulse inputs 0.0845 ; exactly linear in 0.2939 of states

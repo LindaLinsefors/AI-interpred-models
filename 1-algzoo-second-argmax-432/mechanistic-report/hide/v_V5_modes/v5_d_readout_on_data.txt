@@ -1,0 +1,84 @@
+seeds [5020, 5021], 200000 sequences each; accuracy at t=9: 0.9529
+========================================================================================================================
+D1  contribution of each mode to the logits of h_9 (units: logits).  'size 0-8' = norm over positions 0..8 after removing their mean (the M4 measure x coordinate)
+   mode     rms |coord|/w4   rms size 0-8   rms size 0-9   median size 0-8  |  share of sum of squares (0-8, mean removed; modes are not orthogonal, shares need not add to 1)
+   level        1.499           5.04          34.55           4.53       |   0.0053
+   runner       8.593           9.46          71.21           8.38       |   0.0188
+   clock        0.740          12.56          13.02           8.28       |   0.0331
+   h2           0.717          36.92          37.06          21.44       |   0.2860
+   alt          0.757          10.76          10.78           5.90       |   0.0243
+   h3           0.581          28.74          28.91          16.47       |   0.1733
+   short        0.551          87.11          88.39          40.13       |   1.5920
+   trans        0.253          62.53          63.57          12.06       |   0.8202
+   echo        13.959           5.64          53.65           3.97       |   0.0067
+   pulses                      22.49          26.20           0.00       |   0.1061
+   TOTAL                       69.04          94.74          46.60
+   clock, comparator part only: rms size 0-8 = 108.55;  wave part only: 118.94;  both together: 12.56
+   per-state cancellation ratio |clock total| / (|comp part| + |wave part|) over 10 positions: median 0.0580, 5%-95%: 0.0448 - 0.0702
+
+   margin = logit[true answer] - max logit elsewhere; contribution of each part to  logit[true] - logit[strongest competitor]:
+   total margin: mean 10.23, median 8.18, 10th pct 1.64
+   part      mean      rms     median   |  the same among sequences with (M - max(S,0))/M > 0.3 and a1 >= 2 at t = 9
+   level       1.51    14.81     0.17   |      1.81    17.06     0.23
+   runner     -2.38    27.95    -0.33   |     -2.41    27.28    -0.32
+   clock      -0.88     4.77    -0.34   |     -1.05     6.17    -0.48
+   h2          0.54    16.34     0.77   |      0.53    11.02     0.36
+   alt         0.50     4.92     0.30   |      0.63     3.75     0.35
+   h3          1.53    15.10     0.66   |      1.96    11.07     0.89
+   short       4.19    31.81     2.79   |      3.97    18.19     2.49
+   trans       0.94    24.43     0.10   |      0.05     6.65     0.07
+   echo        2.86    26.30     0.03   |      3.01    22.11     0.03
+   pulses      1.42    16.05     0.00   |      2.46    11.93     0.00
+   clock/comp part    11.37    40.21     9.91   |     14.25    53.64    16.69
+   clock/wave part   -12.25    43.65   -10.50   |    -15.30    58.06   -17.70
+   margin (those sequences): mean 10.96 median 8.72;  fraction of sequences in this subset: 0.395
+========================================================================================================================
+D2  intervention on h_9 only: remove / change ONE mode's component, then read out.  P(answer changes), accuracy after
+   baseline accuracy 0.9529
+   intervention                      P(answer changes)   accuracy   | subset 'big clock' ((M-S+)/M > 0.3, a1 >= 2, M > 0.3): P(changes), accuracy (baseline 0.9495)
+   delete level                        0.1243          0.8564    |     0.1425   0.8414
+   delete runner                       0.4453          0.5407    |     0.4309   0.5493
+   delete clock                        0.0740          0.9061    |     0.1232   0.8662
+   delete h2                           0.3035          0.6863    |     0.2511   0.7330
+   delete alt                          0.0812          0.8978    |     0.0593   0.9141
+   delete h3                           0.3107          0.6775    |     0.2630   0.7191
+   delete short                        0.4977          0.4954    |     0.4546   0.5347
+   delete trans                        0.2249          0.7625    |     0.1278   0.8564
+   delete echo                         0.1416          0.8451    |     0.1562   0.8334
+   delete pulses (units 4,5,9)         0.1398          0.8281    |     0.1068   0.8492
+   delete clock, comparator part       0.7877          0.2088    |     0.9500   0.0468
+   delete clock, wave part             0.5495          0.4449    |     0.7430   0.2530
+   clock x 0.5                         0.0361          0.9372    |     0.0583   0.9227
+   clock x 1.5                         0.0362          0.9368    |     0.0572   0.9211
+   clock x 2.0                         0.0833          0.8969    |     0.1383   0.8476
+   clock x 3.0                         0.2232          0.7649    |     0.3726   0.6205
+   clock rotated by -2 steps           0.1011          0.8825    |     0.1658   0.8235
+   clock rotated by -1 steps           0.0546          0.9228    |     0.0886   0.8930
+   clock rotated by +1 steps           0.0563          0.9224    |     0.0988   0.8929
+   clock rotated by +2 steps           0.1039          0.8795    |     0.1798   0.8155
+   clock rotated by +4 steps           0.1516          0.8348    |     0.2555   0.7403
+   clock conjugated (z -> conj z)      0.0866          0.8950    |     0.1593   0.8301
+   level x 2                           0.2189          0.7645    |     0.2534   0.7290
+   runner x 2                          0.1647          0.8259    |     0.1609   0.8319
+   h2 x 2                              0.2132          0.7773    |     0.1567   0.8324
+   short x 2                           0.2592          0.7345    |     0.2087   0.7846
+
+   when deleting the clock changes the answer (0.0740 of sequences): was correct before 0.775, correct after 0.144, new answer = position of the max 0.076; median baseline margin of those 2.10 (all: 8.18)
+   by age of the max at t = 9 (a1 = 9 - position of the max): P(answer changes | clock deleted), accuracy before -> after, and for comparison P(changes | clock x 2)
+      a1=0: 0.0323   0.9358 -> 0.9195   x2: 0.0293   (share of sequences 0.100)
+      a1=1: 0.0961   0.9633 -> 0.8878   x2: 0.0889   (share of sequences 0.101)
+      a1=2: 0.1054   0.9536 -> 0.8732   x2: 0.0912   (share of sequences 0.100)
+      a1=3: 0.0822   0.9555 -> 0.8974   x2: 0.0712   (share of sequences 0.100)
+      a1=4: 0.0795   0.9647 -> 0.9070   x2: 0.0819   (share of sequences 0.099)
+      a1=5: 0.0909   0.9604 -> 0.8897   x2: 0.0691   (share of sequences 0.100)
+      a1=6: 0.0759   0.9598 -> 0.9079   x2: 0.0631   (share of sequences 0.099)
+      a1=7: 0.0562   0.9553 -> 0.9279   x2: 0.0948   (share of sequences 0.099)
+      a1=8: 0.0642   0.9505 -> 0.9248   x2: 0.1161   (share of sequences 0.101)
+      a1=9: 0.0577   0.9301 -> 0.9263   x2: 0.1270   (share of sequences 0.100)
+========================================================================================================================
+D3  is the comparator/wave split special?  ratio |U_o v| / (|U[:,G] v_G| + |U[:,G'] v_G'|) for the clock vector, all 715 subsets G of 4 ordinary units
+   comparators [1, 6, 7, 8]: ratio 0.0575;  rank 1 of 715 (smallest ratio = strongest cancellation)
+   quantiles of the ratio over all 4-subsets: min 0.0575, 5% 0.0715, median 0.1059, max 0.2601
+   five strongest: [(np.float64(0.0575), [1, 6, 7, 8]), (np.float64(0.0608), [0, 1, 6, 8]), (np.float64(0.063), [0, 1, 7, 8]), (np.float64(0.0632), [10, 12, 14, 15]), (np.float64(0.0637), [0, 6, 7, 8])]
+   per-unit pieces |U[:, i] v_i| (10-vector norms) of the clock vector, by unit: {0: 3.522, 1: 4.507, 2: 0.614, 3: 0.589, 6: 2.55, 7: 2.227, 8: 6.083, 10: 4.911, 11: 3.34, 12: 4.137, 13: 0.311, 14: 4.488, 15: 2.838}
+   |U_o v| = 1.243;  sum over units of |U[:, i] v_i| = 40.116;  within comparators: |sum| / sum|.| = 0.671;  within wave units: 0.457

@@ -1,0 +1,32 @@
+clock: Re(z e^{-i phi_a}) ~ b_M M + b_S S+   (steps with M > 0), and the same for the level coordinate
+ age   phi_a    b_M     b_S    R2(M,S+)   R2(M only)   R2(M-S+ only) |   level: b_M   b_S   R2
+  1       0.1   1.005  -0.866   0.9899     0.8354       0.9800 (b=1.058) |    1.008 -0.033  0.9988
+  2      30.3   1.013  -0.847   0.9918     0.8476       0.9758 (b=1.092) |    0.928 -0.021  0.9993
+  3      72.1   0.975  -0.834   0.9884     0.8350       0.9738 (b=1.057) |    0.937 -0.037  0.9995
+  4     117.2   0.939  -0.802   0.9887     0.8378       0.9721 (b=1.031) |    0.947 -0.058  0.9997
+  5     160.7   0.910  -0.741   0.9784     0.8523       0.9513 (b=1.036) |    0.958 -0.068  0.9997
+  6    -155.2   0.880  -0.698   0.9659     0.8538       0.9317 (b=1.029) |    0.964 -0.067  0.9993
+  7    -114.9   0.848  -0.645   0.9503     0.8557       0.9056 (b=1.026) |    0.964 -0.057  0.9987
+  8     -71.4   0.815  -0.602   0.9398     0.8562       0.8868 (b=1.013) |    0.963 -0.045  0.9984
+  9     -31.6   0.781  -0.573   0.9331     0.8539       0.8766 (b=0.986) |    0.963 -0.039  0.9984
+
+split by whether the runner-up arrived before the max (a2 > a1: it is the old max) or after (a2 < a1)
+  runner-up older than max (old max)
+    age 1: phi =     0.7  radial: b_M =  1.030  b_S = -0.908  R2 = 0.9807   | tangential: b_M = -0.003 b_S =  0.021   n = 334208
+    age 2: phi =    31.6  radial: b_M =  1.046  b_S = -0.904  R2 = 0.9868   | tangential: b_M =  0.090 b_S = -0.141   n = 224480
+    age 3: phi =    73.9  radial: b_M =  0.991  b_S = -0.849  R2 = 0.9880   | tangential: b_M =  0.099 b_S = -0.130   n = 147425
+    age 4: phi =   118.7  radial: b_M =  0.948  b_S = -0.797  R2 = 0.9910   | tangential: b_M =  0.065 b_S = -0.095   n = 93708
+    age 5: phi =   158.2  radial: b_M =  0.896  b_S = -0.729  R2 = 0.9938   | tangential: b_M =  0.121 b_S = -0.151   n = 56164
+    age 6: phi =  -159.0  radial: b_M =  0.844  b_S = -0.670  R2 = 0.9973   | tangential: b_M =  0.112 b_S = -0.166   n = 30759
+    age 7: phi =  -121.8  radial: b_M =  0.784  b_S = -0.597  R2 = 0.9986   | tangential: b_M =  0.181 b_S = -0.249   n = 14153
+    age 8: phi =   -81.5  radial: b_M =  0.734  b_S = -0.545  R2 = 0.9986   | tangential: b_M =  0.199 b_S = -0.281   n = 4459
+  runner-up younger than max
+    age 1: phi =    -0.4  radial: b_M =  0.980  b_S = -0.810  R2 = 0.9940   | tangential: b_M =  0.014 b_S = -0.016   n = 160329
+    age 2: phi =    25.6  radial: b_M =  0.984  b_S = -0.784  R2 = 0.9921   | tangential: b_M =  0.195 b_S = -0.358   n = 220436
+    age 3: phi =    68.3  radial: b_M =  0.970  b_S = -0.828  R2 = 0.9841   | tangential: b_M =  0.193 b_S = -0.337   n = 230436
+    age 4: phi =   115.5  radial: b_M =  0.942  b_S = -0.813  R2 = 0.9864   | tangential: b_M =  0.133 b_S = -0.220   n = 215132
+    age 5: phi =   161.2  radial: b_M =  0.919  b_S = -0.751  R2 = 0.9726   | tangential: b_M =  0.078 b_S = -0.115   n = 187660
+    age 6: phi =  -154.8  radial: b_M =  0.892  b_S = -0.709  R2 = 0.9597   | tangential: b_M =  0.052 b_S = -0.081   n = 153867
+    age 7: phi =  -113.9  radial: b_M =  0.859  b_S = -0.656  R2 = 0.9452   | tangential: b_M =  0.073 b_S = -0.096   n = 116998
+    age 8: phi =   -71.1  radial: b_M =  0.822  b_S = -0.609  R2 = 0.9371   | tangential: b_M =  0.074 b_S = -0.118   n = 78875
+    age 9: phi =   -31.6  radial: b_M =  0.784  b_S = -0.577  R2 = 0.9325   | tangential: b_M =  0.132 b_S = -0.196   n = 39535

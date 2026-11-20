@@ -1,0 +1,12 @@
+
+normal: selected 152771;  P(old maximum) / P(new maximum) / P(old runner-up), edited state clipped at zero
+  unperturbed                                0.991 / 0.008 / 0.001
+  clock pattern removed from all 13 units    0.018 / 0.776 / 0.164
+  removed from the wave units only           0.022 / 0.750 / 0.169
+  removed from the comparators only          0.998 / 0.001 / 0.001
+
+uniform: selected 108009;  P(old maximum) / P(new maximum) / P(old runner-up), edited state clipped at zero
+  unperturbed                                0.980 / 0.019 / 0.001
+  clock pattern removed from all 13 units    0.005 / 0.893 / 0.088
+  removed from the wave units only           0.006 / 0.865 / 0.103
+  removed from the comparators only          0.998 / 0.002 / 0.000

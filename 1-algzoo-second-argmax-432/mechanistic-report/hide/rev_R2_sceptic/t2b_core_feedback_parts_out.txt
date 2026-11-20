@@ -1,0 +1,21 @@
+baseline accuracy 0.9532
+  zero unit 5 -> core                                                   : accuracy 0.7664   agreement 0.7799
+  zero unit 9 -> core                                                   : accuracy 0.6582   agreement 0.6657
+  zero units 5, 9 -> core                                               : accuracy 0.8460   agreement 0.8612
+  zero wave units (not 2) -> core                                       : accuracy 0.5100   agreement 0.5152
+  zero wave units (not 2) -> unit 2 only                                : accuracy 0.7657   agreement 0.7757
+  zero wave units (not 2) -> unit 4 only                                : accuracy 0.9242   agreement 0.9541
+  zero wave units (not 2) -> comparators only                           : accuracy 0.5492   agreement 0.5551
+  zero all satellites -> comparators only                               : accuracy 0.5392   agreement 0.5454
+  zero all satellites -> units 2 and 4 only                             : accuracy 0.8020   agreement 0.8126
+
+wave units' feedback into the core restricted to chosen eigenmodes of the resting map (the feedback then reads
+W[core, wave8] (sum over chosen modes of RIGHT_k LEFT_k) h[ORD]; pulses 5, 9 -> core kept):
+  modes kept ['level', 'runner', 'clock', 'h2', 'alt', 'h3', 'short', 'trans', 'echo']: accuracy 0.9532   agreement 1.0000
+  modes kept ['level']                                                   : accuracy 0.6234   agreement 0.6276
+  modes kept ['level', 'runner']                                         : accuracy 0.7216   agreement 0.7279
+  modes kept ['level', 'runner', 'clock']                                : accuracy 0.7911   agreement 0.7989
+  modes kept ['level', 'runner', 'clock', 'short']                       : accuracy 0.7306   agreement 0.7410
+  modes kept ['level', 'runner', 'clock', 'short', 'trans', 'echo']      : accuracy 0.6786   agreement 0.6859
+  modes kept ['level', 'runner', 'clock', 'h2', 'alt', 'h3']             : accuracy 0.6597   agreement 0.6629
+  modes kept ['h2', 'alt', 'h3', 'short', 'trans', 'echo']               : accuracy 0.5571   agreement 0.5640

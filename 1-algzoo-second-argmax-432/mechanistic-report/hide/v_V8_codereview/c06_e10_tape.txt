@@ -1,0 +1,58 @@
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V8_codereview\c06_e10_tape.py:77: RuntimeWarning: invalid value encountered in scalar divide
+  sl = (a * p).sum() / (p * p).sum()
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\v_V8_codereview\c06_e10_tape.py:78: RuntimeWarning: invalid value encountered in scalar divide
+  return 1 - ((a - p) ** 2).sum() / (a ** 2).sum(), 1 - ((a - sl * p) ** 2).sum() / (a ** 2).sum(), sl
+(a) relative residual: 0.0949   rank(Uo) = 10
+    largest |entry| other than Sig[i, i+1], per row 0..8: [0.134 0.143 0.218 0.387 0.183 0.21  0.211 0.422 0.266]
+    rows 0..6: max = 0.387   (the claim says <= 0.42; 0.42 is Sig[7,1] in row 7)
+    superdiagonal Sig[i, i+1], i = 0..8: [ 0.971  0.933  0.898  0.886  1.003  0.925  0.934  0.339 -0.001]
+    row 9: min 1.224 max 1.615
+    residual after removing the mean over positions 0..8 (rows 0..8 only): 0.014
+    null (random Gaussian readout): mean 0.466, 1% quantile 0.288, min 0.228   (real: 0.095)
+    null (real readout rotated by a random orthogonal matrix): mean 0.461, 1% quantile 0.251, min 0.163   (real: 0.095)
+    null (real readout with permuted columns): mean 0.443, 1% quantile 0.232, min 0.152   (real: 0.095)
+
+(b) T2 on the same sample as e10: R2 of Sig-prediction of Uo A h from Uo h, positions 0..8
+     t | e10 (per-state mean removed, pooled) | also centred per position across states | no mean removal, uncentred | no mean removal, centred per position | worst single position (centred per position)
+     3 | 0.9917 | 0.9871 | 0.9706 | 0.9541 | 0.8657 at position 3   (all: [0.999 0.998 0.998 0.866 0.968 0.997 0.999 0.986 0.93 ])
+     5 | 0.9911 | 0.9836 | 0.9621 | 0.9301 | 0.9188 at position 3   (all: [1.    0.995 0.998 0.919 0.955 0.997 0.997 0.96  0.925])
+     7 | 0.9846 | 0.9807 | 0.9432 | 0.9284 | 0.9053 at position 3   (all: [0.997 0.991 0.998 0.905 0.966 0.998 0.996 0.927 0.935])
+
+(c) REAL steps.  Fraction of states with the resting gate pattern (13 ordinary units on, pulses off):
+     by t: [0.    0.    0.058 0.083 0.074 0.056 0.081 0.157 0.235 0.289]  overall: 0.103
+     among states with M_t > 0.3, a1 >= 2, x_t < S_t: 0.212
+
+     actual s_{t+1} = U h_{t+1} (positions 0..8, per-state mean removed) predicted from s_t = U h_t:
+     selection                                 t->t+1 |  Sig s_t: R2 (slope 1), R2 (best slope), slope | pure shift: R2 (slope 1), R2 (best slope), slope |  n
+     -- all states
+        2->3 |    0.550   0.551   0.97 |   0.139   0.317   0.57 |  100000
+        4->5 |    0.722   0.736   0.88 |   0.352   0.506   0.64 |  100000
+        6->7 |    0.759   0.765   0.92 |   0.178   0.447   0.56 |  100000
+        8->9 |    0.748   0.750   0.95 |  -0.059   0.376   0.48 |  100000
+     -- no event: x_{t+1} < S_t, S_t > 0.1, all four comparators on at t+1 (e15b iv)
+        2->3 |    0.889   0.891   0.95 |   0.786   0.806   0.86 |  30802
+        4->5 |    0.890   0.915   0.86 |   0.601   0.724   0.71 |  55975
+        6->7 |    0.908   0.916   0.91 |   0.321   0.581   0.60 |  69974
+        8->9 |    0.891   0.893   0.95 |   0.007   0.474   0.50 |  77374
+     -- same and resting gate pattern at t+1
+        2->3 |      nan     nan    nan |     nan     nan    nan |  0
+        4->5 |    0.992   0.992   1.00 |   0.260   0.493   0.59 |  3081
+        6->7 |    0.973   0.974   0.97 |  -0.616   0.320   0.37 |  13381
+        8->9 |    0.954   0.954   0.99 |  -1.390   0.258   0.28 |  27129
+     -- new max at t+1 (x_{t+1} > M_t > 0.3)
+        2->3 |    0.249   0.254   1.15 |  -0.048   0.062   0.43 |  12276
+        4->5 |    0.394   0.395   1.04 |   0.085   0.180   0.58 |  12288
+        6->7 |    0.356   0.356   0.99 |  -0.032   0.149   0.48 |  10996
+        8->9 |    0.308   0.308   1.02 |  -0.161   0.110   0.39 |  9352
+
+     the same restricted to the indices that hold real inputs after the step (inputs 0..t-1 -> indices 8-t..7), per-state mean over those removed:
+     -- all states
+        2->3 |  Sig:  -0.163   0.231   0.43  | pure shift:  -0.684   0.238   0.34 |  100000
+        4->5 |  Sig:   0.288   0.329   0.74  | pure shift:   0.231   0.312   0.66 |  100000
+        6->7 |  Sig:   0.642   0.648   0.91  | pure shift:   0.660   0.660   0.98 |  100000
+        8->9 |  Sig:   0.789   0.792   0.95  | pure shift:   0.804   0.805   0.97 |  100000
+     -- no event (as above)
+        2->3 |  Sig:   0.205   0.435   0.58  | pure shift:   0.506   0.668   0.67 |  30802
+        4->5 |  Sig:   0.664   0.710   0.80  | pure shift:   0.743   0.793   0.80 |  55975
+        6->7 |  Sig:   0.902   0.911   0.91  | pure shift:   0.934   0.934   0.99 |  69974
+        8->9 |  Sig:   0.940   0.943   0.94  | pure shift:   0.958   0.959   0.97 |  77374

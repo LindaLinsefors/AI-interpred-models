@@ -1,0 +1,32 @@
+R2 (e10's convention) of the Sig-prediction; columns: prediction from Uo h_t[ORD] -> target U h_(t+1) | -> target Uo h_(t+1)[ORD] | prediction from U h_t -> target U h_(t+1);  each for positions 0..8 and for positions 0..7
+-- hypothetical free step (e10): target Uo A h_t[ORD]
+   t=3: positions 0..8: 0.9917   positions 0..7: 0.9938
+   t=5: positions 0..8: 0.9911   positions 0..7: 0.9925
+   t=7: positions 0..8: 0.9846   positions 0..7: 0.9862
+   t=8: positions 0..8: 0.9818   positions 0..7: 0.9840
+-- real step, all states
+   t=3->4: 0..8:  0.563 |  0.532 |  0.651     0..7:  0.581 |  0.589 |  0.666     n = 400000
+   t=5->6: 0..8:  0.706 |  0.677 |  0.764     0..7:  0.726 |  0.727 |  0.782     n = 400000
+   t=7->8: 0..8:  0.669 |  0.656 |  0.748     0..7:  0.708 |  0.707 |  0.782     n = 400000
+   t=8->9: 0..8:  0.655 |  0.654 |  0.744     0..7:  0.703 |  0.702 |  0.785     n = 400000
+-- real step, no event: x_(t+1) < S_t, S_t > 0.1, four comparators on at t+1
+   t=3->4: 0..8:  0.808 |  0.778 |  0.874     0..7:  0.833 |  0.841 |  0.895     n = 179876
+   t=5->6: 0..8:  0.863 |  0.832 |  0.909     0..7:  0.887 |  0.889 |  0.930     n = 256433
+   t=7->8: 0..8:  0.822 |  0.804 |  0.897     0..7:  0.869 |  0.870 |  0.938     n = 296576
+   t=8->9: 0..8:  0.802 |  0.797 |  0.890     0..7:  0.859 |  0.861 |  0.940     n = 308832
+-- real step, no event and x_(t+1) < 0.5 S_t (unit 5 stays silent)
+   t=3->4: 0..8:  0.806 |  0.773 |  0.873     0..7:  0.832 |  0.840 |  0.895     n = 156528
+   t=5->6: 0..8:  0.862 |  0.828 |  0.910     0..7:  0.887 |  0.889 |  0.931     n = 220109
+   t=7->8: 0..8:  0.820 |  0.799 |  0.897     0..7:  0.868 |  0.869 |  0.938     n = 253122
+   t=8->9: 0..8:  0.801 |  0.793 |  0.890     0..7:  0.858 |  0.860 |  0.940     n = 263394
+-- real step, no event and the resting gate pattern at t+1
+   t=3->4: 0..8:  0.992 |  0.992 |  0.992     0..7:  0.993 |  0.993 |  0.993     n = 17030
+   t=5->6: 0..8:  0.989 |  0.989 |  0.990     0..7:  0.991 |  0.991 |  0.991     n = 24617
+   t=7->8: 0..8:  0.920 |  0.920 |  0.955     0..7:  0.927 |  0.927 |  0.958     n = 85043
+   t=8->9: 0..8:  0.920 |  0.920 |  0.953     0..7:  0.928 |  0.928 |  0.957     n = 108510
+
+argmax test: does the argmax over the positions of inputs 0..t survive a real no-event step as a shift by one index?
+   t=3->4: P(same input on top among inputs 0..t) = 0.977;  P(argmax of Sig s_t = real argmax at t+1) = 0.519   n = 179876
+   t=5->6: P(same input on top among inputs 0..t) = 0.977;  P(argmax of Sig s_t = real argmax at t+1) = 0.644   n = 256433
+   t=7->8: P(same input on top among inputs 0..t) = 0.976;  P(argmax of Sig s_t = real argmax at t+1) = 0.746   n = 296576
+   t=8->9: P(same input on top among inputs 0..t) = 0.975;  P(argmax of Sig s_t = real argmax at t+1) = 0.776   n = 308832

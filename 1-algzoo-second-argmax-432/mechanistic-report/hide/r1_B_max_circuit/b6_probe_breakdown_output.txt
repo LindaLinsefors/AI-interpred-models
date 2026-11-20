@@ -1,0 +1,11 @@
+two-pulse inputs, t0 = 4, positions p, q in 0..4, S in {0.3, 1.0, 1.4}, b in {-1, -0.3}
+  f = 0.8: q<p: 60 cases, baseline correct 60, perturbed answer = max position 0, = some other new position 22; q>p: 60 cases, baseline correct 60, perturbed answer = max position 4, = some other new position 17
+  f = 0.9: q<p: 60 cases, baseline correct 60, perturbed answer = max position 0, = some other new position 4; q>p: 60 cases, baseline correct 60, perturbed answer = max position 6, = some other new position 3
+  f = 1.1: q<p: 60 cases, baseline correct 60, perturbed answer = max position 38, = some other new position 0; q>p: 60 cases, baseline correct 60, perturbed answer = max position 7, = some other new position 0
+  f = 1.2: q<p: 60 cases, baseline correct 60, perturbed answer = max position 43, = some other new position 0; q>p: 60 cases, baseline correct 60, perturbed answer = max position 9, = some other new position 0
+
+natural data (N(0,1), seed 1076, 400k), t0 = 5: P(answer changed) when both the max p and the runner-up q are at positions <= t0
+  f = 0.8: q<p<=t0: share 0.166, P(changed) 0.319, new = argmax 0.140, new = 3rd 0.361; p<q<=t0: share 0.167, P(changed) 0.333, new = argmax 0.106, new = 3rd 0.404
+  f = 0.9: q<p<=t0: share 0.166, P(changed) 0.177, new = argmax 0.049, new = 3rd 0.433; p<q<=t0: share 0.167, P(changed) 0.153, new = argmax 0.177, new = 3rd 0.510
+  f = 1.1: q<p<=t0: share 0.166, P(changed) 0.451, new = argmax 0.965, new = 3rd 0.017; p<q<=t0: share 0.167, P(changed) 0.108, new = argmax 0.677, new = 3rd 0.206
+  f = 1.2: q<p<=t0: share 0.166, P(changed) 0.544, new = argmax 0.958, new = 3rd 0.030; p<q<=t0: share 0.167, P(changed) 0.152, new = argmax 0.571, new = 3rd 0.324

@@ -1,0 +1,61 @@
+1. [EXACT]
+   eigenvalues of A = W[ORD, ORD] sorted by |.|: [ 1.0099+0.j      0.9735+0.j      0.6983+0.6454j  0.6983-0.6454j  0.1096+0.9306j  0.1096-0.9306j -0.9283+0.j     -0.4776+0.6877j -0.4776-0.6877j  0.5376+0.5012j  0.5376-0.5012j  0.231 +0.j
+  0.001 +0.j    ]
+   real eigenvalues: [ 1.0099  0.9735  0.231   0.001  -0.9283]  -> distance of the largest from 1: 0.00989
+   level eigenvector (unit norm): [0.391 0.148 0.29  0.054 0.183 0.228 0.204 0.306 0.329 0.46  0.124 0.356 0.235]  all > 0: True
+   runner eigenvector (gauge):    [-0.165  0.054  0.091  0.035  0.044  0.051  0.043 -0.113 -0.128 -0.149  0.034 -0.116 -0.032]
+   A has negative entries: 67 of 169;  so positivity of the level eigenvector is not Perron-Frobenius for a non-negative matrix
+   |A c - c| / |c| for c = level eigenvector: 0.009885805560267953 (= lambda - 1)
+   2D rotation block of the clock: |lam| = 0.9509, angle = 42.748 deg;  (I - R) c = 0 has only c = 0 inside the plane: det(I - R_2x2) = 0.5076
+   coordinates of the input direction w[ORD] in level, runner, clock: [-0.0447  1.0264] (0.0667-0.0839j)
+   level growth over 7 resting steps: 1.0713;  clock decay over 7 steps: 0.7029;  radius/centre shrinks by 0.9416 per step
+
+2. impulse, level coordinate scaled by f at t0 = 3 (pure coordinate scaling), then free run with the same inputs
+   b = 0.0
+     f = 0.00: negative entries at t0: [0, 1, 3, 8, 11, 12, 14, 15]
+        |z'/z| t=4..9: [0.559 0.569 0.574 0.574 0.581 0.596]   phase diff (deg): [38.7 40.6 40.5 40.5 37.8 32. ]   level'/level: [0.268 0.277 0.277 0.277 0.282 0.299]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [0, 3, 8, 11, 12, 14, 15]; t=5: [11] -> [11]; t=6: [10] -> [10]; t=7: [] -> [10]; t=8: [] -> [3, 10, 13, 15]; t=9: [] -> [0, 1, 3, 13, 14]
+        pulses firing in the patched run (t, unit, value): []
+     f = 0.50: negative entries at t0: [0, 8, 12, 14, 15]
+        |z'/z| t=4..9: [0.799 0.8   0.804 0.804 0.804 0.81 ]   phase diff (deg): [13.1 14.2 14.1 14.1 14.1 13.5]   level'/level: [0.617 0.623 0.623 0.623 0.623 0.621]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [8, 11, 12, 15]; t=5: [11] -> [11]; t=6: [10] -> [10]; t=7: [] -> []; t=8: [] -> []; t=9: [] -> [3, 13]
+        pulses firing in the patched run (t, unit, value): []
+     f = 0.75: negative entries at t0: [8, 12, 15]
+        |z'/z| t=4..9: [0.964 0.963 0.966 0.966 0.967 0.967]   phase diff (deg): [5.1 5.9 5.8 5.8 5.6 5.6]   level'/level: [0.8   0.805 0.805 0.805 0.803 0.803]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [8, 11, 12, 15]; t=5: [11] -> [11]; t=6: [10] -> [10]; t=7: [] -> []; t=8: [] -> []; t=9: [] -> []
+        pulses firing in the patched run (t, unit, value): [(7, 5, 0.26)]
+     f = 1.25: negative entries at t0: []
+        |z'/z| t=4..9: [1.002 1.005 1.017 1.025 1.026 1.026]   phase diff (deg): [-1.1 -0.9 -1.  -1.2 -1.4 -1.4]   level'/level: [1.248 1.244 1.239 1.233 1.23  1.23 ]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> []; t=5: [11] -> []; t=6: [10] -> []; t=7: [] -> []; t=8: [] -> []; t=9: [] -> []
+        pulses firing in the patched run (t, unit, value): [(4, 5, 0.57), (5, 5, 0.52), (6, 5, 0.87), (7, 5, 0.33), (8, 5, 0.02)]
+   b = -0.5
+     f = 0.00: negative entries at t0: [0, 3, 8, 11, 12, 14, 15]
+        |z'/z| t=4..9: [0.853 0.853 0.857 0.855 0.883 0.955]   phase diff (deg): [27.5 27.9 27.7 27.8 25.9 24.8]   level'/level: [0.283 0.288 0.289 0.29  0.303 0.312]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [0, 3, 8, 11, 12, 14, 15]; t=5: [11] -> [11]; t=6: [10] -> []; t=7: [] -> [3]; t=8: [] -> [3, 10, 13, 15]; t=9: [] -> [0, 3, 13]
+        pulses firing in the patched run (t, unit, value): []
+     f = 0.50: negative entries at t0: [0, 12, 14, 15]
+        |z'/z| t=4..9: [0.958 0.958 0.962 0.961 0.96  0.985]   phase diff (deg): [12.3 12.7 12.6 12.7 12.7 11.9]   level'/level: [0.629 0.633 0.634 0.635 0.635 0.634]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [11, 12, 15]; t=5: [11] -> [11]; t=6: [10] -> [10]; t=7: [] -> []; t=8: [] -> []; t=9: [] -> [3, 13]
+        pulses firing in the patched run (t, unit, value): []
+     f = 0.75: negative entries at t0: [12, 15]
+        |z'/z| t=4..9: [0.988 0.987 0.99  0.989 0.989 0.99 ]   phase diff (deg): [5.1 5.7 5.6 5.6 5.7 5.6]   level'/level: [0.804 0.808 0.809 0.809 0.809 0.809]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> [11, 12, 15]; t=5: [11] -> [11]; t=6: [10] -> [10]; t=7: [] -> []; t=8: [] -> []; t=9: [] -> [3]
+        pulses firing in the patched run (t, unit, value): []
+     f = 1.25: negative entries at t0: []
+        |z'/z| t=4..9: [1.002 1.002 1.009 1.009 1.009 1.009]   phase diff (deg): [-0.9 -1.  -1.1 -1.1 -1.1 -1.1]   level'/level: [1.248 1.247 1.246 1.245 1.245 1.244]
+        OFF ordinary units per step (baseline -> patched): t=4: [15] -> []; t=5: [11] -> []; t=6: [10] -> []; t=7: [] -> []; t=8: [] -> []; t=9: [] -> []
+        pulses firing in the patched run (t, unit, value): []
+
+3. [MEASURED] N(0,1), seed 1081, 200k sequences: share of states whose gate pattern is exactly resting (13 ordinary on, pulses off)
+   a1 = 0: resting 0.017;  all 13 ordinary on 0.017;  mean number of ordinary units off 5.58;  unit 5 on 0.367;  unit 4 on 0.762;  unit 9 on 0.292
+   a1 = 1: resting 0.008;  all 13 ordinary on 0.485;  mean number of ordinary units off 1.06;  unit 5 on 0.904;  unit 4 on 0.002;  unit 9 on 0.897
+   a1 = 2: resting 0.012;  all 13 ordinary on 0.012;  mean number of ordinary units off 2.14;  unit 5 on 0.290;  unit 4 on 0.004;  unit 9 on 0.003
+   a1 = 3: resting 0.287;  all 13 ordinary on 0.435;  mean number of ordinary units off 0.79;  unit 5 on 0.252;  unit 4 on 0.006;  unit 9 on 0.003
+   a1 = 4: resting 0.261;  all 13 ordinary on 0.301;  mean number of ordinary units off 1.30;  unit 5 on 0.233;  unit 4 on 0.015;  unit 9 on 0.004
+   a1 = 5: resting 0.042;  all 13 ordinary on 0.047;  mean number of ordinary units off 1.58;  unit 5 on 0.219;  unit 4 on 0.029;  unit 9 on 0.017
+   a1 = 6: resting 0.026;  all 13 ordinary on 0.030;  mean number of ordinary units off 1.25;  unit 5 on 0.212;  unit 4 on 0.037;  unit 9 on 0.025
+   a1 = 7: resting 0.539;  all 13 ordinary on 0.697;  mean number of ordinary units off 0.37;  unit 5 on 0.212;  unit 4 on 0.037;  unit 9 on 0.009
+   a1 = 8: resting 0.638;  all 13 ordinary on 0.819;  mean number of ordinary units off 0.26;  unit 5 on 0.217;  unit 4 on 0.026;  unit 9 on 0.001
+   a1 = 9: resting 0.609;  all 13 ordinary on 0.775;  mean number of ordinary units off 0.35;  unit 5 on 0.216;  unit 4 on 0.014;  unit 9 on 0.001
+   all a1 >= 2: resting 0.188;  all 13 ordinary on 0.248
+   states with a1 >= 3: exact linear step (pre-activation) equals the state for 0.339 of them;  rms |ReLU correction| / rms |state| = 0.066

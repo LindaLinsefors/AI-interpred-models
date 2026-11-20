@@ -1,0 +1,86 @@
+=== (a) K6 regression with the scale removed (seed 5015): y = Re(z_c e^{-i phase_a}), fit y ~ b_M M + b_S S+ (as the lead) ===
+  a1 :  uncentred R2 (lead)   centred R2 of y   centred R2 of y/M with the SAME fit   centred R2 of y/M refitted as y/M ~ c0 + c1 S+/M   corr(y/M, S+/M)
+  1  :  0.9971               0.9912            0.9866                               0.9868  (c0 0.932, c1 -0.850, -c1/c0 0.912)          -0.993
+  2  :  0.9949               0.9856            0.9780                               0.9781  (c0 0.835, c1 -0.791, -c1/c0 0.948)          -0.989
+  3  :  0.9951               0.9869            0.9809                               0.9809  (c0 0.747, c1 -0.723, -c1/c0 0.967)          -0.990
+  4  :  0.9914               0.9756            0.9602                               0.9602  (c0 0.678, c1 -0.618, -c1/c0 0.912)          -0.980
+  5  :  0.9711               0.9102            0.8365                               0.8367  (c0 0.626, c1 -0.526, -c1/c0 0.840)          -0.915
+  6  :  0.9596               0.8688            0.7522                               0.7526  (c0 0.629, c1 -0.504, -c1/c0 0.801)          -0.868
+  7  :  0.9598               0.8627            0.7209                               0.7213  (c0 0.670, c1 -0.520, -c1/c0 0.776)          -0.849
+  8  :  0.9655               0.8837            0.7614                               0.7619  (c0 0.734, c1 -0.582, -c1/c0 0.794)          -0.873
+
+=== (b) new runner-up at step t (S_(t-1) < x_t < M_(t-1)), t >= 2, M > 0.3: how many comparators does it switch off? ===
+  events: 470151;  P(#comparators on at t = 0..4): [0.0001 0.0903 0.4062 0.2431 0.2603]
+  n_on : share   median (x_t - old runner-up+)/M   median (M - x_t)/M   median min_j theta_j(t)/M    then z_c ~ alpha (M - S+) + beta S+ + gamma (S+ - Sold+):  Re(gamma/alpha)
+   4   : 0.260   -0.088                        1.088                 0.046                      alpha 0.501, Re(gamma/alpha) = -2.919
+   3   : 0.243   0.163                        0.559                 0.235                      alpha 0.813, Re(gamma/alpha) = -0.660
+   2   : 0.406   0.352                        0.397                 0.114                      alpha 0.897, Re(gamma/alpha) = -0.029
+   1   : 0.090   0.713                        0.088                 0.127                      alpha 1.361, Re(gamma/alpha) = -0.005
+  (gamma = alpha means: the clock coordinate still carries the OLD gap M - Sold, i.e. the block did not register the new runner-up)
+  lowest threshold against the current runner-up, all states t = 2..8 with M > 0.3 and a1 >= 1:  quantiles of (min_j theta_j(t+1) - S_t+)/M
+    5%, 25%, 50%, 75%, 95%: [-0.0906 -0.0327  0.0158  0.087   0.3783]   P(min theta > S+): 0.5650049909101823
+    a1 = 1: median -0.036, IQR [-0.0533 -0.0194], P(min theta > S+) = 0.054
+    a1 = 2: median +0.016, IQR [-0.0335  0.0465], P(min theta > S+) = 0.597
+    a1 = 3: median +0.019, IQR [-0.0168  0.0618], P(min theta > S+) = 0.639
+    a1 = 4: median +0.159, IQR [0.0553 0.2899], P(min theta > S+) = 0.898
+    a1 = 5: median +0.189, IQR [0.0621 0.3424], P(min theta > S+) = 0.872
+    a1 = 6: median +0.146, IQR [0.0242 0.2866], P(min theta > S+) = 0.805
+    a1 = 7: median +0.066, IQR [-0.0332  0.1936], P(min theta > S+) = 0.659
+    a1 = 8: median -0.018, IQR [-0.0848  0.0733], P(min theta > S+) = 0.446
+  => a later input x with S < x < min_j theta_j would be a new runner-up that switches no comparator off.
+    age of max at t = 0: P(all four stay on | x_(t+1) is a new runner-up) = 0.204  (n = 132005)
+    age of max at t = 1: P(all four stay on | x_(t+1) is a new runner-up) = 0.217  (n = 131431)
+    age of max at t = 2: P(all four stay on | x_(t+1) is a new runner-up) = 0.186  (n = 80484)
+    age of max at t = 3: P(all four stay on | x_(t+1) is a new runner-up) = 0.168  (n = 52414)
+    age of max at t = 4: P(all four stay on | x_(t+1) is a new runner-up) = 0.557  (n = 34331)
+    age of max at t = 5: P(all four stay on | x_(t+1) is a new runner-up) = 0.665  (n = 21662)
+    age of max at t = 6: P(all four stay on | x_(t+1) is a new runner-up) = 0.584  (n = 12393)
+    age of max at t = 7: P(all four stay on | x_(t+1) is a new runner-up) = 0.434  (n = 5431)
+
+=== (e) does unit 2 hold only the running max?  h_2(t) ~ a M_(t-1) + b S_(t-1)+, states with a1(t) = age >= 1, M > 0.3 (seed 5015) ===
+  age 1: h2 ~ 17.58 M +0.96 S+  (b/a = +0.055);  M alone: 17.94 M, uncentred R2 0.9994;  std of h2/M = 0.45; share of the variance of h2/M explained by S+/M: 0.536
+  age 2: h2 ~ 17.21 M +1.09 S+  (b/a = +0.064);  M alone: 17.68 M, uncentred R2 0.9994;  std of h2/M = 0.45; share of the variance of h2/M explained by S+/M: 0.678
+  age 3: h2 ~ 18.30 M +0.55 S+  (b/a = +0.030);  M alone: 18.56 M, uncentred R2 0.9998;  std of h2/M = 0.29; share of the variance of h2/M explained by S+/M: 0.350
+  age 4: h2 ~ 17.34 M +1.56 S+  (b/a = +0.090);  M alone: 18.13 M, uncentred R2 0.9993;  std of h2/M = 0.50; share of the variance of h2/M explained by S+/M: 0.865
+  age 5: h2 ~ 14.84 M +3.66 S+  (b/a = +0.247);  M alone: 16.82 M, uncentred R2 0.9963;  std of h2/M = 1.10; share of the variance of h2/M explained by S+/M: 0.899
+  age 6: h2 ~ 12.08 M +5.84 S+  (b/a = +0.483);  M alone: 15.36 M, uncentred R2 0.9887;  std of h2/M = 1.75; share of the variance of h2/M explained by S+/M: 0.825
+  age 7: h2 ~ 10.45 M +6.94 S+  (b/a = +0.665);  M alone: 14.48 M, uncentred R2 0.9818;  std of h2/M = 2.10; share of the variance of h2/M explained by S+/M: 0.758
+  age 8: h2 ~ 10.84 M +6.37 S+  (b/a = +0.588);  M alone: 14.64 M, uncentred R2 0.9846;  std of h2/M = 1.94; share of the variance of h2/M explained by S+/M: 0.704
+
+=== (c) one-step perturbation of the comparator thresholds in the real network (seed 5016) ===
+  at step t0 + 1 the four thresholds are shifted: theta -> theta + delta * pattern, delta = 0.05 * M_t0 (states with M_t0 > 0.3);
+  pattern 'common' = (1,1,1,1); 'difference' = a unit-4-like kick, w4*b4 minus its mean, rescaled to norm 2. Reported: |change of theta(t0+2)| etc.
+  t0 = 3, common     +0.05 M, all four on at t1, unit 4 off  (n = 228728): mean |d theta|/|pert| after 1, 2, 3 steps: 0.008, 0.011, 0.009;  mean |d z_c| per unit: 0.012, 0.017, 0.014;  answer changed: 0.0027
+  t0 = 3, common     +0.05 M, 1-3 on at t1                   (n =  65443): mean |d theta|/|pert| after 1, 2, 3 steps: 0.486, 0.358, 0.263;  mean |d z_c| per unit: 0.753, 0.606, 0.460;  answer changed: 0.0622
+  t0 = 3, common     +0.05 M, none on at t1                  (n =  47654): mean |d theta|/|pert| after 1, 2, 3 steps: 0.021, 0.045, 0.045;  mean |d z_c| per unit: 0.035, 0.097, 0.079;  answer changed: 0.0186
+  t0 = 3, common     -0.05 M, all four on at t1, unit 4 off  (n = 228728): mean |d theta|/|pert| after 1, 2, 3 steps: 0.014, 0.017, 0.013;  mean |d z_c| per unit: 0.022, 0.025, 0.021;  answer changed: 0.0054
+  t0 = 3, common     -0.05 M, 1-3 on at t1                   (n =  65443): mean |d theta|/|pert| after 1, 2, 3 steps: 0.510, 0.393, 0.296;  mean |d z_c| per unit: 0.789, 0.681, 0.520;  answer changed: 0.0702
+  t0 = 3, common     -0.05 M, none on at t1                  (n =  47654): mean |d theta|/|pert| after 1, 2, 3 steps: 0.000, 0.000, 0.000;  mean |d z_c| per unit: 0.000, 0.000, 0.000;  answer changed: 0.0000
+  t0 = 3, difference +0.05 M, all four on at t1, unit 4 off  (n = 228728): mean |d theta|/|pert| after 1, 2, 3 steps: 1.329, 0.980, 0.685;  mean |d z_c| per unit: 1.916, 1.439, 1.078;  answer changed: 0.1086
+  t0 = 3, difference +0.05 M, 1-3 on at t1                   (n =  65443): mean |d theta|/|pert| after 1, 2, 3 steps: 1.175, 0.955, 0.709;  mean |d z_c| per unit: 1.855, 1.494, 1.171;  answer changed: 0.0927
+  t0 = 3, difference +0.05 M, none on at t1                  (n =  47654): mean |d theta|/|pert| after 1, 2, 3 steps: 0.022, 0.049, 0.050;  mean |d z_c| per unit: 0.032, 0.111, 0.091;  answer changed: 0.0229
+  t0 = 3, difference -0.05 M, all four on at t1, unit 4 off  (n = 228728): mean |d theta|/|pert| after 1, 2, 3 steps: 1.332, 1.015, 0.726;  mean |d z_c| per unit: 1.919, 1.479, 1.137;  answer changed: 0.0835
+  t0 = 3, difference -0.05 M, 1-3 on at t1                   (n =  65443): mean |d theta|/|pert| after 1, 2, 3 steps: 1.171, 0.983, 0.749;  mean |d z_c| per unit: 1.843, 1.554, 1.241;  answer changed: 0.0886
+  t0 = 3, difference -0.05 M, none on at t1                  (n =  47654): mean |d theta|/|pert| after 1, 2, 3 steps: 0.008, 0.007, 0.007;  mean |d z_c| per unit: 0.015, 0.013, 0.010;  answer changed: 0.0004
+  (Bc alone predicts for 'common': |Bc 1|/2 = 0.0082; for 'difference': |Bc kick|/2 = 1.331, |Bc^2 kick|/2 = 1.236, |Bc^3 kick|/2 = 1.033)
+  t0 = 5, common     +0.05 M, all four on at t1, unit 4 off  (n = 287818): mean |d theta|/|pert| after 1, 2, 3 steps: 0.008, 0.016, 0.013;  mean |d z_c| per unit: 0.012, 0.023, 0.020;  answer changed: 0.0074
+  t0 = 5, common     +0.05 M, 1-3 on at t1                   (n =  48374): mean |d theta|/|pert| after 1, 2, 3 steps: 0.492, 0.394, 0.300;  mean |d z_c| per unit: 0.771, 0.650, 0.514;  answer changed: 0.0948
+  t0 = 5, common     +0.05 M, none on at t1                  (n =  41834): mean |d theta|/|pert| after 1, 2, 3 steps: 0.023, 0.045, 0.045;  mean |d z_c| per unit: 0.037, 0.094, 0.080;  answer changed: 0.0228
+  t0 = 5, common     -0.05 M, all four on at t1, unit 4 off  (n = 287818): mean |d theta|/|pert| after 1, 2, 3 steps: 0.013, 0.021, 0.017;  mean |d z_c| per unit: 0.020, 0.032, 0.027;  answer changed: 0.0109
+  t0 = 5, common     -0.05 M, 1-3 on at t1                   (n =  48374): mean |d theta|/|pert| after 1, 2, 3 steps: 0.517, 0.431, 0.336;  mean |d z_c| per unit: 0.809, 0.729, 0.580;  answer changed: 0.1009
+  t0 = 5, common     -0.05 M, none on at t1                  (n =  41834): mean |d theta|/|pert| after 1, 2, 3 steps: 0.000, 0.000, 0.000;  mean |d z_c| per unit: 0.000, 0.000, 0.000;  answer changed: 0.0000
+  t0 = 5, difference +0.05 M, all four on at t1, unit 4 off  (n = 287818): mean |d theta|/|pert| after 1, 2, 3 steps: 1.330, 1.053, 0.776;  mean |d z_c| per unit: 1.917, 1.536, 1.214;  answer changed: 0.1792
+  t0 = 5, difference +0.05 M, 1-3 on at t1                   (n =  48374): mean |d theta|/|pert| after 1, 2, 3 steps: 1.043, 0.874, 0.667;  mean |d z_c| per unit: 1.655, 1.371, 1.103;  answer changed: 0.1231
+  t0 = 5, difference +0.05 M, none on at t1                  (n =  41834): mean |d theta|/|pert| after 1, 2, 3 steps: 0.024, 0.048, 0.049;  mean |d z_c| per unit: 0.035, 0.106, 0.089;  answer changed: 0.0263
+  t0 = 5, difference -0.05 M, all four on at t1, unit 4 off  (n = 287818): mean |d theta|/|pert| after 1, 2, 3 steps: 1.330, 1.079, 0.811;  mean |d z_c| per unit: 1.916, 1.567, 1.262;  answer changed: 0.1827
+  t0 = 5, difference -0.05 M, 1-3 on at t1                   (n =  48374): mean |d theta|/|pert| after 1, 2, 3 steps: 1.022, 0.882, 0.692;  mean |d z_c| per unit: 1.620, 1.407, 1.150;  answer changed: 0.1044
+  t0 = 5, difference -0.05 M, none on at t1                  (n =  41834): mean |d theta|/|pert| after 1, 2, 3 steps: 0.008, 0.008, 0.007;  mean |d z_c| per unit: 0.015, 0.013, 0.011;  answer changed: 0.0010
+  (Bc alone predicts for 'common': |Bc 1|/2 = 0.0082; for 'difference': |Bc kick|/2 = 1.331, |Bc^2 kick|/2 = 1.236, |Bc^3 kick|/2 = 1.033)
+
+=== (d) closed-core hybrids: accuracy by gaps (seed 5017) ===
+  rows: network; columns: all | S > 0.3 & both relative gaps > 0.2 ('easy') | easy & gaps > 0.4 | (M-S)/M <= 0.1 | (S-T)/S <= 0.1 (S > 0.3)
+  intact                      : 0.9531 | 0.9984 (n = 151031) | 0.9990 (n = 43384) | 0.9304 | 0.8597
+  F closed core (plain)       : 0.5085 | 0.6301 (n = 151031) | 0.6877 (n = 43384) | 0.4473 | 0.3413
+  G closed core (compensated) : 0.4910 | 0.6071 (n = 151031) | 0.6562 (n = 43384) | 0.4243 | 0.2999
+  P1 wave->comp level-only    : 0.5799 | 0.6795 (n = 151031) | 0.6783 (n = 43384) | 0.5208 | 0.4176
+  P3 uniform b2               : 0.6558 | 0.7382 (n = 151031) | 0.7437 (n = 43384) | 0.5535 | 0.5027

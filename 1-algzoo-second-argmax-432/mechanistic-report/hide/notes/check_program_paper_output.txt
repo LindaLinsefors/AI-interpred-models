@@ -1,0 +1,112 @@
+
+====================================================================================================
+A. Numbers that can be read off the weights
+====================================================================================================
+input weights w: [  0.069 -10.565   0.015  -0.123  10.157  -0.281 -10.996 -13.169 -12.312  -0.228   0.06    0.148   0.298  -0.047  -1.321  -0.119]
+  paper p.2: n4 +10.16, n1 -10.56, n6 -11.00, n8 -12.31, n7 -13.17
+W_hh[2,2] = 0.9688, W_hh[2,4] = 1.7307     (paper p.2: 0.97 and 1.73)
+W_out[9,4] = -4.9917, w4*W_out[9,4] = -50.70     (paper p.8: -4.99 and -50.7)
+eigenvalues of the resting map A = G_rest W_hh (modulus, angle):   (paper Table 2)
+    1.0099     +0.00 deg
+    0.9735     +0.00 deg
+    0.9509    -42.75 deg
+    0.9509    +42.75 deg
+    0.9370    +83.28 deg
+    0.9370    -83.28 deg
+    0.9283   +180.00 deg
+    0.8373   +124.78 deg
+    0.8373   -124.78 deg
+    0.7350    -42.99 deg
+    0.7350    +42.99 deg
+    0.2310     +0.00 deg
+    0.0010     +0.00 deg
+W_hh G w, resting gates (per unit of an arriving input, next step): [-0.432 -0.086 -0.005 -0.25   0.01  18.009  0.034  0.02   0.128 84.335 -0.027  0.016  0.004 -0.039 -0.392 -0.187]
+  to n5 18.0, to n9 84.3, largest other |.| 0.43   (paper p.6: 18.0, 84.3, at most 0.4)
+same with n8 off: [-10.195  -1.568   1.898 -13.475  -0.994   7.546  -0.976   2.072   7.705  70.895  -2.605  -1.987  -3.437  -3.596  -1.192  -9.095]   (paper Fig. 4a purple; n9 71)
+W_hh[5,j]*w_j for j = 1, 6, 7, 8: [ 0.005 -0.167  7.813 10.462]   W_hh[5,4]*w4 = 12.06   W_hh[9,4]*w4 = 1.48
+Fig. 5(a) reconstruction  W_out A^(8-p) G_rec W_hh (G_rest w), rows p = 2..8, columns = logit position:
+[[-44. -31.  72.  19. -14.   3.  -5.  10.  13. -23.]
+ [-34. -36. -27.  76.  18.   1.   8.   0.  14. -20.]
+ [-26. -30. -31. -23.  71.  20.   9.  15.   9. -12.]
+ [ -8. -26. -29. -26. -15.  70.  20.   9.  15. -10.]
+ [  3.  -8. -24. -24. -19. -12.  67.  21.   9.  -9.]
+ [ -1.   1.  -6. -17. -15. -15.  -9.  62.  20.  -9.]
+ [ -4.  -2.  -2.  -6.  -9. -11. -12.  -6.  62.  -8.]]
+  own position: [72.  75.7 71.  69.5 66.6 61.5 62.2]   (paper: 72 76 71 70 67 62 62)
+  one position later: [19.3 17.9 19.7 20.2 20.7 19.9]   (paper: about +20)
+constructed pair (p.11-12): answers [3 0]  margin logit3 - logit0: [ 2.747 -2.713]  difference 5.46   (paper: answers 3 and 0, difference 5.5)
+
+====================================================================================================
+B. Accuracy, kinds of mistake, margins, near ties (N = 2^20, fp32)
+====================================================================================================
+accuracy 95.31%   (paper 95.3%)
+answers third largest 2.97%, maximum 0.94%, smaller input 0.78%   (paper 2.97%, 0.95%, 0.76%)
+errors with the answer within 0.05 of the runner-up: 64.8% of errors; third 48.3%, maximum 14.8%, smaller 1.6%   (paper 65%, 48%, 15%, 2%)
+median logit margin: mistakes 1.04, correct 8.57   (paper 1.0 and 8.5)
+runner-up/third within 0.05: 12.0% of inputs, network right on 77.4%   (paper 78%)
+no near tie among the top three: 81.3% of inputs, network right on 98.49%   (paper 98.4%)
+median logit[runner-up] - logit[maximum]: 12.7   (paper +12)
+runner-up at the last position: 10.0%   (paper: about a tenth)
+
+====================================================================================================
+C. Gates and thresholds (N = 2^18, float64)
+====================================================================================================
+n9's gate equals n4's gate one step earlier, steps 1-9: 98.97%   (paper p.2: 99.0%)
+a new maximum switches n1, n6, n7, n8 all off: arrivals at steps 1-9 85.9%, steps 2-9 89.8%   (paper p.8: 86%)
+a new maximum passes each threshold: steps 1-9 {4: '89.91%', 1: '88.17%', 6: '88.86%', 7: '89.43%', 8: '89.10%'}  steps 2-9 {4: '95.17%', 1: '92.78%', 6: '93.58%', 7: '94.60%', 8: '93.94%'}   (paper p.6: 93-95%)
+an input below the runner-up so far (steps 2-9) passes: {4: '0.01%', 1: '0.48%', 6: '0.50%', 7: '0.01%', 8: '0.31%'}   (paper p.6: at most 0.5% each)
+new runners-up (steps 2-9): pass n8's threshold and not n7's 52.4% (paper: about half); pass none 32.5%; pass n4's (misfire) 5.9%
+steps with the input below the runner-up so far: all thirteen on 34.3%, exact resting pattern 16.9%   (paper p.5: 34%, 17%)
+n5 on one step after a new maximum (steps 1-8): all 89.9%; input > 0: 99.9%; input < 0: 5.0%
+n5 on one step after a new runner-up (steps 2-8): all 77.8%; input > 0: 99.9%; input < 0: 7.2%
+final runner-up arriving before the last step is recorded (n5 on at the next step): 99.2%   (paper p.6: 99%)
+median threshold position (theta_j - 2nd)/(max - 2nd) by age of the maximum 1..9 (arrivals at steps 2-9, gap > 0.2; Fig. 3 circles):
+    n4: [0.986 0.975 0.949 0.855 0.73  0.629 0.617 0.699 0.815]
+    n7: [1.021 1.017 1.006 0.874 0.683 0.557 0.554 0.658 0.835]
+    n6: [-0.044  0.695  1.042  1.192  1.078  0.809  0.497  0.321  0.358]
+    n1: [ 0.854 -0.009  0.287  0.824  1.302  1.424  1.132  0.589  0.07 ]
+    n8: [0.058 0.378 0.072 0.059 0.424 0.974 1.421 1.491 1.158]
+
+====================================================================================================
+D. Own effects as Jacobian entries d logit_q / d x_p along the actual gates (N = 2^18)
+====================================================================================================
+homogeneity (Euler) check, max |logits - J x| = 1.8e-12
+the final maximum's own effect by its age 0..9: median [quartiles] mean, and with the commonest joint gate pattern at each step   (Fig. 6a)
+    age 0:  -51.8 [ -51.9,  -51.6]  mean  -51.0   commonest gates  -51.8
+    age 1:  -28.2 [ -28.3,  -26.5]  mean  -28.4   commonest gates  -28.2
+    age 2:   -5.1 [  -6.2,   -2.2]  mean   -8.8   commonest gates   -6.1
+    age 3:   -6.4 [  -9.9,   -4.2]  mean  -12.1   commonest gates   -7.0
+    age 4:   -6.4 [ -12.2,   -4.8]  mean  -13.8   commonest gates   -7.1
+    age 5:   -8.4 [ -14.8,   -6.4]  mean  -19.2   commonest gates   -8.3
+    age 6:   -9.0 [ -14.6,   -6.8]  mean  -21.7   commonest gates   -7.8
+    age 7:   -6.8 [ -14.0,   -4.9]  mean  -22.6   commonest gates   -7.5
+    age 8:   -4.7 [ -23.3,   -2.5]  mean  -21.9   commonest gates   -5.1
+    age 9:   -3.7 [ -32.5,    0.3]  mean  -24.5   commonest gates   -0.5
+mean own effect of a final maximum aged 2-9 by neuron group: {'n1 n6 n7 n8': -72.2, 'n4': -0.1, 'n0 n9 n5': -0.1, 'memory': 54.2}  total -18.1   (Fig. 6c green: -72, 0, 0, +54, total -18)
+medians: dL_2nd/dx_2nd 42.7, dL_max/dx_2nd 37.4, dL_max/dx_max -8.4, dL_2nd/dx_max 1.8; P(dL_max/dx_2nd >= dL_2nd/dx_2nd) = 0.50
+margin L_2nd - L_max: median 12.7 = terms in x_max 16.2 + terms in x_2nd -0.1 + other inputs -2.1 (each a median)
+  (paper p.8: 'the runner-up's trace raises the maximum's logit at least as much as its own'; median margin +12)
+
+====================================================================================================
+E. Max-detector misfires on new runners-up within 0.05 of the maximum, by age of the maximum 1..9 (N = 2^21)
+====================================================================================================
+  every such event at steps 2-9: [0.169 0.299 0.462 0.807 0.921 0.961 0.967 0.922 0.799]
+  only the sequence's final maximum and runner-up: [0.267 0.48  0.611 0.897 0.962 0.98  0.979 0.927 0.799]
+  (paper p.6: 27% at age 1 and 96-98% at ages 5-7)
+
+====================================================================================================
+F. The Appendix B program exactly as printed, against the network (N = 2^15)
+====================================================================================================
+network accuracy 95.30%, idealised accuracy 96.57%   (paper 95.3%, 96.6%)
+agreement 93.24%, network's mistakes kept 5.2%   (paper 93.2%, 6%)
+both right 93.00%, only idealised 3.57%, only network 2.30%   (paper 92.9%, 3.7%, 2.4%)
+runner-up/third near ties: idealised right 90.2%, network 77.7%; no near tie: idealised 97.57%, network 98.54%   (paper 91%, 78%; 97.3%, 98.4%)
+correlation of each emitted neuron with the network's, all steps pooled   (paper: comparators, pulses, n2 0.96-1.00; other tape 0.67-0.88):
+    {'n0': 0.715, 'n1': 0.977, 'n2': 0.955, 'n3': 0.672, 'n4': 0.998, 'n5': 0.967, 'n6': 0.988, 'n7': 0.992, 'n8': 0.982, 'n9': 0.975, 'n10': 0.877, 'n11': 0.868, 'n12': 0.802, 'n13': 0.841, 'n14': 0.796, 'n15': 0.736}
+its four comparators put in place of the network's together: agreement 27.9%   (paper 28%)
+one neuron replaced at a time: {'n1': '34.9%', 'n6': '39.2%', 'n7': '33.5%', 'n8': '48.8%', 'n4': '95.4%', 'n5': '74.6%', 'n9': '97.7%'}   (paper Table 4: worst comparator 33%)
+numeric literals in the printed program: 2 (ROT) + 4 + 9 + 4 + 16 + 108 + 27 in step() = 170
+idealised tape neurons, maximum alone (S = 0, no reset): h_i = M [c_i + rho_i cos(phi - phi_i)]_+ ; c_i = [10.5 12.5  3.  10.5 10.  13.   5.5 10.5  8. ]  rho_i = [3.54 1.12 1.   4.53 4.61 5.22 0.5  3.5  4.24]  rho_i/c_i = [0.34 0.09 0.33 0.43 0.46 0.4  0.09 0.33 0.53]
+share of steps on which a tape neuron is clipped (activation 0), steps with two positive inputs so far; order n0 n2 n3 n10..n15:
+    idealised program: [0.061 0.    0.151 0.046 0.077 0.035 0.    0.004 0.09 ]  all nine on: 66.8%
+    network:           [0.201 0.    0.238 0.083 0.089 0.037 0.003 0.058 0.274]  all nine on: 37.4%

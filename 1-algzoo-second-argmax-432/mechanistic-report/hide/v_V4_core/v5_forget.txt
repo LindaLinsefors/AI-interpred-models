@@ -1,0 +1,76 @@
+=== (a) geometry of Bc ===
+singular values: [2.0738 0.9547 0.1895 0.0044]
+right singular vectors (rows):
+ [[-0.3078 -0.4219  0.8455 -0.1116]
+ [ 0.2507 -0.7095 -0.1791  0.6338]
+ [ 0.7822 -0.2495  0.0858 -0.5644]
+ [-0.4801 -0.5064 -0.4957 -0.517 ]]
+|cos(1, smallest right singular vector)| = 0.99963;  |Bc 1| = 0.01650;  |Bc|_F = 2.2909;  ratio rho = |Bc 1| / (|Bc|_F |1|) = 0.00360
+column sums 1^T Bc (the common level of the OUTPUT is not removed): [ 0.743   1.244  -2.5489  0.5391]
+right eigenvector of the rotating pair (lambda = 0.6905+0.6341j): [ 0.2061+0.5713j -0.1315+0.0953j  0.0469-0.1474j  0.7621+0.j    ]
+   its common-level fraction |mean|^2*4 / |v|^2 = 0.2626  (0 would mean the rotating plane consists of pure differences)
+eigenvalues of P Bc P (differences -> differences): [0.6909+0.6315j 0.6909-0.6315j 0.0874+0.j     0.    +0.j    ]
+|Bc - Bc P|_F (what is lost by first removing the common level of the input): 0.00824934144968898
+|Bc - P Bc|_F (what is lost by removing the common level of the output): 1.4905690473963031
+the two 'dying' eigenvectors (|lambda| = 0.043) of Bc:
+ [[0.3572-0.0561j 0.5381-0.0168j 0.4622-0.0327j 0.6039+0.j    ]
+ [0.3572+0.0561j 0.5381+0.0168j 0.4622+0.0327j 0.6039-0.j    ]]
+   fraction of 1 inside that invariant plane: 0.99997
+   Bc^2 1 = [-0.0128 -0.0034  0.0003 -0.0086]   Bc^3 1 = [-0.0079  0.0012  0.0002 -0.0126]
+   direction in the dying plane orthogonal to (the projection of) 1: [ 0.72   -0.2371  0.1515 -0.6344]  |Bc other| = 0.2588615598578609  |Bc^2 other| = 0.0208101175824826
+   so a threshold pattern along this direction is passed on once (factor 0.259 ) and is gone after two steps
+
+=== (b) random 4x4 matrices: rho = |G 1| / (|G|_F |1|); observed rho(Bc) above ===
+  iid Gaussian: median rho = 0.4778, min over 2000000 = 0.01515, P(rho <= 0.00360) = 0.00e+00
+     analytic small-rho law P(rho <= r) ~ (16 r^2)^2 / 8 = 5.38e-09
+  entries of Bc randomly permuted (400k): median rho = 0.4164, min = 0.00385, P(rho <= obs) = 0.00e+00
+  entries of Bc with random signs (all 65536 patterns sampled 400k times): median rho = 0.5084, min = 0.00353, P(rho <= obs) = 5.20e-04
+  Bc itself, random unit direction v instead of 1/2: median |Bc v|/|Bc|_F = 0.4391, P(<= obs) = 0.00e+00
+  near-singularity alone: sigma_min/|.|_F of Bc = 0.00191; Gaussian: median 0.0755, P(<= obs) = 1.38e-02
+
+=== (c) raw form: W[Q,Q] w[Q] for every 4-subset Q of the 16 units; rho(Q) = |W[Q,Q] w[Q]| / (|W[Q,Q]|_F |w[Q]|) ===
+  COMP = [1, 6, 7, 8]: rho = 0.00383, rank 1 of 1820 subsets (smallest first)
+  five smallest: [(np.float64(0.00383), [1, 6, 7, 8]), (np.float64(0.06357), [2, 7, 12, 13]), (np.float64(0.07749), [1, 2, 6, 7]), (np.float64(0.07837), [1, 6, 7, 14]), (np.float64(0.08987), [2, 6, 7, 14])]
+  median over subsets: 0.5666
+  rows: |W[u,COMP] . w[COMP]| / (|W[u,COMP]| |w[COMP]|) is claim K2 (max 0.038 without units 5, 9).
+  the same for the WAVE columns: cos(W[u,WAVE], w[WAVE]) per unit u:
+     [-0.5081 -0.1306 -0.0061 -0.3206  0.0313 -0.1334 -0.1303  0.0372 -0.0104 -0.6339  0.2263  0.3575 -0.2239  0.0816 -0.314  -0.0572]
+  and W[u,WAVE].w[WAVE] (raw) per unit u: [-0.4462 -0.0944 -0.0082 -0.7698  0.0215 -0.1054 -0.0992  0.0347 -0.009  -0.1212  0.3469  0.4033 -0.3087  0.1304 -0.3498 -0.1494]
+  W[u,COMP].w[COMP] (raw) per unit u:    [ 0.0144  0.0087  0.0031  0.5195 -0.0114 18.114   0.1328 -0.0149  0.1373 84.4559 -0.3743 -0.3877  0.3125 -0.169  -0.042  -0.0376]
+  W[u,:].w (all 16 columns) per unit u:   [  6.1913   8.8877  17.6287   3.3439 -10.0201  30.1162  -0.3099  13.3914  -0.2728  85.9294  17.7726  17.2993  12.8291   4.6894   8.7174   1.8664]
+  |w[COMP]| = 23.612045350639058  |w[WAVE]| = 1.3765483306436324  |w[PULSE]| = 10.163418390071838
+
+  sensitivity of each unit's next pre-activation to x_t through the comparators alone, W[u,COMP].w[COMP], relative to its direct input weight w[u]:
+    unit  0: via comparators  +0.0144   direct w[u]  +0.0692   via all 13 ORD units  -0.4318
+    unit  1: via comparators  +0.0087   direct w[u] -10.5648   via all 13 ORD units  -0.0857
+    unit  2: via comparators  +0.0031   direct w[u]  +0.0146   via all 13 ORD units  -0.0051
+    unit  3: via comparators  +0.5195   direct w[u]  -0.1227   via all 13 ORD units  -0.2503
+    unit  4: via comparators  -0.0114   direct w[u] +10.1570   via all 13 ORD units  +0.0101
+    unit  5: via comparators +18.1140   direct w[u]  -0.2813   via all 13 ORD units +18.0085
+    unit  6: via comparators  +0.1328   direct w[u] -10.9957   via all 13 ORD units  +0.0336
+    unit  7: via comparators  -0.0149   direct w[u] -13.1687   via all 13 ORD units  +0.0198
+    unit  8: via comparators  +0.1373   direct w[u] -12.3123   via all 13 ORD units  +0.1283
+    unit  9: via comparators +84.4559   direct w[u]  -0.2276   via all 13 ORD units +84.3346
+    unit 10: via comparators  -0.3743   direct w[u]  +0.0598   via all 13 ORD units  -0.0273
+    unit 11: via comparators  -0.3877   direct w[u]  +0.1480   via all 13 ORD units  +0.0156
+    unit 12: via comparators  +0.3125   direct w[u]  +0.2980   via all 13 ORD units  +0.0037
+    unit 13: via comparators  -0.1690   direct w[u]  -0.0470   via all 13 ORD units  -0.0387
+    unit 14: via comparators  -0.0420   direct w[u]  -1.3207   via all 13 ORD units  -0.3918
+    unit 15: via comparators  -0.0376   direct w[u]  -0.1191   via all 13 ORD units  -0.1870
+
+=== (d) data (seed 5011, n = 400000): exact d theta_j(t+1) / d x_t = (W[j,:] diag(gate_t) w) / g_j, by gate pattern at t ===
+  columns: j = 1, 6, 7, 8.   'total' uses all 16 units, 'via comparators' only the four comparators
+  all four comparators on, unit 4 off    frac of step-states 0.6609: total mean [-0.0053  0.0063  0.0011  0.0106]  mean|.| [0.0071 0.0063 0.0013 0.0106]   via comparators mean [ 0.0008  0.0121 -0.0011  0.0112]
+  3 on, unit 4 off                       frac of step-states 0.0357: total mean [ 0.1516 -0.0622  0.0388  0.5221]  mean|.| [0.3397 0.1271 0.1257 0.5522]   via comparators mean [ 0.1586 -0.0555  0.0363  0.5222]
+  2 on, unit 4 off                       frac of step-states 0.0607: total mean [0.6566 0.0978 0.0285 0.8089]  mean|.| [0.6762 0.2578 0.0362 0.826 ]   via comparators mean [0.6576 0.0984 0.0259 0.8083]
+  1 on, unit 4 off                       frac of step-states 0.0106: total mean [ 1.2919  0.1497 -0.0752  1.1562]  mean|.| [1.2962 0.1503 0.076  1.1657]   via comparators mean [ 1.2929  0.1502 -0.0779  1.1551]
+  0 on, unit 4 off                       frac of step-states 0.0000: total mean [-0.0068 -0.0068  0.0025 -0.0005]  mean|.| [0.0078 0.0079 0.0025 0.001 ]   via comparators mean [0. 0. 0. 0.]
+  unit 4 on (any comparators)            frac of step-states 0.2321: total mean [ 0.8088 -0.0474  1.0207 -0.0538]  mean|.| [0.8305 0.0556 1.0207 0.0814]   via comparators mean [-0.0266 -0.0019  0.0027 -0.0207]
+  unit 4 on & number of comparators on: [0.929  0.0412 0.0253 0.0044 0.0001]
+  P(all four comparators on) by step: [0.4998 0.4914 0.5328 0.5894 0.6444 0.7024 0.7475 0.7799 0.8025 0.8193]
+  P(no comparator on) by step:       [0.5002 0.3723 0.291  0.2306 0.186  0.1537 0.1293 0.1102 0.0961 0.0869]
+  P(1..3 on) by step:                [0.     0.1363 0.1762 0.18   0.1696 0.1439 0.1233 0.1099 0.1014 0.0938]
+  t >= 2, x_t new max             : frac 0.1787; P(#comparators on = 0..4) = [0.8978 0.0462 0.0087 0.0013 0.046 ]
+  t >= 2, x_t new runner-up       : frac 0.1781; P(#comparators on = 0..4) = [0.0001 0.0839 0.3675 0.2246 0.3238]
+  t >= 2, x_t new third           : frac 0.1788; P(#comparators on = 0..4) = [0.     0.0001 0.0076 0.0294 0.9628]
+  t >= 2, x_t below the top three : frac 0.4644; P(#comparators on = 0..4) = [0.     0.     0.0001 0.0003 0.9996]

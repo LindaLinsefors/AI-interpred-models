@@ -1,0 +1,7 @@
+n = 152690 (e18's selection)
+edit            | P(answer = old max) | P(old runner-up) | P(new max) | median |z after|/|z before| | share of edited states with a negative unit
+none            |        0.990        |      0.001       |   0.008    |        1.000        |   0.000
+full (report)   |        0.019        |      0.164       |   0.775    |        0.000        |   0.089
+wave units only |        0.022        |      0.168       |   0.749    |        0.920        |   0.067
+comparators only |        0.998        |      0.001       |   0.001    |        0.488        |   0.030
+comparators, z=0 |        0.987        |      0.004       |   0.008    |        0.000        |   0.061

@@ -1,0 +1,17 @@
+n = 107349;  P(ans = p0): unmodified 0.968, old unit-5 pulse removed 0.019;  record at s still gated as a record: 0.822;  h4(s) modified / unmodified: median 0.964
+change of the mode coordinates at s-1 caused by removing the old unit-5 pulse:  median |dm|/|m|   and median |dm|/10.157
+   level  :   0.056      0.048
+   runner :   0.133      0.698
+   clock  :   0.144      0.064
+   h2     :   1.738      0.484
+   alt    :   2.338      0.633
+   h3     :   1.512      0.353
+   short  :   1.008      0.239
+   trans  :   0.448      0.018
+   echo   :   0.007      0.052
+mean logits relative to bystanders          p0       q0        s
+   no-record cf, unmodified                12.33    19.81   -19.41
+   no-record cf, old u5 pulse removed     -12.61    24.65   -19.87
+   with record, unmodified                 41.43    15.65    18.57
+   with record, old u5 pulse removed       15.66    20.75    23.12
+created by the record at p0 (with - without record): unmodified 29.10 ; old unit-5 pulse removed 28.26

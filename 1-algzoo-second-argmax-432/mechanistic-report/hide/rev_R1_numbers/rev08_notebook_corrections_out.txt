@@ -1,0 +1,34 @@
+(1) section 4.1 'The core runs almost by itself' / 'unit 2 moves all four thresholds by the same amount'
+    unmodified accuracy                                             0.9529
+    the 60 weights satellites -> core set to 0                      0.5084
+    b_2 made exactly uniform (W[j,2] = mean(b_2) g_j)               0.6558    b_2 = [0.048 0.049 0.051 0.051]
+    unit 2 -> comparators removed                                   0.2808
+
+(2) section 3.5 item 1: what the wipe does.  P(answer = max) for a wipe at t0 = pM + k, t0 <= 7, final S > 0.2 and gap > 0.2
+    k | comparators x0 | x0.02 | x0.1 | x0.5 | x0 and unit 9 forced off at t0+1 | x0 and unit 5 forced off at t0+1 |  P(unit 9 on at t0+1): x0 / x0.02 / unmodified
+    1 |  0.999 |  0.317 |  0.524 |  0.466 |  0.013 |  0.994 |  1.000 / 0.565 / 0.000   n=145739
+    2 |  1.000 |  0.221 |  0.529 |  0.554 |  0.006 |  1.000 |  1.000 / 0.557 / 0.000   n=124582
+    3 |  0.975 |  0.097 |  0.243 |  0.399 |  0.000 |  0.991 |  1.000 / 0.484 / 0.000   n=103721
+    4 |  0.941 |  0.193 |  0.469 |  0.442 |  0.054 |  1.000 |  1.000 / 0.448 / 0.001   n=83029
+    5 |  0.992 |  0.989 |  0.995 |  0.583 |  0.955 |  0.988 |  1.000 / 0.476 / 0.003   n=62387
+    6 |  1.000 |  1.000 |  1.000 |  0.774 |  1.000 |  1.000 |  1.000 / 0.553 / 0.000   n=41619
+
+(3) section 3.5 item 2: rotation of the clock one step before the overtaking, e18's sample; outcome categories made exclusive
+    k | P(answer = p0 - k), all (as in the report) | share of sequences where p0 - k is the old runner-up or the new max or does not exist | P(answer = p0 - k) given it exists (0 <= p0-k < record step) and is not the old runner-up
+   -2 |   0.321   |   0.187 (is old runner-up: 0.187; is new max: 0.000; outside: 0.000)   |   0.233   (n = 124109)
+   -1 |   0.474   |   0.185 (is old runner-up: 0.185; is new max: 0.000; outside: 0.000)   |   0.363   (n = 124428)
+   +1 |   0.381   |   0.375 (is old runner-up: 0.136; is new max: 0.000; outside: 0.239)   |   0.400   (n = 95451)
+   +2 |   0.249   |   0.552 (is old runner-up: 0.090; is new max: 0.000; outside: 0.462)   |   0.365   (n = 68375)
+
+(4) section 7 'The deposit is a single harmonic': P(answer = third) at separation D = |p_S - p_T| of 7 and 8, split by which of the two comes first
+    selection as e22: the max arrives after both, T > 0.2; relative gap (S - T)/S in (0.03, 0.08] and (0.08, 0.2]
+    D=1 gap (0.03,0.08]: all 0.064 (n=37101) | runner-up earlier than third 0.057 (n=18616) | third earlier than runner-up 0.071 (n=18485) | share with the max at the last step 0.22
+    D=1 gap (0.08,0.2]: all 0.030 (n=80897) | runner-up earlier than third 0.018 (n=40527) | third earlier than runner-up 0.043 (n=40370) | share with the max at the last step 0.22
+    D=4 gap (0.03,0.08]: all 0.018 (n=15417) | runner-up earlier than third 0.016 (n=7737) | third earlier than runner-up 0.021 (n=7680) | share with the max at the last step 0.33
+    D=4 gap (0.08,0.2]: all 0.001 (n=33672) | runner-up earlier than third 0.001 (n=16920) | third earlier than runner-up 0.000 (n=16752) | share with the max at the last step 0.33
+    D=6 gap (0.03,0.08]: all 0.135 (n=6128) | runner-up earlier than third 0.100 (n=3073) | third earlier than runner-up 0.171 (n=3055) | share with the max at the last step 0.50
+    D=6 gap (0.08,0.2]: all 0.025 (n=13629) | runner-up earlier than third 0.014 (n=6842) | third earlier than runner-up 0.035 (n=6787) | share with the max at the last step 0.50
+    D=7 gap (0.03,0.08]: all 0.175 (n=3021) | runner-up earlier than third 0.221 (n=1483) | third earlier than runner-up 0.131 (n=1538) | share with the max at the last step 0.66
+    D=7 gap (0.08,0.2]: all 0.138 (n=6752) | runner-up earlier than third 0.199 (n=3332) | third earlier than runner-up 0.080 (n=3420) | share with the max at the last step 0.67
+    D=8 gap (0.03,0.08]: all 0.331 (n=1038) | runner-up earlier than third 0.007 (n=548) | third earlier than runner-up 0.694 (n=490) | share with the max at the last step 1.00
+    D=8 gap (0.08,0.2]: all 0.124 (n=2255) | runner-up earlier than third 0.008 (n=1132) | third earlier than runner-up 0.241 (n=1123) | share with the max at the last step 1.00

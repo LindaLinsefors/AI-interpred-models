@@ -1,0 +1,65 @@
+n 400000 features 133
+unit  0 base 0.7923 | 1-feat: g9(t-1) 0.9523; R+(t-2) 0.9490; g7(t-2) 0.9451; g4(t-2) 0.9450
+      2-feat [events only]: R+(t-1) & R+(t-2) 0.9959; N+(t-0) & R+(t-2) 0.9490; R+(t-2) & R+(t-7) 0.9490
+      2-feat [lagged gates+events]: R+(t-1) & R+(t-2) 0.9959; R+(t-2) & g7(t-1) 0.9957; R+(t-2) & g4(t-1) 0.9955
+      2-feat [all incl same-step gates]: R+(t-1) & R+(t-2) 0.9959; R+(t-2) & g7(t-1) 0.9957; R+(t-2) & g4(t-1) 0.9955
+unit  1 base 0.7724 | 1-feat: R+(t-0) 0.9339; g4(t) 0.9320; g7(t) 0.9273; g8(t) 0.9172
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9339; R+(t-0) & N+(t-8) 0.9339; R+(t-0) & x(t-0)>0 0.9339
+      2-feat [lagged gates+events]: R+(t-0) & R+(t-8) 0.9339; R+(t-0) & N+(t-8) 0.9339; R+(t-0) & g13(t-1) 0.9339
+      2-feat [all incl same-step gates]: R+(t-0) & g14(t) 0.9439; g4(t) & g14(t) 0.9418; g7(t) & g14(t) 0.9375
+unit  2 base 0.9851 | 1-feat: R+(t-0) 0.9851; N+(t-0) 0.9851; R+(t-1) 0.9851; N+(t-1) 0.9851
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9851; R+(t-0) & N+(t-8) 0.9851; R+(t-0) & x(t-0)>0 0.9851
+      2-feat [lagged gates+events]: g2(t-1) & g9(t-4) 0.9862; g2(t-1) & g5(t-4) 0.9861; g2(t-1) & g2(t-2) 0.9860
+      2-feat [all incl same-step gates]: g2(t-3) & g11(t) 0.9868; g2(t-4) & g11(t) 0.9867; g11(t-5) & g11(t) 0.9867
+unit  3 base 0.7819 | 1-feat: R+(t-0) 0.7819; N+(t-0) 0.7819; R+(t-1) 0.7819; N+(t-1) 0.7819
+      2-feat [events only]: N+(t-2) & R+(t-3) 0.8078; N+(t-2) & R+(t-4) 0.8019; R+(t-2) & R+(t-4) 0.7949
+      2-feat [lagged gates+events]: g0(t-2) & g1(t-2) 0.8204; R+(t-4) & g1(t-2) 0.8193; g1(t-2) & g4(t-4) 0.8191
+      2-feat [all incl same-step gates]: g8(t-3) & g15(t) 0.8433; g1(t-3) & g15(t) 0.8424; g5(t-2) & g15(t) 0.8394
+unit  4 base 0.8191 | 1-feat: g7(t) 0.9948; R+(t-0) 0.9892; g6(t) 0.9426; g1(t) 0.9320
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9892; R+(t-0) & N+(t-8) 0.9892; R+(t-0) & x(t-0)>0 0.9892
+      2-feat [lagged gates+events]: R+(t-0) & R+(t-8) 0.9892; R+(t-0) & N+(t-8) 0.9892; R+(t-0) & g13(t-1) 0.9892
+      2-feat [all incl same-step gates]: R+(t-0) & g7(t) 0.9959; g15(t-2) & g7(t) 0.9948; g11(t-2) & g7(t) 0.9948
+unit  5 base 0.6125 | 1-feat: g8(t-1) 0.9254; g6(t-1) 0.8791; x(t-1)>0 0.8761; g1(t-1) 0.8711
+      2-feat [events only]: R+(t-1) & N+(t-1) 0.9586; R+(t-0) & x(t-1)>0 0.8761; x(t-0)>0 & x(t-1)>0 0.8761
+      2-feat [lagged gates+events]: N+(t-1) & g6(t-1) 0.9601; N+(t-1) & g8(t-1) 0.9599; R+(t-1) & N+(t-1) 0.9586
+      2-feat [all incl same-step gates]: N+(t-1) & g6(t-1) 0.9601; N+(t-1) & g8(t-1) 0.9599; R+(t-1) & N+(t-1) 0.9586
+unit  6 base 0.7795 | 1-feat: R+(t-0) 0.9436; g4(t) 0.9426; g7(t) 0.9406; g8(t) 0.9303
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9436; R+(t-0) & N+(t-8) 0.9436; R+(t-0) & x(t-0)>0 0.9436
+      2-feat [lagged gates+events]: R+(t-0) & g11(t-2) 0.9436; R+(t-0) & g12(t-2) 0.9436; R+(t-0) & g13(t-2) 0.9436
+      2-feat [all incl same-step gates]: R+(t-0) & R+(t-8) 0.9436; R+(t-0) & N+(t-8) 0.9436; R+(t-0) & x(t-0)>0 0.9436
+unit  7 base 0.8208 | 1-feat: g4(t) 0.9948; R+(t-0) 0.9889; g6(t) 0.9406; g1(t) 0.9273
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9889; R+(t-0) & N+(t-8) 0.9889; R+(t-0) & x(t-0)>0 0.9889
+      2-feat [lagged gates+events]: R+(t-0) & R+(t-8) 0.9889; R+(t-0) & N+(t-8) 0.9889; R+(t-0) & g13(t-1) 0.9889
+      2-feat [all incl same-step gates]: R+(t-0) & g4(t) 0.9948; R+(t-7) & g4(t) 0.9948; g0(t-3) & g4(t) 0.9948
+unit  8 base 0.7323 | 1-feat: g6(t) 0.9303; g1(t) 0.9172; g4(t) 0.8988; R+(t-0) 0.8974
+      2-feat [events only]: R+(t-0) & N+(t-0) 0.9526; R+(t-0) & R+(t-8) 0.8974; R+(t-0) & x(t-0)>0 0.8974
+      2-feat [lagged gates+events]: R+(t-0) & N+(t-0) 0.9526; R+(t-0) & R+(t-8) 0.8974; R+(t-0) & g13(t-4) 0.8974
+      2-feat [all incl same-step gates]: R+(t-0) & N+(t-0) 0.9526; N+(t-0) & g4(t) 0.9524; N+(t-0) & g7(t) 0.9524
+unit  9 base 0.7936 | 1-feat: g4(t-1) 0.9913; R+(t-1) 0.9909; g7(t-1) 0.9887; g1(t-1) 0.9354
+      2-feat [events only]: N+(t-0) & R+(t-1) 0.9909; R+(t-1) & N+(t-6) 0.9909; R+(t-1) & x(t-0)>0 0.9909
+      2-feat [lagged gates+events]: g4(t-1) & g8(t-1) 0.9935; g7(t-1) & g8(t-1) 0.9916; R+(t-1) & g4(t-1) 0.9913
+      2-feat [all incl same-step gates]: g4(t-1) & g14(t) 0.9939; g4(t-1) & g8(t-1) 0.9935; R+(t-1) & g14(t) 0.9935
+unit 10 base 0.9239 | 1-feat: g11(t-1) 0.9604; R+(t-0) 0.9239; R+(t-1) 0.9239; N+(t-0) 0.9239
+      2-feat [events only]: N+(t-5) & R+(t-6) 0.9259; R+(t-6) & N+(t-7) 0.9247; R+(t-6) & R+(t-8) 0.9244
+      2-feat [lagged gates+events]: g11(t-1) & g4(t-6) 0.9733; g11(t-1) & g12(t-6) 0.9733; g11(t-1) & g10(t-6) 0.9733
+      2-feat [all incl same-step gates]: g11(t-1) & g4(t-6) 0.9733; g11(t-1) & g12(t-6) 0.9733; g11(t-1) & g11(t-6) 0.9733
+unit 11 base 0.9142 | 1-feat: R+(t-0) 0.9142; N+(t-0) 0.9142; R+(t-1) 0.9142; N+(t-1) 0.9142
+      2-feat [events only]: N+(t-4) & R+(t-5) 0.9207; N+(t-3) & R+(t-5) 0.9185; R+(t-5) & R+(t-8) 0.9177
+      2-feat [lagged gates+events]: g12(t-1) & g4(t-5) 0.9337; R+(t-5) & g12(t-1) 0.9337; g12(t-1) & g12(t-5) 0.9336
+      2-feat [all incl same-step gates]: g12(t-1) & g4(t-5) 0.9337; R+(t-5) & g12(t-1) 0.9337; g12(t-1) & g12(t-5) 0.9336
+unit 12 base 0.9550 | 1-feat: R+(t-0) 0.9550; N+(t-0) 0.9550; R+(t-1) 0.9550; N+(t-1) 0.9550
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9550; R+(t-0) & N+(t-8) 0.9550; R+(t-0) & x(t-0)>0 0.9550
+      2-feat [lagged gates+events]: R+(t-8) & g2(t-5) 0.9550; N+(t-5) & g13(t-4) 0.9550; R+(t-0) & N+(t-6) 0.9550
+      2-feat [all incl same-step gates]: g14(t-4) & g11(t) 0.9584; g13(t-4) & g11(t) 0.9584; g5(t-4) & g11(t) 0.9584
+unit 13 base 0.9868 | 1-feat: R+(t-0) 0.9868; N+(t-0) 0.9868; R+(t-1) 0.9868; N+(t-1) 0.9868
+      2-feat [events only]: R+(t-0) & R+(t-8) 0.9868; R+(t-0) & N+(t-8) 0.9868; R+(t-0) & x(t-0)>0 0.9868
+      2-feat [lagged gates+events]: g10(t-1) & g6(t-3) 0.9875; g10(t-1) & g14(t-3) 0.9875; g10(t-1) & g13(t-3) 0.9874
+      2-feat [all incl same-step gates]: g10(t-1) & g14(t) 0.9890; g11(t-1) & g14(t) 0.9889; g2(t-1) & g3(t) 0.9883
+unit 14 base 0.9206 | 1-feat: g13(t) 0.9231; R+(t-0) 0.9206; R+(t-1) 0.9206; N+(t-0) 0.9206
+      2-feat [events only]: R+(t-0) & R+(t-2) 0.9209; R+(t-0) & R+(t-8) 0.9206; R+(t-0) & x(t-0)>0 0.9206
+      2-feat [lagged gates+events]: R+(t-0) & g10(t-3) 0.9343; R+(t-0) & g2(t-3) 0.9334; x(t-1)>0 & g13(t-2) 0.9334
+      2-feat [all incl same-step gates]: g12(t-3) & g1(t) 0.9425; g2(t-3) & g1(t) 0.9421; g10(t-3) & g1(t) 0.9420
+unit 15 base 0.7486 | 1-feat: N+(t-2) 0.7870; R+(t-0) 0.7486; R+(t-1) 0.7486; N+(t-0) 0.7486
+      2-feat [events only]: N+(t-2) & R+(t-7) 0.7986; N+(t-2) & R+(t-8) 0.7958; R+(t-3) & x(t-2)>0 0.7946
+      2-feat [lagged gates+events]: g6(t-2) & g14(t-2) 0.8133; N+(t-2) & g2(t-6) 0.8080; g5(t-2) & g8(t-2) 0.8078
+      2-feat [all incl same-step gates]: g6(t-2) & g14(t-2) 0.8133; N+(t-2) & g2(t-6) 0.8080; g5(t-2) & g8(t-2) 0.8078

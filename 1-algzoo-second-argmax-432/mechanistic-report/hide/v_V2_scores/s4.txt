@@ -1,0 +1,60 @@
+omega = 42.7478 deg
+S4  U[p, j] ~ a cos(omega p - phi) + c over p = 0..7     lead: a = 5.81, 5.09, 6.21, 6.08; phi = -29, 26, 131, -130; R^2 = .974, .943, .991, .988
+unit 1: a = 5.813  phi =   -29.28 deg  c = +0.513  R^2 = 0.9741
+unit 6: a = 5.088  phi =    25.67 deg  c = -0.351  R^2 = 0.9434
+unit 7: a = 6.211  phi =   130.86 deg  c = +0.716  R^2 = 0.9911
+unit 8: a = 6.083  phi =  -130.19 deg  c = -0.500  R^2 = 0.9877
+with omega = 42.75 deg exactly:
+unit 1: a = 5.813  phi =   -29.28 deg  c = +0.513  R^2 = 0.9741
+unit 6: a = 5.088  phi =    25.68 deg  c = -0.351  R^2 = 0.9435
+unit 7: a = 6.211  phi =   130.87 deg  c = +0.717  R^2 = 0.9911
+unit 8: a = 6.083  phi =  -130.18 deg  c = -0.500  R^2 = 0.9877
+
+frequency specificity: R^2 of the same 3-parameter fit as a function of the frequency (deg/position), p = 0..7
+unit 1: best frequency 48.65 deg (R^2 0.9801);  R^2 at 30/35/40/42.75/45/50/55/60: 0.946 0.958 0.969 0.974 0.978 0.980 0.966 0.921
+unit 6: best frequency 49.05 deg (R^2 0.9957);  R^2 at 30/35/40/42.75/45/50/55/60: 0.754 0.824 0.902 0.943 0.972 0.994 0.930 0.784
+unit 7: best frequency 44.35 deg (R^2 0.9919);  R^2 at 30/35/40/42.75/45/50/55/60: 0.959 0.974 0.987 0.991 0.992 0.979 0.939 0.865
+unit 8: best frequency 44.90 deg (R^2 0.9942);  R^2 at 30/35/40/42.75/45/50/55/60: 0.837 0.902 0.965 0.988 0.994 0.944 0.784 0.555
+joint best frequency for the four columns (sum of SS_res):
+  best 46.35 deg, pooled R^2 0.9866; at 42.75: 0.9764
+
+null for the fit: a 3-parameter sinusoid fit to 8 iid N(0,1) points at 42.75 deg has R^2 (median, 95th, 99th pct):
+   [0.241 0.696 0.838]
+
+same fit over positions 0..8 and 0..9 (the claim uses 0..7):
+  p = 0..8: unit 1: a 4.33 R^2 0.663  unit 6: a 5.13 R^2 0.950  unit 7: a 6.28 R^2 0.992  unit 8: a 5.77 R^2 0.820
+  p = 0..9: unit 1: a 4.16 R^2 0.626  unit 6: a 4.26 R^2 0.770  unit 7: a 6.37 R^2 0.965  unit 8: a 5.13 R^2 0.718
+
+control: the same fit (p = 0..7, 42.75 deg) for every unit's readout column
+unit  0 (wave ): a =  1.30  phi =  -154.9  c =  -0.12  R^2 = 0.240
+unit  1 (COMP ): a =  5.81  phi =   -29.3  c =  +0.51  R^2 = 0.974
+unit  2 (wave ): a =  1.14  phi =  -141.8  c =  -0.19  R^2 = 0.738
+unit  3 (wave ): a =  0.75  phi =   -12.5  c =  +0.17  R^2 = 0.267
+unit  4 (PULSE): a =  0.31  phi =   164.6  c =  +0.45  R^2 = 0.703
+unit  5 (PULSE): a =  0.29  phi =    48.1  c =  -0.36  R^2 = 0.949
+unit  6 (COMP ): a =  5.09  phi =    25.7  c =  -0.35  R^2 = 0.943
+unit  7 (COMP ): a =  6.21  phi =   130.9  c =  +0.72  R^2 = 0.991
+unit  8 (COMP ): a =  6.08  phi =  -130.2  c =  -0.50  R^2 = 0.988
+unit  9 (PULSE): a =  1.65  phi =  -172.6  c =  +0.21  R^2 = 0.878
+unit 10 (wave ): a =  2.60  phi =   -93.8  c =  -0.16  R^2 = 0.773
+unit 11 (wave ): a =  1.71  phi =    -8.8  c =  -0.01  R^2 = 0.462
+unit 12 (wave ): a =  1.91  phi =    50.2  c =  +0.03  R^2 = 0.802
+unit 13 (wave ): a =  0.52  phi =  -127.3  c =  -0.04  R^2 = 0.097
+unit 14 (wave ): a =  1.64  phi =   150.3  c =  -0.25  R^2 = 0.297
+unit 15 (wave ): a =  1.71  phi =    44.0  c =  +0.19  R^2 = 0.714
+
+U[:, COMP] (rows = positions 0..9):
+[[ 6.094  2.528 -2.782 -3.574]
+ [ 2.562  4.783  0.483 -6.698]
+ [-1.661  3.192  4.694 -6.205]
+ [-5.862 -1.217  7.328 -1.495]
+ [-4.893 -5.554  5.869  3.101]
+ [-1.211 -5.635  0.921  5.485]
+ [ 2.168 -3.08  -2.849  4.394]
+ [ 4.41   0.954 -5.408  1.436]
+ [-1.434  3.624 -4.997  3.645]
+ [-0.474 -0.671 -3.789  0.328]]
+
+V[0..7] for random comparator states h_c ~ iid Exp(1) (nothing to do with the network's dynamics):
+  fraction of the variance over positions that is an omega-sinusoid: median 0.9794, 5th pct 0.8790, 1st pct 0.6226
+  pooled: 0.9764

@@ -1,0 +1,210 @@
+COLD-READ NOTES, reviewer R3 (reader). Written after reading ONLY report.md and mechanism_summary.png.
+Nothing else in the workspace had been opened when this file was written.
+
+=== A. First impressions of the summary (section 1) ===
+A1. "It never looks back at earlier inputs" is true of every RNN. What is meant: at every step the state already
+    holds the answer for the prefix. "It does not know the step number": statement about the recurrence (trivial)
+    or about the state (untested)? Unclear.
+A2. U, h_t, "mode", "slow mode", B_c, "comparator block", Theta_5 (capital, others lower-case) used before section 2/4.
+A3. Dimension count does not close: tape = 10 scores, "three numbers" = 4 real numbers (clock is 2-d), 3 registers.
+    10 + 4 + 3 > 16. The summary never says how the 16 units are split (3 pulse units + 13, and the 13 = 1 level
+    + 1 runner + 2 clock + 5 tape modes + 2 short clock + 1 transient + 1 echo, which only appears in 4.3).
+A4. (2) says the readout "barely sees" the clock; four lines later V = -60 (M - 0.87 S) cos(42.75 (p - p_M)) is the
+    readout seeing the clock through the comparators. Reconciliation (two halves cancel, 6%) is only in 4.3.
+    Had to read the summary twice and then 4.3 to see that both statements are meant.
+A5. "pending correction" / "held in reserve" (sec 8) versus "V pushes the maximum below the runner-up" (in use at
+    every step). What is pending is the removal of V, i.e. the promotion of the old maximum.
+A6. "Scaling the clock's radius one step before the maximum is overtaken by 0, 0.5, 1, 2 ..." garden path
+    ("overtaken by 0, 0.5 ...").
+A7. "a new maximum exceeds all four thresholds" - but panel b shows thresholds up to 1.5 on the scale where the
+    maximum is 1; section 5.4 says 94-96%.
+A8. "the circle is not there for the readout but for the comparisons" - could not work out what "for the
+    comparisons" means; it seems to contradict "the clock is a pending correction to the scores".
+A9. "by design" / "on purpose" (sec 8) / "is arranged not to see it": teleology for a trained network.
+A10. (1) hides the main fact about the tape: the score at index 9 is NOT carried forward. One step later the slot
+    is rewritten by unit 5 as 61 (x - Theta_5)_+ over a baseline; inputs below Theta_5 = 0.75 S leave nothing
+    (5.1, 3.3 table, panel d). The summary reads as if every input keeps a value-proportional score.
+A11. The summary covers a quiet step and a new maximum. It does not say what a new runner-up does, nor what unit
+    5's records are. The four-row table of section 5 is the best answer to "how is it updated" and is not in the
+    summary.
+A12. "How do you know": three interventions only. No sentence on the kinds of evidence, the sample, the input
+    distribution (N(0,1), not the training distribution), nor that the linear picture is exact on 10% of steps.
+A13. No uncertainties in the summary.
+A14. The position of the maximum is stored at least three times (clock phase; unit 5's record after the maximum,
+    whose removal drops 0.967 -> 0.020; travelling zero in units 0/12/11/10). Summary names only the clock.
+    This also would explain why rotating the clock moves the answer in under half the cases - never said.
+A15. "One identity ties (1) and (2)": s = m + V is a definition, not an identity.
+A16. (3): "fires by how far" - three equations would be shorter and exact.
+
+=== B. Section 2 ===
+B1. Fact 3 is listed as exact but its conclusion is an interpretation, and the stated reason ("the recurrence does
+    not know t") is not the reason. The exact fact (to verify): h_{-1} = 0 and no bias => leading zeros keep the
+    state at 0 => h_t(x_0..x_t) = h_9(0,..,0,x_0..x_t). Then U h_t IS the network output on the zero-padded
+    sequence; "given S_t > 0" in 3.1 is then explained (padding zeros compete otherwise); and "the state holds a
+    running answer" is a consequence of architecture + accuracy, not a discovered property. Panel f (blue) then
+    restates test accuracy.
+B2. h_t (state at step t) vs h_j(t) (unit j) vs h_2, h_5, h_9 (units) vs h_9 (final state) vs h_9[5].
+    "h_9" means both the final state and unit 9 (sec 5.4).
+B3. p_M, p_S not defined in the setting. "runner-up", "third" not tied to S, T explicitly.
+B4. Two partitions of the units (comparators/pulse/wave and core/satellites). Unit 2 is a "wave unit" that does not
+    wave. "Satellites" includes pulse units 5 and 9 but 4.2 ("The satellites: the tape") is about eight wave units.
+B5. "every offset has to be a stored input value": exact statement is "homogeneous of degree 1 in the inputs".
+
+=== C. Section 3 ===
+C1. "position" / "index" / "slot" / "place" used interchangeably; "positions 0-8" often means indices.
+C2. "free step", "event", "nothing special", "resting", "no special gates": five names, none defined. Is a "free
+    step" the linear map A applied to a real state, or a real step with a low input? Decides what R2 0.985-0.992
+    tests. Compare 3.4: "Without an event, s_t is the shifted s_{t-1} (R2 0.67-0.96)". Two very different numbers
+    for what reads like the same claim.
+C3. "Row 9 is about 1.4 times the sum of all scores, a level term." Did not understand. Row 9 is the most visible
+    thing in panel e and neither title nor caption explains it.
+C4. Text: off-shift entries in rows 0-6 at most 0.42. Panel: the -0.42 is in row 7; row 3 has four entries
+    of 0.31-0.39 (unexplained).
+C5. "The rotating eigenmodes of A ... are the Fourier modes of this shift register." A finite shift is nilpotent;
+    it has Fourier eigenmodes only if closed by feedback (row 9?). Not shown. Also makes the clock mode a tape
+    mode, against the summary's separation of (1) and (2). "radii" = |lambda| here, clashes with clock radius.
+    The short clock (42.99 deg) is not in the list; why two modes at one frequency is never explained.
+C6. 3.3 "The same slope is produced by three routes": 58.25, 61.19, and "shifted". Measured 61.6. Where the missing
+    3.4 comes from is not said (other logits fall?).
+C7. Table 3.3: saturation at deficits of 0.15 M is Theta_5 = 0.75 S, not said. One formula would replace three
+    rows: score(x) - score(S) = -61 [S - max(x, Theta_5)].
+C8. "COMP", "U[:,COMP]" code notation.
+C9. Symbol A reused two paragraphs after A = resting map: regression coefficients A, B, C and A(d).
+C10. "A depends on the index only through the distance d" - the table below has two different rows for d>=0 and
+    d<=0 (59 vs 40, 82 vs 60). Panel c: left side systematically above the cosine.
+C11. "B has the same shape with an amplitude of about 8, so ..." needs A(M-S) + B S = A M - (A-B) S, (60-8)/60.
+C12. "Why it is a cosine": ingredients, no composition. "the vote at the maximum's own position has phase
+    166-188 deg" - phase of what relative to what? Also unstated: why the large common level of the thresholds
+    gives no position-dependent vote (needs sum_j U[p,j] g_j ~ const for p <= 8).
+C13. 0.891 at t = 9 for m (the big drop in panel f, orange) is not explained.
+C14. 3.5(1): "(final gap above 0.2)" units? Are sequences with a later new maximum included? Which four wave
+    units? 3.5(2): outcomes add to 56% (k=-1) and 32% (k=-2); where do the rest go? Why does scaling by 1.5 and 2
+    hurt (89%, 75%)? 3.5(3): at which step is the clock erased?
+C15. Rotation result quoted as 38-47% (summary), 34-50% (sec 8), 28-40% (sec 9).
+
+=== D. Section 4 ===
+D1. Boxed recurrence: good. The "..." in h_2(t+1) hides what refills unit 2 (0.969 alone loses 25% in 9 steps).
+D2. 4.1(1) second half ("the cosine between a unit's weights on the comparators and the comparators' input
+    weights") read twice. Equation: sum_k W[i,k] w_k.
+D3. "unit" = neuron and "unit" = one unit of measure in the same sentence, many times.
+D4. Eigenvalues of B_c: 2 rotating + "a pair of size 0.043": so one difference direction is forgotten too.
+D5. Threshold law theta_j = A_j M + B_j S+ + (M - S+) C_j rho(a) cos(phi(a) + delta_j). Tried to check against
+    panel b by eye: peaks in the panel come about one step later than the formula gives (unit 1: formula max at
+    age 4.7, panel 5.8; unit 6: 3 vs 4; unit 7 min 5.4 vs 6.5; unit 8 min 2.4 vs 3.5). Looks like "a" is the age
+    in the state the threshold is read from, while the panel's axis is the age when it is applied. TO VERIFY.
+    Also A_j, B_j given as ranges while C_j, delta_j are per unit; rho(a) for a = 1 gives 1.07?
+D6. The mode coordinates are never defined by an equation (left eigenvector, normalisation). "gauge" appears
+    before the modes do. Left vs right eigenvector is the crux of "read from the comparators" vs "two halves" and
+    gets no equation.
+D7. Factor 10.157 everywhere (= w_4, not said in the caption). Why not put the coordinates in input units.
+D8. "runner ~ 10.157 (2M + 5S)" - so the mode does not hold S. Theta_5 = 0.01265 runner - 0.02872 level:
+    0.257 M + 0.642 S - 0.271 M: the M parts cancel. This arithmetic is the point and is left to the reader.
+D9. "runner" (mode) vs "runner-up" (input).
+D10. "grows by 1.3% per step" vs eigenvalue 1.0099.
+D11. 4.2: the tape's storage format gets one sentence. No equation for what a record looks like in the wave
+    units or in the scores as a function of age (the impulse response of unit 5 through A and U).
+D12. 4.2(1): "matters for unit 0 and not for the others" but unit 15 costs 7.3 points and "all nine: 0.44".
+D13. 4.2(2) read twice; could not see what it establishes or why it matters (15/31 = 0.48 against 0.35).
+D14. "record" never defined; "dip", "bump".
+D15. 4.3 table: second harmonic is "records on the tape" but read 61% from the comparators - against
+    "comparators = clock, wave units = tape". Short clock and transient: "the most recent event", "one-step event
+    flag" - vague, yet they are the modes the readout sees most (9.4, 24).
+D16. "seen by the readout": v undefined, "size" undefined, two numbers for complex pairs undefined. Clock 0.91 vs
+    harmonics 2.6 is a factor 3, not "barely".
+D17. Scope paragraph (resting pattern on 10% of steps) comes at the end of 4.3; it qualifies everything since 3.2.
+D18. No assembled formula h_t = ... with a fraction of variance explained. That would be the direct answer to
+    "how exactly is information stored".
+
+=== E. Section 5 ===
+E1. Opening paragraph and table: clear, the best part for "how is it updated".
+E2. 99.94% (table note) vs 99.997% (5.4) for unit 4 firing on a new maximum.
+E3. "All seven are exact thresholds ... (no exception in 5e7 and 2e7 evaluations)": five are exact by algebra, two
+    are empirical; which count belongs to which.
+E4. 5.2: z_5 (clashes with clock z), m_runner, m_level (clash with m). "exactly" followed by "+ (clipped wave
+    units)" and "+ small". Why comparators 7 and 8.
+E5. 5.2 "These records keep the score linear in the value near the runner-up, which a comparison by value needs"
+    against section 7 "Records the network does not need".
+E6. 5.3(1): what lowers the old runner-up's score by 9-23? 5.3(2): what raises the runner coordinate (especially
+    when no comparator is cut)? Only gains are given, no mechanism.
+E7. "sag" used before it is defined (section 7).
+E8. "The answer does not depend on this update: ... still right in 91-95%" - lower than 95.8-96.5.
+E9. 5.4: step called s (scores are s); M_0 = old maximum (M_t at t=0 by section 2); "(age g)" never used, g = gains.
+E10. 5.4 Step s+2 paragraph read twice; first sentence describes s+1; "coordinate 1 in every mode" is the
+    normalisation, stated like a finding. "almost nothing into level or clock" vs 0.087 and 0.088/0.133 below.
+E11. 1.006 - 0.087 - 0.019 = 0.900, text says 0.93.
+E12. "@" phasor notation.
+E13. "Step s+3 onward. No special gates." vs cuts of units 12, 11, 10 at ages 4, 5, 6.
+E14. "forced on", "66% of the changed answers" (what fraction changed?).
+E15. 13.5 vs 12.3 for the old maximum's score before overtaking.
+
+=== F. Section 6 ===
+F1. "nothing special", "Three points complete the picture", "in the same currency".
+F2. L_9: new letter for s_9[9]. Tent + interval: clear and good.
+F3. Second paragraph (margin over the maximum) read three times. +67, -32, +26: of what, and what do they add to?
+    "linear bookkeeping by source" needs its equation.
+F4. "the gap" now means S - T. "landed on a third that was already recorded".
+F5. "the clock's deposit" - "deposit" never defined. Only 2 of 4 arrival orders covered.
+F6. 18.3 here, 18.009 / 18.01 / 18.0 before; 62.1 / 61.2 / 61.19 / 61.6.
+
+=== G. Section 7 ===
+G1. Clear overall. "candidate", "takes over", "mirror cases" undefined. "the level at which a later input is
+    treated as the new maximum" - "level" is a technical term elsewhere.
+G2. (S-T)/S here, gaps relative to M elsewhere.
+
+=== H. Section 8 ===
+H1. Structure good: verdict first, then her points in her order. (b) and (c) are the clearest part of the report.
+H2. "The radius is set by the gap, not by M and S separately" - own numbers: + delta S with delta to 0.39; M alone
+    explains 82.7%; the two exact examples are 22% and 51% off; b_S/b_M falls to -0.28.
+H3. r_level, r_runner (vectors, undefined), r_0, r_1 (scalars), ell; rho_j(a) third meaning of rho.
+H4. "because unit 4 feeds two of the four thresholds and not the other two" explains why there is a difference,
+    not why the pulse is M - S.
+H5. (a): "tangent" vs "cut"; "on purpose" - 4.2 says the cut matters only for unit 0.
+H6. Level-removal test: removing the level also removes the stored maximum from every threshold. Does not
+    isolate "offset keeps the orbit off the ReLUs". The linear count (half vs 4-6% negative) is the direct one.
+H7. "The circle is not for the readout" - misleading; V is the readout reading the circle.
+H8. "packet", "the more recent of the two top-two arrivals".
+H9. Tie to her rotate/ analysis is one sentence (34.99 / 22.1) - asserted; "is the level mode" cannot be exact
+    (runner mode has coordinate 2M at S = 0; perpendicular to the plane is not an eigenvector). TO VERIFY.
+
+=== I. Sections 9-12 ===
+I1. "Arm I" and evidence type "I". Eight arms, seven letters appear.
+I2. Ranges a-b without saying what they range over, throughout.
+I3. Section 11 "New here" (8 items, "This answers Chen's question", item 8 lists the assessment of her hypothesis
+    as a novelty) reads as credit-claiming; item 3 overlaps with the "hiding neurons ... switched off by a larger
+    number" credited to outside work three lines above. The outside formula "state = S U[p_S] + (M-S) V[p_M]" is
+    the kind of statement the report itself never makes.
+I4. Header: "Every number below was computed from the weights" - most are measured on samples.
+
+=== J. Figure ===
+a: good for "direction = age at every gap". "radius = gap" is not readable: inner polygons have radius ~0.35 for
+   gap 0.15-0.30 and ~0.6 for 0.45-0.60. z and 10.157 unexplained in the caption.
+b: readable. Title starts with "It". No spread, no gap range. x-axis age convention (see D5).
+c: the central new claim; earns its place. Left side dots well above the curve, not mentioned.
+d: two messages (left: value comparison; right: the maximum is hidden by a roughly fixed margin). Title covers
+   only part of the left half, and "stored scores" saturate at -13 / -20.
+e: bottom row (1.2-1.6) dominates the colour scale and is not explained. Title says "every score".
+f: weakest. Truncated y axis; blue is test accuracy on zero-padded inputs; orange drop at t=9 unexplained;
+   conditioning not in caption; "sequences" vs "states".
+Missing: one worked sequence (s, m, V over steps) and a wiring diagram. All six panels are aggregate statistics.
+Six panels in one image inside the summary, referenced from sections 3-4: reader scrolls back each time; at
+preview width the tick labels are small.
+
+=== K. Symbols with more than one meaning ===
+A (map; regression coefficient; A_j), B, C; rho (rho(a); rho_9; rho_j(a)); delta (delta_j phases; delta S
+coefficient; age in sec 11); d (index distance; increment); D (D_t gates; |p_M - p_S|); s (scores; step of a new
+maximum; ratio S/M); g (gains; "age g"); z (clock; z_5; z = 511/512); m (scores; m_runner, m_level);
+v (relative value; eigenvector; swept value); b (b_2, b_4; background -1; b_M, b_S); r (r_level; r_0, r_1;
+correlation); eps (satellite term; eps*; eps(a)); c (scale; c_j; centre; c(Delta); added constant);
+M_0 (old maximum; M_t at t = 0); h_9 (final state; unit 9); "gap" (M - S; S - T); "level" (mode; value);
+"unit" (neuron; unit of measure); "radius" (|z|; |lambda|); "I" (evidence type; arm).
+
+=== L. Coined words (count ~30) ===
+tape, record, bump, dip, deposit, kick, anti-kick, packet, marks, vote, currency, registers, echo, satellites,
+core, launch, supply, sag, leak, tent, resting map, free step, event, cut, gate, slot, candidate, takes over,
+background, bookkeeping, gauge. Never defined: deposit, record, free step, event, packet, anti-kick, marks,
+candidate, linear bookkeeping.
+
+=== M. To check numerically before reporting (allowed folder only) ===
+M1. zero-padding identity (B1).  M2. eig(Sigma) vs eig(A); row 9; max off-shift entry (C3-C5).
+M3. U[i,COMP].w[COMP] for i < 9 (C6, C12).  M4. age convention of the threshold law vs panel b (D5).
+M5. impulse plane offset vs level mode (H9).  M6. Theta_5 arithmetic (D8).

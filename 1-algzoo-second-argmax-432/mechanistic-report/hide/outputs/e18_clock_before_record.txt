@@ -1,0 +1,23 @@
+selected sequences: 152690
+unmodified: P(answer = old max p0) = 0.990, P(answer = old runner-up q0) = 0.001
+
+radius scaled by f:   f | P(p0)   P(q0)   P(new max)  P(other) | edited state clipped at 0: P(p0)   P(q0)   P(new max)  P(other) | share of edited states with a negative entry
+                   0.00 | 0.019   0.164   0.775      0.042      |                            0.019   0.163   0.776      0.042      | 0.089
+                   0.25 | 0.098   0.120   0.766      0.016      |                            0.097   0.119   0.767      0.016      | 0.083
+                   0.50 | 0.342   0.053   0.596      0.008      |                            0.342   0.052   0.597      0.008      | 0.081
+                   0.75 | 0.889   0.008   0.102      0.001      |                            0.889   0.008   0.102      0.001      | 0.079
+                   1.00 | 0.990   0.001   0.008      0.001      |                            0.990   0.001   0.008      0.001      | 0.000
+                   1.50 | 0.893   0.017   0.072      0.018      |                            0.838   0.023   0.102      0.038      | 0.983
+                   2.00 | 0.746   0.048   0.135      0.071      |                            0.676   0.037   0.184      0.102      | 0.996
+where the answer goes for f = 0: the new max tr 0.775, the old runner-up q0 0.164, still the old max p0 0.019, another position 0.042
+
+phase advanced by k steps.  The seven plain columns are over all selected sequences and are NOT exclusive: p0 +- j can be q0, and p0 - k need not exist.
+The target p0 - k is 'clean' if it is an input that arrived before the record (0 <= p0 - k < tr) and is not q0; the last probability is taken over those sequences only.
+   k | P(p0)  P(p0-1)  P(p0-2)  P(p0+1)  P(p0+2)  P(q0)  P(new max) | share with a clean target   P(answer = p0-k | clean target) | share of edited states with a negative entry
+  -3 | 0.000  0.000    0.000    0.011    0.058   0.223   0.488      |        0.626                       0.231                 | 0.332
+  -2 | 0.002  0.000    0.000    0.153    0.321   0.353   0.342      |        0.813                       0.233                 | 0.380
+  -1 | 0.093  0.000    0.000    0.474    0.154   0.316   0.249      |        0.815                       0.363                 | 0.406
+  +0 | 0.990  0.000    0.000    0.001    0.000   0.001   0.008      |        1.000                       0.990                 | 0.000
+  +1 | 0.458  0.381    0.077    0.000    0.000   0.217   0.066      |        0.625                       0.400                 | 0.678
+  +2 | 0.071  0.298    0.249    0.000    0.000   0.253   0.228      |        0.448                       0.365                 | 0.638
+  +3 | 0.010  0.073    0.193    0.000    0.001   0.212   0.363      |        0.287                       0.450                 | 0.551

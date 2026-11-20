@@ -1,0 +1,169 @@
+============================== M_16,10 = example_2nd_argmax() ==============================
+A1 accuracy, 1048576 samples: N(0,1) 0.9531   Unif(-1,1) 0.9386
+   zoo_2nd_argmax(16, 10) (seed 2) on N(0,1): 0.9488
+   W_ih: [  0.069 -10.565   0.015  -0.123  10.157  -0.281 -10.996 -13.169 -12.312  -0.228   0.06    0.148   0.298  -0.047  -1.321  -0.119]
+
+A2 standardised weights (h' = D h; D_i = 1/|W_ih,i| for units 1,4,6,7,8; D_2 chosen so W_hh'[2,4] = 1)
+   W_ih' on units (2,4,6,7,1): [ 0.001  1.    -1.    -1.    -1.   ]    ARC: (0, +1, -1, -1, -1)
+   W_hh'[(2,4),(2,4)]:
+ [[ 0.969  1.   ]
+ [-0.852 -0.986]]    ARC: [[+1,+1],[-1,-1]]
+   W_hh'[(6,7),(2,4)]:
+ [[ 0.855 -0.044]
+ [ 0.899  1.016]]    ARC: [[+1,0],[+1,+1]]
+   W_hh'[(1),(2,4,6,7)]: [ 0.838  0.838  1.036 -1.306]    ARC: (+1,+1,+1,-1)
+   full standardised block, rows and columns in order (2,4,6,7,1,8):
+ [[ 0.969  1.    -0.064  0.017 -0.061  0.108]
+ [-0.852 -0.986  0.101 -0.038  0.037 -0.099]
+ [ 0.855 -0.044  0.361 -0.151 -0.13  -0.092]
+ [ 0.899  1.016 -0.152  0.078 -0.081  0.156]
+ [ 0.838  0.838  1.036 -1.306  0.409 -0.14 ]
+ [ 0.893 -0.034 -0.    -1.17   0.544  0.615]]
+
+   rms of each term of the pre-activation (N(0,1) inputs, steps s = 1..9), per target unit:
+   target | input term | recurrent terms from units 0..15 | rms of total z
+    2 |   0.01 | [ 0.85  1.44 20.09  0.15  7.77  0.07  1.5   0.43  2.23  0.21  0.26  0.23  0.62  0.29  0.36  0.29] |  22.60
+    4 |  10.16 | [ 0.36  0.5  10.21  0.01  4.42  0.01  1.37  0.56  1.18  0.08  0.11  0.16  0.67  0.2   0.43  0.07] |  16.02
+    6 |  11.00 | [ 0.94  1.91 11.09  0.1   0.21  0.27  5.28  2.4   1.19  0.58  0.48  0.25  0.45  0.12  1.14  0.05] |  16.46
+    7 |  13.18 | [ 0.22  1.42 13.97  0.03  5.91  0.02  2.67  1.49  2.41  0.    0.07  0.39  0.78  0.16  0.    0.08] |  20.96
+    1 |  10.57 | [ 1.1   5.78 10.44  0.04  3.91  0.82 14.57 19.96  1.74  0.62  0.41  0.11  0.48  0.21  1.05  0.13] |  15.87
+    8 |  12.32 | [ 0.05  8.95 12.97  0.    0.19  0.12  0.   20.85  8.9   0.06  0.65  0.72  0.47  0.    0.42  0.08] |  16.97
+   summed recurrent input from units [1, 2, 4, 6, 7, 8] (rms, per target 0..15): [  6.21  10.82  21.96   5.08  11.4   24.03  10.97  15.52  10.32 116.71   8.4    9.27   6.42   9.33   7.98   9.95]
+   summed recurrent input from the other ten units (rms, per target):   [11.68  1.53  0.92  6.56  1.14 10.34  1.36  1.01  1.83  1.83 13.19  7.1  13.58  2.97  7.27  9.35]
+   ratio (other ten) / (total pre-activation), per target:               [1.026 0.097 0.041 1.272 0.071 0.564 0.083 0.048 0.108 0.016 0.739 0.507 1.016 0.364 0.503 1.132]
+
+A3 no-intercept fit h_s[unit] ~ c * feature (N(0,1) inputs). c' = c * D_unit is the coefficient in standardised units.
+   centred R^2 pooled over s = 0..9, then per s (ARC's t = s + 1):
+   n2 ~ max(0,x_0..x_{s-1})  [blog]                     c =  17.317  c' =  0.985  R2 = 0.979 | per s: [ nan 1.   1.   1.   1.   0.99 0.96 0.93 0.91 0.92]
+   n4 ~ M_s - M_{s-1}  [blog]                           c =  10.296  c' =  1.014  R2 = 0.995 | per s: [1.   1.   1.   1.   1.   0.99 0.98 0.98 0.98 0.98]
+   n7 ~ M_s - x_s = ReLU(M_{s-1} - x_s)  [blog]         c =  12.714  c' =  0.965  R2 = 0.987 | per s: [1.   1.   1.   1.   1.   0.99 0.98 0.97 0.98 0.98]
+   n6 ~ max(0,x_0..x_{s-2},x_s) - x_s  [blog]           c =  10.485  c' =  0.954  R2 = 0.974 | per s: [1.   1.   0.97 0.98 0.98 0.98 0.98 0.97 0.95 0.95]
+   n1 ~ max(0,x_0..x_{s-3},x_{s-1},x_s) - x_s  [blog]   c =   9.900  c' =  0.937  R2 = 0.943 | per s: [1.   0.99 0.99 0.91 0.93 0.93 0.93 0.94 0.94 0.91]
+   n8 ~ ReLU(2ndmax_{s-1} - x_s)  [Chen]                c =  13.630  c' =  1.107  R2 = 0.887 | per s: [1.   1.   0.96 0.97 0.98 0.96 0.9  0.81 0.76 0.75]
+   n2 ~ max(0,x_0..x_s)  [Chen: running max]            c =  15.163  c' =  0.863  R2 = 0.726 | per s: [1.   0.45 0.61 0.7  0.75 0.78 0.78 0.78 0.78 0.8 ]
+
+A3b thresholds theta_i = -(W_hh h_{s-1})_i / W_ih,i against the claimed feature f (input units, N(0,1) inputs):
+   pooled s = 1..9: slope of the no-intercept fit, centred R^2, mean |theta - f|; then mean (theta - f) per s = 1..9
+   theta_4 ~ M_{s-1} (unit 4 fires iff x_s is a new max)  slope 0.935  R2 0.983  mean|err| 0.067 | mean err per s: [-0.004 -0.011 -0.021 -0.041 -0.07  -0.098 -0.115 -0.12  -0.112]
+   theta_7 ~ M_{s-1}                                      slope 0.948  R2 0.969  mean|err| 0.067 | mean err per s: [ 0.008  0.011  0.009 -0.013 -0.049 -0.086 -0.111 -0.119 -0.112]
+   theta_6 ~ M_{s-2}                                      slope 0.929  R2 0.945  mean|err| 0.115 | mean err per s: [-0.022 -0.103 -0.07  -0.027 -0.016 -0.041 -0.084 -0.127 -0.151]
+   theta_1 ~ max(M_{s-3}, x_{s-1}, 0)                     slope 0.902  R2 0.869  mean|err| 0.168 | mean err per s: [-0.065 -0.05  -0.188 -0.174 -0.106 -0.052 -0.043 -0.073 -0.125]
+   theta_8 ~ max(0, 2nd max of x_0..x_{s-1})  [Chen]      slope 1.207  R2 0.727  mean|err| 0.183 | mean err per s: [-0.016  0.079  0.074  0.075  0.118  0.194  0.271  0.324  0.339]
+   theta_8 vs 2nd max, only states with 2nd max > 0: R2 0.565, mean|err| 0.233
+   notebook example, prefix (0.77, 0.90, 0.79): thresholds for x_3 of units 4, 7, 6, 1, 8 = [0.875 0.907 0.83  0.771 0.882]  (claims: 0.90, 0.90, 0.90, 0.79, 0.79)
+
+A4 notebook checks on Unif(-1,1):
+   accuracy with W_ih[i] = 0, i = 0..15: [0.938 0.154 0.938 0.937 0.18  0.93  0.15  0.119 0.201 0.932 0.937 0.936 0.929 0.938 0.857 0.937]
+   notebook:                            [0.938 0.154 0.937 0.938 0.182 0.928 0.151 0.12  0.202 0.932 0.938 0.935 0.93  0.938 0.859 0.938]
+   'max sub-circuit': readout without units [1, 6, 7, 8]: argmax of first 9 logits = argmax of x_0..x_8 with accuracy 0.8645
+   'max sub-circuit': readout without units [1, 4, 6, 7, 8, 9]: argmax of first 9 logits = argmax of x_0..x_8 with accuracy 0.8676
+   'max sub-circuit': readout without units [1, 4, 6, 7, 8, 9, 14]: argmax of first 9 logits = argmax of x_0..x_8 with accuracy 0.4262
+   notebook: 0.8684 for [1, 6, 7, 8]
+   unit 9: base 0.9376 | clamp h[9] = 0 everywhere 0.6521 (readout column kept) | W_hh[:, 9] = 0 only 0.6609 | W_out[:, 9] = 0 only 0.9302 | both 0.6521
+   cos(W_out[i] W_hh, W_out[i+1]), i = 0..8: [0.73 0.92 0.98 0.94 0.63 0.69 0.94 0.88 0.18]
+   cos(W_out[i] W_hh, W_out[i]),   i = 0..9: [ 0.25  0.56  0.6   0.49  0.07  0.12  0.36  0.59 -0.33 -0.71]
+   column sums of W_out: [-0.23 -0.3  -0.58 -0.17 -0.78  0.05 -1.08 -0.53  0.42 -0.04  0.63  0.21 -0.09  0.07 -0.03 -0.42]
+   singular values of W_out: [19.2  17.92  8.64  6.15  5.97  4.6   3.42  2.4   2.31  0.31]
+   fraction of nonzero activations over all steps, Unif(0,1) inputs (as in the notebook): [0.8  0.63 1.   0.69 0.32 0.54 0.59 0.7  0.56 0.28 0.94 0.93 0.98 0.9  0.88 0.62]
+
+A5 Chen's remarks on the setup:
+   'intermediate logits': P(argmax of W_out h_s = 9 - s + 2nd argmax of x_0..x_s), s = 1..9: [0.234 0.472 0.665 0.784 0.865 0.911 0.936 0.95  0.953]
+   same, given at least two positive inputs so far:                                        [0.929 0.938 0.95  0.957 0.966 0.968 0.968 0.967 0.96 ]
+   N(0,1) accuracy by number of positive inputs: 0: 0.134 (n = 119), 1: 0.239 (n = 1220), >=2: 0.9604
+   accuracy on Unif(0,1): 0.8913   on Unif(-1,0): 0.1195
+   accuracy by target position 0..9, Unif(-1,1): [0.943 0.958 0.948 0.95  0.946 0.932 0.929 0.926 0.92  0.924]
+   notebook:                                     [0.942 0.955 0.955 0.944 0.944 0.936 0.931 0.923 0.917 0.923]
+   accuracy by target position 0..9, N(0,1):     [0.948 0.961 0.96  0.961 0.962 0.952 0.949 0.94  0.944 0.953]
+
+============================== handcrafted 10-input models ==============================
+B1 handcrafted_2nd_argmax(10), 22 units: accuracy N(0,1) 0.9900, Unif(-1,1) 0.9903
+   max |logit_i - (max(0,x_i) + 2 max(0, x_j: j != i))| = 6.217248937900877e-15   (the code comment says '- 2 *'; the weights give '+ 2 *')
+   accuracy by number of positive inputs: >=2: 1.00000, 1: 0.0976, 0: 0.0945; P(<2 positive) = 0.0107
+B2 Chen's 21-unit hand-coded RNN: accuracy N(0,1) 0.9901, Unif(-1,1) 0.9904 (notebook: 0.9886 on 10^4 uniform samples)
+
+============================== M_2,2 = zoo_2nd_argmax(2, 2), seed 2 ==============================
+C1 raw W_ih [ 4.174 -6.754] 
+   raw W_hh
+ [[-0.382  1.289]
+ [ 1.847 -0.752]] 
+   raw W_oh
+ [[  9.541 -25.692]
+ [ -9.538  25.638]]
+   standardised W_ih [ 1. -1.] 
+   standardised W_hh
+ [[-0.382  2.085]
+ [ 1.142 -0.752]] 
+   standardised W_oh
+ [[  39.824 -173.527]
+ [ -39.813  173.16 ]]
+   ARC: W_hi = (+1,-1); W_hh in [[[-1,0), [1,inf)], [[1,inf), [-1,0)]]; W_oh signs [[+,-],[-,+]]
+   pieces of Delta(x0, x1) = a0 x0 - a1 x1 (sign of x0, active units at step 2):
+     x0>0, active (1, 1): a0 =  426.18447, a1 =  426.32387, a0/a1 = 0.999673, |a0/a1 - 1| = 1 part in 3058
+     x0>0, active (1, 0): a0 =   30.43116, a1 =   79.63696, a0/a1 = 0.382124, |a0/a1 - 1| = 1 part in 2
+     x0>0, active (0, 1): a0 =  395.75331, a1 =  346.68691, a0/a1 = 1.141529, |a0/a1 - 1| = 1 part in 7
+     x0>0: unit 0 active iff x1 > 0.3821 x0; unit 1 active iff x1 < 1.1415 x0
+     x0<0, active (1, 1): a0 =  426.59936, a1 =  426.32387, a0/a1 = 1.000646, |a0/a1 - 1| = 1 part in 1547
+     x0<0, active (1, 0): a0 =  166.05629, a1 =   79.63696, a0/a1 = 2.085166, |a0/a1 - 1| = 1 part in 1
+     x0<0, active (0, 1): a0 =  260.54307, a1 =  346.68691, a0/a1 = 0.751523, |a0/a1 - 1| = 1 part in 4
+     x0<0: unit 0 active iff x1 > 2.0852 x0; unit 1 active iff x1 < 0.7515 x0
+   sampled error rate on N(0,1), 2^24 samples: 7.337e-05 = 1 in 13629   (ARC: about 1 in 13,000; their val log: 1 in 12,363)
+
+============================== M_4,3 = zoo_2nd_argmax(4, 3), seed 0 ==============================
+D1 raw W_ih [ 3.965  4.699 -4.716 -3.965] 
+   raw W_hh
+ [[ 1.339 -2.2    2.635 -1.895]
+ [ 1.928 -2.434  2.787 -2.383]
+ [-2.388  2.806 -2.434  1.933]
+ [-1.893  2.643 -2.191  1.341]] 
+   raw W_oh
+ [[ -1.672   1.599   1.617  -1.658]
+ [-18.748  15.999  15.959 -18.724]
+ [ 11.431 -15.74  -15.697  11.477]]
+   accuracy on N(0,1), 2^22 samples: 0.9846   (ARC: 98.5%)
+   standardised (|W_ih| = 1), units reordered as [np.int64(0), np.int64(1), np.int64(2), np.int64(3)] 
+   W_ih [ 1.  1. -1. -1.] 
+   W_hh
+ [[ 1.339 -2.607  3.134 -1.895]
+ [ 1.627 -2.434  2.797 -2.01 ]
+ [-2.007  2.796 -2.434  1.625]
+ [-1.893  3.132 -2.606  1.341]] 
+   W_oh
+ [[ -6.629   7.516   7.628  -6.572]
+ [-74.34   75.188  75.269 -74.246]
+ [ 45.325 -73.972 -74.034  45.508]]
+   Robinson's symmetry W_ih ~ U^T w_ih', W_hh ~ U^T w_hh' U, W_oh ~ w_ho' V: relative residuals (ih, hh, oh) = [0.    0.101 0.001]
+   reduced w_ih' [1. 1.] 
+   reduced w_hh'
+ [[ 1.617 -2.87 ]
+ [ 1.817 -2.615]] 
+   reduced w_ho'
+ [[ -6.601   7.572]
+ [-74.293  75.229]
+ [ 45.417 -74.003]]
+   accuracy of the exactly symmetric model: 0.9840
+   equivalent abs-network logits = fc2 |fc1 x|: fc1 (columns x0, x1, x2)
+ [[ 0.263 -1.253  1.   ]
+ [-0.192 -0.798  1.   ]] 
+   row sums of fc1: [0.01  0.011]
+   fc2 (column means removed)
+ [[  5.225   4.639]
+ [-62.467  72.296]
+ [ 57.242 -76.935]]
+   accuracy of fc2 |fc1 x|: 0.9840
+   normal form (x0 coefficient 1): fc1
+ [[ 1.    -4.763  3.801]
+ [ 1.     4.164 -5.221]] 
+   fc2
+ [[  1.375   0.889]
+ [-16.434  13.848]
+ [ 15.06  -14.737]]
+   averaged parameters: lambda = 3.987, eps = 1.132, mu = 15.586   (Robinson's abs-network: 7.808, 0.7, 17.79)
+   Robinson's ratios: 6 eps/((2 lam+1)(2 mu-eps)) = 0.0252 (his: 0.007; width of the failure sliver), 2(2 mu-eps)/(3 eps (2 lam+1)) = 1.972 (his: 'almost exactly 2')
+   Robinson quadrant (+,+): probability 0.0610, accuracy 0.8857, share of all errors 0.435, wrong answers by output position [28956    83   172]
+   Robinson quadrant (+,-): probability 0.4393, accuracy 0.9975, share of all errors 0.068, wrong answers by output position [2741   61 1736]
+   Robinson quadrant (-,+): probability 0.4388, accuracy 0.9976, share of all errors 0.067, wrong answers by output position [2784   59 1636]
+   Robinson quadrant (-,-): probability 0.0609, accuracy 0.8864, share of all errors 0.431, wrong answers by output position [28699   104   188]
+   Hilton's a_j [-1.268 -0.807  0.788  1.239]  b_j [-1.24  -0.786  0.809  1.265]  c_j [ 1.  1. -1. -1.]
+   claims: a3 ~ -a0 > 0, a2 ~ -a1 > 0, b3 ~ -b0 > 0, b2 ~ -b1 > 0, c0 ~ -c3 > 0, c1 ~ -c2 > 0, a_j ~ b_j
+   gamma0/alpha3 = 0.798, gamma0/beta3 = 0.798 (claimed < 1); gamma1/alpha2 = 1.254, gamma1/beta2 = 1.254 (claimed > 1)
+   handcrafted_2nd_argmax(3) (lambda = 100) in float64: accuracy 0.99997   (ARC: 99.99%)

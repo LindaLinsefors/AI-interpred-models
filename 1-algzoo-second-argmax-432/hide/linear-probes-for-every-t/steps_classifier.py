@@ -11,7 +11,7 @@ common age at that t).
 
 Run:  python steps_classifier.py [n_train] [seed]     (default 200,000 train rows, seed 0)
 Writes steps_classifier.csv into this folder and steps_classifier.png
-into OUT (../../<this folder's name>/).
+into OUT (../../archived-probed/<this folder's name>/).
 """
 import sys
 from concurrent.futures import ProcessPoolExecutor

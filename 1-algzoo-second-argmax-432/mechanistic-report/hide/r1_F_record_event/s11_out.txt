@@ -1,0 +1,13 @@
+n = 120919 (s = 5..9, g >= 2)
+change created by the record, relative to the mean change of the other bystanders:
+   old max p0            : mean   29.84   sd  22.03   median   24.78   P(<0) 0.009
+   old runner-up q0      : mean   -4.06   sd  23.33   median   -2.63   P(<0) 0.573
+   one random bystander  : mean   -0.18   sd  24.85   median   -0.08   P(<0) 0.502
+no-record logit vs the other bystanders: q0 mean 20.87 (sd 14.54);  random bystander mean -0.01 (sd 14.02)
+change at q0 ~ 0.055 * (its no-record logit) + -5.21   R2 = 0.001   (a slope of -1 would mean full erasure)
+change at a bystander ~ 0.149 * (its no-record logit) + -0.18   R2 = 0.007
+   s=5: slope at q0  0.046 (intercept  -6.11); slope at a bystander  0.135 (intercept  -0.03);  mean change q0  -5.35, bystander  -0.03
+   s=6: slope at q0  0.051 (intercept  -5.92); slope at a bystander  0.193 (intercept  -0.17);  mean change q0  -4.98, bystander  -0.20
+   s=7: slope at q0  0.049 (intercept  -5.64); slope at a bystander  0.230 (intercept   0.06);  mean change q0  -4.66, bystander   0.05
+   s=8: slope at q0  0.088 (intercept  -5.26); slope at a bystander  0.203 (intercept  -0.66);  mean change q0  -3.31, bystander  -0.65
+   s=9: slope at q0  0.009 (intercept  -3.41); slope at a bystander  0.053 (intercept   0.00);  mean change q0  -3.19, bystander   0.01

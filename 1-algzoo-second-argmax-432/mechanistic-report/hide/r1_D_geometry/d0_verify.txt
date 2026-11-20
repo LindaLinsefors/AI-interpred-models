@@ -1,0 +1,53 @@
+accuracy N(0,1), seed 1000 : 0.95269
+F1 max |h_t - sum_p J x_p| = 2.007283228522283e-13
+F1 homogeneity max |run(3x) - 3 run(x)| = 3.410605131648481e-13
+
+F3 eigenvalues of A = W[ORD, ORD]
+  level   |lam| = 1.00989  angle =    0.000   LEFT.KICK4 = 1.000000+0.000000j
+  runner  |lam| = 0.97349  angle =    0.000   LEFT.KICK4 = 1.000000+0.000000j
+  clock   |lam| = 0.95088  angle =   42.748   LEFT.KICK4 = 1.000000-0.000000j
+  h2      |lam| = 0.93701  angle =   83.281   LEFT.KICK4 = 1.000000-0.000000j
+  alt     |lam| = 0.92830  angle =  180.000   LEFT.KICK4 = 1.000000-0.000000j
+  h3      |lam| = 0.83734  angle =  124.781   LEFT.KICK4 = 1.000000+0.000000j
+  short   |lam| = 0.73499  angle =   42.995   LEFT.KICK4 = 1.000000+0.000000j
+  trans   |lam| = 0.23098  angle =    0.000   LEFT.KICK4 = 1.000000+0.000000j
+  echo    |lam| = 0.00099  angle =    0.000   LEFT.KICK4 = 1.000000+0.000000j
+  level   |A R - lam R| = 6.22e-15   |L A - lam L| = 2.22e-16
+  runner  |A R - lam R| = 6.11e-16   |L A - lam L| = 6.22e-15
+  clock   |A R - lam R| = 2.79e-15   |L A - lam L| = 1.36e-15
+  h2      |A R - lam R| = 1.17e-15   |L A - lam L| = 5.83e-15
+  alt     |A R - lam R| = 2.58e-16   |L A - lam L| = 3.67e-15
+  h3      |A R - lam R| = 7.14e-16   |L A - lam L| = 3.46e-15
+  short   |A R - lam R| = 1.81e-15   |L A - lam L| = 2.90e-15
+  trans   |A R - lam R| = 4.77e-15   |L A - lam L| = 1.03e-15
+  echo    |A R - lam R| = 1.44e-16   |L A - lam L| = 1.36e-14
+
+F4 cos(w[ORD], echo eigenvector) = -0.997963337734613
+   A w[ORD] = [-0.432 -0.086 -0.005 -0.25   0.034  0.02   0.128 -0.027  0.016  0.004 -0.039 -0.392 -0.187]  max |.| = 0.43177673021941787
+   W[PULSE, ORD] w[ORD] = [ 0.01  18.009 84.335]
+   mode coordinates of w[ORD]: {'level': np.complex128(-0.0447+0j), 'runner': np.complex128(1.0264+0j), 'clock': np.complex128(0.0667-0.0839j), 'h2': np.complex128(-0.2696+0.1434j), 'alt': np.complex128(-0.1679-0j), 'h3': np.complex128(-0.1939+0.1288j), 'short': np.complex128(-0.2055+0.0282j), 'trans': np.complex128(-0.4752+0j), 'echo': np.complex128(-155.4151+0j)}
+
+F5 level eigenvector (gauge kick=1): [1.719 0.65  1.275 0.236 0.803 1.004 0.898 1.348 1.449 2.021 0.547 1.565 1.034]
+   all positive: True
+   age 0: level ~ 0.361 * 10.157 M   R2(uncentred) = 0.5900   R2(centred) = 0.3167   n = 446754
+   age 1: level ~ 0.994 * 10.157 M   R2(uncentred) = 0.9987   R2(centred) = 0.9944   n = 347063
+   age 2: level ~ 0.918 * 10.157 M   R2(uncentred) = 0.9992   R2(centred) = 0.9963   n = 272103
+   age 3: level ~ 0.918 * 10.157 M   R2(uncentred) = 0.9994   R2(centred) = 0.9967   n = 213883
+   age 4: level ~ 0.914 * 10.157 M   R2(uncentred) = 0.9994   R2(centred) = 0.9965   n = 166765
+   age 5: level ~ 0.919 * 10.157 M   R2(uncentred) = 0.9993   R2(centred) = 0.9957   n = 128138
+   age 6: level ~ 0.924 * 10.157 M   R2(uncentred) = 0.9990   R2(centred) = 0.9933   n = 95454
+   age 7: level ~ 0.930 * 10.157 M   R2(uncentred) = 0.9986   R2(centred) = 0.9899   n = 67039
+   age 8: level ~ 0.934 * 10.157 M   R2(uncentred) = 0.9983   R2(centred) = 0.9874   n = 42146
+   age 9: level ~ 0.938 * 10.157 M   R2(uncentred) = 0.9983   R2(centred) = 0.9862   n = 20065
+
+F6 clock z / (10.157 (M - S+)): complex LS coefficient by age (M > 0)
+   age 1: rho = 1.058  phi =    0.6 deg   R2(uncentred) = 0.9711
+   age 2: rho = 1.094  phi =   33.4 deg   R2(uncentred) = 0.9530
+   age 3: rho = 1.058  phi =   75.8 deg   R2(uncentred) = 0.9447
+   age 4: rho = 1.031  phi =  120.2 deg   R2(uncentred) = 0.9576
+   age 5: rho = 1.038  phi =  163.9 deg   R2(uncentred) = 0.9426
+   age 6: rho = 1.029  phi =  206.5 deg   R2(uncentred) = 0.9241
+   age 7: rho = 1.029  phi =  248.6 deg   R2(uncentred) = 0.8978
+   age 8: rho = 1.014  phi =  290.5 deg   R2(uncentred) = 0.8749
+   age 9: rho = 0.992  phi =  332.3 deg   R2(uncentred) = 0.8543
+   squared-norm share of LEFT on comparators: {'level': 0.041, 'runner': 0.506, 'clock': 0.966, 'h2': 0.606, 'alt': 0.106, 'h3': 0.347, 'short': 0.916, 'trans': 0.976, 'echo': 0.712}

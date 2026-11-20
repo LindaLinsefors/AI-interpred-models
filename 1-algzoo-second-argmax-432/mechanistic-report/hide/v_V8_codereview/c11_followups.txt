@@ -1,0 +1,47 @@
+(1) D2 with fixed cohorts (records with M0 > 0.3, S0 > 0.1, g >= 1, top two unchanged through t + K)
+   cohort K = 5 (records at t = 2..4), n = 24944; separations present: 1: 0.68, 2: 0.26, 3: 0.06
+      k | c1, c2 (two regressors) | slope of y on (M0 - S0) alone | median y / M0 | median of y(k) / y(0) | P(y > 0)
+      0 |  26.3  0.01 |  26.3 |  9.21 | 1.000 | 0.972
+      1 |  26.6  1.71 |  29.4 | 11.28 | 1.183 | 0.995
+      2 |  17.2  6.35 |  27.5 | 12.27 | 1.345 | 0.998
+      3 |  18.0  6.87 |  29.2 | 12.88 | 1.493 | 0.998
+      4 |  19.4  6.83 |  30.4 | 12.95 | 1.533 | 0.997
+      5 |  20.2  7.61 |  32.5 | 14.53 | 1.601 | 0.996
+      separation 1 only (n = 16903): c1 by k:  21.1   22.1   11.1   12.3   13.3   13.4   | median y/M0 by k:  7.60   9.63  10.63  11.77  12.19  13.70
+      separation 2 only (n = 6573): c1 by k:  38.9   37.3   31.8   31.2   33.3   35.2   | median y/M0 by k: 15.69  17.45  18.15  18.50  18.15  20.28
+   cohort K = 3 (records at t = 2..6), n = 86879; separations present: 1: 0.51, 2: 0.28, 3: 0.14, 4: 0.05, 5: 0.01
+      k | c1, c2 (two regressors) | slope of y on (M0 - S0) alone | median y / M0 | median of y(k) / y(0) | P(y > 0)
+      0 |  32.6  2.25 |  36.5 | 10.40 | 1.000 | 0.975
+      1 |  35.1  4.20 |  42.3 | 12.78 | 1.212 | 0.994
+      2 |  29.3  7.90 |  42.9 | 14.08 | 1.373 | 0.996
+      3 |  29.5  8.48 |  44.1 | 14.37 | 1.470 | 0.997
+      separation 1 only (n = 44507): c1 by k:  18.7   20.2   12.6   13.7   | median y/M0 by k:  6.92   9.03  10.31  11.39
+      separation 2 only (n = 24529): c1 by k:  41.6   43.5   39.7   39.8   | median y/M0 by k: 16.20  18.77  20.04  20.62
+      separation 3 only (n = 12049): c1 by k:  64.9   70.4   66.9   64.7   | median y/M0 by k: 24.15  27.81  32.92  34.88
+      separation 4 only (n = 4710): c1 by k:  69.5   81.5   79.3   78.2   | median y/M0 by k: 24.66  31.21  37.73  39.99
+   cohort K = 2 (records at t = 2..7), n = 139855; separations present: 1: 0.46, 2: 0.27, 3: 0.15, 4: 0.07, 5: 0.03, 6: 0.01
+      k | c1, c2 (two regressors) | slope of y on (M0 - S0) alone | median y / M0 | median of y(k) / y(0) | P(y > 0)
+      0 |  35.9  3.23 |  41.7 | 11.03 | 1.000 | 0.975
+      1 |  39.1  5.09 |  48.1 | 13.40 | 1.204 | 0.992
+      2 |  34.1  8.29 |  48.7 | 14.74 | 1.340 | 0.995
+      separation 1 only (n = 64834): c1 by k:  18.1   19.8   13.1   | median y/M0 by k:  6.73   8.75  10.07
+      separation 2 only (n = 38305): c1 by k:  42.4   44.8   41.6   | median y/M0 by k: 16.03  18.67  20.08
+      separation 3 only (n = 21117): c1 by k:  69.3   75.5   71.8   | median y/M0 by k: 25.64  29.18  33.75
+      separation 4 only (n = 10470): c1 by k:  78.5   90.7   86.8   | median y/M0 by k: 28.19  34.57  39.66
+
+(2) e18 rotations, conditional on the target position p0 - k existing (0 <= p0 - k <= tr - 1) and not being the old runner-up q0
+     k | e18's P(answer = p0 - k) | share with target existing | share with target = q0 | P(answer = p0 - k | exists, != q0) | same, clipped edit | P(answer = p0 | exists, != q0) | P(answer = q0 | exists, != q0)
+    -2 | 0.321 | 1.000 | 0.187 | 0.233 | 0.238 | 0.002 | 0.272   n = 124109
+    -1 | 0.474 | 1.000 | 0.185 | 0.363 | 0.374 | 0.106 | 0.169   n = 124428
+    +1 | 0.381 | 0.761 | 0.136 | 0.400 | 0.456 | 0.425 | 0.124   n = 95451
+    +2 | 0.249 | 0.538 | 0.090 | 0.365 | 0.352 | 0.062 | 0.204   n = 68375
+
+(3) e16 / S5 split by order.  medians in units of M of (V-part, m-part, s-margin); 'S earlier' = runner-up before the max (an overtaken max), 'S later' = runner-up after the max
+   D=1 gap (0.3,0.5]: pooled: ( 11.4,   -6.2,   4.8; P>0 0.999; n=37304)  |  S earlier: ( 12.1,   -6.1,   5.0; P>0 0.999; n=18629)  |  S later: ( 10.6,   -6.2,   4.6; P>0 1.000; n=18675)  | predicted V-part   7.5
+   D=3 gap (0.05,0.15]: pooled: ( 20.3,  -12.8,   7.8; P>0 1.000; n=18130)  |  S earlier: ( 20.5,  -12.9,   7.1; P>0 1.000; n= 8923)  |  S later: ( 20.1,  -12.7,   8.3; P>0 1.000; n= 9207)  | predicted V-part  21.0
+   D=3 gap (0.15,0.3]: pooled: ( 32.8,  -24.1,   8.8; P>0 1.000; n=25842)  |  S earlier: ( 34.0,  -26.2,   8.0; P>0 1.000; n=12729)  |  S later: ( 31.3,  -22.0,   9.6; P>0 1.000; n=13113)  | predicted V-part  31.5
+   D=3 gap (0.3,0.5]: pooled: ( 49.0,  -39.3,  10.2; P>0 1.000; n=28160)  |  S earlier: ( 51.9,  -43.8,   8.2; P>0 1.000; n=14028)  |  S later: ( 45.7,  -34.5,  11.0; P>0 1.000; n=14132)  | predicted V-part  45.7
+   D=3 gap (0.5,0.8]: pooled: ( 68.7,  -58.7,  10.5; P>0 0.999; n=20077)  |  S earlier: ( 73.6,  -65.4,   8.0; P>0 0.999; n= 9920)  |  S later: ( 63.1,  -51.4,  11.8; P>0 0.998; n=10157)  | predicted V-part  63.4
+   D=4 gap (0.3,0.5]: pooled: ( 61.7,  -47.7,  13.8; P>0 1.000; n=23503)  |  S earlier: ( 64.6,  -52.2,  12.7; P>0 1.000; n=11471)  |  S later: ( 58.6,  -43.4,  14.7; P>0 1.000; n=12032)  | predicted V-part  56.2
+   D=5 gap (0.3,0.5]: pooled: ( 61.8,  -44.4,  16.8; P>0 1.000; n=18443)  |  S earlier: ( 61.0,  -46.8,  13.7; P>0 1.000; n= 9052)  |  S later: ( 63.8,  -41.0,  24.5; P>0 1.000; n= 9391)  | predicted V-part  51.8
+   D=6 gap (0.3,0.5]: pooled: ( 45.9,  -30.2,  16.4; P>0 1.000; n=13778)  |  S earlier: ( 42.1,  -30.9,  13.6; P>0 1.000; n= 6675)  |  S later: ( 50.0,  -29.4,  21.3; P>0 1.000; n= 7103)  | predicted V-part  34.9

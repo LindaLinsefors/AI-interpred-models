@@ -1,0 +1,5 @@
+I1 k=2, t0=5: n = 27880; answers identical: True; P(ans = pM) = 1.0000
+I2 t_r=6, f=0.0, k=+0.0: n = 7368; answers identical: True; P(p0) = 0.0083; P(p0-1) = 0.0062; P(p0+1) = 0.0023; P(t_r) = 0.9350
+I2 t_r=6, f=1.0, k=+1.0: n = 7368; answers identical: True; P(p0) = 0.4746; P(p0-1) = 0.3750; P(p0+1) = 0.0000; P(t_r) = 0.0628
+I2 t_r=6, f=1.0, k=-1.0: n = 7368; answers identical: True; P(p0) = 0.0646; P(p0-1) = 0.0000; P(p0+1) = 0.4306; P(t_r) = 0.3366
+I2 selection: mine 40990, via running_stats 40990, identical masks: True; p0 identical on the selection: True; q0 identical: True

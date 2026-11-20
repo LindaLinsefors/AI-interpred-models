@@ -1,0 +1,87 @@
+n = 262144; network accuracy 0.9530; additivity max err 5.9e-05 (float32 cache)
+
+(a) leave one class out
+  all but X                                    agree 0.8689   task acc 0.8554   R2c   0.615   R2c(pos 0-8)   0.996
+  all but P4                                   agree 0.3528   task acc 0.3476   R2c   0.533   R2c(pos 0-8)   0.257
+  all but P5                                   agree 0.1176   task acc 0.1125   R2c  -0.163   R2c(pos 0-8)  -0.882
+  all but P9                                   agree 0.8860   task acc 0.8747   R2c   0.985   R2c(pos 0-8)   0.971
+  all but C1                                   agree 0.4184   task acc 0.4132   R2c  -0.020   R2c(pos 0-8)  -0.857
+  all but C6                                   agree 0.4192   task acc 0.4123   R2c  -0.159   R2c(pos 0-8)  -1.139
+  all but C7                                   agree 0.2606   task acc 0.2611   R2c  -1.290   R2c(pos 0-8)  -2.756
+  all but C8                                   agree 0.2761   task acc 0.2728   R2c  -0.767   R2c(pos 0-8)  -1.237
+  all but CW                                   agree 0.4562   task acc 0.4519   R2c   0.821   R2c(pos 0-8)   0.682
+  all but C1,C6,C7,C8                          agree 0.4548   task acc 0.4452   R2c   0.359   R2c(pos 0-8)   0.019
+  all but X,C1,C6,C7,C8                        agree 0.4220   task acc 0.4216   R2c   0.040   R2c(pos 0-8)  -0.023
+  all but P9,CW                                agree 0.4887   task acc 0.4851   R2c   0.832   R2c(pos 0-8)   0.699
+  all but P4,CW  (no MARK)                     agree 0.3021   task acc 0.2983   R2c   0.014   R2c(pos 0-8)  -0.625
+  all but P4,CW,P9                             agree 0.2969   task acc 0.2929   R2c   0.055   R2c(pos 0-8)  -0.557
+  all but P4,P5                                agree 0.2934   task acc 0.2883   R2c   0.610   R2c(pos 0-8)   0.358
+  all but P4,P5,P9                             agree 0.2646   task acc 0.2601   R2c   0.600   R2c(pos 0-8)   0.344
+
+(b) keep only k classes: best subsets by agreement (the 4 comparator clips counted as 4 classes)
+  k=1: X                                       agree 0.2050   task acc 0.1996   R2c   0.244   R2c(pos 0-8)   0.048
+  k=1: P5                                      agree 0.1827   task acc 0.1826   R2c   0.041   R2c(pos 0-8)  -0.205
+  k=1: P9                                      agree 0.1655   task acc 0.1625   R2c  -0.044   R2c(pos 0-8)  -0.094
+  k=2: P4+P5                                   agree 0.4104   task acc 0.4085   R2c   0.256   R2c(pos 0-8)   0.316
+  k=2: P5+CW                                   agree 0.2906   task acc 0.2893   R2c   0.179   R2c(pos 0-8)   0.054
+  k=2: P5+C1                                   agree 0.2392   task acc 0.2376   R2c  -0.572   R2c(pos 0-8)  -1.297
+  k=3: X+P4+P5                                 agree 0.4298   task acc 0.4251   R2c   0.560   R2c(pos 0-8)   0.333
+  k=3: P4+P5+CW                                agree 0.4255   task acc 0.4255   R2c   0.054   R2c(pos 0-8)   0.011
+  k=3: P4+P5+P9                                agree 0.4042   task acc 0.4021   R2c   0.216   R2c(pos 0-8)   0.236
+  k=4: X+P4+P5+CW                              agree 0.4560   task acc 0.4499   R2c   0.371   R2c(pos 0-8)   0.049
+  k=4: X+P4+P5+P9                              agree 0.4224   task acc 0.4175   R2c   0.523   R2c(pos 0-8)   0.257
+  k=4: P4+P5+P9+CW                             agree 0.4220   task acc 0.4216   R2c   0.040   R2c(pos 0-8)  -0.023
+  k=5: X+P4+P5+P9+CW                           agree 0.4548   task acc 0.4452   R2c   0.359   R2c(pos 0-8)   0.019
+  k=5: X+C1+C6+C7+C8                           agree 0.4321   task acc 0.4262   R2c   0.727   R2c(pos 0-8)   0.543
+  k=5: P9+C1+C6+C7+C8                          agree 0.3782   task acc 0.3759   R2c   0.400   R2c(pos 0-8)   0.498
+  k=6: P4+P5+C1+C6+C7+C8                       agree 0.4833   task acc 0.4803   R2c   0.461   R2c(pos 0-8)   0.721
+  k=6: X+P9+C1+C6+C7+C8                        agree 0.4307   task acc 0.4253   R2c   0.712   R2c(pos 0-8)   0.511
+  k=6: P4+P5+C1+C7+C8+CW                       agree 0.4014   task acc 0.3959   R2c  -0.382   R2c(pos 0-8)  -0.866
+  k=7: P4+P5+C1+C6+C7+C8+CW                    agree 0.8005   task acc 0.7960   R2c   0.601   R2c(pos 0-8)   0.972
+  k=7: X+P4+P5+C1+C6+C7+C8                     agree 0.4887   task acc 0.4851   R2c   0.832   R2c(pos 0-8)   0.699
+  k=7: P4+P5+P9+C1+C6+C7+C8                    agree 0.4487   task acc 0.4453   R2c   0.449   R2c(pos 0-8)   0.699
+  k=8: X+P4+P5+C1+C6+C7+C8+CW                  agree 0.8860   task acc 0.8747   R2c   0.985   R2c(pos 0-8)   0.971
+  k=8: P4+P5+P9+C1+C6+C7+C8+CW                 agree 0.8689   task acc 0.8554   R2c   0.615   R2c(pos 0-8)   0.996
+  k=8: X+P4+P5+P9+C1+C6+C7+C8                  agree 0.4562   task acc 0.4519   R2c   0.821   R2c(pos 0-8)   0.682
+
+(c) comparator clips as ONE class 'C' (so classes are X, P4, P5, P9, C, CW)
+  k=1: C                                       agree 0.3773   task acc 0.3760   R2c   0.417   R2c(pos 0-8)   0.534
+  k=1: X                                       agree 0.2050   task acc 0.1996   R2c   0.244   R2c(pos 0-8)   0.048
+  k=1: P5                                      agree 0.1827   task acc 0.1826   R2c   0.041   R2c(pos 0-8)  -0.205
+  k=2: X+C                                     agree 0.4321   task acc 0.4262   R2c   0.727   R2c(pos 0-8)   0.543
+  k=2: P4+P5                                   agree 0.4104   task acc 0.4085   R2c   0.256   R2c(pos 0-8)   0.316
+  k=2: P9+C                                    agree 0.3782   task acc 0.3759   R2c   0.400   R2c(pos 0-8)   0.498
+  k=3: P4+P5+C                                 agree 0.4833   task acc 0.4803   R2c   0.461   R2c(pos 0-8)   0.721
+  k=3: X+P9+C                                  agree 0.4307   task acc 0.4253   R2c   0.712   R2c(pos 0-8)   0.511
+  k=3: X+P4+P5                                 agree 0.4298   task acc 0.4251   R2c   0.560   R2c(pos 0-8)   0.333
+  k=4: P4+P5+C+CW                              agree 0.8005   task acc 0.7960   R2c   0.601   R2c(pos 0-8)   0.972
+  k=4: X+P4+P5+C                               agree 0.4887   task acc 0.4851   R2c   0.832   R2c(pos 0-8)   0.699
+  k=4: X+P4+P5+CW                              agree 0.4560   task acc 0.4499   R2c   0.371   R2c(pos 0-8)   0.049
+  k=5: X+P4+P5+C+CW                            agree 0.8860   task acc 0.8747   R2c   0.985   R2c(pos 0-8)   0.971
+  k=5: P4+P5+P9+C+CW                           agree 0.8689   task acc 0.8554   R2c   0.615   R2c(pos 0-8)   0.996
+  k=5: X+P4+P5+P9+C                            agree 0.4562   task acc 0.4519   R2c   0.821   R2c(pos 0-8)   0.682
+
+(d) keep only events caused by some inputs (all classes): roles
+  roles max                                    agree 0.1403   task acc 0.1316   R2c   0.288   R2c(pos 0-8)   0.368
+  roles runner                                 agree 0.9130   task acc 0.9493   R2c   0.305   R2c(pos 0-8)   0.379
+  roles max+runner                             agree 0.5475   task acc 0.5552   R2c   0.528   R2c(pos 0-8)   0.628
+  roles max+runner+third                       agree 0.5624   task acc 0.5586   R2c   0.641   R2c(pos 0-8)   0.730
+  roles max+runner+other                       agree 0.8344   task acc 0.8463   R2c   0.860   R2c(pos 0-8)   0.816
+  roles runner+third+other                     agree 0.5489   task acc 0.5456   R2c   0.551   R2c(pos 0-8)   0.268
+  roles max+third+other                        agree 0.0860   task acc 0.0527   R2c   0.651   R2c(pos 0-8)   0.491
+
+(e) keep events of the top-2 / top-3 inputs only, and drop classes
+  roles max+runner without -                   agree 0.5475   task acc 0.5552   R2c   0.528   R2c(pos 0-8)   0.628
+  roles max+runner without P9                  agree 0.5741   task acc 0.5831   R2c   0.540   R2c(pos 0-8)   0.659
+  roles max+runner without CW                  agree 0.5044   task acc 0.5102   R2c   0.534   R2c(pos 0-8)   0.628
+  roles max+runner without P9,CW               agree 0.5375   task acc 0.5447   R2c   0.545   R2c(pos 0-8)   0.657
+  roles max+runner without X                   agree 0.5026   task acc 0.5093   R2c   0.417   R2c(pos 0-8)   0.635
+  roles max+runner without P4                  agree 0.2898   task acc 0.2918   R2c  -0.026   R2c(pos 0-8)  -0.442
+  roles max+runner without P5                  agree 0.1362   task acc 0.1316   R2c  -0.196   R2c(pos 0-8)  -0.365
+  roles max+runner+third without -             agree 0.5624   task acc 0.5586   R2c   0.641   R2c(pos 0-8)   0.730
+  roles max+runner+third without P9            agree 0.5862   task acc 0.5830   R2c   0.646   R2c(pos 0-8)   0.747
+  roles max+runner+third without CW            agree 0.4762   task acc 0.4729   R2c   0.615   R2c(pos 0-8)   0.666
+  roles max+runner+third without P9,CW         agree 0.5089   task acc 0.5059   R2c   0.622   R2c(pos 0-8)   0.686
+  roles max+runner+third without X             agree 0.5282   task acc 0.5259   R2c   0.484   R2c(pos 0-8)   0.739
+  roles max+runner+third without P4            agree 0.2967   task acc 0.2939   R2c   0.051   R2c(pos 0-8)  -0.405
+  roles max+runner+third without P5            agree 0.1463   task acc 0.1419   R2c  -0.182   R2c(pos 0-8)  -0.368

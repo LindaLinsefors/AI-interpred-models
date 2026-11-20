@@ -1,0 +1,79 @@
+how often the clamp changes something (fraction of clamped steps): {'u5_on_s1': 0.9976, 'u9_on_s1': 0.9747, 'u0_off_s2': 0.8099, 'u0_off_s1': 0.0048, 'u5_on_s2': 0.429, 'u9_on_s2': 0.1937, 'recs_per_seq': 2.2366}
+n = 800000; unmodified network accuracy 0.9530; on 'relabel' sequences (true answer = old max of the final record, 0.501 of all): 0.9558; others: 0.9503
+
+--- unit 5 off @ s+1 ---
+  agreement with the network 0.4994;  task accuracy 0.4929 (relabel sequences 0.0892, others 0.8981)
+  changed answers (400486, 0.5006) go to: the max 0.055; true 2nd 0.027; 3rd largest 0.370; old max of final record (when not the true 2nd) 0.008; position max+1 0.064; max-1 0.066; neighbour (+-1) of the unmodified answer 0.505 (+1: 0.269, -1: 0.236)
+  of the changed answers that were right before (378717): to the max 0.056; to the 3rd 0.386; to 2nd+1 0.279; to 2nd-1 0.243; share from relabel sequences 0.920
+  shift new - old answer among changed: -4:0.01 -3:0.02 -2:0.06 -1:0.24 +1:0.27 +2:0.11 +3:0.06 +4:0.05
+  new answer relative to the max position: -4:0.12 -3:0.20 -2:0.14 -1:0.07 +0:0.05 +1:0.06 +2:0.04 +3:0.03 +4:0.02
+
+--- unit 5 off @ s+2 ---
+  agreement with the network 0.7872;  task accuracy 0.7605 (relabel sequences 0.7547, others 0.7664)
+  changed answers (170220, 0.2128) go to: the max 0.430; true 2nd 0.040; 3rd largest 0.328; old max of final record (when not the true 2nd) 0.098; position max+1 0.003; max-1 0.104; neighbour (+-1) of the unmodified answer 0.574 (+1: 0.019, -1: 0.555)
+  of the changed answers that were right before (160762): to the max 0.450; to the 3rd 0.345; to 2nd+1 0.017; to 2nd-1 0.575; share from relabel sequences 0.524
+  shift new - old answer among changed: -4:0.01 -3:0.03 -2:0.09 -1:0.55 +1:0.02 +2:0.08 +3:0.05 +4:0.04
+  new answer relative to the max position: -4:0.05 -3:0.08 -2:0.10 -1:0.10 +0:0.43 +1:0.00 +2:0.03 +3:0.02 +4:0.01
+
+--- unit 5 off @ s+1,s+2 ---
+  agreement with the network 0.4441;  task accuracy 0.4391 (relabel sequences 0.1222, others 0.7572)
+  changed answers (444724, 0.5559) go to: the max 0.064; true 2nd 0.024; 3rd largest 0.323; old max of final record (when not the true 2nd) 0.035; position max+1 0.019; max-1 0.090; neighbour (+-1) of the unmodified answer 0.381 (+1: 0.096, -1: 0.285)
+  of the changed answers that were right before (421790): to the max 0.065; to the 3rd 0.336; to 2nd+1 0.097; to 2nd-1 0.293; share from relabel sequences 0.795
+  shift new - old answer among changed: -4:0.02 -3:0.05 -2:0.09 -1:0.28 +1:0.10 +2:0.12 +3:0.07 +4:0.05
+  new answer relative to the max position: -4:0.11 -3:0.20 -2:0.14 -1:0.09 +0:0.06 +1:0.02 +2:0.07 +3:0.05 +4:0.03
+
+--- unit 9 off @ s+1 ---
+  agreement with the network 0.6755;  task accuracy 0.6651 (relabel sequences 0.4876, others 0.8432)
+  changed answers (259575, 0.3245) go to: the max 0.875; true 2nd 0.032; 3rd largest 0.072; old max of final record (when not the true 2nd) 0.007; position max+1 0.016; max-1 0.005; neighbour (+-1) of the unmodified answer 0.388 (+1: 0.239, -1: 0.149)
+  of the changed answers that were right before (238671): to the max 0.904; to the 3rd 0.076; to 2nd+1 0.248; to 2nd-1 0.153; share from relabel sequences 0.798
+  shift new - old answer among changed: -4:0.02 -3:0.02 -2:0.03 -1:0.15 +1:0.24 +2:0.20 +3:0.17 +4:0.08
+  new answer relative to the max position: -4:0.00 -3:0.00 -2:0.00 -1:0.01 +0:0.87 +1:0.02 +2:0.00 +3:0.01 +4:0.01
+
+--- unit 9 off @ s+2 ---
+  agreement with the network 0.8990;  task accuracy 0.8624 (relabel sequences 0.8027, others 0.9223)
+  changed answers (80805, 0.1010) go to: the max 0.832; true 2nd 0.028; 3rd largest 0.110; old max of final record (when not the true 2nd) 0.007; position max+1 0.012; max-1 0.012; neighbour (+-1) of the unmodified answer 0.849 (+1: 0.648, -1: 0.201)
+  of the changed answers that were right before (74803): to the max 0.854; to the 3rd 0.117; to 2nd+1 0.688; to 2nd-1 0.207; share from relabel sequences 0.834
+  shift new - old answer among changed: -4:0.02 -3:0.02 -2:0.02 -1:0.20 +1:0.65 +2:0.02 +3:0.01 +4:0.01
+  new answer relative to the max position: -4:0.02 -3:0.02 -2:0.00 -1:0.01 +0:0.83 +1:0.01 +2:0.00 +3:0.00 +4:0.00
+
+--- unit 9 off @ s+1,s+2 ---
+  agreement with the network 0.6750;  task accuracy 0.6649 (relabel sequences 0.4885, others 0.8419)
+  changed answers (259960, 0.3250) go to: the max 0.875; true 2nd 0.032; 3rd largest 0.071; old max of final record (when not the true 2nd) 0.007; position max+1 0.016; max-1 0.005; neighbour (+-1) of the unmodified answer 0.389 (+1: 0.238, -1: 0.152)
+  of the changed answers that were right before (238954): to the max 0.904; to the 3rd 0.076; to 2nd+1 0.247; to 2nd-1 0.155; share from relabel sequences 0.796
+  shift new - old answer among changed: -4:0.02 -3:0.02 -2:0.03 -1:0.15 +1:0.24 +2:0.20 +3:0.17 +4:0.08
+  new answer relative to the max position: -4:0.00 -3:0.00 -2:0.00 -1:0.01 +0:0.88 +1:0.02 +2:0.00 +3:0.01 +4:0.01
+
+--- units 5,9 off @ s+1 ---
+  agreement with the network 0.4754;  task accuracy 0.4698 (relabel sequences 0.0389, others 0.9023)
+  changed answers (419715, 0.5246) go to: the max 0.060; true 2nd 0.026; 3rd largest 0.368; old max of final record (when not the true 2nd) 0.008; position max+1 0.075; max-1 0.090; neighbour (+-1) of the unmodified answer 0.496 (+1: 0.191, -1: 0.305)
+  of the changed answers that were right before (397298): to the max 0.062; to the 3rd 0.384; to 2nd+1 0.196; to 2nd-1 0.314; share from relabel sequences 0.927
+  shift new - old answer among changed: -4:0.01 -3:0.02 -2:0.05 -1:0.31 +1:0.19 +2:0.10 +3:0.07 +4:0.04
+  new answer relative to the max position: -4:0.10 -3:0.15 -2:0.15 -1:0.09 +0:0.06 +1:0.07 +2:0.05 +3:0.04 +4:0.02
+
+--- unit 0 on @ s+1 ---
+  agreement with the network 0.9993;  task accuracy 0.9528 (relabel sequences 0.9554, others 0.9503)
+  changed answers (567, 0.0007) go to: the max 0.002; true 2nd 0.339; 3rd largest 0.642; old max of final record (when not the true 2nd) 0.037; position max+1 0.002; max-1 0.377; neighbour (+-1) of the unmodified answer 0.825 (+1: 0.048, -1: 0.778)
+  of the changed answers that were right before (355): to the max 0.003; to the 3rd 0.994; to 2nd+1 0.006; to 2nd-1 0.949; share from relabel sequences 0.961
+  shift new - old answer among changed: -4:0.02 -3:0.03 -2:0.01 -1:0.78 +1:0.05 +2:0.04 +3:0.02 +4:0.01
+  new answer relative to the max position: -4:0.17 -3:0.21 -2:0.09 -1:0.38 +0:0.00 +1:0.00 +2:0.00 +3:0.00 +4:0.00
+
+--- unit 0 on @ s+2 ---
+  agreement with the network 0.7754;  task accuracy 0.7630 (relabel sequences 0.7896, others 0.7362)
+  changed answers (179696, 0.2246) go to: the max 0.659; true 2nd 0.053; 3rd largest 0.181; old max of final record (when not the true 2nd) 0.079; position max+1 0.003; max-1 0.001; neighbour (+-1) of the unmodified answer 0.364 (+1: 0.188, -1: 0.175)
+  of the changed answers that were right before (161607): to the max 0.707; to the 3rd 0.196; to 2nd+1 0.199; to 2nd-1 0.180; share from relabel sequences 0.442
+  shift new - old answer among changed: -4:0.05 -3:0.12 -2:0.17 -1:0.18 +1:0.19 +2:0.06 +3:0.03 +4:0.04
+  new answer relative to the max position: -4:0.03 -3:0.04 -2:0.04 -1:0.00 +0:0.66 +1:0.00 +2:0.02 +3:0.05 +4:0.01
+
+--- unit 0 on @ s+1,s+2 ---
+  agreement with the network 0.7754;  task accuracy 0.7630 (relabel sequences 0.7896, others 0.7362)
+  changed answers (179694, 0.2246) go to: the max 0.659; true 2nd 0.053; 3rd largest 0.181; old max of final record (when not the true 2nd) 0.079; position max+1 0.003; max-1 0.001; neighbour (+-1) of the unmodified answer 0.364 (+1: 0.188, -1: 0.175)
+  of the changed answers that were right before (161605): to the max 0.707; to the 3rd 0.196; to 2nd+1 0.199; to 2nd-1 0.180; share from relabel sequences 0.442
+  shift new - old answer among changed: -4:0.05 -3:0.12 -2:0.17 -1:0.18 +1:0.19 +2:0.06 +3:0.03 +4:0.04
+  new answer relative to the max position: -4:0.03 -3:0.04 -2:0.04 -1:0.00 +0:0.66 +1:0.00 +2:0.02 +3:0.05 +4:0.01
+
+--- unit 0 off @ s+3 (control: off where it is normally on) ---
+  agreement with the network 0.6233;  task accuracy 0.6127 (relabel sequences 0.4119, others 0.8141)
+  changed answers (301354, 0.3767) go to: the max 0.026; true 2nd 0.029; 3rd largest 0.220; old max of final record (when not the true 2nd) 0.020; position max+1 0.283; max-1 0.131; neighbour (+-1) of the unmodified answer 0.541 (+1: 0.443, -1: 0.098)
+  of the changed answers that were right before (280972): to the max 0.027; to the 3rd 0.231; to 2nd+1 0.462; to 2nd-1 0.100; share from relabel sequences 0.785
+  shift new - old answer among changed: -4:0.03 -3:0.06 -2:0.04 -1:0.10 +1:0.44 +2:0.08 +3:0.09 +4:0.04
+  new answer relative to the max position: -4:0.10 -3:0.06 -2:0.08 -1:0.13 +0:0.03 +1:0.28 +2:0.04 +3:0.00 +4:0.04

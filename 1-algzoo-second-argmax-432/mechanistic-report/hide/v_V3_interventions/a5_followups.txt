@@ -1,0 +1,117 @@
+[A] I2 pool: seeds 5700..5706, n = 286520
+    L_comp . R_comp = 0.815+0.458j (so L_wave . R_wave = 0.185-0.458j);  L_comp . conj(R_comp) = 0.029-0.020j
+    intervention -> median |z'|/|z| of the clock coordinate, median phase shift (deg), and the answer
+    clock x 0, all 13 units (lead)                 |z'|/|z| = 0.000  phase  -136.1  | P(p0) = 0.0185  P(t_r) = 0.7769  P(q0) = 0.1640  p0-1: 0.014  p0+1: 0.013  neg = 0.09
+    clock x 0, wave units only                     |z'|/|z| = 0.920  phase   +29.2  | P(p0) = 0.0217  P(t_r) = 0.7512  P(q0) = 0.1673  p0-1: 0.012  p0+1: 0.027  neg = 0.07
+    clock x 0, comparators only                    |z'|/|z| = 0.488  phase   -67.3  | P(p0) = 0.9982  P(t_r) = 0.0007  P(q0) = 0.0007  p0-1: 0.000  p0+1: 0.000  neg = 0.03
+    comparators moved (min norm) so that z' = 0    |z'|/|z| = 0.000  phase  -151.1  | P(p0) = 0.9870  P(t_r) = 0.0083  P(q0) = 0.0039  p0-1: 0.001  p0+1: 0.002  neg = 0.06
+    same, clipped at 0                             |z'|/|z| = 0.000  phase   -40.2  | P(p0) = 0.9871  P(t_r) = 0.0084  P(q0) = 0.0038  p0-1: 0.001  p0+1: 0.002  neg = 0.00
+    comparators moved so that z' = 0.5 z           |z'|/|z| = 0.500  phase    -0.0  | P(p0) = 0.9958  P(t_r) = 0.0031  P(q0) = 0.0008  p0-1: 0.000  p0+1: 0.001  neg = 0.04
+    comparators moved so that z' = 2 z             |z'|/|z| = 2.000  phase    +0.0  | P(p0) = 0.7758  P(t_r) = 0.1619  P(q0) = 0.0293  p0-1: 0.007  p0+1: 0.030  neg = 0.24
+    comparators moved so that z' = z e^{+i w}      |z'|/|z| = 1.000  phase   +42.7  | P(p0) = 0.8374  P(t_r) = 0.1372  P(q0) = 0.0218  p0-1: 0.005  p0+1: 0.008  neg = 0.16
+    comparators moved so that z' = z e^{-i w}      |z'|/|z| = 1.000  phase   -42.7  | P(p0) = 0.9853  P(t_r) = 0.0083  P(q0) = 0.0050  p0-1: 0.000  p0+1: 0.003  neg = 0.06
+    comparators moved so that z' = -z              |z'|/|z| = 1.000  phase  -180.0  | P(p0) = 0.8288  P(t_r) = 0.0469  P(q0) = 0.0674  p0-1: 0.040  p0+1: 0.058  neg = 0.18
+    wipe the comparators                           |z'|/|z| = 0.487  phase   -48.5  | P(p0) = 0.8678  P(t_r) = 0.0002  P(q0) = 0.0379  p0-1: 0.009  p0+1: 0.001  neg = 0.00
+    clock x 0.5, wave units only                   |z'|/|z| = 0.931  phase   +14.0  | P(p0) = 0.3403  P(t_r) = 0.5739  P(q0) = 0.0720  p0-1: 0.021  p0+1: 0.020  neg = 0.06
+    clock k=+1, wave units only                    |z'|/|z| = 1.293  phase   +10.9  | P(p0) = 0.5171  P(t_r) = 0.0541  P(q0) = 0.1982  p0-1: 0.346  p0+1: 0.004  neg = 0.66
+    clock k=-1, wave units only                    |z'|/|z| = 0.631  phase    -0.3  | P(p0) = 0.1770  P(t_r) = 0.3115  P(q0) = 0.2322  p0-1: 0.000  p0+1: 0.358  neg = 0.29
+
+[C] f > 1: comparators still on at the record step t_r, and P(p0) given all four are off there
+    f = 0.5  raw    : all four comparators off at t_r in 0.966;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.3465   P(p0 | some on) = 0.1558   median h4(t_r)/(10.157 (x_tr - M0)) = 1.253
+    f = 0.5  clipped: all four comparators off at t_r in 0.966;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.3467   P(p0 | some on) = 0.1536   median h4(t_r)/(10.157 (x_tr - M0)) = 1.253
+    f = 1    raw    : all four comparators off at t_r in 0.810;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.9989   P(p0 | some on) = 0.9543   median h4(t_r)/(10.157 (x_tr - M0)) = 1.226
+    f = 1    clipped: all four comparators off at t_r in 0.810;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.9989   P(p0 | some on) = 0.9543   median h4(t_r)/(10.157 (x_tr - M0)) = 1.226
+    f = 1.25 raw    : all four comparators off at t_r in 0.732;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.9974   P(p0 | some on) = 0.8538   median h4(t_r)/(10.157 (x_tr - M0)) = 1.200
+    f = 1.25 clipped: all four comparators off at t_r in 0.735;  unit 4 fires at t_r in 1.000;  P(p0 | all off) = 0.9921   P(p0 | some on) = 0.7452   median h4(t_r)/(10.157 (x_tr - M0)) = 1.198
+    f = 1.5  raw    : all four comparators off at t_r in 0.663;  unit 4 fires at t_r in 0.995;  P(p0 | all off) = 0.9763   P(p0 | some on) = 0.7264   median h4(t_r)/(10.157 (x_tr - M0)) = 1.183
+    f = 1.5  clipped: all four comparators off at t_r in 0.669;  unit 4 fires at t_r in 0.998;  P(p0 | all off) = 0.9760   P(p0 | some on) = 0.5535   median h4(t_r)/(10.157 (x_tr - M0)) = 1.159
+    f = 2    raw    : all four comparators off at t_r in 0.548;  unit 4 fires at t_r in 0.977;  P(p0 | all off) = 0.8972   P(p0 | some on) = 0.5575   median h4(t_r)/(10.157 (x_tr - M0)) = 1.175
+    f = 2    clipped: all four comparators off at t_r in 0.555;  unit 4 fires at t_r in 0.979;  P(p0 | all off) = 0.9121   P(p0 | some on) = 0.3760   median h4(t_r)/(10.157 (x_tr - M0)) = 1.090
+    f = 3    raw    : all four comparators off at t_r in 0.384;  unit 4 fires at t_r in 0.941;  P(p0 | all off) = 0.8522   P(p0 | some on) = 0.4277   median h4(t_r)/(10.157 (x_tr - M0)) = 1.161
+    f = 3    clipped: all four comparators off at t_r in 0.400;  unit 4 fires at t_r in 0.920;  P(p0 | all off) = 0.8076   P(p0 | some on) = 0.2393   median h4(t_r)/(10.157 (x_tr - M0)) = 0.991
+
+[D] I2 by age of the old max at t_r - 1 (rows) : n, then P(p0), P(t_r) for f = 0 | P(p0) for f = 0.5 | k=+1: P(p0), P(p0-1) | k=-1: P(p0), P(p0+1)
+    age 2: n= 69076  f=0: 0.022 0.798 | f=0.5: 0.233 | k=+1: 0.394 0.400 | k=-1: 0.139 0.446
+    age 3: n= 63919  f=0: 0.011 0.821 | f=0.5: 0.354 | k=+1: 0.487 0.372 | k=-1: 0.114 0.340
+    age 4: n= 56329  f=0: 0.031 0.810 | f=0.5: 0.464 | k=+1: 0.437 0.444 | k=-1: 0.089 0.460
+    age 5: n= 46050  f=0: 0.015 0.789 | f=0.5: 0.336 | k=+1: 0.418 0.467 | k=-1: 0.062 0.520
+    age 6: n= 33402  f=0: 0.012 0.710 | f=0.5: 0.319 | k=+1: 0.464 0.336 | k=-1: 0.026 0.659
+    age 7: n= 17744  f=0: 0.015 0.524 | f=0.5: 0.365 | k=+1: 0.769 0.000 | k=-1: 0.030 0.673
+    by t_r:
+    t_r 3: n=  5141  f=0: 0.000 0.978 | f=0.5: 0.020 | k=+1: 0.861 0.000 | k=-1: 0.001 0.538
+    t_r 4: n= 15407  f=0: 0.001 0.967 | f=0.5: 0.180 | k=+1: 0.594 0.342 | k=-1: 0.031 0.395
+    t_r 5: n= 30789  f=0: 0.012 0.940 | f=0.5: 0.245 | k=+1: 0.505 0.357 | k=-1: 0.048 0.402
+    t_r 6: n= 51087  f=0: 0.009 0.935 | f=0.5: 0.248 | k=+1: 0.467 0.388 | k=-1: 0.065 0.423
+    t_r 7: n= 76867  f=0: 0.012 0.898 | f=0.5: 0.245 | k=+1: 0.433 0.379 | k=-1: 0.086 0.472
+    t_r 8: n=107229  f=0: 0.033 0.531 | f=0.5: 0.517 | k=+1: 0.421 0.410 | k=-1: 0.133 0.533
+    by relative gap of the old top two, (M0 - S0)/M0, f = 0.5: P(p0) in bins (0,.1], (.1,.2], (.2,.4], (.4,.7], (.7,1): 0.495 0.500 0.372 0.223 0.104
+    by size of the record, (x_tr - M0)/M0, f = 0.5: P(p0) in bins (0,.1], (.1,.3], (.3,.6], (.6,1], >1: 0.084 0.203 0.383 0.505 0.666
+
+    records at the LAST step (t_r = 9; not in the lead's selection; same other conditions), seeds 5760..5763
+    n = 81892;  unperturbed: P(p0) = 0.9733  P(t_r) = 0.0100  P(q0) = 0.0137
+    f = 0   : P(p0) = 0.0526  P(t_r) = 0.3438  P(q0) = 0.4969  p0-1: 0.043  p0+1: 0.042
+    f = 0.5 : P(p0) = 0.5468  P(t_r) = 0.2352  P(q0) = 0.1902  p0-1: 0.066  p0+1: 0.019
+    f = 2   : P(p0) = 0.7496  P(t_r) = 0.0393  P(q0) = 0.0486  p0-1: 0.017  p0+1: 0.178
+    k = +1  : P(p0) = 0.3938  P(t_r) = 0.0427  P(q0) = 0.2400  p0-1: 0.393  p0+1: 0.000
+    k = -1  : P(p0) = 0.1541  P(t_r) = 0.0819  P(q0) = 0.2748  p0-1: 0.000  p0+1: 0.508
+
+[B] I1 pool: seeds 5720..5721, n = 556705
+    P(ans = pM) by k (rows) and t0 (columns 1..9) when only the comparators' CLOCK component is removed (clipped at 0)
+    k=1: 0.3975 0.1209 0.2107 0.2753 0.3795 0.4463 0.3892 0.3546 0.0266   | pooled 0.2891  P(runner-up) 0.2614  P(ans = t0) 0.0104
+    k=2:   -    0.9963 0.9987 0.9996 0.9995 0.9967 0.9931 0.9533 0.8127   | pooled 0.9687  P(runner-up) 0.0244  P(ans = t0) 0.0001
+    k=3:   -      -    0.9739 0.9807 0.9779 0.9685 0.9850 0.9717 0.8943   | pooled 0.9646  P(runner-up) 0.0253  P(ans = t0) 0.0004
+    k=4:   -      -      -    0.9674 0.9722 0.9673 0.9647 0.9771 0.9856   | pooled 0.9724  P(runner-up) 0.0223  P(ans = t0) 0.0002
+    k=5:   -      -      -      -    0.9832 0.9822 0.9842 0.9879 0.9895   | pooled 0.9854  P(runner-up) 0.0134  P(ans = t0) 0.0000
+    k=6:   -      -      -      -      -    0.9613 0.9661 0.9821 0.9842   | pooled 0.9734  P(runner-up) 0.0239  P(ans = t0) 0.0000
+    k=7:   -      -      -      -      -      -    0.9442 0.9554 0.9771   | pooled 0.9589  P(runner-up) 0.0377  P(ans = t0) 0.0000
+    k=8:   -      -      -      -      -      -      -    0.8780 0.8841   | pooled 0.8810  P(runner-up) 0.0910  P(ans = t0) 0.0000
+    k=9:   -      -      -      -      -      -      -      -    0.6122   | pooled 0.6122  P(runner-up) 0.1808  P(ans = t0) 0.0000
+    readouts at the last step (t0 = 9), by age k of the max: P(argmax = pM) for
+    (i) logits without the comparator columns (= wipe at t0 = 9); (ii) the same, position 9 excluded; (iii) full logits minus the
+    comparators' clock component; (iv) full logits, position of the true runner-up excluded
+    k=1: (i) 0.0203  (ii) 0.9983  (iii) 0.0261  (iv) 0.1626
+    k=2: (i) 0.0000  (ii) 0.9952  (iii) 0.8086  (iv) 0.4623
+    k=3: (i) 0.0002  (ii) 0.9588  (iii) 0.8942  (iv) 0.4912
+    k=4: (i) 0.4268  (ii) 0.9886  (iii) 0.9856  (iv) 0.5031
+    k=5: (i) 0.9787  (ii) 1.0000  (iii) 0.9895  (iv) 0.3676
+    k=6: (i) 0.9965  (ii) 0.9999  (iii) 0.9842  (iv) 0.2911
+    k=7: (i) 0.9935  (ii) 0.9943  (iii) 0.9771  (iv) 0.2885
+    k=8: (i) 0.9998  (ii) 0.9999  (iii) 0.8805  (iv) 0.2770
+    k=9: (i) 0.0270  (ii) 0.3256  (iii) 0.6102  (iv) 0.2705
+
+[E] on-manifold analogue of the wipe: replace the INPUT x_t0 (t0 = pM + k <= 7) by c * M and run the unmodified network.
+    P(ans = pM) | P(ans = t0);  k = 1..6
+    x_t0 := 0.9  M : 0.000|0.994  0.000|0.995  0.000|0.997  0.000|0.993  0.000|0.990  0.000|0.980
+    x_t0 := 0.97 M : 0.001|0.999  0.000|1.000  0.000|1.000  0.001|0.999  0.027|0.970  0.028|0.952
+    x_t0 := 0.99 M : 0.015|0.985  0.004|0.996  0.127|0.873  0.157|0.843  0.336|0.662  0.211|0.772
+    x_t0 := 1.0  M : 0.342|0.658  0.619|0.381  0.661|0.339  0.535|0.465  0.658|0.341  0.436|0.550
+    x_t0 := 1.01 M : 0.999|0.000  0.998|0.002  0.999|0.001  0.847|0.153  0.882|0.116  0.656|0.333
+    x_t0 := 1.03 M : 1.000|0.000  1.000|0.000  1.000|0.000  0.983|0.017  0.996|0.004  0.903|0.089
+    x_t0 := 1.1  M : 1.000|0.000  1.000|0.000  1.000|0.000  1.000|0.000  1.000|0.000  0.999|0.000
+    x_t0 := 1.3  M : 1.000|0.000  1.000|0.000  1.000|0.000  1.000|0.000  1.000|0.000  1.000|0.000
+    wipe (for comparison): 0.999|0.000  1.000|0.000  0.975|0.018  0.941|0.058  0.992|0.003  1.000|0.000
+
+[G] scale the comparators by a small c (t0 <= 7): P(ans = pM) | P(ans = t0), k = 1..6
+    c = 0    : 0.999|0.000  1.000|0.000  0.975|0.018  0.941|0.058  0.992|0.003  1.000|0.000
+    c = 0.01 : 0.660|0.340  0.473|0.527  0.304|0.696  0.398|0.602  0.982|0.016  1.000|0.000
+    c = 0.02 : 0.318|0.682  0.220|0.780  0.098|0.902  0.193|0.806  0.988|0.010  1.000|0.000
+    c = 0.05 : 0.365|0.635  0.323|0.675  0.033|0.950  0.234|0.746  0.995|0.003  1.000|0.000
+    c = 0.1  : 0.521|0.479  0.526|0.468  0.244|0.697  0.466|0.484  0.995|0.003  1.000|0.000
+    c = 0.2  : 0.605|0.375  0.641|0.331  0.474|0.416  0.604|0.308  0.967|0.023  1.000|0.000
+
+[F] the two claims with Unif(-1, 1) inputs (same thresholds), seeds 5740..
+    I1 selection: n = 499655 of 1600000;  unperturbed P(ans = runner-up) = 0.9661
+    wipe comparators         : pooled over valid t0, k = 1..6: P(pM) = 0.868 0.875 0.759 0.806 0.981 0.999   P(runner-up) = 0.013 0.014 0.021 0.004 0.003 0.000
+    wipe control 10,11,12,15 : pooled over valid t0, k = 1..6: P(pM) = 0.003 0.000 0.000 0.001 0.000 0.000   P(runner-up) = 0.323 0.223 0.239 0.292 0.542 0.273
+    k = 2 by t0 = 2..9: 1.0000 1.0000 1.0000 1.0000 0.9998 1.0000 0.9974 0.0000
+    I2 selection: n = 289914 of 4000000; unperturbed P(p0) = 0.9792  P(t_r) = 0.0200  P(q0) = 0.0006
+    f = 0   : P(p0) = 0.0051  P(t_r) = 0.8924  P(q0) = 0.0887  p0-2: 0.013 p0-1: 0.005 p0+1: 0.005 p0+2: 0.007
+    f = 0.25: P(p0) = 0.0359  P(t_r) = 0.9049  P(q0) = 0.0542  p0-2: 0.006 p0-1: 0.007 p0+1: 0.006 p0+2: 0.008
+    f = 0.5 : P(p0) = 0.2115  P(t_r) = 0.7583  P(q0) = 0.0265  p0-2: 0.001 p0-1: 0.008 p0+1: 0.003 p0+2: 0.005
+    f = 0.75: P(p0) = 0.8179  P(t_r) = 0.1769  P(q0) = 0.0045  p0-2: 0.000 p0-1: 0.003 p0+1: 0.001 p0+2: 0.000
+    f = 1.5 : P(p0) = 0.8060  P(t_r) = 0.1516  P(q0) = 0.0269  p0-2: 0.000 p0-1: 0.006 p0+1: 0.030 p0+2: 0.007
+    f = 2   : P(p0) = 0.6153  P(t_r) = 0.2617  P(q0) = 0.0592  p0-2: 0.000 p0-1: 0.024 p0+1: 0.078 p0+2: 0.019
+    k = -2  : P(p0) = 0.0004  P(t_r) = 0.4506  P(q0) = 0.3254  p0-2: 0.000 p0-1: 0.000 p0+1: 0.126 p0+2: 0.266
+    k = -1  : P(p0) = 0.0709  P(t_r) = 0.3534  P(q0) = 0.3127  p0-2: 0.000 p0-1: 0.000 p0+1: 0.409 p0+2: 0.149
+    k = +1  : P(p0) = 0.4330  P(t_r) = 0.1238  P(q0) = 0.2204  p0-2: 0.085 p0-1: 0.341 p0+1: 0.000 p0+2: 0.000
+    k = +2  : P(p0) = 0.0553  P(t_r) = 0.3205  P(q0) = 0.2487  p0-2: 0.217 p0-1: 0.262 p0+1: 0.000 p0+2: 0.001

@@ -1,0 +1,77 @@
+records s=1..8 over a positive old max: 455855; with a quiet next step: 335062
+
+(a) comparators still ON at the record step, by age of the old max (share of records)
+   a_old=0: units 1,6,7,8 on: [0.001 0.    0.014 0.001]   any on: 0.0146   n=155974
+   a_old=1: units 1,6,7,8 on: [0.    0.    0.012 0.002]   any on: 0.0130   n=106156
+   a_old=2: units 1,6,7,8 on: [0.    0.029 0.006 0.001]   any on: 0.0311   n=72293
+   a_old=3: units 1,6,7,8 on: [0.005 0.106 0.    0.002]   any on: 0.1071   n=49446
+   a_old=4: units 1,6,7,8 on: [0.17  0.051 0.    0.005]   any on: 0.1730   n=32871
+   a_old=5: units 1,6,7,8 on: [0.222 0.    0.    0.039]   any on: 0.2290   n=21423
+   a_old=6: units 1,6,7,8 on: [0.075 0.    0.    0.234]   any on: 0.2357   n=12257
+   a_old=7: units 1,6,7,8 on: [0.    0.    0.001 0.258]   any on: 0.2587   n=5435
+
+(b) [EXACT per sample, averaged] dz(s+1) = a dz(s-1) + b conj(dz(s-1)) with the gates of steps s, s+1 held fixed
+   W[4,ORD].RC = 0.0801@ +173.4  (the unit-4 path: a_4 = W[4,ORD].RC, b_4 = conj(a_4) when no clipping at s+1)
+   free-flow value for 'comparators off at s, everything on at s+1, unit 4 excluded': lam^2 s_clock = 0.4470@  +17.5
+   all records: mean a = 0.2530@  +40.8  mean b = 0.1757@ +178.8 | via unit 4: a = 0.0712@ +173.6 b = 0.0712@ -173.2 | all other paths: a = 0.3059@  +31.0 b = 0.1056@ +173.5   (sd of |a_rest| 0.087)
+   quiet next step: mean a = 0.2259@  +52.1  mean b = 0.2227@ -176.7 | via unit 4: a = 0.0803@ +173.9 b = 0.0803@ -173.0 | all other paths: a = 0.2768@  +37.8 b = 0.1426@ -178.7   (sd of |a_rest| 0.082)
+   by age of old max (quiet next step): mean a_rest, mean b_rest, and the net factor on the old clock assuming z(s-1) ~ r e^{i phi}: |a + b e^{-2 i phi}|
+     a_old=0: a_rest 0.208@  +92.2  b_rest 0.404@ -176.8  mean net (rest) 0.232@  +46.4   mean net (incl. unit 4) 0.208@  +57.6   n=110335
+     a_old=1: a_rest 0.366@  +24.6  b_rest 0.070@ +119.8  mean net (rest) 0.366@  +35.1   mean net (incl. unit 4) 0.259@  +55.8   n=77024
+     a_old=2: a_rest 0.353@  +21.8  b_rest 0.048@  -94.0  mean net (rest) 0.313@  +20.7   mean net (incl. unit 4) 0.243@  +45.9   n=53671
+     a_old=3: a_rest 0.356@  +24.9  b_rest 0.066@  -72.3  mean net (rest) 0.324@  +32.1   mean net (incl. unit 4) 0.330@  +43.3   n=37493
+     a_old=4: a_rest 0.361@  +29.8  b_rest 0.081@  +73.4  mean net (rest) 0.287@  +32.8   mean net (incl. unit 4) 0.243@  +28.9   n=25496
+     a_old=5: a_rest 0.349@  +22.7  b_rest 0.053@ +177.5  mean net (rest) 0.309@  +20.3   mean net (incl. unit 4) 0.172@  +20.7   n=16923
+     a_old=6: a_rest 0.416@  +26.4  b_rest 0.061@ -161.6  mean net (rest) 0.385@  +34.1   mean net (incl. unit 4) 0.326@  +56.0   n=9755
+     a_old=7: a_rest 0.430@  +24.9  b_rest 0.071@ -149.6  mean net (rest) 0.470@  +31.5   mean net (incl. unit 4) 0.478@  +41.1   n=4365
+
+(c) [INTERVENTION] clock coordinate set to 0 at s-1 (other modes and pulses unchanged), steps s, s+1 rerun with the real inputs. n = 455855
+   check: clock coordinate of the edited state max |.| = 2.52e-14;  edited states with a negative ordinary unit: 0.544
+   all records: z(s+1) - z_edited(s+1) ~ a z(s-1) + b conj z(s-1): a = 0.3409@  +28.2  b = 0.0717@ +170.2  EV 0.9022
+        change of the kick h4(s)/K4 ~ a z + b conj z: a = 0.0801@ +173.4 b = 0.0801@ -173.4 EV 0.9999;   everything else: a = 0.4093@  +21.8  b = 0.0232@  +67.2  EV 0.9340
+        rms of the change in z(s+1): 0.1663; rms z(s-1): 0.4669; rms z(s+1): 0.8162   ratio rms(change)/rms(z(s-1)) = 0.356
+        unit 4 still fires at s in the edited run: 0.99967
+   quiet next step: z(s+1) - z_edited(s+1) ~ a z(s-1) + b conj z(s-1): a = 0.3329@  +29.7  b = 0.0784@ +175.1  EV 0.9014
+        change of the kick h4(s)/K4 ~ a z + b conj z: a = 0.0801@ +173.4 b = 0.0801@ -173.4 EV 0.9999;   everything else: a = 0.4003@  +22.9  b = 0.0159@  +84.6  EV 0.9329
+        rms of the change in z(s+1): 0.1751; rms z(s-1): 0.5044; rms z(s+1): 0.8791   ratio rms(change)/rms(z(s-1)) = 0.347
+        unit 4 still fires at s in the edited run: 0.99964
+   by age of the old max (quiet): |change in z(s+1)| / |z(s-1)| median, and phase of change relative to z(s-1) (median)
+     a_old=1: median |ratio| 0.288  median phase +39.5   of which kick change/|z(s-1)| median -0.159   n=74329
+     a_old=2: median |ratio| 0.354  median phase +40.4   of which kick change/|z(s-1)| median -0.142   n=52499
+     a_old=3: median |ratio| 0.437  median phase +25.0   of which kick change/|z(s-1)| median -0.054   n=36780
+     a_old=4: median |ratio| 0.365  median phase +11.1   of which kick change/|z(s-1)| median +0.061   n=25134
+     a_old=5: median |ratio| 0.271  median phase +20.5   of which kick change/|z(s-1)| median +0.146   n=16740
+     a_old=6: median |ratio| 0.367  median phase +40.2   of which kick change/|z(s-1)| median +0.151   n=9634
+     a_old=7: median |ratio| 0.478  median phase +28.0   of which kick change/|z(s-1)| median +0.075   n=4312
+
+(d) [FIT] budget of the (M - S+) coefficient: each exact term of z(t) regressed on (M - S+, S+, T+) of step t (complex LS, no intercept)
+   --- a1 = 1, a2 >= 2: n = 396226;  z ~ alpha G + beta S + gamma T: alpha 1.013@   +0.5 beta 0.251@   +3.7 gamma 0.232@ +177.9 EV 0.9744
+       carried   alpha-part 0.0228@   +5.7   beta-part 0.1880@  +16.6   gamma-part 0.2051@ -179.4
+       p4        alpha-part 0.9964@   -0.0   beta-part 0.0624@   -0.0   gamma-part 0.0102@ +180.0
+       p5        alpha-part 0.0009@ -137.9   beta-part 0.0354@ -137.9   gamma-part 0.0182@  +42.1
+       p9        alpha-part 0.0022@ +175.6   beta-part 0.0420@   -4.4   gamma-part 0.0243@ +175.6
+       echo      alpha-part 0.0052@ +128.5   beta-part 0.0045@ +128.5   gamma-part 0.0080@  -51.5
+       clip6     alpha-part 0.0014@ +159.2   beta-part 0.0033@  -20.8   gamma-part 0.0094@ +159.2
+       clipwave  alpha-part 0.0030@  +58.2   beta-part 0.0154@ -119.2   gamma-part 0.0037@ +167.9
+       sum       alpha-part 1.0134@   +0.5   beta-part 0.2511@   +3.7   gamma-part 0.2323@ +177.9
+       activation h5(t-1)/K4 ~ +0.012 (M-S) +0.475 S -0.245 T   (EV 0.383; share on 0.404)
+       activation h9(t-1)/K4 ~ -0.002 (M-S) +0.046 S -0.027 T   (EV 0.278; share on 0.254)
+   --- a1 = 2, a2 >= 3: n = 246947;  z ~ alpha G + beta S + gamma T: alpha 1.037@  +36.5 beta 0.245@  +14.9 gamma 0.160@ -161.6 EV 0.9777
+       carried   alpha-part 0.9683@  +43.2   beta-part 0.2411@  +47.4   gamma-part 0.1971@ -145.7
+       p5        alpha-part 0.0903@ -137.9   beta-part 0.0783@ -137.9   gamma-part 0.0339@  +42.1
+       p9        alpha-part 0.1437@   -4.4   beta-part 0.1686@   -4.4   gamma-part 0.0520@ +175.6
+       echo      alpha-part 0.0045@ +128.5   beta-part 0.0048@ +128.5   gamma-part 0.0075@  -51.5
+       clip1     alpha-part 0.0006@ -123.9   beta-part 0.0020@  +56.1   gamma-part 0.0054@ -123.9
+       clipwave  alpha-part 0.0592@  +22.4   beta-part 0.0646@ -122.7   gamma-part 0.0571@  +50.4
+       sum       alpha-part 1.0371@  +36.5   beta-part 0.2449@  +14.9   gamma-part 0.1600@ -161.6
+       activation h5(t-1)/K4 ~ +1.214 (M-S) +1.053 S -0.456 T   (EV 0.980; share on 1.000)
+       activation h9(t-1)/K4 ~ +0.157 (M-S) +0.185 S -0.057 T   (EV 0.978; share on 0.998)
+   --- a1 = 3, a2 >= 4: n = 157003;  z ~ alpha G + beta S + gamma T: alpha 0.989@  +79.7 beta 0.224@  +60.4 gamma 0.131@ -123.0 EV 0.9792
+       carried   alpha-part 0.9909@  +79.3   beta-part 0.2326@  +58.0   gamma-part 0.1290@ -127.1
+       p5        alpha-part 0.0010@ -137.9   beta-part 0.0022@  +42.1   gamma-part 0.0062@ -137.9
+       echo      alpha-part 0.0040@ +128.5   beta-part 0.0048@ +128.5   gamma-part 0.0071@  -51.5
+       clip1     alpha-part 0.0003@  +56.1   beta-part 0.0006@  +56.1   gamma-part 0.0022@ -123.9
+       clipwave  alpha-part 0.0058@ -141.2   beta-part 0.0140@ -142.2   gamma-part 0.0090@  +37.3
+       sum       alpha-part 0.9886@  +79.7   beta-part 0.2241@  +60.4   gamma-part 0.1308@ -123.0
+       activation h5(t-1)/K4 ~ +0.013 (M-S) -0.030 S +0.083 T   (EV 0.103; share on 0.088)
+       activation h9(t-1)/K4 ~ -0.000 (M-S) -0.000 S +0.000 T   (EV 0.000; share on 0.000)

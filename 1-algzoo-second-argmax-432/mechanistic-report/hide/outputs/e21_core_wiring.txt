@@ -1,0 +1,25 @@
+comparators: [1, 6, 7, 8]  gains g = [10.565 10.996 13.169 12.312]
+
+Bc (thresholds -> next thresholds, in input units):
+  theta_1' <-   0.409*theta_1    1.036*theta_6   -1.306*theta_7   -0.140*theta_8
+  theta_6' <-  -0.130*theta_1    0.361*theta_6   -0.151*theta_7   -0.092*theta_8
+  theta_7' <-  -0.081*theta_1   -0.152*theta_6    0.078*theta_7    0.156*theta_8
+  theta_8' <-   0.544*theta_1   -0.000*theta_6   -1.170*theta_7    0.615*theta_8
+
+Bc @ (1,1,1,1) = [-0.001 -0.012  0.001 -0.011]   <- what a common shift of all four thresholds (or the input x) leaves
+eigenvalues of Bc: 0.9375@42.56deg, 0.9375@-42.56deg, 0.0432@17.14deg, 0.0432@-17.14deg
+rotating eigenvector (threshold swing per comparator, amplitude@phase): theta_1: 0.80@143, theta_6: 0.21@-144, theta_7: 0.20@-0, theta_8: 1.00@72
+
+level supply from unit 2:  b2 = [0.048 0.049 0.051 0.051]   (= -W[j,2]/w_j)
+record supply from unit 4: b4 = [ 0.083 -0.004  0.1   -0.003]   times h4 = 10.157*d gives [ 0.838 -0.044  1.016 -0.034] per unit increment d
+unit 4's own threshold: theta_4' = ( 0.0485 h_2 + 0.0970 h_4 + -0.0035 h_1 + -0.0092 h_6 + 0.0029 h_7 + 0.0080 h_8 + ... )
+unit 2: h_2' = 0.969 h_2 + 1.731 h_4 + -0.102 h_1 + -0.103 h_6 + 0.023 h_7 + 0.155 h_8 + -0.229 h_9 + 0.055 h_12 + ...   input weight 0.0146
+
+measured parts of theta_j(t+1) / M_t at steps t with max-age >= 2 and M > 0.3 (mean over steps; then sd of each part):
+  theta_1: unit 2:  0.827 (sd 0.075) | comparators: -0.042 (sd 0.305) | unit 4:  0.001 (sd 0.010) | units 5,9:  0.013 (sd 0.026) | wave units (not 2):  0.094 (sd 0.041) | total 0.893 (sd 0.264)
+  theta_6: unit 2:  0.844 (sd 0.076) | comparators:  0.029 (sd 0.068) | unit 4: -0.000 (sd 0.001) | units 5,9:  0.004 (sd 0.009) | wave units (not 2):  0.103 (sd 0.036) | total 0.979 (sd 0.131)
+  theta_7: unit 2:  0.887 (sd 0.080) | comparators: -0.022 (sd 0.054) | unit 4:  0.001 (sd 0.012) | units 5,9:  0.000 (sd 0.000) | wave units (not 2):  0.043 (sd 0.038) | total 0.910 (sd 0.097)
+  theta_8: unit 2:  0.881 (sd 0.080) | comparators: -0.259 (sd 0.415) | unit 4: -0.000 (sd 0.000) | units 5,9: -0.002 (sd 0.003) | wave units (not 2):  0.113 (sd 0.046) | total 0.733 (sd 0.346)
+  theta_4: unit 2:  0.841 (sd 0.076) | comparators: -0.019 (sd 0.034) | unit 4:  0.001 (sd 0.011) | units 5,9: -0.000 (sd 0.001) | wave units (not 2):  0.085 (sd 0.038) | total 0.908 (sd 0.071)
+
+unit 2 itself: h_2 / (17.3 M_{t-1}) by age of the max at t (median): [1.024, 1.018, 1.068, 1.05, 0.978, 0.899, 0.853, 0.859]

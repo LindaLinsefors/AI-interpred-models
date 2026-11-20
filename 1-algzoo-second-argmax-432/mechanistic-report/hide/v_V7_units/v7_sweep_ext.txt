@@ -1,0 +1,155 @@
+===== 0. lead's configuration (p_S, p_M, p_v) = (0, 2, 6), background -1 =====
+  f_j = (theta_j - S)/(M - S):  unit 1: 0.774  unit 6: 1.173  unit 7: 0.881  unit 8: 0.055  unit 4: 0.866
+  answer leaves p_S at v = 0.4750 (true 0.5); becomes p_M at v = 1.5125 (true 1.5); wrong on 0.0130 of the v grid [0, 2.5]; clock at t=9: 0.921 at v=S, 0.108 at v=M, min 0.070 at v=1.545
+
+===== 1. the same nine probe values in other configurations =====
+
+  x = [ 0.5 -1.   1.5 -1.  -1.  -1.   nan -1.  -1.  -1. ] (nan = v);  ages at the probe step: max 4, runner-up 6
+  thresholds: theta_1 = 1.274 (f=0.77)  theta_6 = 1.673 (f=1.17)  theta_7 = 1.381 (f=0.88)  theta_8 = 0.555 (f=0.06)  theta_4 = 1.366 (f=0.87)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     0.084      0.8988      0      0
+    0.45   [1, 6, 7, 8]             0.000     2.774      0.9151      0      0
+    0.55   [1, 6, 7, 8]             0.000     4.567      0.9260      6      6
+    0.85   [1, 6, 7]                0.000     6.862      0.7704      6      6
+    1.15   [1, 6, 7]                0.000     9.123      0.6068      6      6
+    1.30   [6, 7]                   0.000    10.255      0.5170      6      6
+    1.45   [6]                      0.849    11.851      0.1755      6      6
+    1.55   [6]                      1.864    13.029      0.0708      2      2
+    1.80   []                       4.404    15.997      0.4036      2      2
+
+  x = [-1.   1.5 -1.  -1.   0.5 -1.  -1.   nan -1.  -1. ] (nan = v);  ages at the probe step: max 6, runner-up 3
+  thresholds: theta_1 = 1.966 (f=1.47)  theta_6 = 1.351 (f=0.85)  theta_7 = 1.061 (f=0.56)  theta_8 = 1.386 (f=0.89)  theta_4 = 1.137 (f=0.64)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     1.577      0.9786      4      4
+    0.45   [1, 6, 7, 8]             0.000     4.277      0.9870      4      4
+    0.55   [1, 6, 7, 8]             0.000     6.077      0.9928      7      7
+    0.85   [1, 6, 7, 8]             0.000    11.478      1.0106      7      7
+    1.15   [1, 6, 8]                0.127    16.337      0.9131      7      7
+    1.30   [1, 6, 8]                1.651    19.674      0.6703      7      7
+    1.45   [1]                      3.175    22.356      0.5527      7      7
+    1.55   [1]                      4.190    23.551      0.5082      1      1
+    1.80   [1]                      6.730    26.540      0.5255      1      1
+
+  x = [-1.   0.5 -1.  -1.   1.5 -1.   nan -1.  -1.  -1. ] (nan = v);  ages at the probe step: max 2, runner-up 5
+  thresholds: theta_1 = 0.425 (f=-0.08)  theta_6 = 1.145 (f=0.64)  theta_7 = 1.519 (f=1.02)  theta_8 = 0.819 (f=0.32)  theta_4 = 1.463 (f=0.96)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     0.000      1.0129      1      1
+    0.45   [6, 7, 8]                0.000     1.914      0.9949      1      1
+    0.55   [6, 7, 8]                0.000     3.712      0.9258      6      6
+    0.85   [6, 7]                   0.000     8.774      0.7112      6      6
+    1.15   [7]                      0.000    11.028      0.5545      6      6
+    1.30   [7]                      0.000    12.179      0.3773      6      6
+    1.45   [7]                      0.000    13.331      0.2026      6      6
+    1.55   []                       0.880    14.905      0.3799      4      4
+    1.80   []                       3.419    17.885      0.6262      4      4
+
+  x = [-1.  -1.  -1.   0.5 -1.   1.5 -1.  -1.  -1.   nan] (nan = v);  ages at the probe step: max 4, runner-up 6
+  thresholds: theta_1 = 1.274 (f=0.77)  theta_6 = 1.673 (f=1.17)  theta_7 = 1.378 (f=0.88)  theta_8 = 0.553 (f=0.05)  theta_4 = 1.365 (f=0.86)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000       -        1.0583      3      3
+    0.45   [1, 6, 7, 8]             0.000       -        1.0568      3      3
+    0.55   [1, 6, 7, 8]             0.000       -        1.0559      9      9
+    0.85   [1, 6, 7]                0.000       -        0.8617      9      9
+    1.15   [1, 6, 7]                0.000       -        0.6698      9      9
+    1.30   [6, 7]                   0.000       -        0.5645      9      9
+    1.45   [6]                      0.864       -        0.4184      9      9
+    1.55   [6]                      1.880       -        0.3578      5      5
+    1.80   []                       4.419       -        0.3443      5      5
+
+  x = [-1.  -1.  -1.   0.5 -1.   1.5 -1.  -1.   nan -1. ] (nan = v);  ages at the probe step: max 3, runner-up 5
+  thresholds: theta_1 = 0.726 (f=0.23)  theta_6 = 1.532 (f=1.03)  theta_7 = 1.517 (f=1.02)  theta_8 = 0.563 (f=0.06)  theta_4 = 1.453 (f=0.95)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     0.000      1.0615      3      3
+    0.45   [1, 6, 7, 8]             0.000     2.344      1.0604      3      3
+    0.55   [1, 6, 7, 8]             0.000     4.146      1.0597      8      8
+    0.85   [6, 7]                   0.000     6.546      0.8780      8      8
+    1.15   [6, 7]                   0.000     8.811      0.5886      8      8
+    1.30   [6, 7]                   0.000     9.943      0.4608      8      8
+    1.45   [6, 7]                   0.000    11.076      0.3601      8      8
+    1.55   []                       0.988    12.747      0.4077      5      5
+    1.80   []                       3.528    15.737      0.6176      5      5
+
+  x = [0.5 0.  1.5 0.  0.  0.  nan 0.  0.  0. ] (nan = v);  ages at the probe step: max 4, runner-up 6
+  thresholds: theta_1 = 1.276 (f=0.78)  theta_6 = 1.678 (f=1.18)  theta_7 = 1.385 (f=0.89)  theta_8 = 0.577 (f=0.08)  theta_4 = 1.368 (f=0.87)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     0.000      0.8785      0      0
+    0.45   [1, 6, 7, 8]             0.000     1.681      0.8883      0      0
+    0.55   [1, 6, 7, 8]             0.000     3.474      0.8992      6      6
+    0.85   [1, 6, 7]                0.000     6.001      0.7574      6      6
+    1.15   [1, 6, 7]                0.000     8.241      0.5931      6      6
+    1.30   [6, 7]                   0.000     9.372      0.5043      6      6
+    1.45   [6]                      0.835    10.987      0.1828      6      6
+    1.55   [6]                      1.850    12.165      0.0667      2      2
+    1.80   []                       4.390    15.131      0.3977      2      2
+
+  x = [ 0.5 -0.2  1.5 -0.2 -0.2 -0.2  nan -0.2 -0.2 -0.2] (nan = v);  ages at the probe step: max 4, runner-up 6
+  thresholds: theta_1 = 1.275 (f=0.77)  theta_6 = 1.677 (f=1.18)  theta_7 = 1.384 (f=0.88)  theta_8 = 0.574 (f=0.07)  theta_4 = 1.368 (f=0.87)
+      v   comps on at probe step   h[4]    h_next[5]   clock(t=9)   answer  target
+    0.30   [1, 6, 7, 8]             0.000     0.000      0.8817      0      0
+    0.45   [1, 6, 7, 8]             0.000     1.909      0.8929      0      0
+    0.55   [1, 6, 7, 8]             0.000     3.702      0.9038      6      6
+    0.85   [1, 6, 7]                0.000     6.190      0.7597      6      6
+    1.15   [1, 6, 7]                0.000     8.434      0.5955      6      6
+    1.30   [6, 7]                   0.000     9.566      0.5062      6      6
+    1.45   [6]                      0.836    11.178      0.1812      6      6
+    1.55   [6]                      1.852    12.356      0.0668      2      2
+    1.80   []                       4.391    15.323      0.3985      2      2
+
+===== 2. all 240 configurations (background -1): thresholds by ages at the probe step =====
+  f_j by age of the max at the probe step (mean [min, max] over all runner-up ages and probe steps):
+   age    n            unit 1                 unit 6                 unit 7                 unit 8                 unit 4         
+    1    36       0.81 [  0.75,  0.86]   -0.11 [ -0.25, -0.05]    1.02 [  1.00,  1.03]   -0.05 [ -0.18,  0.01]    0.98 [  0.97,  0.99]
+    2    36      -0.08 [ -0.21, -0.01]    0.64 [  0.56,  0.70]    1.02 [  1.02,  1.02]    0.30 [  0.18,  0.35]    0.97 [  0.96,  0.99]
+    3    35       0.23 [  0.10,  0.38]    1.04 [  1.01,  1.08]    1.01 [  0.98,  1.03]    0.01 [ -0.13,  0.07]    0.95 [  0.93,  0.98]
+    4    33       0.81 [  0.70,  0.92]    1.19 [  1.17,  1.21]    0.87 [  0.84,  0.88]    0.02 [ -0.08,  0.16]    0.86 [  0.84,  0.87]
+    5    30       1.30 [  1.25,  1.34]    1.08 [  1.05,  1.13]    0.68 [  0.64,  0.71]    0.41 [  0.28,  0.57]    0.74 [  0.69,  0.77]
+    6    26       1.41 [  1.33,  1.49]    0.80 [  0.74,  0.85]    0.56 [  0.45,  0.62]    0.96 [  0.89,  1.05]    0.64 [  0.55,  0.69]
+    7    21       1.12 [  1.01,  1.25]    0.50 [  0.40,  0.58]    0.56 [  0.47,  0.66]    1.39 [  1.32,  1.46]    0.63 [  0.56,  0.71]
+    8    15       0.61 [  0.49,  0.71]    0.35 [  0.24,  0.47]    0.68 [  0.62,  0.78]    1.46 [  1.33,  1.55]    0.72 [  0.66,  0.79]
+    9     8       0.14 [ -0.04,  0.26]    0.41 [  0.33,  0.56]    0.85 [  0.82,  0.91]    1.15 [  1.03,  1.25]    0.83 [  0.79,  0.89]
+
+  which comparator has the LOWEST threshold, by age of the max at the probe step (counts over configurations):
+   age 1: unit 1:   0  unit 6:  36  unit 7:   0  unit 8:   0   | lowest f: mean  -0.11;  number of comparators with f < 0.5: mean 2.00
+   age 2: unit 1:  36  unit 6:   0  unit 7:   0  unit 8:   0   | lowest f: mean  -0.08;  number of comparators with f < 0.5: mean 2.00
+   age 3: unit 1:   0  unit 6:   0  unit 7:   0  unit 8:  35   | lowest f: mean   0.01;  number of comparators with f < 0.5: mean 2.00
+   age 4: unit 1:   0  unit 6:   0  unit 7:   0  unit 8:  33   | lowest f: mean   0.02;  number of comparators with f < 0.5: mean 1.00
+   age 5: unit 1:   0  unit 6:   0  unit 7:   0  unit 8:  30   | lowest f: mean   0.41;  number of comparators with f < 0.5: mean 0.83
+   age 6: unit 1:   0  unit 6:   0  unit 7:  26  unit 8:   0   | lowest f: mean   0.56;  number of comparators with f < 0.5: mean 0.15
+   age 7: unit 1:   0  unit 6:  21  unit 7:   0  unit 8:   0   | lowest f: mean   0.50;  number of comparators with f < 0.5: mean 0.67
+   age 8: unit 1:   0  unit 6:  15  unit 7:   0  unit 8:   0   | lowest f: mean   0.35;  number of comparators with f < 0.5: mean 1.13
+   age 9: unit 1:   8  unit 6:   0  unit 7:   0  unit 8:   0   | lowest f: mean   0.14;  number of comparators with f < 0.5: mean 1.88
+
+  configurations in which exactly one comparator sits near S (|f| < 0.25) and the other three near or above M (f > 0.6): 0.138
+  configurations in which NO comparator threshold lies within |f| < 0.25 of S: 0.379
+  configurations in which unit 8 is the one with the lowest threshold: 0.408
+  switch-off orders (lowest threshold first): 8176: 56, 1867: 36, 6817: 36, 8761: 30, 7681: 26, 6718: 24, 6178: 12, 8716: 12, 1678: 8
+  unit 4 threshold f_4: mean 0.838, min 0.552, max 0.991;  by age of the max: 1: 0.98  2: 0.97  3: 0.95  4: 0.86  5: 0.74  6: 0.64  7: 0.63  8: 0.72  9: 0.83
+  onset of unit 5 one step after the probe, f = (v_on - S)/(M - S), by age of the max (mean [min, max]): 1: -0.29 [-0.50,-0.19]  2: -0.21 [-0.50,-0.15]  3: -0.20 [-0.46,-0.16]  4: -0.20 [-0.32,-0.14]  5: -0.22 [-0.27,-0.18]  6: -0.28 [-0.36,-0.17]  7: -0.29 [-0.42,-0.20]  8: -0.30 [-0.41,-0.20]
+  theta_4 in absolute terms (M = 1.5): mean 1.338; configurations with theta_4 < M (misfire window): 1.000; with theta_4 > M (missed record window): 0.000
+
+===== 3. answers over the fine v grid [0, 2.5] (step 0.0025) =====
+  fraction of the v grid answered wrongly: mean 0.0191, median 0.0160, max 0.1049 (config (8, 6, 9));  lead's config: 0.0130
+  boundary p_S -> p_v (true 0.5): mean 0.4963, min 0.2675, max 0.7000; |error| > 0.05 in 0.196 of configs
+  boundary p_v -> p_M (true 1.5): mean 1.4944, min 0.4475, max 1.5725; |error| > 0.05 in 0.042 of configs; never answers p_M: 0
+  configurations in which some other position is answered for some v: 0.013
+  wrong fraction by probe step: p_v=2: 0.013  p_v=3: 0.016  p_v=4: 0.017  p_v=5: 0.015  p_v=6: 0.015  p_v=7: 0.020  p_v=8: 0.017  p_v=9: 0.024
+  wrong fraction by |p_S - p_M|: 1: 0.016  2: 0.020  3: 0.022  4: 0.013  5: 0.021  6: 0.027  7: 0.032  8: 0.032
+  ten worst configurations (p_S, p_M, p_v): (8, 6, 9): 0.105, (0, 7, 9): 0.104, (3, 0, 4): 0.080, (2, 0, 7): 0.060, (5, 0, 8): 0.057, (1, 7, 9): 0.057, (1, 0, 7): 0.055, (7, 5, 8): 0.055, (4, 2, 5): 0.054, (6, 4, 7): 0.050
+    answers along v for (p_S, p_M, p_v) = (0, 2, 6) (true: 0 below 0.5, 6 between, 2 above 1.5):  v>=0.0000: 0; v>=0.4775: 6; v>=1.5125: 2
+    answers along v for (p_S, p_M, p_v) = (8, 6, 9) (true: 8 below 0.5, 9 between, 6 above 1.5):  v>=0.0000: 8; v>=0.7025: 9; v>=1.4400: 6
+    answers along v for (p_S, p_M, p_v) = (0, 7, 9) (true: 0 below 0.5, 9 between, 7 above 1.5):  v>=0.0000: 0; v>=0.2700: 9; v>=1.5300: 7
+    answers along v for (p_S, p_M, p_v) = (3, 0, 4) (true: 3 below 0.5, 4 between, 0 above 1.5):  v>=0.0000: 3; v>=0.7000: 4; v>=1.5025: 0
+    answers along v for (p_S, p_M, p_v) = (2, 0, 7) (true: 2 below 0.5, 7 between, 0 above 1.5):  v>=0.0000: 2; v>=0.5950: 7; v>=1.4475: 0
+  the lead's nine probe values: all nine answered correctly in 0.779 of the 240 configurations; per value: 0.3: 0.996  0.45: 0.908  0.55: 0.896  0.85: 1.000  1.15: 1.000  1.3: 1.000  1.45: 0.983  1.55: 0.979  1.8: 1.000
+
+===== 4. clock amplitude |z|/w4 at t = 9 as a function of v =====
+  location of the minimum over v in [0, 2.5]: within 0.1 of M in 0.704 of configs; within 0.25: 0.892; at the edge v = 0 or 2.5: 0.042
+  depth: clock(v = M)/clock(v = S): mean 0.382, median 0.315, min 0.057, max 0.969;  < 0.25 in 0.333 of configs; > 0.75 in 0.037
+  by separation probe - max (steps), restricted to p_v <= 7 so that at least two steps follow the probe:
+    probe - max = 1 (  42.8 deg): n =  21  clock(v=M)/clock(v=S): mean 0.265 [0.162, 0.676];  v at minimum: mean 1.466 [1.323, 1.482];  min value 0.098   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.931 of their sum
+    probe - max = 2 (  85.5 deg): n =  21  clock(v=M)/clock(v=S): mean 0.287 [0.230, 0.443];  v at minimum: mean 1.474 [1.465, 1.480];  min value 0.171   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.734 of their sum
+    probe - max = 3 ( 128.2 deg): n =  20  clock(v=M)/clock(v=S): mean 0.210 [0.093, 0.271];  v at minimum: mean 1.489 [1.458, 1.510];  min value 0.151   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.436 of their sum
+    probe - max = 4 ( 171.0 deg): n =  18  clock(v=M)/clock(v=S): mean 0.129 [0.102, 0.158];  v at minimum: mean 1.529 [1.492, 1.567];  min value 0.090   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.078 of their sum
+    probe - max = 5 ( 213.8 deg): n =  15  clock(v=M)/clock(v=S): mean 0.194 [0.139, 0.247];  v at minimum: mean 1.546 [1.510, 1.570];  min value 0.120   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.290 of their sum
+    probe - max = 6 ( 256.5 deg): n =  11  clock(v=M)/clock(v=S): mean 0.584 [0.531, 0.612];  v at minimum: mean 1.589 [1.403, 1.663];  min value 0.499   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.619 of their sum
+    probe - max = 7 ( 299.2 deg): n =   6  clock(v=M)/clock(v=S): mean 0.639 [0.610, 0.658];  v at minimum: mean 1.602 [1.522, 1.655];  min value 0.506   | two equal phasors of that separation would give |1 + e^(i d w)|/2 = 0.863 of their sum

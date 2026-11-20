@@ -1,0 +1,16 @@
+(A) one unit-5 pulse removed (the step after the named input arrived).  S > 0.2, both gaps > 0.1 M.
+    case | n | baseline P(answer = runner-up) | pulse after the RUNNER-UP removed: P(runner-up), P(max), P(third) | pulse after the THIRD removed: P(runner-up) | pulse after the MAX removed: P(runner-up), P(max)
+    RM (runner-up = overtaken max), pS <= pM - 2  | 219878 | 0.999 | 0.015  0.544  0.237 | 0.998 | 0.959  0.000
+    RM, pS = pM - 1                               |  62283 | 1.000 | 0.000  0.766  0.186 | 0.997 | 0.954  0.000
+    MR (runner-up after the max), pS <= 8         | 282164 | 1.000 | 0.001  0.618  0.305 | 1.000 | 0.952  0.000
+
+(B) runner-up = overtaken max (pS < pM), S > 0.2: share by g = pM - pS, and the clock erased one step before the overtaking
+    RM sequences: 723940 (0.483 of all);  share of all sequences whose answer is an overtaken max of age 1: 0.096
+    g | share of RM | baseline P(answer = old max) | clock erased at step pM - 1: P(old max)  P(new max)  P(old runner-up = final third)
+    1 |   0.200   |   0.949   |   0.939   0.013   0.042
+    2 |   0.178   |   0.970   |   0.251   0.513   0.198
+    3 |   0.156   |   0.975   |   0.053   0.572   0.323
+    4 |   0.134   |   0.978   |   0.049   0.571   0.305
+    5 |   0.111   |   0.976   |   0.071   0.552   0.307
+    6 |   0.089   |   0.970   |   0.047   0.544   0.353
+    7 |   0.067   |   0.956   |   0.049   0.493   0.393

@@ -1,0 +1,50 @@
+(1) running_stats vs brute force on 3000 sequences: mismatches = 0
+    run vs plain loop (one sequence): max abs diff = 0.0
+    traces identity h_t = sum_p J[t,p] x_p: max abs error = 1.1368683772161603e-13
+    accuracy on 2^20 N(0,1) sequences: 0.9532   on 2^20 Unif(-1,1): 0.9383   (project notes: 0.9531 / 0.9378)
+
+(2) T3 re-implemented: given S_t > 0: [0.992 0.987 0.971 0.966 0.969 0.97  0.97  0.967 0.961] 
+                       all states:   [0.687 0.676 0.777 0.839 0.893 0.926 0.945 0.953 0.953]
+
+(3) T4, the max at ages 2..9, bins with v > 0.2: medians range from -14.5 to -4.9   (claim: 'between -4.5 and -14.5'; -4.5 belongs to the bin (0.1, 0.2] at age 2)
+
+(4) S1: P(argmax m_t over indices 9-t..8 = position of the max | S_t > 0, max not current), by AGE of the max (columns a1 = 1..9)
+    t=6: all 0.958 | 0.965 0.992 0.893 0.909 0.996 0.992
+    t=7: all 0.964 | 0.963 0.989 0.894 0.920 0.994 0.993 0.992
+    t=8: all 0.966 | 0.961 0.981 0.891 0.928 0.994 0.993 0.990 0.993
+    t=9: all 0.891 | 0.966 0.975 0.888 0.929 0.993 0.993 0.978 0.992 0.305
+    t=9, the wrong choices: P(choice = position 0) = 0.01   P(choice = 8) = 0.087   P(choice = runner-up) = 0.594
+    t=9 with position 0 also excluded from the candidates and from the population (p1 >= 1): 0.965
+    P(argmax m_t = max) at t = 9 by position of the max 0..8: 0.305 0.992 0.978 0.993 0.993 0.929 0.888 0.975 0.966
+
+(5) S6 (iv), no event: R2 of s_t vs shifted s_(t-1) on inputs 0..t-2;  as coded (comparators on at t) | as labelled (on at t and t-1) | also requiring x_(t-1) < S_(t-2) (no event at t-1 either)
+    t=3: 0.668 (slope 0.67, n=153970) | 0.529 (slope 0.21, n= 51013) | 0.529 (slope 0.21, n= 50978)
+    t=4: 0.721 (slope 0.68, n=224450) | 0.684 (slope 0.56, n=111417) | 0.684 (slope 0.56, n=110919)
+    t=5: 0.795 (slope 0.80, n=279945) | 0.763 (slope 0.72, n=167741) | 0.762 (slope 0.72, n=166185)
+    t=6: 0.894 (slope 1.06, n=320378) | 0.849 (slope 1.00, n=218944) | 0.849 (slope 1.00, n=212271)
+    t=7: 0.934 (slope 0.99, n=349377) | 0.915 (slope 0.94, n=257921) | 0.915 (slope 0.94, n=247431)
+    t=8: 0.941 (slope 0.94, n=371055) | 0.932 (slope 0.91, n=287618) | 0.932 (slope 0.91, n=275649)
+    t=9: 0.959 (slope 0.97, n=386446) | 0.955 (slope 0.95, n=309424) | 0.955 (slope 0.95, n=297817)
+    S6 (iii), record at t: share of records with ALL four comparators off at t (then s_t = m_t exactly); R2 of s_t vs shifted m_(t-1) for all records | all-off records | not-all-off records
+    t=3: all off 0.970 | 0.956 | 0.958 | 0.943 |  m_t vs shifted m_(t-1): at records 0.957, at no-event steps 0.777
+    t=4: all off 0.935 | 0.772 | 0.771 | 0.788 |  m_t vs shifted m_(t-1): at records 0.769, at no-event steps 0.673
+    t=5: all off 0.903 | 0.769 | 0.788 | 0.667 |  m_t vs shifted m_(t-1): at records 0.774, at no-event steps 0.690
+    t=6: all off 0.876 | 0.878 | 0.895 | 0.801 |  m_t vs shifted m_(t-1): at records 0.882, at no-event steps 0.833
+    t=7: all off 0.858 | 0.911 | 0.916 | 0.896 |  m_t vs shifted m_(t-1): at records 0.914, at no-event steps 0.881
+    t=8: all off 0.842 | 0.890 | 0.894 | 0.890 |  m_t vs shifted m_(t-1): at records 0.895, at no-event steps 0.873
+    t=9: all off 0.849 | 0.873 | 0.876 | 0.880 |  m_t vs shifted m_(t-1): at records 0.880, at no-event steps 0.867
+
+(6) modes.py
+    LEFT @ KICK4 == 1: True    LEFT_i . RIGHT_j = delta_ij: True    LEFT A = lam LEFT: True    LEFT . conj(RIGHT) = 0 for complex modes: True
+    eigenvalues: level 1.0099@0.00  runner 0.9735@0.00  clock 0.9509@42.75  h2 0.9370@83.28  alt 0.9283@180.00  h3 0.8373@124.78  short 0.7350@42.99  trans 0.2310@0.00  echo 0.0010@0.00
+    M2, share of |LEFT|^2 on the comparators: level 0.041  runner 0.506  clock 0.966  h2 0.606  alt 0.106  h3 0.347  short 0.916  trans 0.976  echo 0.712   ; level on unit 2: 0.852
+    the same after rescaling every unit by 1/(its rms activation on data)  [the share depends on the unit scale]:
+         level 0.025  runner 0.428  clock 0.977  h2 0.741  alt 0.169  h3 0.476  short 0.945  trans 0.988  echo 0.669
+    M1, level eigenvector relative to unit 2: [1.35 0.51 1.   0.19 0.63 0.79 0.7  1.06 1.14 1.58 0.43 1.23 0.81]  all one sign: True
+    M1, |cos(w[ORD], echo eigenvector)| = 0.998
+
+(7) S4, comparator readout columns over positions 0..7: fixed frequency 42.75 deg (as e25) | frequency left free (grid search)
+    unit 1: 42.75 deg: a = 5.81, phi = -29, R2 = 0.974 | best frequency 48.65 deg: R2 = 0.980 | all ten positions at 42.75 deg: R2 = 0.626
+    unit 6: 42.75 deg: a = 5.09, phi = 26, R2 = 0.943 | best frequency 49.05 deg: R2 = 0.996 | all ten positions at 42.75 deg: R2 = 0.770
+    unit 7: 42.75 deg: a = 6.21, phi = 131, R2 = 0.991 | best frequency 44.35 deg: R2 = 0.992 | all ten positions at 42.75 deg: R2 = 0.965
+    unit 8: 42.75 deg: a = 6.08, phi = -130, R2 = 0.988 | best frequency 44.90 deg: R2 = 0.994 | all ten positions at 42.75 deg: R2 = 0.718

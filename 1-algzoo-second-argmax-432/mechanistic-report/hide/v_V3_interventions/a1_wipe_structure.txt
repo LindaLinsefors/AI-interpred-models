@@ -1,0 +1,77 @@
+[1] seeds 5500..5503, I1-selected n = 1114007
+answer after the comparator wipe, by (k, t0): pM | true runner-up | position 9 (not runner-up) | other position > t0 | other position <= t0
+  k=1 t0=8 n=111961: 0.7927 | 0.0057 | 0.0000 | 0.0000 | 0.2016   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.00   modal (ans - pM | miss) = +1
+  k=1 t0=9 n=111862: 0.0212 | 0.1127 | 0.8661 | 0.0000 | 0.0000   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.00   modal (ans - pM | miss) = +1
+  k=2 t0=9 n=111961: 0.0000 | 0.1144 | 0.8855 | 0.0000 | 0.0001   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.98   modal (ans - pM | miss) = +2
+  k=3 t0=3 n=111619: 0.9727 | 0.0000 | 0.0000 | 0.0000 | 0.0273   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.00   modal (ans - pM | miss) = +3
+  k=3 t0=4 n=111274: 0.9817 | 0.0024 | 0.0000 | 0.0000 | 0.0158   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +2.34   modal (ans - pM | miss) = +3
+  k=3 t0=5 n=110521: 0.9791 | 0.0096 | 0.0000 | 0.0000 | 0.0113   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +0.82   modal (ans - pM | miss) = -1
+  k=3 t0=6 n=111429: 0.9761 | 0.0096 | 0.0000 | 0.0000 | 0.0143   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.23   modal (ans - pM | miss) = +3
+  k=3 t0=7 n=111439: 0.9634 | 0.0095 | 0.0000 | 0.0000 | 0.0271   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.90   modal (ans - pM | miss) = +3
+  k=3 t0=8 n=111414: 0.4163 | 0.0148 | 0.0000 | 0.0000 | 0.5689   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +2.99   modal (ans - pM | miss) = +3
+  k=3 t0=9 n=111386: 0.0003 | 0.1110 | 0.8887 | 0.0000 | 0.0000   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.00   modal (ans - pM | miss) = +3
+  k=4 t0=4 n=111619: 0.9786 | 0.0000 | 0.0000 | 0.0000 | 0.0214   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +4.00   modal (ans - pM | miss) = +4
+  k=4 t0=5 n=111274: 0.9633 | 0.0002 | 0.0000 | 0.0000 | 0.0365   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.96   modal (ans - pM | miss) = +4
+  k=4 t0=6 n=110521: 0.9314 | 0.0015 | 0.0000 | 0.0000 | 0.0671   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.88   modal (ans - pM | miss) = +4
+  k=4 t0=7 n=111429: 0.8902 | 0.0009 | 0.0000 | 0.0000 | 0.1089   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.99   modal (ans - pM | miss) = +4
+  k=4 t0=8 n=111439: 0.7097 | 0.0069 | 0.0000 | 0.0000 | 0.2835   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +3.95   modal (ans - pM | miss) = +4
+  k=4 t0=9 n=111414: 0.4314 | 0.0124 | 0.5562 | 0.0000 | 0.0000   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +4.00   modal (ans - pM | miss) = +4
+  k=5 t0=7 n=110521: 0.9768 | 0.0084 | 0.0000 | 0.0000 | 0.0148   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +2.42   modal (ans - pM | miss) = +1
+  k=5 t0=8 n=111429: 0.9327 | 0.0041 | 0.0000 | 0.0000 | 0.0632   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +4.58   modal (ans - pM | miss) = +5
+  k=5 t0=9 n=111439: 0.9788 | 0.0028 | 0.0184 | 0.0000 | 0.0000   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +4.94   modal (ans - pM | miss) = +5
+  k=8 t0=8 n=111619: 0.9898 | 0.0065 | 0.0000 | 0.0000 | 0.0037   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +1.00   modal (ans - pM | miss) = +1
+  k=9 t0=9 n=111619: 0.0278 | 0.0954 | 0.8714 | 0.0000 | 0.0054   P(ans = largest later input) = 0.0000   mean(ans - pM | miss) = +8.92   modal (ans - pM | miss) = +9
+
+[2a] lead's selection, wipe at t0 = pM + k <= 8: P(ans = pM) by where the true runner-up arrived and by
+     L/M, L = largest input after t0.  Columns: runner-up before t0 | runner-up after t0 | L/M <= 0 | (0,.5] | (.5,.8] | (.8,1)
+  k=1: 0.9499 (n=445339) | 0.9966 (n=445704) | 0.9136 (n=132928) | 0.9773 (n=371171) | 0.9894 (n=328426) | 0.9918 (n=58518)
+  k=2: 0.9992 (n=432551) | 0.9999 (n=346531) | 0.9992 (n=132240) | 0.9995 (n=334325) | 0.9996 (n=266689) | 0.9994 (n=45828)
+  k=3: 0.8342 (n=407963) | 0.9557 (n=259733) | 0.7413 (n=130866) | 0.9012 (n=293456) | 0.9323 (n=208762) | 0.9374 (n=34612)
+  k=4: 0.8546 (n=370954) | 0.9745 (n=185328) | 0.8051 (n=128065) | 0.9167 (n=247414) | 0.9265 (n=155957) | 0.9344 (n=24846)
+  k=5: 0.9691 (n=321629) | 0.9980 (n=123214) | 0.9522 (n=122596) | 0.9844 (n=197138) | 0.9895 (n=108463) | 0.9923 (n=16646)
+  k=6: 1.0000 (n=259394) | 1.0000 (n=74020) | 1.0000 (n=112506) | 1.0000 (n=142665) | 1.0000 (n=68168) | 0.9999 (n=10075)
+  k=7: 1.0000 (n=185889) | 1.0000 (n=37004) | 1.0000 (n=94604) | 1.0000 (n=87449) | 1.0000 (n=35746) | 0.9998 (n=5094)
+  k=8: 0.9888 (n=99278) | 0.9984 (n=12341) | 0.9866 (n=61180) | 0.9935 (n=36077) | 0.9942 (n=12629) | 0.9960 (n=1733)
+
+[2b] NO selection (all sequences, seeds 5510, 5511), wipe at t0 = pM + k <= 8: P(ans = pM) by gap (M - S)/M and by L/M
+     unperturbed accuracy on all sequences: 0.9532; P(ans = pM) = 0.0096
+     columns: (M-S)/M in (-inf,0.02], (0.02,0.05], (0.05,0.1], (0.1,0.2], (0.2,0.5], (0.5,1.0], (1.0,inf]  | all with M > 0 | M <= 0?
+  k=1: 0.3155 | 0.5317 | 0.8462 | 0.9336 | 0.9673 | 0.9968 | 0.9375  | 0.9129 (n=639096)
+  k=2: 0.6050 | 0.8127 | 0.9743 | 0.9962 | 0.9995 | 0.9998 | 0.9765  | 0.9735 (n=559192)
+  k=3: 0.4315 | 0.5840 | 0.7446 | 0.8129 | 0.8758 | 0.8955 | 0.7578  | 0.8271 (n=479171)
+  k=4: 0.6299 | 0.6468 | 0.6792 | 0.7466 | 0.8691 | 0.9745 | 0.8754  | 0.8362 (n=399188)
+  k=5: 0.7273 | 0.8237 | 0.8474 | 0.8983 | 0.9728 | 0.9964 | 0.9348  | 0.9384 (n=319619)
+  k=6: 0.9583 | 0.9984 | 0.9992 | 1.0000 | 1.0000 | 1.0000 | 0.9926  | 0.9983 (n=239869)
+  k=7: 0.9398 | 0.9866 | 0.9977 | 0.9994 | 0.9998 | 0.9998 | 0.9845  | 0.9966 (n=160516)
+  k=8: 0.7568 | 0.9139 | 0.9409 | 0.9520 | 0.9847 | 0.9975 | 0.9266  | 0.9659 (n=80209)
+     same, P(ans = true runner-up):
+  k=1: 0.4192 | 0.3645 | 0.0919 | 0.0132 | 0.0011 | 0.0001 | 0.0082  | 0.0437
+  k=2: 0.1180 | 0.0893 | 0.0060 | 0.0009 | 0.0001 | 0.0000 | 0.0035  | 0.0093
+  k=3: 0.2048 | 0.1043 | 0.0467 | 0.0243 | 0.0077 | 0.0047 | 0.0144  | 0.0250
+  k=4: 0.1503 | 0.0415 | 0.0203 | 0.0096 | 0.0023 | 0.0003 | 0.0068  | 0.0118
+  k=5: 0.1623 | 0.0482 | 0.0341 | 0.0173 | 0.0032 | 0.0004 | 0.0047  | 0.0154
+  k=6: 0.0340 | 0.0003 | 0.0001 | 0.0000 | 0.0000 | 0.0000 | 0.0017  | 0.0012
+  k=7: 0.0412 | 0.0022 | 0.0002 | 0.0001 | 0.0001 | 0.0001 | 0.0052  | 0.0017
+  k=8: 0.1627 | 0.0609 | 0.0381 | 0.0280 | 0.0094 | 0.0016 | 0.0116  | 0.0214
+     runner-up arrives AFTER the wipe and is within 5% of M ((M-S)/M <= 0.05, pS > t0), P(ans = pM), P(ans = pS):
+  k=1: n= 27294  P(pM) = 0.4149  P(pS) = 0.3397
+  k=2: n= 21137  P(pM) = 0.5320  P(pS) = 0.1311
+  k=3: n= 15851  P(pM) = 0.4728  P(pS) = 0.0658
+  k=4: n= 11375  P(pM) = 0.8572  P(pS) = 0.0221
+  k=5: n=  7735  P(pM) = 0.9704  P(pS) = 0.0013
+  k=6: n=  4635  P(pM) = 0.9983  P(pS) = 0.0002
+  k=7: n=  2377  P(pM) = 0.9945  P(pS) = 0.0000
+  k=8: n=   812  P(pM) = 0.9495  P(pS) = 0.0000
+
+[3] provisional answer at step t (argmax of (U h_t)[i] over i >= 9 - t, position = i + t - 9), lead's selection.
+    P(provisional answer = pM) at t = t0, t0+1, ... after the wipe at t0 (pooled over t0 with t <= 9); '-' = no data
+    unperturbed check of the T3 readout on these sequences: P(prov = second argmax of x_0..x_t), t = 1..9: 0.693 0.681 0.786 0.850 0.905 0.940 0.959 0.968 0.969
+    unperturbed: P(prov = pM) at steps pM + j, j = 1..6: 0.0265 0.0297 0.0001 0.0000 0.0001 0.0001
+  k=1: steps after wipe j = 0.. : 0.0048 0.8559 0.9983 0.9998 0.9999 0.9998 1.0000 1.0000 0.9998
+  k=2: steps after wipe j = 0.. : 0.0000 0.9996 1.0000 0.9999 1.0000 1.0000 1.0000 0.9998
+  k=3: steps after wipe j = 0.. : 0.0018 0.4447 0.9686 0.9686 0.9769 0.9772 0.9727
+  k=4: steps after wipe j = 0.. : 0.4240 0.8098 0.8996 0.9441 0.9651 0.9786
+  k=5: steps after wipe j = 0.. : 0.9807 0.9700 0.9882 0.9996 0.9996
+  k=6: steps after wipe j = 0.. : 0.9978 1.0000 1.0000 1.0000
+  k=7: steps after wipe j = 0.. : 0.9978 1.0000 1.0000
+  k=8: steps after wipe j = 0.. : 0.9999 0.9898

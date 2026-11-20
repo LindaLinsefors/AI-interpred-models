@@ -1,0 +1,321 @@
+Heuristic explanations for 2nd argmax models
+
+                               Jacob Hilton
+                           December 21, 2024
+
+Notation
+
+We consider a 1-layer RNN Md,n : Rn → ∆ {0, . . . , n − 1} with d hidden neurons that has
+been trained to predict the 2nd argmax of a sequence of length n. This is specifed using the
+weight matrices
+
+                              W hi ∈ Rd×1
+                              W hh ∈ Rd×d
+                              W oh ∈ Rn×d
+
+and its value on the input (x0, . . . , xn−1) is defined by the equations
+
+                                 h0 = 0 ∈ Rd,           t = 0, . . . , n − 1,
+                               zt+1 = W hhht + W hixt,  t = 0, . . . , n − 1,
+                              ht+1 = ReLU (zt+1) ,
+
+                                   l = W ohhn,
+           Md,n (x0, . . . , xn−1) = softmax (l) .
+
+We may also write these variables as a function of the inputs, for example ht (x0, . . . , xt−1)
+or l (x0, . . . , xn−1).
+
+The case d = 4, n = 3
+
+Original version
+
+M4,3 happens to have the property that W0hi, W1hi > 0 and W0hi, W1hi < 0. It follows that
+
+           h1 (x0) =  W0hix0, W1hix0,  0,               0 , if x0 ≥ 0,
+
+                          0,  0, W2hix0, W3hix0 , if x0 ≤ 0,
+
+and hence
+
+           z2 (x0, x1) =  (aj x0 + cj x1)j=0,1,2,3 ,    if x0 ≥ 0,
+                          (bj x0 + cj x1)j=0,1,2,3 ,    if x0 ≤ 0,
+
+                              1
+where                                                aj = Wjh0hW0hi + Wjh1hW1hi
+    As it turns out, we have                         bj = Wjh2hW2hi + Wjh3hW3hi
+                                                     cj = Wjhi
+
+                                                             a3 ≈ −a0 > 0,
+                                                             a2 ≈ −a1 > 0,
+                                                             b3 ≈ −b0 > 0,
+                                                             b2 ≈ −b1 > 0,
+                                                             c0 ≈ −c3 > 0,
+                                                             c1 ≈ −c2 > 0,
+
+and so for the purposes of drawing decision boundaries, we approximate a3 and −a0 by
+
+α3  :=  βγa033,+u(2−nad0e)r,  and   similarly for α2, β3, β2,       γ0  and    γ1.  Since    it  happens      that   γ1   >  γ0   and
+    >                         this  approximation we have                                                            α2      α3
+γ1
+β2
+
+                 (a0x0 + c0x1, a1x0 + c1x1,                                  0,                0) ,  if  0  ≤   x0   ≤  γ0  x1  ,
+                                                                                                                          α3
+                 
+                                                                                                                                 γ1
+                 (b0x0 + c0x1, b1x0 + c1x1,                                0,                0) ,  if x0 ≤ min           0,  β2  x1     ,
+
+                 
+
+                                                                                                                                γ1
+                                                                                                                                 α2
+h2 (x0, x1) ≈ (                           0,               0, a2x0 + c2x1, a3x0 + c3x1) ,            if x0 ≥ max           0,      x1     ,
+
+                 (                        0,               0, b2x0 + c2x1, b3x0 + c3x1) ,            if  γ0   x1   ≤ x0    ≤ 0,
+                                                                                                          β3
+
+                                                                                                          γ0                    γ1
+                                                                                                           α3                    α2
+                 (                       0, a1x0 + c1x1,                    0, a3x0 + c3x1) ,       if       x1   ≤   x0  ≤       x1  ,
+                 
+
+                                                                                                          γ1                    γ0
+                                                                                                           β2                    β3
+                 (b0x0 + c0x1,                              0, b2x0 + c2x1,                     0) ,  if       x1   ≤ x0    ≤       x1  .
+
+    It turns out that moreover aj ≈ bj for j = 0, 1, 2, 3. Since the second and third regions
+are larger than the first and fourth, we approximate a0 by b0 and a1 by b1 in the first region
+and b2 by a2 and b3 by a3 in the second region to obtain
+
+                 
+
+                 (b0x0 + c0x1, b1x0 + c1x1,                                  0,                0) ,  if x0 ≤ min           γ0  x1,  γ1    x1  ,
+                                                                                                                             α3       β2
+                 
+
+                 
+
+h2 (x0, x1) ≈ (                           0,               0, a2x0 + c2x1, a3x0 + c3x1) ,            if x0 ≥ max           γ0  x1,  γ1    x1  ,
+                                                                                                                             β3       α2
+
+                 (                        0, a1x0 + c1x1,                    0, a3x0 + c3x1) ,       if  γ0   x1   ≤   x0  ≤   γ1  x1  ,
+                                                                                                          α3                    α2
+
+                                                                                                          γ1                    γ0
+                                                                                                           β2                    β3
+                 ( b0x0 + c0x1,                            0, b2x0 + c2x1,                     0) ,  if       x1   ≤ x0    ≤       x1  ,
+
+and hence we obtain z3 (x0, x1, x2) as linear function of (x0, x1, x2) on each of these 4 regions.
+    Now we consider the 6 possible orderings of x0, x1 and x2:
+
+    • For each of the first and second regions, there are 3 possible orderings, since it happens
+              , γ0 γ0                       , γ1 γ1
+        that                  <     1  and           > 1,    which      implies    that  x0  ≤   x1    in  the  first    region   and
+              α3 β3                         α2 β2
+        x0 ≥ x1 in the second region.
+
+    • For each of the third and fourth regions, all 6 orderings are possible, but only 4 are
+                                                                                                       γ0     γ1     γ0          γ1
+        likely,  since x0           and  x1     are  fairly  close  in  these  regions,  because       α3  ,  α2  ,  β3  and     β2  all
+
+        happen to be fairly close.
+
+                                                                    2
+This gives 14 likely subregions plus 4 unlikely subregions to consider.
+    To finish, we apply a presumption of independence in each of the likely subregions to
+
+          h3 (x0, x1, x2)j = ReLU z3 (x0, x1, x2)j 1 = z3 (x0, x1, x2)j z3(x0,x1,x2)j>0
+
+for j = 0, 1, 2, 3. We approximate each 1z3(x0,x1,x2)j>0 in each likely subregion as a random
+
+variable that is independent of z3 (x0, x1, x2) in the subregion, but dependent on other such
+
+random variables through some latent random variable Z ∼ Bernoulli (q), where q = 0.2 is a
+
+hyperparameter. Writing p for the probability that z3 (x0, x1, x2)j > 0 in the subregion and
+
+σ=  p (1 − p),  if  p  ≤  1   then  we    approximate  1z3(x0,x1,x2)j >0    by  a  random    variable  that  is
+                          2
+
+p−    q   σ  when   Z  =   0  and   p  +  1−q  σ  when   Z  =  1,  and  if  p   >  1   then  we  approximate
+    1−q                                     q                                      2
+
+1 1 − z3(x0,x1,x2)j>0 the same way, to match the mean and variance. This works well because
+
+p happens to usually to be close to either 0 or 1. We then apply W oh to obtain the 3 logits
+
+in that subregion as a linear function of x0, x1 and x2, and the model’s accuracy in that
+
+subregion is then then probability that the appropriate logit is the largest. For each of the
+
+unlikely  subregions,  we    simply    approximate  the  model’s   accuracy        in  that  subregion  as   1  .
+                                                                                                             3
+
+The accuracies for the likely and unlikely subregions can then be combined to obtain an
+
+estimate for the overall accuracy of the model.
+
+These calculations can be performed by using the polygonal generalization of Girard’s
+
+theorem1 to calculate the proportion of R3 taken up by the intersection of a set of half-spaces
+
+whose boundaries pass through the origin. To obtain our overall estimate, we need:
+
+• the volume of all 18 subregions, each of which is the intersection of 4 half-spaces;
+
+• the volume of the sub-subregion where z3 (x0, x1, x2)j > 0 for each of the 14 likely
+   subregions and each j = 0, 1, 2, 3, for a total of 56 sub-subregions, each of which is the
+
+   intersection of 5 half-spaces;
+
+• the volume of the sub-subregion where the appropriate logit is largest for each of
+   the 14 likely subregions and each of the cases Z = 0 and Z = 1, for a total of 28
+   sub-subregions, each of which is the intersection of 6 half-spaces.
+
+Version based on George’s approach
+
+First read George’s writeup Symmetric RNNs. Here I will discuss how to use George’s
+approach to produce an estimate for the model’s accuracy by tracking noise terms.
+
+    George observes that
+
+                                          Whi ≈ U TWhi
+                                          Whh ≈ U TWhhU
+                                          Woh ≈ WohV
+
+for some Whi ∈ R2×1, Whh ∈ R2×2 and Woh ∈ R3×2, where U =                              1  0   0  −1     and
+                                                                                       0  1  −1   0
+
+V=  1001               (we have changed from superscripts to subscripts so we can match
+    0110
+
+1https://en.wikipedia.org/wiki/Spherical_trigonometry#Area_and_spherical_excess
+
+                                                    3
+George’s “prime” notation). So let us define
+
+                                  εhi = Whi − U TWhi
+                                  εhh = Whh − U TWhhU
+                                  εoh = Woh − WohV,
+
+where Whi, Whh and Woh are obtained by averaging the corresponding entries of Whi, Whh
+and Woh so as to minimize the sum of squared entries of εhi, εhh and εoh. Let us also define
+
+ht (for t = 0, 1, 2, 3), zt (for t = 1, 2, 3) and l to be the variables that result from using the
+above approximations, and εht , εzt and εl to be the corresponding differences, which are all
+random variables since they are functions of x0, x1 and x2.
+
+    Now we use a version of covariance propagation to estimate the mean and covariance
+
+matrix of εl. To spell this out, we start with h0 = εh0 = 0, and then, given ht and εht for
+some t = 0, 1, 2, we have
+
+                                  zt+1 = U TWhhU ht + U TWhixt
+                                         ht+1 = ReLU zt+1
+
+and
+
+     εzt+1 = Whhht − U TWhhU ht + Whixt − U TWhixt = Whhεht + εhhht + εhixt
+                         εht+1 = ReLU zt+1 + εzt+1 − ReLU zt+1 .
+
+The mean and covariance matrix of zt+1 can be computed exactly from the mean and covari-
+ance matrix of ht. To estimate the mean and covariance matrix of ht+1, we simply multiply
+each entry of zt+1 by the probability that it is positive, which is a poor approximation, but
+one that will end up being multiplied by εhh or εoh, both of which are small. To estimate
+
+the mean and covariance matrix of εzt+1 , we apply a presumption of independence to εht
+and ht, and the calculation can then be done exactly. To estimate the mean and covariance
+matrix of εht+1 , we multiply each entry of εzt+1 by the probability that corresponding entry
+of zt+1 is positive, which is a better approximation since εzt+1 is small. Finally, we have
+
+                             εl = Wohh3 − WohV h3 = Wohεh3 + εohh3,
+
+and so we can compute the mean and covariance of εl by applying a presumption of inde-
+
+pendence to εh3 and h3.
+
+Note that every random variable in this approximation is actually treated a zero-mean
+
+Gaussian,  and  so  all  of  the  probabilities  of  variables  being  positive  are  actually  just  1  .
+                                                                                                      2
+
+To finish, we have 4 regions corresponding to the possible combinations of signs of the 2
+
+neurons in the reduced absolute-value network, and 6 subregions for each of those 4 regions
+
+corresponding to the possible orderings of x0, x1 and x2. Even though only 20 of those 24
+
+subregions are possible and only 10 of those are likely, it is not much more work to calculate
+
+the probability times the accuracy of a subregion than it is to calculate its probability, so
+
+we simply calculate the probability times the accuracy of for every subregion. Since the
+
+noise term εl is 3-dimensional, this requires us to calculate the volume of 24 subregions in
+
+6 dimensions, each of which is the intersection of 4 half-spaces. We avoid the problem of
+
+figuring out how to do this exactly for now and just use sampling.
+
+                                                     4
+                      Figure 1: Comparison of the two accuracy estimators.
+
+Quality versus compute
+
+To test these methods of estimating the accuracy of M4,3, we added zero-mean Gaussian
+noise with a standard deviation of 0.05 to the weights of network and ran the two estimators
+
+on 256 such models. The original version achieves a RMS error of around 3%, and the version
+based on George’s approach achieves a RMS error of around 5%, although it appears to have
+lower bias. A plot of the individual estimates is given in Figure 1.
+
+    The computationally expensive part of both estimators is calculating the volumes of
+
+intersections of half-spaces. In 3 dimensions, let us crudely estimate that it takes around
+5k3 operations to do this for k half-spaces, since we exhaustively find the intersection of
+
+each pair of hyperplanes and check whether each ray lies in all the other half-spaces. In 6
+
+dimensions, let us just use the same estimate for simplicity. Then the original version takes
+around 5 18 · 43 + 56 · 53 + 28 · 63 = 71000 operations and the version based on George’s
+approach takes around 5 · 24 · 43 = 7680 operations.
+
+    For comparison, estimating the accuracy using k samples takes around (3 · 4 · (4 + 1) + 4 · 3) k =
+
+72k operations and achieves a RMS error of              p(1−p)  for    a  model    with  accuracy     p.  The  RMS
+                                                            k
+
+of  this  expression  for  our  256  noisy  models  is  around      2√4%   ,  and  so  with  the  same    computa-
+                                                                       k
+
+tional budget as our two methods, sampling should achive an RMS error of around 0.8%
+
+and 2.3% respectively. So we are underperforming sampling by around a factor of 2 in terms
+
+of error (i.e, a factor of 4 in terms of compute). But the half-space algorithm could almost
+
+certainly be done more efficiently.
+
+Surprise accounting
+
+For the original version, we incur roughly 16 bits of surprise by checking the inequalities
+                                                                γ0     γ0              , γ1 γ1
+a3, −a0, a2, −a1, b3 − b0, b2, −b1, c0, −c3, c1, −c2    > 0,    α3  ,  β3     <1  and           > 1,  which imply
+                                                                                       α2 β2
+the other inequalities claimed. We also incur surprise for each of the 18 + 56 + 28 = 102
+
+volume calculations, for which we should pay something like the log probability of each
+
+calculated volume, although it is unclear what prior we should use. We could perhaps use
+
+an intersection of random half-spaces for this prior, although this fails to capture how the
+
+                                                    5
+half-spaces were chosen. We should also perhaps incur some surprise for the details of the
+derivation in this write-up. Finally, we incur surprise about the true accuracy of the model
+given our estimate. This all seems confusing enough that we should perhaps just stick to
+quality versus compute for evaluating explanations, which surprise accounting seems to be
+approximating.
+
+                                                           6
+

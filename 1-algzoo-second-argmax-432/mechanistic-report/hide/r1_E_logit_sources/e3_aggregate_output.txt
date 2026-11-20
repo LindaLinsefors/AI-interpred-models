@@ -1,0 +1,1 @@
+computed 524288 sequences in 15 s; max additivity error (classes vs exact logits) = 8.28e-13

@@ -1,0 +1,151 @@
+seeds [5050, 5051], 200000 sequences each
+========================================================================================================================
+G1  every mode fitted like the clock, per age a1 (S > 0.05, pooled over a2):  coordinate/w4 ~ alpha (M - S) + beta S   (complex LS for pairs)
+    entries: |alpha|@phase, |beta|, uncentred R2 / centred R2
+   level (|lam| = 1.010, angle = 0.0 deg; rms |coord|/w4 = 1.427)
+      a1=1: alpha +1.007  beta +0.976  R2u 0.998 / R2c 0.991
+      a1=2: alpha +0.928  beta +0.907  R2u 0.999 / R2c 0.995
+      a1=3: alpha +0.936  beta +0.901  R2u 0.999 / R2c 0.997
+      a1=4: alpha +0.945  beta +0.889  R2u 1.000 / R2c 0.998
+      a1=5: alpha +0.957  beta +0.891  R2u 1.000 / R2c 0.998
+      a1=6: alpha +0.963  beta +0.897  R2u 0.999 / R2c 0.995
+      a1=7: alpha +0.962  beta +0.909  R2u 0.999 / R2c 0.990
+      a1=8: alpha +0.960  beta +0.918  R2u 0.998 / R2c 0.988
+      a1=9: alpha +0.959  beta +0.925  R2u 0.998 / R2c 0.987
+   runner (|lam| = 0.973, angle = 0.0 deg; rms |coord|/w4 = 7.827)
+      a1=1: alpha +0.889  beta +6.514  R2u 0.956 / R2c 0.835
+      a1=2: alpha +1.969  beta +7.528  R2u 0.984 / R2c 0.924
+      a1=3: alpha +1.878  beta +7.660  R2u 0.987 / R2c 0.935
+      a1=4: alpha +1.821  beta +7.808  R2u 0.992 / R2c 0.958
+      a1=5: alpha +1.683  beta +7.587  R2u 0.982 / R2c 0.902
+      a1=6: alpha +1.701  beta +7.211  R2u 0.964 / R2c 0.813
+      a1=7: alpha +1.758  beta +6.902  R2u 0.959 / R2c 0.776
+      a1=8: alpha +1.758  beta +6.720  R2u 0.964 / R2c 0.790
+      a1=9: alpha +1.728  beta +6.572  R2u 0.970 / R2c 0.814
+   clock (|lam| = 0.951, angle = 42.7 deg; rms |coord|/w4 = 0.844)
+      a1=1: alpha 1.015@   +0.5  beta 0.136@   +5.8  R2u 0.970 / R2c 0.914
+      a1=2: alpha 1.027@  +36.4  beta 0.190@   -1.8  R2u 0.966 / R2c 0.901
+      a1=3: alpha 0.993@  +79.3  beta 0.165@  +37.3  R2u 0.958 / R2c 0.884
+      a1=4: alpha 0.952@ +123.2  beta 0.151@  +90.3  R2u 0.975 / R2c 0.927
+      a1=5: alpha 0.921@ +166.0  beta 0.170@ +148.7  R2u 0.969 / R2c 0.901
+      a1=6: alpha 0.889@ -151.3  beta 0.184@ -166.0  R2u 0.957 / R2c 0.862
+      a1=7: alpha 0.860@ -109.0  beta 0.202@ -122.8  R2u 0.941 / R2c 0.808
+      a1=8: alpha 0.826@  -66.0  beta 0.215@  -83.7  R2u 0.929 / R2c 0.767
+      a1=9: alpha 0.802@  -22.3  beta 0.215@  -48.5  R2u 0.914 / R2c 0.729
+      phase steps of alpha (deg): [35.9 42.9 43.9 42.8 42.7 42.3 43.  43.7]
+   h2 (|lam| = 0.937, angle = 83.3 deg; rms |coord|/w4 = 0.679)
+      a1=1: alpha 1.013@   -1.5  beta 0.218@   -3.7  R2u 0.767 / R2c 0.475
+      a1=2: alpha 0.095@   +5.5  beta 0.413@  -47.4  R2u 0.428 / R2c 0.121
+      a1=3: alpha 0.072@  +98.8  beta 0.384@  +26.4  R2u 0.410 / R2c 0.122
+      a1=4: alpha 0.040@ -138.4  beta 0.301@  +98.9  R2u 0.399 / R2c 0.135
+      a1=5: alpha 0.117@  -63.2  beta 0.130@ -172.9  R2u 0.142 / R2c 0.057
+      a1=6: alpha 0.109@   +5.5  beta 0.160@  -78.3  R2u 0.172 / R2c 0.038
+      a1=7: alpha 0.069@  +79.9  beta 0.188@  -31.1  R2u 0.114 / R2c 0.025
+      a1=8: alpha 0.078@ +170.2  beta 0.148@   -7.3  R2u 0.036 / R2c 0.013
+      a1=9: alpha 0.092@ -124.5  beta 0.120@   -4.1  R2u 0.027 / R2c 0.008
+      phase steps of alpha (deg): [  7.   93.4 122.7  75.2  68.7  74.4  90.3  65.3]
+   alt (|lam| = 0.928, angle = 180.0 deg; rms |coord|/w4 = 0.752)
+      a1=1: alpha +1.091  beta +0.250  R2u 0.815 / R2c 0.556
+      a1=2: alpha +0.169  beta +0.500  R2u 0.608 / R2c 0.178
+      a1=3: alpha -0.154  beta -0.306  R2u 0.386 / R2c 0.080
+      a1=4: alpha +0.154  beta +0.252  R2u 0.276 / R2c 0.052
+      a1=5: alpha +0.009  beta -0.144  R2u 0.061 / R2c 0.014
+      a1=6: alpha +0.004  beta +0.161  R2u 0.094 / R2c 0.015
+      a1=7: alpha +0.039  beta +0.001  R2u 0.002 / R2c 0.001
+      a1=8: alpha -0.014  beta +0.157  R2u 0.051 / R2c 0.008
+      a1=9: alpha +0.026  beta +0.016  R2u 0.002 / R2c -0.000
+   h3 (|lam| = 0.837, angle = 124.8 deg; rms |coord|/w4 = 0.607)
+      a1=1: alpha 0.986@   -2.3  beta 0.236@  -18.5  R2u 0.855 / R2c 0.622
+      a1=2: alpha 0.078@   +1.5  beta 0.520@  -34.3  R2u 0.757 / R2c 0.369
+      a1=3: alpha 0.033@ +170.6  beta 0.249@  +72.3  R2u 0.334 / R2c 0.109
+      a1=4: alpha 0.085@  -61.1  beta 0.108@ -146.2  R2u 0.103 / R2c 0.032
+      a1=5: alpha 0.050@  +28.6  beta 0.104@   -9.5  R2u 0.123 / R2c 0.017
+      a1=6: alpha 0.025@  -96.7  beta 0.055@  +12.0  R2u 0.022 / R2c 0.004
+      a1=7: alpha 0.051@  -38.5  beta 0.088@  -43.1  R2u 0.058 / R2c 0.006
+      a1=8: alpha 0.027@  +60.7  beta 0.122@  -26.0  R2u 0.051 / R2c 0.008
+      a1=9: alpha 0.022@ -161.7  beta 0.101@  -14.3  R2u 0.028 / R2c 0.005
+      phase steps of alpha (deg): [   3.8  169.   128.3   89.8 -125.3   58.2   99.2  137.7]
+   short (|lam| = 0.735, angle = 43.0 deg; rms |coord|/w4 = 0.672)
+      a1=1: alpha 0.966@   -4.8  beta 0.510@  -80.9  R2u 0.735 / R2c 0.465
+      a1=2: alpha 0.227@  +30.1  beta 0.556@  -97.3  R2u 0.471 / R2c 0.224
+      a1=3: alpha 0.194@  +80.4  beta 0.490@  -73.0  R2u 0.444 / R2c 0.228
+      a1=4: alpha 0.180@ +133.7  beta 0.362@  -48.1  R2u 0.405 / R2c 0.234
+      a1=5: alpha 0.176@ -174.7  beta 0.219@  -17.6  R2u 0.327 / R2c 0.223
+      a1=6: alpha 0.193@ -129.0  beta 0.132@  +13.5  R2u 0.262 / R2c 0.198
+      a1=7: alpha 0.180@  -94.8  beta 0.054@  +87.2  R2u 0.116 / R2c 0.096
+      a1=8: alpha 0.150@  -51.9  beta 0.130@ -170.3  R2u 0.143 / R2c 0.064
+      a1=9: alpha 0.141@   -2.5  beta 0.247@ -137.7  R2u 0.247 / R2c 0.089
+      phase steps of alpha (deg): [34.9 50.3 53.3 51.6 45.7 34.2 42.8 49.5]
+   trans (|lam| = 0.231, angle = 0.0 deg; rms |coord|/w4 = 0.352)
+      a1=1: alpha +0.975  beta -0.055  R2u 0.967 / R2c 0.931
+      a1=2: alpha +0.144  beta -0.104  R2u 0.619 / R2c 0.618
+      a1=3: alpha +0.038  beta -0.069  R2u 0.293 / R2c 0.213
+      a1=4: alpha +0.015  beta -0.057  R2u 0.278 / R2c 0.146
+      a1=5: alpha +0.003  beta -0.029  R2u 0.175 / R2c 0.096
+      a1=6: alpha -0.009  beta -0.010  R2u 0.044 / R2c 0.027
+      a1=7: alpha -0.006  beta -0.019  R2u 0.067 / R2c 0.030
+      a1=8: alpha +0.006  beta -0.039  R2u 0.127 / R2c 0.050
+      a1=9: alpha +0.014  beta -0.045  R2u 0.165 / R2c 0.070
+   echo (|lam| = 0.001, angle = 0.0 deg; rms |coord|/w4 = 13.337)
+      a1=1: alpha +3.872  beta -2.346  R2u 0.035 / R2c 0.023
+      a1=2: alpha +3.352  beta -2.086  R2u 0.026 / R2c 0.013
+      a1=3: alpha +3.925  beta -1.543  R2u 0.033 / R2c 0.005
+      a1=4: alpha +4.026  beta -1.212  R2u 0.034 / R2c 0.000
+      a1=5: alpha +3.984  beta -0.933  R2u 0.034 / R2c -0.004
+      a1=6: alpha +3.847  beta -0.716  R2u 0.032 / R2c -0.006
+      a1=7: alpha +3.793  beta -0.597  R2u 0.031 / R2c -0.006
+      a1=8: alpha +3.732  beta -0.475  R2u 0.030 / R2c -0.005
+      a1=9: alpha +3.619  beta -0.459  R2u 0.027 / R2c -0.006
+========================================================================================================================
+G2  final logits: logit[p2] - logit[p1] (runner-up minus max) split by mode; sequences with S > 0.2, age of the max a1 >= 2 at t = 9, p2 < 9
+   medians in units of M.   gap/M bin:        (0.05, 0.15)    (0.15, 0.3)     (0.3, 0.5)     (0.5, 0.8)
+   TOTAL             7.06 (mean    8.28)       8.54 (mean   10.79)       9.02 (mean   10.89)       8.05 (mean    9.42)
+   level             0.18 (mean    0.34)       0.23 (mean    0.34)       0.17 (mean    0.34)       0.17 (mean    0.34)
+   runner           -0.41 (mean   -0.14)      -0.36 (mean   -0.11)      -0.30 (mean   -0.08)      -0.22 (mean   -0.08)
+   clock            -1.02 (mean   -1.43)      -1.74 (mean   -2.27)      -2.65 (mean   -3.20)      -3.76 (mean   -4.19)
+   h2                1.38 (mean    1.01)       1.43 (mean    1.14)       1.42 (mean    1.25)       1.24 (mean    1.16)
+   alt               0.15 (mean    0.29)       0.24 (mean    0.38)       0.20 (mean    0.40)       0.12 (mean    0.36)
+   h3                0.11 (mean    0.28)       0.22 (mean    0.54)       0.29 (mean    0.61)       0.43 (mean    0.78)
+   short             4.08 (mean    4.15)       5.18 (mean    6.81)       6.53 (mean    7.89)       7.77 (mean    8.14)
+   trans             0.09 (mean    0.22)       0.18 (mean    0.86)       0.21 (mean    0.93)       0.21 (mean    0.91)
+   echo              0.02 (mean    0.09)       0.01 (mean    0.10)       0.01 (mean    0.11)       0.02 (mean    0.12)
+   pulses            0.00 (mean    3.47)       0.00 (mean    3.00)       0.00 (mean    2.63)       0.00 (mean    1.88)
+   clock_comp       15.16 (mean   16.14)      24.70 (mean   25.70)      35.39 (mean   36.49)      47.98 (mean   49.25)
+   clock_wave      -16.49 (mean  -17.57)     -26.98 (mean  -27.97)     -39.26 (mean  -39.69)     -52.40 (mean  -53.45)
+   same for logit[p2] - logit[p3] (runner-up minus third), sequences with T > 0.2, p2 < 9, p3 < 9, binned by (S - T)/S:
+   medians in units of S.   (S-T)/S bin:      (0.05, 0.15)    (0.15, 0.3)     (0.3, 0.5)     (0.5, 0.8)
+   TOTAL             7.87 (mean    8.64)      15.39 (mean   16.62)      22.30 (mean   25.25)      28.32 (mean   34.70)
+   level             0.10 (mean   -0.00)      -0.11 (mean    0.00)      -0.10 (mean   -0.00)       0.11 (mean   -0.01)
+   runner            0.10 (mean    0.08)       0.02 (mean    0.16)      -0.07 (mean    0.23)       0.10 (mean    0.34)
+   clock            -0.01 (mean   -0.03)      -0.00 (mean   -0.04)       0.02 (mean    0.00)       0.03 (mean    0.06)
+   h2                1.03 (mean    0.43)       2.08 (mean    1.11)       3.00 (mean    1.89)       3.66 (mean    2.75)
+   alt               0.11 (mean    0.12)       0.17 (mean    0.27)       0.25 (mean    0.49)       0.32 (mean    0.69)
+   h3                0.81 (mean    0.93)       1.99 (mean    2.12)       3.03 (mean    3.33)       3.59 (mean    4.32)
+   short             4.41 (mean    5.87)       7.44 (mean   10.40)      10.48 (mean   15.41)      13.17 (mean   22.06)
+   trans             0.02 (mean    0.25)       0.08 (mean    0.44)       0.12 (mean    0.69)       0.15 (mean    0.20)
+   echo              0.00 (mean    0.00)      -0.01 (mean   -0.01)       0.00 (mean   -0.01)       0.00 (mean    0.00)
+   pulses            0.00 (mean    1.01)       0.00 (mean    2.17)       0.00 (mean    3.23)       0.00 (mean    4.28)
+   clock_comp       -0.25 (mean    0.21)      -0.72 (mean    0.06)      -1.84 (mean   -0.54)      -3.12 (mean   -1.69)
+   clock_wave        0.26 (mean   -0.24)       0.68 (mean   -0.11)       1.78 (mean    0.54)       3.06 (mean    1.75)
+========================================================================================================================
+G3  third largest value in the clock law?  z/w4 ~ alpha (M - S) + beta S + delta max(T, 0), per a1 (S > 0.05, pooled over a2; states where a third value exists)
+   a1=1: alpha 1.010@   +0.7  beta 0.238@   -0.0  delta 0.208@ +171.6   R2u 0.9717 (without T: 0.9670)   R2c 0.9193 (without T: 0.9060)
+   a1=2: alpha 1.022@  +36.9  beta 0.298@   -8.5  delta 0.213@ +160.0   R2u 0.9705 (without T: 0.9659)   R2c 0.9142 (without T: 0.9005)
+   a1=3: alpha 0.990@  +79.7  beta 0.267@  +27.9  delta 0.196@ -166.7   R2u 0.9625 (without T: 0.9582)   R2c 0.8956 (without T: 0.8836)
+   a1=4: alpha 0.949@ +123.4  beta 0.214@  +84.0  delta 0.117@ -110.3   R2u 0.9768 (without T: 0.9752)   R2c 0.9320 (without T: 0.9272)
+   a1=5: alpha 0.918@ +166.1  beta 0.243@ +149.4  delta 0.123@  -29.0   R2u 0.9704 (without T: 0.9686)   R2c 0.9067 (without T: 0.9011)
+   a1=6: alpha 0.887@ -151.3  beta 0.270@ -161.8  delta 0.142@  +27.2   R2u 0.9595 (without T: 0.9571)   R2c 0.8697 (without T: 0.8620)
+   a1=7: alpha 0.858@ -109.0  beta 0.305@ -117.1  delta 0.166@  +73.8   R2u 0.9444 (without T: 0.9412)   R2c 0.8185 (without T: 0.8081)
+   a1=8: alpha 0.825@  -66.0  beta 0.326@  -78.2  delta 0.176@ +112.2   R2u 0.9327 (without T: 0.9291)   R2c 0.7784 (without T: 0.7665)
+   a1=9: alpha 0.802@  -22.3  beta 0.324@  -44.0  delta 0.168@ +144.8   R2u 0.9178 (without T: 0.9144)   R2c 0.7401 (without T: 0.7294)
+========================================================================================================================
+G4  phase spread |arg z - phi(a1)| on resting vs non-resting states (M > 0.3, relative gap (M - max(S,0))/M > 0.3); phi from the pooled fit of this script
+   a1=1: frac resting 0.000 | non-resting: median delta  -0.5, median |delta|  0.9, 90th pct   7.4, median |z|/(w4 (M-S+)) 1.032
+   a1=2: frac resting 0.000 | non-resting: median delta  -1.8, median |delta|  2.8, 90th pct  12.4, median |z|/(w4 (M-S+)) 1.098
+   a1=3: frac resting 0.275 | resting: median delta  -0.1, median |delta|  1.3, 90th pct   9.3, median |z|/(w4 (M-S+)) 0.994 | non-resting: median delta  -2.7, median |delta|  3.5, 90th pct  19.6, median |z|/(w4 (M-S+)) 1.091
+   a1=4: frac resting 0.216 | resting: median delta  +0.4, median |delta|  1.7, 90th pct   7.1, median |z|/(w4 (M-S+)) 1.014 | non-resting: median delta  -2.9, median |delta|  3.2, 90th pct  13.8, median |z|/(w4 (M-S+)) 1.064
+   a1=5: frac resting 0.051 | resting: median delta  -0.4, median |delta|  0.6, 90th pct   1.5, median |z|/(w4 (M-S+)) 0.947 | non-resting: median delta  -1.6, median |delta|  2.8, 90th pct   9.3, median |z|/(w4 (M-S+)) 1.051
+   a1=6: frac resting 0.019 | resting: median delta  -4.5, median |delta|  5.0, 90th pct  11.0, median |z|/(w4 (M-S+)) 1.095 | non-resting: median delta  -1.3, median |delta|  2.2, 90th pct   9.0, median |z|/(w4 (M-S+)) 1.033
+   a1=7: frac resting 0.589 | resting: median delta  -3.4, median |delta|  3.5, 90th pct  10.9, median |z|/(w4 (M-S+)) 1.028 | non-resting: median delta  +0.1, median |delta|  1.5, 90th pct   5.2, median |z|/(w4 (M-S+)) 1.006
+   a1=8: frac resting 0.726 | resting: median delta  -2.8, median |delta|  3.1, 90th pct  10.1, median |z|/(w4 (M-S+)) 0.950 | non-resting: median delta  -2.2, median |delta|  2.6, 90th pct  10.9, median |z|/(w4 (M-S+)) 1.202
+   a1=9: frac resting 0.660 | resting: median delta  -3.4, median |delta|  3.5, 90th pct  11.0, median |z|/(w4 (M-S+)) 0.901 | non-resting: median delta  -5.7, median |delta|  5.7, 90th pct  15.6, median |z|/(w4 (M-S+)) 1.229

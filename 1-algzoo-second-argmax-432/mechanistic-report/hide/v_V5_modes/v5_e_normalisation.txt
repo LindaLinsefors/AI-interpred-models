@@ -1,0 +1,70 @@
+seed 5030, 200k sequences, all states t = 0..9
+unit            :      0       1       2       3       4       5       6       7       8       9      10      11      12      13      14      15
+rms activation  :  10.66   14.57   21.41    4.43    4.33    6.89   15.07   19.51   15.25    0.89   16.92   13.29   12.68    7.74   13.72    7.53
+std activation  :   8.53   10.41   13.20    3.56    4.01    6.05   10.79   13.32   11.30    0.81   12.32    9.91    9.82    5.13    9.84    6.55
+|U[:, i]|       :   5.41   11.52    2.80    2.98    5.24    3.63   11.29   13.99   13.15    3.99    6.31    5.00    4.42    3.42    5.96    4.36
+P(h_i > 0)      :   0.75    0.73    0.90    0.77    0.23    0.41    0.72    0.77    0.68    0.26    0.89    0.87    0.90    0.90    0.86    0.73
+========================================================================================================================
+M1 under rescaling
+   RAW : level eigenvector / unit 2: [1.35 0.51 1.   0.19 0.63 0.79 0.7  1.06 1.14 1.58 0.43 1.23 0.81]   one sign: True
+   RMS : level eigenvector / unit 2: [2.71 0.75 1.   0.9  0.89 0.86 0.99 1.34 1.83 2.68 1.19 1.92 2.3 ]   one sign: True
+   STD : level eigenvector / unit 2: [2.09 0.65 1.   0.69 0.77 0.78 0.82 1.13 1.51 2.13 1.11 1.65 1.63]   one sign: True
+   READ: level eigenvector / unit 2: [2.6  2.09 1.   0.2  2.54 3.93 3.3  2.38 2.02 2.5  0.52 2.61 1.26]   one sign: True
+   RAW : |cos(w[ORD], echo right eigenvector)| = 0.9980
+   RMS : |cos(w[ORD], echo right eigenvector)| = 0.9929
+   STD : |cos(w[ORD], echo right eigenvector)| = 0.9941
+   READ: |cos(w[ORD], echo right eigenvector)| = 0.9991
+   scale-invariant content of 'the input lands on the echo mode': coordinates that x_t = 1 adds on an exact-linear step, in units of w4 (one unit = the kick of a record increment 1):
+      level 0.0044, runner 0.1010, clock 0.0106, h2 0.0301, alt 0.0165, h3 0.0229, short 0.0204, trans 0.0468, echo 15.3013
+========================================================================================================================
+M2 under rescaling: fraction of each left vector's squared norm on the comparators (and for the level on unit 2)
+   mode         RAW      RMS      STD     READ
+   level        0.041    0.026    0.033    0.002
+   runner       0.506    0.438    0.496    0.047
+   clock        0.966    0.978    0.976    0.833
+   h2           0.606    0.743    0.720    0.161
+   alt          0.106    0.172    0.169    0.013
+   h3           0.347    0.486    0.461    0.065
+   short        0.916    0.946    0.939    0.646
+   trans        0.976    0.989    0.986    0.864
+   echo         0.712    0.679    0.720    0.093
+   level, unit 2: RAW 0.852 RMS 0.933 STD 0.907 READ 0.954
+   level left vector in RMS units (entry x rms activation), by unit: {0: np.float64(0.357), 1: np.float64(0.406), 2: np.float64(8.706), 3: np.float64(-0.097), 6: np.float64(0.967), 7: np.float64(-0.825), 8: np.float64(-0.544), 10: np.float64(0.224), 11: np.float64(0.676), 12: np.float64(1.343), 13: np.float64(0.171), 14: np.float64(0.932), 15: np.float64(0.071)}
+   clock left vector |entry| x rms activation, by unit: {0: np.float64(1.172), 1: np.float64(11.211), 2: np.float64(0.975), 3: np.float64(0.159), 6: np.float64(18.205), 7: np.float64(20.716), 8: np.float64(8.427), 10: np.float64(2.351), 11: np.float64(1.444), 12: np.float64(1.506), 13: np.float64(0.34), 14: np.float64(2.972), 15: np.float64(0.874)}
+
+   scale-invariant replacement, measured on data: coordinate m = sum_i L_i h_i; m_G = sum over group G only.
+   'share' = 1 - sum|m - m_G|^2 / sum|m|^2   (1 = the group alone gives the coordinate; <= 0 = it does not)
+   mode       comparators only   wave units only   unit 2 only    | same, states with a1 >= 2 and S > 0.05
+   level         -0.002             1.000            0.925     |     0.010     1.000     0.927
+   runner        -0.533             0.800            0.253     |    -0.412     0.861     0.502
+   clock          0.827             0.206            0.076     |     0.778     0.206     0.025
+   h2            -1.136            -0.003            0.070     |    -2.899    -1.268    -0.230
+   alt           -0.455             0.669           -6.786     |    -0.861     0.375    -8.914
+   h3            -0.091             0.482           -1.589     |    -1.218     0.079    -2.730
+   short         -2.347            -2.154            0.212     |    -6.497    -5.102     0.119
+   trans          0.602            -0.919           -0.133     |    -6.154    -6.789    -0.254
+   echo          -0.957            -2.098           -1.714     |    -1.756    -3.083    -2.613
+
+   what happens to the clock coordinate when the comparators are zeroed (the wipe a record produces)? |z_wave| / |z| on data:
+      a1=1: median |z_wave|/|z| = 0.230  (90th pct 0.451);  rms |z_wave|/w4 = 0.236  vs rms |z|/w4 = 0.992
+      a1=2: median |z_wave|/|z| = 0.364  (90th pct 0.551);  rms |z_wave|/w4 = 0.398  vs rms |z|/w4 = 1.019
+      a1=3: median |z_wave|/|z| = 0.399  (90th pct 0.587);  rms |z_wave|/w4 = 0.399  vs rms |z|/w4 = 0.971
+      a1=4: median |z_wave|/|z| = 0.436  (90th pct 0.647);  rms |z_wave|/w4 = 0.394  vs rms |z|/w4 = 0.924
+      a1=5: median |z_wave|/|z| = 0.452  (90th pct 0.670);  rms |z_wave|/w4 = 0.402  vs rms |z|/w4 = 0.923
+      a1=6: median |z_wave|/|z| = 0.530  (90th pct 0.754);  rms |z_wave|/w4 = 0.472  vs rms |z|/w4 = 0.910
+      a1=7: median |z_wave|/|z| = 0.656  (90th pct 0.861);  rms |z_wave|/w4 = 0.578  vs rms |z|/w4 = 0.908
+      a1=8: median |z_wave|/|z| = 0.686  (90th pct 0.892);  rms |z_wave|/w4 = 0.595  vs rms |z|/w4 = 0.890
+      a1=9: median |z_wave|/|z| = 0.624  (90th pct 0.820);  rms |z_wave|/w4 = 0.526  vs rms |z|/w4 = 0.867
+      a1=0 (the record step itself; comparators are off): rms |z|/w4 = 0.140, P(all four comparators exactly 0) = 0.7355
+========================================================================================================================
+M3 / M4 under rescaling: products U[:, i] v_i are invariant, so every entry of M3 and the cancellation ratio are invariant (checked numerically in part A).
+M4 'per unit coordinate' depends on the gauge only through the scale of unit 4 (LEFT @ W[ORD, 4] = 1). Invariant form: size x w4 (logits per unit of record increment):
+   level         3.36
+   runner        1.10
+   clock   Re    9.22  Im    7.57   as the state is 2 Re(z v): amplitude between   12.93 and   20.05 per unit |z|/w4
+   h2      Re   26.51  Im   24.11   as the state is 2 Re(z v): amplitude between   45.57 and   55.31 per unit |z|/w4
+   alt          14.21
+   h3      Re   26.80  Im   21.55   as the state is 2 Re(z v): amplitude between   43.02 and   53.66 per unit |z|/w4
+   short   Re   95.89  Im   56.59   as the state is 2 Re(z v): amplitude between  112.25 and  192.34 per unit |z|/w4
+   trans       247.08
+   echo          0.40

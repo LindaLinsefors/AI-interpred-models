@@ -1,0 +1,31 @@
+=== Check 1 (RM, max not at the last step so that the age-0 raw kernel is not involved) ===
+RM, p1 <= 8, at least 2 earlier positions: n = 101778
+   argmax over earlier positions of (X+C at the max's step) is the runner-up's position: 0.889   (chance = 1/(number of earlier positions): 0.200);  within +-1 position: 0.979
+   value at the runner-up's position: mean 27.41, median 23.41; mean over the other earlier positions: -2.85; at the max's own position: 2.00
+   by distance d = p1 - p2 (age of the old max when the new max arrives): P(argmax = p2), mean value at p2, mean at other earlier positions, mean at p1
+     d = 1: n =  20426   P = 0.968   at p2   22.54   others   -1.99   at p1    7.40
+     d = 2: n =  20487   P = 0.964   at p2   32.78   others   -4.31   at p1    1.17
+     d = 3: n =  17278   P = 0.845   at p2   25.54   others   -2.32   at p1    4.65
+     d = 4: n =  14691   P = 0.773   at p2   24.41   others   -2.25   at p1    3.96
+     d = 5: n =  11560   P = 0.877   at p2   27.85   others   -2.63   at p1    0.31
+     d = 6: n =   8702   P = 0.828   at p2   28.62   others   -2.77   at p1   -4.58
+     d = 7: n =   5794   P = 0.854   at p2   31.99   others   -3.60   at p1   -8.34
+     d = 8: n =   2840   P = 0.954   at p2   35.69   others   -4.64   at p1   -9.00
+MR (control): argmax over earlier positions of (X+C at the runner-up's step) is the max's position: 0.717 (chance 0.200); value at the max's position: mean 18.37; at the runner-up's own position: 2.98
+size check: rms over positions/sequences of X+C by role: max 17.4, runner 14.8, third 8.4, other 14.8
+
+=== Check 2: wave-unit clips (class CW, all roles summed) ===
+all: argmin of the CW contribution over positions is at the max: 0.606, at the runner-up: 0.231, at the third: 0.093
+     mean CW contribution at max -17.81, runner-up  -6.68, third  -2.13, mean over all positions   0.12
+RM: argmin of the CW contribution over positions is at the max: 0.350, at the runner-up: 0.438, at the third: 0.119
+     mean CW contribution at max -10.95, runner-up -11.54, third  -2.46, mean over all positions   0.10
+MR: argmin of the CW contribution over positions is at the max: 0.862, at the runner-up: 0.023, at the third: 0.066
+     mean CW contribution at max -24.68, runner-up  -1.81, third  -1.79, mean over all positions   0.13
+mean CW contribution at positions that were records when they arrived: -6.57; at non-record positions: 2.89
+mean CW contribution at the max's position by the age of the max (MR): a1=1:   -0.6  a1=2:  -12.7  a1=3:  -15.1  a1=4:  -20.3  a1=5:  -26.1  a1=6:  -29.6  a1=7:  -28.1  a1=8:  -26.6  a1=9:  -26.7
+mean CW contribution at the max's position by the age of the max (RM): a1=0:    4.7  a1=1:   -0.8  a1=2:  -13.4  a1=3:  -14.2  a1=4:  -16.0  a1=5:  -23.5  a1=6:  -29.8  a1=7:  -29.1  a1=8:  -30.1
+[FIT] MR, a1 >= 3: CW contribution to (L[p1] - L[p2]) ~ -15.87 (M - S) -14.01 S -1.17;  R^2 = 0.371
+
+=== Check 3: the pulses' own-position tape ===
+RM: P4+P5 caused by the max, read at the max's position: mean  15.60 (P4 -27.76, P5  43.36);  caused by the runner-up, read at the runner-up's position: mean  16.52 (P4 -25.43, P5  41.95);  third at third:  12.12
+MR: P4+P5 caused by the max, read at the max's position: mean  21.04 (P4 -45.72, P5  66.75);  caused by the runner-up, read at the runner-up's position: mean  24.74 (P4  -0.52, P5  25.26);  third at third:  12.72

@@ -1,0 +1,28 @@
+=== SECTION 7 interventions, n = 2097152 (seeds 7061-7068); baseline accuracy 0.9532, 98090 errors
+sequences with a false firing of unit 4: 0.0843 ; false firings per non-record step: 0.0122
+intervention                                         touched  agreement  accuracy  fixed/E  new/E
+(a) unit 4 := exact detector, every step             0.9171   0.9631     0.9315    0.1451   0.6104
+(a') exact value at true positive records only       0.8992   0.9639     0.9241    0.0628   0.6858
+(b1) unit 4 := 0 when x_t <= M_prev                  0.0843   0.9939     0.9567    0.0953   0.0216
+(b2) exact value where a positive record is missed   0.0014   1.0000     0.9532    0.0005   0.0000
+(c) unit 5 := 0 after x_t < S_prev                   0.2514   0.9906     0.9590    0.1547   0.0321
+(c') same with max(S_prev, 0)                        0.2869   0.9894     0.9583    0.1568   0.0491
+(d) = b1 + b2 + c                                    0.3149   0.9857     0.9623    0.2373   0.0438
+(b1) + (c)                                           0.3138   0.9857     0.9623    0.2369   0.0438
+per class under (b1) unit 4 := 0 when x_t <= M_prev: share of all errors / fixed (share of class errors) / new (relative to class errors)
+   max~runner-up, max first           0.0864  0.651  0.049
+   max~runner-up, runner-up first     0.0682  0.010  0.001
+   runner-up~third, runner-up first   0.2816  0.074  0.012
+   runner-up~third, third first       0.2604  0.009  0.013
+per class under (c) unit 5 := 0 after x_t < S_prev: share of all errors / fixed (share of class errors) / new (relative to class errors)
+   max~runner-up, max first           0.0864  0.097  0.056
+   max~runner-up, runner-up first     0.0682  0.080  0.076
+   runner-up~third, runner-up first   0.2816  0.398  0.019
+   runner-up~third, third first       0.2604  0.040  0.043
+per class under (d) = b1 + b2 + c: share of all errors / fixed (share of class errors) / new (relative to class errors)
+   max~runner-up, max first           0.0864  0.673  0.053
+   max~runner-up, runner-up first     0.0682  0.092  0.076
+   runner-up~third, runner-up first   0.2816  0.464  0.025
+   runner-up~third, third first       0.2604  0.048  0.056
+-W[4,4] = 0.9856  (theta_4(t+1) gets -W[4,4] (x_t - theta_4(t)) from unit 4's own pulse) ; W[4,2]... 0.0970*w4 = 0.9856
+Unif(-1,1), n = 2^20: accuracy none 0.9383 ; (b1) 0.9445 ; (c) 0.9461

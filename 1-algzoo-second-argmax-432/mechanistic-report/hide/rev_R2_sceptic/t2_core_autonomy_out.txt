@@ -1,0 +1,16 @@
+variant-B extra weight from unit 2 into core units {2: np.float64(0.031), 4: np.float64(-0.128), 1: np.float64(0.085), 6: np.float64(0.1), 7: np.float64(0.109), 8: np.float64(0.191)}
+
+baseline accuracy 0.9534   (n = 1000000)
+kind | accuracy  agreement with the network | R2 of core activations (units 2,4,1,6,7,8) | unit 4: P(fires | new positive max)  P(fires | not) | answers that become the max
+  A  |  0.5086    0.5139   | 0.965 0.981 0.932 0.964 0.979 0.877 |  1.0000  0.0420 | 0.600 of changed
+  B  |  0.4913    0.4951   | 0.991 0.995 0.989 0.995 0.993 0.991 |  0.9728  0.0030 | 0.380 of changed
+  C  |  0.5374    0.5417   | 0.985 0.997 0.982 0.996 0.996 0.995 |  0.9842  0.0047 | 0.356 of changed
+  (real network: unit 4 P(fires | new positive max) 0.9992, P(fires | not) 0.0119)
+
+size of what is removed: rms over steps 1..9 of the satellites' summed input to each core unit, relative to the rms of the unit's pre-activation
+   unit 2: 0.041
+   unit 4: 0.071
+   unit 1: 0.097
+   unit 6: 0.083
+   unit 7: 0.048
+   unit 8: 0.108

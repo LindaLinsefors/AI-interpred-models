@@ -1,0 +1,74 @@
+seeds [5040, 5041], 200000 sequences each
+========================================================================================================================
+F1  level/w4 on ALL states with t >= 1 (no filter on S or M): one-regressor least squares without intercept
+   level/w4 ~ 0.837 * M_t (window incl. x_t)        uncentred R2 = 0.9203   centred R2 = 0.7404
+   level/w4 ~ 0.899 * M_(t-1) (window excl. x_t)    uncentred R2 = 0.9571   centred R2 = 0.8601
+   level/w4 ~ 0.843 * max(M_t, 0)                   uncentred R2 = 0.9275   centred R2 = 0.7636
+   level/w4 ~ 0.936 * max(M_(t-1), 0)               uncentred R2 = 0.9978   centred R2 = 0.9929
+   by a1 (t >= 1), regressor max(M_(t-1), 0): slope, centred R2 | regressor max(M_t, 0): slope, centred R2
+      a1=0: 0.936, 0.9928 | 0.419, 0.4062
+      a1=1: 0.994, 0.9957 | 0.994, 0.9957
+      a1=2: 0.918, 0.9968 | 0.918, 0.9968
+      a1=3: 0.918, 0.9970 | 0.918, 0.9970
+      a1=4: 0.914, 0.9967 | 0.914, 0.9967
+      a1=5: 0.919, 0.9958 | 0.919, 0.9958
+      a1=6: 0.924, 0.9933 | 0.924, 0.9933
+      a1=7: 0.929, 0.9897 | 0.929, 0.9897
+      a1=8: 0.934, 0.9871 | 0.934, 0.9871
+      a1=9: 0.938, 0.9863 | 0.938, 0.9863
+   binned by M_(t-1) (t >= 1, all a1): median level/w4, and median of level/(w4 M_(t-1))
+      M_(t-1) in ( -inf, -1.0]: median level/w4 =  0.0121   median ratio =  -0.008   10%-90% of level/w4:   0.008 ..   0.020   n=75810
+      M_(t-1) in ( -1.0, -0.5]: median level/w4 =  0.0101   median ratio =  -0.014   10%-90% of level/w4:   0.005 ..   0.022   n=103890
+      M_(t-1) in ( -0.5, -0.2]: median level/w4 =  0.0106   median ratio =  -0.032   10%-90% of level/w4:   0.003 ..   0.025   n=112691
+      M_(t-1) in ( -0.2,  0.0]: median level/w4 =  0.0112   median ratio =  -0.132   10%-90% of level/w4:   0.003 ..   0.027   n=108478
+      M_(t-1) in (  0.0,  0.1]: median level/w4 =  0.0574   median ratio =   1.092   10%-90% of level/w4:   0.019 ..   0.094   n=68318
+      M_(t-1) in (  0.1,  0.3]: median level/w4 =  0.2044   median ratio =   1.000   10%-90% of level/w4:   0.124 ..   0.277   n=170868
+      M_(t-1) in (  0.3,  0.6]: median level/w4 =  0.4443   median ratio =   0.954   10%-90% of level/w4:   0.325 ..   0.551   n=360627
+      M_(t-1) in (  0.6,  1.0]: median level/w4 =  0.7658   median ratio =   0.935   10%-90% of level/w4:   0.612 ..   0.910   n=675501
+      M_(t-1) in (  1.0,  1.5]: median level/w4 =  1.1601   median ratio =   0.928   10%-90% of level/w4:   0.974 ..   1.355   n=911197
+      M_(t-1) in (  1.5,  2.0]: median level/w4 =  1.5973   median ratio =   0.926   10%-90% of level/w4:   1.417 ..   1.813   n=628070
+      M_(t-1) in (  2.0,  inf]: median level/w4 =  2.1439   median ratio =   0.928   10%-90% of level/w4:   1.888 ..   2.691   n=384550
+   M6 form on states the claim left out (a1 >= 1):  level/w4 ~ alpha (M - S) + beta S
+      S > 0.05 (claim)            : alpha = 0.960, beta = 0.913, R2u = 0.9982, R2c = 0.9883   |  level/w4 ~ 0.933 max(M,0): R2u = 0.9980, R2c = 0.9874   rms level/w4 = 1.4247  n=2261000
+      -inf < S <= 0.05, M > 0.05  : alpha = 0.968, beta = 0.950, R2u = 0.9987, R2c = 0.9960   |  level/w4 ~ 0.974 max(M,0): R2u = 0.9986, R2c = 0.9958   rms level/w4 = 0.9961  n=427193
+      S < -0.3, M > 0.3           : alpha = 0.971, beta = 0.954, R2u = 0.9987, R2c = 0.9944   |  level/w4 ~ 0.981 max(M,0): R2u = 0.9986, R2c = 0.9940   rms level/w4 = 1.1217  n=153487
+      M <= 0                      : alpha = -0.006, beta = -0.018, R2u = 0.5613, R2c = -0.6507   |  level/w4 ~ nan max(M,0): R2u = nan, R2c = nan   rms level/w4 = 0.0186  n=122783
+   growth of the level between records (no new max): ratio level_(t+1)/level_t by age; eigenvalue is 1.0099
+      a1 1->2: median ratio = 0.9225  [q10 0.9104, q90 0.9391]
+      a1 2->3: median ratio = 1.0087  [q10 0.9746, q90 1.0157]
+      a1 3->4: median ratio = 1.0087  [q10 0.9541, q90 1.0163]
+      a1 4->5: median ratio = 1.0106  [q10 0.9807, q90 1.0184]
+      a1 5->6: median ratio = 1.0099  [q10 0.9807, q90 1.0160]
+      a1 6->7: median ratio = 1.0098  [q10 0.9734, q90 1.0158]
+      a1 7->8: median ratio = 1.0100  [q10 0.9744, q90 1.0170]
+      a1 8->9: median ratio = 1.0099  [q10 0.9735, q90 1.0165]
+========================================================================================================================
+F2  CENTRE OF THE ORBIT
+   (a) impulse x = (1, 0, ..., 0):
+       units off (h = 0) per step t: {0: [1, 3, 6, 7, 8, 13, 14, 15], 1: [6, 8], 2: [0, 14], 3: [15], 4: [15], 5: [11], 6: [10], 7: [], 8: [], 9: []}
+       pulse units 4, 5, 9 per step: [[10.157, 0.0, 0.0], [0.0, 12.206, 1.494], [0.0, 0.811, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+       level/w4 per step: [0.005 1.006 0.927 0.931 0.942 0.951 0.961 0.971 0.98  0.99 ]   clock |z|/w4: [0.004 0.965 0.964 0.908 0.862 0.82  0.774 0.736 0.699 0.665]   clock phase: [-106.    0.   36.   80.  123.  166. -151. -108.  -65.  -23.]
+       centre := mean of h_t[ORD] over t = 2..9: |centre| = 38.18;  cos(centre, level eigenvector) = 0.9829;  |centre - level piece| / |centre| = 0.229
+          mode pieces of the centre, |piece| (raw units): level 42.73, runner 7.71, clock 1.81, h2 0.23, alt 0.05, h3 0.10, short 0.50, trans 0.67, echo 0.09
+       centre := mean of h_t[ORD] over t = 1..9: |centre| = 37.77;  cos(centre, level eigenvector) = 0.9822;  |centre - level piece| / |centre| = 0.244
+          mode pieces of the centre, |piece| (raw units): level 42.97, runner 7.27, clock 2.46, h2 1.52, alt 0.54, h3 1.82, short 2.93, trans 5.14, echo 0.09
+       plane of PC0, PC1 of h_2..h_9 (ORD): variance share 0.9984; perpendicular from origin |n| = 34.99; cos(n, level eigenvector) = 0.8663; cos(mean, level eigenvector) = 0.9829
+       cos between the clock plane (Re, Im of RIGHT clock) and the PC plane: singular values of the 2x2 overlap = [0.998 0.992]
+
+   (b) data: mean of h[ORD] / M per age a1 = 1..8 (states with M > 0.3 and relative gap r = (M - max(S,0))/M in a bin), then the unweighted mean over the 8 ages = 'centre'
+       r in (0.6,1.0]: |centre|/M = 44.03; rms distance of the 8 age-means from the centre = 19.90;  cos(centre, level eigenvector) = 0.9126 (in rms units: 0.9234);  level coordinate of the centre / w4 = 0.956
+          |centre - level piece| / |centre| = 0.413 (rms units: 0.413);  |centre - level - runner pieces| / |centre| = 0.283
+          |mode piece| of the centre (raw units): level 42.69, runner 8.99, clock 2.25, h2 2.06, alt 0.72, h3 2.28, short 3.69, trans 6.15, echo 12.58
+          centre per unit / (w4 * level eigenvector entry): u0:0.68 u1:2.14 u2:1.20 u3:1.28 u6:1.73 u7:1.78 u8:1.55 u10:0.78 u11:0.64 u12:0.60 u13:1.14 u14:0.84 u15:0.66
+       r in (0.3,0.6]: |centre|/M = 37.42; rms distance of the 8 age-means from the centre = 14.81;  cos(centre, level eigenvector) = 0.9016 (in rms units: 0.9090);  level coordinate of the centre / w4 = 0.932
+          |centre - level piece| / |centre| = 0.481 (rms units: 0.534);  |centre - level - runner pieces| / |centre| = 0.164
+          |mode piece| of the centre (raw units): level 41.62, runner 16.10, clock 0.79, h2 1.90, alt 0.64, h3 1.92, short 4.07, trans 1.76, echo 4.17
+          centre per unit / (w4 * level eigenvector entry): u0:0.49 u1:1.72 u2:1.28 u3:1.27 u6:1.39 u7:1.39 u8:1.34 u10:0.64 u11:0.51 u12:0.48 u13:1.07 u14:0.74 u15:0.56
+       r in (0.0,0.3]: |centre|/M = 35.84; rms distance of the 8 age-means from the centre = 10.32;  cos(centre, level eigenvector) = 0.8519 (in rms units: 0.8553);  level coordinate of the centre / w4 = 0.921
+          |centre - level piece| / |centre| = 0.602 (rms units: 0.689);  |centre - level - runner pieces| / |centre| = 0.165
+          |mode piece| of the centre (raw units): level 41.14, runner 21.70, clock 0.21, h2 1.83, alt 0.54, h3 1.76, short 4.84, trans 0.59, echo 2.30
+          centre per unit / (w4 * level eigenvector entry): u0:0.34 u1:1.68 u2:1.35 u3:1.39 u6:1.38 u7:1.36 u8:1.42 u10:0.52 u11:0.40 u12:0.38 u13:1.04 u14:0.67 u15:0.51
+========================================================================================================================
+F3  the level coordinate against unit 2 alone (states with a1 >= 1, S > 0.05)
+   level/w4 ~ 0.05346 * h_2: R2u = 0.9886, centred R2 = 0.9270;   LEFT[level] entry of unit 2 / w4 = 0.04003
+   h_2 ~ 17.300 * M_t: R2u = 0.9916, centred R2 = 0.9461;   level/w4 ~ M alone: centred R2 = 0.9874

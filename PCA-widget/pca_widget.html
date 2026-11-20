@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCA Widget</title>
+<style>
+  :root { --bg: #fff; --ink: #1f2328; --muted: #6b7280; --grid: #e5e7eb; --mark: #2563eb; --line: #b0b0b0; --combo: #000; }
+  body { background: var(--bg); color: var(--ink); font: 14px system-ui, sans-serif; margin: 24px 16px; }
+  .row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 16px; }
+  #matrix { display: grid; gap: 4px; }
+  #matrix input[type=text] { width: 56px; padding: 3px 4px; font: 13px ui-monospace, monospace; text-align: right; }
+  #matrix .lbl { color: var(--muted); font: 12px ui-monospace, monospace; align-self: center; padding-right: 4px; }
+  #matrix input.w { width: 160px; padding: 0; }
+  #matrix .wval { font: 12px ui-monospace, monospace; align-self: center; width: 44px; }
+  #shift { align-self: start; margin: 0 16px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; align-self: start; margin-left: 16px; }
+  #combo { font: 13px ui-monospace, monospace; width: 0; white-space: nowrap; margin-top: 8px; }
+  button { padding: 6px 14px; font-size: 14px; cursor: pointer; }
+  #dim { width: 56px; font-size: 14px; }
+  h3 { margin: 0 0 6px; font-size: 14px; font-weight: 600; }
+  label b { font-size: 14px; font-weight: 600; }
+  .note { color: var(--muted); font-size: 12px; margin-top: 4px; max-width: 420px; }
+  svg text { font: 11px system-ui, sans-serif; fill: var(--ink); }
+  svg .muted { fill: var(--muted); }
+  .quad { display: grid; grid-template-columns: 206px 206px; gap: 8px; }
+  svg.small text { font-size: 9px; }
+</style>
+</head>
+<body>
+
+<div class="row">
+  <label><b>Dimensions</b> d = <input id="dim" type="number" min="1" max="20" value="7"></label>
+</div>
+
+<div class="row">
+  <div id="matrix">
+    <button id="shift">Shift first vector</button>
+    <div class="stack" id="wctl">
+      <label><input id="sum1" type="checkbox"> add to one</label>
+      <button id="zero">Set weights to zero</button>
+    </div>
+    <div id="combo"></div>
+  </div>
+</div>
+
+<div class="row">
+  <button id="pca">Get PCA</button>
+  <label><input id="center" type="checkbox" checked> subtract mean vector first</label>
+</div>
+
+<div class="row">
+  <div><h3>Singular values</h3><svg id="bars" width="420" height="420"></svg></div>
+  <div><h3>Vectors projected on PC1, PC2</h3><svg id="scatter" width="420" height="420"></svg><div id="pcnote" class="note"></div></div>
+  <div><h3>PC3–PC6 vs PC1</h3>
+    <div class="quad">
+      <svg id="sc3" class="small" width="206" height="206"></svg><svg id="sc4" class="small" width="206" height="206"></svg>
+      <svg id="sc5" class="small" width="206" height="206"></svg><svg id="sc6" class="small" width="206" height="206"></svg>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const NS = "http://www.w3.org/2000/svg";
+let d = 7;
+let w = [];       // slider weights
+let pca = null;   // last PCA: {X, mu, pcs, P}, pcs[k] = PC(k+1), P[k] = projections of the rows on it
+
+function buildMatrix() {
+  d = Math.max(1, Math.min(20, parseInt($("dim").value) || 7));
+  const m = $("matrix");
+  m.querySelectorAll(".cell").forEach(e => e.remove());
+  // columns: label | d entries | shift button | slider | value | weight controls; last row: combo
+  const place = (e, row, col) => { e.classList.add("cell"); e.style.gridRow = row; e.style.gridColumn = col; m.appendChild(e); };
+  $("shift").style.gridArea = `1 / ${d + 2} / ${d + 1} / ${d + 3}`;
+  $("wctl").style.gridArea = `1 / ${d + 5} / ${d + 1} / ${d + 6}`;
+  $("combo").style.gridArea = `${d + 1} / ${d + 3}`;
+  const v1 = Array.from({length: d}, (_, j) => j === 0 ? 1 : (j === 1 || j === d - 1) ? 0.01 : 0);
+  for (let i = 0; i < d; i++) {
+    const l = document.createElement("div");
+    l.className = "lbl"; l.textContent = `v${i + 1}`;
+    place(l, i + 1, 1);
+    for (let j = 0; j < d; j++) {
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.inputMode = "decimal"; inp.value = v1[((j - i) % d + d) % d];
+      inp.id = `m${i}_${j}`;
+      place(inp, i + 1, j + 2);
+    }
+    const s = document.createElement("input");
+    s.type = "range"; s.min = 0; s.max = 1; s.step = 0.001; s.className = "w"; s.id = `w${i}`;
+    s.addEventListener("input", () => setWeight(i, parseFloat(s.value)));
+    const sv = document.createElement("span");
+    sv.className = "wval"; sv.id = `wv${i}`;
+    place(s, i + 1, d + 3);
+    place(sv, i + 1, d + 4);
+  }
+  w = Array(d).fill(0);
+  if ($("sum1").checked) normalize();
+  pca = null;
+  update();
+}
+
+// "add to one": moving slider i to t rescales the others so that Σ w = 1
+function setWeight(i, t) {
+  w[i] = t;
+  if (!$("sum1").checked) return;
+  if (d === 1) { w[0] = 1; return; }
+  const rest = w.reduce((s, x, j) => j === i ? s : s + x, 0);
+  for (let j = 0; j < d; j++) if (j !== i) w[j] = rest > 0 ? w[j] * (1 - t) / rest : (1 - t) / (d - 1);
+}
+
+function normalize() {
+  const s = w.reduce((a, b) => a + b, 0);
+  w = s > 0 ? w.map(x => x / s) : w.map(() => 1 / d);
+}
+
+const combo = X => X[0].map((_, j) => X.reduce((s, r, k) => s + w[k] * r[j], 0));
+
+// sync sliders, show c = Σ wₖ vₖ, move c on the PCA plot
+function update() {
+  w.forEach((x, i) => { $(`w${i}`).value = x; $(`wv${i}`).textContent = x.toFixed(3); });
+  const c = combo(getX()), sw = w.reduce((a, b) => a + b, 0);
+  $("combo").textContent = `c = Σₖ wₖ vₖ = [${c.map(fmt).join(", ")}]    (Σₖ wₖ = ${fmt(sw)})`;
+  if (pca) drawScatters();
+}
+
+const getX = () => Array.from({length: d}, (_, i) =>
+  Array.from({length: d}, (_, j) => parseFloat($(`m${i}_${j}`).value.replace(",", ".")) || 0));
+
+// row k = first row cyclically shifted right by k: row_k[j] = v[(j - k) mod d]
+function shiftFirst() {
+  const v = getX()[0];
+  for (let k = 1; k < d; k++)
+    for (let j = 0; j < d; j++) $(`m${k}_${j}`).value = v[((j - k) % d + d) % d];
+}
+
+// Jacobi eigen-decomposition of symmetric A. Returns {vals, vecs} with vecs[:, i] the i-th eigenvector.
+function jacobiEig(A) {
+  const n = A.length, a = A.map(r => r.slice());
+  const V = Array.from({length: n}, (_, i) => Array.from({length: n}, (_, j) => +(i === j)));
+  for (let sweep = 0; sweep < 100; sweep++) {
+    let off = 0;
+    for (let p = 0; p < n; p++) for (let q = p + 1; q < n; q++) off += a[p][q] ** 2;
+    if (off < 1e-24) break;
+    for (let p = 0; p < n; p++) for (let q = p + 1; q < n; q++) {
+      if (Math.abs(a[p][q]) < 1e-300) continue;
+      const th = (a[q][q] - a[p][p]) / (2 * a[p][q]);
+      const t = Math.sign(th || 1) / (Math.abs(th) + Math.sqrt(th * th + 1));
+      const c = 1 / Math.sqrt(t * t + 1), s = t * c;
+      for (let k = 0; k < n; k++) {          // columns p, q
+        const akp = a[k][p], akq = a[k][q];
+        a[k][p] = c * akp - s * akq; a[k][q] = s * akp + c * akq;
+      }
+      for (let k = 0; k < n; k++) {          // rows p, q
+        const apk = a[p][k], aqk = a[q][k];
+        a[p][k] = c * apk - s * aqk; a[q][k] = s * apk + c * aqk;
+      }
+      for (let k = 0; k < n; k++) {
+        const vkp = V[k][p], vkq = V[k][q];
+        V[k][p] = c * vkp - s * vkq; V[k][q] = s * vkp + c * vkq;
+      }
+    }
+  }
+  return {vals: a.map((r, i) => r[i]), vecs: V};
+}
+
+// PCA via eigen-decomposition of XᵀX (X centered if requested): σ_i = √λ_i, projection = X v_i
+function getPCA() {
+  const X0 = getX();
+  const mu = $("center").checked ? X0[0].map((_, j) => X0.reduce((s, r) => s + r[j], 0) / d) : Array(d).fill(0);
+  const X = X0.map(r => r.map((x, j) => x - mu[j]));
+  const C = Array.from({length: d}, (_, i) => Array.from({length: d}, (_, j) =>
+    X.reduce((s, r) => s + r[i] * r[j], 0)));
+  const {vals, vecs} = jacobiEig(C);
+  const order = vals.map((_, i) => i).sort((i, j) => vals[j] - vals[i]);
+  const sig = order.map(i => Math.sqrt(Math.max(vals[i], 0)));
+  const pc = k => order[k] < d ? vecs.map(r => r[order[k]]) : Array(d).fill(0);
+  const proj = k => X.map(r => r.reduce((s, x, j) => s + x * pc(k)[j], 0));
+  const K = Math.min(d, 6);
+  pca = {X: X0, mu, pcs: Array.from({length: K}, (_, k) => pc(k)), P: Array.from({length: K}, (_, k) => proj(k))};
+  drawScatters();
+  drawBars(sig);
+  const tol = 1e-6 * (sig[0] || 1);
+  $("pcnote").textContent = d > 2 && Math.abs(sig[1] - sig[2]) < tol
+    ? "σ₂ = σ₃, so PC2 is not unique: the plot shows one arbitrary choice within the degenerate subspace."
+    : (Math.abs(sig[0] - sig[1]) < tol && d > 1 ? "σ₁ = σ₂: the PC1–PC2 plane is unique, but the axes within it are arbitrary." : "");
+}
+
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text !== undefined) e.textContent = text;
+  parent.appendChild(e);
+  return e;
+}
+const fmt = x => Math.abs(x) < 1e-10 ? "0" : (+x.toPrecision(3)).toString();
+
+function drawScatters() {
+  drawScatter("scatter", 0, 1, 420);
+  for (let k = 3; k <= 6; k++) drawScatter(`sc${k}`, 0, k - 1, 206);
+}
+
+// PC(ky+1) vs PC(kx+1). c is projected as (c − μ)·PC, with the matrix and μ from the last "Get PCA"
+function drawScatter(id, kx, ky, W) {
+  const svg = $(id); svg.innerHTML = "";
+  if (ky >= pca.P.length) {
+    el("text", {x: W / 2, y: W / 2, "text-anchor": "middle", class: "muted"}, svg, `no PC${ky + 1} for d = ${d}`);
+    return;
+  }
+  const {X, mu, pcs, P} = pca, px = P[kx], py = P[ky];
+  const cr = combo(X).map((x, j) => x - mu[j]);
+  const ccx = cr.reduce((s, x, j) => s + x * pcs[kx][j], 0), ccy = cr.reduce((s, x, j) => s + x * pcs[ky][j], 0);
+  const f = W / 420, pad = 36 * f, r = Math.max(5 * f, 3.5), off = 8 * f;
+  // equal scale on both axes, box always includes the origin and c
+  const xs = px.concat([0, ccx]), ys = py.concat([0, ccy]);
+  const cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
+  const half = 1.12 * Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys), 1e-9) / 2;
+  const sx = x => pad + (x - cx + half) / (2 * half) * (W - 2 * pad);
+  const sy = y => W - pad - (y - cy + half) / (2 * half) * (W - 2 * pad);
+  el("line", {x1: pad, x2: W - pad, y1: sy(0), y2: sy(0), stroke: "var(--grid)"}, svg);
+  el("line", {x1: sx(0), x2: sx(0), y1: pad, y2: W - pad, stroke: "var(--grid)"}, svg);
+  el("text", {x: W - pad, y: sy(0) - 6 * f, "text-anchor": "end", class: "muted"}, svg, `PC${kx + 1}`);
+  el("text", {x: sx(0) + 6 * f, y: pad + 4 * f, class: "muted"}, svg, `PC${ky + 1}`);
+  // faint polygon v1 → v2 → … → v1
+  const pts = px.map((x, i) => `${sx(x)},${sy(py[i])}`).join(" ");
+  el("polygon", {points: pts, fill: "none", stroke: "var(--line)", "stroke-width": 1.5}, svg);
+  px.forEach((x, i) => {
+    const g = el("g", {}, svg);
+    el("circle", {cx: sx(x), cy: sy(py[i]), r: r, fill: `hsl(${360 * i / d}, 75%, 45%)`, stroke: "var(--bg)", "stroke-width": 2 * f}, g);
+    el("circle", {cx: sx(x), cy: sy(py[i]), r: 12, fill: "transparent"}, g);
+    el("text", {x: sx(x) + off, y: sy(py[i]) - off}, g, `v${i + 1}`);
+    el("title", {}, g, `v${i + 1}: (${fmt(x)}, ${fmt(py[i])})`);
+  });
+  const g = el("g", {}, svg), X_ = sx(ccx), Y_ = sy(ccy), q = 1.4 * r;
+  el("path", {d: `M${X_},${Y_ - q} L${X_ + q},${Y_} L${X_},${Y_ + q} L${X_ - q},${Y_} Z`,
+              fill: "var(--combo)", stroke: "var(--bg)", "stroke-width": 2 * f}, g);
+  el("circle", {cx: X_, cy: Y_, r: 12, fill: "transparent"}, g);
+  el("text", {x: X_ + off + 1, y: Y_ + off + 6 * f}, g, "c");
+  el("title", {}, g, `c: (${fmt(ccx)}, ${fmt(ccy)})`);
+}
+
+function drawBars(sig) {
+  const svg = $("bars"); svg.innerHTML = "";
+  const W = 420, H = 420, padL = 40, padR = 12, padT = 24, padB = 30;
+  const top = Math.max(...sig, 1e-9) * 1.1;
+  const sy = v => H - padB - v / top * (H - padT - padB);
+  for (let k = 0; k <= 4; k++) {
+    const v = top * k / 4;
+    el("line", {x1: padL, x2: W - padR, y1: sy(v), y2: sy(v), stroke: "var(--grid)"}, svg);
+    el("text", {x: padL - 6, y: sy(v) + 4, "text-anchor": "end", class: "muted"}, svg, fmt(v));
+  }
+  const slot = (W - padL - padR) / sig.length, bw = Math.max(slot - 2, 1);
+  sig.forEach((s, i) => {
+    const x = padL + i * slot + 1, y = sy(s), h = H - padB - y;
+    const g = el("g", {}, svg);
+    const r = Math.min(4, bw / 2, h);
+    // bar with rounded top corners
+    el("path", {d: `M${x},${H - padB} V${y + r} Q${x},${y} ${x + r},${y} H${x + bw - r} Q${x + bw},${y} ${x + bw},${y + r} V${H - padB} Z`,
+                fill: "var(--mark)"}, g);
+    el("rect", {x: x, y: padT, width: bw, height: H - padT - padB, fill: "transparent"}, g);
+    if (sig.length <= 12) el("text", {x: x + bw / 2, y: y - 5, "text-anchor": "middle"}, g, fmt(s));
+    el("text", {x: x + bw / 2, y: H - padB + 16, "text-anchor": "middle", class: "muted"}, g, `σ${i + 1}`);
+    el("title", {}, g, `σ${i + 1} = ${fmt(s)}`);
+  });
+}
+
+$("dim").addEventListener("change", buildMatrix);
+$("shift").addEventListener("click", () => { shiftFirst(); update(); });
+$("matrix").addEventListener("input", e => { if (e.target.id !== "sum1") update(); });   // matrix entries and sliders
+$("zero").addEventListener("click", () => { w = Array(d).fill(0); $("sum1").checked = false; update(); });
+$("sum1").addEventListener("change", () => { if ($("sum1").checked) normalize(); update(); });
+$("pca").addEventListener("click", getPCA);
+buildMatrix();
+</script>
+</body>
+</html>

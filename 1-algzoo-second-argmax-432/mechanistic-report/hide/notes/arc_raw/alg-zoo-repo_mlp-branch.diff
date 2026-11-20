@@ -1,0 +1,266 @@
+diff -ru algzoo_repo/alg-zoo-main/alg_zoo/__init__.py algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/__init__.py
+--- algzoo_repo/alg-zoo-main/alg_zoo/__init__.py	2026-01-19 20:30:00.000000000 +0000
++++ algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/__init__.py	2026-08-19 22:37:18.000000000 +0100
+@@ -1,4 +1,11 @@
+-from .architectures import DistRNN, DistTransformer, ScalarRNN, ScalarTransformer
++from .architectures import (
++    DistMLP,
++    DistRNN,
++    DistTransformer,
++    ScalarMLP,
++    ScalarRNN,
++    ScalarTransformer,
++)
+ from .handcrafted import handcrafted_2nd_argmax
+ from .loading import example_2nd_argmax
+ from .tasks import task_2nd_argmax, task_argmedian, task_longest_cycle, task_median
+diff -ru algzoo_repo/alg-zoo-main/alg_zoo/architectures.py algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/architectures.py
+--- algzoo_repo/alg-zoo-main/alg_zoo/architectures.py	2026-01-19 20:30:00.000000000 +0000
++++ algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/architectures.py	2026-08-19 22:37:18.000000000 +0100
+@@ -122,3 +122,60 @@
+             n_heads=n_heads,
+             bias=bias,
+         )
++
++
++class MLP(th.nn.Module):
++    def __init__(
++        self, input_size, hidden_size, output_size, n_hidden_layers=1, bias=False
++    ):
++        self.input_size = input_size
++        self.hidden_size = hidden_size
++        self.output_size = output_size
++        self.n_hidden_layers = n_hidden_layers
++        self.bias = bias
++        super().__init__()
++        if n_hidden_layers == 0:
++            self.hidden_size = None
++            self.linears = th.nn.ModuleList(
++                [th.nn.Linear(input_size, output_size, bias=bias)]
++            )
++        else:
++            self.linears = th.nn.ModuleList(
++                [th.nn.Linear(input_size, hidden_size, bias=bias)]
++                + [
++                    th.nn.Linear(hidden_size, hidden_size, bias=bias)
++                    for _ in range(n_hidden_layers - 1)
++                ]
++                + [th.nn.Linear(hidden_size, output_size, bias=bias)]
++            )
++
++    def forward(self, x):
++        for i, linear in enumerate(self.linears):
++            x = linear(x)
++            if i < len(self.linears) - 1:
++                x = th.nn.functional.relu(x)
++        return x
++
++    @property
++    def device(self):
++        return self.linears[-1].weight.device
++
++    @property
++    def dtype(self):
++        return self.linears[-1].weight.dtype
++
++
++class DistMLP(MLP):
++    def __init__(self, hidden_size, seq_len, n_hidden_layers=1, bias=False):
++        self.seq_len = seq_len
++        super().__init__(
++            seq_len, hidden_size, seq_len, n_hidden_layers=n_hidden_layers, bias=bias
++        )
++
++
++class ScalarMLP(MLP):
++    def __init__(self, hidden_size, seq_len, n_hidden_layers=1, bias=False):
++        self.seq_len = seq_len
++        super().__init__(
++            seq_len, hidden_size, 1, n_hidden_layers=n_hidden_layers, bias=bias
++        )
+diff -ru algzoo_repo/alg-zoo-main/alg_zoo/handcrafted.py algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/handcrafted.py
+--- algzoo_repo/alg-zoo-main/alg_zoo/handcrafted.py	2026-01-19 20:30:00.000000000 +0000
++++ algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/handcrafted.py	2026-08-19 22:37:18.000000000 +0100
+@@ -1,6 +1,6 @@
+ import torch as th
+ 
+-from .architectures import DistRNN
++from .architectures import DistMLP, DistRNN
+ 
+ 
+ def handcrafted_2nd_argmax_2():
+@@ -97,3 +97,28 @@
+             f"No handcrafted 2nd argmax model with seq_len {seq_len}, "
+             "please choose one of: 2, 3, 10"
+         )
++
++
++def handcrafted_kth_argmax_mlp(seq_len, k) -> DistMLP:
++    model = DistMLP(
++        hidden_size=seq_len * (seq_len - 1),
++        seq_len=seq_len,
++        n_hidden_layers=1,
++        bias=False,
++    )
++    with th.no_grad():
++        W1 = model.linears[0].weight
++        W2 = model.linears[1].weight
++        W1.zero_()
++        W2.zero_()
++        h = 0
++        for i in range(seq_len):
++            for j in range(seq_len):
++                if i == j:
++                    continue
++                W1[h, i] = 1
++                W1[h, j] = -1
++                W2[i, h] = -(k - 1)
++                W2[j, h] = -(seq_len - k)
++                h += 1
++    return model
+diff -ru algzoo_repo/alg-zoo-main/alg_zoo/loading.py algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/loading.py
+--- algzoo_repo/alg-zoo-main/alg_zoo/loading.py	2026-01-19 20:30:00.000000000 +0000
++++ algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/loading.py	2026-08-19 22:37:18.000000000 +0100
+@@ -3,7 +3,14 @@
+ import blobfile as bf
+ import torch as th
+ 
+-from .architectures import DistRNN, DistTransformer, ScalarRNN, ScalarTransformer
++from .architectures import (
++    DistMLP,
++    DistRNN,
++    DistTransformer,
++    ScalarMLP,
++    ScalarRNN,
++    ScalarTransformer,
++)
+ 
+ 
+ def load_state_dict(model_path):
+@@ -64,6 +71,35 @@
+     return load_transformer(ScalarTransformer, model_path, **kwargs)
+ 
+ 
++def load_mlp(model_cls, model_path, bias=False):
++    state_dict = load_state_dict(model_path)
++    linear_indices = [
++        key.split(".")[1] for key in state_dict.keys() if key.split(".")[0] == "linears"
++    ]
++    n_hidden_layers = len(set(linear_indices)) - 1
++    if n_hidden_layers == 0:
++        _, seq_len = state_dict["linears.0.weight"].shape
++        hidden_size = None
++    else:
++        hidden_size, seq_len = state_dict["linears.0.weight"].shape
++    model = model_cls(
++        hidden_size=hidden_size,
++        seq_len=seq_len,
++        n_hidden_layers=n_hidden_layers,
++        bias=bias,
++    )
++    model.load_state_dict(state_dict)
++    return model
++
++
++def load_dist_mlp(model_path, **kwargs):
++    return load_mlp(DistMLP, model_path, **kwargs)
++
++
++def load_scalar_mlp(model_path, **kwargs):
++    return load_mlp(ScalarMLP, model_path, **kwargs)
++
++
+ def example_2nd_argmax() -> DistRNN:
+     # 2nd argmax model with hidden_size=16, seq_len=10 discussed in blog post
+     return load_dist_rnn(
+diff -ru algzoo_repo/alg-zoo-main/alg_zoo/training.py algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/training.py
+--- algzoo_repo/alg-zoo-main/alg_zoo/training.py	2026-01-19 20:30:00.000000000 +0000
++++ algzoo_repo_mlp/alg-zoo-mlp/alg_zoo/training.py	2026-08-19 22:37:18.000000000 +0100
+@@ -6,7 +6,14 @@
+ import blobfile as bf
+ import torch as th
+ 
+-from .architectures import DistRNN, DistTransformer, ScalarRNN, ScalarTransformer
++from .architectures import (
++    DistMLP,
++    DistRNN,
++    DistTransformer,
++    ScalarMLP,
++    ScalarRNN,
++    ScalarTransformer,
++)
+ from .logger import Logger
+ from .tasks import task_registry
+ 
+@@ -47,6 +54,7 @@
+     seq_len,
+     n_transformer_layers=2,
+     n_transformer_heads=1,
++    n_mlp_hidden_layers=None,
+     bias=False,
+     discrete_eot=False,
+     weight_decay=0.001,
+@@ -69,6 +77,8 @@
+     - seq_len: length of each input sequence
+     - n_transformer_layers: for discrete inputs, number of transformer layers
+     - n_transformer_heads: for discrete inputs, number of transformer heads
++    - n_mlp_hidden_layers: for continuous inputs, number of hidden MLP layers,
++        or None to use an RNN
+     - bias: whether to use biases in the model
+     - discrete_eot: for discrete inputs, whether to append an extra token to
+         each sequence for the transformer to use to produce its output
+@@ -89,21 +99,32 @@
+     th.backends.cudnn.deterministic = True
+     th.backends.cudnn.benchmark = False
+     task, input_type, task_type = task_registry[task_name]
++    if input_type == "continuous" and n_mlp_hidden_layers is not None:
++        use_mlp = True
++        task_label = f"{task_name}_mlp"
++    else:
++        use_mlp = False
++        task_label = task_name
+     transformer_kwargs = {
+         "n_layers": n_transformer_layers,
+         "n_heads": n_transformer_heads,
+     }
++    mlp_kwargs = {
++        "n_hidden_layers": n_mlp_hidden_layers,
++    }
+     model_cls, model_kwargs = {
+-        ("continuous", "dist"): (DistRNN, {}),
+-        ("continuous", "scalar"): (ScalarRNN, {}),
+-        ("discrete", "dist"): (DistTransformer, transformer_kwargs),
+-        ("discrete", "scalar"): (ScalarTransformer, transformer_kwargs),
+-    }[(input_type, task_type)]
++        ("continuous", "dist", False): (DistRNN, {}),
++        ("continuous", "scalar", False): (ScalarRNN, {}),
++        ("discrete", "dist", False): (DistTransformer, transformer_kwargs),
++        ("discrete", "scalar", False): (ScalarTransformer, transformer_kwargs),
++        ("continuous", "dist", True): (DistMLP, mlp_kwargs),
++        ("continuous", "scalar", True): (ScalarMLP, mlp_kwargs),
++    }[(input_type, task_type, use_mlp)]
+     model = model_cls(
+         hidden_size=hidden_size, seq_len=seq_len, bias=bias, **model_kwargs
+     )
+     model = model.to(torch_device())
+-    save_model(model, f"{task_name}_{hidden_size}_{seq_len}_{0}_{seed}")
++    save_model(model, f"{task_label}_{hidden_size}_{seq_len}_{0}_{seed}")
+     lr = lr_base / hidden_size**0.5
+     optimizer = th.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
+     n_steps = {"train": n_train // batch_size, "val": n_val // batch_size}
+@@ -118,7 +139,7 @@
+     for period in ["train", "val"]:
+         print(f"Running {period}:")
+         logger = Logger(
+-            f"{period}_{task_name}_{hidden_size}_{seq_len}_{n_train}_{seed}"
++            f"{period}_{task_label}_{hidden_size}_{seq_len}_{n_train}_{seed}"
+         )
+         start_time = time.time()
+         with th.no_grad() if period != "train" else nullcontext():
+@@ -164,5 +185,5 @@
+                 if period == "train" and (step + 1) in checkpoint_steps:
+                     save_model(
+                         model,
+-                        f"{task_name}_{hidden_size}_{seq_len}_{(step + 1) * batch_size}_{seed}",
++                        f"{task_label}_{hidden_size}_{seq_len}_{(step + 1) * batch_size}_{seed}",
+                     )

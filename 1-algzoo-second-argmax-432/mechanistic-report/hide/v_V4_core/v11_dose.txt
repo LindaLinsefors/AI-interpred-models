@@ -1,0 +1,18 @@
+
+=== inputs iid normal, n = 300000, seed 5022 ===
+   f :  other ten -> core x (1-f)   same + K5 compensation x f   wave(no 2) -> comparators + unit 4 x (1-f)   wave(no 2) -> comparators: difference part x (1-f)   pulses 5, 9 -> core x (1-f)
+  0.00:  0.9527                     0.9527                        0.9527                                      0.9527                                             0.9527
+  0.10:  0.9313                     0.9458                        0.9395                                      0.9420                                             0.9527
+  0.25:  0.8492                     0.8865                        0.8862                                      0.8914                                             0.9501
+  0.50:  0.6657                     0.7193                        0.7268                                      0.7394                                             0.9352
+  0.75:  0.5762                     0.5903                        0.6209                                      0.6433                                             0.9003
+  1.00:  0.5077                     0.4929                        0.5461                                      0.5779                                             0.8449
+
+=== inputs iid uniform, n = 300000, seed 5023 ===
+   f :  other ten -> core x (1-f)   same + K5 compensation x f   wave(no 2) -> comparators + unit 4 x (1-f)   wave(no 2) -> comparators: difference part x (1-f)   pulses 5, 9 -> core x (1-f)
+  0.00:  0.9389                     0.9389                        0.9389                                      0.9389                                             0.9389
+  0.10:  0.9026                     0.9291                        0.9196                                      0.9262                                             0.9393
+  0.25:  0.7898                     0.8452                        0.8500                                      0.8663                                             0.9349
+  0.50:  0.6036                     0.6676                        0.6794                                      0.7062                                             0.9090
+  0.75:  0.5199                     0.5424                        0.5766                                      0.6115                                             0.8552
+  1.00:  0.4618                     0.4474                        0.5072                                      0.5481                                             0.7828

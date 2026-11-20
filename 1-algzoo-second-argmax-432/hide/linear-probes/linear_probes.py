@@ -29,7 +29,7 @@ import numpy as np
 
 HIDE = Path(__file__).resolve().parent         # <case study>/hide/<analysis>/: scripts, CSVs, npz
 ROOT = HIDE.parent.parent                       # <case study>/ = 1-algzoo-second-argmax-432/
-OUT = ROOT / HIDE.name                          # figures go to <case study>/<analysis>/
+OUT = ROOT / "archived-probed" / HIDE.name     # figures go to <case study>/archived-probed/<analysis>/
 WEIGHTS = (ROOT.parent / "reverse-engineered-networks" / "1-algzoo-second-argmax-432"
            / "code" / "m16_10_weights.npz")
 T = 10

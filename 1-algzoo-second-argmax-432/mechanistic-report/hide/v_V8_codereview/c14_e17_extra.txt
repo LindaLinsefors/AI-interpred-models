@@ -1,0 +1,36 @@
+P(answer = max) after wiping the comparators at t0 = pM + k; rows k = 1..9, columns t0 = 1..9; condition S_9 > 0.2, M_9 - S_9 > 0.2
+   1 | 1.000  1.000  1.000  0.999  1.000  0.999  0.996  0.794  0.020 
+   2 |   .    1.000  1.000  1.000  1.000  1.000  1.000  0.997  0.000 
+   3 |   .      .    0.972  0.981  0.980  0.976  0.965  0.418  0.000 
+   4 |   .      .      .    0.978  0.962  0.932  0.889  0.710  0.435 
+   5 |   .      .      .      .    1.000  0.999  0.976  0.931  0.979 
+   6 |   .      .      .      .      .    1.000  1.000  1.000  0.996 
+   7 |   .      .      .      .      .      .    1.000  1.000  0.994 
+   8 |   .      .      .      .      .      .      .    0.990  1.000 
+   9 |   .      .      .      .      .      .      .      .    0.028 
+   pooled, all k = 1..9, t0 <= 9: P(max) = 0.8647  P(runner-up) = 0.0119  P(the wipe step itself) = 0.1332  n = 3139654
+   pooled, t0 <= 8: P(max) = 0.9569  P(runner-up) = 0.0024  P(the wipe step itself) = 0.0410  n = 2512456
+   pooled, t0 <= 7: P(max) = 0.9858  P(runner-up) = 0.0017  P(the wipe step itself) = 0.0122  n = 1954948
+   pooled, t0 = 8: P(max) = 0.8553  P(runner-up) = 0.0047  P(the wipe step itself) = 0.1421  n = 557508
+   pooled, t0 = 9: P(max) = 0.4953  P(runner-up) = 0.0502  P(the wipe step itself) = 0.5024  n = 627198
+
+passive counterpart (no intervention): P(argmax of m_t over the inputs older than t = position of the max) by age of the max a (rows) and step t (columns 1..9); same condition on the final sequence, and the max of the prefix is the final max
+   1 | 1.000  0.999  0.998  0.998  0.999  0.998  0.998  0.999  0.998 
+   2 |   .    1.000  1.000  1.000  1.000  1.000  1.000  1.000  0.994 
+   3 |   .      .    0.978  0.976  0.969  0.968  0.968  0.965  0.959 
+   4 |   .      .      .    0.997  0.990  0.986  0.990  0.991  0.989 
+   5 |   .      .      .      .    1.000  1.000  1.000  1.000  1.000 
+   6 |   .      .      .      .      .    1.000  1.000  1.000  1.000 
+   7 |   .      .      .      .      .      .    1.000  1.000  0.995 
+   8 |   .      .      .      .      .      .      .    1.000  1.000 
+   9 |   .      .      .      .      .      .      .      .    0.328 
+   and with index 9 (the current input) allowed, i.e. the literal readout without the comparators at step t:
+   1 | 0.000  0.000  0.000  0.000  0.001  0.003  0.006  0.013  0.020 
+   2 |   .    0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000 
+   3 |   .      .    0.006  0.003  0.002  0.001  0.000  0.001  0.000 
+   4 |   .      .      .    0.591  0.407  0.308  0.365  0.436  0.435 
+   5 |   .      .      .      .    0.982  0.988  0.974  0.980  0.979 
+   6 |   .      .      .      .      .    0.999  0.999  0.997  0.996 
+   7 |   .      .      .      .      .      .    1.000  1.000  0.994 
+   8 |   .      .      .      .      .      .      .    1.000  1.000 
+   9 |   .      .      .      .      .      .      .      .    0.028 

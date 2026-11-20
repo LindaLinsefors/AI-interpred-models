@@ -1,0 +1,52 @@
+w[COMP] = [-10.5648 -10.9957 -13.1687 -12.3123]  (all negative: True )
+w[4] = 10.156975746154785  w[2] = 0.014607131481170654
+w (all 16) = [  0.0692 -10.5648   0.0146  -0.1227  10.157   -0.2813 -10.9957 -13.1687 -12.3123  -0.2276   0.0598   0.148    0.298   -0.047   -1.3207  -0.1191]
+
+=== K0: theta(t+1) = Bc [theta(t) - x_t]_+ + b2 h2(t) + b4 h4(t) + other ten units ===
+normal   n=200000 seed 5001: max |lhs - rhs| over t=0..9, j: 3.997e-15; max |h_j - g_j[theta_j - x]_+|: 1.421e-14; typical |theta| = 0.905; max |theta| = 5.69
+uniform  n=200000 seed 5001: max |lhs - rhs| over t=0..9, j: 1.610e-15; max |h_j - g_j[theta_j - x]_+|: 8.882e-15; typical |theta| = 0.526; max |theta| = 1.38
+OTHER10 = [0, 3, 5, 9, 10, 11, 12, 13, 14, 15]
+float64 eps * max|theta| * ~50 terms ~ 1e-13: the identity is exact up to rounding.
+
+=== K1 ===
+Bc =
+ [[ 0.4094  1.036  -1.3059 -0.1403]
+ [-0.1298  0.3606 -0.151  -0.0918]
+ [-0.0805 -0.1524  0.0782  0.1558]
+ [ 0.5439 -0.0003 -1.1702  0.6154]]
+Bc @ 1 = [-0.0008 -0.0121  0.0011 -0.0112]
+  eigenvalue 0.69049+0.63412j: |.| = 0.9375, angle =   42.563 deg
+  eigenvalue 0.69049-0.63412j: |.| = 0.9375, angle =  -42.563 deg
+  eigenvalue 0.04125+0.01272j: |.| = 0.0432, angle =   17.135 deg
+  eigenvalue 0.04125-0.01272j: |.| = 0.0432, angle =  -17.135 deg
+singular values of Bc: [2.0738 0.9547 0.1895 0.0044]
+b2 = [0.0477 0.0487 0.0512 0.0508]
+w4 * b4 = [ 0.8377 -0.0435  1.0155 -0.0342]
+W[2,2] = 0.9688376188278198  W[2,4] = 1.7307186126708984  w2 = 0.014607131481170654
+-W[4,2]/w4 = 0.04847004129719171  -W[4,4]/w4 = 0.09703785510181298
+W[2,4]*w4 = 17.578866972316973  (h2 gain per unit increment);  b2 * W[2,4] * w4 = [0.8381 0.8552 0.8993 0.8928]
+-W[4,2]/w4 * W[2,4]*w4 = 0.8520484081060431
+max |Bc - claimed| = 0.00048318449234292793
+max |Bc1 - claimed| = 0.00017882604308982943
+max |b2 - claimed| = 0.00034796311313677053
+max |w4 b4 - claimed| = 0.0004981786313960623
+
+=== K2: cos( W[u, COMP], w[COMP] ) ===
+  unit  0 (WAVE ): cos = +0.0004   |W[u,COMP]| = 1.7376   W[u,COMP].w[COMP] = +0.0144
+  unit  1 (COMP ): cos = +0.0002   |W[u,COMP]| = 1.5068   W[u,COMP].w[COMP] = +0.0087
+  unit  2 (WAVE ): cos = +0.0006   |W[u,COMP]| = 0.2128   W[u,COMP].w[COMP] = +0.0031
+  unit  3 (WAVE ): cos = +0.0128   |W[u,COMP]| = 1.7255   W[u,COMP].w[COMP] = +0.5195
+  unit  4 (PULSE): cos = -0.0036   |W[u,COMP]| = 0.1322   W[u,COMP].w[COMP] = -0.0114
+  unit  5 (PULSE): cos = +0.7401   |W[u,COMP]| = 1.0365   W[u,COMP].w[COMP] = +18.1140
+  unit  6 (COMP ): cos = +0.0136   |W[u,COMP]| = 0.4134   W[u,COMP].w[COMP] = +0.1328
+  unit  7 (COMP ): cos = -0.0023   |W[u,COMP]| = 0.2780   W[u,COMP].w[COMP] = -0.0149
+  unit  8 (COMP ): cos = +0.0041   |W[u,COMP]| = 1.4063   W[u,COMP].w[COMP] = +0.1373
+  unit  9 (PULSE): cos = +0.6929   |W[u,COMP]| = 5.1619   W[u,COMP].w[COMP] = +84.4559
+  unit 10 (WAVE ): cos = -0.0381   |W[u,COMP]| = 0.4161   W[u,COMP].w[COMP] = -0.3743
+  unit 11 (WAVE ): cos = -0.0243   |W[u,COMP]| = 0.6745   W[u,COMP].w[COMP] = -0.3877
+  unit 12 (WAVE ): cos = +0.0237   |W[u,COMP]| = 0.5583   W[u,COMP].w[COMP] = +0.3125
+  unit 13 (WAVE ): cos = -0.0186   |W[u,COMP]| = 0.3853   W[u,COMP].w[COMP] = -0.1690
+  unit 14 (WAVE ): cos = -0.0017   |W[u,COMP]| = 1.0609   W[u,COMP].w[COMP] = -0.0420
+  unit 15 (WAVE ): cos = -0.0015   |W[u,COMP]| = 1.0580   W[u,COMP].w[COMP] = -0.0376
+max |cos| over the 14 units other than 5, 9: 0.0380887565234202 at unit 10
+cos unit 5 = 0.7401222469486013  cos unit 9 = 0.6929278584741406

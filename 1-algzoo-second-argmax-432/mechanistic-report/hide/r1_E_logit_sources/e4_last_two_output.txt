@@ -1,0 +1,126 @@
+=== Part A [EXACT] ===
+L_p = sum_{j in COMP} U[p,j]|w_j| (theta_j - x_9)_+  +  U[p,4] w_4 (x_9 - theta_4)_+  +  sum_{i in WAVE+{5,9}} U[p,i] (b_i + w_i x_9)_+
+coefficients U[p,j]|w_j| (rows: position p; columns: comparators 1, 6, 7, 8 | sum of the four | U[p,4] w_4):
+  p0:    64.38    27.79   -36.64   -44.00 |    11.53 |    -1.52
+  p1:    27.07    52.59     6.36   -82.47 |     3.54 |     4.31
+  p2:   -17.55    35.10    61.82   -76.40 |     2.97 |     5.86
+  p3:   -61.93   -13.38    96.50   -18.40 |     2.79 |     6.77
+  p4:   -51.69   -61.07    77.29    38.18 |     2.71 |     7.62
+  p5:   -12.80   -61.96    12.13    67.54 |     4.91 |     5.76
+  p6:    22.90   -33.87   -37.51    54.10 |     5.62 |     4.68
+  p7:    46.59    10.48   -71.21    17.69 |     3.55 |     4.21
+  p8:   -15.15    39.84   -65.80    44.88 |     3.77 |     5.05
+  p9:    -5.01    -7.38   -49.90     4.04 |   -58.25 |   -50.70
+slope dL_p/dx_9 with all 13 ordinary units on, unit 4 off (= KX(0)): [-4.32 -4.47 -4.45 -4.39 -4.6  -4.61 -4.69 -4.9  -3.78 57.19]
+   -> d(L_9 - L_p)/dx_9 for p = 0..8: [61.52 61.66 61.64 61.58 61.8  61.81 61.89 62.1  60.98]
+slope dL_p/dx_9 with the four comparators clipped, unit 4 on, wave units on: [  5.69   3.38   4.38   5.17   5.73   6.06   5.61   2.85   5.04 -51.75]
+   -> d(L_9 - L_p)/dx_9 for p = 0..8: [-57.44 -55.13 -56.13 -56.92 -57.48 -57.81 -57.37 -54.61 -56.79]
+each comparator j, while ON, adds (U[9,j] - U[p,j]) w_j to d(L_9 - L_p)/dx_9 (rows p = 0..8, columns j = 1,6,7,8):
+  p0:    69.39    35.17    13.26   -48.04
+  p1:    32.07    59.97    56.26   -86.51
+  p2:   -12.54    42.48   111.72   -80.44
+  p3:   -56.92    -6.01   146.40   -22.44
+  p4:   -46.68   -53.69   127.19    34.14
+  p5:    -7.79   -54.58    62.04    63.50
+  p6:    27.91   -26.49    12.39    50.06
+  p7:    51.60    17.86   -21.31    13.65
+  p8:   -10.14    47.22   -15.90    40.84
+unit 5 at the last step: h5_9 = (W[5].h_8 + w_5 x_9)_+ ;  W[5,7]|w_7| = -7.81, W[5,8]|w_8| = -10.46, W[5,4] w_4 = 12.06, w_5 = -0.28
+   d h5_9 / d x_8 = 18.28 (comparators 7, 8 on at step 8), 7.81 (8 clipped, 7 on), 12.06 (unit 4 on at step 8); times U[8,5] = 3.40: 62.1, 26.5, 41.0 logits per unit x_8
+   exact one-step sensitivities with every unit's gate open: W[5,ORD] w[ORD] = 18.01, W[9,ORD] w[ORD] = 84.33; U[8,5] * 18.01 = 61.2, U[8,9] * 84.33 = -139.9
+identity check on n = 200000 (seed 1043): max |formula - logits| = 2.49e-13
+
+=== Part B: sweep of the last input x_9 (seed 1040, n = 20000 prefixes; S8 > 0 only) ===
+prefixes with S8 > 0: 19627; of these the network answers 9 for some x_9 in the grid: 0.9537
+the answer-9 set is a single interval (exactly 2 switches) in 0.9510 of them
+lower edge g_lo (ideal 0): percentiles 5/25/50/75/95 = [-0.46 -0.07 -0.02  0.02  0.19]
+upper edge g_hi (ideal 1): percentiles 5/25/50/75/95 = [0.81 0.98 1.   1.03 1.26]
+  [FIT] lower edge x_lo vs S8: slope 1.013, intercept -0.022, R^2 = 0.9903, residual sd 0.045; median |edge - target| = 0.021
+  [FIT] upper edge x_hi vs M8: slope 0.998, intercept +0.001, R^2 = 0.9961, residual sd 0.037; median |edge - target| = 0.013
+competitor (best stored position) just below the lower edge: old runner-up in 0.956, old max in 0.015, old third in 0.024
+competitor just above the upper edge: old max in 0.906, old runner-up in 0.084
+P(answer 9), and medians of L9 - L[old max], L9 - L[old runner-up], along the sweep:
+  g = -0.50: P(9) = 0.044   L9-L[p1old]   -0.08   L9-L[p2old]  -13.38
+  g = -0.20: P(9) = 0.093   L9-L[p1old]    4.51   L9-L[p2old]   -5.32
+  g = -0.10: P(9) = 0.160   L9-L[p1old]    6.87   L9-L[p2old]   -2.41
+  g = -0.05: P(9) = 0.310   L9-L[p1old]    8.25   L9-L[p2old]   -0.83
+  g =  0.00: P(9) = 0.629   L9-L[p1old]    9.51   L9-L[p2old]    0.70
+  g =  0.05: P(9) = 0.788   L9-L[p1old]   10.53   L9-L[p2old]    2.14
+  g =  0.10: P(9) = 0.849   L9-L[p1old]   11.18   L9-L[p2old]    3.48
+  g =  0.20: P(9) = 0.903   L9-L[p1old]   11.99   L9-L[p2old]    6.06
+  g =  0.30: P(9) = 0.923   L9-L[p1old]   12.18   L9-L[p2old]    8.67
+  g =  0.50: P(9) = 0.929   L9-L[p1old]   11.03   L9-L[p2old]   13.76
+  g =  0.70: P(9) = 0.918   L9-L[p1old]    8.24   L9-L[p2old]   16.54
+  g =  0.90: P(9) = 0.871   L9-L[p1old]    3.91   L9-L[p2old]   15.25
+  g =  0.95: P(9) = 0.812   L9-L[p1old]    2.34   L9-L[p2old]   14.22
+  g =  1.00: P(9) = 0.536   L9-L[p1old]    0.30   L9-L[p2old]   12.97
+  g =  1.05: P(9) = 0.169   L9-L[p1old]   -1.95   L9-L[p2old]   11.83
+  g =  1.10: P(9) = 0.099   L9-L[p1old]   -3.96   L9-L[p2old]   10.85
+  g =  1.20: P(9) = 0.058   L9-L[p1old]   -7.79   L9-L[p2old]    9.19
+  g =  1.50: P(9) = 0.029   L9-L[p1old]  -17.67   L9-L[p2old]    4.03
+slopes per unit of x_9 (median, IQR):
+  g = -0.50: d(L9-L[p1old])/dx9    61.6 (   61.0..   61.8)   d(L9-L[p2old])/dx9    61.8 (   61.6..   62.1)
+  g = -0.10: d(L9-L[p1old])/dx9    61.3 (   10.2..   61.7)   d(L9-L[p2old])/dx9    61.8 (   61.5..   62.1)
+  g =  0.10: d(L9-L[p1old])/dx9    10.3 (   -8.0..   61.3)   d(L9-L[p2old])/dx9    61.8 (   53.4..   81.8)
+  g =  0.30: d(L9-L[p1old])/dx9    -1.7 (  -25.1..   61.0)   d(L9-L[p2old])/dx9    61.8 (   38.5..   88.4)
+  g =  0.50: d(L9-L[p1old])/dx9   -16.1 (  -31.5..    1.8)   d(L9-L[p2old])/dx9    60.7 (   21.1..   90.4)
+  g =  0.70: d(L9-L[p1old])/dx9   -43.0 ( -136.8..  -16.2)   d(L9-L[p2old])/dx9    22.1 (  -15.9..   81.8)
+  g =  0.90: d(L9-L[p1old])/dx9  -112.4 ( -141.6..  -21.3)   d(L9-L[p2old])/dx9    -7.3 (  -41.0..   31.4)
+  g =  1.10: d(L9-L[p1old])/dx9  -105.5 ( -136.6..  -57.4)   d(L9-L[p2old])/dx9   -55.0 (  -57.5..  -14.9)
+  g =  1.30: d(L9-L[p1old])/dx9   -57.8 ( -114.2..  -57.4)   d(L9-L[p2old])/dx9   -55.8 (  -57.4..  -23.3)
+  g =  1.70: d(L9-L[p1old])/dx9   -57.4 (  -57.8..  -56.0)   d(L9-L[p2old])/dx9   -56.4 (  -57.4..  -55.1)
+where the thresholds at step 9 sit, in units g = (theta - S8)/(M8 - S8): percentiles 5/25/50/75/95
+  theta_1:  [-1.24 -0.01  0.69  1.24  1.69]
+  theta_6:  [-0.96  0.13  0.56  1.04  1.25]
+  theta_7:  [0.12 0.58 0.8  1.02 1.11]
+  theta_8:  [-0.65  0.01  0.41  1.3   1.93]
+  theta_4:  [0.1  0.63 0.76 0.94 1.  ]
+[FIT] zero of the low-regime line of L9 - L[p2old] (all gates as at x_ref = min theta - 0.5) vs S8: slope 1.009, intercept -0.018, R^2 = 0.9812; median |x* - S8| = 0.026
+
+=== Part C: sweep of x_8 with the other nine inputs fixed (seed 1041, n = 20000) ===
+prefixes with S' > 0: 19612; network answers 8 for some x_8: 0.9671
+the answer-8 set is a single interval in 0.9387 of them
+lower edge g_lo (ideal 0): percentiles 5/25/50/75/95 = [-0.53 -0.05  0.    0.04  0.15]
+upper edge g_hi (ideal 1): percentiles 5/25/50/75/95 = [0.72 0.96 0.99 1.01 1.1 ]
+  x_9 is neither max nor runner-up of the others   n = 14871: g_lo median  0.000 (IQR -0.042.. 0.038), g_hi median  0.994 (IQR  0.966.. 1.012)
+  x_9 is the max of the others                     n =  2082: g_lo median  0.000 (IQR -0.090.. 0.060), g_hi median  0.965 (IQR  0.916.. 0.982)
+  x_9 is the runner-up of the others               n =  2013: g_lo median  0.000 (IQR -0.084.. 0.032), g_hi median  0.996 (IQR  0.964.. 1.010)
+P(answer 8), medians of L8 - L[max of others], L8 - L[runner-up of others], h5_9 and h9_9 along the sweep:
+  g = -0.50: P(8) = 0.050   L8-L[q1]    1.25   L8-L[q2]  -10.87   h5_9 median   1.11  P(h5_9>0) 0.596   h9_9 median  0.00  P(h9_9>0) 0.023
+  g = -0.20: P(8) = 0.098   L8-L[q1]    4.08   L8-L[q2]   -5.91   h5_9 median   3.00  P(h5_9>0) 0.869   h9_9 median  0.00  P(h9_9>0) 0.037
+  g = -0.10: P(8) = 0.156   L8-L[q1]    5.86   L8-L[q2]   -3.26   h5_9 median   3.75  P(h5_9>0) 0.966   h9_9 median  0.00  P(h9_9>0) 0.047
+  g =  0.00: P(8) = 0.472   L8-L[q1]    8.44   L8-L[q2]   -0.05   h5_9 median   4.58  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.097
+  g =  0.10: P(8) = 0.869   L8-L[q1]   10.36   L8-L[q2]    3.02   h5_9 median   5.45  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.122
+  g =  0.20: P(8) = 0.922   L8-L[q1]   11.50   L8-L[q2]    5.88   h5_9 median   6.25  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.135
+  g =  0.30: P(8) = 0.936   L8-L[q1]   12.02   L8-L[q2]    8.69   h5_9 median   6.95  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.145
+  g =  0.50: P(8) = 0.939   L8-L[q1]   11.49   L8-L[q2]   14.07   h5_9 median   8.15  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.171
+  g =  0.70: P(8) = 0.920   L8-L[q1]    8.84   L8-L[q2]   17.59   h5_9 median   9.23  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.240
+  g =  0.90: P(8) = 0.851   L8-L[q1]    4.22   L8-L[q2]   17.85   h5_9 median  10.33  P(h5_9>0) 1.000   h9_9 median  0.00  P(h9_9>0) 0.472
+  g =  1.00: P(8) = 0.371   L8-L[q1]   -0.51   L8-L[q2]   16.59   h5_9 median  11.03  P(h5_9>0) 1.000   h9_9 median  0.92  P(h9_9>0) 0.775
+  g =  1.10: P(8) = 0.047   L8-L[q1]   -4.54   L8-L[q2]   15.01   h5_9 median  11.70  P(h5_9>0) 1.000   h9_9 median  1.33  P(h9_9>0) 0.816
+  g =  1.20: P(8) = 0.022   L8-L[q1]   -7.01   L8-L[q2]   14.22   h5_9 median  12.34  P(h5_9>0) 1.000   h9_9 median  1.51  P(h9_9>0) 0.887
+  g =  1.50: P(8) = 0.009   L8-L[q1]  -13.27   L8-L[q2]   11.09   h5_9 median  14.12  P(h5_9>0) 1.000   h9_9 median  2.04  P(h9_9>0) 0.973
+slopes per unit of x_8 (median, IQR):
+  g = -0.50: d(L8-L[q1])/dx8    11.2 (    1.0..   66.2)   d(L8-L[q2])/dx8    43.7 (    1.1..   69.2)   d h5_9/dx8   10.2 (   0.0..  18.0)
+  g = -0.10: d(L8-L[q1])/dx8    63.6 (   11.0..   68.3)   d(L8-L[q2])/dx8    69.1 (   63.6..   74.3)   d h5_9/dx8   18.0 (  13.1..  18.1)
+  g =  0.10: d(L8-L[q1])/dx8    16.1 (  -11.8..   64.2)   d(L8-L[q2])/dx8    69.2 (   56.5..   91.3)   d h5_9/dx8   18.0 (   7.8..  18.0)
+  g =  0.30: d(L8-L[q1])/dx8     4.3 (  -26.4..   63.6)   d(L8-L[q2])/dx8    68.4 (   46.3..   93.0)   d h5_9/dx8   12.0 (   7.7..  18.0)
+  g =  0.50: d(L8-L[q1])/dx8    -2.7 (  -56.9..   15.3)   d(L8-L[q2])/dx8    63.9 (   31.1..   97.2)   d h5_9/dx8   10.4 (   7.5..  18.2)
+  g =  0.70: d(L8-L[q1])/dx8   -56.9 ( -126.4..  -11.9)   d(L8-L[q2])/dx8    39.2 (   -0.9..   86.0)   d h5_9/dx8   11.8 (   7.7..  22.2)
+  g =  0.90: d(L8-L[q1])/dx8  -114.7 ( -157.2..  -26.5)   d(L8-L[q2])/dx8    10.8 (  -29.6..   59.9)   d h5_9/dx8   11.9 (   8.0..  22.4)
+  g =  1.10: d(L8-L[q1])/dx8   -86.4 ( -114.7..  -32.2)   d(L8-L[q2])/dx8   -29.5 (  -36.5..    2.0)   d h5_9/dx8   12.0 (  11.9..  22.4)
+  g =  1.30: d(L8-L[q1])/dx8   -32.3 ( -101.7..  -30.5)   d(L8-L[q2])/dx8   -29.6 (  -31.0..  -23.8)   d h5_9/dx8   12.0 (  11.9..  19.8)
+  g =  1.70: d(L8-L[q1])/dx8   -30.5 (  -32.2..  -29.8)   d(L8-L[q2])/dx8   -30.0 (  -30.9..  -29.3)   d h5_9/dx8   12.0 (  11.9..  12.0)
+
+=== Part D [INTERVENTION]: zero one readout weight (seed 1042, n = 400000) ===
+intervention                                   all        max is last (p1=9)  runner-up is last (p2=9)           max at 8 (p1=8)     runner-up at 8 (p2=8)          neither in {8,9}
+none                                        0.9529                    0.9350                    0.9528                    0.9636                    0.9438                    0.9547
+U[9,4] = 0                                  0.9380                    0.7748                    0.9642                    0.9636                    0.9134                    0.9547
+U[9,7] = 0                                  0.5477                    0.9342                    0.9829                    0.4296                    0.5254                    0.4521
+U[8,5] = 0                                  0.8640                    0.8396                    0.9601                    0.9701                    0.0165                    0.9577
+U[8,9] = 0                                  0.9517                    0.9397                    0.9456                    0.9421                    0.9533                    0.9547
+U[9,4] = +0.5 (as others)                    0.9147                    0.5426                    0.9649                    0.9636                    0.8541                    0.9547
+U[8,5] = -0.4 (as others)                    0.8625                    0.8390                    0.9601                    0.9701                    0.0018                    0.9577
+what the network answers when the max is last and U[9,4] = 0:
+   answers 9 (the max): 0.1840; answers the runner-up: 0.7748
+when the runner-up is at 8 and U[8,5] = 0: answers 8: 0.0165; answers the max: 0.4102; answers the third: 0.4914

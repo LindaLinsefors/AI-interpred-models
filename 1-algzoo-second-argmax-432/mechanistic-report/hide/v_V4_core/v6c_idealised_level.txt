@@ -1,0 +1,23 @@
+b2 = [0.0477 0.0487 0.0512 0.0508]  mean 0.0495694587873829
+best-fit stand-in c_j (threshold gauge) for the wave(no 2) part: [0.0056 0.0062 0.0029 0.0071]  mean 0.005439578881980215
+b2 + c = [0.0533 0.0549 0.054  0.0579]  mean 0.05500903766936312
+  intact                                                                                               acc 0.9531   same as intact 1.0000
+  P1  wave(no 2) -> comparators: only the common-level part kept                                       acc 0.5803   same as intact 0.5866
+  P3  unit 2 -> comparators made uniform (mean b2)                                                     acc 0.6562   same as intact 0.6640
+  Q1  P1 + P3: every level supplier (unit 2 and the other wave units) feeds the four comparators uniformly acc 0.7415   same as intact 0.7524
+  Q2  wave(no 2) -> comparators removed, unit 2 weight b2 + c_j (non-uniform static stand-in; = A'-fit) acc 0.8249   same as intact 0.8324
+  Q4  THE IDEALISATION: wave(no 2) -> comparators removed, unit 2 feeds one uniform level mean(b2 + c) acc 0.7346   same as intact 0.7454
+  Q4x idealisation with the uniform level scaled by 0.9                                                acc 0.7033   same as intact 0.7121
+  Q4x idealisation with the uniform level scaled by 0.95                                               acc 0.7280   same as intact 0.7385
+  Q4x idealisation with the uniform level scaled by 1.05                                               acc 0.7140   same as intact 0.7227
+  Q4x idealisation with the uniform level scaled by 1.1                                                acc 0.6776   same as intact 0.6846
+  Q5  wave(no 2) -> comparators removed, unit 2 keeps its own pattern b2, rescaled to the same mean level acc 0.5515   same as intact 0.5572
+  Q6  Q4 + pulses 5, 9 -> comparators removed (comparators hear only comparators, unit 2 (uniform), unit 4) acc 0.6663   same as intact 0.6756
+  R   unit  0 -> comparators: only its common-level part kept                                          acc 0.6350   same as intact 0.6412
+  R   unit  3 -> comparators: only its common-level part kept                                          acc 0.9456   same as intact 0.9744
+  R   unit 10 -> comparators: only its common-level part kept                                          acc 0.6991   same as intact 0.7108
+  R   unit 11 -> comparators: only its common-level part kept                                          acc 0.8662   same as intact 0.8857
+  R   unit 12 -> comparators: only its common-level part kept                                          acc 0.9267   same as intact 0.9411
+  R   unit 13 -> comparators: only its common-level part kept                                          acc 0.9478   same as intact 0.9757
+  R   unit 14 -> comparators: only its common-level part kept                                          acc 0.4968   same as intact 0.5028
+  R   unit 15 -> comparators: only its common-level part kept                                          acc 0.9336   same as intact 0.9592

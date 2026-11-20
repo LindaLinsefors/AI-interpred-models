@@ -1,0 +1,143 @@
+seeds [5021, 5022, 5023, 5024, 5025], 400000 each, 2000000 sequences; t = 9 states
+network accuracy (answer = p2): 0.9530
+
+===== A. per age of the max (t = 9, M > 0.3): which position do the comparator-free scores m rank first? =====
+  P10 = P(argmax over all ten positions = p1);  P9 = P(argmax over positions 0..8 = p1);  P9[S>0]: selection S > 0 instead of M > 0.3
+  Pneg = P(position 0..8 with the smallest total negative vote = p1);  Ppos = P(position 0..8 with the largest total positive vote = p1)
+  means in units of M: m[p1], best other m (0..8), negative votes at p1 and mean over the other positions 0..8, the same for positive votes
+  a1  pos      n     P10      P9   P9[S>0]    Pneg    Ppos  |  m[p1]  best other |  neg[p1]  neg[other] |  pos[p1]  pos[other]
+   1    8  198220  0.0309  0.9655  0.9651   0.9270  0.0465  |  39.11   24.08     |   -17.13   -60.25     |   56.25    49.55
+   2    7  198071  0.0017  0.9747  0.9745   0.9972  0.0017  |  38.64   25.56     |    -4.75   -45.76     |   43.39    35.75
+   3    6  198024  0.0009  0.8897  0.8881   0.0000  0.8980  |  35.37   27.98     |   -28.74   -43.60     |   64.10    33.76
+   4    5  198360  0.3603  0.9308  0.9297   0.0000  0.3963  |  34.59   24.35     |   -18.43   -44.12     |   53.02    34.31
+   5    4  197827  0.9594  0.9930  0.9929   0.9979  0.0109  |  30.63   19.38     |    -6.79   -45.55     |   37.42    36.33
+   6    3  198314  0.9795  0.9932  0.9931   0.9810  0.0025  |  26.95   17.04     |   -11.70   -49.01     |   38.66    40.35
+   7    2  198417  0.9560  0.9779  0.9775   0.0000  0.0179  |  30.88   20.74     |   -41.17   -52.32     |   72.05    43.37
+   8    1  199475  0.9777  0.9918  0.9916   0.0000  1.0000  |  34.66   25.33     |   -61.95   -53.58     |   96.62    44.36
+   9    0  199020  0.0419  0.3057  0.3066   0.0001  0.0000  |  22.38   26.10     |   -39.71   -54.03     |   62.09    46.26
+  rank of the max's position among positions 0..8 (0 = best) by negative votes alone / by positive votes alone, and the position that is most often least voted against:
+    a1=1 (pos 8): mean rank by negative votes 0.07, by positive votes 2.19;  least voted against: position 8 in 0.927 of sequences
+    a1=2 (pos 7): mean rank by negative votes 0.00, by positive votes 2.20;  least voted against: position 7 in 0.997 of sequences
+    a1=3 (pos 6): mean rank by negative votes 3.11, by positive votes 0.10;  least voted against: position 8 in 0.960 of sequences
+    a1=4 (pos 5): mean rank by negative votes 1.42, by positive votes 0.80;  least voted against: position 8 in 0.969 of sequences
+    a1=5 (pos 4): mean rank by negative votes 0.00, by positive votes 3.58;  least voted against: position 4 in 0.998 of sequences
+    a1=6 (pos 3): mean rank by negative votes 0.02, by positive votes 4.23;  least voted against: position 3 in 0.981 of sequences
+    a1=7 (pos 2): mean rank by negative votes 2.91, by positive votes 1.00;  least voted against: position 3 in 0.764 of sequences
+    a1=8 (pos 1): mean rank by negative votes 5.31, by positive votes 0.00;  least voted against: position 8 in 0.776 of sequences
+    a1=9 (pos 0): mean rank by negative votes 2.41, by positive votes 1.81;  least voted against: position 8 in 0.778 of sequences
+  [lead's S1 at t=9 (S>0, p1<9, positions 0..8): P(argmax m = p1) = 0.8908]
+
+  who votes at the maximum's position: mean of U[p1, j] h_9[j] / M per non-comparator unit (columns) and age (rows)
+  a1  pos    u4      u5      u9      u0      u2      u3      u10     u11     u12     u13     u14     u15      sum
+   1    8      0.0    34.3    -2.2    -2.0    10.4    -2.3     8.2     2.1    -5.6     0.4     0.9    -5.1     39.1
+   2    7      0.0    -0.3     0.0    -0.0     2.7    -1.5    22.0     9.5     2.8     1.3     5.2    -2.9     38.6
+   3    6      0.0    -0.6     0.0     5.0    20.1     8.4    26.4     4.1   -10.4    -7.5    -6.8    -3.3     35.4
+   4    5      0.0    -0.4     0.0    14.7     8.9    -2.3    10.3    -0.0    -5.1    19.2    -6.6    -4.0     34.6
+   5    4      0.0    -0.3     0.0     7.4     3.5    -1.8     6.2    -0.0     2.0     1.3    17.1    -4.6     30.6
+   6    3      0.0    -0.3     0.0     9.5     4.6    -2.1    -0.1     0.6     2.5     1.5    19.9    -9.2     27.0
+   7    2      0.0    -0.1     0.0   -18.0    -6.0    -2.3    -2.8     0.0    22.5   -12.0    15.1    34.4     30.9
+   8    1      0.0    -0.1    -0.0   -21.0   -33.3    11.3    -7.5    12.6    33.2     2.4     5.7    31.4     34.7
+   9    0     -0.0    -0.3    -0.0     9.3   -14.6     3.7     1.6    13.0    21.7     1.6   -24.8    11.2     22.4
+  for comparison: mean vote of each unit on a position that is NOT the max's (average over the other positions 0..8)
+   1  oth      0.0    -3.7     0.4    -0.5    -3.0     0.5    -2.5    -1.1     0.2    -0.2    -1.6     0.9    -10.7
+   2  oth      0.0     0.1     0.0     0.0    -2.0     0.3    -4.5    -2.0    -0.8    -0.3    -1.3     0.5    -10.0
+   3  oth      0.0     0.1     0.0    -1.1    -4.3    -0.8    -5.0    -1.2     1.1     0.8    -0.2     0.6     -9.8
+   4  oth      0.0     0.1    -0.0    -2.7    -2.8     0.4    -2.5    -0.2     0.6    -2.6    -0.8     0.8     -9.8
+   5  oth      0.0     0.1    -0.0    -2.2    -2.1     0.4    -1.3     0.0    -0.5    -0.3    -4.2     0.8     -9.2
+   6  oth      0.0     0.1    -0.0    -2.6    -2.1     0.5     0.0    -0.2    -0.8    -0.3    -4.8     1.6     -8.7
+   7  oth      0.0     0.1     0.0     1.0    -0.7     0.5     0.2    -0.4    -3.5     1.4    -3.9    -3.6     -9.0
+   8  oth      0.0     0.1     0.0     1.7     2.7    -1.1     0.4    -2.3    -5.0    -0.5    -2.1    -3.2     -9.2
+   9  oth      0.0     0.1     0.0    -1.7     0.3    -0.2    -1.4    -2.6    -3.5    -0.4     2.4    -0.8     -7.8
+
+  size of the silent units at the matching age vs elsewhere (h_j / M, t = 9, M > 0.3):
+    unit  0 at a1=2: P(=0) 0.996  mean  0.002  median  0.000  p90  0.000  p99  0.000   | other ages: mean   8.08  median   7.14;   its vote on position 7, U[7,0]*h/M: mean   -0.01 (other ages:  -23.48)
+    unit 12 at a1=4: P(=0) 0.138  mean  1.811  median  1.019  p90  4.859  p99  7.610   | other ages: mean  12.31  median  11.35;   its vote on position 5, U[5,12]*h/M: mean   -5.06 (other ages:  -34.41)
+    unit 11 at a1=5: P(=0) 0.969  mean  0.005  median  0.000  p90  0.000  p99  0.165   | other ages: mean   8.37  median   7.47;   its vote on position 4, U[4,11]*h/M: mean   -0.02 (other ages:  -38.13)
+    unit 10 at a1=6: P(=0) 0.959  mean  0.014  median  0.000  p90  0.000  p99  0.386   | other ages: mean   8.27  median   7.10;   its vote on position 3, U[3,10]*h/M: mean   -0.05 (other ages:  -31.99)
+
+===== B. necessity: h_9[j] <- h_8[j] (unit j keeps the value it had one step earlier), t = 9, M > 0.3 =====
+  unit 0 at a1=2 (max at position 7)             P(top of m = p1): 0.975 -> 0.088;  P(answer = p2): 0.956 -> 0.670;  P(answer = p1): 0.008 -> 0.000
+      forced value h_8[0]/M: median 6.32;  new top of m: pos 6: 0.421, pos 0: 0.258, pos 5: 0.092, pos 7: 0.088;  P(new top = p2): 0.351 (before: 0.023)
+      margin (m[p1] - best other position 0..8)/M, median: 13.57 -> -8.31;  push on p1: median -18.34 M
+  unit 12 at a1=4 (max at position 5)            P(top of m = p1): 0.931 -> 0.843;  P(answer = p2): 0.967 -> 0.900;  P(answer = p1): 0.004 -> 0.038
+      forced value h_8[12]/M: median 2.91;  new top of m: pos 5: 0.843, pos 7: 0.056, pos 8: 0.039, pos 3: 0.016;  P(new top = p2): 0.140 (before: 0.065)
+      margin (m[p1] - best other position 0..8)/M, median: 10.77 -> 8.23;  push on p1: median -4.88 M
+  unit 11 at a1=5 (max at position 4)            P(top of m = p1): 0.993 -> 0.348;  P(answer = p2): 0.965 -> 0.942;  P(answer = p1): 0.004 -> 0.000
+      forced value h_8[11]/M: median 3.18;  new top of m: pos 5: 0.360, pos 4: 0.348, pos 3: 0.083, pos 6: 0.068;  P(new top = p2): 0.327 (before: 0.006)
+      margin (m[p1] - best other position 0..8)/M, median: 11.72 -> -1.77;  push on p1: median -14.47 M
+  unit 10 at a1=6 (max at position 3)            P(top of m = p1): 0.993 -> 0.105;  P(answer = p2): 0.964 -> 0.816;  P(answer = p1): 0.003 -> 0.000
+      forced value h_8[10]/M: median 3.73;  new top of m: pos 4: 0.805, pos 3: 0.105, pos 5: 0.030, pos 8: 0.026;  P(new top = p2): 0.193 (before: 0.006)
+      margin (m[p1] - best other position 0..8)/M, median: 10.12 -> -9.64;  push on p1: median -14.38 M
+
+  full matrix: P(top of m' = p1) after h_9[k] <- h_8[k]; rows = age of the max, columns = unit k forced
+  a1   none     u0     u2     u3     u10    u11    u12    u13    u14    u15 
+   1  0.966   0.965  0.898  0.962  0.825  0.946  0.966  0.947  0.921  0.953
+   2  0.975   0.088  0.976  0.930  0.849  0.977  0.968  0.968  0.993  0.892
+   3  0.890   0.000  0.864  0.596  0.859  0.897  0.285  0.824  0.910  0.896
+   4  0.931   0.763  0.932  0.817  0.862  0.915  0.843  0.440  0.948  0.922
+   5  0.993   0.993  0.993  0.991  0.981  0.348  0.361  0.990  0.967  0.975
+   6  0.993   0.950  0.994  0.992  0.105  0.984  0.981  0.980  0.993  0.955
+   7  0.978   0.896  0.989  0.939  0.998  0.994  0.933  0.917  0.988  0.306
+   8  0.992   0.758  0.993  0.726  0.834  0.810  0.951  0.769  0.927  0.925
+   9  0.306   0.732  0.238  0.246  0.088  0.324  0.289  0.325  0.004  0.190
+
+  the same for the network's answer: P(answer' = p2) (full logits, comparators included)
+  a1   none     u0     u2     u3     u10    u11    u12    u13    u14    u15 
+   1  0.967   0.541  0.701  0.789  0.453  0.367  0.480  0.761  0.641  0.823
+   2  0.956   0.670  0.956  0.742  0.703  0.760  0.787  0.825  0.569  0.824
+   3  0.960   0.614  0.959  0.773  0.812  0.828  0.795  0.777  0.688  0.771
+   4  0.967   0.521  0.966  0.836  0.772  0.826  0.900  0.788  0.626  0.766
+   5  0.965   0.552  0.954  0.732  0.690  0.942  0.519  0.852  0.758  0.810
+   6  0.964   0.712  0.942  0.694  0.816  0.833  0.517  0.852  0.852  0.804
+   7  0.957   0.806  0.945  0.733  0.872  0.524  0.551  0.762  0.801  0.838
+   8  0.952   0.738  0.940  0.833  0.531  0.561  0.663  0.829  0.757  0.671
+   9  0.933   0.659  0.909  0.638  0.574  0.690  0.770  0.761  0.880  0.524
+
+===== C. dose controls for B (same sequences, same amount h_8[j] - h_9[j]) =====
+  unit 0, a1=2: only its vote on position 7      P(top of m = p1): 0.975 -> 0.344;  P(answer = p2): 0.956 -> 0.963;  P(answer = p1): 0.008 -> 0.000
+  unit 0, a1=2: all its votes except on 7        P(top of m = p1): 0.975 -> 0.821;  P(answer = p2): 0.956 -> 0.665;  P(answer = p1): 0.008 -> 0.013
+  unit 12, a1=4: only its vote on position 5     P(top of m = p1): 0.931 -> 0.798;  P(answer = p2): 0.967 -> 0.937;  P(answer = p1): 0.004 -> 0.034
+  unit 12, a1=4: all its votes except on 5       P(top of m = p1): 0.931 -> 0.933;  P(answer = p2): 0.967 -> 0.894;  P(answer = p1): 0.004 -> 0.047
+  unit 11, a1=5: only its vote on position 4     P(top of m = p1): 0.993 -> 0.372;  P(answer = p2): 0.965 -> 0.968;  P(answer = p1): 0.004 -> 0.000
+  unit 11, a1=5: all its votes except on 4       P(top of m = p1): 0.993 -> 0.988;  P(answer = p2): 0.965 -> 0.941;  P(answer = p1): 0.004 -> 0.002
+  unit 10, a1=6: only its vote on position 3     P(top of m = p1): 0.993 -> 0.055;  P(answer = p2): 0.964 -> 0.966;  P(answer = p1): 0.003 -> 0.000
+  unit 10, a1=6: all its votes except on 3       P(top of m = p1): 0.993 -> 0.932;  P(answer = p2): 0.964 -> 0.806;  P(answer = p1): 0.003 -> 0.013
+
+===== D. sufficiency: silence unit j (h_9[j] <- 0) when the max is NOT at the matching age =====
+  q = the unit's matching position. Entries: P(top of m = q) before -> after | P(top of m = p1) before -> after
+  unit  0 (q = 7, U[q, j] = -2.90):
+      a1=1 (p1=8): top=q 0.017 -> 0.076 | top=p1 0.966 -> 0.805 | removed vote on q:   19.2 M
+      a1=3 (p1=6): top=q 0.045 -> 0.932 | top=p1 0.890 -> 0.000 | removed vote on q:   11.7 M
+      a1=4 (p1=5): top=q 0.011 -> 0.929 | top=p1 0.931 -> 0.002 | removed vote on q:   21.7 M
+      a1=5 (p1=4): top=q 0.001 -> 0.016 | top=p1 0.993 -> 0.868 | removed vote on q:   31.5 M
+      a1=6 (p1=3): top=q 0.000 -> 0.002 | top=p1 0.993 -> 0.098 | removed vote on q:   35.6 M
+      a1=7 (p1=2): top=q 0.001 -> 0.001 | top=p1 0.978 -> 0.572 | removed vote on q:   31.7 M
+      a1=8 (p1=1): top=q 0.002 -> 0.002 | top=p1 0.992 -> 0.998 | removed vote on q:   22.7 M
+      a1=9 (p1=0): top=q 0.104 -> 0.154 | top=p1 0.306 -> 0.004 | removed vote on q:   13.8 M
+  unit 12 (q = 5, U[q, j] = -2.79):
+      a1=1 (p1=8): top=q 0.001 -> 0.057 | top=p1 0.966 -> 0.818 | removed vote on q:   34.1 M
+      a1=2 (p1=7): top=q 0.000 -> 0.065 | top=p1 0.975 -> 0.245 | removed vote on q:   31.0 M
+      a1=3 (p1=6): top=q 0.020 -> 0.032 | top=p1 0.890 -> 0.962 | removed vote on q:   13.2 M
+      a1=5 (p1=4): top=q 0.000 -> 0.675 | top=p1 0.993 -> 0.286 | removed vote on q:   17.0 M
+      a1=6 (p1=3): top=q 0.000 -> 0.524 | top=p1 0.993 -> 0.444 | removed vote on q:   29.7 M
+      a1=7 (p1=2): top=q 0.000 -> 0.644 | top=p1 0.978 -> 0.019 | removed vote on q:   44.4 M
+      a1=8 (p1=1): top=q 0.000 -> 0.619 | top=p1 0.992 -> 0.000 | removed vote on q:   54.5 M
+      a1=9 (p1=0): top=q 0.009 -> 0.229 | top=p1 0.306 -> 0.000 | removed vote on q:   51.1 M
+  unit 11 (q = 4, U[q, j] = -4.56):
+      a1=1 (p1=8): top=q 0.006 -> 0.206 | top=p1 0.966 -> 0.790 | removed vote on q:   52.5 M
+      a1=2 (p1=7): top=q 0.000 -> 0.933 | top=p1 0.975 -> 0.003 | removed vote on q:   55.1 M
+      a1=3 (p1=6): top=q 0.003 -> 0.683 | top=p1 0.890 -> 0.222 | removed vote on q:   41.0 M
+      a1=4 (p1=5): top=q 0.026 -> 0.260 | top=p1 0.931 -> 0.733 | removed vote on q:   15.9 M
+      a1=6 (p1=3): top=q 0.001 -> 0.013 | top=p1 0.993 -> 0.983 | removed vote on q:    9.8 M
+      a1=7 (p1=2): top=q 0.000 -> 0.003 | top=p1 0.978 -> 0.995 | removed vote on q:   26.1 M
+      a1=8 (p1=1): top=q 0.001 -> 0.061 | top=p1 0.992 -> 0.304 | removed vote on q:   45.5 M
+      a1=9 (p1=0): top=q 0.011 -> 0.844 | top=p1 0.306 -> 0.001 | removed vote on q:   59.1 M
+  unit 10 (q = 3, U[q, j] = -3.87):
+      a1=1 (p1=8): top=q 0.002 -> 0.048 | top=p1 0.966 -> 0.763 | removed vote on q:   44.9 M
+      a1=2 (p1=7): top=q 0.002 -> 0.102 | top=p1 0.975 -> 0.354 | removed vote on q:   51.8 M
+      a1=3 (p1=6): top=q 0.003 -> 0.553 | top=p1 0.890 -> 0.000 | removed vote on q:   50.4 M
+      a1=4 (p1=5): top=q 0.004 -> 0.195 | top=p1 0.931 -> 0.714 | removed vote on q:   36.0 M
+      a1=5 (p1=4): top=q 0.004 -> 0.940 | top=p1 0.993 -> 0.001 | removed vote on q:   14.4 M
+      a1=7 (p1=2): top=q 0.001 -> 0.001 | top=p1 0.978 -> 0.998 | removed vote on q:    3.9 M
+      a1=8 (p1=1): top=q 0.001 -> 0.001 | top=p1 0.992 -> 0.834 | removed vote on q:   17.5 M
+      a1=9 (p1=0): top=q 0.009 -> 0.019 | top=p1 0.306 -> 0.013 | removed vote on q:   37.1 M

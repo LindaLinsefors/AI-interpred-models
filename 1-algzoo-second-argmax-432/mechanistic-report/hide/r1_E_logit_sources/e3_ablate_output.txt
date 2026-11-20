@@ -1,0 +1,25 @@
+n = 262144; accuracy all 0.9537, RM 0.9560, MR 0.9515
+
+(i) remove terms from the exact sum; task accuracy (and what is answered instead)
+removed term                         | acc RM   ans=max  ans=third | acc MR   ans=max  ans=third
+CLIP caused by max                   | 0.0696   0.3270   0.4830   | 0.9194   0.0224   0.0374
+CLIP caused by runner                | 0.8922   0.0408   0.0383   | 0.6572   0.0036   0.2824
+CLIP caused by all inputs            | 0.1405   0.4263   0.2379   | 0.7013   0.0436   0.1360
+C caused by max                      | 0.0601   0.5625   0.2869   | 0.9146   0.0312   0.0354
+MARK caused by all inputs            | 0.5939   0.3417   0.0546   | 0.0031   0.9586   0.0337
+P4 caused by max                     | 0.2272   0.7601   0.0076   | 0.0564   0.9398   0.0031
+P4 caused by runner                  | 0.9887   0.0014   0.0038   | 0.9604   0.0054   0.0276
+P4 caused by all inputs              | 0.6395   0.2914   0.0580   | 0.0571   0.8894   0.0467
+CW caused by all inputs              | 0.6719   0.2717   0.0438   | 0.2337   0.7081   0.0512
+TAPE caused by max                   | 0.9137   0.0028   0.0514   | 0.4629   0.0003   0.2515
+TAPE caused by runner                | 0.0027   0.1652   0.3006   | 0.1917   0.4574   0.2756
+TAPE caused by all inputs            | 0.0247   0.0900   0.0876   | 0.2019   0.0004   0.1062
+P9 caused by all inputs              | 0.8215   0.0374   0.0955   | 0.9298   0.0055   0.0478
+
+(ii) [INTERVENTION] un-clip units at the step of the max (that step only)
+  comparators 1,6,7,8    RM (max at steps 1..8, n = 104901): accuracy 0.9609 -> 0.1254;  answers the max: 0.0062 -> 0.0268;  mean L[p2]-L[p1]: 14.08 -> -4.52
+  comparators 1,6,7,8    MR (max at steps 1..8, n = 104653): accuracy 0.9562 -> 0.4301;  answers the max: 0.0082 -> 0.0145;  mean L[p2]-L[p1]: 16.66 -> 75.38
+  comparator 7 only      RM (max at steps 1..8, n = 104901): accuracy 0.9609 -> 0.2711;  answers the max: 0.0062 -> 0.1093;  mean L[p2]-L[p1]: 14.08 -> 11.13
+  comparator 7 only      MR (max at steps 1..8, n = 104653): accuracy 0.9562 -> 0.5890;  answers the max: 0.0082 -> 0.0465;  mean L[p2]-L[p1]: 16.66 -> 57.10
+  comparators 1,6,8      RM (max at steps 1..8, n = 104901): accuracy 0.9609 -> 0.2015;  answers the max: 0.0062 -> 0.0345;  mean L[p2]-L[p1]: 14.08 -> 15.99
+  comparators 1,6,8      MR (max at steps 1..8, n = 104653): accuracy 0.9562 -> 0.6209;  answers the max: 0.0082 -> 0.1237;  mean L[p2]-L[p1]: 16.66 -> 15.04

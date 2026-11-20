@@ -1,0 +1,30 @@
+=== R1. Row-wise fit of Sigma on real states (free step = A applied to the real state, no input, no gates) ===
+t=3: R2 per row 0..9 (raw, no mean removal): 0.974 0.988 0.973 0.574 0.986 0.980 0.963 0.887 0.976 -26.851
+t=5: R2 per row 0..9 (raw, no mean removal): 0.977 0.984 0.954 0.703 0.993 0.949 0.915 0.724 0.941 -7.977
+t=7: R2 per row 0..9 (raw, no mean removal): 0.979 0.990 0.959 0.674 0.992 0.948 0.904 0.622 0.934 -4.918
+
+=== R2. Real next step against Sigma s_t, indices 0-8 with mean removed, by kind of step ===
+t=3 -> 4, all steps                n= 400000: R2 Sigma (idx 0-7) =  0.666   pure shift (idx 0-7) =  0.660
+t=3 -> 4, x_{t+1} < 0.5 S (S>0)    n= 168678: R2 Sigma (idx 0-7) =  0.894   pure shift (idx 0-7) =  0.906
+t=3 -> 4, 0.75 S < x_{t+1} < S     n=  11956: R2 Sigma (idx 0-7) =  0.892   pure shift (idx 0-7) =  0.905
+t=3 -> 4, new runner-up            n=  80167: R2 Sigma (idx 0-7) =  0.347   pure shift (idx 0-7) =  0.306
+t=3 -> 4, new maximum              n=  80222: R2 Sigma (idx 0-7) =  0.348   pure shift (idx 0-7) =  0.327
+t=5 -> 6, all steps                n= 400000: R2 Sigma (idx 0-7) =  0.781   pure shift (idx 0-7) =  0.785
+t=5 -> 6, x_{t+1} < 0.5 S (S>0)    n= 228664: R2 Sigma (idx 0-7) =  0.930   pure shift (idx 0-7) =  0.941
+t=5 -> 6, 0.75 S < x_{t+1} < S     n=  17979: R2 Sigma (idx 0-7) =  0.923   pure shift (idx 0-7) =  0.935
+t=5 -> 6, new runner-up            n=  56945: R2 Sigma (idx 0-7) =  0.469   pure shift (idx 0-7) =  0.452
+t=5 -> 6, new maximum              n=  57434: R2 Sigma (idx 0-7) =  0.403   pure shift (idx 0-7) =  0.394
+t=7 -> 8, all steps                n= 400000: R2 Sigma (idx 0-7) =  0.783   pure shift (idx 0-7) =  0.797
+t=7 -> 8, x_{t+1} < 0.5 S (S>0)    n= 257999: R2 Sigma (idx 0-7) =  0.938   pure shift (idx 0-7) =  0.954
+t=7 -> 8, 0.75 S < x_{t+1} < S     n=  21214: R2 Sigma (idx 0-7) =  0.926   pure shift (idx 0-7) =  0.943
+t=7 -> 8, new runner-up            n=  44187: R2 Sigma (idx 0-7) =  0.438   pure shift (idx 0-7) =  0.444
+t=7 -> 8, new maximum              n=  44345: R2 Sigma (idx 0-7) =  0.319   pure shift (idx 0-7) =  0.325
+
+=== R3. How common are small relative gaps (states with max age >= 1, S > 0) ===
+P(gap/M < 0.05) = 0.066
+P(gap/M < 0.1) = 0.133
+P(gap/M < 0.2) = 0.268
+P(gap/M < 0.3) = 0.401
+P(gap/M < 0.5) = 0.651
+median |z|/(K gap): 1.2471869452283508   quartiles: [1.054 1.758]
+least squares |z|/K = a (M - S) + b S over those states:  [0.957 0.178]

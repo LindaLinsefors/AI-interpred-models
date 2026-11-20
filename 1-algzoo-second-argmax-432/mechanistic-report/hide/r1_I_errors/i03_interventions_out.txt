@@ -1,0 +1,12 @@
+n = 2097152, unmodified accuracy = 0.95290, errors = 98784
+| intervention | sequences touched | agreement with net | task accuracy | net's errors fixed (share of errors) | new errors (as share of net's errors) | net change | share of net's errors that are touched | errors changed to another wrong answer |
+|---|---|---|---|---|---|---|---|---|
+| (a) unit 4 := oracle | 0.9172 | 0.9633 | 0.9314 | 0.1432 | 0.6005 | -0.4573 | 0.8836 | 0.0356 |
+| (b1) unit 4 off unless new max | 0.0846 | 0.9941 | 0.9563 | 0.0929 | 0.0199 | +0.0730 | 0.1882 | 0.0128 |
+| (b1') unit 4 off unless x_t > max(M,0) | 0.0846 | 0.9941 | 0.9563 | 0.0929 | 0.0199 | +0.0730 | 0.1882 | 0.0128 |
+| (b2) unit 4 := oracle at misses | 0.0014 | 1.0000 | 0.9529 | 0.0005 | 0.0000 | +0.0005 | 0.0055 | 0.0002 |
+| (b) = b1 + b2 | 0.0860 | 0.9941 | 0.9564 | 0.0934 | 0.0199 | +0.0734 | 0.1932 | 0.0130 |
+| (c) unit 5 off after x_t < S_prev | 0.2517 | 0.9904 | 0.9588 | 0.1582 | 0.0328 | +0.1254 | 0.3080 | 0.0138 |
+| (c') unit 5 off after x_t < max(S_prev,0) | 0.2872 | 0.9891 | 0.9581 | 0.1604 | 0.0504 | +0.1100 | 0.3742 | 0.0212 |
+| (d) = b1 + b2 + c | 0.3155 | 0.9856 | 0.9621 | 0.2384 | 0.0423 | +0.1961 | 0.4419 | 0.0249 |
+| (a) + (c) | 0.9454 | 0.9572 | 0.9376 | 0.2687 | 0.5934 | -0.3247 | 0.9179 | 0.0457 |

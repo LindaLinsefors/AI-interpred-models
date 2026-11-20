@@ -1,0 +1,85 @@
+=== A. median of (s[pS] - s[pM])/M at t = 9 (S > 0.2, both older than x_9, all four comparators on)
+rows: D = 1..8; columns: gap/M in [0.0, 0.05, 0.15, 0.3, 0.5, 0.8, 1.0]
+[[ 3.2  4.5  5.   4.8  4.3  3.5]
+ [ 4.   6.   7.4  7.8  6.9  6. ]
+ [ 5.4  7.7  8.8 10.1 10.5  7.8]
+ [ 4.  12.2 13.9 13.7 12.1  9.5]
+ [ 4.1 12.1 17.5 16.9 14.1  9.4]
+ [ 2.6  9.3 16.1 16.4 13.2  8.4]
+ [ 2.4  9.2 16.  17.8 15.   8.5]
+ [ 2.8 10.4 18.9 21.8 21.8 14.8]]
+range of the medians for gap/M > 0.05: 3.5 .. 21.8
+by age of the max (rows 1..9) and the same gap bins (pooled over D):
+[[ 2.9  7.1 11.4 16.  21.8 27.1]
+ [ 3.1  5.5  6.4  6.4  6.7  7.1]
+ [ 3.2  5.4  6.5  6.6  6.5  6.5]
+ [ 3.7  5.6  6.6  7.   6.6  5.7]
+ [ 4.4  7.1  8.3  9.   8.2  5.9]
+ [ 5.3  8.3  9.5 10.1  9.6  6.4]
+ [ 4.4  7.9  9.6 11.  10.2  6.5]
+ [ 3.4  7.9 10.2 11.1 10.6  6.5]
+ [ 3.2  9.1 13.4 13.  11.5  6.8]]
+ages >= 2, gap/M > 0.05: range of medians per (age, bin): 5.4 .. 13.4
+
+=== B. P(answer = pT) by arrangement (pS, pT, pM), max after both, T > 0.2; gap (S-T)/S bins (0,.03],(.03,.08],(.08,.2],(.2,.5]
+bin 1: top 10 arrangements (rate, n, (pS,pT,pM)): [(np.float64(0.96), 919, (7, 8, 9)), (np.float64(0.856), 964, (8, 0, 9)), (np.float64(0.799), 948, (6, 3, 7)), (np.float64(0.798), 974, (5, 3, 6)), (np.float64(0.778), 963, (8, 6, 9)), (np.float64(0.753), 939, (6, 4, 7)), (np.float64(0.734), 966, (5, 2, 6)), (np.float64(0.697), 949, (5, 1, 6)), (np.float64(0.687), 941, (1, 0, 9)), (np.float64(0.661), 932, (7, 3, 8))]
+bin 2: top 10 arrangements (rate, n, (pS,pT,pM)): [(np.float64(0.728), 1602, (7, 8, 9)), (np.float64(0.715), 1563, (8, 0, 9)), (np.float64(0.616), 1525, (0, 7, 9)), (np.float64(0.505), 1569, (8, 6, 9)), (np.float64(0.485), 1517, (6, 4, 7)), (np.float64(0.441), 1492, (6, 0, 9)), (np.float64(0.389), 1575, (5, 3, 6)), (np.float64(0.375), 1555, (2, 1, 9)), (np.float64(0.33), 1480, (6, 5, 7)), (np.float64(0.311), 1566, (6, 3, 7))]
+bin 3: top 10 arrangements (rate, n, (pS,pT,pM)): [(np.float64(0.549), 3331, (0, 7, 9)), (np.float64(0.254), 3459, (2, 1, 9)), (np.float64(0.248), 3313, (6, 5, 9)), (np.float64(0.231), 3379, (8, 0, 9)), (np.float64(0.23), 3403, (7, 6, 9)), (np.float64(0.211), 3419, (7, 0, 9)), (np.float64(0.195), 3378, (6, 4, 7)), (np.float64(0.152), 3391, (6, 5, 7)), (np.float64(0.15), 3487, (6, 0, 9)), (np.float64(0.139), 3306, (7, 8, 9))]
+bin 4: top 10 arrangements (rate, n, (pS,pT,pM)): [(np.float64(0.373), 6157, (0, 7, 9)), (np.float64(0.056), 5977, (2, 1, 9)), (np.float64(0.048), 5954, (6, 5, 9)), (np.float64(0.044), 6023, (6, 4, 7)), (np.float64(0.044), 6039, (7, 6, 9)), (np.float64(0.036), 6211, (0, 2, 9)), (np.float64(0.034), 6088, (6, 5, 7)), (np.float64(0.024), 6033, (3, 2, 9)), (np.float64(0.019), 5947, (3, 5, 9)), (np.float64(0.018), 6211, (4, 6, 9))]
+(0, 7, 9) [0.641 0.616 0.549 0.373] [ 982 1525 3331 6157]
+(8, 0, 9) [0.856 0.715 0.231 0.006] [ 964 1563 3379 6061]
+(7, 0, 9) [0.243 0.274 0.211 0.011] [ 931 1582 3419 6138]
+(6, 5, 9) [0.17  0.257 0.248 0.048] [ 924 1549 3313 5954]
+(7, 6, 9) [0.19  0.225 0.23  0.044] [ 935 1434 3403 6039]
+(7, 8, 9) [0.96  0.728 0.139 0.001] [ 919 1602 3306 6014]
+(8, 1, 9) [0.648 0.092 0.    0.   ] [ 951 1506 3339 6118]
+(7, 0, 8) [0.513 0.046 0.    0.   ] [ 879 1593 3329 6094]
+(0, 8, 9) [0.027 0.009 0.005 0.002] [ 952 1555 3401 6044]
+
+=== C. runner right eigenvector (modes.py gauge) on ORD units, and w4*5.2*R_runner (centre shift per unit S if runner = w4*(r0 M + 5.2 S))
+unit  0: R_runner = -0.165   w4*5.2*R = -8.73
+unit  1: R_runner = +0.054   w4*5.2*R = +2.85
+unit  2: R_runner = +0.091   w4*5.2*R = +4.79
+unit  3: R_runner = +0.035   w4*5.2*R = +1.84
+unit  6: R_runner = +0.044   w4*5.2*R = +2.32
+unit  7: R_runner = +0.051   w4*5.2*R = +2.68
+unit  8: R_runner = +0.043   w4*5.2*R = +2.26
+unit 10: R_runner = -0.113   w4*5.2*R = -5.99
+unit 11: R_runner = -0.128   w4*5.2*R = -6.77
+unit 12: R_runner = -0.149   w4*5.2*R = -7.87
+unit 13: R_runner = +0.034   w4*5.2*R = +1.79
+unit 14: R_runner = -0.116   w4*5.2*R = -6.12
+unit 15: R_runner = -0.032   w4*5.2*R = -1.67
+measured centre (mean over ages 2..9 of the mean of h_u/M) in bins of S+/M <=0.1 | 0.45-0.55 | 0.85-0.95, and slope per unit S between first and last bin
+unit  0: centre  14.16   9.10   5.15   slope per unit S: -10.36
+unit  1: centre  17.02  11.07  11.05   slope per unit S: -6.86
+unit  2: centre  14.51  15.98  17.57   slope per unit S: +3.52
+unit  3: centre   3.36   3.33   3.88   slope per unit S: +0.59
+unit  6: centre  18.53  11.79  11.45   slope per unit S: -8.14
+unit  7: centre  22.41  14.31  13.93   slope per unit S: -9.75
+unit  8: centre  19.48  13.14  13.42   slope per unit S: -6.97
+unit 10: centre  10.88   8.34   6.26   slope per unit S: -5.31
+unit 11: centre  10.75   7.93   5.59   slope per unit S: -5.94
+unit 12: centre  15.72  11.47   8.20   slope per unit S: -8.65
+unit 13: centre   6.65   6.04   6.01   slope per unit S: -0.74
+unit 14: centre  14.44  11.50   9.61   slope per unit S: -5.55
+unit 15: centre   9.43   7.24   6.23   slope per unit S: -3.69
+
+=== D. new runner-up at step t (S_{t-1}+ < x_t < M_{t-1}, M_{t-1} > 0): P(unit 4 fires) and median theta_4/M, by age of the max at arrival t - p1 = 1..9
+P(unit 4 fires | new runner-up), ages 1..9: [0.011 0.023 0.035 0.1   0.193 0.28  0.291 0.223 0.128]
+P(no comparator cut | new runner-up), ages 1..9: [0.    0.002 0.067 0.095 0.528 0.656 0.591 0.432 0.209]
+median theta_4(t)/M_{t-1}, ages 1..9: [0.988 0.978 0.969 0.929 0.88  0.842 0.842 0.879 0.928]
+M - theta_4 = eps*M + kappa*(M - S+): kappa by age at arrival 1..9: [0.003 0.002 0.023 0.1   0.197 0.256 0.254 0.201 0.124]  eps: [0.01  0.02  0.017 0.026 0.039 0.058 0.061 0.046 0.025]
+all four comparators exactly zero at a new maximum, by step t = 1..9
+  (i) old max > 0:                          [0.988 0.988 0.98  0.958 0.931 0.903 0.884 0.868 0.873]  pooled t=1..8: 0.943
+  (ii) old max > 0.3 and not at step t-1:    [0.986 0.97  0.938 0.904 0.875 0.857 0.843 0.853] (t = 2..9)
+
+=== E. accuracy on Unif(-1,1) + c  (2^20 sequences each)
+c = -1.00: accuracy 0.1200
+c = -0.50: accuracy 0.7631
+c = -0.25: accuracy 0.9060
+c = +0.00: accuracy 0.9380
+c = +0.25: accuracy 0.9335
+c = +0.50: accuracy 0.9210
+c = +1.00: accuracy 0.8919
+c = +2.00: accuracy 0.8303

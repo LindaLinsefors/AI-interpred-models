@@ -1,0 +1,111 @@
+Table 1 input weights w_j: n0:+0.07 n1:-10.56 n2:+0.01 n3:-0.12 n4:+10.16 n5:-0.28 n6:-11.00 n7:-13.17 n8:-12.31 n9:-0.23 n10:+0.06 n11:+0.15 n12:+0.30 n13:-0.05 n14:-1.32 n15:-0.12
+
+Whh[2,2] 0.969 [0.97], Whh[2,4] 1.731 [1.73], Whh[0,4] 0.595 [0.59]
+Whh[5,4] 1.187 [1.19] -> x w4 = 12.06 [12.1]
+Whh[5,7] -0.593 [-0.59] -> x w7 = 7.81 [7.8];  Whh[5,8] -0.850 [-0.85] -> x w8 = 10.46 [10.5];  through n6 and n14: -0.44 [-0.4]
+Wout[9,4] -4.992 [-4.99] -> x w4 = -50.7 [-50.7];  Wout[9,7] -3.789 [-3.79] -> x 13.17 = -49.9
+not quoted in the paper: Whh[9,7] -5.03, Whh[9,8] -1.09 (hold n9 off); Whh[0,7] -0.78, Whh[0,9] -1.42 (switch n0 off)
+step-1 threshold of n4 for x0 = +1: +0.9880 [0.99 x0 if x0 > 0, -0.002 x0 if x0 < 0]
+step-1 threshold of n4 for x0 = -1: +0.0015 [0.99 x0 if x0 > 0, -0.002 x0 if x0 < 0]
+
+Routing to the recorder, Whh D_t w (per unit of the input, units 0..15):
+  n1 n6 n7 n8 all on: [-0.43 -0.09 -0.01 -0.25  0.01 18.01  0.03  0.02  0.13 84.33 -0.03  0.02  0.   -0.04 -0.39 -0.19] [18.0 on n5, 84.3 on n9, at most 0.4 elsewhere]
+  n8 off            : [-10.2   -1.57   1.9  -13.48  -0.99   7.55  -0.98   2.07   7.71  70.9   -2.6   -1.99  -3.44  -3.6   -1.19  -9.1 ] [7.5 on n5, 70.9 on n9; n3 n0 n15 n8: -13.5 -10.2 -9.1 +7.7]
+  n[1] off: n5 18.0, largest elsewhere (not n9) 12.4   [7.5-18.2 on n5, up to 19.5 elsewhere]
+  n[6] off: n5 18.2, largest elsewhere (not n9) 12.0   [7.5-18.2 on n5, up to 19.5 elsewhere]
+  n[1, 6] off: n5 18.2, largest elsewhere (not n9) 19.5   [7.5-18.2 on n5, up to 19.5 elsewhere]
+  n[1, 8] off: n5 7.5, largest elsewhere (not n9) 14.4   [7.5-18.2 on n5, up to 19.5 elsewhere]
+  n[6, 8] off: n5 7.7, largest elsewhere (not n9) 9.4   [7.5-18.2 on n5, up to 19.5 elsewhere]
+  n[1, 6, 8] off: n5 7.7, largest elsewhere (not n9) 14.4   [7.5-18.2 on n5, up to 19.5 elsewhere]
+
+eigenvalues of the resting map A with modulus > 0.5 (modulus, angle in degrees):
+   [(1.01, 0.0), (0.973, 0.0), (0.951, 42.75), (0.937, 83.28), (0.928, 180.0), (0.837, 124.78), (0.735, 42.99)]
+   [1.01 and 0.97 real, 0.95 at 43, 0.94 at 83, -0.93 real, 0.84 at 125, 0.74 at 43]
+
+Fig 4a, final logits Wout A^(8-p) r per unit of a recorded input at position p = 2..8 (columns: logit positions 0..9):
+  p=2: [-43.93 -30.94  71.95  19.29 -14.08   2.83  -5.48   9.78  12.78 -22.58]
+  p=3: [-34.32 -35.76 -26.56  75.7   17.86   0.86   7.76   0.21  14.33 -20.  ]
+  p=4: [-26.21 -29.91 -30.71 -23.46  71.01  19.67   8.63  15.06   8.92 -11.61]
+  p=5: [ -7.76 -25.68 -29.29 -26.13 -14.85  69.51  20.23   9.24  14.78 -10.4 ]
+  p=6: [  2.71  -7.95 -24.05 -24.13 -18.67 -12.34  66.62  20.67   8.87  -9.04]
+  p=7: [ -0.86   1.03  -6.49 -16.91 -15.4  -15.35  -9.1   61.53  19.87  -9.19]
+  p=8: [ -4.24  -2.26  -1.75  -6.23  -9.04 -11.25 -12.39  -5.88  62.19  -8.06]
+  [own effect 72 76 71 70 67 62 62; about +20 one position later]
+
+carriers of the record's own effect, Wout[9-a, n] (A^(a-1) r)_n, four largest per age a:
+  age 1: own +62.2; n5: +61.2 = +3.40 x +18.0, n8: +0.5 = +3.64 x +0.1, n15: +0.2 = -0.92 x -0.2, n3: +0.2 = -0.61 x -0.3
+  age 2: own +61.5; n0: +48.9 = -2.90 x -16.8, n15: +10.2 = -0.83 x -12.3, n14: -9.5 = +1.22 x -7.8, n1: +9.2 = +4.41 x +2.1
+  age 3: own +66.6; n3: +20.2 = +1.70 x +11.9, n12: +16.7 = -2.22 x -7.5, n13: +14.5 = -1.39 x -10.4, n15: +9.5 = -0.95 x -10.0
+  age 4: own +69.5; n12: +49.6 = -2.79 x -17.8, n13: +15.5 = +2.09 x +7.4, n8: +12.0 = +5.49 x +2.2, n3: +6.4 = -0.91 x -7.0
+  age 5: own +71.0; n11: +70.3 = -4.56 x -15.4, n8: +6.8 = +3.10 x +2.2, n1: -5.6 = -4.89 x +1.1, n0: -3.6 = +0.68 x -5.3
+  age 6: own +75.7; n10: +64.6 = -3.87 x -16.7, n15: +28.3 = -1.14 x -24.9, n0: -3.8 = +0.77 x -4.9, n14: -3.6 = +1.31 x -2.7
+  age 7: own +72.0; n13: +38.7 = -2.23 x -17.3, n12: -20.1 = +1.42 x -14.2, n10: +18.0 = -2.81 x -6.4, n0: +16.7 = -1.65 x -10.1
+  [n0 at age 2; n3, n12, n13 at age 3; n12 at age 4; n11 at age 5; n10 and n15 at age 6]
+
+eigen-split of the record's own effect by age (columns: +1.01, +0.97, 0.95@43, 0.94@83, -0.93, 0.84@125, 0.73@43, +0.23, +0.00, null):
+  age 1: [   0.22    1.67   -0.05    1.93    1.15   14.59  -45.08  118.36 -576.43  545.83]
+  age 2: [ 0.56  3.47 -0.22 11.92  4.27 33.82 -3.9  12.03 -0.42  0.  ]
+  age 3: [ 0.65  3.71 -0.42 12.6   1.6  24.74 21.87  1.86 -0.    0.  ]
+  age 4: [ 0.6   3.45 -0.34  5.07  4.47 27.04 29.16  0.06 -0.    0.  ]
+  age 5: [ 0.43  1.55 -0.37 19.    5.97 20.26 23.98  0.19 -0.    0.  ]
+  age 6: [ 0.71  2.21 -0.48 34.29 10.24 12.9  15.82  0.02 -0.    0.  ]
+  age 7: [ 0.75  1.73 -0.7  33.12  9.66 14.25 13.14 -0.   -0.    0.  ]
+  [ages 2-6: mostly the pairs 0.94@83, 0.84@125, 0.74@43, partly -0.93; the pair 0.95@43 below 1 per unit; fast modes at age 1]
+
+|w4 D Whh e4| = 40.69 [40.7]
+derived gains on the maximum, -Whh[j] . w4 A^(a-2) D Whh e4 / w_j, rows n4 n7 n6 n1 n8, ages 2..9:
+  n4: [0.98 0.97 0.88 0.78 0.71 0.72 0.79 0.89]
+  n7: [1.01 1.01 0.88 0.74 0.65 0.67 0.77 0.9 ]
+  n6: [0.69 1.09 1.19 1.06 0.83 0.62 0.51 0.6 ]
+  n1: [-0.02  0.35  0.9   1.28  1.33  1.06  0.66  0.35]
+  n8: [0.31 0.06 0.12 0.51 0.99 1.32 1.33 1.07]
+  [n4 0.98 at age 2 and 0.72 at age 7; n6, n1, n8 peak at ages 4, 6 and 7-8]
+
+NOT IN THE PAPER (my side-check): norm of each eigen-component of the maximum's trace, ages 1..8 (columns as above):
+  age 1: [  40.05   10.37   28.35    3.6     2.89    8.3     5.11   10.87 1333.89 1331.49]
+  age 2: [40.45 10.09 27.97  3.42  2.68  3.63  3.1   2.51  1.32  0.  ]
+  age 3: [40.85  9.82 26.05  2.99  2.49  5.96  3.08  0.58  0.    0.  ]
+  age 4: [41.25  9.56 23.75  3.14  2.31  5.41  2.6   0.13  0.    0.  ]
+  age 5: [41.66  9.31 22.95  2.5   2.14  2.34  1.59  0.03  0.    0.  ]
+  age 6: [42.07  9.06 22.78  2.83  1.99  3.01  0.89  0.01  0.    0.  ]
+  age 7: [42.49  8.82 21.49  2.13  1.85  3.35  0.85  0.    0.    0.  ]
+  age 8: [42.91  8.59 19.53  2.51  1.71  1.71  0.76  0.    0.    0.  ]
+  the +1.01 eigen-component of the maximum's trace at age 2, units 0..15: [15.81  5.98 11.73  2.17  0.    0.    7.39  9.24  8.26  0.   12.4  13.33 18.59  5.04 14.4   9.51]
+the record's eigen-component norms at age 2: [ 5.93 10.76  3.58 26.03  8.78 16.32 26.86 13.17  1.88  0.  ]
+what the recorder writes, Whh[:, 5]: [-0.91  0.12 -0.01 -0.52  0.   -0.42  0.04  0.   -0.02  0.04 -0.01 -0.07 -0.14 -0.09 -0.42 -0.66]
+what the max detector writes, Whh[:, 4]: [ 0.59  0.87  1.73  0.34 -0.99  1.19 -0.05  1.32 -0.04  0.15  1.76  1.71  1.28  0.46  0.87  0.18]
+
+maximum's own effect from the weights, simplified patterns (arrival trace w4 e4; age 1 only n4 off; age 2 resting with n0 off; then resting):
+  ages 0, 1, 2: [-50.7  -28.82  -6.41] ; age 2 if n0 were on: +6.1 [+7]; ages 3..9: [-6.88 -6.68 -6.08 -4.78 -3.51 -1.09  1.36]
+  [paper, with measured commonest patterns: -50.4 -28.4 -5.9 -6.3 -6.1 -4.8 -5.3 -4.2 -2.0 +0.4]
+
+example of Figs 2 and 9, inputs rounded to 2 decimals:
+  n4  gates, steps 0..9: . . # . . . . . . .
+  n7  gates, steps 0..9: # # . # # # # # # #
+  n6  gates, steps 0..9: # # . . # # # # # #
+  n1  gates, steps 0..9: # # . # # # # # # #
+  n8  gates, steps 0..9: # # . . # # # # # #
+  n5  gates, steps 0..9: # . . # # # . . . .
+  n9  gates, steps 0..9: # . . # . . . . . .
+  n0  gates, steps 0..9: . . # # . # # # # #
+  n2  gates, steps 0..9: . . # # # # # # # #
+  n12 gates, steps 0..9: . # # # # # # # # #
+  n13 gates, steps 0..9: # . # # # # # # # #
+  n14 gates, steps 0..9: # # . # # # # # # #
+  n3  gates, steps 0..9: # # # # . # # . # #
+  n10 gates, steps 0..9: . # # # # # # # . .
+  n11 gates, steps 0..9: . # # # # # # . # #
+  n15 gates, steps 0..9: # # # # # . # # # #
+  n5 at steps 3, 4, 5: [19.42  5.79  0.39] [19.5 5.8 0.3]
+  logits: [-23.45  -9.51   6.55  13.51   1.85  -2.45   1.36  -0.69   0.78 -38.82] [-23 -9 7 14 2 -3 1 -1 1 -39; runner-up 13.6, maximum 6.7, third 1.6]
+  contributions Wout J_p x_p (rows: inputs, columns: logit positions), as in Fig 9:
+[[ -1   0   0   1  -1   0   0   0   0   0]
+ [ -1   0   0   1  -1   0   0   0   0   1]
+ [ -8 -12  -4  -1  -3  -4  -3  -7  -4   0]
+ [ -5  10  17  19 -15  -9  -1   2   1 -19]
+ [-10  -9  -9  -7  20   9   4   3   3  -5]
+ [  0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0]
+ [  1   1   1   1   1   1   1   1   1 -17]]

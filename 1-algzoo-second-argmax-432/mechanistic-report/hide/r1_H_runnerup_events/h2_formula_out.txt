@@ -1,0 +1,51 @@
+[EXACT] piecewise identity, seed 1023: max |z5(t+1) - formula| = 4.26e-14
+        leaving out the wave-unit clip terms: |error| median 0.0737, 90% 0.851, 99% 2.087  (z5 itself has sd 16.98)
+[EXACT] slopes of z5(t+1) in x_t: all comparators on 18.009 | 8 clipped 7.546 | 7 clipped 10.195 | 7 and 8 clipped -0.267 | all four clipped -0.105
+
+per-age laws fitted on seed 1023:  Theta5 = bS S + bM M | theta_7 | theta_8
+   a=1:  0.791 S + -0.070 M | -0.009 S +  1.018 M |  1.051 S + -0.031 M
+   a=2:  0.694 S +  0.053 M | -0.004 S +  1.014 M |  0.712 S +  0.312 M
+   a=3:  0.797 S + -0.010 M |  0.002 S +  1.004 M |  0.949 S +  0.048 M
+   a=4:  0.815 S + -0.035 M |  0.122 S +  0.872 M |  0.926 S +  0.064 M
+   a=5:  0.855 S + -0.050 M |  0.256 S +  0.710 M |  0.568 S +  0.437 M
+   a=6:  0.828 S + -0.065 M |  0.330 S +  0.611 M |  0.097 S +  0.953 M
+   a=7:  0.745 S + -0.036 M |  0.321 S +  0.616 M | -0.254 S +  1.342 M
+   a=8:  0.697 S + -0.013 M |  0.235 S +  0.719 M | -0.338 S +  1.408 M
+
+out-of-sample test on seed 1024, N events (unit 4 silent, 2<=t<=8, S_old>0), n = 235710
+  all ages: R2 of the reduced formula = 0.9056;  with the true thresholds of each event (only wave clips, comparators 1, 6 neglected) = 0.9705
+  a  | R2 reduced formula | R2 with true thresholds | by pattern of (7, 8) at t: share, R2 reduced, mean z5 actual / predicted
+  1  |  0.8602           |  0.9934                | [7on 8on: 0.03, R2 0.578,  4.48 /  4.99] [7on 8off: 0.97, R2 0.862,  6.28 /  6.18]
+  2  |  0.8504           |  0.9115                | [7on 8on: 0.44, R2 0.698,  5.08 /  4.11] [7on 8off: 0.56, R2 0.835,  9.41 /  8.27]
+  3  |  0.9314           |  0.9933                | [7on 8on: 0.08, R2 0.783,  2.74 /  2.88] [7on 8off: 0.92, R2 0.930,  5.64 /  5.44]
+  4  |  0.9313           |  0.9686                | [7on 8on: 0.11, R2 0.679,  3.27 /  3.67] [7on 8off: 0.89, R2 0.935,  5.84 /  5.97]
+  5  |  0.9667           |  0.9954                | [7on 8on: 0.66, R2 0.948,  6.69 /  6.59] [7on 8off: 0.29, R2 0.975, 10.12 / 10.12] [7off 8off: 0.04, R2 0.979, 11.00 / 10.82]
+  6  |  0.9386           |  0.9987                | [7on 8on: 0.91, R2 0.930,  8.35 /  8.32] [7off 8on: 0.09, R2 0.958, 12.70 / 12.29]
+  7  |  0.9188           |  0.9998                | [7on 8on: 0.92, R2 0.912,  8.41 /  8.42] [7off 8on: 0.08, R2 0.923, 12.67 / 12.20]
+  8  |  0.8594           |  0.9998                | [7on 8on: 0.97, R2 0.859,  8.95 /  8.86]
+  sign agreement (unit 5 on at t+1) of the reduced formula: 0.9970
+
+unit 9 at t+1 by the class of x_t (2<=t<=8, S_old>0), seed 1024:
+   new max (x_t > M_old)       : P(unit 9 on at t+1) = 0.9922   P(unit 5 on at t+1) = 1.0000   n = 259014
+   N, unit 4 silent            : P(unit 9 on at t+1) = 0.0034   P(unit 5 on at t+1) = 0.9993   n = 235710
+   N-range, unit 4 misfired    : P(unit 9 on at t+1) = 0.5051   P(unit 5 on at t+1) = 1.0000   n = 23849
+   below S_old                 : P(unit 9 on at t+1) = 0.0001   P(unit 5 on at t+1) = 0.0742   n = 1498587
+   new max, by age of the previous max a: P(unit 9 on) = 0.999 0.999 0.999 0.999 0.998 0.995 0.903 0.875
+   N events: P(unit 9 on at t+1) by (x_t - theta_7)/M:  [-9.00,-0.10): 0.000 (n=200932)  [-0.10,-0.03): 0.002 (n=26860)  [-0.03,+0.00): 0.105 (n=4991)  [+0.00,+0.05): 0.077 (n=2819)  [+0.05,+9.00): 0.000 (n=108)
+
+composed  z5(t+1) - w5 x_{t+1} ~ cx x_t + cS S_old + cM M  versus a direct least-squares fit, per (age, pattern of comparators 7, 8), seed 1024
+  cx = c5 + kappa_8 [8 off] + kappa_7 [7 off];  cS = -c5 bS - kappa_8 b8S [8 off] - kappa_7 b7S [7 off];  cM likewise
+  a  pattern    share |  cx composed / fit |  cS composed / fit |  cM composed / fit | R2 of the fit
+  1  7on 8on    0.03  |   18.01 /   28.72  |  -14.24 /  -26.89  |    1.27 /    1.88  | 0.721
+  1  7on 8off   0.97  |    7.55 /    7.85  |   -3.25 /   -3.77  |    0.95 /    0.98  | 0.864
+  2  7on 8on    0.44  |   18.01 /   17.32  |  -12.49 /  -13.36  |   -0.96 /    0.24  | 0.867
+  2  7on 8off   0.56  |    7.55 /    7.40  |   -5.04 /   -5.93  |    2.30 /    3.52  | 0.930
+  3  7on 8on    0.08  |   18.01 /   12.74  |  -14.35 /   -9.08  |    0.19 /    0.16  | 0.793
+  3  7on 8off   0.92  |    7.55 /    7.68  |   -4.42 /   -4.22  |    0.69 /    0.66  | 0.935
+  4  7on 8on    0.11  |   18.01 /   13.12  |  -14.68 /  -10.18  |    0.64 /    0.55  | 0.777
+  4  7on 8off   0.89  |    7.55 /    7.72  |   -4.99 /   -5.79  |    1.31 /    1.37  | 0.945
+  5  7on 8on    0.66  |   18.01 /   17.50  |  -15.40 /  -14.96  |    0.90 /    0.99  | 0.949
+  5  7on 8off   0.29  |    7.55 /    8.54  |   -9.47 /  -10.90  |    5.47 /    5.21  | 0.978
+  6  7on 8on    0.91  |   18.01 /   17.82  |  -14.91 /  -14.69  |    1.18 /    1.16  | 0.930
+  7  7on 8on    0.92  |   18.01 /   17.79  |  -13.42 /  -13.93  |    0.65 /    0.88  | 0.914
+  8  7on 8on    0.97  |   18.01 /   17.87  |  -12.55 /  -13.47  |    0.24 /    0.68  | 0.863

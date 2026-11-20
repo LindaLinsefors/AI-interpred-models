@@ -1,0 +1,55 @@
+=== all sequences: accuracy by the position of the overall max ===
+  pos of max:              0       1       2       3       4       5       6       7       8       9
+  accuracy            0.9302  0.9493  0.9560  0.9610  0.9619  0.9644  0.9577  0.9536  0.9639  0.9348
+  answers the max     0.0226  0.0122  0.0080  0.0039  0.0050  0.0054  0.0078  0.0095  0.0075  0.0131
+  answers the 3rd     0.0442  0.0315  0.0292  0.0274  0.0251  0.0221  0.0257  0.0290  0.0208  0.0398
+  n per position ~ 79832
+
+=== relabel sequences: P(answer = old max p0) by record step s and age g of the old max ===
+   s     n      all g |   g=1     g=2     g=3     g=4     g=5     g=6     g=7  | errors: answers s (the max) | answers the 3rd | answers p0+-1
+   2  17473   0.9637 |  0.961   0.966     .       .       .       .       .   |   0.0010   |   0.0325   |   0.0031
+   3  26284   0.9678 |  0.956   0.971   0.976     .       .       .       .   |   0.0009   |   0.0267   |   0.0022
+   4  34937   0.9789 |  0.970   0.985   0.982   0.978     .       .       .   |   0.0017   |   0.0164   |   0.0029
+   5  44021   0.9701 |  0.952   0.977   0.971   0.981   0.970     .       .   |   0.0031   |   0.0228   |   0.0043
+   6  52889   0.9630 |  0.923   0.977   0.961   0.986   0.975   0.956     .   |   0.0060   |   0.0262   |   0.0079
+   7  61636   0.9627 |  0.907   0.980   0.992   0.980   0.973   0.974   0.933 |   0.0077   |   0.0257   |   0.0087
+   8  70174   0.9728 |  0.970   0.982   0.976   0.979   0.978   0.975   0.974 |   0.0072   |   0.0183   |   0.0070
+   9  79359   0.9431 |  0.911   0.925   0.929   0.957   0.979   0.973   0.952 |   0.0126   |   0.0390   |   0.0203
+
+=== margin logit[p0] - logit[s] ~ a (Mn-M0) + b (M0-S0+) + c S0+ by record step s (no intercept) ===
+   s=2:   4.51 (Mn-M0)  +5.31 (M0-S0+)  +7.70 S0+   R2 = 0.625   P(margin < 0) = 0.0029
+   s=3:   6.54 (Mn-M0)  +8.08 (M0-S0+)  +5.98 S0+   R2 = 0.514   P(margin < 0) = 0.0021
+   s=4:   7.69 (Mn-M0) +11.57 (M0-S0+)  +5.92 S0+   R2 = 0.355   P(margin < 0) = 0.0026
+   s=5:   6.67 (Mn-M0) +11.15 (M0-S0+)  +5.52 S0+   R2 = 0.355   P(margin < 0) = 0.0052
+   s=6:   7.82 (Mn-M0) +10.88 (M0-S0+)  +5.00 S0+   R2 = 0.381   P(margin < 0) = 0.0076
+   s=7:   8.12 (Mn-M0) +10.85 (M0-S0+)  +4.37 S0+   R2 = 0.416   P(margin < 0) = 0.0098
+   s=8:  32.65 (Mn-M0) +10.32 (M0-S0+)  +3.22 S0+   R2 = 0.842   P(margin < 0) = 0.0081
+   s=9:  58.03 (Mn-M0)  +9.53 (M0-S0+)  +0.98 S0+   R2 = 0.943   P(margin < 0) = 0.0140
+  P(network answers the max s) by relative new gap (Mn-M0)/M0 quintile, for s = 9, 8 and s <= 7:
+   s=9  : q1 (<0.13): 0.063  q2 (<0.31): 0.000  q3 (<0.57): 0.000  q4 (<1.10): 0.000  q5: 0.000
+   s=8  : q1 (<0.13): 0.036  q2 (<0.30): 0.000  q3 (<0.57): 0.000  q4 (<1.09): 0.000  q5: 0.000
+   s<=7 : q1 (<0.13): 0.021  q2 (<0.31): 0.001  q3 (<0.57): 0.000  q4 (<1.09): 0.000  q5: 0.000
+  P(network answers the 3rd) by relative old gap (M0-S0+)/M0 quintile:
+   s=9  : q1 (<0.11): 0.143  q2 (<0.23): 0.032  q3 (<0.37): 0.013  q4 (<0.58): 0.005  q5: 0.002
+   s=8  : q1 (<0.12): 0.064  q2 (<0.25): 0.007  q3 (<0.41): 0.005  q4 (<0.63): 0.006  q5: 0.010
+   s<=7 : q1 (<0.20): 0.051  q2 (<0.40): 0.013  q3 (<0.64): 0.013  q4 (<1.00): 0.016  q5: 0.029
+
+=== s = 9 (record at the last step): what the readout sees ===
+  n = 79359; all four comparators clipped at step 9: 0.8731
+  margin logit[p0] - logit[9] = unit 4 part + wave part + pulses(5,9) part + comparator part; means: 33.75 + -1.96 + 4.20 + -0.99
+     unit-4 part      ~   55.41 (Mn-M0)   +9.21 (M0-S0+)   +1.30 S0+   R2 = 0.971
+     wave part        ~    0.89 (Mn-M0)   -0.88 (M0-S0+)   -3.00 S0+   R2 = 0.005
+     pulses 5,9 part  ~    0.08 (Mn-M0)   +5.36 (M0-S0+)   +3.31 S0+   R2 = 0.016
+  (U[p,4] - U[9,4]) for p = 0..8: [4.84 5.42 5.57 5.66 5.74 5.56 5.45 5.41 5.49]  times w4 = [49.2 55.  56.6 57.5 58.3 56.5 55.4 54.9 55.8]
+  [INTERVENTION] comparators not clipped at step 9 (their negative pre-activations are read):  P(ans = p0) 0.0006  P(ans = 9) 0.9857  P(ans = 3rd) 0.0137     [unmodified: P(ans = p0) 0.9431]
+  [INTERVENTION] unit 4 set to 0 at step 9:  P(ans = p0) 0.5287   P(ans = 9) 0.4234
+     by g: comparators not clipped -> P(ans = p0): g=1: 0.000  g=2: 0.000  g=3: 0.000  g=4: 0.000  g=5: 0.001  g=6: 0.001  g=7: 0.000
+
+=== s = 8 (record at the second-to-last step): units 5 and 9 fire at step 9 and are read directly ===
+  n = 70174; unit 5 on at step 9: 1.0000; unit 9 on: 0.9719; mean h5(9) = 15.31, mean h9(9) = 2.07
+  direct readout at position 8: U[8,5] h5 = 52.02 (U[8,5] = 3.40);  U[8,9] h9 = -3.44 (U[8,9] = -1.66)
+  U[:,5] = [-0.23 -0.08 -0.08 -0.35 -0.51 -0.64 -0.68 -0.37  3.4  -0.42]
+  U[:,9] = [-2.1  -1.03  0.41  0.75  1.59  1.95  0.44  0.22 -1.66 -0.6 ]
+  [INTERVENTION] unit 5 removed at step 9  : P(ans = p0) 0.9398   P(ans = 8) 0.0000     [unmodified: 0.9728, P(ans = 8) 0.0072]
+  [INTERVENTION] unit 9 removed at step 9  : P(ans = p0) 0.9030   P(ans = 8) 0.0528     [unmodified: 0.9728, P(ans = 8) 0.0072]
+  [INTERVENTION] both removed              : P(ans = p0) 0.9376   P(ans = 8) 0.0000     [unmodified: 0.9728, P(ans = 8) 0.0072]

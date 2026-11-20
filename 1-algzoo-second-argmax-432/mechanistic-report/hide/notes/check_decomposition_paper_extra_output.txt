@@ -1,0 +1,23 @@
+(a) h_t[2] against max(0, x_0..x_(t-1)); the paper only cites Whh[2,2] = 0.97, Whh[2,4] = 1.73 (1.73 x 10.16 = 17.6):
+    t = 2: correlation 1.000, slope 17.53, intercept 0.01
+    t = 5: correlation 0.994, slope 17.80, intercept 0.03
+    t = 9: correlation 0.958, slope 16.39, intercept 0.64
+
+(b) share of steps >= 1 at which each tape unit is off (paper: n2 n12 n13 n14 'nearly always on'; n3 n10 n11 n15 'thresholds of their own'):
+    all steps:          n2: 0.059  n12: 0.053  n13: 0.051  n14: 0.099  n3: 0.204  n10: 0.072  n11: 0.084  n15: 0.247  n0: 0.220
+    steps with n4 on:   n2: 0.107  n12: 0.004  n13: 0.181  n14: 0.362  n3: 0.240  n10: 0.043  n11: 0.037  n15: 0.311  n0: 0.194
+    steps with n4 off:  n2: 0.046  n12: 0.066  n13: 0.018  n14: 0.032  n3: 0.195  n10: 0.080  n11: 0.096  n15: 0.230  n0: 0.227
+
+(c) n0 two steps after a new maximum (paper: 'off, because n7 and n9 were both on'):
+    model: n0 off at 0.998 of these steps; one step after an ordinary (non-max) record step: off at 0.004
+    mean terms Whh[0,j] h_(t-1)[j], after a new max: n5: -12.8  n7: -16.0  n8: -8.4  n9: -2.9  n2: -4.1  n1: +10.7  n6: +10.2  n10: +6.3  n14: +5.5   sum -4.0
+    mean terms Whh[0,j] h_(t-1)[j], after an ordinary record: n5: -4.6  n7: -13.5  n8: -10.0  n9: +0.0  n2: -3.9  n1: +8.2  n6: +16.4  n10: +5.5  n14: +5.0   sum +9.3
+    n9 forced off at the step after n4 fires: n0 off two steps after a new max at 0.711; decisions kept 0.675
+    n5 (the maximum's record) forced off at the step after n4 fires: n0 off two steps after a new max at 0.000; decisions kept 0.471
+    n5 and n9 forced off at the step after n4 fires: n0 off two steps after a new max at 0.000; decisions kept 0.450
+    n0 one step after n4 fires: mean pre-activation +6.6, of which +4.2 from n4 [paper +6.6 and +4.2]
+
+(d) n9 gate == (n7 and n8 both off one step earlier): 0.9899; == n4 gate one step earlier: 0.9898
+
+(e) near-tie misfires (0.0253 of sequences): model answers the max on 0.142 [14%]; with n4 forced off at that step 0.060 [6%]
+    global n4 intervention: errors answering the max 0.0094 -> 0.0079 [-15%], of which newly created 0.0010; answering the third 0.0295 -> 0.0276 [-7%]

@@ -1,0 +1,25 @@
+seeds 5700..5704; t = 9, all four comparators on, S > 0.1, p1 < 9, p2 < 9; n = 772996
+
+older inputs with the max's index removed: P(the largest remaining entry is the runner-up), by D = |p1 - p2| = 1..8 and overall
+  m: 0.918 0.409 0.179 0.157 0.185 0.306 0.591 0.279   overall 0.4228
+  V: 0.005 0.029 0.124 0.621 0.087 0.025 0.004 0.075   overall 0.1281
+  s: 0.972 0.981 0.980 0.982 0.984 0.980 0.950 0.968   overall 0.9772
+  (chance among 8 remaining inputs = 0.125)
+
+rank of the runner-up among the nine older inputs (1 = largest): distribution over ranks 1..5, by D (rows 1..8) and overall
+  in m:
+    1 [0.135 0.784 0.077 0.003 0.   ]
+    2 [0.074 0.343 0.209 0.203 0.088]
+    3 [0.027 0.157 0.104 0.147 0.123]
+    4 [0.025 0.133 0.092 0.13  0.118]
+    5 [0.023 0.164 0.13  0.183 0.121]
+    6 [0.049 0.264 0.203 0.271 0.15 ]
+    7 [0.217 0.397 0.17  0.149 0.046]
+    8 [0.07  0.271 0.289 0.237 0.123]
+    all [0.073 0.356 0.136 0.14  0.086]
+  in s:
+    all [0.971 0.027 0.002 0.    0.   ]
+
+position of the largest entry of V (older inputs) relative to the max, d = argmax V - p1 (d = -8..8):
+    [0.027 0.003 0.022 0.082 0.372 0.134 0.015 0.004 0.004 0.    0.004 0.045 0.277 0.011 0.    0.    0.   ]
+    P(|d| in {3, 4, 5}) = 0.9201224844630502

@@ -1,0 +1,12 @@
+all D1 records, Delta 1..7 (lead's table): c1 = 17.5, 43.7, 73.1, 88.1, 80.9, 64.0, 42.7
+   c1/(1-cos(42.75 Delta)) = 65.9, 47.4, 45.1, 44.3, 44.2, 51.9, 83.5
+   R2 over the table: cosine 42.75 (K = 46.5): 0.874 | cosine free w (K = 45.5, w = 40.42): 0.948 | linear through 0: -0.474 | affine: 0.146 | parabola through 0: 0.863 | constant: 0.000
+all D1 records, Delta 1..8: c1 = 17.5, 43.7, 73.1, 88.1, 80.9, 64.0, 42.7, 54.6
+   c1/(1-cos(42.75 Delta)) = 65.9, 47.4, 45.1, 44.3, 44.2, 51.9, 83.5, 1115.7
+   R2 over the table: cosine 42.75 (K = 46.7): 0.150 | cosine free w (K = 44.6, w = 36.90): 0.570 | linear through 0: -0.857 | affine: 0.076 | parabola through 0: 0.749 | constant: 0.000
+aS >= 2, Delta 1..7: c1 = 11.9, 48.7, 87.7, 109.2, 97.2, 63.8, 25.4
+   c1/(1-cos(42.75 Delta)) = 45.0, 52.9, 54.2, 54.9, 53.1, 51.7, 49.7
+   R2 over the table: cosine 42.75 (K = 53.6): 0.997 | cosine free w (K = 53.8, w = 43.12): 0.998 | linear through 0: -0.437 | affine: 0.028 | parabola through 0: 0.775 | constant: 0.000
+aS = 1, Delta 1..8: c1 = 34.5, 32.9, 39.3, 41.8, 51.1, 63.6, 55.9, 54.6
+   c1/(1-cos(42.75 Delta)) = 129.8, 35.7, 24.2, 21.0, 27.9, 51.6, 109.2, 1115.7
+   R2 over the table: cosine 42.75 (K = 30.8): -6.238 | cosine free w (K = 31.8, w = 29.78): -0.625 | linear through 0: -0.760 | affine: 0.781 | parabola through 0: 0.490 | constant: 0.000

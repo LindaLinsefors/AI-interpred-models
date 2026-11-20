@@ -13,7 +13,7 @@ Units are ordered and coloured by group as in ../plot_weights.py (comparators,
 pulses, wave units). Each panel has its own colour scale (red > 0, blue < 0).
 
 Run:  python probe_weights.py      (run the two probe scripts first)
-Writes probe_weights.png into OUT (../../<this folder's name>/).
+Writes probe_weights.png into OUT (../../archived-probed/<this folder's name>/).
 """
 import sys
 

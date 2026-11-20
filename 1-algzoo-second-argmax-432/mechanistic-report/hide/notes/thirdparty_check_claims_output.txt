@@ -1,0 +1,54 @@
+shapes (16,) (16, 16) (10, 16)
+W_ih: [  0.069 -10.565   0.015  -0.123  10.157  -0.281 -10.996 -13.169 -12.312  -0.228   0.06    0.148   0.298  -0.047  -1.321  -0.119]
+EIG full 16x16 W_hh                    1.2743@180.00°; 1.1672@0.00°; 1.1151@67.03° (pair, 0.435±1.027i, period 5.37); 0.9016@96.77° (pair, -0.106±0.895i, period 3.72); 0.7577@31.87° (pair, 0.643±0.400i, period 11.30); 0.7546@180.00°; 0.6639@52.35° (pair, 0.406±0.526i, period 6.88); 0.5717@180.00°; 0.5153@118.23° (pair, -0.244±0.454i, period 3.04); 0.2491@0.00°; 0.0208@180.00°
+EIG 13 units (no 4,5,9)                1.0099@0.00°; 0.9735@0.00°; 0.9509@42.75° (pair, 0.698±0.645i, period 8.42); 0.9370@83.28° (pair, 0.110±0.931i, period 4.32); 0.9283@180.00°; 0.8373@124.78° (pair, -0.478±0.688i, period 2.89); 0.7350@42.99° (pair, 0.538±0.501i, period 8.37); 0.2310@0.00°; 0.0010@0.00°
+EIG comparators {1,6,7,8}              0.9375@42.56° (pair, 0.690±0.634i, period 8.46); 0.0432@17.14° (pair, 0.041±0.013i, period 21.01)
+EIG core {2,7,6,1,8}                   0.9585@0.00°; 0.9330@42.09° (pair, 0.692±0.625i, period 8.55); 0.0842@0.00°; 0.0048@0.00°
+EIG memory {0,3,10..15}                1.0249@0.00°; 0.9957@83.51° (pair, 0.113±0.989i, period 4.31); 0.9179@180.00°; 0.8577@126.57° (pair, -0.511±0.689i, period 2.84); 0.8152@38.26° (pair, 0.640±0.505i, period 9.41)
+EIG {10,11,12}                         0.6062@29.28° (pair, 0.529±0.297i, period 12.29); 0.2480@180.00°
+EIG memory with n0 off                 0.9126@87.58° (pair, 0.038±0.912i, period 4.11); 0.7821@180.00°; 0.7386@35.56° (pair, 0.601±0.430i, period 10.12); 0.2912@180.00°; 0.2244@0.00°
+EIG memory with n15 off                1.0159@0.00°; 0.7060@180.00°; 0.7007@61.33° (pair, 0.336±0.615i, period 5.87); 0.6962@115.23° (pair, -0.297±0.630i, period 3.12); 0.0269@180.00°
+
+Key weights: W_hh[2,2]=0.9688 W_hh[2,4]=1.7307 W_hh[4,2]=-0.4923 W_hh[4,4]=-0.9856 W_ih[4]=10.1570 W_ih[2]=0.0146
+n2' on a record of value a (from empty state): W_hh[2,4]*W_ih[4] = 17.579 ; trace of old record: W_hh[2,2] + W_hh[2,4]*W_hh[4,2] = 0.1168
+one-term n4 threshold: -W_hh[4,2]*17.58/W_ih[4] = 0.8520
+W_hh[comp,2]: {1: 0.504, 6: 0.535, 7: 0.674, 8: 0.625} | W_hh[comp,4]: {1: 0.871, 6: -0.047, 7: 1.317, 8: -0.041}
+store->comparator / input weight: {1: -0.0477, 6: -0.0487, 7: -0.0512, 8: -0.0508}
+W_hh[9,7]=-5.032 W_hh[1,9]=-0.686 W_hh[6,9]=-0.640 W_hh[0,9]=-1.424 W_hh[5,4]=1.187 W_hh[5,7]=-0.593 W_hh[5,8]=-0.850 W_hh[5,5]=-0.421
+W_hh[3,1]=1.195 W_hh[3,8]=-1.074 W_hh[3,0]=-1.229 | W_hh[15,10]=-1.093 W_hh[15,11]=1.280 | W_hh[10,11]=1.096 W_hh[11,12]=0.663 W_hh[1,6]=0.995
+
+Goldowsky-Dill input cancellation sum_j W_hh[n,j]*W_ih[j], j in {1,2,6,7,8}: {1: 0.016, 2: 0.017, 6: 0.141, 7: -0.005, 8: 0.146}
+same over comparators only {1,6,7,8}: {0: 0.014, 1: 0.009, 2: 0.003, 3: 0.52, 4: -0.011, 5: 18.114, 6: 0.133, 7: -0.015, 8: 0.137, 9: 84.456, 10: -0.374, 11: -0.388, 12: 0.312, 13: -0.169, 14: -0.042, 15: -0.038}
+  n0  row on hiding: [ 0.71  1.13 -0.78 -0.79]  cos with input-weight vector = -0.000  |row|=1.74
+  n1  row on hiding: [ 0.41  1.   -1.05 -0.12]  cos with input-weight vector = -0.000  |row|=1.51
+  n2  row on hiding: [-0.1  -0.1   0.02  0.15]  cos with input-weight vector = -0.001  |row|=0.21
+  n3  row on hiding: [ 1.2   0.49 -0.4  -1.07]  cos with input-weight vector = -0.013  |row|=1.73
+  n4  row on hiding: [ 0.04  0.09 -0.03 -0.08]  cos with input-weight vector = +0.004  |row|=0.13
+  n5  row on hiding: [-0.    0.02 -0.59 -0.85]  cos with input-weight vector = -0.740  |row|=1.04
+  n6  row on hiding: [-0.14  0.36 -0.13 -0.08]  cos with input-weight vector = -0.014  |row|=0.41
+  n7  row on hiding: [-0.1  -0.18  0.08  0.17]  cos with input-weight vector = +0.002  |row|=0.28
+  n8  row on hiding: [ 0.63 -0.   -1.09  0.62]  cos with input-weight vector = -0.004  |row|=1.41
+  n9  row on hiding: [-0.36 -0.09 -5.03 -1.09]  cos with input-weight vector = -0.693  |row|=5.16
+  n10 row on hiding: [ 0.22 -0.19  0.21 -0.21]  cos with input-weight vector = +0.038  |row|=0.42
+  n11 row on hiding: [ 0.24 -0.47  0.38 -0.16]  cos with input-weight vector = +0.024  |row|=0.67
+  n12 row on hiding: [ 0.47 -0.1  -0.05 -0.28]  cos with input-weight vector = -0.024  |row|=0.56
+  n13 row on hiding: [ 0.22  0.12  0.   -0.29]  cos with input-weight vector = +0.019  |row|=0.39
+  n14 row on hiding: [ 0.17  0.77 -0.71 -0.06]  cos with input-weight vector = +0.002  |row|=1.06
+  n15 row on hiding: [ 0.65  0.38 -0.16 -0.72]  cos with input-weight vector = +0.002  |row|=1.06
+
+impulse x=e0: n7 over t: [ 0.   13.41 13.34 13.26 11.6   9.68  8.59  8.83 10.19 11.89]
+impulse x=e0: n2 over t: [ 0.01 17.61 17.27 18.34 17.48 15.15 12.66 11.42 11.94 13.77]
+impulse x=e0: n4 over t: [10.16  0.    0.    0.    0.    0.    0.    0.    0.    0.  ] | n5: [ 0.   12.21  0.81  0.    0.    0.    0.    0.    0.    0.  ] | n9: [0.   1.49 0.   0.   0.   0.   0.   0.   0.   0.  ]
+impulse x=e0: zero-crossing ages (first t>0 where unit is 0): {0: [2], 10: [6], 11: [5], 12: [], 13: [], 14: [2], 15: [3, 4], 3: []}
+argmax of readout at each step (Keane 'countdown' check, single impulse): [4, 6, 9, 8, 0, 9, 9, 9, 9, 9]
+argmax of readout at each step for M@0,S@1 (Keane: [4,9,8,7,6,5,4,3,2,1]): [4, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+Khachaturov record threshold after [1,0]: 0.9789 (claim ~0.979); after [1]: 0.9880
+  x=[1,0,0.998047,0..]: h4 at t=2 = 0.1949, prediction = 0, logit2-logit0 = -0.156
+  x=[1,0,1.001953,0..]: h4 at t=2 = 0.2346, prediction = 0, logit2-logit0 = -2.204
+
+Snider weights-only pulse test argmax(W_out W_hh^a e_5), a=0..9: [8, 7, 6, 5, 4, 3, 2, 1, 0, 0]
+DraggonZ readout shift cosines k=0..8 (claim .97 .99 .99 .99 .88 .99 .96 | .41 .31): [0.97 0.99 0.99 0.99 0.88 0.99 0.96 0.4  0.29]
+Skyway readout-plane share 0.78; angle steps per position (claim -46,-40,-52,-42,-41,-45,-53; +17,+9): [-45. -39. -51. -42. -41. -45. -54.  16.   8.]
+
+accuracy N(0,1), 200k: 0.9530 | median n2/running-max(prev) per t=1..9: [17.61 17.59 17.88 18.02 18.02 17.93 17.79 17.6  17.47]

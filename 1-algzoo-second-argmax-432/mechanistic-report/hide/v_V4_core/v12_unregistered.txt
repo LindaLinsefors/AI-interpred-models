@@ -1,0 +1,26 @@
+states: runner-up younger than the max (a2 < a1), S > 0, M > 0.3, t <= 8, and S - S_old+ > 0.05 M
+  n = 2159226;  unregistered (all four comparators stayed on when the runner-up arrived): 0.0591
+
+Re(gamma/alpha) by steps since the runner-up arrived (a2); 1 = the clock still carries the old gap, 0 = it carries the present gap
+  a2 :  registered: n, |alpha|, Re(gamma/alpha)   |  unregistered: n, |alpha|, Re(gamma/alpha)   |  unregistered, split of z_c: comparator part, part from the other ten units
+  0  :   724025  0.704  +0.166            |    68847  0.360  +0.555            |  comparators: gamma/alpha_tot = +0.773; other ten: -0.294
+  1  :   495833  0.610  +0.160            |    37167  0.422  +0.637            |  comparators: gamma/alpha_tot = +0.508; other ten: +0.110
+  2  :   335145  0.530  +0.222            |    16475  0.494  +0.645            |  comparators: gamma/alpha_tot = +0.588; other ten: +0.085
+  3  :   220322  0.473  +0.220            |     4844  0.534  +0.892            |  comparators: gamma/alpha_tot = +0.823; other ten: +0.107
+  4  :   136065  0.470  +0.179            |        -- too few --         |
+  5  :    74833  0.531  +0.113            |        -- too few --         |
+  6  :    34483  0.603  +0.089            |        -- too few --         |
+
+the same restricted to max ages a1 = 5..8 (where most unregistered arrivals happen):
+  0  :    59421  0.977  +0.061            |    64541  0.432  +0.837            |
+  1  :    90302  0.769  +0.025            |    36494  0.476  +0.641            |
+  2  :   112850  0.644  +0.013            |    16475  0.494  +0.645            |
+  3  :   128132  0.550  +0.033            |     4844  0.534  +0.892            |
+  4  :   136065  0.470  +0.179            |        -- too few --         |
+  5  :    74833  0.531  +0.113            |        -- too few --         |
+
+model-free: unregistered arrivals with a large step, S - S_old+ > 0.2 M; median |z_c| / (M - S) and median |z_c| / (M - S_old+) by a2
+  a2 = 0: n =  26993   |z_c|/(M - S): 1.023   |z_c|/(M - S_old+): 0.613   median (M - S)/(M - S_old+) = 0.618
+  a2 = 1: n =  15153   |z_c|/(M - S): 1.023   |z_c|/(M - S_old+): 0.605   median (M - S)/(M - S_old+) = 0.614
+  a2 = 2: n =   6633   |z_c|/(M - S): 1.033   |z_c|/(M - S_old+): 0.619   median (M - S)/(M - S_old+) = 0.617
+  a2 = 3: n =   1726   |z_c|/(M - S): 1.020   |z_c|/(M - S_old+): 0.637   median (M - S)/(M - S_old+) = 0.637

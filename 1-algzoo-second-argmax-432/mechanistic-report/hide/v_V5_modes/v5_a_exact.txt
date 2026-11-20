@@ -1,0 +1,148 @@
+====================================================================================================
+M1  eigenvalues of A = W[ORD, ORD]  (own eig call, independent of modes.py)
+   lam = +1.009886 +0.000000i   |lam| = 1.0099   angle =    0.000 deg
+   lam = +0.973486 +0.000000i   |lam| = 0.9735   angle =    0.000 deg
+   lam = +0.698275 +0.645429i   |lam| = 0.9509   angle =   42.748 deg
+   lam = +0.698275 -0.645429i   |lam| = 0.9509   angle =  -42.748 deg
+   lam = +0.109633 -0.930574i   |lam| = 0.9370   angle =  -83.281 deg
+   lam = +0.109633 +0.930574i   |lam| = 0.9370   angle =   83.281 deg
+   lam = -0.928295 +0.000000i   |lam| = 0.9283   angle =  180.000 deg
+   lam = -0.477649 -0.687739i   |lam| = 0.8373   angle = -124.781 deg
+   lam = -0.477649 +0.687739i   |lam| = 0.8373   angle =  124.781 deg
+   lam = +0.537581 +0.501209i   |lam| = 0.7350   angle =   42.995 deg
+   lam = +0.537581 -0.501209i   |lam| = 0.7350   angle =  -42.995 deg
+   lam = +0.230985 +0.000000i   |lam| = 0.2310   angle =    0.000 deg
+   lam = +0.000989 +0.000000i   |lam| = 0.0010   angle =    0.000 deg
+   modes.py LAM: {'level': (np.float64(1.0099), 0.0), 'runner': (np.float64(0.9735), 0.0), 'clock': (np.float64(0.9509), 42.75), 'h2': (np.float64(0.937), 83.28), 'alt': (np.float64(0.9283), 180.0), 'h3': (np.float64(0.8373), 124.78), 'short': (np.float64(0.735), 42.99), 'trans': (np.float64(0.231), 0.0), 'echo': (np.float64(0.001), 0.0)}
+   gauge check LEFT @ W[ORD,4]: {'level': np.complex128(1+0j), 'runner': np.complex128(1+0j), 'clock': np.complex128(1-0j), 'h2': np.complex128(1-0j), 'alt': np.complex128(1-0j), 'h3': np.complex128(1+0j), 'short': np.complex128(1+0j), 'trans': np.complex128(1+0j), 'echo': np.complex128(1+0j)}
+   LEFT[n] @ RIGHT[n]: {'level': np.complex128(1-0j), 'runner': np.complex128(1-0j), 'clock': np.complex128(1+0j), 'h2': np.complex128(1-0j), 'alt': np.complex128(1+0j), 'h3': np.complex128(1+0j), 'short': np.complex128(1-0j), 'trans': np.complex128(1+0j), 'echo': np.complex128(1+0j)}
+   max |A RIGHT - lam RIGHT|: 6.217248937900877e-15
+   max |LEFT A - lam LEFT|: 1.355939200933033e-14
+
+   level right eigenvector / entry of unit 2 (units [0, 1, 2, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15] ):
+    [1.348 0.51  1.    0.185 0.63  0.788 0.704 1.057 1.136 1.585 0.429 1.227 0.811]
+    claim: [1.35 0.51 1.   0.19 0.63 0.79 0.7  1.06 1.14 1.59 0.43 1.23 0.81]
+    max abs diff to claim: 0.005066572015117954   all one sign: True
+   level LEFT eigenvector signs (not claimed): [ 1  1  1 -1  1 -1 -1  1  1  1  1  1  1]
+
+   echo eigenvalue 0.00099: |cos(w[ORD], RIGHT echo)| = 0.9980   |cos(w[ORD], LEFT echo)| = 0.4408
+   |A w_o| / |w_o| = 0.028844030126968505   |A|_2 = 3.3534938073707403
+   invariant per-unit ratio (A w_o)_i / (w_o)_i : [-6.24    0.0081 -0.3524  2.0404 -0.0031 -0.0015 -0.0104 -0.4564  0.1056  0.0125  0.8231  0.2967  1.5701]
+   invariant per-unit ratio (A^2 w_o)_i / (w_o)_i: [-5.6131  0.0031  2.9834 -0.0775 -0.0007 -0.0027  0.0007  0.5812  0.06   -0.8435  5.2975  0.1522  3.1722]
+   w[ORD] = [  0.069 -10.565   0.015  -0.123 -10.996 -13.169 -12.312   0.06    0.148   0.298  -0.047  -1.321  -0.119]
+   mode coordinates of w[ORD]  (LEFT[n] @ w_o; = what input x_t=1 adds to each coordinate on a resting step):
+      level     0.04469 @   180.0 deg    (per unit of w_4 = 0.00440)
+      runner    1.02636 @     0.0 deg    (per unit of w_4 = 0.10105)
+      clock     0.10716 @   -51.5 deg    (per unit of w_4 = 0.01055)
+      h2        0.30538 @   152.0 deg    (per unit of w_4 = 0.03007)
+      alt       0.16793 @  -180.0 deg    (per unit of w_4 = 0.01653)
+      h3        0.23277 @   146.4 deg    (per unit of w_4 = 0.02292)
+      short     0.20747 @   172.2 deg    (per unit of w_4 = 0.02043)
+      trans     0.47521 @   180.0 deg    (per unit of w_4 = 0.04679)
+      echo    155.41515 @   180.0 deg    (per unit of w_4 = 15.30132)
+====================================================================================================
+M2  fraction of each LEFT vector's squared norm on the comparators (raw units)
+   level   comp frac = 0.0410   claim = 0.041   largest unit = 2 (0.852)   frac on unit 2 = 0.8518
+   runner  comp frac = 0.5055   claim = 0.506   largest unit = 2 (0.427)   frac on unit 2 = 0.4271
+   clock   comp frac = 0.9659   claim = 0.966   largest unit = 6 (0.405)   frac on unit 2 = 0.0006
+   h2      comp frac = 0.6060   claim = 0.606   largest unit = 1 (0.249)   frac on unit 2 = 0.0030
+   alt     comp frac = 0.1057   claim = 0.106   largest unit = 13 (0.327)   frac on unit 2 = 0.0337
+   h3      comp frac = 0.3467   claim = 0.347   largest unit = 0 (0.246)   frac on unit 2 = 0.0151
+   short   comp frac = 0.9165   claim = 0.916   largest unit = 7 (0.428)   frac on unit 2 = 0.0015
+   trans   comp frac = 0.9756   claim = 0.976   largest unit = 7 (0.508)   frac on unit 2 = 0.0005
+   echo    comp frac = 0.7116   claim = nan   largest unit = 7 (0.707)   frac on unit 2 = 0.2744
+   (same with L1 norm instead of squared norm)
+   level   comp frac (L1) = 0.1886
+   runner  comp frac (L1) = 0.4961
+   clock   comp frac (L1) = 0.7936
+   h2      comp frac (L1) = 0.4740
+   alt     comp frac (L1) = 0.1973
+   h3      comp frac (L1) = 0.3313
+   short   comp frac (L1) = 0.7131
+   trans   comp frac (L1) = 0.8128
+   echo    comp frac (L1) = 0.5439
+====================================================================================================
+M3  readout of the clock mode per unit coordinate: 2|R|, R = U[p, group] RIGHT['clock'][group]
+   comparators  2|R| p=0..9: [6.59 8.4  8.42 7.26 7.1  7.39 6.44 5.56 2.82 1.35]
+                phase deg  : [-161. -117.  -85.  -33.   20.   65.   99.  145.   99.  102.]
+   wave units   2|R| p=0..9: [8.18 9.54 9.16 7.74 7.48 7.75 6.79 5.7  3.36 1.94]
+                phase deg  : [  17.   61.   94.  147. -159. -114.  -83.  -40.  -82.  -86.]
+   all 13       2|R| p=0..9: [1.63 1.18 0.75 0.47 0.38 0.4  0.37 0.47 0.54 0.62]
+                phase deg  : [   6.   47.   86.  146. -148.  -88. -103. -111.  -86. -102.]
+   ratio |total| / (|comp| + |wave|) over all 10 positions = 0.0575
+   same over positions 0..7 = 0.0550;  0..8 = 0.0558
+   |total|/|comp| = 0.1206   |total|/|wave| = 0.1099
+   mean-over-positions removed (10 pos): ratio = 0.0564;  (pos 0..8): 0.0545
+
+   the same cancellation ratio for EVERY mode (10 positions; complex 10-vector norms for pairs):
+   mode      |tot|/(|comp|+|wave|)   mean-removed    |tot|/sum_i|U[:,i] v_i| (per-unit split)
+   level       0.2012                0.1950          0.0243
+   runner      0.8640                0.8637          0.1238
+   clock       0.0575                0.0564          0.0310
+   h2          0.7068                0.7068          0.2608
+   alt         0.9066                0.9066          0.2902
+   h3          0.8384                0.8384          0.2781
+   short       0.6890                0.6890          0.3885
+   trans       0.5385                0.5385          0.2950
+   echo        0.8134                0.8127          0.0950
+
+   null A (iid complex Gaussian 13-vectors, seed 5001): ratio quantiles 0.1%/1%/5%/50% = [0.355 0.446 0.535 0.745];  P(ratio <= clock ratio) = 0.00000
+   null B (clock |v_i| kept, phases uniform random):  ratio quantiles 0.1%/1%/5%/50% = [0.29  0.379 0.468 0.712];  P(ratio <= clock ratio) = 0.00000
+
+   singular values of U_o: [18.881 17.869  8.235  5.598  4.299  3.511  3.062  2.329  2.151  0.293]
+   level   fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.666]
+   runner  fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.423]
+   clock   fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.656 0.974]
+   h2      fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.09  0.144]
+   alt     fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.017]
+   h3      fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.048 0.025]
+   short   fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.439 0.639]
+   trans   fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.482]
+   echo    fraction of |v|^2 inside ker(U_o) (raw unit scaling; NOT scale invariant): [0.341]
+====================================================================================================
+M4  size of U_o v over positions 0..8 after removing their mean; v = Re / Im of RIGHT (modes.py gauge)
+   mode     L2-norm(Re)  L2-norm(Im)   rms(Re)   rms(Im)   [x2 for pairs: L2]   max/min over phase (L2, invariant to phase gauge)
+   level        0.331                 0.110
+   runner       0.108                 0.036
+   clock        0.908      0.745      0.303    0.248    [1.815 / 1.491]     0.987 / 0.636
+   h2           2.610      2.374      0.870    0.791    [5.220 / 4.748]     2.723 / 2.243
+   alt          1.399                 0.466
+   h3           2.638      2.122      0.879    0.707    [5.276 / 4.244]     2.641 / 2.118
+   short        9.441      5.572      3.147    1.857    [18.883 / 11.144]     9.468 / 5.526
+   trans       24.327                 8.109
+   echo         0.040                 0.013
+   same over all 10 positions (mean removed):
+   level        2.269      0.000
+   runner       0.816      0.000
+   clock        0.919      0.801
+   h2           2.623      2.377
+   alt          1.401      0.000
+   h3           2.651      2.130
+   short        9.597      5.696
+   trans       24.734      0.000
+   echo         0.378      0.000
+   same over positions 0..8 WITHOUT removing the mean:
+   level        1.312      0.000
+   runner       0.234      0.000
+   clock        0.944      0.746
+   h2           2.610      2.374
+   alt          1.399      0.000
+   h3           2.639      2.122
+   short        9.454      5.578
+   trans       24.352      0.000
+   echo         0.095      0.000
+====================================================================================================
+INVARIANCE CHECK: random positive per-unit rescaling h_i -> c_i h_i (W' = C W C^-1, w' = C w, U' = U C^-1), seed 5002
+   eigenvalues unchanged: True
+   (gauge in the rescaled net fixed the same way, LEFT' @ W'[ORD,4] = 1; then coordinates scale by c_4 = 4.288 )
+   level   M2 comp frac: raw 0.041 -> rescaled 0.103 | M3 ratio: raw 0.2012 -> rescaled 0.2012 | M4 size(Re): raw 0.331 -> rescaled 0.077, x w_4': 3.36 (raw x w_4: 3.36)
+   runner  M2 comp frac: raw 0.506 -> rescaled 0.321 | M3 ratio: raw 0.8640 -> rescaled 0.8640 | M4 size(Re): raw 0.108 -> rescaled 0.025, x w_4': 1.10 (raw x w_4: 1.10)
+   clock   M2 comp frac: raw 0.966 -> rescaled 0.932 | M3 ratio: raw 0.0575 -> rescaled 0.0575 | M4 size(Re): raw 0.908 -> rescaled 0.212, x w_4': 9.22 (raw x w_4: 9.22)
+   h2      M2 comp frac: raw 0.606 -> rescaled 0.164 | M3 ratio: raw 0.7068 -> rescaled 0.7068 | M4 size(Re): raw 2.610 -> rescaled 0.609, x w_4': 26.51 (raw x w_4: 26.51)
+   alt     M2 comp frac: raw 0.106 -> rescaled 0.007 | M3 ratio: raw 0.9066 -> rescaled 0.9066 | M4 size(Re): raw 1.399 -> rescaled 0.326, x w_4': 14.21 (raw x w_4: 14.21)
+   h3      M2 comp frac: raw 0.347 -> rescaled 0.081 | M3 ratio: raw 0.8384 -> rescaled 0.8384 | M4 size(Re): raw 2.638 -> rescaled 0.615, x w_4': 26.80 (raw x w_4: 26.80)
+   short   M2 comp frac: raw 0.916 -> rescaled 0.683 | M3 ratio: raw 0.6890 -> rescaled 0.6890 | M4 size(Re): raw 9.441 -> rescaled 2.202, x w_4': 95.89 (raw x w_4: 95.89)
+   trans   M2 comp frac: raw 0.976 -> rescaled 0.887 | M3 ratio: raw 0.5385 -> rescaled 0.5385 | M4 size(Re): raw 24.327 -> rescaled 5.673, x w_4': 247.08 (raw x w_4: 247.08)
+   echo    M2 comp frac: raw 0.712 -> rescaled 0.254 | M3 ratio: raw 0.8134 -> rescaled 0.8134 | M4 size(Re): raw 0.040 -> rescaled 0.009, x w_4': 0.40 (raw x w_4: 0.40)
+   level eigenvector still one-signed: True   ratios to unit 2 change (not invariant): [0.25 0.28 1.   0.09 0.19 1.71 0.34 3.57 0.14 0.81 0.05 1.21 0.61]
+   |cos(w'[ORD], echo eigenvector')| = 0.9996  (raw 0.998: NOT invariant)

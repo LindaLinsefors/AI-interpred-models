@@ -1,0 +1,22 @@
+singular values of U[:, ORD]: [18.88 17.87  8.23  5.6   4.3   3.51  3.06  2.33  2.15  0.29]
+
+fraction of each mode's right eigenvector (Euclidean norm^2) inside the readout's null space,
+and the size of what the readout sees, per unit coordinate:
+  level .  : in null space  0.666   |U v| =    2.34   |U v| on positions 0-8 after removing their mean =    0.33   |v| =   4.40
+  runner.  : in null space  0.423   |U v| =    0.82   |U v| on positions 0-8 after removing their mean =    0.11   |v| =   0.34
+  clock .re: in null space  0.656   |U v| =    0.95   |U v| on positions 0-8 after removing their mean =    0.91   |v| =   1.39
+  clock .im: in null space  0.974   |U v| =    0.81   |U v| on positions 0-8 after removing their mean =    0.75   |v| =   1.39
+  h2    .re: in null space  0.090   |U v| =    2.62   |U v| on positions 0-8 after removing their mean =    2.61   |v| =   0.65
+  h2    .im: in null space  0.144   |U v| =    2.38   |U v| on positions 0-8 after removing their mean =    2.37   |v| =   0.82
+  alt   .  : in null space  0.017   |U v| =    1.40   |U v| on positions 0-8 after removing their mean =    1.40   |v| =   0.45
+  h3    .re: in null space  0.048   |U v| =    2.65   |U v| on positions 0-8 after removing their mean =    2.64   |v| =   0.79
+  h3    .im: in null space  0.025   |U v| =    2.13   |U v| on positions 0-8 after removing their mean =    2.12   |v| =   0.82
+  short .re: in null space  0.439   |U v| =    9.60   |U v| on positions 0-8 after removing their mean =    9.44   |v| =   1.43
+  short .im: in null space  0.639   |U v| =    5.70   |U v| on positions 0-8 after removing their mean =    5.57   |v| =   0.93
+  trans .  : in null space  0.482   |U v| =   24.74   |U v| on positions 0-8 after removing their mean =   24.33   |v| =   4.22
+  echo  .  : in null space  0.341   |U v| =    0.38   |U v| on positions 0-8 after removing their mean =    0.04   |v| =   0.15
+
+null-space basis vectors in mode coordinates (|coordinate| per mode):
+   level: 0.176  runner: 0.336  clock: 0.313  h2: 0.032  alt: 0.019  h3: 0.017  short: 0.041  trans: 0.019  echo: 0.397
+   level: 0.150  runner: 3.717  clock: 0.082  h2: 0.068  alt: 0.062  h3: 0.002  short: 0.033  trans: 0.033  echo: 7.276
+   level: 0.057  runner: 0.657  clock: 0.373  h2: 0.033  alt: 0.010  h3: 0.012  short: 0.034  trans: 0.017  echo: 1.282

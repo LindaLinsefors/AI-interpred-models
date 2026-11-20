@@ -1,0 +1,37 @@
+T5:  U[9,COMP]*w[COMP] = [ 5.01  7.38 49.9  -4.04]  sum = 58.25   U[9,4] w_4 = -50.7   U[8,5] = 3.398
+     W[u,ORD].w[ORD]: unit 5: 18.009  unit 9: 84.335  largest |.| among the other 14: 0.432
+
+K1:  Bc =
+ [[ 0.409  1.036 -1.306 -0.14 ]
+ [-0.13   0.361 -0.151 -0.092]
+ [-0.081 -0.152  0.078  0.156]
+ [ 0.544 -0.    -1.17   0.615]] 
+     Bc 1 = [-0.001 -0.012  0.001 -0.011]   eigenvalues: 0.9375@42.56  0.9375@-42.56  0.0432@17.14  0.0432@-17.14
+     b2 = [0.048 0.049 0.051 0.051]   w4 b4 = [ 0.838 -0.044  1.016 -0.034]   W[2,2] = 0.969  W[2,4] = 1.731  w_2 = 0.015  -W[4,2]/w_4 = 0.0485  -W[4,4]/w_4 = 0.097
+
+K2:  cos(W[u,COMP], w[COMP]): [ 0.     0.     0.001  0.013 -0.004  0.74   0.014 -0.002  0.004  0.693 -0.038 -0.024  0.024 -0.019 -0.002 -0.002]   largest |cos| outside units 5, 9: 0.038
+
+O2:  most negative readout weight and its position: {0: (-2.9, 7), 10: (-3.87, 3), 11: (-4.56, 4), 12: (-2.79, 5), 14: (-5.14, 0)}
+
+O3:  sweep x = (0.5, -1, 1.5, -1, -1, -1, v, -1, -1, -1)
+     thresholds for step 6: {1: 1.274, 6: 1.673, 7: 1.381, 8: 0.555, 4: 1.366}
+     v = 0.30: comparators on at t=6: [1, 6, 7, 8]  h_6[4] =  0.00  h_7[5] =  0.08  |z_clock|/10.157 at t=9 = 0.899  answer = 0
+     v = 0.45: comparators on at t=6: [1, 6, 7, 8]  h_6[4] =  0.00  h_7[5] =  2.77  |z_clock|/10.157 at t=9 = 0.915  answer = 0
+     v = 0.55: comparators on at t=6: [1, 6, 7, 8]  h_6[4] =  0.00  h_7[5] =  4.57  |z_clock|/10.157 at t=9 = 0.926  answer = 6
+     v = 0.85: comparators on at t=6: [1, 6, 7]  h_6[4] =  0.00  h_7[5] =  6.86  |z_clock|/10.157 at t=9 = 0.770  answer = 6
+     v = 1.15: comparators on at t=6: [1, 6, 7]  h_6[4] =  0.00  h_7[5] =  9.12  |z_clock|/10.157 at t=9 = 0.607  answer = 6
+     v = 1.30: comparators on at t=6: [6, 7]  h_6[4] =  0.00  h_7[5] = 10.26  |z_clock|/10.157 at t=9 = 0.517  answer = 6
+     v = 1.45: comparators on at t=6: [6]  h_6[4] =  0.85  h_7[5] = 11.85  |z_clock|/10.157 at t=9 = 0.176  answer = 6
+     v = 1.55: comparators on at t=6: [6]  h_6[4] =  1.86  h_7[5] = 13.03  |z_clock|/10.157 at t=9 = 0.071  answer = 2
+     v = 1.80: comparators on at t=6: []  h_6[4] =  4.40  h_7[5] = 16.00  |z_clock|/10.157 at t=9 = 0.404  answer = 2
+
+T4 (fresh sample, own code): score(p) - score(runner-up) in units of M for the CURRENT input (age 0) and the previous one (age 1), inputs that are neither max nor runner-up, S > 0.2, t = 2..9
+     age 0: (-9,-2]: -153.34 (ratio  61.8)   (-2,-1.5]: -105.12 (ratio  61.8)   (-1,-0.7]:  -51.88 (ratio  61.6)   (-0.7,-0.5]:  -36.81 (ratio  61.4)   (-0.25,-0.15]:  -12.01 (ratio  59.8)   (-0.1,-0.05]:   -4.20 (ratio  55.8)
+     age 1: (-9,-2]:  -18.24 (ratio   7.3)   (-2,-1.5]:  -15.88 (ratio   9.3)   (-1,-0.7]:  -13.58 (ratio  16.1)   (-0.7,-0.5]:  -12.80 (ratio  21.3)   (-0.25,-0.15]:   -9.73 (ratio  48.4)   (-0.1,-0.05]:   -4.69 (ratio  62.3)
+
+S2: how much of A(a1, idx) is a function of d = idx - (9 - a1) alone?  (a1 = 2..9, idx = 0..7; fresh sample)
+     share of the variance of the 64 coefficients explained by d: 0.972
+     share of the variance of the 64 coefficients explained by a1 alone: 0.004
+     share of the variance of the 64 coefficients explained by idx alone: 0.010
+     rms of A - (-60 cos(42.75 d)) over the 64 coefficients: 12.6   (rms of A: 48.6);  R2 of -60cos: 0.932
+     mean A by d = -7..7: -33 14 61 82 59 7 -42 -62 -48 -6 40 60 47 14 -25

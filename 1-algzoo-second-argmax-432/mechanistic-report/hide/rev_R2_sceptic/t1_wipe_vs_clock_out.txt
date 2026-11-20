@@ -1,0 +1,47 @@
+P(answer = max) / P(answer = runner-up); n in brackets.  Final S > 0.2, final gap > 0.2, intervention at t0 = pM + k
+
+=== t0 <= 8 ===
+  k |      none                      wipe            clock0           clockC0           clockW0          wipe_noP
+  1 | 0.000/0.969 [333967]     0.973/0.001      0.372/0.540      0.300/0.259      0.019/0.508      1.000/0.000 
+  2 | 0.000/0.969 [292194]     0.999/0.000      0.000/0.913      0.991/0.008      0.000/0.528      0.999/0.001 
+  3 | 0.000/0.969 [250570]     0.882/0.008      0.005/0.918      0.976/0.014      0.000/0.516      0.957/0.038 
+  4 | 0.000/0.967 [208752]     0.893/0.002      0.006/0.926      0.969/0.025      0.000/0.536      0.971/0.027 
+  5 | 0.000/0.966 [167093]     0.977/0.003      0.000/0.942      0.985/0.014      0.000/0.407      0.998/0.002 
+  6 | 0.000/0.964 [125274]     1.000/0.000      0.000/0.946      0.970/0.027      0.000/0.291      1.000/0.000 
+  7 | 0.000/0.961 [ 83426]     1.000/0.000      0.000/0.941      0.949/0.046      0.000/0.418      1.000/0.000 
+
+=== t0 = 9 ===
+  k |      none                      wipe            clock0           clockC0           clockW0          wipe_noP
+  1 | 0.000/0.979 [ 41745]     0.020/0.113      0.000/0.905      0.027/0.395      0.058/0.322      0.020/0.113 
+  2 | 0.000/0.967 [ 41773]     0.000/0.114      0.008/0.889      0.808/0.137      0.006/0.319      0.000/0.114 
+  3 | 0.000/0.969 [ 41624]     0.000/0.113      0.001/0.913      0.893/0.096      0.002/0.327      0.000/0.113 
+  4 | 0.000/0.975 [ 41818]     0.434/0.013      0.000/0.910      0.987/0.012      0.000/0.336      0.434/0.013 
+  5 | 0.000/0.973 [ 41659]     0.978/0.003      0.000/0.890      0.990/0.010      0.000/0.322      0.978/0.003 
+  6 | 0.000/0.970 [ 41819]     0.996/0.001      0.000/0.908      0.984/0.015      0.000/0.353      0.996/0.001 
+  7 | 0.000/0.970 [ 41848]     0.994/0.005      0.000/0.935      0.976/0.023      0.000/0.416      0.994/0.005 
+
+=== is the wipe a 'phantom record'?  (k = 2..5, t0 <= 6 so that t0+2 exists) ===
+  k=2 (n=208752): unit 5 at t0+1: on 1.000 (unmodified 0.285), median h5/M 9.21 (unmodified 0.00); unit 9 on 1.000 (unmodified 0.000), median h9/M 1.78; unit 0 OFF at t0+2: 1.000 (unmodified 0.000)
+  k=3 (n=167093): unit 5 at t0+1: on 1.000 (unmodified 0.263), median h5/M 6.85 (unmodified 0.00); unit 9 on 1.000 (unmodified 0.000), median h9/M 1.61; unit 0 OFF at t0+2: 1.000 (unmodified 0.000)
+  k=4 (n=125274): unit 5 at t0+1: on 1.000 (unmodified 0.245), median h5/M 6.10 (unmodified 0.00); unit 9 on 1.000 (unmodified 0.001), median h9/M 1.47; unit 0 OFF at t0+2: 1.000 (unmodified 0.000)
+  k=5 (n=83426): unit 5 at t0+1: on 1.000 (unmodified 0.236), median h5/M 7.57 (unmodified 0.00); unit 9 on 1.000 (unmodified 0.003), median h9/M 1.51; unit 0 OFF at t0+2: 0.999 (unmodified 0.000)
+
+=== static check (no dynamics): which part of the state makes m rank the max first? ===
+m = readout without comparator columns; older inputs only; S_t > 0 and max not the current input (as in e15b).
+m_noclock = m minus the wave units' share of the clock;  s_noclock = s minus the whole clock mode.
+   t | P(argmax m = max)  P(argmax m_noclock = max)  P(argmax m_noclock = runner-up) | P(argmax s = runner-up)  P(argmax s_noclock = runner-up)  P(argmax s_noclock = max)
+   2 |      0.943               0.499                     0.501              |        0.999                  0.975                        0.025
+   3 |      0.912               0.417                     0.566              |        0.979                  0.983                        0.005
+   4 |      0.932               0.311                     0.629              |        0.967                  0.973                        0.004
+   5 |      0.941               0.232                     0.627              |        0.974                  0.962                        0.003
+   6 |      0.950               0.205                     0.619              |        0.977                  0.962                        0.004
+   7 |      0.959               0.201                     0.597              |        0.977                  0.949                        0.005
+   8 |      0.961               0.195                     0.606              |        0.975                  0.936                        0.007
+   9 |      0.879               0.198                     0.607              |        0.970                  0.920                        0.011
+
+  the same at t = 9 by relative gap (M - S)/M:
+   gap (0.00,0.05]: m->max 0.698   m_noclock->max 0.348   m_noclock->runner-up 0.553   | s->runner-up 0.910   s_noclock->runner-up 0.880   n=41193
+   gap (0.05,0.15]: m->max 0.843   m_noclock->max 0.245   m_noclock->runner-up 0.641   | s->runner-up 0.985   s_noclock->runner-up 0.973   n=81902
+   gap (0.15,0.30]: m->max 0.892   m_noclock->max 0.185   m_noclock->runner-up 0.676   | s->runner-up 0.984   s_noclock->runner-up 0.972   n=117583
+   gap (0.30,0.50]: m->max 0.913   m_noclock->max 0.168   m_noclock->runner-up 0.625   | s->runner-up 0.980   s_noclock->runner-up 0.942   n=127270
+   gap (0.50,1.00]: m->max 0.920   m_noclock->max 0.153   m_noclock->runner-up 0.506   | s->runner-up 0.956   s_noclock->runner-up 0.812   n=106973

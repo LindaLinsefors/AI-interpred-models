@@ -1,0 +1,48 @@
+ISSUE #1: How was example_2nd_argmax() trained? | state open | by jsnider3 (association NONE) | 2026-10-19T19:16:31Z | https://github.com/alignment-research-center/alg-zoo/issues/1
+
+I’m working on the 2nd-argmax accuracy-estimation problem from the blog post (https://www.lesswrong.com/posts/x8BbjZqooS4LFXS8Z/algzoo-uninterpreted-models-with-fewer-than-1-500-parameters), the one with the 432-param model. I trained a thousand networks with the zoo's provided recipe, but the example model looks different from that population and I think it might be the result of different training.
+
+**What I trained.**
+1,024 independent 16-neuron, length-10 2nd-argmax RNNs with the defaults of alg_zoo/training.py:
+
+- AdamW, learning rate 0.04/√16, weight decay 0.001;
+- batch 1024, 2¹⁴ warmup steps, decay to 0.01×;
+- 2³⁰ sequences.
+
+The learning-rate column of the zoo’s training logs (train_2nd_argmax_16_10_1073741824_{0..4}.jsonl) matches my schedule to floating-point precision. The training accuracy of zoo_2nd_argmax(16, 10, seed=0..4) falls inside my population’s spread at every checkpoint from 2²⁴ to 2³⁰ sequences. At the end they sit in the 13th–68th percentiles.
+
+**What looks different.**
+I measured the logit margin (the correct logit minus the largest other logit) on 2¹⁶ N(0,1) sequences. The example model’s median |margin| is 8.2:
+
+- my population’s median is 4.35 (95th percentile 6.19), and none of the 1,024 is as large;
+- zoo seeds 0–4 are 2.9–5.6;
+- it is also larger than every network in my population that uses the same one-step-late write-pointer strategy, including those within a point of its accuracy.
+
+Its weight norms are ordinary, at about the 66th percentile, and its accuracy is about the 75th percentile.
+
+Estimators fitted on my population transfer well to seeds 0–4, to within about 0.5 points, but overestimate the example model by 1.5–2.3 points.
+
+**What I noticed in the bucket.**
+alg/one_layer_16_hidden_94_acc_2nd_argmax.pth is dated 2024-11-28, a year before the zoo (2025-12-12). It sits next to 2nd_argmax_32_17179869184.pth, which is 2³⁴ sequences. The bucket has no training log for it, and the README says it isn’t officially part of the zoo.
+
+Questions:
+
+1. How was it trained: optimizer, learning rate and schedule, weight decay, batch size, number of training sequences and input distribution? Was it made from an earlier version of training.py?
+2. Was it chosen from several runs, and on what criterion? Was it changed after training in any way, for example by fine-tuning, pruning or rescaling?
+3. The filename says 94% accuracy, but I measure 95.30% ± 0.02 on 2²⁰ N(0,1) sequences, with the target as argsort[-2]. How was the 94% measured?
+4. Is its training log or config available?
+
+With the recipe I could train a matching population and check whether the difference comes from training or from the network’s mechanism.
+
+And yes, I used Claude to write this.
+
+--- comment by jsnider3 (association NONE) | 2026-10-19T19:29:07Z | https://github.com/alignment-research-center/alg-zoo/issues/1#issuecomment-6275503962
+
+It seems like these questions are answered in the files (https://drive.google.com/file/d/1USCD1LPa6hXMTj7PAO6Jmc4dVdxemZY3/view, https://colab.research.google.com/drive/1yRv18_Gp0twoZ-kptMygVhAq-azj2bBq) linked from the blogpost, but those weren't in the repo and I missed them. I'll read over those and let you know if this should be closed.
+
+
+COMMITS (branch mlp, which contains main):
+6e926898bc 2026-08-19T21:37:18Z Jacob Hilton | handcrafted kth argmax MLP
+efe220492e 2026-08-19T17:07:56Z Jacob Hilton | MLP class
+4433f505a9 2026-01-19T20:30:00Z Jacob Hilton | README example model check
+b43382b1eb 2025-12-12T17:35:12Z Jacob Hilton | initial commit

@@ -1,0 +1,28 @@
+(i) m_t = readout without comparators, restricted to inputs older than the current one (indices 9-t..8).
+    Conditioned on S_t > 0 and on the max of the prefix not being the current input:
+   t=2: argmax m = max 0.9716   argmax m = runner-up 0.0282   | argmax s (older inputs) = max 0.3499
+   t=3: argmax m = max 0.9423   argmax m = runner-up 0.0573   | argmax s (older inputs) = max 0.2115
+   t=4: argmax m = max 0.9482   argmax m = runner-up 0.0505   | argmax s (older inputs) = max 0.1423
+   t=5: argmax m = max 0.9531   argmax m = runner-up 0.0443   | argmax s (older inputs) = max 0.0997
+   t=6: argmax m = max 0.9579   argmax m = runner-up 0.0393   | argmax s (older inputs) = max 0.0792
+   t=7: argmax m = max 0.9636   argmax m = runner-up 0.0339   | argmax s (older inputs) = max 0.0645
+   t=8: argmax m = max 0.9664   argmax m = runner-up 0.0311   | argmax s (older inputs) = max 0.0546
+   t=9: argmax m = max 0.8914   argmax m = runner-up 0.0646   | argmax s (older inputs) = max 0.0496
+
+(iii) at a new max at step t: s_t on inputs 0..t-2 versus shifted m_(t-1) and shifted s_(t-1) (mean over those inputs removed)
+   t=3: vs shifted m: R2 = 0.956 (slope 0.71)   vs shifted s: R2 = 0.003 (slope -0.05)   P(old max tops s_t among inputs 0..t-2) = 0.996   n = 40989
+   t=4: vs shifted m: R2 = 0.772 (slope 1.06)   vs shifted s: R2 = 0.001 (slope -0.06)   P(old max tops s_t among inputs 0..t-2) = 0.994   n = 47627
+   t=5: vs shifted m: R2 = 0.769 (slope 1.25)   vs shifted s: R2 = 0.004 (slope 0.18)   P(old max tops s_t among inputs 0..t-2) = 0.991   n = 49076
+   t=6: vs shifted m: R2 = 0.878 (slope 1.24)   vs shifted s: R2 = 0.072 (slope 0.84)   P(old max tops s_t among inputs 0..t-2) = 0.990   n = 48763
+   t=7: vs shifted m: R2 = 0.911 (slope 1.08)   vs shifted s: R2 = 0.169 (slope 1.02)   P(old max tops s_t among inputs 0..t-2) = 0.988   n = 46928
+   t=8: vs shifted m: R2 = 0.890 (slope 0.96)   vs shifted s: R2 = 0.226 (slope 0.99)   P(old max tops s_t among inputs 0..t-2) = 0.982   n = 44442
+   t=9: vs shifted m: R2 = 0.873 (slope 0.92)   vs shifted s: R2 = 0.292 (slope 1.03)   P(old max tops s_t among inputs 0..t-2) = 0.964   n = 41704
+
+(iv) no event (x_t below S_(t-1), S_(t-1) > 0.1, all four comparators on at step t; step t-1 is not conditioned on): s_t on inputs 0..t-2 versus shifted s_(t-1)
+   t=3: R2 = 0.668 (slope 0.67)   n = 153970
+   t=4: R2 = 0.721 (slope 0.68)   n = 224450
+   t=5: R2 = 0.795 (slope 0.80)   n = 279945
+   t=6: R2 = 0.894 (slope 1.06)   n = 320378
+   t=7: R2 = 0.934 (slope 0.99)   n = 349377
+   t=8: R2 = 0.941 (slope 0.94)   n = 371055
+   t=9: R2 = 0.959 (slope 0.97)   n = 386446

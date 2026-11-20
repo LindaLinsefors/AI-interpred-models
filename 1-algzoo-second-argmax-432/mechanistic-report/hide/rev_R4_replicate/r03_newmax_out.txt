@@ -1,0 +1,93 @@
+=== SECTION 5.4, part 1: new maximum at s = 2..6 with old maximum M0 > 0 (n = 939876, seeds 7041-7043)
+L1 (next three inputs < M0): 0.421 of records ; L2 (< max(S0,0)): 0.232
+step s  : unit 4 on 0.99998 ; all four comparators off 0.9546 ; comparator on-rates 1,6,7,8: [0.019  0.0213 0.0088 0.0026]
+step s+1: unit 5 on 0.99997, unit 9 on 0.9968 (all records) ; under L1: 1.00000, 0.9997 ; comparators all on under L1 0.9790
+step s+2: unit 0 OFF: all records 0.8687 ; under L1 0.9965 ; under L2 0.9979   (unit 0 on at s+1 / s+3 under L1: 0.9891 / 0.9994)
+          units 5 / 9 on at s+2 under L1: 0.0911 / 0.0001
+by step s = 1..8 (any following inputs, M0 > 0): n, unit 4 on, all comps off, unit 5 on at s+1, unit 9 on at s+1, unit 0 off at s+2
+   s=1 n= 150071  1.00000  0.9889  0.99975  0.9945  0.8425
+   s=2 n= 200060  0.99996  0.9881  0.99990  0.9953  0.8498
+   s=3 n= 206260  0.99998  0.9815  0.99995  0.9960  0.8595
+   s=4 n= 194621  0.99999  0.9578  1.00000  0.9972  0.8679
+   s=5 n= 177868  0.99999  0.9286  1.00000  0.9978  0.8797
+   s=6 n= 161067  0.99998  0.9033  1.00000  0.9979  0.8929
+   s=7 n= 144842  0.99997  0.8849  1.00000  0.9848  0.9003
+   s=8 n= 130831  0.99966  0.8686  1.00000  0.9724  -
+   all n=1365620  0.99995  0.9427  0.99995  0.9929  0.8693
+first positive input (no positive input before), s = 0..8: n = 1197683, unit 4 on 0.99883, all comparators off 0.9984
+all positive new maxima (s = 0..8): unit 4 on 0.99943
+h5(s+1) ~ a (Mn-M0) + b M0 + c S0+  [all records]: 12.18, 10.40, -5.77  R2 0.960   | with raw S0: 11.90, 8.67, -1.90  R2 0.936
+h9(s+1) ~ a (Mn-M0) + b M0 + c S0+  [all records]: 1.48, 1.75, -0.42  R2 0.887   | with raw S0: 1.45, 1.63, -0.16  R2 0.882
+h5(s+1) ~ a (Mn-M0) + b M0 + c S0+  [L1]: 12.22, 10.44, -5.79  R2 0.938   | with raw S0: 11.92, 8.93, -2.53  R2 0.909
+h9(s+1) ~ a (Mn-M0) + b M0 + c S0+  [L1]: 1.56, 1.76, -0.43  R2 0.865   | with raw S0: 1.53, 1.67, -0.23  R2 0.863
+mean h5(s+1), h9(s+1) under L1: 14.14, 2.32 ;  W[0,5]*h5 = -12.91, W[0,9]*h9 = -3.30  (W[0,5] = -0.913, W[0,9] = -1.424) ; mean z0(s+2) -4.01
+h5(s+1) under L1 by age g of the old max (coefficients of Mn-M0, M0, S0+; R2):
+   g=1 n=112837  h5: 12.22 9.08 -4.02 (R2 0.988)   h9: 1.59 2.02 -0.80 (R2 0.926)
+   g=2 n=112399  h5: 12.33 11.75 -7.05 (R2 0.994)   h9: 1.57 1.78 -0.14 (R2 0.905)
+   g=3 n= 77246  h5: 12.23 8.83 -4.50 (R2 0.992)   h9: 1.47 1.51 -0.04 (R2 0.911)
+   g=4 n= 50012  h5: 12.20 9.52 -5.81 (R2 0.991)   h9: 1.47 1.54 -0.26 (R2 0.893)
+   g=5 n= 29470  h5: 12.20 13.84 -10.06 (R2 0.985)   h9: 1.62 1.56 -0.44 (R2 0.822)
+   g=6 n= 13401  h5: 12.32 19.67 -14.41 (R2 0.975)   h9: 1.78 1.74 -0.59 (R2 0.753)
+thresholds one step after the new maximum, theta_j(s+1) ~ a Mn + b M0 + c S0+ under L2 (units 1, 6, 7, 8, 4):
+   theta_1: 0.831 Mn + 0.159 M0 + 0.025 S0+   R2 0.9968
+   theta_6: -0.044 Mn + 0.981 M0 + 0.048 S0+   R2 0.9850
+   theta_7: 1.018 Mn + -0.007 M0 + -0.002 S0+   R2 0.9999
+   theta_8: -0.033 Mn + 1.067 M0 + -0.016 S0+   R2 0.9882
+   theta_4: 0.985 Mn + 0.002 M0 + 0.004 S0+   R2 0.9999
+   same under L1 only:
+   theta_1: 0.830 Mn + 0.163 M0 + 0.022 S0+   R2 0.9964
+   theta_6: -0.044 Mn + 0.989 M0 + 0.034 S0+   R2 0.9794
+   theta_7: 1.019 Mn + -0.008 M0 + -0.002 S0+   R2 0.9999
+   theta_8: -0.033 Mn + 1.074 M0 + -0.026 S0+   R2 0.9851
+   theta_4: 0.985 Mn + 0.001 M0 + 0.004 S0+   R2 0.9999
+
+=== part 2: sequences whose final max (at s) overtook the true runner-up (old max at p0), g = s - p0 >= 2 (seeds 7044, 7045)
+  baseline P(p0)                                                 0.9675   (n = 316789)
+  baseline P(p0) g=2                                             0.9698   (n = 69781)
+  baseline P(p0) g=3                                             0.9700   (n = 61547)
+  baseline P(p0) g=4                                             0.9766   (n = 53072)
+  baseline P(p0) g=5                                             0.9739   (n = 44304)
+  baseline P(p0) g=6                                             0.9684   (n = 35341)
+  baseline P(p0) g=7                                             0.9534   (n = 26397)
+  A unit5 off at p0+1: P(p0)                                     0.0199   (n = 316789)
+  A: answers new max s                                           0.4102   (n = 316789)
+  A: answers old runner-up q0                                    0.3138   (n = 316789)
+  A: answers p0+-1                                               0.3564   (n = 316789)
+  A: clamp changed unit 5 (it was on)                            1.0000   (n = 316789)
+  A: new max still gated as record (u4 on, comps off)            0.8604   (n = 316789)
+  A restricted to g>=3, s>=4: baseline                           0.9665   (n = 238435)
+  A restricted to g>=3, s>=4: clamped                            0.0220   (n = 238435)
+  unit9 off at p0+1: P(p0)                                       0.9016   (n = 316789)
+  unit0 linear at p0+2: P(p0)                                    0.9752   (n = 316789)
+  baseline P(p0), s<=8                                           0.9731   (n = 246099)
+  B unit5 off at s+1: P(p0)                                      0.9298   (n = 246099)
+  B unit5 off at s+1: P(answer = new max s)                      0.0000   (n = 246099)
+  B unit5 off at s+1: baseline P(p0) on same subset              0.9731   (n = 246099)
+  B unit5 off at s+1: baseline P(answer = s) on same subset      0.0052   (n = 246099)
+  C unit9 off at s+1: P(p0)                                      0.5137   (n = 246099)
+  C unit9 off at s+1: P(answer = new max s)                      0.4616   (n = 246099)
+  C unit9 off at s+1: baseline P(p0) on same subset              0.9731   (n = 246099)
+  C unit9 off at s+1: baseline P(answer = s) on same subset      0.0052   (n = 246099)
+  D units 5,9 off at s+1: P(p0)                                  0.9451   (n = 246099)
+  D units 5,9 off at s+1: P(answer = new max s)                  0.0000   (n = 246099)
+  D units 5,9 off at s+1: baseline P(p0) on same subset          0.9731   (n = 246099)
+  D units 5,9 off at s+1: baseline P(answer = s) on same subset  0.0052   (n = 246099)
+  E unit0 linear at s+2: P(p0)                                   0.5948   (n = 184521)
+  E unit0 linear at s+2: P(answer = new max s)                   0.3148   (n = 184521)
+  E unit0 linear at s+2: baseline P(p0) on same subset           0.9727   (n = 184521)
+  E unit0 linear at s+2: baseline P(answer = s) on same subset   0.0049   (n = 184521)
+logit of the old max p0 minus mean logit of bystander positions (n = 308202 with >= 1 bystander):
+   no-new-max counterfactual, final logits : 12.91   | with the unit-5 pulse at p0+1 removed: -11.51
+   actual final logits                     : 40.86   | with the pulse removed: 15.16
+   created by the new max (actual - counterfactual): 27.95 | with the pulse removed: 26.66
+   provisional scores U h_(s-1) just before the new max: 18.46 | with the pulse removed: -9.85
+   old runner-up q0: counterfactual 17.83, actual 14.09
+
+=== part 3: interventions after every positive new maximum (s = 0 included), all sequences (seeds 7046, 7047)
+  records per sequence: 2.237
+  records per sequence: 2.236
+  unit 5 off at s+1                agreement 0.4995  accuracy 0.4931 (baseline 0.9533)  share of changed answers that are the max 0.0552
+  unit 9 off at s+1                agreement 0.6752  accuracy 0.6647 (baseline 0.9533)  share of changed answers that are the max 0.8759
+  units 5 and 9 off at s+1         agreement 0.4757  accuracy 0.4703 (baseline 0.9533)  share of changed answers that are the max 0.0604
+  unit 0 linear at s+2             agreement 0.7744  accuracy 0.7622 (baseline 0.9533)  share of changed answers that are the max 0.6588
+  unit 0 linear at s+1 (control)   agreement 0.9994  accuracy 0.9531 (baseline 0.9533)  share of changed answers that are the max 0.0039

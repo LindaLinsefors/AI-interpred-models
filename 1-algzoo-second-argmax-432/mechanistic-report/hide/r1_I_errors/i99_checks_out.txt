@@ -1,0 +1,14 @@
+1. accuracy: describe 0.9531  common.accuracy 0.9531
+2. rank and margin sign agree with a sort-based computation on 20000 sequences
+3. (a) unit 4 := oracle: fast and slow implementations agree on 1.0000
+3. (b1) unit 4 off unless new max: fast and slow implementations agree on 1.0000
+3. (b1') unit 4 off unless x_t > max(M,0): fast and slow implementations agree on 1.0000
+3. (b2) unit 4 := oracle at misses: fast and slow implementations agree on 1.0000
+3. (b) = b1 + b2: fast and slow implementations agree on 1.0000
+3. (c) unit 5 off after x_t < S_prev: fast and slow implementations agree on 1.0000
+3. (c') unit 5 off after x_t < max(S_prev,0): fast and slow implementations agree on 1.0000
+3. (d) = b1 + b2 + c: fast and slow implementations agree on 1.0000
+3. (a) + (c): fast and slow implementations agree on 1.0000
+4. takeover offset of (p_e, p_l, p_M) = (1, 7, 0): +0.05222; same input scaled by 3.7: +0.05222;  direct scan in E5 gave (0.5522 - 0.5)/1 = +0.0522
+5. max |sum_p c_p x_p - (logit[pS] - logit[pT])| = 7.389644451905042e-13
+6. unit 4 on iff x_t > theta_4: 1.0 ;  h4 == 10.157*max(x - theta_4, 0): max abs err 1.2434497875801753e-14

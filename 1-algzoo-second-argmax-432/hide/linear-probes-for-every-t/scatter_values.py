@@ -5,7 +5,7 @@ Same network, data, split and probes as linear_probes.py: affine least squares
 y ~ w . h_t + b fit on the training rows; only the held-out rows are plotted.
 
 Run:  python scatter_values.py [t] [n_train] [seed]     (default t = 9, 200,000, seed 0)
-Writes scatter_values_t{t}.png into OUT (../../<this folder's name>/).
+Writes scatter_values_t{t}.png into OUT (../../archived-probed/<this folder's name>/).
 """
 import sys
 

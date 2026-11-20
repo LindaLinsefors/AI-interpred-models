@@ -1,0 +1,43 @@
+selected sequences: 152690
+unmodified: P(answer = p0) = 0.990
+
+(1) radius scaled by f: e18's edit (may leave negative activations) versus the same edit followed by clipping at 0
+    f   | e18: P(p0) P(q0) P(new max) | clipped: P(p0) P(q0) P(new max) | states with a negative activation after the edit; median number of negative units; median of min(h)/M0 among those; share of |h| that is negative | clipped: median |z_real/z_target| (f>0) or |z_real|/|z_orig|
+   0.00 |      0.019 0.164 0.775     |          0.019 0.163 0.776     | 0.089;  1;    -0.23;  0.0006 | nan
+   0.25 |      0.098 0.120 0.766     |          0.097 0.119 0.767     | 0.083;  1;    -0.17;  0.0004 | 1.000
+   0.50 |      0.342 0.053 0.596     |          0.342 0.052 0.597     | 0.081;  1;    -0.11;  0.0003 | 1.000
+   0.75 |      0.889 0.008 0.102     |          0.889 0.008 0.102     | 0.079;  1;    -0.05;  0.0001 | 1.000
+   1.00 |      0.990 0.001 0.008     |          0.990 0.001 0.008     | 0.000;  0;     0.00;  0.0000 | 1.000
+   1.50 |      0.893 0.017 0.072     |          0.838 0.023 0.102     | 0.983;  2;    -3.03;  0.0419 | 0.969
+   2.00 |      0.746 0.048 0.135     |          0.676 0.037 0.184     | 0.996;  3;    -6.14;  0.0913 | 0.935
+    f = 0 with clipping: median |z_real| / |z_original| = 0.0
+
+(2) phase advanced by k steps: e18's edit versus clipped; and the overlap of 'answer = p0 + j' with the old runner-up q0
+    k  | e18: P(p0) P(p0-1) P(p0-2) P(p0+1) P(p0+2) | clipped: P(p0) P(p0-1) P(p0-2) P(p0+1) P(p0+2) | neg. states | P(answer = p0-k) of which q0 = p0-k | P(answer = p0-k | q0 != p0-k) | P(answer = p0-k | q0 = p0-k)
+   -3  |      0.000 0.000  0.000  0.011  0.058  |          0.000 0.000  0.000  0.011  0.054  |   0.332     |   0.389   0.089   |   0.346   |   0.667 (n=20405)   | target exists (0 <= p0-k <= tr-2): 0.537
+   -2  |      0.002 0.000  0.000  0.153  0.321  |          0.002 0.000  0.000  0.151  0.320  |   0.380     |   0.321   0.132   |   0.233   |   0.704 (n=28581)   | target exists (0 <= p0-k <= tr-2): 0.760
+   -1  |      0.093 0.000  0.000  0.474  0.154  |          0.090 0.000  0.000  0.481  0.152  |   0.406     |   0.474   0.178   |   0.363   |   0.961 (n=28262)   | target exists (0 <= p0-k <= tr-2): 1.000
+   +0  |      0.990 0.000  0.000  0.001  0.000  |          0.990 0.000  0.000  0.001  0.000  |   0.000     |   0.990   0.000   |   0.990   |   .   | target exists (0 <= p0-k <= tr-2): 1.000
+   +1  |      0.458 0.381  0.077  0.000  0.000  |          0.413 0.414  0.075  0.000  0.000  |   0.678     |   0.381   0.131   |   0.290   |   0.963 (n=20723)   | target exists (0 <= p0-k <= tr-2): 0.761
+   +2  |      0.071 0.298  0.249  0.000  0.000  |          0.057 0.294  0.240  0.000  0.000  |   0.638     |   0.249   0.085   |   0.180   |   0.946 (n=13777)   | target exists (0 <= p0-k <= tr-2): 0.538
+   +3  |      0.010 0.073  0.193  0.000  0.001  |          0.009 0.067  0.188  0.000  0.000  |   0.551     |   0.181   0.052   |   0.137   |   0.962 (n=8228)   | target exists (0 <= p0-k <= tr-2): 0.341
+
+(3) specificity: the same two edits applied to other modes of the resting map (e18's unclipped edit):
+    mode     f=0: P(p0)  P(new max)  |  rotate by -1 step of that mode's own angle: P(p0) P(p0+1)  |  rotate by +1: P(p0) P(p0-1)
+    level        0.301     0.006     |  (real mode)
+    runner       0.219     0.549     |  (real mode)
+    clock        0.019     0.775     |  0.093 0.474                           |  0.458 0.381
+    h2           0.828     0.063     |  0.762 0.145                           |  0.713 0.085
+    alt          0.971     0.020     |  (real mode)
+    h3           0.928     0.036     |  0.829 0.073                           |  0.842 0.036
+    short        0.846     0.068     |  0.895 0.037                           |  0.869 0.006
+    trans        0.989     0.009     |  (real mode)
+    echo         0.991     0.008     |  (real mode)
+
+(4) by age g of the old max just before the record (e18 pools g >= 2): clock f = 0 and k = -1, +1 (unclipped)
+    g = 2: n =  36670   f=0: P(p0) = 0.022   k=-1: P(p0+1) = 0.445, P(p0) = 0.140   k=+1: P(p0-1) = 0.403, P(p0) = 0.392, P(p0-1 exists) = 0.928
+    g = 3: n =  34076   f=0: P(p0) = 0.011   k=-1: P(p0+1) = 0.339, P(p0) = 0.116   k=+1: P(p0-1) = 0.370, P(p0) = 0.490, P(p0-1 exists) = 0.882
+    g = 4: n =  30152   f=0: P(p0) = 0.032   k=-1: P(p0+1) = 0.456, P(p0) = 0.092   k=+1: P(p0-1) = 0.447, P(p0) = 0.435, P(p0-1 exists) = 0.822
+    g = 5: n =  24621   f=0: P(p0) = 0.015   k=-1: P(p0+1) = 0.515, P(p0) = 0.066   k=+1: P(p0-1) = 0.464, P(p0) = 0.418, P(p0-1 exists) = 0.724
+    g = 6: n =  17753   f=0: P(p0) = 0.014   k=-1: P(p0+1) = 0.660, P(p0) = 0.023   k=+1: P(p0-1) = 0.333, P(p0) = 0.461, P(p0-1 exists) = 0.533
+    g = 7: n =   9418   f=0: P(p0) = 0.016   k=-1: P(p0+1) = 0.672, P(p0) = 0.031   k=+1: P(p0-1) = 0.000, P(p0) = 0.774, P(p0-1 exists) = 0.000

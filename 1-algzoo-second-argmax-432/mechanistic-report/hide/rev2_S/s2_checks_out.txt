@@ -1,0 +1,68 @@
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\rev2_S\s2_checks.py:24: RuntimeWarning: Mean of empty slice.
+  print(f"  step {s}: {off[nm].mean():.3f}  (n={nm.sum()});  with old runner-up > 0: {off[nm & (S0 > 0)].mean():.3f}")
+C:\Users\linda\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+=== 2. New maximum over a positive old maximum: share with all four comparators exactly zero ===
+  step 1: 0.988  (n=124686);  with old runner-up > 0: nan
+  step 2: 0.988  (n=166475);  with old runner-up > 0: 0.983
+  step 3: 0.980  (n=172005);  with old runner-up > 0: 0.974
+  step 4: 0.958  (n=162187);  with old runner-up > 0: 0.952
+  step 5: 0.930  (n=148620);  with old runner-up > 0: 0.926
+  step 6: 0.904  (n=133663);  with old runner-up > 0: 0.899
+  step 7: 0.886  (n=120902);  with old runner-up > 0: 0.883
+  step 8: 0.868  (n=109558);  with old runner-up > 0: 0.865
+  step 9: 0.870  (n=99084);  with old runner-up > 0: 0.869
+  pooled steps 1..8: 0.943
+  by age of the old maximum at the step of the new one (1..8): 0.985, 0.987, 0.968, 0.891, 0.831, 0.770, 0.767, 0.749
+  old maximum at least 3 steps old at the new one (= age >= 2 one step before), S0 > 0.2, M0 - S0 > 0.1: 0.836 (n=227285)
+  old maximum at least 3 steps old, no other condition: 0.884; share of all new maxima at steps 1..8: 0.426
+
+=== 4. Launch: clock radius one step after a new maximum against unit 4's pulse (gauge: h4 writes 1) ===
+  |z(s+1)| / h4(s), all new maxima at s = 1..8:      median 1.07, 10%..90% 0.44..2.08
+  same, next input below half the old maximum:      median 1.15, 10%..90% 0.86..2.27
+    old maximum 1 steps old at s: median 1.22, 10%..90% 1.03..2.61
+    old maximum 2 steps old at s: median 1.29, 10%..90% 1.04..2.96
+    old maximum 3 steps old at s: median 1.23, 10%..90% 1.04..2.50
+    old maximum 5 steps old at s: median 0.80, 10%..90% 0.42..0.97
+    old maximum 7 steps old at s: median 0.92, 10%..90% 0.81..1.32
+  share with |z(s+1)|/h4(s) outside 0.9..1.1 (quiet next step): 0.695
+
+=== 12. What is left of the clock coordinate at the step of the new maximum: |z(s)| / |z(s-1)| ===
+  old maximum 2 steps old at s (all four comparators off): median 0.40 (n=269579)
+  old maximum 3 steps old at s (all four comparators off): median 0.42 (n=184449)
+  old maximum 4 steps old at s (all four comparators off): median 0.39 (n=118501)
+  old maximum 5 steps old at s (all four comparators off): median 0.36 (n=76934)
+  old maximum 6 steps old at s (all four comparators off): median 0.42 (n=48907)
+  old maximum 7 steps old at s (all four comparators off): median 0.58 (n=31468)
+  old maximum 8 steps old at s (all four comparators off): median 0.69 (n=17739)
+
+=== 5. Margin logit[runner-up] - logit[max] at t = 9 (a1 >= 2, a2 >= 1, S > 0.2): regression ===
+  margin ~ 10.29 (M - S) + 8.93 S + -0.28 x9   (n=685486)
+  relative gap (0.05, 0.15]: median margin/M = 7.09
+  relative gap (0.15, 0.3]: median margin/M = 8.53
+  relative gap (0.3, 0.5]: median margin/M = 8.98
+  relative gap (0.5, 0.8]: median margin/M = 8.09
+  median margin/M by distance D = 1..8 (relative gap 0.3-0.5): 4.7, 7.4, 9.8, 13.3, 16.1, 15.0, 15.5, 23.8
+  median margin/M by distance D = 1..8 (all relative gaps > 0.05): 4.5, 6.8, 9.1, 13.0, 14.7, 12.7, 12.4, 18.5
+
+=== 6. d theta_j(t+1) / d x_t with all four comparators on and unit 4 off at t (exact, through all 16 units) ===
+  n = 5789659;  mean |.| per threshold: [0.007 0.007 0.001 0.011];  99th pct: [0.012 0.016 0.002 0.014];  max: [0.013 0.016 0.002 0.014]
+  share of states with max_j |.| > 0.011: 0.413;  > 0.05: 0.0000
+
+=== 7. Largest entry of m_t among the inputs before x_t is the maximum: with and without S_t > 0 ===
+  maximum 1 steps old: S_t > 0: 0.962;  all states with M_t > 0: 0.968;  share with S_t <= 0: 0.183
+  maximum 2 steps old: S_t > 0: 0.990;  all states with M_t > 0: 0.992;  share with S_t <= 0: 0.183
+  maximum 3 steps old: S_t > 0: 0.888;  all states with M_t > 0: 0.896;  share with S_t <= 0: 0.116
+  maximum 4 steps old: S_t > 0: 0.924;  all states with M_t > 0: 0.928;  share with S_t <= 0: 0.073
+  maximum 5 steps old: S_t > 0: 0.995;  all states with M_t > 0: 0.995;  share with S_t <= 0: 0.048
+  maximum 6 steps old: S_t > 0: 0.993;  all states with M_t > 0: 0.993;  share with S_t <= 0: 0.031
+  maximum 7 steps old: S_t > 0: 0.988;  all states with M_t > 0: 0.988;  share with S_t <= 0: 0.021
+  maximum 8 steps old: S_t > 0: 0.992;  all states with M_t > 0: 0.992;  share with S_t <= 0: 0.014
+
+=== 8. Runner coordinate / w4 on (M, S+), states with a1 >= 2, t >= 2 ===
+  S > 0.05: runner/w4 ~ 1.86 M + 5.57 S+ ; uncentred R2 0.979; centred R2 after dividing by M 0.720
+  all S (S+ used): runner/w4 ~ 1.89 M + 5.52 S+ ; uncentred R2 0.979; centred R2 after dividing by M 0.792
+
+=== 9. Old maximum (>= 2 steps old one step before) overtaken at s <= 8 and true runner-up at the end: answered? ===
+  all four off: P(answer = old maximum) = 0.977 (n=193493)
+  some comparator on: P(answer = old maximum) = 0.945 (n=37645)

@@ -1,0 +1,47 @@
+=== N1. Null space of Uo (10 x 13, rank 10) against the level and clock eigenvectors ===
+dim ker Uo = 3
+principal angles (deg) between ker Uo and span{level, Re clock, Im clock}: [58.538  7.892  3.985]
+principal angles (deg) between ker Uo and span{runner, Re clock, Im clock}: [55.893 36.557  3.831]
+  level   re: fraction of the eigenvector's norm inside ker Uo = 0.816
+  runner  re: fraction of the eigenvector's norm inside ker Uo = 0.650
+  clock   re: fraction of the eigenvector's norm inside ker Uo = 0.810
+  clock   im: fraction of the eigenvector's norm inside ker Uo = 0.987
+  h2      re: fraction of the eigenvector's norm inside ker Uo = 0.300
+  h2      im: fraction of the eigenvector's norm inside ker Uo = 0.379
+  alt     re: fraction of the eigenvector's norm inside ker Uo = 0.132
+  h3      re: fraction of the eigenvector's norm inside ker Uo = 0.220
+  h3      im: fraction of the eigenvector's norm inside ker Uo = 0.157
+  short   re: fraction of the eigenvector's norm inside ker Uo = 0.663
+  short   im: fraction of the eigenvector's norm inside ker Uo = 0.799
+  trans   re: fraction of the eigenvector's norm inside ker Uo = 0.694
+  echo    re: fraction of the eigenvector's norm inside ker Uo = 0.584
+readout of indices 0-8 with their mean removed: rank 8  singular values [18.872 17.582  8.053  5.596  4.298  3.426  2.355  2.158  0.   ]
+  principal angles (deg) between its null space (dim 5) and span{level, runner, Re clock, Im clock}: [6.161 3.94  1.845 0.408]
+
+=== N2. Pure clock state, comparators set to zero: how much of the clock coordinate is left? ===
+z' = a z + b conj(z):  a = 0.494 @ -68.0 deg,  b = 0.035 @ 145.7 deg
+share of |LEFT_clock|^2 on the comparators: 0.9658969558260172
+share of |RIGHT_clock|^2 on the comparators: 0.11427315913756696
+readout of the two halves of the clock right vector, indices 0-7: |U_comp R_comp|, |U_wave R_wave|, |sum|:
+   [6.59 8.4  8.42 7.26 7.1  7.39 6.44 5.56] [8.18 9.54 9.16 7.74 7.48 7.75 6.79 5.7 ] [1.63 1.18 0.75 0.47 0.38 0.4  0.37 0.47]
+   sum/(|a|+|b|) overall: 0.04734065824182971
+
+=== N3. What 'row 9 = 1.4 x the sum of all scores' means on data ===
+t=3: corr(sum of scores, M) = -0.211; slope of sum on M = -5.16; rms(sum)/rms(score entries) = 0.525; corr(next index-9 score, 1.43*sum) = 0.183; slope of next index-9 score on M = -1.20
+t=5: corr(sum of scores, M) = -0.383; slope of sum on M = -12.94; rms(sum)/rms(score entries) = 0.646; corr(next index-9 score, 1.43*sum) = 0.396; slope of next index-9 score on M = -9.60
+t=7: corr(sum of scores, M) = -0.477; slope of sum on M = -18.14; rms(sum)/rms(score entries) = 0.748; corr(next index-9 score, 1.43*sum) = 0.443; slope of next index-9 score on M = -15.18
+
+=== N4. m_t ranks the maximum first: t = 9 against t = 8, by index of the maximum ===
+t=8: overall 0.966
+   by index of the maximum (0..8): 1:0.992 2:0.990 3:0.993 4:0.994 5:0.928 6:0.890 7:0.981 8:0.961
+   when wrong, index chosen: 1:0.08 2:0.06 3:0.06 4:0.15 5:0.07 6:0.02 7:0.31 8:0.25
+t=9: overall 0.890
+   by index of the maximum (0..8): 0:0.302 1:0.992 2:0.977 3:0.993 4:0.993 5:0.928 6:0.887 7:0.974 8:0.965
+   when wrong, index chosen: 0:0.01 1:0.48 2:0.09 3:0.03 4:0.05 5:0.03 6:0.03 7:0.19 8:0.08
+   t=9 with index 0 excluded from the candidates and from the cases: 0.965
+
+=== N5. Panel a: median |z|/(K M) by age of the maximum and relative gap, against the gap itself ===
+gap/M in [0.0,0.05) (median 0.03): radius/M at ages 1..9: 0.21 0.24 0.19 0.16 0.16 0.13 0.14 0.14 0.14   radius/gap at ages 2, 5, 9: 9.49 6.30 5.57
+gap/M in [0.15,0.3) (median 0.22): radius/M at ages 1..9: 0.37 0.40 0.36 0.34 0.34 0.35 0.35 0.35 0.35   radius/gap at ages 2, 5, 9: 1.77 1.53 1.54
+gap/M in [0.45,0.6) (median 0.52): radius/M at ages 1..9: 0.62 0.64 0.61 0.57 0.56 0.55 0.53 0.52 0.51   radius/gap at ages 2, 5, 9: 1.22 1.08 0.98
+gap/M in [0.85,1.0) (median 0.92): radius/M at ages 1..9: 0.93 0.93 0.90 0.87 0.84 0.81 0.77 0.73 0.69   radius/gap at ages 2, 5, 9: 1.02 0.92 0.76

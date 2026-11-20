@@ -1,0 +1,107 @@
+=== (H) [EXACT] free-flow theta_4 after an isolated record: mode coordinates of the impulse at age 2, propagated with lam^k ===
+  mode coordinates / 10.157 at age 1 and age 2 of the impulse (age 1 would be exactly 1 for a pure kick):
+   level  : age 1: +1.0063;  age 2: +0.9274
+   runner : age 1: +1.0873;  age 2: +2.3702
+   clock  : age 1: 0.9655 @    0.08 deg;  age 2: 0.9639 @   36.39 deg
+   h2     : age 1: 1.0058 @   -1.14 deg;  age 2: 0.1082 @   37.20 deg
+   alt    : age 1: +0.9841;  age 2: +0.1764
+   h3     : age 1: 0.9747 @    0.28 deg;  age 2: 0.0327 @    7.37 deg
+   short  : age 1: 0.9373 @   -1.80 deg;  age 2: 0.2138 @   39.47 deg
+   trans  : age 1: +0.9541;  age 2: +0.1075
+   echo   : age 1: +0.9465;  age 2: -0.3893
+  age | actual theta_4 | free flow from age 2 | level+runner part | clock part | actual with background -1 | free flow, clock removed
+   2 | 0.9631 | 0.9633 | 0.8214 | +0.1340 | 0.9629 | 0.8292
+   3 | 0.8807 | 0.8815 | 0.8264 | +0.0440 | 0.8783 | 0.8375
+   4 | 0.7801 | 0.7798 | 0.8317 | -0.0597 | 0.7720 | 0.8395
+   5 | 0.7175 | 0.7159 | 0.8370 | -0.1232 | 0.7029 | 0.8391
+   6 | 0.7262 | 0.7250 | 0.8425 | -0.1181 | 0.7100 | 0.8430
+   7 | 0.7947 | 0.7933 | 0.8481 | -0.0535 | 0.7824 | 0.8467
+   8 | 0.8854 | 0.8833 | 0.8538 | +0.0321 | 0.8777 | 0.8512
+
+=== (A) closed loop: threshold after a record, network vs oracle-patched run  [INTERVENTION, n = 400k, seed 1070] ===
+theta_4 for the next input, relative to the standing max: mean of (theta_4 - M)/M by age of the max, M > 0
+age | network | oracle-patched run
+0 | -0.0122 | -0.0290
+1 | -0.0216 | -0.0362
+2 | -0.0297 | -0.0413
+3 | -0.0747 | -0.0825
+4 | -0.1269 | -0.1321
+5 | -0.1638 | -0.1692
+6 | -0.1601 | -0.1683
+7 | -0.1194 | -0.1309
+8 | -0.0685 | -0.0820
+
+records at step s over a positive old max (M_old > 0.2): threshold two steps later, theta_4(s+2) - M_new, against the sag before the record, sag = M_old - theta_4(s)
+(network: slope ~ 0 means the record resets the threshold whatever the sag; oracle run: slope -1 would mean the sag is carried over)
+  network    theta_4(s+1) - M_new: = +0.1040*sag -0.0150*M_new -0.0004*M_old  (R2c 0.8369); mean -0.0177; mean sag 0.0387
+  network    theta_4(s+2) - M_new: = +0.1532*sag -0.0245*M_new -0.0010*M_old  (R2c 0.7783); mean -0.0298; mean sag 0.0387
+  oracle run theta_4(s+1) - M_new: = -0.8816*sag -0.0149*M_new -0.0015*M_old  (R2c 0.9947); mean -0.0611; mean sag 0.0440
+  oracle run theta_4(s+2) - M_new: = -0.8168*sag -0.0242*M_new -0.0030*M_old  (R2c 0.9828); mean -0.0728; mean sag 0.0440
+
+=== (B) level perturbation: which gates change, and do answers change without gate changes?  [INTERVENTION, n = 400k, seed 1071] ===
+t0 | f | P(answer changed) | P(no gate change at all after t0) | P(answer changed | no gate change) | of changed answers: unit-4 gate changed | comparator gate changed | pulse 5/9 gate changed | wave gate changed | P(changed | only wave gates changed) | n(only wave)
+3 | 0.8 | 0.2157 | 0.1093 | 0.0152 | 0.201 | 0.637 | 0.414 | 0.987 | 0.1286 | 175691
+3 | 0.9 | 0.1157 | 0.1959 | 0.0213 | 0.116 | 0.437 | 0.278 | 0.944 | 0.0920 | 206175
+3 | 1.1 | 0.1315 | 0.2187 | 0.0443 | 0.091 | 0.275 | 0.474 | 0.863 | 0.0933 | 176172
+3 | 1.2 | 0.2013 | 0.1187 | 0.0392 | 0.182 | 0.441 | 0.500 | 0.948 | 0.1341 | 165855
+5 | 0.8 | 0.2987 | 0.0557 | 0.0773 | 0.148 | 0.513 | 0.300 | 0.973 | 0.2223 | 207672
+5 | 0.9 | 0.1535 | 0.2122 | 0.0881 | 0.085 | 0.352 | 0.206 | 0.817 | 0.1246 | 210181
+5 | 1.1 | 0.1644 | 0.1479 | 0.1128 | 0.065 | 0.215 | 0.449 | 0.790 | 0.1029 | 215236
+5 | 1.2 | 0.2505 | 0.0628 | 0.1380 | 0.131 | 0.334 | 0.432 | 0.909 | 0.1774 | 205056
+7 | 0.8 | 0.3104 | 0.1572 | 0.2081 | 0.116 | 0.318 | 0.211 | 0.823 | 0.2530 | 222141
+7 | 0.9 | 0.1529 | 0.4201 | 0.1071 | 0.078 | 0.218 | 0.166 | 0.576 | 0.1345 | 165104
+7 | 1.1 | 0.1441 | 0.3678 | 0.1078 | 0.054 | 0.161 | 0.404 | 0.547 | 0.0766 | 163780
+7 | 1.2 | 0.2069 | 0.2534 | 0.1055 | 0.108 | 0.255 | 0.379 | 0.726 | 0.1502 | 180869
+
+--- which step's comparator gates change first, relative to the arrival of the final runner-up (t0 = 3, f = 1.2 and 0.8) ---
+  f = 1.2: P(answer changed) by where the true runner-up q and the max p sit relative to t0:
+    q <= t0, p <= t0 (both already seen): share of sequences 0.133; P(changed) 0.4951; of the changed: new answer = argmax 0.948, new = 3rd largest 0.029; base acc 0.960 -> 0.499
+    q > t0, p <= t0 (runner-up arrives later): share of sequences 0.268; P(changed) 0.0860; of the changed: new answer = argmax 0.500, new = 3rd largest 0.192; base acc 0.944 -> 0.917
+    q <= t0, p > t0 (max arrives later): share of sequences 0.265; P(changed) 0.3365; of the changed: new answer = argmax 0.940, new = 3rd largest 0.028; base acc 0.961 -> 0.650
+    q > t0, p > t0: share of sequences 0.334; P(changed) 0.0692; of the changed: new answer = argmax 0.286, new = 3rd largest 0.557; base acc 0.952 -> 0.901
+  f = 0.8: P(answer changed) by where the true runner-up q and the max p sit relative to t0:
+    q <= t0, p <= t0 (both already seen): share of sequences 0.133; P(changed) 0.3949; of the changed: new answer = argmax 0.188, new = 3rd largest 0.407; base acc 0.960 -> 0.603
+    q > t0, p <= t0 (runner-up arrives later): share of sequences 0.268; P(changed) 0.3019; of the changed: new answer = argmax 0.476, new = 3rd largest 0.275; base acc 0.944 -> 0.680
+    q <= t0, p > t0 (max arrives later): share of sequences 0.265; P(changed) 0.2546; of the changed: new answer = argmax 0.007, new = 3rd largest 0.685; base acc 0.961 -> 0.724
+    q > t0, p > t0: share of sequences 0.334; P(changed) 0.0441; of the changed: new answer = argmax 0.081, new = 3rd largest 0.291; base acc 0.952 -> 0.941
+
+=== (C) the same perturbation followed by clipping negative activations to 0 (physical states), compared with the unclipped one ===
+t0 | f | P(answer changed): unclipped | clipped | accuracy: unclipped | clipped | level ratio actually achieved after clipping (median)
+3 | 0.8 | 0.2157 | 0.1909 | 0.7685 | 0.7913 | 0.8125
+3 | 0.9 | 0.1157 | 0.0960 | 0.8624 | 0.8810 | 0.9020
+5 | 0.8 | 0.2987 | 0.2378 | 0.6910 | 0.7493 | 0.8156
+5 | 0.9 | 0.1535 | 0.1109 | 0.8302 | 0.8699 | 0.9067
+7 | 0.8 | 0.3104 | 0.2714 | 0.6791 | 0.7206 | 0.8116
+7 | 0.9 | 0.1529 | 0.1189 | 0.8309 | 0.8666 | 0.9026
+
+=== (D) reset of the state before the first positive input, sequences with >= 2 positive inputs (runner-up positive)  [INTERVENTION, n = 100k per s, seed 1072] ===
+s | n with >= 2 positives | answer agreement | acc actual | acc reset || exactly 1 positive: n | agreement | acc actual | acc reset
+1 | 99597 | 0.9977 | 0.9655 | 0.9652 || 403 | 0.8759 | 0.1886 | 0.1588
+2 | 99261 | 0.9938 | 0.9687 | 0.9677 || 739 | 0.6874 | 0.2530 | 0.1894
+3 | 98371 | 0.9914 | 0.9700 | 0.9676 || 1629 | 0.3714 | 0.2805 | 0.2081
+4 | 96941 | 0.9903 | 0.9729 | 0.9678 || 3059 | 0.3939 | 0.2386 | 0.1406
+5 | 93818 | 0.9821 | 0.9701 | 0.9590 || 6182 | 0.2599 | 0.2258 | 0.1173
+6 | 87251 | 0.9716 | 0.9687 | 0.9499 || 12749 | 0.2760 | 0.2290 | 0.1177
+7 | 74869 | 0.9525 | 0.9774 | 0.9434 || 25131 | 0.1743 | 0.2529 | 0.1096
+8 | 49915 | 0.9359 | 0.9867 | 0.9301 || 50085 | 0.1019 | 0.2602 | 0.1131
+
+=== (E) accuracy against S/M through zero  [MEASURED; one positive: seed 1073, two positives: seed 1074, 400k each] ===
+positives | S/M bin | n | accuracy
+1 | [-inf, -1) | 39868 | 0.0705
+1 | [-1, -0.5) | 37435 | 0.1022
+1 | [-0.5, -0.2) | 85605 | 0.1293
+1 | [-0.2, -0.1) | 77919 | 0.1692
+1 | [-0.1, -0.05) | 64574 | 0.2575
+1 | [-0.05, -0.02) | 52307 | 0.4035
+1 | [-0.02, -0.01) | 20300 | 0.5172
+1 | [-0.01, 0) | 21992 | 0.6018
+2 | [0, 0.01) | 5030 | 0.6815
+2 | [0.01, 0.02) | 5086 | 0.7532
+2 | [0.02, 0.05) | 15227 | 0.8708
+2 | [0.05, 0.1) | 25561 | 0.9511
+2 | [0.1, 0.2) | 49785 | 0.9853
+2 | [0.2, 0.5) | 135235 | 0.9984
+2 | [0.5, 0.8) | 107598 | 0.9989
+2 | [0.8, 0.9) | 29695 | 0.9975
+2 | [0.9, 0.95) | 13799 | 0.9956
+2 | [0.95, 1) | 12984 | 0.8943

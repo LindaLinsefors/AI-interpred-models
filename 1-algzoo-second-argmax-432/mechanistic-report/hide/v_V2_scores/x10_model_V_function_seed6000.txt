@@ -1,0 +1,19 @@
+seeds 6000..6009; n = 1206178 (train 603089, test 603089)
+
+scored on the test half, indices 0..7:
+model of V                                R^2 of V (centred per state)   P(argmax(m + V_model) = runner-up)   P(= max)   P(score[p2] > score[p1])   P(runner-up first among non-max)
+L0 no vote (m alone)                       0.000                        0.0759                             0.8732     0.0837                     0.4122
+L1 literal -60 (M - 0.87 S) cos            0.907                        0.6110                             0.1203     0.7576                     0.6743
+L2 fitted -65.8 (M - 0.896 S) cos          0.911                        0.6261                             0.0783     0.8200                     0.6730
+L3 lead's regression per a1                0.963                        0.8394                             0.0325     0.9548                     0.8699
+L4 same regression per (a1, a2) cell       0.984                        0.9635                             0.0028     0.9957                     0.9659
+L5 sinusoid part of the true V             0.972                        0.8032                             0.0586     0.9054                     0.8403
+true V                                     1.000                        0.9744                             0.0062     0.9929                     0.9803
+
+by gap/M of the top two (test half): P(argmax = runner-up) for L1, L3, L4, L5, true
+  gap (0, 0.05]: 0.761  0.831  0.956  0.783  0.920   n = 52457
+  gap (0.05, 0.15]: 0.747  0.852  0.973  0.889  0.988   n = 104991
+  gap (0.15, 0.3]: 0.686  0.850  0.972  0.884  0.986   n = 150122
+  gap (0.3, 0.5]: 0.568  0.850  0.967  0.824  0.982   n = 163569
+  gap (0.5, 0.8]: 0.425  0.821  0.955  0.647  0.967   n = 119491
+  gap (0.8, 1.0]: 0.279  0.666  0.849  0.417  0.911   n = 12459

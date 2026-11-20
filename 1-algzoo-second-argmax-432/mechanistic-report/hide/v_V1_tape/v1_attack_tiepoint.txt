@@ -1,0 +1,7 @@
+states: 29647  (S > 0.2 and (M-S)/M > 0.32)
+share: tie below -0.3: 0.0000 | tie inside [-0.3, 0.3]: 0.9989 | newest input still below the old runner-up's score at v = +0.3: 0.0011
+tie point v* (units of M; 0 = exact comparison with the runner-up): median -0.0131  mean -0.0091  sd 0.0287  pct 1,5,25,75,95,99: [-0.067 -0.049 -0.025  0.004  0.039  0.094]
+   share with |v*| < 0.01: 0.249 ; < 0.02: 0.544 ; < 0.05: 0.919 ; < 0.1: 0.990
+   by t (median / sd): t2: +0.0100/0.022  t3: -0.0059/0.041  t4: -0.0112/0.033  t5: -0.0152/0.028  t6: -0.0158/0.024  t7: -0.0135/0.023  t8: -0.0103/0.025  t9: -0.0114/0.030
+   by age of the runner-up at t (median / sd): a1: -0.0101/0.039  a2: -0.0084/0.022  a3: -0.0137/0.029  a4: -0.0149/0.018  a5: -0.0183/0.017  a6: -0.0126/0.018  a7: -0.0087/0.021  a8: -0.0074/0.034  a9: -0.0156/0.051
+   in units of S instead of M: median -0.0263, sd 0.0956

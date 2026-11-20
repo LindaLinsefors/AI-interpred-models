@@ -1,0 +1,191 @@
+overall accuracy: 0.95296
+
+=== record at s = 3, old max age g = 1 (p0 = 2): n = 1026, network answers p0 in 0.976 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -10.41      6.62      5.34
+     p = x_p0 (old max)                  22.61     27.00    -17.35
+     p = x_q0 (old 2nd)                  -1.30    -15.94     25.36
+   margin logit[p0 - q0]: mean total   12.76 = from x_s    2.07 + from x_p0   45.47 + from x_q0  -33.80 + from all other inputs   -0.99
+   margin logit[p0 - s ]: mean total   10.22 = from x_s   23.52 + from x_p0    1.95 + from x_q0  -15.51 + from all other inputs    0.26
+   [FIT] logit[p0 - q0] ~    1.50 (Mn-M0) +   31.46 (M0-S0) +    2.78 S0    R2 = 0.833
+   [FIT] logit[p0 - s ] ~    8.19 (Mn-M0) +    6.06 (M0-S0) +    5.57 S0    R2 = 0.819
+
+=== record at s = 3, old max age g = 2 (p0 = 1): n = 1075, network answers p0 in 0.994 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -6.98      2.17      3.40
+     p = x_p0 (old max)                  17.97     22.91     -1.90
+     p = x_q0 (old 2nd)                   1.39     -7.65     11.45
+   margin logit[p0 - q0]: mean total   10.62 = from x_s   -1.87 + from x_p0   26.34 + from x_q0  -14.34 + from all other inputs    0.49
+   margin logit[p0 - s ]: mean total   10.24 = from x_s   14.68 + from x_p0    2.34 + from x_q0   -8.05 + from all other inputs    1.27
+   [FIT] logit[p0 - q0] ~   -0.43 (Mn-M0) +   19.79 (M0-S0) +    5.74 S0    R2 = 0.759
+   [FIT] logit[p0 - s ] ~    4.59 (Mn-M0) +   13.02 (M0-S0) +    4.30 S0    R2 = 0.833
+
+=== record at s = 3, old max age g = 3 (p0 = 0): n = 1004, network answers p0 in 0.988 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -10.33      6.39      1.76
+     p = x_p0 (old max)                  20.24     23.87    -12.47
+     p = x_q0 (old 2nd)                   2.26    -14.77     20.76
+   margin logit[p0 - q0]: mean total   14.33 = from x_s    6.35 + from x_p0   35.04 + from x_q0  -28.12 + from all other inputs    1.07
+   margin logit[p0 - s ]: mean total   11.50 = from x_s   23.98 + from x_p0   -0.24 + from x_q0  -13.42 + from all other inputs    1.19
+   [FIT] logit[p0 - q0] ~    0.83 (Mn-M0) +   27.10 (M0-S0) +    6.40 S0    R2 = 0.893
+   [FIT] logit[p0 - s ] ~    7.96 (Mn-M0) +   13.98 (M0-S0) +    3.36 S0    R2 = 0.735
+
+=== record at s = 5, old max age g = 1 (p0 = 4): n = 2153, network answers p0 in 0.962 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -10.25      6.13      2.67
+     p = x_p0 (old max)                  38.94     36.26    -34.16
+     p = x_q0 (old 2nd)                 -11.74    -19.42     52.32
+   margin logit[p0 - q0]: mean total   23.22 = from x_s    5.63 + from x_p0   72.54 + from x_q0  -55.22 + from all other inputs    0.28
+   margin logit[p0 - s ]: mean total    7.56 = from x_s   22.74 + from x_p0   -5.69 + from x_q0   -8.90 + from all other inputs   -0.60
+   [FIT] logit[p0 - q0] ~    1.58 (Mn-M0) +   60.24 (M0-S0) +    2.38 S0    R2 = 0.562
+   [FIT] logit[p0 - s ] ~    5.83 (Mn-M0) +    3.66 (M0-S0) +    4.57 S0    R2 = 0.796
+
+=== record at s = 5, old max age g = 2 (p0 = 3): n = 2019, network answers p0 in 0.991 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -9.29      5.18      3.20
+     p = x_p0 (old max)                  37.05     32.89    -30.24
+     p = x_q0 (old 2nd)                  -9.90    -15.56     40.76
+   margin logit[p0 - q0]: mean total   23.40 = from x_s    3.12 + from x_p0   65.00 + from x_q0  -45.38 + from all other inputs    0.66
+   margin logit[p0 - s ]: mean total    8.28 = from x_s   20.90 + from x_p0   -7.31 + from x_q0   -4.81 + from all other inputs   -0.50
+   [FIT] logit[p0 - q0] ~    2.07 (Mn-M0) +   52.09 (M0-S0) +    7.03 S0    R2 = 0.404
+   [FIT] logit[p0 - s ] ~    5.56 (Mn-M0) +    9.81 (M0-S0) +    2.96 S0    R2 = 0.876
+
+=== record at s = 5, old max age g = 3 (p0 = 2): n = 2107, network answers p0 in 0.990 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -8.83      7.21      1.09
+     p = x_p0 (old max)                  24.13     21.86    -14.92
+     p = x_q0 (old 2nd)                   0.03     -8.26     27.83
+   margin logit[p0 - q0]: mean total   15.80 = from x_s    8.02 + from x_p0   36.79 + from x_q0  -29.64 + from all other inputs    0.62
+   margin logit[p0 - s ]: mean total   10.38 = from x_s   23.06 + from x_p0   -6.32 + from x_q0   -6.28 + from all other inputs   -0.09
+   [FIT] logit[p0 - q0] ~    0.46 (Mn-M0) +   32.23 (M0-S0) +    6.62 S0    R2 = 0.434
+   [FIT] logit[p0 - s ] ~    5.58 (Mn-M0) +   12.44 (M0-S0) +    4.53 S0    R2 = 0.782
+
+=== record at s = 5, old max age g = 4 (p0 = 1): n = 2151, network answers p0 in 0.991 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -13.48     11.32      2.03
+     p = x_p0 (old max)                  27.70     29.72    -10.35
+     p = x_q0 (old 2nd)                  -0.84    -20.67     23.61
+   margin logit[p0 - q0]: mean total   18.53 = from x_s   12.55 + from x_p0   38.01 + from x_q0  -33.17 + from all other inputs    1.14
+   margin logit[p0 - s ]: mean total   15.02 = from x_s   34.72 + from x_p0   -4.70 + from x_q0  -15.27 + from all other inputs    0.27
+   [FIT] logit[p0 - q0] ~    1.29 (Mn-M0) +   39.90 (M0-S0) +    5.56 S0    R2 = 0.633
+   [FIT] logit[p0 - s ] ~    7.28 (Mn-M0) +   21.28 (M0-S0) +    5.39 S0    R2 = 0.702
+
+=== record at s = 7, old max age g = 1 (p0 = 6): n = 3157, network answers p0 in 0.898 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -6.81      3.50      3.92
+     p = x_p0 (old max)                  49.17     51.62    -27.70
+     p = x_q0 (old 2nd)                 -10.72    -17.93     59.05
+   margin logit[p0 - q0]: mean total   23.54 = from x_s   -1.18 + from x_p0   81.12 + from x_q0  -56.43 + from all other inputs    0.04
+   margin logit[p0 - s ]: mean total    6.39 = from x_s   14.86 + from x_p0   -0.20 + from x_q0   -7.67 + from all other inputs   -0.61
+   [FIT] logit[p0 - q0] ~   -2.19 (Mn-M0) +   72.72 (M0-S0) +    0.86 S0    R2 = 0.652
+   [FIT] logit[p0 - s ] ~    3.41 (Mn-M0) +    4.88 (M0-S0) +    4.19 S0    R2 = 0.597
+
+=== record at s = 7, old max age g = 2 (p0 = 5): n = 3237, network answers p0 in 0.978 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -6.69      8.59      1.51
+     p = x_p0 (old max)                  58.23     49.33    -29.85
+     p = x_q0 (old 2nd)                 -21.56    -23.35     56.81
+   margin logit[p0 - q0]: mean total   30.03 = from x_s    9.74 + from x_p0   79.91 + from x_q0  -59.80 + from all other inputs    0.19
+   margin logit[p0 - s ]: mean total    7.29 = from x_s   22.13 + from x_p0  -11.67 + from x_q0   -1.79 + from all other inputs   -1.39
+   [FIT] logit[p0 - q0] ~    2.16 (Mn-M0) +   75.35 (M0-S0) +    5.36 S0    R2 = 0.468
+   [FIT] logit[p0 - s ] ~    7.94 (Mn-M0) +    4.04 (M0-S0) +    2.51 S0    R2 = 0.916
+
+=== record at s = 7, old max age g = 3 (p0 = 4): n = 3183, network answers p0 in 0.993 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                   -7.19      9.33      1.04
+     p = x_p0 (old max)                  46.02     39.39    -27.76
+     p = x_q0 (old 2nd)                 -13.72    -18.37     49.18
+   margin logit[p0 - q0]: mean total   28.11 = from x_s   12.19 + from x_p0   68.05 + from x_q0  -52.75 + from all other inputs    0.62
+   margin logit[p0 - s ]: mean total    9.48 = from x_s   24.22 + from x_p0   -9.59 + from x_q0   -3.89 + from all other inputs   -1.26
+   [FIT] logit[p0 - q0] ~    4.58 (Mn-M0) +   66.20 (M0-S0) +    4.28 S0    R2 = 0.410
+   [FIT] logit[p0 - s ] ~    8.72 (Mn-M0) +    8.51 (M0-S0) +    2.76 S0    R2 = 0.899
+
+=== record at s = 7, old max age g = 4 (p0 = 3): n = 3203, network answers p0 in 0.983 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -12.30     13.24      1.14
+     p = x_p0 (old max)                  40.93     36.80    -20.89
+     p = x_q0 (old 2nd)                  -9.06    -22.96     40.24
+   margin logit[p0 - q0]: mean total   25.26 = from x_s   16.71 + from x_p0   56.36 + from x_q0  -48.10 + from all other inputs    0.29
+   margin logit[p0 - s ]: mean total   13.37 = from x_s   36.01 + from x_p0  -10.13 + from x_q0  -10.87 + from all other inputs   -1.63
+   [FIT] logit[p0 - q0] ~    3.16 (Mn-M0) +   58.40 (M0-S0) +    4.96 S0    R2 = 0.473
+   [FIT] logit[p0 - s ] ~    9.86 (Mn-M0) +   15.59 (M0-S0) +    4.02 S0    R2 = 0.720
+
+=== record at s = 8, old max age g = 1 (p0 = 7): n = 3684, network answers p0 in 0.960 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -26.91      6.86      4.66
+     p = x_p0 (old max)                  83.48     55.36    -21.06
+     p = x_q0 (old 2nd)                 -10.75    -14.67     62.60
+   margin logit[p0 - q0]: mean total   25.82 = from x_s    2.55 + from x_p0   79.57 + from x_q0  -56.29 + from all other inputs   -0.01
+   margin logit[p0 - s ]: mean total   17.83 = from x_s   52.01 + from x_p0  -30.68 + from x_q0   -3.63 + from all other inputs    0.12
+   [FIT] logit[p0 - q0] ~   -0.79 (Mn-M0) +   77.52 (M0-S0) +    0.36 S0    R2 = 0.698
+   [FIT] logit[p0 - s ] ~   30.14 (Mn-M0) +    3.41 (M0-S0) +    1.28 S0    R2 = 0.989
+
+=== record at s = 8, old max age g = 2 (p0 = 6): n = 3625, network answers p0 in 0.983 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -28.04      6.37      2.64
+     p = x_p0 (old max)                  91.49     60.49    -21.30
+     p = x_q0 (old 2nd)                 -24.74    -25.43     58.14
+   margin logit[p0 - q0]: mean total   29.66 = from x_s    5.45 + from x_p0   83.51 + from x_q0  -59.10 + from all other inputs   -0.20
+   margin logit[p0 - s ]: mean total   18.98 = from x_s   53.05 + from x_p0  -32.84 + from x_q0   -0.62 + from all other inputs   -0.61
+   [FIT] logit[p0 - q0] ~    2.41 (Mn-M0) +   80.68 (M0-S0) +    1.24 S0    R2 = 0.520
+   [FIT] logit[p0 - s ] ~   32.50 (Mn-M0) +    2.40 (M0-S0) +    1.70 S0    R2 = 0.996
+
+=== record at s = 8, old max age g = 3 (p0 = 5): n = 3685, network answers p0 in 0.974 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -27.60      7.33      2.02
+     p = x_p0 (old max)                  86.52     56.42    -24.34
+     p = x_q0 (old 2nd)                 -24.91    -26.89     56.04
+   margin logit[p0 - q0]: mean total   30.14 = from x_s    7.38 + from x_p0   82.41 + from x_q0  -60.28 + from all other inputs    0.63
+   margin logit[p0 - s ]: mean total   18.90 = from x_s   53.91 + from x_p0  -32.67 + from x_q0   -1.72 + from all other inputs   -0.62
+   [FIT] logit[p0 - q0] ~    0.90 (Mn-M0) +   80.18 (M0-S0) +    3.03 S0    R2 = 0.449
+   [FIT] logit[p0 - s ] ~   31.38 (Mn-M0) +    3.49 (M0-S0) +    1.26 S0    R2 = 0.992
+
+=== record at s = 8, old max age g = 4 (p0 = 4): n = 3745, network answers p0 in 0.980 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -26.93     10.67      1.77
+     p = x_p0 (old max)                  70.89     47.22    -20.76
+     p = x_q0 (old 2nd)                 -17.48    -27.06     46.86
+   margin logit[p0 - q0]: mean total   26.05 = from x_s   12.03 + from x_p0   67.78 + from x_q0  -54.60 + from all other inputs    0.83
+   margin logit[p0 - s ]: mean total   21.58 = from x_s   57.43 + from x_p0  -26.88 + from x_q0   -7.82 + from all other inputs   -1.16
+   [FIT] logit[p0 - q0] ~    1.14 (Mn-M0) +   72.06 (M0-S0) +    2.09 S0    R2 = 0.454
+   [FIT] logit[p0 - s ] ~   31.61 (Mn-M0) +    9.77 (M0-S0) +    2.02 S0    R2 = 0.983
+
+=== record at s = 9, old max age g = 1 (p0 = 8): n = 4208, network answers p0 in 0.900 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -49.80      6.26      5.60
+     p = x_p0 (old max)                 103.80     49.40    -17.09
+     p = x_q0 (old 2nd)                  -1.82     -4.90     62.54
+   margin logit[p0 - q0]: mean total   22.32 = from x_s    0.58 + from x_p0   69.25 + from x_q0  -47.14 + from all other inputs   -0.37
+   margin logit[p0 - s ]: mean total   29.35 = from x_s   89.13 + from x_p0  -57.22 + from x_q0   -2.84 + from all other inputs    0.28
+   [FIT] logit[p0 - q0] ~   -0.56 (Mn-M0) +   68.66 (M0-S0) +   -0.82 S0    R2 = 0.680
+   [FIT] logit[p0 - s ] ~   55.86 (Mn-M0) +   -0.50 (M0-S0) +   -1.27 S0    R2 = 0.998
+
+=== record at s = 9, old max age g = 2 (p0 = 7): n = 4108, network answers p0 in 0.920 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -49.50      5.51      4.73
+     p = x_p0 (old max)                 103.90     50.00    -17.43
+     p = x_q0 (old 2nd)                 -10.77    -12.20     56.27
+   margin logit[p0 - q0]: mean total   22.83 = from x_s    1.00 + from x_p0   69.07 + from x_q0  -48.02 + from all other inputs    0.78
+   margin logit[p0 - s ]: mean total   28.51 = from x_s   86.01 + from x_p0  -56.43 + from x_q0   -1.17 + from all other inputs    0.09
+   [FIT] logit[p0 - q0] ~   -1.03 (Mn-M0) +   69.94 (M0-S0) +    0.07 S0    R2 = 0.524
+   [FIT] logit[p0 - s ] ~   54.92 (Mn-M0) +   -0.00 (M0-S0) +   -0.29 S0    R2 = 0.998
+
+=== record at s = 9, old max age g = 3 (p0 = 6): n = 4141, network answers p0 in 0.932 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -49.91      7.64      4.92
+     p = x_p0 (old max)                 106.74     51.57    -18.57
+     p = x_q0 (old 2nd)                 -17.95    -20.53     52.82
+   margin logit[p0 - q0]: mean total   24.84 = from x_s    3.76 + from x_p0   72.89 + from x_q0  -52.57 + from all other inputs    0.76
+   margin logit[p0 - s ]: mean total   30.13 = from x_s   90.89 + from x_p0  -57.90 + from x_q0   -2.24 + from all other inputs   -0.62
+   [FIT] logit[p0 - q0] ~    0.65 (Mn-M0) +   71.35 (M0-S0) +    0.60 S0    R2 = 0.442
+   [FIT] logit[p0 - s ] ~   57.17 (Mn-M0) +    1.25 (M0-S0) +   -1.29 S0    R2 = 0.998
+
+=== record at s = 9, old max age g = 4 (p0 = 5): n = 4098, network answers p0 in 0.960 ===
+   mean centred kernel d logit[q]/d x_p:      q = s        p0        q0
+     p = x_s (new max)                  -50.21     13.67      4.10
+     p = x_p0 (old max)                  99.16     48.75    -17.66
+     p = x_q0 (old 2nd)                 -18.07    -30.37     46.55
+   margin logit[p0 - q0]: mean total   25.81 = from x_s   13.22 + from x_p0   65.96 + from x_q0  -54.39 + from all other inputs    1.01
+   margin logit[p0 - s ]: mean total   33.33 = from x_s   97.83 + from x_p0  -54.18 + from x_q0   -9.19 + from all other inputs   -1.13
+   [FIT] logit[p0 - q0] ~    3.00 (Mn-M0) +   72.57 (M0-S0) +    0.29 S0    R2 = 0.484
+   [FIT] logit[p0 - s ] ~   58.35 (Mn-M0) +    9.88 (M0-S0) +   -0.52 S0    R2 = 0.995

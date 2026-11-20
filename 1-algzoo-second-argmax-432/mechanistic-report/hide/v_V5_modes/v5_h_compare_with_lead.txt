@@ -1,0 +1,37 @@
+M5, cells with a1 >= 1 (81 cells): lead (seed 13, 1M sequences) minus mine (seeds 5010-5013, 800k sequences)
+   |alpha|: max abs diff 0.0104, mean diff -0.0003;  phase: max abs diff 0.31 deg;  |beta|: max abs diff 0.0054;  R2u: max abs diff 0.0021
+   lead's own table, |alpha| per a1: mean / median / min / max over a2 cells, and the a2 = a1 + 1 cell
+      a1=1: mean 1.011  median 1.016  min 0.978  max 1.048   a2=a1+1: 1.016
+      a1=2: mean 1.032  median 1.027  min 0.988  max 1.054   a2=a1+1: 1.041
+      a1=3: mean 0.991  median 0.986  min 0.924  max 1.077   a2=a1+1: 0.988
+      a1=4: mean 0.950  median 0.945  min 0.882  max 1.028   a2=a1+1: 0.945
+      a1=5: mean 0.918  median 0.915  min 0.842  max 0.988   a2=a1+1: 0.900
+      a1=6: mean 0.883  median 0.865  min 0.797  max 0.968   a2=a1+1: 0.848
+      a1=7: mean 0.854  median 0.869  min 0.757  max 0.954   a2=a1+1: 0.804
+      a1=8: mean 0.824  median 0.827  min 0.719  max 0.919   a2=a1+1: 0.762
+      a1=9: mean 0.804  median 0.808  min 0.682  max 0.918   a2=a1+1: nan
+   lead's table: |beta| in [0.016, 0.371], min R2u 0.9454
+M6, cells with a1 >= 1: alpha max abs diff 0.0050; beta max abs diff 0.0046; R2u max abs diff 0.00009
+
+SUMMARY OF MY M5 TABLE (81 cells with a1 >= 1)
+   centred R2: min 0.789, median 0.967, cells below 0.90: 16, below 0.85: 11;   uncentred R2: min 0.9462, median 0.9886, cells below 0.96: 10
+   a1=1: mean |alpha| 1.011, median 1.016, half-range 0.034; phase mean 0.8, half-range 1.3; cells a2 > a1: mean |alpha| 1.015; cells a2 < a1: 0.982
+   a1=2: mean |alpha| 1.031, median 1.027, half-range 0.033; phase mean 36.8, half-range 1.7; cells a2 > a1: mean |alpha| 1.039; cells a2 < a1: 1.005
+   a1=3: mean |alpha| 0.991, median 0.986, half-range 0.076; phase mean 80.0, half-range 1.4; cells a2 > a1: mean |alpha| 0.991; cells a2 < a1: 0.992
+   a1=4: mean |alpha| 0.951, median 0.945, half-range 0.073; phase mean 123.4, half-range 1.4; cells a2 > a1: mean |alpha| 0.949; cells a2 < a1: 0.953
+   a1=5: mean |alpha| 0.918, median 0.916, half-range 0.072; phase mean 166.3, half-range 1.6; cells a2 > a1: mean |alpha| 0.909; cells a2 < a1: 0.925
+   a1=6: mean |alpha| 0.882, median 0.866, half-range 0.083; phase mean 208.9, half-range 1.7; cells a2 > a1: mean |alpha| 0.854; cells a2 < a1: 0.896
+   a1=7: mean |alpha| 0.854, median 0.870, half-range 0.096; phase mean 251.1, half-range 2.8; cells a2 > a1: mean |alpha| 0.806; cells a2 < a1: 0.867
+   a1=8: mean |alpha| 0.825, median 0.829, half-range 0.100; phase mean 294.0, half-range 5.3; cells a2 > a1: mean |alpha| 0.761; cells a2 < a1: 0.833
+   a1=9: mean |alpha| 0.807, median 0.809, half-range 0.121; phase mean 337.8, half-range 5.5; cells a2 > a1: mean |alpha| nan; cells a2 < a1: 0.807
+   decay per step of the mean |alpha|, a1 = 3 -> 9: 0.9663;  cells a2 > a1 only, a1 = 3 -> 8: 0.9486;  eigenvalue modulus 0.9509
+   |beta| in cells a2 < a1 (runner-up arrived after the max), by age a2 of the runner-up:
+      a2=0: mean |beta| = 0.300  range 0.170..0.364  cells 9
+      a2=1: mean |beta| = 0.275  range 0.184..0.375  cells 8
+      a2=2: mean |beta| = 0.222  range 0.075..0.345  cells 7
+      a2=3: mean |beta| = 0.191  range 0.078..0.307  cells 6
+      a2=4: mean |beta| = 0.157  range 0.076..0.257  cells 5
+      a2=5: mean |beta| = 0.122  range 0.068..0.155  cells 4
+      a2=6: mean |beta| = 0.099  range 0.059..0.134  cells 3
+      a2=7: mean |beta| = 0.089  range 0.053..0.126  cells 2
+      a2=8: mean |beta| = 0.046  range 0.046..0.046  cells 1

@@ -1,0 +1,359 @@
+                     Symmetric RNNs
+
+                         George Robinson
+                          December 2024
+
+1 Reduction to Smaller Network
+
+The symmetries we’ve noticed of the argmedian and argoutlier models (of se-
+quence length 3 and width 4) are equivalent to the equations
+
+                         whh = U T wh′ hU
+
+                         wih = U T wi′h
+                         who = wh′ oV
+
+where U =  1  0   0  −1  ,V =  1  0          0  1  and wh′ h, wi′h, wh′ o are 2x2,
+           0  1  −1   0        0  1          1  0
+
+2x1, 3x2 matrices respectively. Notice that
+
+                         U ReLU U T v = v
+                         V ReLU U T v = |v|
+
+where by |v| I mean coordinate-wise absolute value rather than norm.
+Therefore the function defined by the RNN is
+
+whoReLU (wihx2 + whhReLU (wihx1 + whhReLU (wihx0)))
+
+             = wh′ oV ReLU U T wi′hx2 + U T wh′ hU ReLU U T wi′hx1 + U T wh′ hU ReLU U T wi′hx0
+             = wh′ o| (wi′hx2 + wh′ h (wi′hx1 + wh′ h (wi′hx0))) |
+
+    The linear function inside the absolute value is almost generic in the sense
+that there is only a codimension > 0 space of linear functions R3 → R2 that
+are not of this form. So, RNNs of this size with the symmetries above are
+generically equivalent to a (3,2,3) neural network with activation function given
+by absolute value.
+
+2 Explanation of AbsActivation Model for ar-
+     goutlier
+
+This is a feedforward neural network with input and output size 3 and hidden
+size 2 (with a single hidden layer). When trained on argoutlier this gets 99.5%
+
+                               1
+accuracy at least. I want to explain its weights. The first matrix is 2x3 and is
+called fc1 and the second is 3x2 and called fc2.
+
+    A few things to notice first: all neural networks has the in-out symmetry
+that you can balance by a positive scalar on the inputs and outputs of a single
+hidden neuron. Using this we can assume that fc1[0,0]=1 and fc1[1,1]=1 (the
+reason for not just picking the first element of each row will become clear). This
+reduces us to 10 parameters. Also, if a constant multiple of a hidden neuron is
+added to all output neurons that doesn’t affect the accuracy of the model, and
+so we can translate the columns of fc2 to have sum zero. This reduces us to 8
+parameters. When we do this, we see that the trained model becomes
+
+                   1  λ  −(1 + λ)         −µ µ − ϵ
+                   λ  1  −(1 + λ)
+           f c1 =                  ,     f c2 = µ − ϵ −µ  .
+
+                                                    ϵ  ϵ
+
+In the trained model, λ ≈ 1.44, µ ≈ 69.72 and ϵ ≈ 2.72, however in what follows
+we will use only the fact that they are all positive, and that λ > 1.
+
+2.1 Quadrants for the Hidden Layers
+
+First let’s look at the pre-activations for the hidden neurons based on their signs.
+
+2.1.1 Positive Quadrant
+
+In the quadrant where the pre-activation of both hidden neurons are positive,
+we have the following:
+
+                                   x0 + λx1 − (1 + λ)x2 > 0,
+                                   λx0 + x1 − (1 + λ)x2 > 0.
+
+This implies in particular that x2 < x. In fact it implies something slightly
+stronger, that
+
+                                                λ−1
+                                 x2 < x − 3(1 + λ) |x0 − x1|.
+In fact it is equivalent to this statement. Notice that with our specific values,
+the coefficient of |x0 − x1| is approximately 0.06.
+
+2.1.2 (+, −)-Quadrant
+In the quadrant where
+
+                         x0 + λx1 − (1 + λ)x2 > 0,
+                         λx0 + x1 − (1 + λ)x2 < 0,
+
+we deduce that x1 > x2 > x0. In fact these inequalities are equivalent to the
+
+fact that                                λ−1
+
+           x1 > x0,      and       |x2 − x| < 3(1 + λ) (x1 − x0)
+
+                                      2
+2.1.3 (−, +)-Quadrant
+This is exactly the same as the previous with x0, x1 switched.
+
+2.1.4 Negative Quadrant
+
+This is analogous to the positive quadrant case, the inequalities are equivalent
+to
+
+                                                λ−1
+                                 x2 > x + 3(1 + λ) |x0 − x1|.
+
+2.2 Logits
+
+2.2.1 Positive Quadrant
+
+Notice that on this quadrant (where x2 < x) we see that the argoutlier is
+decided in cases: if x2 < min(x0, x1) − |x0 − x1| then x2 is the outlier, and
+otherwise the outlier is max(x0, x1). In other words, the first logit should be
+highest if and only if x0 − x1 > x − x2, the second logit should be highest if
+and only if x1 − x0 > x − x2 and the final logit should be highest if and only if
+|x1 − x0| < x − x2.
+
+    In this quadrant, the actual logits we get are
+
+                     (−µ + µλ − ϵλ)x0 + (−µλ + µ − ϵ)x1 + ϵ(1 + λ)x2
+          logits = (−µλ + µ − ϵ)x0 + (−µ + µλ − ϵλ)x1 + ϵ(1 + λ)x2
+
+                                          ϵ(1 + λ)(x0 + x1 − 2x2)
+
+The final logit is always positive and the logits sum to zero, so one of the first
+two logits is highest iff it is higher than the final logit, and otherwise the final
+logit is highest. Let us consider the difference between the first logit and the
+final one. This is
+
+(−µ + µλ − 2ϵλ − ϵ)x0 + (−µλ + µ − 2ϵ − ϵλ)x1 + 3ϵ(1 + l)x2
+
+=                             1                                           3     +  λ)(x0  +  x1  −
+   µ(λ  −   1)(x0  −  x1)  +   ϵ(1                   −  λ)(x0  −  x1)  −   ϵ(1                      2x2)
+                              2                                           2
+
+=           1                                           9
+    µ− ϵ       (λ   −  1)(x0  −  x1)                 −   ϵ(1   +  λ)(x    −  x2)
+         2                                              2
+
+Therefore the first logit is highest if and only if
+
+x0  −   x1  >      9ϵ(1 + λ)        (x               −  x2).
+                                 1)
+               (2µ  −  ϵ)(λ   −
+
+For this the specific quantities of our model, this ratio is almost exactly 1!
+Similarly the second logit is highest iff
+
+x1  −   x0  >      9ϵ(1 + λ)        (x               −  x2).
+                                 1)
+               (2µ  −  ϵ)(λ   −
+
+                       3
+Consequently the third logit is highest iff
+
+      |x1  −           x0|  <        9ϵ(1 + λ)         (x  −  x2)
+                                                    1)
+                               (2µ      −  ϵ)(λ  −
+
+Since the coefficient here is almost exactly 1 in the trained model, the accuracy
+is perfect on this region (and the opposite region by symmetry).
+
+2.2.2 (+, −)-Quadrant
+
+In this quadrant it suffices to know whether x2 > x or vice-versa. In this region
+the logits are as follows:
+
+                 (−µ − λµ + λϵ)x0 + (−µλ − µ + ϵ)x1 + (1 + λ)(2µ − ϵ)x2
+      logits =  (µ − ϵ + µλ)x0 + (µ + λµ − λϵ)x1 − (1 + λ)(2µ − ϵ)x2 
+
+                                              (λ − 1)ϵ(x1 − x0)
+
+If ϵ = 0, we get that the final entry is 0, and that the first entry is
+
+   µ(1 + λ)(−x0 − x1 + 2x2) = 3µ(1 + λ)(x2 − x),
+
+and so the result would be perfectly accurate. In fact, the first entry is
+
+µ(1 + λ)(−x0 − x1 + 2x2) + ϵ(λx0 + x1 − (1 + λ)x2)
+            = 3µ(1 + λ)(x2 − x) + ϵ(λx0 + x1 − (1 + λ)x2)
+
+This means that the difference between the first and third entry would be
+
+3µ(1 + λ)(x2 − x) + ϵ((2λ − 1)x0 + (2 − λ)x1 − (1 + λ)x2)
+
+   =                   1                       −      −    3     −   1)(x1
+      3µ − ϵ                   (1    +  λ)(x2     x)        ϵ(λ             −  x0)
+             2                                             2
+
+Similarly the difference between the second and third entry would be
+
+      1                (1      λ)(x2           −  3                     x0)
+−  3µ − ϵ                   +           −  x)      ϵ(λ     −  1)(x1  −
+          2                                       2
+
+The result of this is that the first logit is highest precisely when
+
+                      3ϵ(λ − 1)
+      x2 − x > (6µ − ϵ)(1 + λ) (x1 − x0).
+
+The second logit is highest precisely when
+
+                         3ϵ(λ − 1)
+      x2 − x < − (6µ − ϵ)(1 + λ) (x1 − x0)
+
+and the third logit is highest when
+
+                        3ϵ(λ − 1)
+      |x2 − x| < (6µ − ϵ)(1 + λ) (x1 − x0)
+
+This interval of failure is 0.3% of the range. The smaller this coefficient becomes
+the better.
+
+                                        4
+2.2.3 (−, +)-Quadrant
+This is exactly analogous to the case above with x0, x1 switched.
+
+2.2.4 Negative Quadrant
+This is exactly the same as the positive quadrant!
+
+2.3 Extras
+
+Suppose that we impose that the coefficient in the positive quadrant logits is 1,
+so that the model has perfect accuracy in that region. Then
+
+            9ϵ(1 + λ) = (2µ − ϵ)(λ − 1) =⇒ ϵ = µ          λ−1  .
+
+                                                      5λ + 4
+
+Then, the coefficient in the (+, −)-quadrant becomes
+
+               3(λ − 1)2(5λ + 4)             =  3(λ − 1)2(5λ + 4)
+
+        (6(5λ + 4) − (λ − 1))(1 + λ) (29λ + 25)(1 + λ)
+
+This can be driven down closer to zero by moving λ towards 1.
+
+3 Explanation of AbsActivation Model for arg-
+     median
+
+Here the form of the solution after doing the same sort of normalising as in the
+argoutlier case is
+
+            1  −(λ + 1)      λ                        ϵ           ϵ
+            1      λ     −(λ + 1)
+f c1 =                                    ,       f c2 =  −µ µ − ϵ .
+
+                                                      µ − ϵ −µ
+
+The specific values we get are λ ≈ 7.808, ϵ ≈ 0.7, and µ ≈ 17.79.
+
+3.1 Quadrants for the Hidden Layer
+
+3.1.1 Positive Quadrant
+If both preactivations are positive, then we get
+
+                   x0 − (λ + 1)x1 + λx2 > 0
+                   x0 + λx1 − (λ + 1)x2 > 0
+
+This is equivalent to the statement that
+
+               x0  >     x1  +  x2  +  2λ + 1     − x2|.
+                             2            2 |x1
+
+With our values the coefficient here is approximately 8.308.
+
+                                       5
+3.1.2 (+, −)-Quadrant
+Here, the inequalities are
+
+                            x0 − (λ + 1)x1 + λx2 > 0
+                            x0 + λx1 − (λ + 1)x2 < 0
+
+From this we deduce that x2 > x1 and
+
+            x0  −           x1  +  x2     2λ + 1
+                                2      < 2 |x1 − x2|.
+
+3.1.3 Other Quadrants
+Are exactly analogous.
+
+3.2 Logits
+
+3.2.1 Positive Quadrant
+
+On the positive quadrant, we see that x0 > x1, x2 and so the median is simply
+the larger of x1 or x2.
+
+    On this region, the logits are given by
+
+                               ϵ(2x0 − x1 − x2)                        
+
+−ϵx0 + (2µλ + µ − λϵ)x1 + (−2λµ − µ + λϵ + ϵ)x2
+
+   −ϵx0 + (−2µλ − µ + λϵ + ϵ)x1 + (2λµ − λϵ + µ)x2
+
+The first logit is positive, and they sum to zero, so one of the second logits is
+largest of all precisely when it is larger than the first. The difference between
+the second logit and the first is
+
+−3ϵx0+(2µλ + µ − λϵ + ϵ)x1 + (−2λµ − µ + λϵ + 2ϵ)x2
+
+                            11                                       1
+   = 3ϵ −x0 + 2 x1 + 2 x2 + (2µλ + µ − λϵ − 2 ϵ)(x1 − x2)
+
+   = 3ϵ     x1  +           x2  −  x0     1                   ϵ)(x1  −  x2)
+                2                      +   (2λ  +  1)(2µ  −
+                                          2
+
+Therefore, on this region, the second logit is largest precisely when
+
+                                   6ϵ              x0  −  x1  +  x2  .
+            x1 − x2 > (2λ + 1)(2µ − ϵ)                        2
+
+This ratio is 0.007. The third logit is the same, and this shows that the only
+interval of failure here is when
+
+                                     6ϵ            x0  −  x1  +  x2
+            |x1 − x2| < (2λ + 1)(2µ − ϵ)                      2
+
+                                          6
+3.2.2 (+, −)-Quadrant
+
+On this quadrant, the logits are given by
+
+                                 (2λ + 1)ϵ(x2 − x1)                
+
+(−2µ + ϵ)x0 + (µ + λϵ)x1 + (µ − λϵ − ϵ)x2
+
+                      (2µ − ϵ)x0 + (−µ + λϵ + ϵ)x1 − (µ + λϵ)x2
+
+The first logit is always positive, and the logits sum to zero, and so each of
+the second and third logits are maximal iff they are larger than the first. The
+difference between the second and first logits is
+
+(−2µ + ϵ)x0 + (µ + 3λϵ + ϵ)x1 + (µ − 3λϵ − 2ϵ)x2
+
+                                  x1  +  x2            3         1)(x2
+                      = (2µ − ϵ)      2      −  x0  −   ϵ(2λ  +         −  x1)
+                                                       2
+
+This is positive iff
+
+                                     2(2µ − ϵ)  x1  +  x2  − x0  .
+                      x2 − x1 < 3ϵ(2λ + 1)          2
+
+This ratio is almost exactly 2, which gives perfect accuracy. Similarly for the
+difference between the third and first logits, which is positive iff
+
+                                     2(2µ − ϵ)  x1  +  x2  − x0  .
+                      x1 − x2 > 3ϵ(2λ + 1)          2
+
+again achieving perfect accuracy.
+
+                                         7
+

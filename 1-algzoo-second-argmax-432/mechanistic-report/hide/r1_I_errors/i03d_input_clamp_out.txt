@@ -1,0 +1,33 @@
+n = 1048576, net accuracy 0.9529
+| intervention | agreement with net | task accuracy | net's errors fixed | new errors (share of net's errors) |
+|---|---|---|---|---|
+| clamp to 0.0 M_prev | 0.9838 | 0.9654 | 0.2992 | 0.0332 |
+| clamp to 0.0 M_prev + (b1) | 0.9800 | 0.9693 | 0.3811 | 0.0324 |
+| clamp to -0.3 M_prev | 0.9818 | 0.9664 | 0.3302 | 0.0436 |
+| clamp to -0.3 M_prev + (b1) | 0.9783 | 0.9704 | 0.4094 | 0.0378 |
+| clamp to -1.0 M_prev | 0.9764 | 0.9669 | 0.3892 | 0.0913 |
+| clamp to -1.0 M_prev + (b1) | 0.9741 | 0.9712 | 0.4588 | 0.0691 |
+| clamp to -3.0 M_prev | 0.9577 | 0.9563 | 0.4619 | 0.3882 |
+| clamp to -3.0 M_prev + (b1) | 0.9581 | 0.9616 | 0.5152 | 0.3291 |
+
+clamp to -1.0 M_prev: by class: fixed / new as share of the class's errors
+| class | errors | fixed / new |
+|---|---|---|
+| S <= 0 | 8859 | 0.025 / 0.010 |
+| S~T, S first | 13867 | 0.791 / 0.046 |
+| S~T, T first | 12782 | 0.295 / 0.098 |
+| M~S, M first | 4241 | 0.210 / 0.296 |
+| M~S, S first | 3483 | 0.239 / 0.166 |
+| both < 0.05 | 2408 | 0.477 / 0.107 |
+| min gap >= 0.05 | 3778 | 0.374 / 0.115 |
+
+clamp to -1.0 M_prev + (b1): by class: fixed / new as share of the class's errors
+| class | errors | fixed / new |
+|---|---|---|
+| S <= 0 | 8859 | 0.025 / 0.010 |
+| S~T, S first | 13867 | 0.843 / 0.025 |
+| S~T, T first | 12782 | 0.301 / 0.108 |
+| M~S, M first | 4241 | 0.700 / 0.071 |
+| M~S, S first | 3483 | 0.245 / 0.165 |
+| both < 0.05 | 2408 | 0.593 / 0.109 |
+| min gap >= 0.05 | 3778 | 0.443 / 0.122 |
