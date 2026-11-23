@@ -1,0 +1,31 @@
+quiet final states: 246144 of 400000 sequences; train 184608 (flexible decoder: first 100000), test 61536
+S before M: 0.501;  third within 0.1 M of S: 0.303;  T3 > 0: 0.956
+target                              n_test   base |   T lin  T flex |  Tn lin Tn flex |   R lin  R flex |   F lin  F flex
+age of runner-up a_S (8 cl)          61536  0.126 |   0.900   0.949 |   0.903   0.955 |   0.348   0.648 |   0.977   0.975
+age of maximum a_M (8 cl)            61536  0.124 |   0.345   0.893 |   0.303   0.910 |   0.904   0.909 |   0.992   0.993
+age of third a_T (10 cl)             61536  0.124 |   0.119   0.536 |   0.146   0.563 |   0.267   0.344 |   0.319   0.714
+S arrived before M (2 cl)            61536  0.499 |   0.692   0.930 |   0.664   0.935 |   0.759   0.879 |   0.824   0.982
+network's answer (10 cl)             61536  0.126 |   0.897   0.931 |   0.899   0.948 |   0.339   0.603 |   0.994   0.958
+answer is correct (2 cl)             61536  0.963 |   0.963   0.963 |   0.963   0.963 |   0.963   0.963 |   0.963   0.965
+n within 0.10M of S: 0/1/2+          61536  0.555 |   0.555   0.715 |   0.555   0.714 |   0.590   0.710 |   0.629   0.817
+n within 0.25M of S: 0/1/2/3+        61536  0.419 |   0.419   0.527 |   0.418   0.531 |   0.430   0.527 |   0.439   0.665
+number of records 1/2/3/4+           61536  0.325 |   0.514   0.789 |   0.522   0.790 |   0.564   0.728 |   0.730   0.867
+age last overtaken max | S after M   23108  0.531 |   0.566   0.791 |   0.564   0.794 |   0.565   0.628 |   0.714   0.841
+CONTROL age of smallest (10 cl)      61536  0.125 |   0.179   0.255 |   0.187   0.278 |   0.219   0.268 |   0.263   0.348
+CONTROL shuffled a_S                 61536  0.127 |   0.124   0.124 |   0.125   0.125 |   0.124   0.125 |   0.125   0.126
+S/M                                  61536  0.000 |   0.002   0.563 |   0.019   0.696 |   0.612   0.953 |   0.788   0.988
+T+/M   (T+ = max(T,0))               61536  0.000 |   0.007   0.443 |   0.007   0.524 |   0.446   0.688 |   0.627   0.858
+T+/S                                 61536  0.000 |   0.008   0.420 |   0.012   0.428 |   0.147   0.404 |   0.184   0.748
+(S - T+)/M                           61536  0.000 |   0.006   0.493 |   0.025   0.514 |   0.074   0.385 |   0.102   0.773
+CONTROL min/M (clipped at -5)        61536  0.000 |   0.011   0.101 |   0.005   0.137 |   0.158   0.443 |   0.214   0.545
+CONTROL shuffled S/M                 61536  0.000 |  -0.000  -0.000 |  -0.000  -0.000 |  -0.000  -0.001 |  -0.000  -0.001
+   (144 fits, 809 s; kind: accuracy for classes, R2 for values; base = majority class or 0)
+
+VALUES from raw coordinates (not scale-free). R2 on test. 'norm' = c * |source| alone; 'lin' = affine least squares
+on the raw coordinates; 'flex' = |source| * g(source / |source|), g = gradient boosting (a homogeneous decoder).
+value            |  T norm   T lin  T flex |  R norm   R lin  R flex |  F norm   F lin  F flex
+M                |  -1.136   0.016   0.448 |  -0.766   0.995   0.996 |   0.615   0.997   0.998
+S                |  -0.369   0.031   0.769 |  -0.348   0.885   0.951 |  -0.075   0.930   0.983
+T+ = max(T,0)    |  -0.415   0.008   0.495 |  -0.156   0.652   0.711 |  -0.146   0.713   0.855
+M - S            |  -0.416   0.002   0.276 |  -0.238   0.842   0.949 |   0.389   0.906   0.984
+S - T+           |   0.094   0.043   0.618 |  -0.119   0.193   0.349 |   0.071   0.212   0.759

@@ -1,0 +1,57 @@
+300000 N(0,1) sequences (seed 7202), quiet final states n = 184622, runner-up after the maximum in 0.500; baseline accuracy 0.9635
+
+(1) COVARIANCE SHARE by class of the causing input, tape scores of ages >= 2 (std ratio in brackets)
+    all quiet final states         M +0.538 (0.83)  S>M +0.304 (0.63)  S<M +0.036 (0.32)  exmax +0.009 (0.16)  exrun +0.090 (0.39)  near +0.013 (0.15)  far +0.004 (0.04)  neg +0.028 (0.13)  spont -0.021 (0.12)
+    runner-up AFTER the maximum    M +0.099 (0.55)  S>M +0.772 (1.01)  S<M +0.000 (0.00)  exmax +0.014 (0.18)  exrun +0.098 (0.46)  near +0.010 (0.17)  far +0.003 (0.04)  neg +0.033 (0.15)  spont -0.029 (0.13)
+    runner-up BEFORE the maximum   M +0.820 (0.97)  S>M +0.000 (0.00)  S<M +0.060 (0.41)  exmax +0.006 (0.14)  exrun +0.087 (0.36)  near +0.016 (0.15)  far +0.005 (0.05)  neg +0.025 (0.12)  spont -0.018 (0.12)
+
+(2) LEAVE-OUT by class: share of answers changed among quiet final states where the class is present
+    drop M      changed 0.4263   (present in 1.000)
+    drop S>M    changed 0.9624   (present in 0.500)
+    drop S<M    changed 0.6225   (present in 0.500)
+    drop exmax  changed 0.0408   (present in 0.482)
+    drop exrun  changed 0.1985   (present in 0.482)
+    drop near   changed 0.1048   (present in 0.353)
+    drop far    changed 0.0088   (present in 0.756)
+    drop neg    changed 0.0404   (present in 0.999)
+    drop spont  changed 0.0563   (present in 0.796)
+    keep M and S only           changed 0.2013  (after 0.2092, before 0.1934)   R2 of the scores 0.763   changed answers that become the maximum's position: 0.707
+    keep M, S, exmax, exrun     changed 0.1114  (after 0.1494, before 0.0733)   R2 of the scores 0.939   changed answers that become the maximum's position: 0.654
+    keep all but far and neg    changed 0.0436  (after 0.0499, before 0.0374)   R2 of the scores 0.975   changed answers that become the maximum's position: 0.307
+
+(A) SPLIT BY THE AGES: covariance share of M / S / exrun, by the age of the more recent of the two (ages 2..8)
+    runner-up AFTER the maximum, by age of the runner-up
+      age 2: n =  22885   M +0.160   S +0.624   exrun +0.168   exmax +0.018   std of the scores 15.03
+      age 3: n =  19728   M +0.142   S +0.615   exrun +0.167   exmax +0.023   std of the scores 12.91
+      age 4: n =  16717   M +0.175   S +0.594   exrun +0.163   exmax +0.025   std of the scores 11.32
+      age 5: n =  13241   M +0.221   S +0.617   exrun +0.114   exmax +0.022   std of the scores 9.63
+      age 6: n =  10052   M +0.262   S +0.554   exrun +0.086   exmax +0.013   std of the scores 7.46
+      age 7: n =   6464   M +0.234   S +0.534   exrun +0.083   exmax -0.002   std of the scores 6.54
+      age 8: n =   3269   M +0.046   S +0.516   exrun +0.000   exmax +0.000   std of the scores 7.27
+    runner-up BEFORE the maximum, by age of the maximum
+      age 2: n =  23071   M +0.809   S +0.061   exrun +0.100   exmax +0.009   std of the scores 19.76
+      age 3: n =  19508   M +0.800   S +0.054   exrun +0.093   exmax +0.008   std of the scores 16.17
+      age 4: n =  16631   M +0.812   S +0.077   exrun +0.079   exmax +0.007   std of the scores 13.34
+      age 5: n =  13185   M +0.721   S +0.164   exrun +0.048   exmax +0.005   std of the scores 10.39
+      age 6: n =   9889   M +0.481   S +0.338   exrun +0.032   exmax -0.007   std of the scores 7.56
+      age 7: n =   6626   M +0.404   S +0.346   exrun +0.021   exmax -0.013   std of the scores 7.06
+      age 8: n =   3356   M +0.437   S +0.032   exrun +0.000   exmax +0.000   std of the scores 7.05
+
+(B) CONTROL: the same accounting for the five NON-tape modes of the 13 non-pulse units (level, runner, clock, trans, echo), scores of ages >= 2
+    check: writes rebuild the rest part, max error 8.5e-13
+    all quiet final states         M +0.312  S>M +0.171  S<M -0.005  exmax -0.004  exrun +0.006  near +0.052  far +0.033  neg +0.437  spont -0.001
+    runner-up AFTER the maximum    M +0.255  S>M +0.277  S<M +0.000  exmax +0.002  exrun +0.001  near +0.041  far +0.028  neg +0.397  spont -0.002
+    runner-up BEFORE the maximum   M +0.372  S>M +0.000  S<M +0.002  exmax -0.013  exrun +0.013  near +0.070  far +0.040  neg +0.516  spont -0.000
+    by kind of write (std ratio / covariance share), rest modes: input 0.71 / +0.50  pulse 4 0.74 / +0.27  pulse 5 0.91 / +0.11  pulse 9 0.23 / +0.06  comparators off 0.37 / +0.01  wave clips 0.23 / +0.04
+
+(C) OTHER ATTRIBUTION: exact dependence on each input VALUE with this sequence's gates fixed, h_9 = sum_p J_p x_p
+    check on 60000 quiet sequences: max |sum_p J_p x_p - h_9| = 3.0e-13
+    all                            value of the maximum: +0.117 (2.87)  value of the runner-up: +0.967 (3.37)  value of the third: -0.031 (1.52)  other positive inputs: -0.109 (0.64)  non-positive inputs: +0.057 (0.15)
+    runner-up AFTER the maximum    value of the maximum: -0.454 (3.63)  value of the runner-up: +1.374 (4.17)  value of the third: +0.109 (1.42)  other positive inputs: -0.102 (0.71)  non-positive inputs: +0.073 (0.18)
+    runner-up BEFORE the maximum   value of the maximum: +0.373 (2.27)  value of the runner-up: +0.787 (2.82)  value of the third: -0.094 (1.60)  other positive inputs: -0.114 (0.61)  non-positive inputs: +0.047 (0.14)
+    the same for the investigator's attribution on these sequences (M / S / everything else): after: M +0.098 S +0.774  before: M +0.821 S +0.060
+
+(D) RUN CONTINUED from quiet states at step 6 (inputs x_7..x_9 as they were): tape rebuilt from the writes of M and S only
+    M and S only           n = 134018  changed 0.0947   neg 0.796   clipped: changed 0.0671
+    all but far and neg    n = 134018  changed 0.0146   neg 0.551   clipped: changed 0.0143
+    tape deleted            changed 0.5636

@@ -1,0 +1,70 @@
+train 300000 sequences, test 200000; quiet final states in the test set n = 123299; baseline accuracy there 0.9637
+
+=== L1: 10 age configurations, 3 regressors each ===
+    thresholds theta_u = -drive_u / w_u of units 4, 1, 6, 7, 8 (steps with running max > 0.3): rms error / running max, and R2 of the drive of every unit
+      theta_4: 0.016 M  theta_1: 0.040 M  theta_6: 0.032 M  theta_7: 0.018 M  theta_8: 0.041 M
+      R2 of drive, units 0..15: 0.940 0.995 0.998 0.353 0.999 0.987 0.997 0.999 0.994 1.000 0.926 0.938 0.897 0.838 0.959 0.695
+    L1 modelled: ALL channels     R2 coords  0.697  0.757  0.664  0.534  0.573  0.643  0.670  scores  0.658 | amplitudes R2 0.949 | answers changed 0.3005  acc 0.6975
+    L1 modelled: pulse 4          R2 coords  1.000  1.000  0.999  1.000  1.000  1.000  0.999  scores  1.000 | amplitudes R2 1.000 | answers changed 0.0042  acc 0.9635
+    L1 modelled: pulse 5          R2 coords  0.696  0.795  0.710  0.741  0.739  0.696  0.664  scores  0.844 | amplitudes R2 0.957 | answers changed 0.3461  acc 0.6440
+    L1 modelled: pulse 9          R2 coords  0.985  0.996  0.992  0.998  0.998  0.992  0.993  scores  0.991 | amplitudes R2 0.954 | answers changed 0.0183  acc 0.9549
+    L1 modelled: comparators off  R2 coords  0.997  0.984  0.985  0.989  0.991  0.996  0.998  scores  0.978 | amplitudes R2 0.999 | answers changed 0.0392  acc 0.9422
+    L1 modelled: wave clips       R2 coords  0.713  0.951  0.953  0.555  0.569  0.731  0.805  scores  0.765 | amplitudes R2 0.333 | answers changed 0.1400  acc 0.8594
+
+=== L2: 82 age configurations, 4 regressors each ===
+    thresholds theta_u = -drive_u / w_u of units 4, 1, 6, 7, 8 (steps with running max > 0.3): rms error / running max, and R2 of the drive of every unit
+      theta_4: 0.010 M  theta_1: 0.021 M  theta_6: 0.013 M  theta_7: 0.011 M  theta_8: 0.023 M
+      R2 of drive, units 0..15: 0.993 0.999 0.999 0.852 1.000 0.998 0.999 1.000 0.998 1.000 0.990 0.988 0.983 0.945 0.992 0.924
+    L2 modelled: ALL channels     R2 coords  0.827  0.943  0.919  0.861  0.861  0.848  0.873  scores  0.885 | amplitudes R2 0.987 | answers changed 0.1040  acc 0.8951
+    L2 modelled: pulse 4          R2 coords  1.000  1.000  1.000  1.000  1.000  1.000  1.000  scores  1.000 | amplitudes R2 1.000 | answers changed 0.0026  acc 0.9636
+    L2 modelled: pulse 5          R2 coords  0.966  0.971  0.967  0.977  0.968  0.964  0.958  scores  0.983 | amplitudes R2 0.996 | answers changed 0.0598  acc 0.9333
+    L2 modelled: pulse 9          R2 coords  0.937  0.986  0.971  0.990  0.991  0.970  0.973  scores  0.966 | amplitudes R2 0.819 | answers changed 0.0196  acc 0.9521
+    L2 modelled: comparators off  R2 coords  0.999  0.995  0.996  0.996  0.997  0.999  0.999  scores  0.993 | amplitudes R2 1.000 | answers changed 0.0154  acc 0.9602
+    L2 modelled: wave clips       R2 coords  0.910  0.984  0.985  0.876  0.884  0.907  0.931  scores  0.934 | amplitudes R2 0.818 | answers changed 0.0712  acc 0.9169
+
+=== L3: 586 age configurations, 4 regressors each ===
+    thresholds theta_u = -drive_u / w_u of units 4, 1, 6, 7, 8 (steps with running max > 0.3): rms error / running max, and R2 of the drive of every unit
+      theta_4: 0.009 M  theta_1: 0.018 M  theta_6: 0.011 M  theta_7: 0.010 M  theta_8: 0.020 M
+      R2 of drive, units 0..15: 0.996 0.999 1.000 0.950 1.000 0.999 1.000 1.000 0.999 1.000 0.996 0.995 0.993 0.978 0.996 0.976
+    L3 modelled: ALL channels     R2 coords  0.883  0.956  0.937  0.942  0.943  0.917  0.924  scores  0.925 | amplitudes R2 0.995 | answers changed 0.0717  acc 0.9229
+    L3 modelled: pulse 4          R2 coords  1.000  1.000  1.000  1.000  1.000  1.000  1.000  scores  1.000 | amplitudes R2 1.000 | answers changed 0.0024  acc 0.9635
+    L3 modelled: pulse 5          R2 coords  0.977  0.982  0.978  0.983  0.979  0.976  0.972  scores  0.989 | amplitudes R2 0.997 | answers changed 0.0526  acc 0.9342
+    L3 modelled: pulse 9          R2 coords  0.937  0.986  0.970  0.990  0.991  0.970  0.973  scores  0.966 | amplitudes R2 0.817 | answers changed 0.0174  acc 0.9537
+    L3 modelled: comparators off  R2 coords  0.999  0.996  0.997  0.997  0.998  0.999  1.000  scores  0.995 | amplitudes R2 1.000 | answers changed 0.0132  acc 0.9612
+    L3 modelled: wave clips       R2 coords  0.956  0.992  0.993  0.952  0.953  0.963  0.968  scores  0.971 | amplitudes R2 0.933 | answers changed 0.0449  acc 0.9410
+
+=== L1 coefficients: threshold of unit u when the maximum of the earlier inputs is a_M steps old (at step s-1) ===
+    theta_u = alpha M+ + beta S+ + gamma x_(s-1);  for units 5 and 9 the drive itself (pre-activation minus w_u x_s)
+    unit 4:  a_M            0       1       2       3       4       5       6       7       8
+      M+                0.49    0.98    0.96    0.87    0.76    0.68    0.68    0.75    0.85
+      S+                0.00    0.00    0.03    0.10    0.20    0.26    0.26    0.20    0.13
+      x_(s-1)           0.49   -0.00   -0.00   -0.00   -0.01   -0.02   -0.01   -0.01   -0.01
+    unit 7:  a_M            0       1       2       3       4       5       6       7       8
+      M+                0.51    1.01    1.00    0.87    0.71    0.61    0.62    0.72    0.87
+      S+               -0.01   -0.00    0.00    0.12    0.26    0.34    0.32    0.23    0.11
+      x_(s-1)           0.51    0.00   -0.00   -0.00   -0.01   -0.02   -0.01   -0.01   -0.01
+    unit 1:  a_M            0       1       2       3       4       5       6       7       8
+      M+                0.42   -0.00    0.30    0.84    1.27    1.36    1.11    0.66    0.25
+      S+                0.16    0.92    0.62    0.14   -0.23   -0.31   -0.10    0.26    0.60
+      x_(s-1)           0.42    0.02   -0.02   -0.01    0.00    0.01   -0.01   -0.02   -0.02
+    unit 6:  a_M            0       1       2       3       4       5       6       7       8
+      M+               -0.02    0.70    1.05    1.17    1.07    0.82    0.57    0.45    0.50
+      S+                0.99    0.23   -0.05   -0.15   -0.06    0.14    0.34    0.43    0.40
+      x_(s-1)          -0.02    0.02   -0.01    0.00    0.00   -0.01   -0.03   -0.03   -0.02
+    unit 8:  a_M            0       1       2       3       4       5       6       7       8
+      M+               -0.02    0.31    0.05    0.07    0.44    0.96    1.34    1.41    1.14
+      S+                1.04    0.71    0.94    0.91    0.55    0.08   -0.26   -0.34   -0.15
+      x_(s-1)          -0.02    0.00    0.00    0.00    0.01    0.01    0.02    0.02    0.02
+    unit 5:  a_M            0       1       2       3       4       5       6       7       8
+      M+                6.16    1.43    0.96    0.52    1.00    1.61    1.65    0.95    0.48
+      S+               -4.18  -14.08  -13.68  -14.18  -15.09  -15.54  -14.68  -13.09  -12.23
+      x_(s-1)           6.16   18.49   19.12   18.51   18.54   19.05   19.18   18.98   18.89
+    unit 9:  a_M            0       1       2       3       4       5       6       7       8
+      M+                0.75  -68.20  -69.78  -67.62  -61.08  -56.25  -56.50  -60.90  -66.95
+      S+               -0.03  -15.77  -13.46  -15.35  -20.99  -24.41  -23.29  -19.16  -13.88
+      x_(s-1)           0.75   84.51   84.73   84.44   85.11   85.69   85.33   84.91   84.83
+
+=== How much of each drive comes from the tape part of h_(s-1)? (test set, steps 1..9; covariance share of the tape part) ===
+    unit:        0      1      2      3      4      5      6      7      8      9     10     11     12     13     14     15
+    share:  -0.079  0.059 -0.013  0.602 -0.012  0.005 -0.012 -0.020  0.063  0.001  0.028  0.032  0.010  0.103 -0.001  0.230
+    std of the tape part of the drive / std of the drive:  0.33  0.19  0.04  0.98  0.03  0.06  0.04  0.04  0.23  0.01  0.25  0.17  0.26  0.54  0.51  0.67

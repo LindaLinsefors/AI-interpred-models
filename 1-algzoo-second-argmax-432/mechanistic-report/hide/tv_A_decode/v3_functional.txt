@@ -1,0 +1,76 @@
+
+===== N(0,1) inputs: quiet final states 245906; untouched answer = runner-up 0.963
+tape = 0: answer = runner-up 0.057, = maximum 0.165, = last position (9) 0.081, same as untouched 0.066
+transplants:   answer = tape owner's runner-up | rest owner's runner-up | rest owner's maximum | share with a unit < -0.01 M   (as is / clipped at 0)
+   same a_M, same a_S         as is   n 244863 | 0.853 | 0.853 | 0.048 | 0.351
+   same a_M, same a_S         clipped n 244863 | 0.852 | 0.852 | 0.045 | 0.351
+   same a_M, different a_S    as is   n 245906 | 0.785 | 0.015 | 0.068 | 0.396
+   same a_M, different a_S    clipped n 245906 | 0.765 | 0.020 | 0.059 | 0.396
+      split, answer = tape owner's runner-up:  recipient S before M 0.817, after 0.754 | donor S before M 0.791, after 0.780 | donor a_S = 2..9: 0.59 0.85 0.82 0.88 0.85 0.84 0.76 0.68
+   different a_M, same a_S    as is   n 245906 | 0.803 | 0.803 | 0.025 | 0.310
+   different a_M, same a_S    clipped n 245906 | 0.799 | 0.799 | 0.023 | 0.310
+   different a_M and a_S      as is   n 205917 | 0.746 | 0.027 | 0.031 | 0.351
+   different a_M and a_S      clipped n 205917 | 0.721 | 0.033 | 0.028 | 0.351
+tape made k steps older:   answer = p_S - k | still p_S | unit < -0.01 M     (as is / clipped)
+   k = +1, target not the maximum   n 184349 | 0.887 / 0.875 | 0.006 / 0.012 | 0.281
+   k = +1, target is the maximum    n  30714 | 0.960 / 0.912 | 0.002 / 0.006 | 0.357
+   k = +2, target not the maximum   n 157991 | 0.818 / 0.790 | 0.009 / 0.013 | 0.408
+   k = +2, target is the maximum    n  26569 | 0.907 / 0.745 | 0.003 / 0.007 | 0.513
+   k = +3, target not the maximum   n 131865 | 0.808 / 0.760 | 0.014 / 0.030 | 0.479
+   k = +3, target is the maximum    n  22032 | 0.967 / 0.703 | 0.005 / 0.133 | 0.556
+   k = -1, target not the maximum   n 183968 | 0.768 / 0.797 | 0.055 / 0.047 | 0.393
+   k = -1, target is the maximum    n  30999 | 0.764 / 0.656 | 0.031 / 0.069 | 0.779
+   k = -2, target not the maximum   n 158155 | 0.662 / 0.636 | 0.081 / 0.067 | 0.460
+   k = -2, target is the maximum    n  25982 | 0.578 / 0.404 | 0.038 / 0.044 | 0.825
+only some coordinates one step older (n 184349):   answer = p_S - 1 / still p_S   [all | S before M | S after M]
+   short                  0.046 / 0.745 | 0.084 / 0.684 | 0.009 / 0.805
+   h2                     0.133 / 0.609 | 0.225 / 0.528 | 0.043 / 0.689
+   h3                     0.234 / 0.367 | 0.222 / 0.531 | 0.246 / 0.205
+   alt                    0.085 / 0.721 | 0.140 / 0.636 | 0.031 / 0.805
+   h2 + h3 + alt          0.637 / 0.082 | 0.499 / 0.155 | 0.774 / 0.010
+   short + h2 + h3        0.664 / 0.106 | 0.522 / 0.166 | 0.805 / 0.046
+   alt + short + h2 + h3  0.887 / 0.006 | 0.829 / 0.009 | 0.944 / 0.004
+   CONTROL clock (not tape) one step older: answer = p_S - 1 0.005 / still p_S 0.935 / maximum 0.008
+
+===== B. earlier steps t = 3..8, run continued (N(0,1), 300,000 sequences, seed 304)
+states at step t after which no later input exceeds S_t ('calm'); final answer of the continued run
+   t      n  | untouched = p_S | tape one step older: = p_S - 1 / still p_S (clipped: = p_S - 1) | transplant, same a_M, other a_S, same step: tape owner's / rest owner's runner-up position (clipped) | tape = 0: = p_S
+   3    6624 | 0.971 | nan / nan (nan) | nan / nan (nan) | 0.013
+   4   19653 | 0.967 | 0.426 / 0.399 (0.572) | 0.897 / 0.026 (0.892) | 0.025
+   5   39466 | 0.965 | 0.585 / 0.206 (0.608) | 0.895 / 0.013 (0.886) | 0.015
+   6   65949 | 0.966 | 0.642 / 0.142 (0.648) | 0.883 / 0.010 (0.895) | 0.008
+   7   99040 | 0.966 | 0.776 / 0.063 (0.753) | 0.890 / 0.008 (0.861) | 0.019
+   8  138667 | 0.965 | 0.864 / 0.025 (0.849) | 0.879 / 0.009 (0.851) | 0.052
+
+===== C. uniform inputs on [-1, 1]: quiet final states 246045; untouched answer = runner-up 0.953
+tape = 0: answer = runner-up 0.070, = maximum 0.126, = last position (9) 0.093, same as untouched 0.082
+transplants:   answer = tape owner's runner-up | rest owner's runner-up | rest owner's maximum | share with a unit < -0.01 M   (as is / clipped at 0)
+   same a_M, same a_S         as is   n 244942 | 0.834 | 0.834 | 0.067 | 0.363
+   same a_M, same a_S         clipped n 244942 | 0.830 | 0.830 | 0.065 | 0.363
+   same a_M, different a_S    as is   n 246045 | 0.767 | 0.014 | 0.088 | 0.412
+   same a_M, different a_S    clipped n 246045 | 0.743 | 0.018 | 0.081 | 0.412
+      split, answer = tape owner's runner-up:  recipient S before M 0.802, after 0.731 | donor S before M 0.786, after 0.747 | donor a_S = 2..9: 0.57 0.81 0.78 0.86 0.83 0.83 0.76 0.68
+   different a_M, same a_S    as is   n 246045 | 0.814 | 0.814 | 0.018 | 0.312
+   different a_M, same a_S    clipped n 246045 | 0.801 | 0.801 | 0.018 | 0.312
+   different a_M and a_S      as is   n 206004 | 0.754 | 0.027 | 0.023 | 0.355
+   different a_M and a_S      clipped n 206004 | 0.721 | 0.033 | 0.023 | 0.355
+tape made k steps older:   answer = p_S - k | still p_S | unit < -0.01 M     (as is / clipped)
+   k = +1, target not the maximum   n 184436 | 0.882 / 0.868 | 0.010 / 0.014 | 0.287
+   k = +1, target is the maximum    n  30928 | 0.938 / 0.898 | 0.005 / 0.008 | 0.351
+   k = +2, target not the maximum   n 158474 | 0.824 / 0.784 | 0.013 / 0.018 | 0.415
+   k = +2, target is the maximum    n  26206 | 0.861 / 0.752 | 0.007 / 0.011 | 0.456
+   k = +3, target not the maximum   n 132114 | 0.814 / 0.751 | 0.017 / 0.036 | 0.474
+   k = +3, target is the maximum    n  21967 | 0.922 / 0.715 | 0.015 / 0.137 | 0.521
+   k = -1, target not the maximum   n 184723 | 0.759 / 0.786 | 0.057 / 0.048 | 0.427
+   k = -1, target is the maximum    n  30689 | 0.766 / 0.641 | 0.028 / 0.056 | 0.777
+   k = -2, target not the maximum   n 158308 | 0.653 / 0.623 | 0.082 / 0.067 | 0.486
+   k = -2, target is the maximum    n  26332 | 0.593 / 0.385 | 0.024 / 0.028 | 0.816
+only some coordinates one step older (n 184436):   answer = p_S - 1 / still p_S   [all | S before M | S after M]
+   short                  0.042 / 0.717 | 0.079 / 0.687 | 0.006 / 0.748
+   h2                     0.128 / 0.574 | 0.216 / 0.497 | 0.041 / 0.651
+   h3                     0.227 / 0.353 | 0.206 / 0.514 | 0.248 / 0.192
+   alt                    0.088 / 0.670 | 0.132 / 0.602 | 0.044 / 0.737
+   h2 + h3 + alt          0.600 / 0.089 | 0.447 / 0.167 | 0.752 / 0.011
+   short + h2 + h3        0.630 / 0.118 | 0.514 / 0.190 | 0.747 / 0.046
+   alt + short + h2 + h3  0.882 / 0.010 | 0.836 / 0.014 | 0.928 / 0.007
+   CONTROL clock (not tape) one step older: answer = p_S - 1 0.004 / still p_S 0.934 / maximum 0.017

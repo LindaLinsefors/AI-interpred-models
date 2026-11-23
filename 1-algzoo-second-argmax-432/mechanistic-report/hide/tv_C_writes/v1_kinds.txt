@@ -1,0 +1,48 @@
+(0) DEFINITIONS: my projector against tape_common.py
+    max |P - P_TAPE| = 1.6e-15;  rank 7;  |P P - P| = 8.9e-16;  |P A - A P| = 1.1e-14
+
+(a) EXACTNESS, 300000 N(0,1) sequences (seed 7101)
+    t = 3: max |sum of writes - P h_t[o]| = 6.9e-13;  against tape_common.tape_part: 6.6e-13
+    t = 6: max |sum of writes - P h_t[o]| = 7.9e-13;  against tape_common.tape_part: 7.9e-13
+    t = 9: max |sum of writes - P h_t[o]| = 8.1e-13;  against tape_common.tape_part: 7.6e-13
+    quiet final states 184784 (0.616); accuracy there 0.9628; tc.prefix_stats agrees: True
+
+(b, c) PER KIND OF WRITE: std ratio / covariance share in the tape scores of ages >= 2 / share of answers changed when dropped
+    N(0,1), t = 9          n =  184784  deleted 0.934 |  input: 0.16 / +0.05 / 0.052 |  pulse 4: 1.12 / -0.41 / 0.675 |  pulse 5: 1.60 / +0.84 / 0.970 |  pulse 9: 0.25 / +0.01 / 0.121 |  comparators off: 1.18 / +0.79 / 0.546 |  wave clips: 0.71 / -0.28 / 0.622 |
+    N(0,1), t = 4 (read by U) n =   73271  deleted 0.904 |  input: 0.16 / +0.03 / 0.074 |  pulse 4: 1.18 / -0.25 / 0.738 |  pulse 5: 1.69 / +0.59 / 0.988 |  pulse 9: 0.21 / +0.03 / 0.071 |  comparators off: 1.09 / +0.83 / 0.988 |  wave clips: 0.82 / -0.23 / 0.906 |
+    N(0,1), t = 6 (read by U) n =  133998  deleted 0.923 |  input: 0.15 / +0.05 / 0.043 |  pulse 4: 1.51 / -0.47 / 0.711 |  pulse 5: 2.07 / +0.87 / 0.994 |  pulse 9: 0.29 / +0.05 / 0.103 |  comparators off: 1.20 / +0.73 / 0.754 |  wave clips: 0.89 / -0.22 / 0.757 |
+    N(0,1), t = 8 (read by U) n =  172132  deleted 0.942 |  input: 0.12 / +0.04 / 0.041 |  pulse 4: 1.26 / -0.49 / 0.683 |  pulse 5: 1.75 / +0.91 / 0.996 |  pulse 9: 0.24 / +0.01 / 0.127 |  comparators off: 1.25 / +0.84 / 0.565 |  wave clips: 0.81 / -0.30 / 0.651 |
+    Unif(-1,1), t = 9      n =  184887  deleted 0.918 |  input: 0.13 / +0.04 / 0.061 |  pulse 4: 1.04 / -0.50 / 0.622 |  pulse 5: 1.53 / +0.95 / 0.973 |  pulse 9: 0.23 / -0.01 / 0.133 |  comparators off: 1.20 / +0.82 / 0.556 |  wave clips: 0.70 / -0.31 / 0.591 |
+
+    more leave-outs at t = 9 (N(0,1)): share of answers changed on quiet final states
+      drop clip of unit 0             0.4798
+      drop wave clips except unit 0   0.2292
+      drop pulses 4, 5, 9             0.7504
+
+(c2) ATTACK: is 'necessary' more than 'a large cancelling term'?  Self-consistent removal: the network is re-run and at every step
+     the tape-mode part of one kind of write is taken out of the state, so later amplitudes respond. Quiet final states of the ORIGINAL run.
+     neg = share of final states with an activation below -1e-9 on the way; 'clip' = the same with the state clipped at 0 after each removal
+      input            changed 0.0498   neg 1.000   clipped: changed 0.0519
+      pulse 4          changed 0.4187   neg 1.000   clipped: changed 0.6297
+      pulse 5          changed 0.9426   neg 0.890   clipped: changed 0.9461
+      pulse 9          changed 0.1235   neg 0.970   clipped: changed 0.1182
+      comparators off  changed 0.4702   neg 1.000   clipped: changed 0.5143
+      wave clips       changed 0.6085   neg 1.000   clipped: changed 0.2150
+
+(e) PULSES ONLY: R2 of the tape score entry of age 2..9 (quiet final states, / M); second half of the sample is the test set for the fitted kernel
+    exact kernel:    0.605  0.418  0.169  0.041 -0.053 -0.400 -0.466 -0.161
+    fitted kernel:   0.891  0.753  0.601  0.591  0.642  0.510  0.387  0.569   (held out)
+    pulses + comparators, exact kernel:  0.606  0.681  0.659  0.559  0.297  0.211  0.312  0.594
+
+(f) WAVE CLIPS by steps since the latest positive new maximum (tau), steps 1..9: share of steps with the unit clipped
+    unit  tau = 0     1     2     3     4     5     6
+       0      0.20  0.01  1.00  0.00  0.00  0.00  0.00
+       2      0.11  0.00  0.00  0.00  0.00  0.00  0.00
+       3      0.24  0.18  0.30  0.02  0.39  0.32  0.22
+      10      0.03  0.00  0.00  0.00  0.00  0.00  0.95
+      11      0.03  0.00  0.00  0.00  0.00  0.92  0.00
+      12      0.00  0.00  0.00  0.02  0.30  0.00  0.00
+      13      0.19  0.00  0.00  0.00  0.00  0.00  0.00
+      14      0.38  0.00  0.17  0.00  0.00  0.00  0.00
+      15      0.32  0.14  0.31  0.44  0.44  0.24  0.01
+    clip of unit 0 at tau = 2, in units of the running maximum: median 3.35, quartiles 2.50 - 4.37

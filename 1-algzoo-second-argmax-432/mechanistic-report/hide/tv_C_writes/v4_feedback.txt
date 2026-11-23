@@ -1,0 +1,16 @@
+200000 N(0,1) test sequences (seed 7304), quiet final states n = 122970
+
+(1) answers changed on quiet final states when the tape's part of the drive of the named units is replaced
+    channels recomputed             set to zero   mean given the age of the maximum   another sequence's (same step and age)   | rms change of the amplitude / rms amplitude (zero, mean)
+    pulse 4                         0.0066        0.0061                              0.0077                                   | 0.016, 0.012
+    pulse 5                         0.2522        0.1927                              0.2377                                   | 0.127, 0.126
+    pulse 9                         0.0501        0.0647                              0.0566                                   | 0.434, 0.603
+    comparators 6, 7                0.0175        0.0176                              0.0196                                   | 0.021, 0.031
+    comparators 1, 8                0.1962        0.1518                              0.1631                                   | 0.143, 0.110
+    wave clips of 3, 15, 13, 14     0.2767        0.1816                              0.2687                                   | 1.698, 0.986
+    all other wave clips            0.3970        0.2486                              0.2944                                   | 1.415, 0.692
+    for scale: std of the tape's part of the drive / std of the drive, unit 5: 0.061;  the same over steps where unit 5 fires: 0.179;  std of the tape's part / std of unit 5's pulse where it fires: 0.179
+
+(2) Unif(-1,1): L3 (thresholds from M+, S+, T+, latest input; weights by the three ages) fitted on 300000 uniform sequences (seed 7306), tested on 200000 (seed 7305)
+    uniform  fitted and tested on the same distribution: quiet final states n = 122855, answers changed 0.1061;  share of quiet states with (S - T)/M < 0.05: 0.183, changed there 0.282, elsewhere 0.067
+    normal   fitted and tested on the same distribution: quiet final states n = 122970, answers changed 0.0705;  share of quiet states with (S - T)/M < 0.05: 0.161, changed there 0.219, elsewhere 0.042

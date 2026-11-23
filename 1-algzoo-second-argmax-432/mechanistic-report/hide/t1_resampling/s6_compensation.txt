@@ -1,0 +1,11 @@
+36585 final quiet states
+
+V                                      |  rms d_tape  d_rest  d_tot   corr(d_tape, d_rest) | relative: rms d_tape  d_rest  d_tot   corr
+V0 = max and runner-up                 |       9.23    5.37   9.71         -0.199         |              13.25    4.64  12.17  -0.398
+V1 = V0 + third largest                |       5.23    4.44   6.07         -0.222         |               7.41    3.20   6.46  -0.493
+records above zero (c = 1)             |       3.39    5.29   5.09         -0.379         |               5.23    4.07   3.13  -0.801
+contenders c = 0.75                    |       2.29    4.60   4.23         -0.404         |               3.53    3.03   1.78  -0.864
+all positive inputs (c = 0)            |       1.76    3.60   3.32         -0.397         |               2.63    2.18   1.37  -0.853
+
+For scale: sd over all final quiet states of the tape piece, of the rest and of the full score (entries of age >= 2, / M),
+   tape 13.29   rest 6.53   full score 13.92   corr(tape, rest) = -0.147

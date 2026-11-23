@@ -1,0 +1,29 @@
+
+1. tape piece alone: P(top entry among ages >= 2 is the runner-up), 492789 quiet final states
+   a_M \ a_S       2      3      4      5      6      7      8      9
+           2       .  0.778  0.774  0.990  0.995  0.962  0.702  0.715
+           3   0.634      .  0.733  0.928  0.910  0.997  0.960  0.791
+           4   0.497  0.803      .  0.846  0.893  0.884  0.987  0.945
+           5   0.619  0.790  0.802      .  0.810  0.860  0.906  0.987
+           6   0.720  0.810  0.911  0.947      .  0.838  0.839  0.985
+           7   0.561  0.877  0.888  0.963  0.943      .  0.912  0.966
+           8   0.262  0.879  0.872  0.964  0.925  0.940      .  0.882
+           9   0.216  0.810  0.877  0.943  0.960  0.907  0.905      .
+
+1. rest piece alone: P(top entry among ages >= 2 is the runner-up), 492789 quiet final states
+   a_M \ a_S       2      3      4      5      6      7      8      9
+           2       .  0.132  0.158  0.000  0.000  0.000  0.002  0.358
+           3   0.962      .  0.561  0.000  0.000  0.000  0.000  0.260
+           4   0.988  0.133      .  0.000  0.000  0.000  0.000  0.055
+           5   0.907  0.150  0.090      .  0.000  0.000  0.000  0.026
+           6   0.655  0.240  0.053  0.000      .  0.000  0.000  0.042
+           7   0.356  0.314  0.055  0.000  0.007      .  0.023  0.068
+           8   0.340  0.207  0.098  0.000  0.000  0.047      .  0.200
+           9   0.607  0.183  0.173  0.000  0.000  0.000  0.006      .
+
+2. S_pos, t = 9, n = 492170: answer of A's rest + B's tape, by the donor's configuration
+   donor a_S = 2, a_M = 9   n =   8754  S_A (rest) 0.000  S_B (tape) 0.038  maximum 0.927  third 0.033  other 0.002   answer has age 0 or 1: 0.003
+   donor a_S = 2, a_M = 8   n =   8756  S_A (rest) 0.102  S_B (tape) 0.210  maximum 0.024  third 0.170  other 0.494   answer has age 0 or 1: 0.003
+   donor a_S = 2, a_M <= 7  n =  43760  S_A (rest) 0.013  S_B (tape) 0.740  maximum 0.030  third 0.138  other 0.078   answer has age 0 or 1: 0.034
+   donor a_S = 9            n =  61612  S_A (rest) 0.001  S_B (tape) 0.808  maximum 0.104  third 0.053  other 0.035   answer has age 0 or 1: 0.050
+   donor 3 <= a_S <= 8      n = 369288  S_A (rest) 0.000  S_B (tape) 0.910  maximum 0.013  third 0.063  other 0.014   answer has age 0 or 1: 0.053

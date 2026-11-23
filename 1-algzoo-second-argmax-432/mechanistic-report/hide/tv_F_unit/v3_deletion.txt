@@ -1,0 +1,97 @@
+300000 sequences, seed 9301
+
+t0 = 5: 107282 quiet states; the three classes cover 0.894
+   same top two: n 39635
+      TAPE    deleted: changed 0.958 (clip 0.938) neg 0.388   resampled: changed 0.715 (clip 0.712) neg 0.634   | after deletion the answer is: old runner-up 0.014, old maximum 0.158, later input 0.504, other old input 0.324
+      clock   deleted: changed 0.094 (clip 0.094) neg 0.054   resampled: changed 0.414 (clip 0.400) neg 0.696
+      runner  deleted: changed 0.909 (clip 0.911) neg 0.754   resampled: changed 0.313 (clip 0.312) neg 0.705
+      level   deleted: changed 0.879 (clip 0.769) neg 1.000   resampled: changed 0.026 (clip 0.027) neg 0.367
+      trans   deleted: changed 0.008 (clip 0.015) neg 0.680   resampled: changed 0.012 (clip 0.028) neg 0.688
+      short   deleted: changed 0.523 (clip 0.437) neg 0.414   resampled: changed 0.357 (clip 0.376) neg 0.683
+      h2      deleted: changed 0.176 (clip 0.167) neg 0.843   resampled: changed 0.336 (clip 0.317) neg 0.770
+      h3      deleted: changed 0.079 (clip 0.149) neg 0.802   resampled: changed 0.130 (clip 0.186) neg 0.818
+      alt     deleted: changed 0.066 (clip 0.091) neg 0.656   resampled: changed 0.125 (clip 0.151) neg 0.726
+   max overtaken: n 28081
+      TAPE    deleted: changed 0.305 (clip 0.370) neg 0.445   resampled: changed 0.392 (clip 0.397) neg 0.670   | after deletion the answer is: old runner-up 0.010, old maximum 0.679, later input 0.185, other old input 0.125
+      clock   deleted: changed 0.895 (clip 0.895) neg 0.045   resampled: changed 0.752 (clip 0.753) neg 0.624
+      runner  deleted: changed 0.678 (clip 0.675) neg 0.693   resampled: changed 0.305 (clip 0.287) neg 0.745
+      level   deleted: changed 0.869 (clip 0.885) neg 1.000   resampled: changed 0.036 (clip 0.033) neg 0.477
+      trans   deleted: changed 0.005 (clip 0.017) neg 0.590   resampled: changed 0.009 (clip 0.039) neg 0.626
+      short   deleted: changed 0.180 (clip 0.230) neg 0.462   resampled: changed 0.124 (clip 0.168) neg 0.719
+      h2      deleted: changed 0.106 (clip 0.105) neg 0.838   resampled: changed 0.193 (clip 0.181) neg 0.762
+      h3      deleted: changed 0.057 (clip 0.085) neg 0.791   resampled: changed 0.075 (clip 0.096) neg 0.816
+      alt     deleted: changed 0.027 (clip 0.031) neg 0.651   resampled: changed 0.069 (clip 0.078) neg 0.724
+   new runner-up: n 28174
+      TAPE    deleted: changed 0.042 (clip 0.041) neg 0.513   resampled: changed 0.138 (clip 0.123) neg 0.774   | after deletion the answer is: old runner-up 0.001, old maximum 0.005, later input 0.993, other old input 0.001
+      clock   deleted: changed 0.095 (clip 0.095) neg 0.016   resampled: changed 0.101 (clip 0.098) neg 0.469
+      runner  deleted: changed 0.132 (clip 0.129) neg 0.658   resampled: changed 0.288 (clip 0.290) neg 0.836
+      level   deleted: changed 0.917 (clip 0.942) neg 1.000   resampled: changed 0.032 (clip 0.031) neg 0.602
+      trans   deleted: changed 0.004 (clip 0.008) neg 0.582   resampled: changed 0.008 (clip 0.016) neg 0.624
+      short   deleted: changed 0.048 (clip 0.038) neg 0.508   resampled: changed 0.087 (clip 0.082) neg 0.804
+      h2      deleted: changed 0.031 (clip 0.031) neg 0.810   resampled: changed 0.054 (clip 0.050) neg 0.741
+      h3      deleted: changed 0.037 (clip 0.044) neg 0.742   resampled: changed 0.054 (clip 0.058) neg 0.821
+      alt     deleted: changed 0.017 (clip 0.018) neg 0.659   resampled: changed 0.032 (clip 0.035) neg 0.728
+
+t0 = 7: 155502 quiet states; the three classes cover 0.981
+   same top two: n 99147
+      TAPE    deleted: changed 0.964 (clip 0.946) neg 0.326   resampled: changed 0.828 (clip 0.813) neg 0.548   | after deletion the answer is: old runner-up 0.019, old maximum 0.140, later input 0.137, other old input 0.704
+      clock   deleted: changed 0.069 (clip 0.070) neg 0.064   resampled: changed 0.236 (clip 0.284) neg 0.585
+      runner  deleted: changed 0.793 (clip 0.799) neg 0.545   resampled: changed 0.206 (clip 0.220) neg 0.601
+      level   deleted: changed 0.792 (clip 0.783) neg 1.000   resampled: changed 0.019 (clip 0.022) neg 0.366
+      trans   deleted: changed 0.007 (clip 0.011) neg 0.492   resampled: changed 0.011 (clip 0.020) neg 0.517
+      short   deleted: changed 0.527 (clip 0.430) neg 0.459   resampled: changed 0.526 (clip 0.467) neg 0.613
+      h2      deleted: changed 0.228 (clip 0.208) neg 0.523   resampled: changed 0.399 (clip 0.364) neg 0.578
+      h3      deleted: changed 0.225 (clip 0.203) neg 0.470   resampled: changed 0.332 (clip 0.302) neg 0.591
+      alt     deleted: changed 0.063 (clip 0.067) neg 0.516   resampled: changed 0.145 (clip 0.141) neg 0.555
+   max overtaken: n 26711
+      TAPE    deleted: changed 0.295 (clip 0.322) neg 0.347   resampled: changed 0.471 (clip 0.486) neg 0.548   | after deletion the answer is: old runner-up 0.015, old maximum 0.700, later input 0.122, other old input 0.163
+      clock   deleted: changed 0.901 (clip 0.900) neg 0.068   resampled: changed 0.789 (clip 0.788) neg 0.557
+      runner  deleted: changed 0.575 (clip 0.577) neg 0.518   resampled: changed 0.173 (clip 0.228) neg 0.628
+      level   deleted: changed 0.727 (clip 0.802) neg 1.000   resampled: changed 0.040 (clip 0.048) neg 0.414
+      trans   deleted: changed 0.010 (clip 0.018) neg 0.433   resampled: changed 0.014 (clip 0.031) neg 0.472
+      short   deleted: changed 0.164 (clip 0.168) neg 0.469   resampled: changed 0.201 (clip 0.215) neg 0.611
+      h2      deleted: changed 0.199 (clip 0.200) neg 0.537   resampled: changed 0.282 (clip 0.284) neg 0.587
+      h3      deleted: changed 0.141 (clip 0.149) neg 0.474   resampled: changed 0.209 (clip 0.213) neg 0.588
+      alt     deleted: changed 0.045 (clip 0.046) neg 0.508   resampled: changed 0.099 (clip 0.104) neg 0.550
+   new runner-up: n 26714
+      TAPE    deleted: changed 0.055 (clip 0.039) neg 0.502   resampled: changed 0.249 (clip 0.181) neg 0.657   | after deletion the answer is: old runner-up 0.000, old maximum 0.024, later input 0.975, other old input 0.001
+      clock   deleted: changed 0.117 (clip 0.117) neg 0.022   resampled: changed 0.169 (clip 0.126) neg 0.378
+      runner  deleted: changed 0.091 (clip 0.090) neg 0.401   resampled: changed 0.380 (clip 0.350) neg 0.749
+      level   deleted: changed 0.973 (clip 0.979) neg 1.000   resampled: changed 0.050 (clip 0.040) neg 0.513
+      trans   deleted: changed 0.007 (clip 0.009) neg 0.430   resampled: changed 0.012 (clip 0.015) neg 0.479
+      short   deleted: changed 0.116 (clip 0.057) neg 0.572   resampled: changed 0.182 (clip 0.113) neg 0.666
+      h2      deleted: changed 0.036 (clip 0.034) neg 0.542   resampled: changed 0.142 (clip 0.111) neg 0.596
+      h3      deleted: changed 0.051 (clip 0.047) neg 0.440   resampled: changed 0.097 (clip 0.084) neg 0.591
+      alt     deleted: changed 0.023 (clip 0.022) neg 0.471   resampled: changed 0.039 (clip 0.037) neg 0.532
+
+t0 = 8: 171790 quiet states; the three classes cover 1.000
+   same top two: n 138678
+      TAPE    deleted: changed 0.934 (clip 0.921) neg 0.247   resampled: changed 0.855 (clip 0.845) neg 0.434   | after deletion the answer is: old runner-up 0.053, old maximum 0.153, later input 0.078, other old input 0.716
+      clock   deleted: changed 0.070 (clip 0.071) neg 0.058   resampled: changed 0.177 (clip 0.220) neg 0.458
+      runner  deleted: changed 0.699 (clip 0.699) neg 0.380   resampled: changed 0.149 (clip 0.171) neg 0.476
+      level   deleted: changed 0.767 (clip 0.770) neg 1.000   resampled: changed 0.013 (clip 0.018) neg 0.298
+      trans   deleted: changed 0.021 (clip 0.025) neg 0.383   resampled: changed 0.036 (clip 0.043) neg 0.403
+      short   deleted: changed 0.531 (clip 0.473) neg 0.395   resampled: changed 0.588 (clip 0.546) neg 0.501
+      h2      deleted: changed 0.264 (clip 0.256) neg 0.404   resampled: changed 0.452 (clip 0.428) neg 0.468
+      h3      deleted: changed 0.266 (clip 0.249) neg 0.342   resampled: changed 0.395 (clip 0.374) neg 0.466
+      alt     deleted: changed 0.068 (clip 0.065) neg 0.368   resampled: changed 0.154 (clip 0.146) neg 0.410
+   max overtaken: n 16495
+      TAPE    deleted: changed 0.308 (clip 0.327) neg 0.243   resampled: changed 0.521 (clip 0.528) neg 0.415   | after deletion the answer is: old runner-up 0.019, old maximum 0.693, later input 0.095, other old input 0.193
+      clock   deleted: changed 0.881 (clip 0.881) neg 0.068   resampled: changed 0.792 (clip 0.797) neg 0.458
+      runner  deleted: changed 0.481 (clip 0.478) neg 0.377   resampled: changed 0.152 (clip 0.183) neg 0.488
+      level   deleted: changed 0.653 (clip 0.763) neg 1.000   resampled: changed 0.051 (clip 0.054) neg 0.338
+      trans   deleted: changed 0.030 (clip 0.034) neg 0.343   resampled: changed 0.041 (clip 0.052) neg 0.371
+      short   deleted: changed 0.192 (clip 0.202) neg 0.395   resampled: changed 0.281 (clip 0.291) neg 0.494
+      h2      deleted: changed 0.228 (clip 0.222) neg 0.417   resampled: changed 0.335 (clip 0.331) neg 0.476
+      h3      deleted: changed 0.197 (clip 0.194) neg 0.358   resampled: changed 0.276 (clip 0.268) neg 0.468
+      alt     deleted: changed 0.067 (clip 0.061) neg 0.381   resampled: changed 0.119 (clip 0.116) neg 0.418
+   new runner-up: n 16617
+      TAPE    deleted: changed 0.062 (clip 0.052) neg 0.382   resampled: changed 0.289 (clip 0.238) neg 0.507   | after deletion the answer is: old runner-up 0.001, old maximum 0.034, later input 0.960, other old input 0.005
+      clock   deleted: changed 0.108 (clip 0.107) neg 0.025   resampled: changed 0.188 (clip 0.153) neg 0.291
+      runner  deleted: changed 0.060 (clip 0.051) neg 0.287   resampled: changed 0.423 (clip 0.394) neg 0.614
+      level   deleted: changed 0.995 (clip 0.992) neg 1.000   resampled: changed 0.058 (clip 0.045) neg 0.395
+      trans   deleted: changed 0.018 (clip 0.019) neg 0.344   resampled: changed 0.030 (clip 0.030) neg 0.376
+      short   deleted: changed 0.151 (clip 0.108) neg 0.468   resampled: changed 0.236 (clip 0.176) neg 0.528
+      h2      deleted: changed 0.059 (clip 0.055) neg 0.405   resampled: changed 0.178 (clip 0.156) neg 0.472
+      h3      deleted: changed 0.046 (clip 0.042) neg 0.331   resampled: changed 0.128 (clip 0.114) neg 0.473
+      alt     deleted: changed 0.022 (clip 0.021) neg 0.348   resampled: changed 0.046 (clip 0.040) neg 0.402

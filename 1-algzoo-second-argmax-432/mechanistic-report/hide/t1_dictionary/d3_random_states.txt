@@ -1,0 +1,106 @@
+
+===== t = 9: 246145 quiet states of 400000 (0.615).  rms of the tape coordinates / M: [4.9  1.84 1.85 2.94 3.28 2.37 2.68], |c| rms 7.94
+   accuracy of the unmodified network on these sequences: 0.964
+   coordinates: alt, Re short, Im short, Re h2, Im h2, Re h3, Im h3
+ (0) reference substitutions
+   zero tape                                      R2 all -0.030 | per coordinate  -0.01  -0.00  -0.06  -0.08  -0.01  -0.11  -0.01 | answer changes 0.933  (clipped at 0: 0.916; states with a negative activation 0.19)
+   mean tape of quiet states (times M)            R2 all  0.000 | per coordinate   0.00   0.00   0.00   0.00   0.00   0.00   0.00 | answer changes 0.914  (clipped at 0: 0.903; states with a negative activation 0.15)
+   tape of another random quiet state (times M)   R2 all -1.000 | per coordinate  -1.00  -1.00  -1.01  -1.00  -1.00  -1.00  -1.00 | answer changes 0.873  (clipped at 0: 0.866; states with a negative activation 0.38)
+ (a) exact writes: rms size of each term / M, and nested sums
+   exactness: max |sum of terms - tape| = 6.07e-13
+     direct                 rms |term| / M =   0.87
+     pulse 4                rms |term| / M =   8.65
+     pulse 9                rms |term| / M =   2.35
+     pulse 5: maximum       rms |term| / M =  13.71
+     pulse 5: runner-up     rms |term| / M =   9.16
+     pulse 5: dethroned     rms |term| / M =   4.90
+     pulse 5: below         rms |term| / M =   1.45
+     pulse 5: step 0        rms |term| / M =   0.17
+     clip comparators       rms |term| / M =   4.61
+     clip wave units        rms |term| / M =   6.97
+   unit 5's pulses only                           R2 all -0.977 | per coordinate  -1.41  -0.25  -0.61  -0.96  -0.64  -0.83  -0.68 | answer changes 0.881  (clipped at 0: 0.729; states with a negative activation 0.74)
+   all three pulse units                          R2 all  0.231 | per coordinate  -0.10   0.19   0.35   0.43   0.57   0.37   0.45 | answer changes 0.577  (clipped at 0: 0.532; states with a negative activation 0.69)
+   ... + direct input                             R2 all  0.261 | per coordinate  -0.03   0.22   0.37   0.43   0.56   0.39   0.46 | answer changes 0.577  (clipped at 0: 0.524; states with a negative activation 0.69)
+   ... + comparator clips (all but wave clips)    R2 all  0.206 | per coordinate  -0.06   0.85   0.87   0.22   0.37   0.10   0.30 | answer changes 0.624  (clipped at 0: 0.445; states with a negative activation 0.70)
+   leave one term out of the exact tape:
+     exact minus direct                           R2 all  0.988 | per coordinate   1.00   0.98   0.99   0.97   0.98   0.98   0.99 | answer changes 0.052  (clipped at 0: 0.052; states with a negative activation 0.20)
+     exact minus pulse 4                          R2 all -0.222 | per coordinate  -0.20   0.48   0.30  -0.82  -0.60   0.08   0.17 | answer changes 0.677  (clipped at 0: 0.549; states with a negative activation 0.69)
+     exact minus pulse 9                          R2 all  0.910 | per coordinate   0.82   0.98   0.96   0.97   0.98   0.94   0.95 | answer changes 0.121  (clipped at 0: 0.118; states with a negative activation 0.24)
+     exact minus pulse 5: maximum                 R2 all -2.074 | per coordinate  -2.56  -0.43  -0.63  -2.22  -1.90  -2.03  -2.01 | answer changes 0.396  (clipped at 0: 0.439; states with a negative activation 0.51)
+     exact minus pulse 5: runner-up               R2 all -0.371 | per coordinate  -0.59   0.38   0.29  -0.46  -0.29  -0.32  -0.33 | answer changes 0.975  (clipped at 0: 0.971; states with a negative activation 0.52)
+     exact minus pulse 5: dethroned               R2 all  0.607 | per coordinate   0.50   0.92   0.88   0.50   0.62   0.67   0.75 | answer changes 0.152  (clipped at 0: 0.135; states with a negative activation 0.45)
+     exact minus pulse 5: below                   R2 all  0.966 | per coordinate   0.96   0.97   0.97   0.98   0.96   0.96   0.95 | answer changes 0.021  (clipped at 0: 0.020; states with a negative activation 0.08)
+     exact minus pulse 5: step 0                  R2 all  1.000 | per coordinate   1.00   1.00   1.00   1.00   1.00   1.00   1.00 | answer changes 0.002  (clipped at 0: 0.002; states with a negative activation 0.09)
+     exact minus clip comparators                 R2 all  0.653 | per coordinate   0.89   0.03   0.24   0.27   0.55   0.79   0.85 | answer changes 0.544  (clipped at 0: 0.533; states with a negative activation 0.37)
+     exact minus clip wave units                  R2 all  0.206 | per coordinate  -0.06   0.85   0.87   0.22   0.37   0.10   0.30 | answer changes 0.624  (clipped at 0: 0.445; states with a negative activation 0.70)
+ (b) skeletons (inputs not kept are replaced by 0)
+   keep M, S [2.00 kept]                          R2 all  0.553 | per coordinate   0.56   0.50   0.63   0.53   0.51   0.59   0.56 | answer changes 0.071  (clipped at 0: 0.084; states with a negative activation 0.39)
+   keep M, S, T (top 3) [3.00 kept]               R2 all  0.848 | per coordinate   0.83   0.84   0.85   0.82   0.87   0.86   0.89 | answer changes 0.065  (clipped at 0: 0.069; states with a negative activation 0.31)
+   keep top 4 [4.00 kept]                         R2 all  0.938 | per coordinate   0.92   0.95   0.95   0.93   0.95   0.94   0.96 | answer changes 0.055  (clipped at 0: 0.056; states with a negative activation 0.24)
+   keep top 5 [5.00 kept]                         R2 all  0.962 | per coordinate   0.96   0.97   0.98   0.96   0.96   0.96   0.97 | answer changes 0.050  (clipped at 0: 0.050; states with a negative activation 0.20)
+   keep inputs > 0.5 S [3.27 kept]                R2 all  0.913 | per coordinate   0.89   0.93   0.94   0.91   0.93   0.92   0.94 | answer changes 0.056  (clipped at 0: 0.058; states with a negative activation 0.28)
+   keep inputs > 0.75 S [2.56 kept]               R2 all  0.794 | per coordinate   0.77   0.79   0.83   0.78   0.80   0.82   0.83 | answer changes 0.063  (clipped at 0: 0.071; states with a negative activation 0.34)
+   keep inputs > 0 (negatives -> 0) [5.04 kept]   R2 all  0.966 | per coordinate   0.97   0.97   0.98   0.96   0.97   0.96   0.97 | answer changes 0.051  (clipped at 0: 0.050; states with a negative activation 0.17)
+   keep M, S and all inputs after both [6.00 kept] R2 all  0.576 | per coordinate   0.59   0.48   0.61   0.53   0.55   0.61   0.61 | answer changes 0.044  (clipped at 0: 0.059; states with a negative activation 0.38)
+   keep M, S and all inputs before both [4.00 kept] R2 all  0.695 | per coordinate   0.73   0.69   0.83   0.66   0.64   0.69   0.65 | answer changes 0.071  (clipped at 0: 0.080; states with a negative activation 0.33)
+   keep M, S and all inputs between them [4.00 kept] R2 all  0.847 | per coordinate   0.82   0.78   0.77   0.87   0.90   0.89   0.90 | answer changes 0.060  (clipped at 0: 0.061; states with a negative activation 0.34)
+   keep M, S, T; the rest replaced by -M          R2 all  0.793 | per coordinate   0.79   0.78   0.79   0.74   0.81   0.80   0.84 | answer changes 0.072  (clipped at 0: 0.078; states with a negative activation 0.47)
+ (c) formula N1
+   N1: skeleton (M, S) + explicit later writes    R2 all  0.570 | per coordinate   0.58   0.52   0.65   0.54   0.53   0.61   0.59 | answer changes 0.075  (clipped at 0: 0.088; states with a negative activation 0.38)
+      later inputs written (age >= 2) per quiet state: mean 0.14; share of states with 0, 1, 2+: 0.87, 0.12, 0.01
+      states with 0 written later inputs (n = 214567): R2 all, skeleton (M, S) 0.560, N1 0.560
+      states with 1 written later inputs (n = 29322): R2 all, skeleton (M, S) 0.395, N1 0.618
+      states with 2+ written later inputs (n = 2256): R2 all, skeleton (M, S) 0.435, N1 0.733
+
+===== t = 6: 178310 quiet states of 400000 (0.446).  rms of the tape coordinates / M: [4.53 2.05 2.14 1.91 2.43 2.05 2.12], |c| rms 6.89
+   accuracy of the unmodified network on these sequences: 0.961
+   coordinates: alt, Re short, Im short, Re h2, Im h2, Re h3, Im h3
+ (0) reference substitutions
+   zero tape                                      R2 all -0.142 | per coordinate  -0.08  -0.97  -0.17  -0.12  -0.10  -0.22  -0.00 | answer changes 0.564  (clipped at 0: 0.564; states with a negative activation 0.40)
+   mean tape of quiet states (times M)            R2 all  0.000 | per coordinate   0.00   0.00   0.00   0.00   0.00   0.00   0.00 | answer changes 0.481  (clipped at 0: 0.479; states with a negative activation 0.48)
+   tape of another random quiet state (times M)   R2 all -0.996 | per coordinate  -0.99  -1.00  -1.00  -1.00  -1.00  -1.00  -1.00 | answer changes 0.532  (clipped at 0: 0.521; states with a negative activation 0.65)
+ (a) exact writes: rms size of each term / M, and nested sums
+   exactness: max |sum of terms - tape| = 5.74e-13
+     direct                 rms |term| / M =   1.04
+     pulse 4                rms |term| / M =  10.81
+     pulse 9                rms |term| / M =   2.68
+     pulse 5: maximum       rms |term| / M =  15.95
+     pulse 5: runner-up     rms |term| / M =   9.83
+     pulse 5: dethroned     rms |term| / M =   4.07
+     pulse 5: below         rms |term| / M =   0.87
+     pulse 5: step 0        rms |term| / M =   0.27
+     clip comparators       rms |term| / M =   5.94
+     clip wave units        rms |term| / M =   8.12
+   unit 5's pulses only                           R2 all -3.168 | per coordinate  -2.60  -3.82  -1.97  -5.84  -3.54  -3.29  -3.81 | answer changes 0.383  (clipped at 0: 0.334; states with a negative activation 1.00)
+   all three pulse units                          R2 all -0.614 | per coordinate  -0.49  -3.32  -0.25  -0.70  -0.46  -0.47  -0.41 | answer changes 0.360  (clipped at 0: 0.343; states with a negative activation 0.85)
+   ... + direct input                             R2 all -0.545 | per coordinate  -0.38  -2.97  -0.18  -0.79  -0.45  -0.48  -0.37 | answer changes 0.357  (clipped at 0: 0.337; states with a negative activation 0.84)
+   ... + comparator clips (all but wave clips)    R2 all -0.585 | per coordinate  -0.63   0.51   0.78  -1.39  -0.62  -1.34  -0.90 | answer changes 0.261  (clipped at 0: 0.170; states with a negative activation 0.99)
+   leave one term out of the exact tape:
+     exact minus direct                           R2 all  0.974 | per coordinate   0.99   0.94   0.99   0.89   0.95   0.97   0.98 | answer changes 0.023  (clipped at 0: 0.022; states with a negative activation 0.46)
+     exact minus pulse 4                          R2 all -1.811 | per coordinate  -1.21  -1.17  -0.45  -5.04  -3.58  -1.37  -1.73 | answer changes 0.346  (clipped at 0: 0.283; states with a negative activation 1.00)
+     exact minus pulse 9                          R2 all  0.827 | per coordinate   0.72   0.94   0.94   0.92   0.95   0.87   0.89 | answer changes 0.092  (clipped at 0: 0.094; states with a negative activation 0.60)
+     exact minus pulse 5: maximum                 R2 all -5.116 | per coordinate  -4.77  -2.67  -1.19  -8.14  -6.89  -5.60  -6.51 | answer changes 0.589  (clipped at 0: 0.572; states with a negative activation 0.65)
+     exact minus pulse 5: runner-up               R2 all -1.321 | per coordinate  -1.20  -0.32   0.19  -2.48  -2.04  -1.51  -1.77 | answer changes 0.548  (clipped at 0: 0.544; states with a negative activation 0.77)
+     exact minus pulse 5: dethroned               R2 all  0.601 | per coordinate   0.61   0.82   0.89   0.29   0.47   0.56   0.63 | answer changes 0.074  (clipped at 0: 0.063; states with a negative activation 0.43)
+     exact minus pulse 5: below                   R2 all  0.982 | per coordinate   0.98   0.98   0.99   0.98   0.98   0.98   0.97 | answer changes 0.006  (clipped at 0: 0.007; states with a negative activation 0.07)
+     exact minus pulse 5: step 0                  R2 all  0.998 | per coordinate   1.00   1.00   1.00   0.99   1.00   1.00   1.00 | answer changes 0.001  (clipped at 0: 0.001; states with a negative activation 0.28)
+     exact minus clip comparators                 R2 all  0.153 | per coordinate   0.85  -4.06  -0.27  -0.67  -0.31   0.43   0.51 | answer changes 0.386  (clipped at 0: 0.395; states with a negative activation 0.53)
+     exact minus clip wave units                  R2 all -0.585 | per coordinate  -0.63   0.51   0.78  -1.39  -0.62  -1.34  -0.90 | answer changes 0.261  (clipped at 0: 0.170; states with a negative activation 0.99)
+ (b) skeletons (inputs not kept are replaced by 0)
+   keep M, S [2.00 kept]                          R2 all  0.796 | per coordinate   0.78   0.87   0.79   0.72   0.83   0.81   0.86 | answer changes 0.036  (clipped at 0: 0.037; states with a negative activation 0.61)
+   keep M, S, T (top 3) [3.00 kept]               R2 all  0.915 | per coordinate   0.91   0.93   0.95   0.82   0.94   0.92   0.95 | answer changes 0.022  (clipped at 0: 0.022; states with a negative activation 0.53)
+   keep top 4 [4.00 kept]                         R2 all  0.948 | per coordinate   0.95   0.95   0.98   0.86   0.95   0.94   0.96 | answer changes 0.018  (clipped at 0: 0.017; states with a negative activation 0.49)
+   keep top 5 [5.00 kept]                         R2 all  0.961 | per coordinate   0.97   0.95   0.99   0.89   0.96   0.95   0.97 | answer changes 0.015  (clipped at 0: 0.015; states with a negative activation 0.49)
+   keep inputs > 0.5 S [2.73 kept]                R2 all  0.922 | per coordinate   0.92   0.94   0.96   0.82   0.94   0.92   0.95 | answer changes 0.020  (clipped at 0: 0.020; states with a negative activation 0.53)
+   keep inputs > 0.75 S [2.33 kept]               R2 all  0.878 | per coordinate   0.86   0.92   0.90   0.79   0.91   0.89   0.93 | answer changes 0.025  (clipped at 0: 0.024; states with a negative activation 0.58)
+   keep inputs > 0 (negatives -> 0) [3.67 kept]   R2 all  0.952 | per coordinate   0.96   0.95   0.99   0.84   0.95   0.94   0.96 | answer changes 0.018  (clipped at 0: 0.018; states with a negative activation 0.44)
+   keep M, S and all inputs after both [5.00 kept] R2 all  0.833 | per coordinate   0.80   0.92   0.80   0.84   0.87   0.86   0.90 | answer changes 0.027  (clipped at 0: 0.027; states with a negative activation 0.54)
+   keep M, S and all inputs before both [3.00 kept] R2 all  0.881 | per coordinate   0.87   0.91   0.96   0.82   0.88   0.86   0.89 | answer changes 0.027  (clipped at 0: 0.027; states with a negative activation 0.53)
+   keep M, S and all inputs between them [3.00 kept] R2 all  0.876 | per coordinate   0.88   0.89   0.81   0.81   0.90   0.90   0.92 | answer changes 0.027  (clipped at 0: 0.027; states with a negative activation 0.62)
+   keep M, S, T; the rest replaced by -M          R2 all  0.915 | per coordinate   0.91   0.94   0.94   0.84   0.93   0.91   0.95 | answer changes 0.025  (clipped at 0: 0.024; states with a negative activation 0.65)
+ (c) formula N1
+   N1: skeleton (M, S) + explicit later writes    R2 all  0.807 | per coordinate   0.79   0.88   0.79   0.73   0.84   0.82   0.88 | answer changes 0.036  (clipped at 0: 0.035; states with a negative activation 0.61)
+      later inputs written (age >= 2) per quiet state: mean 0.07; share of states with 0, 1, 2+: 0.94, 0.06, 0.00
+      states with 0 written later inputs (n = 167007): R2 all, skeleton (M, S) 0.816, N1 0.816
+      states with 1 written later inputs (n = 10980): R2 all, skeleton (M, S) 0.576, N1 0.841
+      states with 2+ written later inputs (n = 323): R2 all, skeleton (M, S) 0.450, N1 0.830

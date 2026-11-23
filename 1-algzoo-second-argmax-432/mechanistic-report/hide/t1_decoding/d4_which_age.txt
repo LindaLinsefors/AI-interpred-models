@@ -1,0 +1,59 @@
+quiet final states 246144.  P(a_k4 = a_M + 0): 0.951;  P(a_k5 = a_M - 1): 0.386;  P(a_k5 = a_S - 1): 0.396
+
+A. lock(m, a): phase of the coordinate follows w_m * age.  (alt: w = 180 deg, so lock = |mean sign(zeta) (-1)^a|.)  clock* is not a tape mode.
+  all
+    mode         a_S     a_M   a_new   a_old     a_T  a_prev    a_k4    a_k5
+    short      0.822   0.066   0.398   0.424   0.060   0.373   0.031   0.395
+    h2         0.624   0.301   0.624   0.302   0.065   0.275   0.338   0.519
+    h3         0.554   0.370   0.809   0.130   0.030   0.134   0.415   0.686
+    alt        0.504   0.278   0.558   0.224   0.084   0.231   0.314   0.475
+    clock*     0.110   0.944   0.441   0.515   0.100   0.587   0.886   0.333
+  S before M
+    mode         a_S     a_M   a_new   a_old     a_T  a_prev    a_k4    a_k5
+    short      0.832   0.369   0.369   0.832   0.120   0.832   0.369   0.279
+    h2         0.470   0.467   0.467   0.470   0.082   0.470   0.467   0.391
+    h3         0.220   0.740   0.740   0.220   0.045   0.220   0.740   0.643
+    alt        0.337   0.444   0.444   0.337   0.104   0.337   0.444   0.393
+    clock*     0.492   0.926   0.926   0.492   0.163   0.492   0.926   0.731
+  S after M
+    mode         a_S     a_M   a_new   a_old     a_T  a_prev    a_k4    a_k5
+    short      0.815   0.264   0.815   0.264   0.098   0.260   0.324   0.742
+    h2         0.781   0.134   0.781   0.134   0.048   0.057   0.209   0.648
+    h3         0.893   0.073   0.893   0.073   0.016   0.033   0.124   0.740
+    alt        0.672   0.111   0.672   0.111   0.064   0.089   0.183   0.559
+    clock*     0.390   0.962   0.390   0.962   0.125   0.752   0.846   0.270
+
+B. eta2: share of the variance of the complex coordinate z_m / M explained by its mean within groups of states
+    grouping                                   groups   short      h2      h3     alt  clock*
+    a_S                                             8   0.438   0.291   0.339   0.317   0.028
+    a_M                                             8   0.023   0.179   0.180   0.171   0.769
+    (a_M, a_S)                                     56   0.584   0.635   0.652   0.626   0.799
+    (a_M, a_S, a_T)                               448   0.666   0.720   0.718   0.727   0.804
+    (a_M,a_S), 5 bins S/M                         280   0.677   0.679   0.693   0.663   0.958
+    (a_M,a_S,a_T), 5 bins S/M, 3 bins T+/S       6692   0.813   0.827   0.816   0.806   0.967
+
+C. the short coordinate as a clock hand for a_S:  z_short / M  rotated back by its own eigenvalue angle, e^{-i w a_S}
+  S before M:   a_S, n, mean of Re and Im of (z_short/M) e^(-i w a_S), sd of Re and Im, median |z|/M, and P(phase within 21.5 deg of the mean phase)
+      3    4453    -2.95   1.71    1.62  2.48    3.46   0.485
+      4    8775    -2.23   1.71    1.19  1.91    2.98   0.510
+      5   13250    -1.80   1.09    0.89  1.05    2.31   0.618
+      6   17462    -1.48   0.82    0.59  0.84    1.88   0.655
+      7   22229    -1.23   0.53    0.62  0.88    1.54   0.538
+      8   26225    -1.33   0.13    1.31  1.05    1.25   0.396
+      9   30895    -1.75   0.01    2.51  0.92    1.09   0.470
+  S after M:   a_S, n, mean of Re and Im of (z_short/M) e^(-i w a_S), sd of Re and Im, median |z|/M, and P(phase within 21.5 deg of the mean phase)
+      2   30615    -2.48   1.80    1.82  1.95    2.79   0.559
+      3   26431    -1.68   1.13    1.18  1.57    1.89   0.467
+      4   21714    -1.20   0.59    0.93  0.91    1.38   0.464
+      5   17512    -0.95   0.26    0.75  0.45    1.02   0.554
+      6   13379    -0.76   0.20    0.57  0.45    0.88   0.512
+      7    8841    -0.69   0.25    0.45  0.44    0.84   0.555
+      8    4363    -0.57   0.23    0.49  0.41    0.71   0.568
+
+D. amplitude of the short coordinate against the values, within one configuration (a_M, a_S): Spearman correlation of |z_short|/M with
+   a_M = 2, a_S = 5 (n = 4461): S/M +0.01  T+/S -0.53  (S-T+)/M +0.48  n within 0.25M -0.41
+   a_M = 5, a_S = 2 (n = 4343): S/M +0.07  T+/S +0.02  (S-T+)/M -0.01  n within 0.25M +0.02
+   a_M = 3, a_S = 7 (n = 4397): S/M -0.54  T+/S -0.41  (S-T+)/M +0.17  n within 0.25M -0.35
+   a_M = 7, a_S = 3 (n = 4465): S/M -0.34  T+/S -0.25  (S-T+)/M +0.12  n within 0.25M -0.28
+   a_M = 4, a_S = 8 (n = 4379): S/M -0.50  T+/S -0.14  (S-T+)/M -0.08  n within 0.25M -0.12
+   a_M = 8, a_S = 4 (n = 4382): S/M -0.32  T+/S -0.23  (S-T+)/M +0.10  n within 0.25M -0.28

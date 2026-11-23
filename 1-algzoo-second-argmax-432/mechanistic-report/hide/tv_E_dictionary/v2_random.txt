@@ -1,0 +1,90 @@
+
+===== t = 9: 184628 quiet states of 300000;  rms |tape| / M = 7.95;  accuracy of the network on them 0.963
+ references
+   zero tape                                                  R2  -0.030   changed 0.932  (clipped at 0: 0.915; negative activation in 0.19)
+   mean tape (times M)                                        R2   0.000   changed 0.913  (clipped at 0: 0.901; negative activation in 0.15)
+   tape of another quiet state (times M)                      R2  -1.002   changed 0.873  (clipped at 0: 0.866; negative activation in 0.38)
+ exact writes (claim 2)
+   exactness: max |sum - tape| = 5.9e-13;   rms |term| / M: direct 0.86, pulse 4 8.64, pulse 9 2.36, pulse 5: maximum 13.71, pulse 5: runner-up 9.16, pulse 5: dethroned 4.91, pulse 5: below 1.47, pulse 5: step 0 0.19, clip comparators 4.61, clip wave units 6.97
+   three pulse units with fixed patterns                      R2   0.232   changed 0.578  (clipped at 0: 0.532; negative activation in 0.69)
+   ... + direct input                                         R2   0.264   changed 0.578  (clipped at 0: 0.525; negative activation in 0.69)
+   all but the wave-unit clips                                R2   0.209   changed 0.622  (clipped at 0: 0.445; negative activation in 0.70)
+   exact minus unit-5 writes of inputs below the runner-up    R2   0.965   changed 0.021  (clipped at 0: 0.020; negative activation in 0.08)
+   exact minus unit-5 writes of dethroned inputs              R2   0.607   changed 0.153  (clipped at 0: 0.137; negative activation in 0.45)
+   per coordinate R2 of the three pulse units: [-0.1   0.19  0.36  0.43  0.57  0.38  0.46]
+ skeletons (claim 3): dropped inputs -> 0
+   M, S [2.00 kept]                                           R2   0.558   changed 0.072  (clipped at 0: 0.084; negative activation in 0.39)
+         + linear leak of the dropped inputs                  R2   0.560   changed 0.058  (clipped at 0: 0.071; negative activation in 0.41)
+   top 3 [3.00 kept]                                          R2   0.852   changed 0.065  (clipped at 0: 0.069; negative activation in 0.31)
+         + linear leak of the dropped inputs                  R2   0.854   changed 0.046  (clipped at 0: 0.049; negative activation in 0.34)
+   top 4 [4.00 kept]                                          R2   0.942   changed 0.055  (clipped at 0: 0.055; negative activation in 0.24)
+   top 5 [5.00 kept]                                          R2   0.965   changed 0.050  (clipped at 0: 0.049; negative activation in 0.20)
+   all positive inputs [5.05 kept]                            R2   0.970   changed 0.050  (clipped at 0: 0.050; negative activation in 0.18)
+   top two at arrival [4.44 kept]                             R2   0.944   changed 0.060  (clipped at 0: 0.060; negative activation in 0.25)
+   candidates [4.79 kept]                                     R2   0.972   changed 0.049  (clipped at 0: 0.049; negative activation in 0.22)
+         + linear leak of the dropped inputs                  R2   0.975   changed 0.028  (clipped at 0: 0.027; negative activation in 0.26)
+   M, S + inputs after both [6.00 kept]                       R2   0.580   changed 0.045  (clipped at 0: 0.059; negative activation in 0.38)
+   M, S + inputs before both [4.01 kept]                      R2   0.701   changed 0.070  (clipped at 0: 0.080; negative activation in 0.33)
+   M, S + inputs between them [4.00 kept]                     R2   0.847   changed 0.060  (clipped at 0: 0.061; negative activation in 0.34)
+   candidates + inputs of age 0, 1 [6.65 kept]                R2   0.979   changed 0.020  (clipped at 0: 0.020; negative activation in 0.17)
+   all but the newest input [9.00 kept]                       R2   0.996   changed 0.033  (clipped at 0: 0.033; negative activation in 0.34)
+         + linear leak of the dropped inputs                  R2   0.999   changed 0.004  (clipped at 0: 0.002; negative activation in 0.35)
+   top 3, the rest replaced by -M                             R2   0.798   changed 0.073  (clipped at 0: 0.079; negative activation in 0.47)
+ formula N1 (claim 7)
+   N1: skeleton (M, S) + explicit later writes                R2   0.575   changed 0.076  (clipped at 0: 0.088; negative activation in 0.38)
+   0  later writes (n = 161032): R2 skeleton (M, S) 0.572, N1 0.572, skeleton with the real later inputs 0.576 | changed 0.065, 0.065, 0.062
+   1  later writes (n =  21899): R2 skeleton (M, S) 0.379, N1 0.616, skeleton with the real later inputs 0.695 | changed 0.112, 0.141, 0.084 | share of the later inputs' contribution reproduced 0.593
+   2+ later writes (n =   1697): R2 skeleton (M, S) 0.486, N1 0.770, skeleton with the real later inputs 0.841 | changed 0.151, 0.245, 0.092 | share of the later inputs' contribution reproduced 0.779
+
+===== t = 6: 133751 quiet states of 300000;  rms |tape| / M = 6.94;  accuracy of the network on them 0.961
+ references
+   zero tape                                                  R2  -0.141   changed 0.564  (clipped at 0: 0.565; negative activation in 0.40)
+   mean tape (times M)                                        R2   0.000   changed 0.482  (clipped at 0: 0.481; negative activation in 0.48)
+   tape of another quiet state (times M)                      R2  -0.995   changed 0.534  (clipped at 0: 0.523; negative activation in 0.65)
+ exact writes (claim 2)
+   exactness: max |sum - tape| = 6.4e-13;   rms |term| / M: direct 1.11, pulse 4 10.80, pulse 9 2.70, pulse 5: maximum 15.95, pulse 5: runner-up 9.84, pulse 5: dethroned 4.10, pulse 5: below 0.89, pulse 5: step 0 0.30, clip comparators 5.95, clip wave units 8.14
+   three pulse units with fixed patterns                      R2  -0.600   changed 0.360  (clipped at 0: 0.344; negative activation in 0.85)
+   ... + direct input                                         R2  -0.529   changed 0.357  (clipped at 0: 0.338; negative activation in 0.84)
+   all but the wave-unit clips                                R2  -0.570   changed 0.261  (clipped at 0: 0.173; negative activation in 0.99)
+   exact minus unit-5 writes of inputs below the runner-up    R2   0.981   changed 0.006  (clipped at 0: 0.006; negative activation in 0.07)
+   exact minus unit-5 writes of dethroned inputs              R2   0.601   changed 0.076  (clipped at 0: 0.064; negative activation in 0.44)
+   per coordinate R2 of the three pulse units: [-0.46 -3.34 -0.26 -0.68 -0.44 -0.46 -0.41]
+ skeletons (claim 3): dropped inputs -> 0
+   M, S [2.00 kept]                                           R2   0.787   changed 0.037  (clipped at 0: 0.038; negative activation in 0.62)
+         + linear leak of the dropped inputs                  R2   0.800   changed 0.037  (clipped at 0: 0.037; negative activation in 0.62)
+   top 3 [3.00 kept]                                          R2   0.908   changed 0.022  (clipped at 0: 0.022; negative activation in 0.53)
+         + linear leak of the dropped inputs                  R2   0.921   changed 0.023  (clipped at 0: 0.021; negative activation in 0.54)
+   top 4 [4.00 kept]                                          R2   0.941   changed 0.018  (clipped at 0: 0.018; negative activation in 0.49)
+   top 5 [5.00 kept]                                          R2   0.952   changed 0.015  (clipped at 0: 0.015; negative activation in 0.50)
+   all positive inputs [3.68 kept]                            R2   0.944   changed 0.018  (clipped at 0: 0.018; negative activation in 0.44)
+   top two at arrival [3.57 kept]                             R2   0.945   changed 0.019  (clipped at 0: 0.019; negative activation in 0.52)
+   candidates [3.78 kept]                                     R2   0.958   changed 0.014  (clipped at 0: 0.014; negative activation in 0.51)
+         + linear leak of the dropped inputs                  R2   0.971   changed 0.015  (clipped at 0: 0.013; negative activation in 0.54)
+   M, S + inputs after both [4.99 kept]                       R2   0.834   changed 0.027  (clipped at 0: 0.027; negative activation in 0.55)
+   M, S + inputs before both [3.00 kept]                      R2   0.874   changed 0.028  (clipped at 0: 0.028; negative activation in 0.52)
+   M, S + inputs between them [3.00 kept]                     R2   0.868   changed 0.027  (clipped at 0: 0.028; negative activation in 0.63)
+   top 3, the rest replaced by -M                             R2   0.907   changed 0.024  (clipped at 0: 0.024; negative activation in 0.65)
+ formula N1 (claim 7)
+   N1: skeleton (M, S) + explicit later writes                R2   0.800   changed 0.038  (clipped at 0: 0.037; negative activation in 0.61)
+   0  later writes (n = 125182): R2 skeleton (M, S) 0.798, N1 0.798, skeleton with the real later inputs 0.805 | changed 0.035, 0.035, 0.033
+   1  later writes (n =   8328): R2 skeleton (M, S) 0.541, N1 0.842, skeleton with the real later inputs 0.883 | changed 0.081, 0.079, 0.033 | share of the later inputs' contribution reproduced 0.864
+   2+ later writes (n =    241): R2 skeleton (M, S) 0.285, N1 0.789, skeleton with the real later inputs 0.895 | changed 0.075, 0.174, 0.021 | share of the later inputs' contribution reproduced 0.784
+
+
+===== OTHER POPULATIONS: skeletons at every step, N(0,1) (same sequences) and uniform on [-1, 1] (seed 4243)
+ normal:  t | n quiet | R2, changed: M,S | top 3 | candidates | candidates + leak | three pulses fixed patterns | mean tape changed | kept (candidates)
+   3 |  34301 |  0.840 0.006 |  0.905 0.004 |  0.840 0.005 |  0.893 0.009 | -4.501 0.242 | 0.143 | 2.12
+   4 |  72947 |  0.882 0.015 |  0.922 0.009 |  0.945 0.007 |  0.966 0.010 | -1.451 0.288 | 0.264 | 2.81
+   5 | 106748 |  0.832 0.026 |  0.913 0.015 |  0.953 0.010 |  0.967 0.011 | -0.843 0.318 | 0.370 | 3.34
+   6 | 133751 |  0.787 0.037 |  0.908 0.022 |  0.958 0.014 |  0.971 0.015 | -0.600 0.360 | 0.482 | 3.78
+   7 | 155085 |  0.728 0.048 |  0.900 0.029 |  0.970 0.018 |  0.977 0.018 | -0.244 0.429 | 0.612 | 4.16
+   8 | 171690 |  0.646 0.054 |  0.887 0.037 |  0.976 0.023 |  0.980 0.021 |  0.030 0.495 | 0.745 | 4.49
+   9 | 184628 |  0.558 0.072 |  0.852 0.065 |  0.972 0.049 |  0.975 0.028 |  0.232 0.578 | 0.913 | 4.79
+ uniform:  t | n quiet | R2, changed: M,S | top 3 | candidates | candidates + leak | three pulses fixed patterns | mean tape changed | kept (candidates)
+   3 |  34544 |  0.898 0.008 |  0.946 0.006 |  0.899 0.007 |  0.926 0.011 | -5.509 0.300 | 0.171 | 2.14
+   4 |  73072 |  0.901 0.022 |  0.952 0.012 |  0.968 0.009 |  0.977 0.011 | -1.605 0.345 | 0.292 | 2.84
+   5 | 106634 |  0.838 0.035 |  0.937 0.019 |  0.971 0.011 |  0.976 0.012 | -0.899 0.367 | 0.398 | 3.38
+   6 | 133481 |  0.733 0.052 |  0.867 0.029 |  0.920 0.016 |  0.947 0.016 | -0.510 0.396 | 0.513 | 3.83
+   7 | 155185 |  0.656 0.069 |  0.860 0.040 |  0.940 0.021 |  0.971 0.021 | -0.164 0.453 | 0.635 | 4.22
+   8 | 171492 |  0.563 0.077 |  0.863 0.052 |  0.981 0.027 |  0.984 0.025 |  0.095 0.508 | 0.757 | 4.57
+   9 | 184421 |  0.443 0.094 |  0.814 0.081 |  0.981 0.054 |  0.984 0.031 |  0.301 0.577 | 0.908 | 4.89

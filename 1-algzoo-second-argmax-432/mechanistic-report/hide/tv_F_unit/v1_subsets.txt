@@ -1,0 +1,111 @@
+
+================ N(0,1), quiet FINAL states: 246232 states from 400000 sequences
+  on top among old entries, tape piece: runner-up 0.839  maximum 0.035  third 0.062  other 0.063
+  on top among old entries, full score: runner-up 0.974  maximum 0.007  third 0.017  other 0.002
+  tape + one part:  level 0.835  runner 0.873  clock 0.861  trans 0.877  echo 0.831  pulse 0.839
+  best of size 0: (tape alone) P(S top) 0.839 agree 0.845
+  best of size 1: trans P(S top) 0.877 agree 0.883;  runner P(S top) 0.873 agree 0.881
+  best of size 2: runner+trans P(S top) 0.908 agree 0.916;  clock+trans P(S top) 0.906 agree 0.913
+  best of size 3: runner+clock+trans P(S top) 0.949 agree 0.961;  clock+trans+echo P(S top) 0.930 agree 0.939
+  best of size 4: runner+clock+trans+echo P(S top) 0.969 agree 0.985;  level+runner+clock+trans P(S top) 0.954 agree 0.969
+  best of size 5: level+runner+clock+trans+echo P(S top) 0.974 agree 0.999;  runner+clock+trans+echo+pulse P(S top) 0.968 agree 0.986
+  best of size 6: level+runner+clock+trans+echo+pulse P(S top) 0.974 agree 1.000
+  slope near the runner-up (logits per unit of (x - S)/M), input error sd, half-IQR:
+     tape                       slope   73.3   sd   0.1186   half-IQR   0.0505   (67500 entries)
+     full                       slope   74.0   sd   0.0387   half-IQR   0.0214   (67500 entries)
+     rest                       slope    0.8   sd  10.1690   half-IQR   4.2353   (67500 entries)
+     tape+trans                 slope   74.3   sd   0.0899   half-IQR   0.0469   (67500 entries)
+     tape+runner+trans          slope   74.5   sd   0.0713   half-IQR   0.0388   (67500 entries)
+     tape+runner+clock+trans    slope   73.7   sd   0.0490   half-IQR   0.0271   (67500 entries)
+     alt                        slope    2.8   sd   0.8861   half-IQR   0.4322   (67500 entries)
+     short                      slope   42.6   sd   0.3035   half-IQR   0.0861   (67500 entries)
+     h2                         slope   12.1   sd   0.5816   half-IQR   0.2685   (67500 entries)
+     h3                         slope   15.8   sd   0.3714   half-IQR   0.1346   (67500 entries)
+     level                      slope   -0.1   sd  -7.3809   half-IQR  -4.9319   (67500 entries)
+     runner                     slope    0.2   sd  15.6835   half-IQR  11.6934   (67500 entries)
+     clock                      slope   -0.8   sd  -4.9575   half-IQR  -2.5275   (67500 entries)
+     trans                      slope    1.0   sd   5.8214   half-IQR   1.0270   (67500 entries)
+     echo                       slope    0.4   sd   5.2063   half-IQR   0.9266   (67500 entries)
+     pulse                      slope    0.1   sd   2.2356   half-IQR   0.0266   (67500 entries)
+  slope by age of the entry (tape / rest / full):
+     age 2:   55.6 /   17.7 /   73.4   n 8492
+     age 3:   75.6 /    2.1 /   77.7   n 8385
+     age 4:   74.8 /    5.5 /   80.3   n 8271
+     age 5:   74.6 /   -3.0 /   71.6   n 8422
+     age 6:   64.7 /    0.9 /   65.6   n 8535
+     age 7:   66.5 /   -5.7 /   60.9   n 8326
+     age 8:   77.4 /   -2.5 /   74.9   n 8517
+     age 9:   88.6 /    0.5 /   89.1   n 8552
+     runner-up BEFORE the maximum:   71.1 /    2.2 /   73.3
+     runner-up AFTER the maximum:   75.4 /   -0.6 /   74.8
+  slope of the rest piece in the 56 cells (a_M, a_S) with >= 300 near entries: 56 cells; rest slope min -22.6 median -0.6 max 19.8;  tape slope min 49.7 median 72.5 max 124.7
+  by configuration:  n, tape, +trans, +runner, +clock, full
+     after, a_S = 2           30895  0.504  0.830  0.615  0.501  0.962
+     after, a_S = 3           26484  0.829  0.840  0.933  0.820  0.976
+     after, a_S = 4           22140  0.871  0.857  0.962  0.837  0.971
+     before, a_M = 3          26440  0.882  0.893  0.884  0.940  0.974
+     before, a_M = 4          22233  0.913  0.899  0.912  0.975  0.981
+     before, a_M = 5          17521  0.889  0.852  0.927  0.975  0.983
+     before, a_M = 6          12899  0.887  0.846  0.908  0.972  0.978
+     (a_M, a_S) = (9, 2)       4429  0.218  0.830  0.370  0.018  0.899
+     (a_M, a_S) = (8, 2)       4367  0.252  0.902  0.425  0.073  0.954
+     (a_M, a_S) = (4, 2)       4402  0.506  0.776  0.583  0.641  0.981
+  best single part per cell (a_M, a_S), cells won: {'level': 4, 'runner': 18, 'clock': 18, 'trans': 15, 'echo': 0, 'pulse': 1}
+
+================ N(0,1), quiet states at ALL steps t = 3..9: 344037 states from 120000 sequences
+  on top among old entries, tape piece: runner-up 0.900  maximum 0.024  third 0.043  other 0.033
+  on top among old entries, full score: runner-up 0.977  maximum 0.005  third 0.014  other 0.004
+  tape + one part:  level 0.893  runner 0.922  clock 0.922  trans 0.918  echo 0.893  pulse 0.900
+  best of size 0: (tape alone) P(S top) 0.900 agree 0.902
+  best of size 1: runner P(S top) 0.922 agree 0.926;  clock P(S top) 0.922 agree 0.926
+  best of size 2: clock+trans P(S top) 0.944 agree 0.952;  runner+clock P(S top) 0.944 agree 0.951
+  best of size 3: runner+clock+trans P(S top) 0.968 agree 0.977;  clock+trans+echo P(S top) 0.951 agree 0.961
+  best of size 4: runner+clock+trans+echo P(S top) 0.974 agree 0.987;  level+runner+clock+trans P(S top) 0.972 agree 0.987
+  best of size 5: level+runner+clock+trans+echo P(S top) 0.977 agree 1.000;  runner+clock+trans+echo+pulse P(S top) 0.974 agree 0.987
+  best of size 6: level+runner+clock+trans+echo+pulse P(S top) 0.977 agree 1.000
+  slope near the runner-up (logits per unit of (x - S)/M), input error sd, half-IQR:
+     tape                       slope   63.0   sd   0.1026   half-IQR   0.0469   (63289 entries)
+     full                       slope   65.4   sd   0.0398   half-IQR   0.0210   (63289 entries)
+     rest                       slope    2.3   sd   2.5105   half-IQR   1.1962   (63289 entries)
+     tape+trans                 slope   64.3   sd   0.0863   half-IQR   0.0439   (63289 entries)
+     tape+runner+trans          slope   64.7   sd   0.0688   half-IQR   0.0361   (63289 entries)
+     tape+runner+clock+trans    slope   65.1   sd   0.0460   half-IQR   0.0255   (63289 entries)
+     alt                        slope    2.3   sd   0.9550   half-IQR   0.4530   (63289 entries)
+     short                      slope   30.0   sd   0.2817   half-IQR   0.1019   (63289 entries)
+     h2                         slope   11.4   sd   0.4806   half-IQR   0.2093   (63289 entries)
+     h3                         slope   19.4   sd   0.2337   half-IQR   0.0993   (63289 entries)
+     level                      slope   -0.1   sd -12.7017   half-IQR  -8.6136   (63289 entries)
+     runner                     slope    0.4   sd   6.8117   half-IQR   4.8303   (63289 entries)
+     clock                      slope    0.5   sd   6.4109   half-IQR   3.0003   (63289 entries)
+     trans                      slope    1.2   sd   3.0312   half-IQR   0.6014   (63289 entries)
+     echo                       slope    0.3   sd   4.8078   half-IQR   0.9271   (63289 entries)
+     pulse                      slope    0.0   sd   4.0515   half-IQR   0.0265   (63289 entries)
+
+================ Unif(-1,1), quiet FINAL states: 246418 states from 400000 sequences
+  on top among old entries, tape piece: runner-up 0.828  maximum 0.057  third 0.065  other 0.050
+  on top among old entries, full score: runner-up 0.965  maximum 0.015  third 0.019  other 0.001
+  tape + one part:  level 0.822  runner 0.874  clock 0.832  trans 0.869  echo 0.816  pulse 0.827
+  best of size 0: (tape alone) P(S top) 0.828 agree 0.834
+  best of size 1: runner P(S top) 0.874 agree 0.886;  trans P(S top) 0.869 agree 0.878
+  best of size 2: runner+trans P(S top) 0.914 agree 0.927;  trans+echo P(S top) 0.888 agree 0.899
+  best of size 3: runner+clock+trans P(S top) 0.937 agree 0.952;  runner+trans+echo P(S top) 0.930 agree 0.946
+  best of size 4: runner+clock+trans+echo P(S top) 0.958 agree 0.981;  level+runner+clock+trans P(S top) 0.943 agree 0.962
+  best of size 5: level+runner+clock+trans+echo P(S top) 0.965 agree 0.998;  runner+clock+trans+echo+pulse P(S top) 0.958 agree 0.982
+  best of size 6: level+runner+clock+trans+echo+pulse P(S top) 0.965 agree 1.000
+  slope near the runner-up (logits per unit of (x - S)/M), input error sd, half-IQR:
+     tape                       slope   74.7   sd   0.1190   half-IQR   0.0528   (74162 entries)
+     full                       slope   76.9   sd   0.0391   half-IQR   0.0216   (74162 entries)
+     rest                       slope    2.2   sd   3.6562   half-IQR   1.5687   (74162 entries)
+     tape+trans                 slope   76.8   sd   0.0837   half-IQR   0.0488   (74162 entries)
+     tape+runner+trans          slope   77.7   sd   0.0606   half-IQR   0.0344   (74162 entries)
+     tape+runner+clock+trans    slope   76.9   sd   0.0481   half-IQR   0.0274   (74162 entries)
+     alt                        slope    3.4   sd   0.8633   half-IQR   0.4397   (74162 entries)
+     short                      slope   42.9   sd   0.3465   half-IQR   0.0878   (74162 entries)
+     h2                         slope   12.8   sd   0.6441   half-IQR   0.3111   (74162 entries)
+     h3                         slope   15.5   sd   0.4382   half-IQR   0.1669   (74162 entries)
+     level                      slope   -0.2   sd  -5.2736   half-IQR  -3.5317   (74162 entries)
+     runner                     slope    0.9   sd   4.3889   half-IQR   3.4707   (74162 entries)
+     clock                      slope   -0.8   sd  -3.4510   half-IQR  -1.5141   (74162 entries)
+     trans                      slope    2.1   sd   2.9407   half-IQR   0.5534   (74162 entries)
+     echo                       slope    0.1   sd  13.4379   half-IQR   3.3645   (74162 entries)
+     pulse                      slope    0.0   sd   5.2295   half-IQR   0.0268   (74162 entries)

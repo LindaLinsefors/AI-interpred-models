@@ -1,0 +1,36 @@
+quiet final states 246327 of 400000 (seed 101); train 184745, flexible decoder 100000, test 61582; S before M 0.500
+(96 fits, 237 s)   accuracy (cls), R2 (reg), ROC AUC (auc)
+target                         majority |   T lin  T flex |   R lin  R flex |   F lin  F flex
+a_S                               0.126 |   0.901   0.949 |   0.349   0.646 |   0.976   0.976
+a_M                               0.128 |   0.348   0.894 |   0.904   0.907 |   0.992   0.993
+a_T                               0.125 |   0.115   0.535 |   0.266   0.344 |   0.316   0.713
+S before M                        0.504 |   0.693   0.933 |   0.762   0.879 |   0.822   0.983
+network's answer                  0.127 |   0.898   0.942 |   0.341   0.622 |   0.995   0.954
+answer correct                    0.962 |   0.962   0.962 |   0.962   0.962 |   0.962   0.963
+n within 0.10M of S (0/1/2+)      0.556 |   0.556   0.714 |   0.591   0.709 |   0.630   0.815
+number of records (1..4+)         0.327 |   0.513   0.786 |   0.561   0.720 |   0.729   0.866
+shuffled a_S                      0.128 |   0.124   0.126 |   0.126   0.126 |   0.125   0.127
+S/M                               0.000 |   0.002   0.565 |   0.612   0.952 |   0.787   0.988
+T+/S                              0.000 |   0.009   0.419 |   0.145   0.412 |   0.184   0.753
+shuffled S/M                      0.000 |  -0.000  -0.001 |  -0.000  -0.000 |  -0.000  -0.000
+age 2: within 0.1M of S           0.500 |   0.951     nan |   0.904     nan |   0.963     nan
+age 3: within 0.1M of S           0.500 |   0.945     nan |   0.543     nan |   0.957     nan
+age 4: within 0.1M of S           0.500 |   0.941     nan |   0.581     nan |   0.958     nan
+age 5: within 0.1M of S           0.500 |   0.938     nan |   0.611     nan |   0.958     nan
+age 6: within 0.1M of S           0.500 |   0.938     nan |   0.614     nan |   0.953     nan
+age 7: within 0.1M of S           0.500 |   0.929     nan |   0.619     nan |   0.931     nan
+age 8: within 0.1M of S           0.500 |   0.923     nan |   0.616     nan |   0.905     nan
+age 9: within 0.1M of S           0.500 |   0.882     nan |   0.608     nan |   0.978     nan
+
+A. linear decoder of a_S from the tape, split by configuration (test states)
+   all 0.901 | S before M 0.871 | S after M 0.932 | third within 0.02 M 0.641 | maximum within 0.05 M 0.818
+   by a_S = 2..9: 0.902 0.916 0.934 0.956 0.951 0.927 0.899 0.724
+   wrong answers (6093) name the third's age 0.401, the maximum's age 0.357
+   readout matrix as a fixed 'decoder': argmax of the tape piece U[:, o] h_tape = runner-up position: 0.839
+
+B. ATTACK: does the tape hold the TRUE runner-up's age or the network's ANSWER?  (linear decoders from T, test states)
+   network right on 0.962 of the test states (2358 wrong)
+   decoder trained on a_S:        names a_S 0.901 overall; where the network is wrong: names a_S 0.474, names the network's answer 0.378
+   decoder trained on the answer: names the answer 0.898 overall; where the network is wrong: names a_S 0.464, names the network's answer 0.388
+
+C. ATTACK on 'the rest lacks a_S': stronger decoders of a_S from the rest (9 numbers / own norm + clock modulus and phase)

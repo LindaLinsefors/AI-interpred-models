@@ -1,0 +1,113 @@
+[claim 4] old third (age >= 2, more than 0.4 M below S, M - S > 0.25 M) set to S + d M in the donor B
+   t = 9, n = 14915, read out at once;  P(answer = that input):
+       d     B intact   rest A + tape B  [clipped]   rest B + tape A
+     -0.20    0.002       0.004        [0.004]       0.000
+     -0.10    0.007       0.015        [0.016]       0.000
+     -0.05    0.031       0.045        [0.045]       0.000
+     -0.02    0.140       0.126        [0.128]       0.000
+     +0.02    0.861       0.754        [0.713]       0.001
+     +0.05    0.973       0.867        [0.822]       0.001
+     +0.10    0.993       0.912        [0.873]       0.001
+     +0.20    0.996       0.916        [0.888]       0.004
+   t = 6, n = 21684, then three low inputs;  P(answer = that input):
+       d     B intact   rest A + tape B  [clipped]   rest B + tape A
+     -0.20    0.003       0.002        [0.002]       0.001
+     -0.10    0.013       0.011        [0.011]       0.001
+     -0.05    0.040       0.037        [0.036]       0.001
+     -0.02    0.152       0.140        [0.128]       0.001
+     +0.02    0.844       0.712        [0.693]       0.001
+     +0.05    0.962       0.843        [0.835]       0.001
+     +0.10    0.988       0.911        [0.911]       0.001
+     +0.20    0.996       0.952        [0.948]       0.001
+
+[claim 5] value of the runner-up: transplant at t = 6, probe at step 7, n = 122147 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all             122147         0.24 /  0.24                                0.76 /  0.76             0.01 / -0.01
+   S_B > S_A        74789         0.24 /   nan                                0.76 /   nan             0.01 /   nan
+   S_B < S_A        47358          nan /  0.24                                 nan /  0.76              nan / -0.01
+   a_S = 2          24391         0.15 /  0.23                                0.77 /  0.85            -0.02 /  0.02
+   a_S = 3          24248         0.14 /  0.24                                0.76 /  0.86             0.01 /  0.02
+   a_S = 4          24485         0.28 /  0.22                                0.78 /  0.72             0.05 / -0.03
+   a_S = 5          24501         0.31 /  0.25                                0.74 /  0.70             0.04 / -0.05
+   a_S = 6          24522         0.27 /  0.25                                0.74 /  0.74             0.02 / -0.02
+   a_M = 2          24624         0.23 /  0.17                                0.82 /  0.78             0.03 / -0.01
+   a_M = 3          24164         0.20 /  0.24                                0.75 /  0.81            -0.03 /  0.00
+   a_M = 4          24191         0.23 /  0.31                                0.69 /  0.79            -0.03 /  0.02
+   a_M = 5          24654         0.23 /  0.25                                0.74 /  0.78             0.02 /  0.01
+   a_M = 6          24514         0.33 /  0.19                                0.81 /  0.66             0.09 / -0.08
+   S before M       61186         0.26 /  0.24                                0.75 /  0.75             0.00 / -0.01
+   S after M        60961         0.21 /  0.23                                0.76 /  0.79             0.03 / -0.00
+
+[claim 5] value of the runner-up: transplant at t = 6, probe at step 8, n = 122309 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all             122309         0.24 /  0.22                                0.78 /  0.76             0.02 / -0.02
+   S_B > S_A        75188         0.24 /   nan                                0.78 /   nan             0.02 /   nan
+   S_B < S_A        47121          nan /  0.22                                 nan /  0.76              nan / -0.02
+
+[claim 5] value of the runner-up: transplant at t = 6, probe at step 9, n = 122449 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all             122449         0.18 /  0.28                                0.72 /  0.83            -0.05 /  0.00
+   S_B > S_A        75367         0.18 /   nan                                0.72 /   nan            -0.05 /   nan
+   S_B < S_A        47082          nan /  0.28                                 nan /  0.83              nan /  0.00
+
+[claim 5] value of the runner-up: transplant at t = 8, probe at step 9, n = 140148 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all             140148         0.20 /  0.24                                0.75 /  0.80            -0.04 /  0.02
+   S_B > S_A        88313         0.20 /   nan                                0.75 /   nan            -0.04 /   nan
+   S_B < S_A        51835          nan /  0.24                                 nan /  0.80              nan /  0.02
+
+[claim 5] value of the runner-up: transplant at t = 4, probe at step 5, n = 74832 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all              74832         0.14 /  0.26                                0.75 /  0.87            -0.01 /  0.03
+   S_B > S_A        45041         0.14 /   nan                                0.75 /   nan            -0.01 /   nan
+   S_B < S_A        29791          nan /  0.26                                 nan /  0.87              nan /  0.03
+
+[claim 5] value of the maximum: transplant at t = 6, probe at step 7, n = 112486 pairs
+   group            n       f of rest A + tape B (value_B > / < value_A)    f of rest B + tape A      f of A intact
+   all             112486         0.03 /  0.03                                0.97 /  0.97            -0.00 /  0.00
+   M_B > M_A        65401         0.03 /   nan                                0.97 /   nan            -0.00 /   nan
+   M_B < M_A        47085          nan /  0.03                                 nan /  0.97              nan /  0.00
+   a_S = 2          22383         0.10 /  0.03                                0.97 /  0.89             0.02 / -0.02
+   a_S = 3          22388         0.04 /  0.05                                0.96 /  0.96            -0.01 /  0.01
+   a_S = 4          22482         0.02 /  0.04                                0.97 /  0.98            -0.01 /  0.02
+   a_S = 5          22730         0.02 /  0.03                                0.97 /  0.99            -0.02 /  0.02
+   a_S = 6          22503         0.03 /  0.02                                0.99 /  0.97             0.01 / -0.02
+   a_M = 2          22485         0.01 /  0.02                                0.98 /  0.99            -0.00 /  0.01
+   a_M = 3          22677         0.02 / -0.00                                1.01 /  0.98             0.01 / -0.02
+   a_M = 4          22423         0.02 /  0.03                                0.97 /  0.99            -0.01 /  0.01
+   a_M = 5          22442         0.06 /  0.04                                0.97 /  0.94            -0.01 / -0.00
+   a_M = 6          22459         0.13 /  0.14                                0.86 /  0.85            -0.01 /  0.02
+   S before M       56390         0.02 /  0.02                                0.99 /  0.98             0.00 / -0.01
+   S after M        56096         0.06 /  0.07                                0.94 /  0.92            -0.01 /  0.01
+
+[claim 8] S_pos pairs: one mode / all but one mode / a dose q of the donor's tape;  P(answer = A's S) / P(answer = B's S) [clipped]
+   t = 9, n = 307226
+      only alt   from B:     0.795 / 0.002  [0.808 / 0.002]  neg 0.36
+      only short from B:     0.314 / 0.121  [0.335 / 0.125]  neg 0.43
+      only h2    from B:     0.430 / 0.030  [0.456 / 0.037]  neg 0.42
+      only h3    from B:     0.452 / 0.063  [0.485 / 0.065]  neg 0.43
+      all but alt   from B:  0.007 / 0.706  [0.013 / 0.690]  neg 0.43
+      all but short from B:  0.136 / 0.309  [0.148 / 0.316]  neg 0.40
+      all but h2    from B:  0.036 / 0.388  [0.052 / 0.393]  neg 0.46
+      all but h3    from B:  0.071 / 0.420  [0.085 / 0.432]  neg 0.46
+      dose q = 0.20:           0.711 / 0.004  [0.729 / 0.004]  neg 0.23
+      dose q = 0.35:           0.416 / 0.072  [0.441 / 0.073]  neg 0.25
+      dose q = 0.50:           0.221 / 0.186  [0.241 / 0.194]  neg 0.26   maximum 0.353, third 0.205
+      dose q = 0.65:           0.094 / 0.366  [0.111 / 0.379]  neg 0.28
+      dose q = 0.80:           0.014 / 0.635  [0.027 / 0.623]  neg 0.31
+      dose q = 1.00:           0.003 / 0.854  [0.006 / 0.819]  neg 0.38
+   t = 6, n = 218437
+      only alt   from B:     0.833 / 0.005  [0.850 / 0.006]  neg 0.72
+      only short from B:     0.468 / 0.072  [0.510 / 0.082]  neg 0.62
+      only h2    from B:     0.575 / 0.020  [0.609 / 0.029]  neg 0.69
+      only h3    from B:     0.331 / 0.144  [0.399 / 0.151]  neg 0.76
+      all but alt   from B:  0.004 / 0.817  [0.007 / 0.819]  neg 0.74
+      all but short from B:  0.077 / 0.468  [0.081 / 0.482]  neg 0.62
+      all but h2    from B:  0.020 / 0.558  [0.040 / 0.585]  neg 0.69
+      all but h3    from B:  0.142 / 0.326  [0.161 / 0.396]  neg 0.74
+      dose q = 0.20:           0.777 / 0.009  [0.803 / 0.009]  neg 0.48
+      dose q = 0.35:           0.460 / 0.059  [0.503 / 0.063]  neg 0.50
+      dose q = 0.50:           0.210 / 0.201  [0.236 / 0.213]  neg 0.52   maximum 0.415, third 0.146
+      dose q = 0.65:           0.066 / 0.427  [0.076 / 0.471]  neg 0.54
+      dose q = 0.80:           0.007 / 0.739  [0.008 / 0.761]  neg 0.56
+      dose q = 1.00:           0.001 / 0.939  [0.001 / 0.932]  neg 0.64

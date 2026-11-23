@@ -1,0 +1,196 @@
+quiet final states 246144; S before M 0.501
+rms of each tape coordinate / M: [4.93 1.87 1.85 2.95 3.31 2.41 2.7 ]
+
+================ age a_S ================
+short             all         lock 0.822  phase-only accuracy 0.525 (majority 0.126)   w = 43.0 deg/step
+short             S before M  lock 0.832  phase-only accuracy 0.589 (majority 0.251)   w = 43.0 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.82   0.83   0.86   0.88   0.85   0.82   0.82
+     phi(a) deg:    -71    -37      8     55     99    147   -165
+     phi - w a:     160    151    153    157    158    163    168
+     med |z|/M:    3.46   2.98   2.31   1.88   1.54   1.25   1.09
+short             S after M   lock 0.815  phase-only accuracy 0.578 (majority 0.247)   w = 43.0 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.86   0.83   0.81   0.80   0.78   0.80   0.77
+     phi(a) deg:   -129    -82    -34     17     62     97    134
+     phi - w a:     145    149    154    162    164    156    150
+     med |z|/M:    2.79   1.89   1.38   1.02   0.88   0.84   0.71
+h2                all         lock 0.624  phase-only accuracy 0.302 (majority 0.126)   w = 83.3 deg/step
+h2                S before M  lock 0.470  phase-only accuracy 0.283 (majority 0.251)   w = 83.3 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.92   0.54   0.44   0.59   0.65   0.47   0.27
+     phi(a) deg:    -16     96   -154    -69     -5     64    163
+     phi - w a:      94    123    150    151    132    118    133
+     med |z|/M:    3.64   2.29   2.12   2.30   2.52   2.46   2.50
+h2                S after M   lock 0.781  phase-only accuracy 0.470 (majority 0.247)   w = 83.3 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.74   0.80   0.84   0.82   0.77   0.74   0.88
+     phi(a) deg:    -75     11     95   -179    -94      4    107
+     phi - w a:     119    121    122    124    127    141    161
+     med |z|/M:    4.46   3.96   3.23   2.64   1.95   1.47   1.97
+h3                all         lock 0.554  phase-only accuracy 0.326 (majority 0.126)   w = 124.8 deg/step
+h3                S before M  lock 0.220  phase-only accuracy 0.170 (majority 0.251)   w = 124.8 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.94   0.36   0.54   0.31   0.12   0.27   0.10
+     phi(a) deg:     28   -136    -26     57   -102    -12     19
+     phi - w a:      13     85     70     29    104     69    -24
+     med |z|/M:    3.14   2.74   2.34   2.04   1.95   1.88   1.79
+h3                S after M   lock 0.893  phase-only accuracy 0.541 (majority 0.247)   w = 124.8 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.90   0.89   0.90   0.92   0.90   0.86   0.86
+     phi(a) deg:    -42     81   -152    -27     88   -149    -21
+     phi - w a:      68     66     69     69     59     58     60
+     med |z|/M:    4.43   3.45   2.52   2.04   1.58   1.21   0.91
+clock (not tape)  all         lock 0.110  phase-only accuracy 0.171 (majority 0.126)   w = 42.7 deg/step
+clock (not tape)  S before M  lock 0.492  phase-only accuracy 0.301 (majority 0.251)   w = 42.7 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.96   0.91   0.85   0.75   0.56   0.34   0.20
+     phi(a) deg:     20     46     75    103    130    168   -131
+     phi - w a:    -108   -125   -139   -154   -170   -174   -156
+     med |z|/M:    4.46   4.39   4.09   3.92   3.69   3.63   3.61
+clock (not tape)  S after M   lock 0.390  phase-only accuracy 0.225 (majority 0.247)   w = 42.7 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.20   0.36   0.52   0.67   0.83   0.93   0.96
+     phi(a) deg:   -145   -133   -117    -95    -77    -56    -27
+     phi - w a:     130     99     72     51     26      5     -9
+     med |z|/M:    4.41   4.19   3.85   3.49   3.08   2.88   2.48
+
+================ age a_M ================
+short             all         lock 0.066  phase-only accuracy 0.141 (majority 0.124)   w = 43.0 deg/step
+short             S before M  lock 0.369  phase-only accuracy 0.247 (majority 0.249)   w = 43.0 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.05   0.25   0.47   0.65   0.73   0.74   0.70
+     phi(a) deg:    -32     53     85    122    150    169   -169
+     phi - w a:    -118    -76    -87    -93   -108   -132   -152
+     med |z|/M:    2.58   1.93   1.51   1.26   0.94   0.79   0.66
+short             S after M   lock 0.264  phase-only accuracy 0.248 (majority 0.250)   w = 43.0 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.87   0.78   0.63   0.52   0.33   0.13   0.02
+     phi(a) deg:   -114    -88    -69    -53    -29     -3   -152
+     phi - w a:     117    100     76     49     30     13   -179
+     med |z|/M:    3.51   2.71   1.79   1.58   1.39   1.22   1.09
+h2                all         lock 0.301  phase-only accuracy 0.200 (majority 0.124)   w = 83.3 deg/step
+h2                S before M  lock 0.467  phase-only accuracy 0.389 (majority 0.249)   w = 83.3 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.60   0.65   0.63   0.36   0.10   0.31   0.77
+     phi(a) deg:    -74      9     89    169   -100     95    134
+     phi - w a:     120    119    116    113    120   -128   -172
+     med |z|/M:    3.93   3.41   2.75   1.91   1.40   1.12   1.40
+h2                S after M   lock 0.134  phase-only accuracy 0.168 (majority 0.250)   w = 83.3 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.94   0.32   0.15   0.27   0.25   0.11   0.05
+     phi(a) deg:    -23     69   -112    -51    -14     22    -77
+     phi - w a:      87     95   -168    169    123     76   -106
+     med |z|/M:    4.44   2.34   2.53   2.82   2.97   3.13   3.28
+h3                all         lock 0.370  phase-only accuracy 0.241 (majority 0.124)   w = 124.8 deg/step
+h3                S before M  lock 0.740  phase-only accuracy 0.444 (majority 0.249)   w = 124.8 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.83   0.78   0.77   0.75   0.61   0.51   0.58
+     phi(a) deg:    -31     93   -136    -11    101   -123     24
+     phi - w a:      80     78     84     85     73     83    106
+     med |z|/M:    3.68   2.73   2.08   1.49   1.07   0.75   0.49
+h3                S after M   lock 0.073  phase-only accuracy 0.161 (majority 0.250)   w = 124.8 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.92   0.07   0.26   0.20   0.11   0.10   0.13
+     phi(a) deg:     -5    -98    -32     -1      4    -23    -21
+     phi - w a:     -20    122     64    -30   -150     59    -64
+     med |z|/M:    2.78   3.04   2.89   2.56   2.48   2.37   2.40
+clock (not tape)  all         lock 0.944  phase-only accuracy 0.878 (majority 0.124)   w = 42.7 deg/step
+clock (not tape)  S before M  lock 0.926  phase-only accuracy 0.878 (majority 0.249)   w = 42.7 deg/step
+     age:             2      3      4      5      6      7      8
+     R(a):         0.89   0.90   0.94   0.96   0.98   0.99   0.98
+     phi(a) deg:     24     74    123    169   -155   -121    -83
+     phi - w a:     -62    -55    -48    -45    -52    -60    -65
+     med |z|/M:    4.01   3.71   3.72   3.81   3.78   3.75   3.62
+clock (not tape)  S after M   lock 0.962  phase-only accuracy 0.908 (majority 0.250)   w = 42.7 deg/step
+     age:             3      4      5      6      7      8      9
+     R(a):         0.85   0.91   0.95   0.97   0.98   0.97   0.97
+     phi(a) deg:     79    119    163   -156   -116    -74    -31
+     phi - w a:     -49    -52    -51    -53    -55    -56    -56
+     med |z|/M:    3.03   3.39   3.61   3.75   3.84   3.88   3.87
+
+================ age a_T ================
+short             all         lock 0.060  phase-only accuracy 0.092 (majority 0.124)   w = 43.0 deg/step
+short             S before M  lock 0.120  phase-only accuracy 0.110 (majority 0.126)   w = 43.0 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.31   0.26   0.35   0.22   0.22   0.29   0.36   0.34   0.29   0.33
+     phi(a) deg:    127    134    151    145    128    101    105    105    106    110
+     phi - w a:     127     91     65     16    -44   -114   -153    164    122     83
+     med |z|/M:    1.75   1.70   1.59   1.39   1.42   1.61   1.63   1.53   1.42   1.29
+short             S after M   lock 0.098  phase-only accuracy 0.110 (majority 0.123)   w = 43.0 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.23   0.29   0.30   0.33   0.32   0.30   0.25   0.18   0.27   0.41
+     phi(a) deg:    -63    -61    -55    -45    -45    -46    -41    -65    -94    -91
+     phi - w a:     -63   -104   -141   -174    143     99     61     -6    -78   -118
+     med |z|/M:    1.56   1.61   1.38   1.45   1.59   1.52   1.31   1.26   1.35   1.52
+h2                all         lock 0.065  phase-only accuracy 0.109 (majority 0.124)   w = 83.3 deg/step
+h2                S before M  lock 0.082  phase-only accuracy 0.117 (majority 0.126)   w = 83.3 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.10   0.09   0.18   0.23   0.23   0.05   0.17   0.24   0.13   0.05
+     phi(a) deg:     59    -20    -13     21     38    126    -48     14     63    -34
+     phi - w a:      59   -103   -180    131     65     69    172    151    116    -64
+     med |z|/M:    2.69   2.70   2.26   2.25   2.23   2.32   2.37   2.32   2.57   2.76
+h2                S after M   lock 0.048  phase-only accuracy 0.110 (majority 0.123)   w = 83.3 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.09   0.14   0.17   0.17   0.17   0.07   0.20   0.29   0.17   0.07
+     phi(a) deg:    -19    -38     -6    -11    -14    -65    -53    -15     24    -95
+     phi - w a:     -19   -121   -173     99     13   -121    167    122     78   -125
+     med |z|/M:    3.43   3.40   2.94   2.86   2.69   2.69   2.81   3.05   2.93   3.29
+h3                all         lock 0.030  phase-only accuracy 0.098 (majority 0.124)   w = 124.8 deg/step
+h3                S before M  lock 0.045  phase-only accuracy 0.120 (majority 0.126)   w = 124.8 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.10   0.17   0.22   0.25   0.08   0.21   0.20   0.12   0.17   0.18
+     phi(a) deg:     14    -22    -18     10    -11    -20     14      0    -12     -5
+     phi - w a:      14   -146     93     -5   -150     76    -15   -153     70    -48
+     med |z|/M:    2.28   2.32   1.96   1.87   1.73   2.00   2.09   2.13   2.24   2.31
+h3                S after M   lock 0.016  phase-only accuracy 0.102 (majority 0.123)   w = 124.8 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.12   0.17   0.15   0.17   0.16   0.22   0.15   0.15   0.19   0.14
+     phi(a) deg:     -6    -25      4    -17    -32    -16      3    -35    -14     -6
+     phi - w a:      -6   -150    114    -32   -171     80    -25    171     68    -49
+     med |z|/M:    2.86   2.85   2.45   2.30   2.17   2.34   2.47   2.55   2.72   2.79
+clock (not tape)  all         lock 0.100  phase-only accuracy 0.105 (majority 0.124)   w = 42.7 deg/step
+clock (not tape)  S before M  lock 0.163  phase-only accuracy 0.113 (majority 0.126)   w = 42.7 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.31   0.31   0.49   0.27   0.17   0.31   0.39   0.42   0.40   0.38
+     phi(a) deg:    108    105    147    149    102     84     88     95     96     91
+     phi - w a:     108     62     61     21    -69   -129   -168    156    114     66
+     med |z|/M:    3.96   3.87   3.81   3.87   3.86   3.75   3.72   3.70   3.65   3.73
+clock (not tape)  S after M   lock 0.125  phase-only accuracy 0.107 (majority 0.123)   w = 42.7 deg/step
+     age:             0      1      2      3      4      5      6      7      8      9
+     R(a):         0.43   0.41   0.50   0.51   0.51   0.47   0.37   0.29   0.37   0.58
+     phi(a) deg:    -95    -95    -93    -93    -88    -82    -81   -100   -128   -124
+     phi - w a:     -95   -138   -178    139    101     65     22    -39   -110   -149
+     med |z|/M:    4.01   3.96   3.71   3.78   3.79   3.77   3.73   3.61   3.62   3.56
+
+================ alternating coordinate zeta_alt / M ================
+a_S all         age:         2      3      4      5      6      7      8      9
+                median:   4.39  -3.27   3.24  -2.34   2.36  -1.74   1.54  -1.12
+                P(>0):    0.88   0.20   0.81   0.26   0.77   0.31   0.70   0.37
+a_S S before M  age:         3      4      5      6      7      8      9
+                median:   0.73   3.44  -0.74   2.35  -1.67   1.99  -1.12
+                P(>0):    0.64   0.68   0.43   0.75   0.32   0.75   0.37
+a_S S after M   age:         2      3      4      5      6      7      8
+                median:   4.39  -3.89   3.21  -2.83   2.36  -1.98  -0.10
+                P(>0):    0.88   0.13   0.86   0.13   0.80   0.28   0.43
+a_S: P(sign zeta_alt = (-1)^a) = 0.752   (S before M 0.668, S after M 0.836)
+a_M all         age:         2      3      4      5      6      7      8      9
+                median:   3.38  -2.18   2.37  -0.72   0.63  -0.58   0.32  -0.25
+                P(>0):    0.85   0.25   0.75   0.42   0.56   0.45   0.54   0.47
+a_M S before M  age:         2      3      4      5      6      7      8
+                median:   3.38  -2.70   2.24  -1.02   0.19  -1.13  -1.52
+                P(>0):    0.85   0.18   0.79   0.35   0.53   0.43   0.12
+a_M S after M   age:         3      4      5      6      7      8      9
+                median:   1.02   3.30   0.19   1.18  -0.46   0.93  -0.25
+                P(>0):    0.68   0.68   0.51   0.59   0.46   0.60   0.47
+a_M: P(sign zeta_alt = (-1)^a) = 0.639   (S before M 0.722, S after M 0.556)
+a_T all         age:         0      1      2      3      4      5      6      7      8      9
+                median:   0.32   0.51   0.19   0.40   0.61  -0.30   1.43  -0.81   1.69  -0.43
+                P(>0):    0.53   0.56   0.52   0.55   0.56   0.47   0.64   0.42   0.64   0.47
+a_T S before M  age:         0      1      2      3      4      5      6      7      8      9
+                median:   0.34   0.49   0.46   0.27   0.67  -0.72   1.50  -0.89   1.22  -0.25
+                P(>0):    0.53   0.55   0.55   0.53   0.57   0.43   0.66   0.41   0.64   0.47
+a_T S after M   age:         0      1      2      3      4      5      6      7      8      9
+                median:   0.31   0.53  -0.07   0.55   0.54   0.03   1.33  -0.71   2.21  -0.73
+                P(>0):    0.54   0.56   0.49   0.56   0.56   0.50   0.63   0.43   0.65   0.46
+a_T: P(sign zeta_alt = (-1)^a) = 0.542   (S before M 0.552, S after M 0.532)

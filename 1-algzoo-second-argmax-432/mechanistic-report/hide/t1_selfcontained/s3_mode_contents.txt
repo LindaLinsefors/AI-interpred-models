@@ -1,0 +1,80 @@
+369143 quiet final states (600000 sequences, seed 301); fits on the first half, numbers from the second half
+
+A. share of the variance of each mode's piece (indices 0-7, centred over the index, / M) explained by each description
+   mode     rms of piece |           D1 f(aM) M |           D2 aM: M,S |      D3 (aM,aS): M,S | D4 (aM,aS,aT): M,S,T |        D5 D4 + x9,x8
+   level       0.63     |                0.024 |                0.129 |                0.555 |                0.759 |                0.806 | 
+   runner      2.21     |                0.020 |                0.766 |                0.878 |                0.954 |                0.966 | 
+   clock       2.46     |                0.776 |                0.939 |                0.975 |                0.986 |                0.987 | 
+   h2          7.74     |                0.195 |                0.216 |                0.734 |                0.892 |                0.898 | 
+   alt         2.41     |                0.181 |                0.201 |                0.703 |                0.856 |                0.858 | 
+   h3          5.96     |                0.209 |                0.234 |                0.777 |                0.916 |                0.921 | 
+   short      13.95     |                0.024 |                0.089 |                0.749 |                0.896 |                0.903 | 
+   trans       4.80     |                0.006 |                0.107 |                0.413 |                0.559 |                0.958 | 
+   echo        1.68     |                0.000 |                0.007 |                0.007 |                0.186 |                1.000 | 
+
+B. functional test: one mode's piece replaced by its description, all other pieces true.  P(S top) / agreement with the full score's top entry   (full: 0.973 / 1.000)
+   mode      deleted        |           D1 f(aM) M |           D2 aM: M,S |      D3 (aM,aS): M,S | D4 (aM,aS,aT): M,S,T |        D5 D4 + x9,x8
+   level    0.969 / 0.985 |        0.973 / 1.000 |        0.973 / 1.000 |        0.973 / 1.000 |        0.973 / 1.000 |        0.973 / 1.000 | 
+   runner   0.928 / 0.937 |        0.967 / 0.984 |        0.971 / 0.994 |        0.973 / 0.995 |        0.974 / 0.998 |        0.974 / 0.998 | 
+   clock    0.924 / 0.934 |        0.946 / 0.962 |        0.966 / 0.987 |        0.966 / 0.988 |        0.967 / 0.992 |        0.968 / 0.992 | 
+   h2       0.709 / 0.714 |        0.625 / 0.632 |        0.628 / 0.635 |        0.920 / 0.912 |        0.948 / 0.949 |        0.949 / 0.951 | 
+   alt      0.925 / 0.934 |        0.923 / 0.934 |        0.923 / 0.934 |        0.967 / 0.971 |        0.968 / 0.980 |        0.968 / 0.980 | 
+   h3       0.682 / 0.687 |        0.632 / 0.637 |        0.639 / 0.645 |        0.938 / 0.932 |        0.962 / 0.965 |        0.963 / 0.966 | 
+   short    0.486 / 0.486 |        0.413 / 0.413 |        0.421 / 0.423 |        0.924 / 0.910 |        0.950 / 0.941 |        0.956 / 0.946 | 
+   trans    0.883 / 0.893 |        0.886 / 0.896 |        0.891 / 0.901 |        0.923 / 0.932 |        0.934 / 0.944 |        0.969 / 0.986 | 
+   echo     0.954 / 0.970 |        0.957 / 0.972 |        0.957 / 0.972 |        0.956 / 0.972 |        0.959 / 0.976 |        0.973 / 1.000 | 
+   all four tape modes replaced together (rest true):
+   TAPE     0.149 / 0.148 |        0.063 / 0.064 |        0.075 / 0.080 |        0.977 / 0.953 |        0.979 / 0.959 |        0.989 / 0.968 | 
+   ... and among the states where the network itself has the runner-up on top, P(the substituted scores also do):
+            D1 f(aM) M: 0.062 | D2 aM: M,S: 0.074 | D3 (aM,aS): M,S: 0.978 | D4 (aM,aS,aT): M,S,T: 0.982 | D5 D4 + x9,x8: 0.992
+
+C. THE SHORT CLOCK.  z = short coordinate / M (complex).  Shares of sum |z - mean|^2 on the test half:
+   kappa z_clock, one complex kappa = 0.146 at -64 deg:                      0.031
+   kappa(a_M) z_clock, one complex kappa per age of the maximum:                0.081
+   alpha(a_M) (M - S), a term in the gap with the phase of the maximum's age:   -0.007
+   alpha(a_M) (M - S) + beta(a_M) S  (D2):                                      0.093
+   per age of the RUNNER-UP: M, S:                                              0.502
+   per (a_M, a_S): M, S  (D3):                                                  0.747
+   per (a_M, a_S, a_T): M, S, T  (D4):                                          0.892
+   D4 + x_9, x_8  (D5):                                                         0.897
+   D2 coefficients in units of w_4 (modulus at phase):   age of the maximum:  alpha (per unit gap)   beta (per unit S)
+      a_M = 2:   alpha 0.265 at    35 deg    beta 0.249 at  -130 deg
+      a_M = 3:   alpha 0.187 at    81 deg    beta 0.169 at   -90 deg
+      a_M = 4:   alpha 0.144 at   130 deg    beta 0.125 at   -47 deg
+      a_M = 5:   alpha 0.147 at  -176 deg    beta 0.084 at    -1 deg
+      a_M = 6:   alpha 0.155 at  -126 deg    beta 0.060 at    35 deg
+      a_M = 7:   alpha 0.153 at   -93 deg    beta 0.041 at   121 deg
+      a_M = 8:   alpha 0.141 at   -61 deg    beta 0.098 at  -171 deg
+      a_M = 9:   alpha 0.124 at   -22 deg    beta 0.172 at  -138 deg
+   rms |z_short| / w_4 = 0.257 (units of M);  rms of (M - S)/M = 0.394, of S/M = 0.708
+
+D. Coefficient of S in each tape coordinate (fit D3, per cell (a_M, a_S); units of w_4), by age of the runner-up.
+   Free evolution since the runner-up was written would give  coefficient(a_S + 1) / coefficient(a_S) = lam.
+   alt: lam = 0.928 at 180.0 deg
+      runner-up arrived AFTER the maximum, a_M = 9:  a_S = 2..8
+         coefficient of S:   0.55@    0   0.54@  180   0.23@    0   0.48@  180   0.05@  180   0.31@  180   0.01@  180
+         ratio to previous:         0.98@  180   0.42@  180   2.14@  180   0.10@    0   6.65@    0   0.04@    0
+      runner-up arrived BEFORE the maximum, a_M = 2:  a_S = 3..9
+         coefficient of S:   0.01@  180   0.72@    0   0.13@    0   0.72@    0   0.40@    0   0.83@    0   0.73@    0
+         ratio to previous:        137.41@  180   0.18@    0   5.53@    0   0.56@    0   2.06@    0   0.88@    0
+   short: lam = 0.735 at 43.0 deg
+      runner-up arrived AFTER the maximum, a_M = 9:  a_S = 2..8
+         coefficient of S:   0.67@ -155   0.54@ -140   0.18@ -156   0.09@  158   0.16@  142   0.16@  165   0.15@  165
+         ratio to previous:         0.80@   14   0.35@  -16   0.46@  -46   1.87@  -17   0.98@   23   0.96@    0
+      runner-up arrived BEFORE the maximum, a_M = 2:  a_S = 3..9
+         coefficient of S:   0.70@ -112   0.56@  -98   0.24@ -102   0.23@ -160   0.43@ -170   0.79@ -159   0.99@ -148
+         ratio to previous:         0.80@   13   0.42@   -3   0.97@  -58   1.88@  -11   1.82@   11   1.25@   11
+   h2: lam = 0.937 at 83.3 deg
+      runner-up arrived AFTER the maximum, a_M = 9:  a_S = 2..8
+         coefficient of S:   0.45@  -60   0.72@   16   0.63@  101   0.46@  161   0.09@  150   0.13@  102   0.23@  119
+         ratio to previous:         1.61@   76   0.87@   85   0.73@   60   0.20@  -11   1.47@  -48   1.69@   17
+      runner-up arrived BEFORE the maximum, a_M = 2:  a_S = 3..9
+         coefficient of S:   0.40@  -21   0.15@  172   0.40@ -131   0.67@  -95   0.74@  -78   0.79@  -78   0.67@  -72
+         ratio to previous:         0.37@ -167   2.70@   57   1.67@   36   1.11@   17   1.06@    0   0.85@    6
+   h3: lam = 0.837 at 124.8 deg
+      runner-up arrived AFTER the maximum, a_M = 9:  a_S = 2..8
+         coefficient of S:   0.52@  -41   0.55@   74   0.32@ -141   0.24@  -17   0.16@   94   0.06@ -130   0.06@  -60
+         ratio to previous:         1.05@  115   0.58@  145   0.77@  124   0.67@  111   0.35@  136   1.03@   70
+      runner-up arrived BEFORE the maximum, a_M = 2:  a_S = 3..9
+         coefficient of S:   0.25@    9   0.41@  -70   0.49@  -49   0.39@  -49   0.55@  -53   0.81@  -50   0.73@  -53
+         ratio to previous:         1.65@  -80   1.21@   21   0.79@    1   1.43@   -5   1.46@    3   0.90@   -2

@@ -1,0 +1,31 @@
+307628 quiet final states.  P(top entry among ages >= 2 has age k)
+   rest piece
+      age k:                                    2      3      4      5      6      7      8      9
+      all states                            0.358  0.142  0.168  0.034  0.038  0.052  0.042  0.164
+      states with a_S = k                   0.688  0.194  0.171  0.000  0.001  0.007  0.004  0.148
+      states with a_S != k and a_M != k     0.318  0.149  0.159  0.039  0.014  0.023  0.018  0.125
+      states with a_T = k (third there)     0.410  0.180  0.182  0.027  0.006  0.012  0.008  0.141
+   tape piece
+      age k:                                    2      3      4      5      6      7      8      9
+      all states                            0.065  0.106  0.108  0.133  0.123  0.131  0.139  0.195
+      states with a_S = k                   0.503  0.823  0.836  0.942  0.916  0.913  0.888  0.894
+      states with a_S != k and a_M != k     0.001  0.003  0.003  0.016  0.011  0.020  0.030  0.085
+      states with a_T = k (third there)     0.005  0.016  0.021  0.092  0.069  0.107  0.124  0.237
+   full scores
+      age k:                                    2      3      4      5      6      7      8      9
+      all states                            0.124  0.125  0.123  0.125  0.124  0.125  0.128  0.125
+      states with a_S = k                   0.965  0.967  0.969  0.976  0.974  0.979  0.982  0.975
+      states with a_S != k and a_M != k     0.003  0.003  0.003  0.003  0.003  0.003  0.004  0.003
+      states with a_T = k (third there)     0.023  0.026  0.023  0.024  0.022  0.023  0.026  0.020
+
+donor B with a_S = 2, a_M = 9 (n = 5458): entry of B's runner-up slot (age 2) minus entry of the maximum, in M (medians)
+   B intact: full   13.0 = tape piece   -7.3 + rest piece   23.9       A's rest piece (far-below input in that slot):   -1.6       hybrid rest A + tape B:   -9.4   (positive in 0.058; B intact positive in 0.970)
+   so the rest piece's contrast changes by   25.1 M when the runner-up enters the age-2 slot, the tape piece's by   -6.4 M
+
+donor B with a_S = 2, a_M = 8 (n = 5561): entry of B's runner-up slot (age 2) minus entry of the maximum, in M (medians)
+   B intact: full   14.5 = tape piece    9.5 + rest piece    7.2       A's rest piece (far-below input in that slot):   -0.6       hybrid rest A + tape B:    7.5   (positive in 0.800; B intact positive in 0.987)
+   so the rest piece's contrast changes by    7.2 M when the runner-up enters the age-2 slot, the tape piece's by   10.9 M
+
+donor B with a_S = 2, a_M = 5 (n = 5510): entry of B's runner-up slot (age 2) minus entry of the maximum, in M (medians)
+   B intact: full    9.4 = tape piece    7.9 + rest piece    1.6       A's rest piece (far-below input in that slot):    2.0       hybrid rest A + tape B:    9.8   (positive in 0.995; B intact positive in 0.994)
+   so the rest piece's contrast changes by   -0.5 M when the runner-up enters the age-2 slot, the tape piece's by   14.1 M

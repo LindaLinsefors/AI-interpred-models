@@ -1,0 +1,33 @@
+123350 quiet final states of 200000.  Columns: inputs kept per state (mean), R2 of all 7 coordinates / M, share of answers changed.
+   M, S                                                       kept  2.00   R2  0.556   answers changed 0.073   | + linear leak of the dropped inputs: R2  0.558   answers changed 0.060
+   top 3                                                      kept  3.00   R2  0.854   answers changed 0.065   | + linear leak of the dropped inputs: R2  0.856   answers changed 0.046
+   top 4                                                      kept  4.00   R2  0.945   answers changed 0.054   | + linear leak of the dropped inputs: R2  0.947   answers changed 0.034
+   top 5                                                      kept  5.00   R2  0.968   answers changed 0.050   | + linear leak of the dropped inputs: R2  0.971   answers changed 0.029
+   all positive inputs                                        kept  5.05   R2  0.973   answers changed 0.050   | + linear leak of the dropped inputs: R2  0.976   answers changed 0.028
+   M, S + every maximum-at-arrival (records)                  kept  3.22   R2  0.678   answers changed 0.075   | + linear leak of the dropped inputs: R2  0.682   answers changed 0.057
+   every input in the top two at its arrival                  kept  4.44   R2  0.946   answers changed 0.061   | + linear leak of the dropped inputs: R2  0.949   answers changed 0.040
+   top two at arrival, or above 0.75 of the runner-up then    kept  4.79   R2  0.974   answers changed 0.049   | + linear leak of the dropped inputs: R2  0.977   answers changed 0.028
+   top two at arrival + positive inputs of age 0, 1           kept  5.20   R2  0.948   answers changed 0.056   | + linear leak of the dropped inputs: R2  0.950   answers changed 0.037
+   top two at arrival + all inputs of age 0, 1                kept  6.44   R2  0.953   answers changed 0.032   | + linear leak of the dropped inputs: R2  0.953   answers changed 0.035
+   candidates (line 8) + all inputs of age 0, 1               kept  6.65   R2  0.980   answers changed 0.020   | + linear leak of the dropped inputs: R2  0.980   answers changed 0.025
+   all but the inputs of age 0, 1                             kept  8.00   R2  0.993   answers changed 0.045   | + linear leak of the dropped inputs: R2  0.997   answers changed 0.010
+   all but the input of age 0                                 kept  9.00   R2  0.996   answers changed 0.033   | + linear leak of the dropped inputs: R2  0.999   answers changed 0.003
+   top 3 + inputs of age 0, 1                                 kept  4.75   R2  0.859   answers changed 0.040   | + linear leak of the dropped inputs: R2  0.858   answers changed 0.044
+   (linear leak = sum over dropped inputs of (l.w[o]) x_p lam^age, the direct write of an input that moves no gate)
+
+The same without the newest entries: is the runner-up still the top score among the entries of age >= 2 (indices 0..7)?
+   real states: 0.973
+   M, S                                                       runner-up on top 0.959   top entry changed 0.061
+   top 3                                                      runner-up on top 0.942   top entry changed 0.055
+   top 4                                                      runner-up on top 0.946   top entry changed 0.045
+   every input in the top two at its arrival                  runner-up on top 0.947   top entry changed 0.051
+   top two at arrival, or above 0.75 of the runner-up then    runner-up on top 0.948   top entry changed 0.042
+   all positive inputs                                        runner-up on top 0.947   top entry changed 0.042
+
+Formula N1 (skeleton (M, S) + g (x_p - Theta_p)_+ kA lam^(age-2) for inputs after both), by the number of later inputs it writes (age >= 2):
+   'exact' = skeleton that keeps M, S and the real inputs after both with age >= 2
+   0  writes (n = 107503):  R2 skeleton (M, S) 0.570, N1 0.570, exact 0.574 | answers changed: 0.066, 0.066, 0.063
+   1  writes (n =  14729):  R2 skeleton (M, S) 0.377, N1 0.620, exact 0.695 | answers changed: 0.113, 0.137, 0.083
+        the later inputs' own contribution (exact skeleton minus skeleton (M, S)): R2 of N1's version 0.591 (uncentred)
+   2+ writes (n =   1118):  R2 skeleton (M, S) 0.464, N1 0.760, exact 0.847 | answers changed: 0.174, 0.256, 0.121
+        the later inputs' own contribution (exact skeleton minus skeleton (M, S)): R2 of N1's version 0.766 (uncentred)

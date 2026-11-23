@@ -1,0 +1,12 @@
+eigenvalues used (|lam|, angle in deg): {'alt': (np.float64(0.9283), 180.0), 'short': (np.float64(0.735), 42.99), 'h2': (np.float64(0.937), 83.28), 'h3': (np.float64(0.8373), 124.78), 'level': (np.float64(1.0099), 0.0), 'runner': (np.float64(0.9735), 0.0), 'clock': (np.float64(0.9509), 42.75), 'trans': (np.float64(0.231), 0.0), 'echo': (np.float64(0.001), 0.0)}
+my projector vs tape_common.P_TAPE, max abs difference: 0.0  rank 7
+my tape coordinates vs tape_common.tape_coords: 0.0
+my rest coordinates vs modes.coords (level, runner, clock, trans, echo): 0.0
+my set_tape vs tape_common.set_tape (random coordinates): 8.881784197001252e-14
+set_tape with own coordinates returns the state: 0.0
+tape part + rest = state on the 13 units, 9 modes complete: 1.5987211554602254e-13
+t = 3: stats agree with prefix_stats: True  quiet share 0.1157
+t = 6: stats agree with prefix_stats: True  quiet share 0.4483
+t = 9: stats agree with prefix_stats: True  quiet share 0.6175
+accuracy on N(0,1): 0.95236  on quiet final states: answer = runner-up position 0.9624
+tape piece alone, top entry among ages >= 2 is the runner-up (quiet final): 0.8397 ; top entry among all ten: 0.8397

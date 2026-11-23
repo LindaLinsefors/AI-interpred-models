@@ -1,0 +1,40 @@
+A. 3275568 entries below the runner-up pass the filters (300000 sequences, steps t = 4..9)
+   eq. (11), Phi = median curve:  R2 = 0.103,  correlation = 0.387
+   Phi at u = 0.01, 0.05, 0.1, 0.2, 0.4, 1, 2: [ 1.   3.7  6.8 10.5 14.1 17.9 19.6]
+   u bin       n      median   quartiles of (entry - runner-up's entry)/M     P(< 0)
+   0.00- 0.02    29186     -0.9     -3.8 ..    1.5     0.608
+   0.02- 0.05    45866     -2.7     -5.8 ..   -0.2     0.763
+   0.05- 0.10    81816     -5.2     -8.8 ..   -2.1     0.860
+   0.10- 0.20   176557     -8.8    -13.0 ..   -4.8     0.927
+   0.20- 0.40   398980    -12.6    -17.8 ..   -8.1     0.970
+   0.40- 1.00  1249800    -16.3    -23.0 ..  -11.6     0.987
+   1.00-99.00  1293342    -19.1    -26.8 ..  -14.2     0.993
+
+B. Triple (x, S, M) held fixed. Configuration (step, ages of entry, maximum, runner-up) drawn from the entries of part A;
+   every other input drawn from N(0,1) truncated below S.  200,000 states per triple.  Values in units of M.
+   M = 1.5 in all.  Columns: mean, total sd, sd between configurations, mean sd within a configuration (= from the other inputs' values only)
+     S     x     u=(S-x)/M |  the entry itself s_tape[9-a]/M        |  entry minus runner-up's entry, /M
+    0.5   0.47    0.02     |    6.27     4.92     4.59     1.49   |   -1.84     6.36     6.20     1.12
+    0.5   0.35    0.10     |    3.26     5.69     5.32     1.71   |   -6.60     6.72     6.48     1.48
+    0.5   0.05    0.30     |   -0.83     7.12     6.68     1.99   |  -12.60     8.48     7.72     2.80
+    0.5  -1.00    1.00     |   -2.02     7.48     7.00     2.10   |  -14.20     9.06     8.13     3.18
+    1.0   0.97    0.02     |    9.65     5.27     4.69     1.93   |   -2.37     6.30     6.05     1.35
+    1.0   0.85    0.10     |    6.49     6.03     5.38     2.22   |   -7.39     6.54     6.22     1.61
+    1.0   0.55    0.30     |    1.64     7.51     6.77     2.69   |  -14.73     7.94     7.17     2.86
+    1.0  -0.50    1.00     |   -2.99     9.38     8.54     3.06   |  -21.06    11.52     9.79     4.57
+   maximum's own entry and runner-up's own entry for comparison (x = M or x = S is not a separate input there): skipped
+
+   Signal for comparison: change of the mean when x moves from u = 0.02 to u = 1.0 at fixed S, M:
+     S = 0.5: entry itself   -8.29,  entry minus runner-up's  -12.36
+     S = 1.0: entry itself  -12.64,  entry minus runner-up's  -18.69
+
+C. Natural data of part A again: Phi fitted as a median curve separately per configuration (24 bins of u each)
+   one Phi for all                        R2 = 0.104   residual sd 12.43 M, quartiles -6.30 / +4.56 M   (25 medians fitted)
+   per age of the entry a                 R2 = 0.177   residual sd 11.96 M, quartiles -6.14 / +4.43 M   (200 medians fitted)
+   per (a, a_S)                           R2 = 0.386   residual sd 10.46 M, quartiles -4.34 / +3.89 M   (1400 medians fitted)
+   per (a, a_M)                           R2 = 0.250   residual sd 11.49 M, quartiles -5.51 / +4.41 M   (1400 medians fitted)
+   per (a, a_M, a_S)                      R2 = 0.635   residual sd  8.10 M, quartiles -2.88 / +3.23 M   (8398 medians fitted)
+   per (t, a, a_M, a_S)                   R2 = 0.638   residual sd  8.07 M, quartiles -2.84 / +3.21 M   (18895 medians fitted)
+   per (a, a_M, a_S) and 3 bins of S/M    R2 = 0.768   residual sd  6.46 M, quartiles -2.08 / +2.26 M   (24851 medians fitted)
+   near the runner-up (u < 0.1), residual of the per-(a, a_M, a_S) curves as an error in the input (slope 71.5):
+     sd 0.0446 M, quartiles -0.0147 / +0.0159 M   (one Phi for all: sd 0.0916 M)

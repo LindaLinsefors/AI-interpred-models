@@ -1,0 +1,57 @@
+quiet final states 246144; untouched, the network answers the runner-up's position in 0.964
+
+A. transplant of the tape part (donor's tape scaled to the recipient's M)
+   donor: same (a_M, a_S)                             as is   n 246144 | answer = tape owner's runner-up 0.855 | rest owner's runner-up 0.855 | rest owner's maximum 0.048 | other 0.097 | unit < -0.01 M: 0.350
+   donor: same (a_M, a_S)                             clipped n 246144 | answer = tape owner's runner-up 0.854 | rest owner's runner-up 0.854 | rest owner's maximum 0.045 | other 0.101 | unit < -0.01 M: 0.350
+   donor: same (a_M, a_S, a_T)                        as is   n 246144 | answer = tape owner's runner-up 0.870 | rest owner's runner-up 0.870 | rest owner's maximum 0.046 | other 0.084 | unit < -0.01 M: 0.342
+   donor: same (a_M, a_S, a_T)                        clipped n 246144 | answer = tape owner's runner-up 0.870 | rest owner's runner-up 0.870 | rest owner's maximum 0.042 | other 0.088 | unit < -0.01 M: 0.342
+   donor: same (a_M, a_S, a_T), nearest (S-T+)/M      as is   n 246144 | answer = tape owner's runner-up 0.868 | rest owner's runner-up 0.868 | rest owner's maximum 0.042 | other 0.090 | unit < -0.01 M: 0.336
+   donor: same (a_M, a_S, a_T), nearest (S-T+)/M      clipped n 246144 | answer = tape owner's runner-up 0.869 | rest owner's runner-up 0.869 | rest owner's maximum 0.039 | other 0.092 | unit < -0.01 M: 0.336
+   donor: same (a_M,a_S,a_T), S/M in 5 bins, nearest (S-T+)/M as is   n 246144 | answer = tape owner's runner-up 0.912 | rest owner's runner-up 0.912 | rest owner's maximum 0.026 | other 0.062 | unit < -0.01 M: 0.317
+   donor: same (a_M,a_S,a_T), S/M in 5 bins, nearest (S-T+)/M clipped n 246144 | answer = tape owner's runner-up 0.910 | rest owner's runner-up 0.910 | rest owner's maximum 0.025 | other 0.065 | unit < -0.01 M: 0.317
+   donor: same (a_M,a_S,a_T), (S-T+)/M in 5 bins, nearest S/M as is   n 246138 | answer = tape owner's runner-up 0.916 | rest owner's runner-up 0.916 | rest owner's maximum 0.025 | other 0.059 | unit < -0.01 M: 0.318
+   donor: same (a_M,a_S,a_T), (S-T+)/M in 5 bins, nearest S/M clipped n 246138 | answer = tape owner's runner-up 0.912 | rest owner's runner-up 0.912 | rest owner's maximum 0.026 | other 0.062 | unit < -0.01 M: 0.318
+   donor: same a_M, different a_S                     as is   n 246144 | answer = tape owner's runner-up 0.785 | rest owner's runner-up 0.015 | rest owner's maximum 0.068 | other 0.131 | unit < -0.01 M: 0.397
+   donor: same a_M, different a_S                     clipped n 246144 | answer = tape owner's runner-up 0.763 | rest owner's runner-up 0.020 | rest owner's maximum 0.059 | other 0.158 | unit < -0.01 M: 0.397
+   donor: different a_M, same a_S                     as is   n 246144 | answer = tape owner's runner-up 0.806 | rest owner's runner-up 0.806 | rest owner's maximum 0.025 | other 0.170 | unit < -0.01 M: 0.311
+   donor: different a_M, same a_S                     clipped n 246144 | answer = tape owner's runner-up 0.801 | rest owner's runner-up 0.801 | rest owner's maximum 0.023 | other 0.176 | unit < -0.01 M: 0.311
+   donor: different a_M and a_S (*)                   as is   n 206186 | answer = tape owner's runner-up 0.748 | rest owner's runner-up 0.027 | rest owner's maximum 0.030 | other 0.195 | unit < -0.01 M: 0.351
+   donor: different a_M and a_S (*)                   clipped n 206186 | answer = tape owner's runner-up 0.725 | rest owner's runner-up 0.033 | rest owner's maximum 0.027 | other 0.215 | unit < -0.01 M: 0.351
+   (*) donors whose runner-up position is the recipient's maximum position are left out of that row. Those 39958 cases: answer = that position 0.827, recipient's runner-up 0.016, other 0.157
+
+B. the tape made k steps older: c -> Lambda^k c.  'target' = position p_S - k.
+   k = +1, target is not the maximum  as is   n 184662 | answer = target 0.888 | still p_S 0.006 | maximum 0.008 | unit < -0.01 M: 0.281
+   k = +1, target is not the maximum  clipped n 184662 | answer = target 0.876 | still p_S 0.012 | maximum 0.006 | unit < -0.01 M: 0.281
+   k = +1, target is the maximum      as is   n  30587 | answer = target 0.959 | still p_S 0.002 | maximum 0.000 | unit < -0.01 M: 0.355
+   k = +1, target is the maximum      clipped n  30587 | answer = target 0.912 | still p_S 0.007 | maximum 0.000 | unit < -0.01 M: 0.355
+   k = +2, target is not the maximum  as is   n 158255 | answer = target 0.818 | still p_S 0.010 | maximum 0.008 | unit < -0.01 M: 0.407
+   k = +2, target is not the maximum  clipped n 158255 | answer = target 0.791 | still p_S 0.013 | maximum 0.006 | unit < -0.01 M: 0.407
+   k = +2, target is the maximum      as is   n  26406 | answer = target 0.908 | still p_S 0.004 | maximum 0.000 | unit < -0.01 M: 0.511
+   k = +2, target is the maximum      clipped n  26406 | answer = target 0.750 | still p_S 0.007 | maximum 0.000 | unit < -0.01 M: 0.511
+   k = +3, target is not the maximum  as is   n 131791 | answer = target 0.808 | still p_S 0.013 | maximum 0.018 | unit < -0.01 M: 0.480
+   k = +3, target is not the maximum  clipped n 131791 | answer = target 0.757 | still p_S 0.031 | maximum 0.013 | unit < -0.01 M: 0.480
+   k = +3, target is the maximum      as is   n  21800 | answer = target 0.966 | still p_S 0.005 | maximum 0.000 | unit < -0.01 M: 0.546
+   k = +3, target is the maximum      clipped n  21800 | answer = target 0.709 | still p_S 0.132 | maximum 0.000 | unit < -0.01 M: 0.546
+   k = -1, target is not the maximum  as is   n 184797 | answer = target 0.768 | still p_S 0.055 | maximum 0.032 | unit < -0.01 M: 0.394
+   k = -1, target is not the maximum  clipped n 184797 | answer = target 0.796 | still p_S 0.047 | maximum 0.031 | unit < -0.01 M: 0.394
+   k = -1, target is the maximum      as is   n  30732 | answer = target 0.767 | still p_S 0.030 | maximum 0.000 | unit < -0.01 M: 0.781
+   k = -1, target is the maximum      clipped n  30732 | answer = target 0.659 | still p_S 0.068 | maximum 0.000 | unit < -0.01 M: 0.781
+   k = -2, target is not the maximum  as is   n 158263 | answer = target 0.662 | still p_S 0.080 | maximum 0.034 | unit < -0.01 M: 0.461
+   k = -2, target is not the maximum  clipped n 158263 | answer = target 0.636 | still p_S 0.066 | maximum 0.040 | unit < -0.01 M: 0.461
+   k = -2, target is the maximum      as is   n  26382 | answer = target 0.581 | still p_S 0.034 | maximum 0.000 | unit < -0.01 M: 0.824
+   k = -2, target is the maximum      clipped n  26382 | answer = target 0.408 | still p_S 0.041 | maximum 0.000 | unit < -0.01 M: 0.824
+
+C. only some tape coordinates made one step older (k = +1); states whose target position p_S - 1 exists and is not the maximum
+   columns: answer = target / still p_S / maximum / other
+   coordinates advanced                        all (n 184662)              S before M (n 92394)               S after M (n 92268)
+   short                         0.047 / 0.744 / 0.096 / 0.113      0.086 / 0.682 / 0.072 / 0.160      0.008 / 0.806 / 0.119 / 0.066
+   h2                            0.134 / 0.608 / 0.133 / 0.125      0.227 / 0.525 / 0.160 / 0.088      0.042 / 0.691 / 0.106 / 0.162
+   h3                            0.233 / 0.369 / 0.102 / 0.296      0.222 / 0.532 / 0.015 / 0.231      0.245 / 0.206 / 0.189 / 0.361
+   alt                           0.086 / 0.719 / 0.060 / 0.135      0.140 / 0.634 / 0.069 / 0.158      0.032 / 0.804 / 0.052 / 0.112
+   h2 + h3                       0.495 / 0.227 / 0.068 / 0.210      0.388 / 0.360 / 0.034 / 0.219      0.603 / 0.094 / 0.103 / 0.201
+   h3 + alt                      0.387 / 0.228 / 0.082 / 0.303      0.271 / 0.410 / 0.020 / 0.299      0.504 / 0.045 / 0.144 / 0.307
+   h2 + h3 + alt                 0.637 / 0.081 / 0.045 / 0.236      0.499 / 0.153 / 0.010 / 0.338      0.776 / 0.010 / 0.081 / 0.134
+   short + h2 + h3               0.663 / 0.107 / 0.038 / 0.192      0.521 / 0.168 / 0.024 / 0.287      0.804 / 0.046 / 0.053 / 0.097
+   short + h3 + alt              0.447 / 0.159 / 0.102 / 0.292      0.425 / 0.300 / 0.015 / 0.259      0.469 / 0.017 / 0.190 / 0.325
+   short + h2 + alt              0.344 / 0.363 / 0.071 / 0.222      0.505 / 0.153 / 0.061 / 0.281      0.183 / 0.574 / 0.081 / 0.162
+   alt + short + h2 + h3         0.888 / 0.006 / 0.008 / 0.098      0.830 / 0.008 / 0.008 / 0.154      0.946 / 0.004 / 0.008 / 0.042

@@ -1,0 +1,22 @@
+115368 quiet states from 40000 sequences (steps 3..9).  Columns as in S1; 'kept' is not defined here.
+
+candidate V                                     kept |      alt short.re short.im    h2.re    h2.im    h3.re    h3.im |  FU sum  FU score | answer changed %  (clipped)  neg %
+nothing (another quiet state at the same t)     0.00 |    0.995    0.856    0.817    0.979    0.985    1.026    0.983 |   0.968    0.846  |      62.50        61.57     54.9
+ages of max and runner-up only                  0.00 |    0.286    0.321    0.394    0.364    0.295    0.365    0.236 |   0.309    0.394  |      13.73        13.51     51.5
+values S/M only (ages redrawn)                  0.00 |    0.997    0.783    0.624    0.906    0.969    0.902    0.989 |   0.927    0.676  |      60.16        59.45     56.1
+V0 = ages and values of max, runner-up          0.00 |    0.218    0.145    0.110    0.216    0.191    0.172    0.152 |   0.188    0.144  |       6.73         6.88     47.5
+ages of ALL inputs by rank, no values           0.00 |    0.179    0.270    0.349    0.266    0.223    0.297    0.182 |   0.227    0.338  |      12.65        12.32     50.6
+ALL values, no ages                             0.00 |    0.988    0.781    0.622    0.893    0.965    0.882    0.987 |   0.918    0.664  |      60.07        59.38     55.4
+V0 + rank order of the others (no values)       0.00 |    0.092    0.075    0.058    0.098    0.103    0.091    0.085 |   0.089    0.068  |       4.99         5.06     45.7
+V0 + values of the others (ages shuffled)       0.00 |    0.185    0.105    0.078    0.168    0.130    0.114    0.105 |   0.145    0.106  |       5.64         5.76     44.9
+V0 + age of the third (not its value)           0.00 |    0.132    0.096    0.068    0.129    0.126    0.106    0.099 |   0.117    0.091  |       5.57         5.67     46.6
+V0 + value of the third (not its age)           0.00 |    0.194    0.117    0.086    0.192    0.139    0.129    0.112 |   0.156    0.121  |       6.17         6.27     47.6
+V1 = V0 + age and value of the third            0.00 |    0.084    0.047    0.033    0.086    0.052    0.051    0.040 |   0.065    0.053  |       3.77         3.82     46.1
+V1 + age of the fourth (not its value)          0.00 |    0.050    0.034    0.021    0.061    0.040    0.036    0.030 |   0.043    0.036  |       3.23         3.26     45.4
+V1 + value of the fourth (not its age)          0.00 |    0.070    0.035    0.021    0.061    0.043    0.031    0.029 |   0.051    0.039  |       3.11         3.15     43.2
+V2 = V1 + age and value of the fourth           0.00 |    0.030    0.018    0.009    0.033    0.022    0.015    0.014 |   0.023    0.021  |       2.29         2.29     42.3
+V1 + rank order of the others (no values)       0.00 |    0.038    0.028    0.017    0.044    0.032    0.029    0.024 |   0.033    0.028  |       2.68         2.71     44.8
+V1 + values of the others (ages shuffled)       0.00 |    0.067    0.030    0.019    0.055    0.038    0.029    0.024 |   0.047    0.036  |       2.74         2.78     39.1
+
+check of the V0 line: max |M' - M| = 0.0  max |S' - S| = 0.0  ages equal: True
+check of the 'nothing' line: all quiet: True  share with a_M > a_S: 0.498 (original: 0.501 )

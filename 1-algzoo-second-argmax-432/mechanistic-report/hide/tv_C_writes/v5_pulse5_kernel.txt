@@ -1,0 +1,6 @@
+tape score per unit of unit 5's pulse, at the entry of the input x_j it answers, when x_j is 2..9 steps old: 2.53 3.35 3.62 3.81 4.03 3.86 3.57 3.70
+the same at the entry of the input one step older than x_j (3..9 steps old):                              -1.20 -0.94 -1.00 -1.49 -1.63 -1.80 -1.92
+the same at the entry of the input one step younger than x_j (2..9 steps old):                            0.79 0.88 0.88 0.90 0.94 0.76 1.34 1.62
+
+tape's part of unit 5's drive / running maximum, steps with running maximum > 0.3 (n = 1480121): std 0.82; left after a fit on (S/M, T/M, latest input/M, 1) per configuration of the ages of maximum and runner-up: std 0.23
+for scale: unit 5's pre-activation / running maximum where it fires: std 4.12

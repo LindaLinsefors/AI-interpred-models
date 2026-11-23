@@ -1,0 +1,33 @@
+A. 369832 quiet final states (600000 sequences, seed 501).  True tape piece + fitted rest piece.
+   rest deleted: 0.838 / 0.844;  rest true: 0.973 / 1.000      (P(S top) / agreement with the full score's top entry)
+   cells                                                     fit on M, S          fit on M, S, x_9, x_8
+   no cells (one pattern for all states)                     0.871 / 0.878        0.881 / 0.888      
+   order of arrival (runner-up before / after the maximum)   0.882 / 0.889        0.891 / 0.898      
+   age of the maximum a_M                                    0.902 / 0.914        0.913 / 0.925      
+   age of the runner-up a_S                                  0.896 / 0.902        0.906 / 0.912      
+   (a_M, a_S)                                                0.946 / 0.958        0.958 / 0.972      
+   (a_M, a_S, a_T)                                           0.950 / 0.963        0.963 / 0.978      
+
+B. Deleting a part of a quiet state at step t0 and continuing with the real inputs (400000 sequences, seed 502).
+   per class: n, accuracy before | then for each deleted part: share of answers changed (and, in brackets, with the perturbed state clipped at zero)
+   t0 = 5: 142155 quiet states; classes cover 0.895 of them
+      same top two   n  52509  acc 0.967 | TAPE 0.961 (0.941) short 0.520 (0.435) h2 0.179 (0.170) h3 0.078 (0.148) alt 0.068 (0.091) clock 0.093 (0.093) runner 0.909 (0.912) trans 0.007 (0.015)
+         after deleting the TAPE the answer is: old runner-up 0.014, old maximum 0.159, an input after t0 0.500, another old input 0.327
+      max overtaken  n  37570  acc 0.965 | TAPE 0.312 (0.376) short 0.182 (0.231) h2 0.108 (0.104) h3 0.058 (0.085) alt 0.027 (0.030) clock 0.896 (0.896) runner 0.683 (0.679) trans 0.006 (0.017)
+         after deleting the TAPE the answer is: old runner-up 0.009, old maximum 0.674, an input after t0 0.189, another old input 0.127
+      new runner-up  n  37148  acc 0.945 | TAPE 0.044 (0.043) short 0.049 (0.040) h2 0.034 (0.034) h3 0.037 (0.044) alt 0.017 (0.018) clock 0.096 (0.096) runner 0.132 (0.129) trans 0.004 (0.008)
+         after deleting the TAPE the answer is: old runner-up 0.001, old maximum 0.006, an input after t0 0.993, another old input 0.001
+   t0 = 7: 207123 quiet states; classes cover 0.980 of them
+      same top two   n 132063  acc 0.967 | TAPE 0.965 (0.948) short 0.527 (0.431) h2 0.229 (0.210) h3 0.221 (0.201) alt 0.062 (0.067) clock 0.070 (0.071) runner 0.795 (0.801) trans 0.007 (0.011)
+         after deleting the TAPE the answer is: old runner-up 0.018, old maximum 0.140, an input after t0 0.136, another old input 0.706
+      max overtaken  n  35584  acc 0.967 | TAPE 0.304 (0.333) short 0.168 (0.173) h2 0.196 (0.197) h3 0.140 (0.147) alt 0.046 (0.047) clock 0.894 (0.894) runner 0.584 (0.585) trans 0.009 (0.017)
+         after deleting the TAPE the answer is: old runner-up 0.017, old maximum 0.692, an input after t0 0.128, another old input 0.163
+      new runner-up  n  35413  acc 0.957 | TAPE 0.056 (0.040) short 0.116 (0.057) h2 0.037 (0.034) h3 0.051 (0.047) alt 0.024 (0.023) clock 0.117 (0.116) runner 0.093 (0.091) trans 0.007 (0.009)
+         after deleting the TAPE the answer is: old runner-up 0.000, old maximum 0.023, an input after t0 0.976, another old input 0.001
+   t0 = 8: 228447 quiet states; classes cover 1.000 of them
+      same top two   n 184681  acc 0.966 | TAPE 0.936 (0.922) short 0.532 (0.475) h2 0.265 (0.257) h3 0.264 (0.248) alt 0.068 (0.065) clock 0.071 (0.073) runner 0.700 (0.701) trans 0.020 (0.025)
+         after deleting the TAPE the answer is: old runner-up 0.052, old maximum 0.153, an input after t0 0.080, another old input 0.715
+      max overtaken  n  21852  acc 0.954 | TAPE 0.312 (0.332) short 0.192 (0.201) h2 0.225 (0.220) h3 0.194 (0.192) alt 0.068 (0.062) clock 0.876 (0.876) runner 0.489 (0.486) trans 0.030 (0.036)
+         after deleting the TAPE the answer is: old runner-up 0.018, old maximum 0.691, an input after t0 0.098, another old input 0.194
+      new runner-up  n  21914  acc 0.970 | TAPE 0.061 (0.049) short 0.148 (0.107) h2 0.060 (0.057) h3 0.046 (0.044) alt 0.021 (0.020) clock 0.116 (0.116) runner 0.061 (0.052) trans 0.016 (0.018)
+         after deleting the TAPE the answer is: old runner-up 0.001, old maximum 0.035, an input after t0 0.960, another old input 0.005

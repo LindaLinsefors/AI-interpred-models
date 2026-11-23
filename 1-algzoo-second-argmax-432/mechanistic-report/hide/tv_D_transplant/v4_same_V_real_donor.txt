@@ -1,0 +1,56 @@
+
+ATTACK 7, t = 9: 307625 quiet states.  Accuracy against A's truth (fw) / the donor's truth (rv)
+   R1: all but the top two redrawn below S: n = 307625;  |tape_B - tape_A| / |tape_A| median 0.59 (quartiles 0.36, 0.89); negative entry fw 0.33
+      read out at once  n = 307625: A intact 0.963, donor intact 0.963, fw 0.902 [clipped 0.893], rv 0.901
+         no third within 0.1 M of S in A or donor   n = 153984: A intact 0.991, fw 0.954, rv 0.954
+         near third in the donor only               n =  60639: A intact 0.993, fw 0.845, rv 0.901
+         near third in A only                       n =  60617: A intact 0.900, fw 0.904, rv 0.846
+         near third in both                         n =  32385: A intact 0.890, fw 0.756, rv 0.756
+         third more than 0.4 M below S in both      n =  14459: A intact 0.985, fw 0.952, rv 0.953
+         fw by a_S: 2: 0.879  3: 0.909  4: 0.920  5: 0.942  6: 0.942  7: 0.936  8: 0.885  9: 0.801
+   R2: other real sequence, same (a_M, a_S), S/M within 0.02: n = 307565;  |tape_B - tape_A| / |tape_A| median 0.61 (quartiles 0.37, 0.90); negative entry fw 0.33
+      read out at once  n = 307565: A intact 0.963, donor intact 0.963, fw 0.895 [clipped 0.886], rv 0.895
+         no third within 0.1 M of S in A or donor   n = 153129: A intact 0.991, fw 0.948, rv 0.948
+         near third in the donor only               n =  61457: A intact 0.993, fw 0.832, rv 0.899
+         near third in A only                       n =  61457: A intact 0.899, fw 0.899, rv 0.832
+         near third in both                         n =  31522: A intact 0.892, fw 0.753, rv 0.753
+         third more than 0.4 M below S in both      n =  13310: A intact 0.984, fw 0.948, rv 0.948
+         fw by a_S: 2: 0.877  3: 0.903  4: 0.914  5: 0.936  6: 0.937  7: 0.928  8: 0.872  9: 0.790
+
+ATTACK 7, t = 6: 223308 quiet states.  Accuracy against A's truth (fw) / the donor's truth (rv)
+   R1: all but the top two redrawn below S: n = 223308;  |tape_B - tape_A| / |tape_A| median 0.28 (quartiles 0.16, 0.45); negative entry fw 0.59
+      3 low             n = 223308: A intact 0.973, donor intact 0.973, fw 0.966 [clipped 0.966], rv 0.966
+         no third within 0.1 M of S in A or donor   n = 137243: A intact 0.994, fw 0.991, rv 0.991
+         near third in the donor only               n =  36510: A intact 0.993, fw 0.927, rv 0.958
+         near third in A only                       n =  36261: A intact 0.905, fw 0.957, rv 0.929
+         near third in both                         n =  13294: A intact 0.888, fw 0.841, rv 0.841
+         third more than 0.4 M below S in both      n =  27687: A intact 0.991, fw 0.987, rv 0.988
+         fw by a_S: 2: 0.959  3: 0.956  4: 0.968  5: 0.975  6: 0.972
+      new max @7        n = 223308: A intact 0.995, donor intact 0.995, fw 0.972 [clipped 0.970], rv 0.971
+      new max @9        n = 223308: A intact 0.986, donor intact 0.986, fw 0.950 [clipped 0.939], rv 0.950
+      new S @7          n = 223308: A intact 0.972, donor intact 0.972, fw 0.955 [clipped 0.958], rv 0.955
+   R2: other real sequence, same (a_M, a_S), S/M within 0.02: n = 223290;  |tape_B - tape_A| / |tape_A| median 0.30 (quartiles 0.18, 0.48); negative entry fw 0.59
+      3 low             n = 223290: A intact 0.973, donor intact 0.973, fw 0.964 [clipped 0.964], rv 0.963
+         no third within 0.1 M of S in A or donor   n = 136682: A intact 0.994, fw 0.989, rv 0.989
+         near third in the donor only               n =  37060: A intact 0.993, fw 0.921, rv 0.956
+         near third in A only                       n =  37060: A intact 0.904, fw 0.956, rv 0.920
+         near third in both                         n =  12488: A intact 0.887, fw 0.837, rv 0.836
+         third more than 0.4 M below S in both      n =  25810: A intact 0.993, fw 0.987, rv 0.988
+         fw by a_S: 2: 0.957  3: 0.951  4: 0.965  5: 0.974  6: 0.971
+      new max @7        n = 223290: A intact 0.995, donor intact 0.995, fw 0.970 [clipped 0.968], rv 0.970
+      new max @9        n = 223290: A intact 0.986, donor intact 0.986, fw 0.947 [clipped 0.936], rv 0.947
+      new S @7          n = 223281: A intact 0.972, donor intact 0.972, fw 0.953 [clipped 0.955], rv 0.953
+
+ATTACK 8. S_pos transplant at T0, then low inputs of either sign (truth: the tape owner's / the rest owner's runner-up)
+   T0 = 6, 3 inputs negative, -M U(0.05, 0.6)   n = 218144: tape's S 0.915, rest's S 0.002, a later input 0.002;  intact A 0.975, intact B 0.974
+   T0 = 6, 3 inputs positive, S U(0.05, 0.5)    n = 218144: tape's S 0.895, rest's S 0.002, a later input 0.026;  intact A 0.960, intact B 0.959
+   T0 = 6, 3 inputs positive, S U(0.5, 0.9)     n = 218144: tape's S 0.802, rest's S 0.001, a later input 0.142;  intact A 0.929, intact B 0.929
+   T0 = 6, 3 inputs zeros                       n = 218144: tape's S 0.902, rest's S 0.002, a later input 0.018;  intact A 0.965, intact B 0.964
+   T0 = 4, 5 inputs negative, -M U(0.05, 0.6)   n = 73583: tape's S 0.951, rest's S 0.004, a later input 0.001;  intact A 0.985, intact B 0.984
+   T0 = 4, 5 inputs positive, S U(0.05, 0.5)    n = 73583: tape's S 0.909, rest's S 0.008, a later input 0.038;  intact A 0.952, intact B 0.951
+   T0 = 4, 5 inputs positive, S U(0.5, 0.9)     n = 73583: tape's S 0.700, rest's S 0.003, a later input 0.258;  intact A 0.893, intact B 0.893
+   T0 = 4, 5 inputs zeros                       n = 73583: tape's S 0.924, rest's S 0.006, a later input 0.026;  intact A 0.962, intact B 0.962
+   T0 = 8, 1 inputs negative, -M U(0.05, 0.6)   n = 285446: tape's S 0.926, rest's S 0.003, a later input 0.000;  intact A 0.971, intact B 0.972
+   T0 = 8, 1 inputs positive, S U(0.05, 0.5)    n = 285446: tape's S 0.917, rest's S 0.003, a later input 0.014;  intact A 0.965, intact B 0.965
+   T0 = 8, 1 inputs positive, S U(0.5, 0.9)     n = 285446: tape's S 0.847, rest's S 0.002, a later input 0.087;  intact A 0.946, intact B 0.946
+   T0 = 8, 1 inputs zeros                       n = 285446: tape's S 0.922, rest's S 0.003, a later input 0.007;  intact A 0.967, intact B 0.968

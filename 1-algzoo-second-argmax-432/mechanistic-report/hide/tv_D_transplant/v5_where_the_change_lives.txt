@@ -1,0 +1,20 @@
+S_pos pairs at t = 9, n = 246024.  c = change of (entry of B's runner-up slot - entry of A's runner-up slot), in M
+   piece                 c: 10% / median / 90%          sum of squared change over ages >= 2, relative to the full change
+   full                    22.8 /   40.0 /   82.0              1.000
+   tape                    21.8 /   39.1 /   79.6              1.048
+   rest                    -1.5 /    0.2 /    4.5              0.066
+     rest: clock           -1.2 /    0.0 /    1.2              0.003
+     rest: level           -0.1 /   -0.0 /    0.0              0.000
+     rest: runner          -0.1 /    0.1 /    0.8              0.002
+     rest: trans           -1.3 /    0.1 /    4.6              0.068
+     rest: echo            -0.0 /   -0.0 /    0.0              0.000
+     rest: pulse units      0.0 /    0.0 /    0.0              0.000
+   by A's a_S (the slot the runner-up leaves) and B's a_S (the slot it enters): median c of the rest piece / of the tape piece
+      a_S = 2:  leaves:    2.4 /   36.3     enters:    2.3 /   36.0
+      a_S = 3:  leaves:    0.3 /   39.0     enters:    0.4 /   39.3
+      a_S = 4:  leaves:    0.2 /   38.8     enters:    0.2 /   38.8
+      a_S = 5:  leaves:   -0.4 /   37.8     enters:   -0.4 /   37.8
+      a_S = 6:  leaves:    0.1 /   38.8     enters:    0.1 /   38.9
+      a_S = 7:  leaves:    0.2 /   38.6     enters:    0.2 /   38.5
+      a_S = 8:  leaves:    0.4 /   38.7     enters:    0.4 /   38.6
+      a_S = 9:  leaves:    0.5 /   47.3     enters:    0.5 /   47.5

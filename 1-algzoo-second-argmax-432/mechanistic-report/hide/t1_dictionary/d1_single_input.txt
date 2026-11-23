@@ -1,0 +1,98 @@
+1. THRESHOLD.  n(v) = |D(v)| / |D(S - 0.01)| at age 2.  v_10 = smallest v with n > 0.1;  v_on = smallest v at which
+   unit 5's pulse one step after the input exceeds its value in the reference by 0.05.  Both in units of S.  Only v < S.
+   filler zero    S = 0.3:  v_10/S median 0.63  (5%..95%: -1.67..0.80) | v_on/S median 0.63 (0.27..0.80), never fires 0.00 | n just below v_on: median 0.021, max 0.057
+   filler zero    S = 0.6:  v_10/S median 0.75  (5%..95%: 0.42..0.82) | v_on/S median 0.73 (0.37..0.82), never fires 0.00 | n just below v_on: median 0.031, max 0.080
+   filler zero    S = 0.9:  v_10/S median 0.78  (5%..95%: 0.38..0.84) | v_on/S median 0.76 (0.33..0.83), never fires 0.00 | n just below v_on: median 0.038, max 0.076
+   filler minus1  S = 0.3:  v_10/S median 0.35  (5%..95%: -0.96..0.56) | v_on/S median 0.50 (0.07..0.70), never fires 0.00 | n just below v_on: median 0.087, max 0.191
+   filler minus1  S = 0.6:  v_10/S median 0.63  (5%..95%: 0.15..0.73) | v_on/S median 0.67 (0.30..0.73), never fires 0.00 | n just below v_on: median 0.072, max 0.202
+   filler minus1  S = 0.9:  v_10/S median 0.71  (5%..95%: 0.23..0.79) | v_on/S median 0.71 (0.25..0.79), never fires 0.00 | n just below v_on: median 0.070, max 0.142
+   filler random  S = 0.3:  v_10/S median 0.43  (5%..95%: -1.67..0.71) | v_on/S median 0.53 (0.12..0.73), never fires 0.00 | n just below v_on: median 0.059, max 0.380
+   filler random  S = 0.6:  v_10/S median 0.65  (5%..95%: -0.40..0.77) | v_on/S median 0.68 (0.28..0.77), never fires 0.00 | n just below v_on: median 0.054, max 0.406
+   filler random  S = 0.9:  v_10/S median 0.72  (5%..95%: 0.11..0.81) | v_on/S median 0.72 (0.23..0.81), never fires 0.00 | n just below v_on: median 0.054, max 0.260
+
+   v_on / S for the filler 0 and S = 0.6, rows gM = 1..7 (steps since the maximum at arrival), columns gS = 1..7 (steps since the runner-up)
+   S = 0.3
+     gM = 1     .    0.53   0.63   0.67   0.53   0.23   0.03
+     gM = 2   0.73     .    0.77   0.77   0.80   0.60   0.27
+     gM = 3   0.67   0.77     .    0.77   0.77   0.80   0.57
+     gM = 4   0.70   0.60   0.83     .    0.73   0.73   0.70
+     gM = 5   0.63   0.57   0.70   0.77     .    0.73   0.63
+     gM = 6   0.47   0.53   0.57   0.57   0.80     .    0.60
+     gM = 7   0.50   0.40   0.60   0.57   0.63   0.77     . 
+   S = 0.6
+     gM = 1     .    0.65   0.72   0.77   0.67   0.37   0.07
+     gM = 2   0.72     .    0.75   0.78   0.82   0.65   0.27
+     gM = 3   0.77   0.73     .    0.77   0.82   0.82   0.60
+     gM = 4   0.78   0.77   0.78     .    0.77   0.77   0.72
+     gM = 5   0.73   0.75   0.82   0.77     .    0.77   0.72
+     gM = 6   0.50   0.67   0.75   0.73   0.78     .    0.68
+     gM = 7   0.47   0.42   0.72   0.72   0.75   0.73     . 
+   S = 0.9
+     gM = 1     .    0.70   0.74   0.81   0.71   0.43   0.13
+     gM = 2   0.72     .    0.74   0.80   0.83   0.68   0.32
+     gM = 3   0.78   0.73     .    0.79   0.82   0.83   0.64
+     gM = 4   0.82   0.81   0.80     .    0.79   0.78   0.74
+     gM = 5   0.74   0.83   0.84   0.80     .    0.79   0.74
+     gM = 6   0.48   0.71   0.83   0.79   0.79     .    0.72
+     gM = 7   0.24   0.40   0.72   0.77   0.78   0.74     . 
+
+2. DIRECTION.  Contribution at age a turned back to age 2:  D(a) lam^-(a-2), a = 2..9-p0, as 7 real numbers.
+   Uncentred SVD over all cases: share of the squared norm in the leading components; cosine of component 1 with
+   the pattern written by unit 5, k5 = l.W[o,5], and with the pattern of a unit-4 pulse (1,1,1,1) turned forward one step.
+   filler zero    0.75 S < v < S  n =    4928  rms |D| =  4.40  shares [0.975 0.012 0.006 0.004]  cos(comp 1, k5) = 0.997  cos(comp 1, k4 lam) = 0.984
+   filler zero    S < v < 1       n =   13104  rms |D| =  9.61  shares [0.892 0.05  0.032 0.016]  cos(comp 1, k5) = 0.994  cos(comp 1, k4 lam) = 0.978
+   filler zero    v < 0.5 S       n =   26880  rms |D| =  0.35  shares [0.943 0.048 0.005 0.002]  cos(comp 1, k5) = 1.000  cos(comp 1, k4 lam) = 0.984
+   filler minus1  0.75 S < v < S  n =    4928  rms |D| =  5.61  shares [0.975 0.012 0.006 0.004]  cos(comp 1, k5) = 0.996  cos(comp 1, k4 lam) = 0.984
+   filler minus1  S < v < 1       n =   13104  rms |D| = 10.86  shares [0.904 0.043 0.029 0.015]  cos(comp 1, k5) = 0.993  cos(comp 1, k4 lam) = 0.978
+   filler minus1  v < 0.5 S       n =   26880  rms |D| =  0.63  shares [0.788 0.18  0.018 0.007]  cos(comp 1, k5) = 0.999  cos(comp 1, k4 lam) = 0.984
+   filler random  0.75 S < v < S  n =   78848  rms |D| =  5.34  shares [0.974 0.013 0.006 0.004]  cos(comp 1, k5) = 0.997  cos(comp 1, k4 lam) = 0.984
+   filler random  S < v < 1       n =  209664  rms |D| = 10.55  shares [0.901 0.045 0.03  0.015]  cos(comp 1, k5) = 0.994  cos(comp 1, k4 lam) = 0.978
+   filler random  v < 0.5 S       n =  430080  rms |D| =  0.59  shares [0.771 0.188 0.025 0.008]  cos(comp 1, k5) = 0.999  cos(comp 1, k4 lam) = 0.985
+   component 1 (filler 0), as complex numbers per mode, scaled so that alt = 1:
+     0.75 S < v < S :    1.00@    0    0.65@ -140    0.79@  -81    0.87@  -51 
+     S < v < 1      :    1.00@    0    0.58@ -134    0.88@  -80    0.93@  -48 
+     k5 = l.W[o,5]  :    1.00@    0    0.55@ -146    0.80@  -85    0.85@  -53 
+     cosine between the two measured patterns: 0.996
+
+3. FREE EVOLUTION.  Does one more step (a filler) multiply the contribution by the eigenvalues?
+   err(a) = |D(a+1) - lam D(a)| / |D(a+1)|, over all cases with |D(a+1)| > 0.3; median, 90th percentile, share with err < 0.1
+   filler zero    0.75 S < v < S  a=0->1: 0.146/0.705/0.49  a=1->2: 0.986/1.008/0.01  a=2->3: 0.000/0.206/0.81  a=3->4: 0.000/0.067/0.93  a=4->5: 0.000/0.185/0.77  a=5->6: 0.000/0.020/0.93  a=6->7: 0.000/0.000/1.00
+   filler zero    S < v < 1       a=0->1: 0.316/0.773/0.27  a=1->2: 0.999/1.115/0.00  a=2->3: 0.000/0.121/0.86  a=3->4: 0.000/0.102/0.90  a=4->5: 0.000/0.101/0.90  a=5->6: 0.000/0.189/0.67  a=6->7: 0.000/0.000/1.00
+   filler minus1  0.75 S < v < S  a=0->1: 0.162/1.619/0.46  a=1->2: 0.973/0.995/0.01  a=2->3: 0.000/0.216/0.75  a=3->4: 0.000/0.084/0.92  a=4->5: 0.000/0.165/0.77  a=5->6: 0.000/0.031/0.92  a=6->7: 0.000/0.000/1.00
+   filler minus1  S < v < 1       a=0->1: 0.288/1.066/0.31  a=1->2: 0.994/1.089/0.00  a=2->3: 0.003/0.142/0.84  a=3->4: 0.000/0.108/0.89  a=4->5: 0.000/0.102/0.89  a=5->6: 0.000/0.179/0.68  a=6->7: 0.000/0.000/1.00
+   filler random  0.75 S < v < S  a=0->1: 0.162/1.547/0.48  a=1->2: 0.978/0.999/0.02  a=2->3: 0.000/0.199/0.77  a=3->4: 0.000/0.087/0.92  a=4->5: 0.000/0.175/0.77  a=5->6: 0.000/0.040/0.93  a=6->7: 0.000/0.000/1.00
+   filler random  S < v < 1       a=0->1: 0.298/0.929/0.31  a=1->2: 0.996/1.101/0.00  a=2->3: 0.000/0.139/0.84  a=3->4: 0.000/0.114/0.88  a=4->5: 0.000/0.103/0.89  a=5->6: 0.000/0.177/0.68  a=6->7: 0.000/0.000/1.00
+
+4. AMPLITUDE.  A(v) = projection of the age-2 contribution on the measured pattern of its value range (section 2, filler 0),
+   normalised so that A = the alt coordinate when the pattern fits exactly.  resid = |D - A k| / |D|.
+   For v < S, straight-line fit A = g (v - Theta) on v_on <= v < S:  g, Theta / S, R2 of the line; for S < v < 1: slope g2 and resid.
+   filler zero    S = 0.3: g  19.11 ( 14.76.. 19.71)  Theta/S   0.60 (  0.45..  0.75)  R2   1.00 (  0.98..  1.00)  resid   0.08 (  0.07..  0.23)  A(v = S-)   1.75 (  1.20..  3.01) | g2   6.24 (  2.78.. 16.08)  resid   0.29 (  0.10..  0.52)
+   filler zero    S = 0.6: g  19.13 ( 15.46.. 20.07)  Theta/S   0.72 (  0.46..  0.77)  R2   1.00 (  0.99..  1.00)  resid   0.09 (  0.07..  0.23)  A(v = S-)   2.86 (  2.26..  5.66) | g2   7.51 (  3.25.. 15.69)  resid   0.21 (  0.09..  0.39)
+   filler zero    S = 0.9: g  18.95 ( 16.01.. 19.23)  Theta/S   0.75 (  0.39..  0.82)  R2   1.00 (  0.99..  1.00)  resid   0.09 (  0.07..  0.23)  A(v = S-)   3.76 (  2.90..  8.67) | g2   9.01 (  4.90.. 22.31)  resid   0.19 (  0.10..  0.29)
+   filler minus1  S = 0.3: g  19.11 ( 14.52.. 19.82)  Theta/S   0.45 (  0.20..  0.60)  R2   1.00 (  0.98..  1.00)  resid   0.15 (  0.10..  0.30)  A(v = S-)   2.76 (  1.78..  4.25) | g2   6.39 (  2.57.. 16.09)  resid   0.28 (  0.08..  0.47)
+   filler minus1  S = 0.6: g  19.11 ( 15.87.. 19.97)  Theta/S   0.65 (  0.34..  0.71)  R2   1.00 (  0.99..  1.00)  resid   0.14 (  0.09..  0.23)  A(v = S-)   3.76 (  2.96..  6.44) | g2   7.40 (  3.18.. 15.47)  resid   0.20 (  0.08..  0.36)
+   filler minus1  S = 0.9: g  18.64 ( 16.25.. 19.22)  Theta/S   0.69 (  0.32..  0.77)  R2   1.00 (  0.99..  1.00)  resid   0.14 (  0.09..  0.25)  A(v = S-)   4.82 (  3.59.. 10.06) | g2   9.18 (  2.74.. 27.21)  resid   0.18 (  0.10..  0.27)
+   filler random  S = 0.3: g  19.11 ( 14.39.. 19.91)  Theta/S   0.48 (  0.20..  0.67)  R2   1.00 (  0.98..  1.00)  resid   0.13 (  0.07..  0.29)  A(v = S-)   2.53 (  1.58..  4.16) | g2   6.41 (  2.50.. 16.05)  resid   0.29 (  0.08..  0.49)
+   filler random  S = 0.6: g  19.11 ( 15.59.. 20.03)  Theta/S   0.66 (  0.34..  0.73)  R2   1.00 (  0.99..  1.00)  resid   0.12 (  0.07..  0.27)  A(v = S-)   3.53 (  2.68..  6.60) | g2   7.18 (  3.07.. 15.66)  resid   0.21 (  0.08..  0.37)
+   filler random  S = 0.9: g  18.74 ( 16.17.. 19.27)  Theta/S   0.70 (  0.33..  0.78)  R2   1.00 (  0.99..  1.00)  resid   0.12 (  0.07..  0.25)  A(v = S-)   4.47 (  3.37.. 10.07) | g2   8.59 (  2.56.. 26.05)  resid   0.18 (  0.10..  0.28)
+
+5. EXAMPLES (filler 0, S = 0.6): A(v) on the v < S pattern at age 2, and unit 5's extra pulse u, for some (gM, gS)
+   v:              0.20   0.30   0.40   0.45   0.50   0.55   0.59   0.65   0.70   0.80   0.90   0.99
+   gM=1 gS=2  A:   0.03   0.04   0.34   1.15   1.96   2.60   3.12   3.75   3.96   4.38   4.80   5.01
+              u:   0.00   0.00   0.32   1.22   2.12   3.02   3.75   4.60   4.99   5.76   6.53   7.30
+   comparators on:      4      4      4      4      4      4      3      2      2      2      2      1    unit 4:  0.00  0.00  0.00  0.06
+   gM=2 gS=1  A:   0.03   0.04   0.06   0.61   1.51   2.32   2.99   3.99   4.78   4.93   5.01   5.27
+              u:   0.00   0.00   0.00   0.52   1.42   2.32   3.05   4.13   5.04   5.89   6.65   7.50
+   comparators on:      4      4      4      4      4      4      3      3      3      2      1      1    unit 4:  0.00  0.00  0.00  0.12
+   gM=3 gS=5  A:   0.00   0.00   0.01   0.01   0.45   1.45   2.26   3.42   3.77   3.96   4.13   4.18
+              u:   0.00   0.00   0.00   0.00   0.39   1.30   2.02   3.06   3.43   4.19   4.94   5.76
+   comparators on:      4      4      4      4      4      4      4      3      2      2      2      2    unit 4:  0.00  0.00  0.00  0.12
+   gM=5 gS=3  A:  -0.00  -0.00  -0.00  -0.00   0.42   1.38   2.14   3.29   4.23   5.04   5.34   5.80
+              u:   0.00   0.00   0.00   0.00   0.40   1.29   2.01   3.09   3.98   4.73   5.44   6.49
+   comparators on:      4      4      4      4      4      4      4      4      3      3      2      2    unit 4:  0.00  0.00  0.16  1.07
+   gM=7 gS=2  A:   0.01   1.17   3.08   3.89   4.68   5.47   5.69   5.60   6.49   8.37  10.42  12.07
+              u:   0.00   1.09   2.88   3.78   4.68   5.58   6.30   7.38   8.26  10.01  12.25  14.26
+   comparators on:      4      4      4      4      4      4      4      4      2      2      2      2    unit 4:  0.00  0.60  1.62  2.53
+   gM=2 gS=7  A:   0.85   2.77   4.69   5.66   6.63   7.60   8.14   8.72   8.84   9.09   9.48   9.83
+              u:   0.79   2.59   4.39   5.29   6.19   7.09   7.81   8.68   9.06   9.81  10.58  11.27
+   comparators on:      4      4      4      3      3      3      3      2      2      1      1      1    unit 4:  0.00  0.00  0.00  0.00

@@ -1,0 +1,6 @@
+246170 quiet final states (seed 9511).  The network's own readout: tape piece alone 0.841, full score 0.974
+   7 tape coordinates             linear (no intercept, 31 iterations) 0.902   boosted trees 0.953   MLP 128-128 0.954 (train 0.959)
+        MLP on the tape coordinates: right where the network's full readout is right 0.967, where it is wrong 0.448; right where the tape piece's own top entry is wrong 0.808 (n 12741)
+        runner-up of age 2: MLP 0.944, tape piece's top entry 0.507, full 0.965
+        runner-up of age 3: MLP 0.958, tape piece's top entry 0.828, full 0.967
+(v5b was stopped after its first row: the rows for the other coordinates are in v5c_decoders_rest.txt)

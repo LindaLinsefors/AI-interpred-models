@@ -1,0 +1,156 @@
+
+====================================================================================================
+step t = 9: 246215 quiet states
+
+--- S_pos: n = 245932
+   A intact (q = 0)       S_A 0.964  S_B 0.000  other 0.036   [clipped: S_A 0.964  S_B 0.000]   negative entry 0.000
+   only alt from B        S_A 0.796  S_B 0.002  other 0.203   [clipped: S_A 0.808  S_B 0.002]   negative entry 0.365
+   only short from B      S_A 0.315  S_B 0.122  other 0.563   [clipped: S_A 0.336  S_B 0.126]   negative entry 0.428
+   only h2 from B         S_A 0.429  S_B 0.030  other 0.541   [clipped: S_A 0.454  S_B 0.038]   negative entry 0.422
+   only h3 from B         S_A 0.451  S_B 0.062  other 0.487   [clipped: S_A 0.484  S_B 0.064]   negative entry 0.429
+   all but alt from B     S_A 0.007  S_B 0.707  other 0.286   [clipped: S_A 0.014  S_B 0.691]   negative entry 0.428
+   all but short from B   S_A 0.135  S_B 0.308  other 0.557   [clipped: S_A 0.147  S_B 0.315]   negative entry 0.399
+   all but h2 from B      S_A 0.037  S_B 0.388  other 0.575   [clipped: S_A 0.054  S_B 0.392]   negative entry 0.460
+   all but h3 from B      S_A 0.071  S_B 0.422  other 0.508   [clipped: S_A 0.085  S_B 0.435]   negative entry 0.457
+   alt+h2 from B          S_A 0.344  S_B 0.075  other 0.581   [clipped: S_A 0.350  S_B 0.093]   negative entry 0.431
+   short+h3 from B        S_A 0.085  S_B 0.301  other 0.614   [clipped: S_A 0.112  S_B 0.290]   negative entry 0.462
+   alt+short from B       S_A 0.223  S_B 0.180  other 0.596   [clipped: S_A 0.252  S_B 0.190]   negative entry 0.440
+   h2+h3 from B           S_A 0.196  S_B 0.212  other 0.592   [clipped: S_A 0.221  S_B 0.223]   negative entry 0.416
+   alt+h3 from B          S_A 0.350  S_B 0.105  other 0.545   [clipped: S_A 0.375  S_B 0.114]   negative entry 0.403
+   short+h2 from B        S_A 0.123  S_B 0.333  other 0.543   [clipped: S_A 0.146  S_B 0.338]   negative entry 0.436
+   dose q = 0.2           S_A 0.710  S_B 0.004  other 0.286   [clipped: S_A 0.729  S_B 0.004]   negative entry 0.234
+   dose q = 0.35          S_A 0.417  S_B 0.072  other 0.511   [clipped: S_A 0.442  S_B 0.073]   negative entry 0.247
+   dose q = 0.45          S_A 0.274  S_B 0.146  other 0.580   [clipped: S_A 0.296  S_B 0.150]   negative entry 0.258
+   dose q = 0.5           S_A 0.223  S_B 0.186  other 0.592   [clipped: S_A 0.243  S_B 0.194]   negative entry 0.264
+   dose q = 0.55          S_A 0.179  S_B 0.233  other 0.588   [clipped: S_A 0.198  S_B 0.244]   negative entry 0.271
+   dose q = 0.65          S_A 0.096  S_B 0.365  other 0.539   [clipped: S_A 0.112  S_B 0.377]   negative entry 0.285
+   dose q = 0.8           S_A 0.014  S_B 0.634  other 0.352   [clipped: S_A 0.028  S_B 0.621]   negative entry 0.313
+   dose q = 1.0           S_A 0.004  S_B 0.853  other 0.143   [clipped: S_A 0.006  S_B 0.818]   negative entry 0.384
+
+--- T_up_hi: n = 23561
+   A intact (q = 0)       S_A 0.999  S_B 0.000  other 0.001   [clipped: S_A 0.999  S_B 0.000]   negative entry 0.000
+   only alt from B        S_A 0.979  S_B 0.000  other 0.021   [clipped: S_A 0.981  S_B 0.000]   negative entry 0.411
+   only short from B      S_A 0.612  S_B 0.069  other 0.318   [clipped: S_A 0.628  S_B 0.068]   negative entry 0.413
+   only h2 from B         S_A 0.788  S_B 0.012  other 0.200   [clipped: S_A 0.808  S_B 0.013]   negative entry 0.431
+   only h3 from B         S_A 0.812  S_B 0.012  other 0.176   [clipped: S_A 0.832  S_B 0.011]   negative entry 0.431
+   all but alt from B     S_A 0.203  S_B 0.725  other 0.072   [clipped: S_A 0.246  S_B 0.676]   negative entry 0.381
+   all but short from B   S_A 0.622  S_B 0.176  other 0.202   [clipped: S_A 0.648  S_B 0.175]   negative entry 0.368
+   all but h2 from B      S_A 0.404  S_B 0.256  other 0.339   [clipped: S_A 0.455  S_B 0.249]   negative entry 0.410
+   all but h3 from B      S_A 0.394  S_B 0.351  other 0.255   [clipped: S_A 0.416  S_B 0.343]   negative entry 0.407
+   alt+h2 from B          S_A 0.772  S_B 0.023  other 0.205   [clipped: S_A 0.791  S_B 0.024]   negative entry 0.439
+   short+h3 from B        S_A 0.503  S_B 0.169  other 0.328   [clipped: S_A 0.549  S_B 0.158]   negative entry 0.409
+   alt+short from B       S_A 0.566  S_B 0.116  other 0.318   [clipped: S_A 0.589  S_B 0.114]   negative entry 0.426
+   h2+h3 from B           S_A 0.676  S_B 0.104  other 0.220   [clipped: S_A 0.704  S_B 0.105]   negative entry 0.397
+   alt+h3 from B          S_A 0.788  S_B 0.027  other 0.185   [clipped: S_A 0.809  S_B 0.026]   negative entry 0.411
+   short+h2 from B        S_A 0.454  S_B 0.258  other 0.288   [clipped: S_A 0.474  S_B 0.252]   negative entry 0.386
+   dose q = 0.2           S_A 0.998  S_B 0.000  other 0.001   [clipped: S_A 0.998  S_B 0.000]   negative entry 0.224
+   dose q = 0.35          S_A 0.989  S_B 0.002  other 0.009   [clipped: S_A 0.989  S_B 0.002]   negative entry 0.238
+   dose q = 0.45          S_A 0.969  S_B 0.004  other 0.027   [clipped: S_A 0.973  S_B 0.004]   negative entry 0.248
+   dose q = 0.5           S_A 0.949  S_B 0.006  other 0.045   [clipped: S_A 0.956  S_B 0.005]   negative entry 0.254
+   dose q = 0.55          S_A 0.925  S_B 0.008  other 0.067   [clipped: S_A 0.935  S_B 0.008]   negative entry 0.260
+   dose q = 0.65          S_A 0.851  S_B 0.036  other 0.114   [clipped: S_A 0.864  S_B 0.038]   negative entry 0.277
+   dose q = 0.8           S_A 0.529  S_B 0.336  other 0.135   [clipped: S_A 0.551  S_B 0.330]   negative entry 0.307
+   dose q = 1.0           S_A 0.084  S_B 0.870  other 0.046   [clipped: S_A 0.125  S_B 0.824]   negative entry 0.338
+
+--- unrel: n = 214855
+   A intact (q = 0)       S_A 0.963  S_B 0.004  other 0.033   [clipped: S_A 0.963  S_B 0.004]   negative entry 0.000
+   only alt from B        S_A 0.805  S_B 0.032  other 0.163   [clipped: S_A 0.810  S_B 0.031]   negative entry 0.358
+   only short from B      S_A 0.315  S_B 0.205  other 0.480   [clipped: S_A 0.343  S_B 0.196]   negative entry 0.460
+   only h2 from B         S_A 0.468  S_B 0.111  other 0.421   [clipped: S_A 0.488  S_B 0.106]   negative entry 0.441
+   only h3 from B         S_A 0.485  S_B 0.123  other 0.392   [clipped: S_A 0.508  S_B 0.113]   negative entry 0.421
+   all but alt from B     S_A 0.049  S_B 0.660  other 0.291   [clipped: S_A 0.060  S_B 0.623]   negative entry 0.421
+   all but short from B   S_A 0.217  S_B 0.338  other 0.446   [clipped: S_A 0.228  S_B 0.318]   negative entry 0.371
+   all but h2 from B      S_A 0.106  S_B 0.430  other 0.464   [clipped: S_A 0.124  S_B 0.407]   negative entry 0.471
+   all but h3 from B      S_A 0.131  S_B 0.425  other 0.444   [clipped: S_A 0.147  S_B 0.419]   negative entry 0.482
+   alt+h2 from B          S_A 0.407  S_B 0.141  other 0.451   [clipped: S_A 0.417  S_B 0.141]   negative entry 0.464
+   short+h3 from B        S_A 0.136  S_B 0.375  other 0.489   [clipped: S_A 0.162  S_B 0.347]   negative entry 0.499
+   alt+short from B       S_A 0.256  S_B 0.263  other 0.481   [clipped: S_A 0.284  S_B 0.255]   negative entry 0.469
+   h2+h3 from B           S_A 0.284  S_B 0.272  other 0.445   [clipped: S_A 0.299  S_B 0.255]   negative entry 0.393
+   alt+h3 from B          S_A 0.414  S_B 0.169  other 0.417   [clipped: S_A 0.432  S_B 0.160]   negative entry 0.387
+   short+h2 from B        S_A 0.171  S_B 0.367  other 0.462   [clipped: S_A 0.195  S_B 0.354]   negative entry 0.462
+   dose q = 0.2           S_A 0.788  S_B 0.074  other 0.137   [clipped: S_A 0.796  S_B 0.068]   negative entry 0.178
+   dose q = 0.35          S_A 0.560  S_B 0.211  other 0.229   [clipped: S_A 0.575  S_B 0.198]   negative entry 0.201
+   dose q = 0.45          S_A 0.418  S_B 0.318  other 0.263   [clipped: S_A 0.436  S_B 0.302]   negative entry 0.219
+   dose q = 0.5           S_A 0.355  S_B 0.373  other 0.272   [clipped: S_A 0.374  S_B 0.354]   negative entry 0.229
+   dose q = 0.55          S_A 0.297  S_B 0.428  other 0.275   [clipped: S_A 0.316  S_B 0.406]   negative entry 0.240
+   dose q = 0.65          S_A 0.195  S_B 0.533  other 0.272   [clipped: S_A 0.215  S_B 0.506]   negative entry 0.263
+   dose q = 0.8           S_A 0.083  S_B 0.670  other 0.247   [clipped: S_A 0.099  S_B 0.636]   negative entry 0.307
+   dose q = 1.0           S_A 0.024  S_B 0.766  other 0.210   [clipped: S_A 0.032  S_B 0.724]   negative entry 0.386
+
+====================================================================================================
+step t = 6: 178336 quiet states
+
+--- S_pos: n = 174548
+   A intact (q = 0)       S_A 0.965  S_B 0.001  other 0.034   [clipped: S_A 0.965  S_B 0.001]   negative entry 0.000
+   only alt from B        S_A 0.834  S_B 0.005  other 0.162   [clipped: S_A 0.851  S_B 0.006]   negative entry 0.722
+   only short from B      S_A 0.469  S_B 0.074  other 0.458   [clipped: S_A 0.510  S_B 0.084]   negative entry 0.620
+   only h2 from B         S_A 0.577  S_B 0.020  other 0.403   [clipped: S_A 0.612  S_B 0.030]   negative entry 0.685
+   only h3 from B         S_A 0.329  S_B 0.144  other 0.526   [clipped: S_A 0.397  S_B 0.152]   negative entry 0.761
+   all but alt from B     S_A 0.004  S_B 0.817  other 0.178   [clipped: S_A 0.007  S_B 0.818]   negative entry 0.740
+   all but short from B   S_A 0.077  S_B 0.467  other 0.456   [clipped: S_A 0.081  S_B 0.482]   negative entry 0.618
+   all but h2 from B      S_A 0.020  S_B 0.557  other 0.423   [clipped: S_A 0.040  S_B 0.586]   negative entry 0.690
+   all but h3 from B      S_A 0.143  S_B 0.327  other 0.529   [clipped: S_A 0.161  S_B 0.397]   negative entry 0.743
+   alt+h2 from B          S_A 0.439  S_B 0.054  other 0.508   [clipped: S_A 0.424  S_B 0.109]   negative entry 0.718
+   short+h3 from B        S_A 0.055  S_B 0.432  other 0.513   [clipped: S_A 0.114  S_B 0.407]   negative entry 0.686
+   alt+short from B       S_A 0.357  S_B 0.159  other 0.484   [clipped: S_A 0.394  S_B 0.208]   negative entry 0.694
+   h2+h3 from B           S_A 0.164  S_B 0.358  other 0.477   [clipped: S_A 0.211  S_B 0.360]   negative entry 0.689
+   alt+h3 from B          S_A 0.247  S_B 0.206  other 0.547   [clipped: S_A 0.277  S_B 0.237]   negative entry 0.695
+   short+h2 from B        S_A 0.207  S_B 0.251  other 0.542   [clipped: S_A 0.255  S_B 0.282]   negative entry 0.696
+   dose q = 0.2           S_A 0.778  S_B 0.008  other 0.214   [clipped: S_A 0.804  S_B 0.009]   negative entry 0.483
+   dose q = 0.35          S_A 0.461  S_B 0.060  other 0.479   [clipped: S_A 0.504  S_B 0.064]   negative entry 0.502
+   dose q = 0.45          S_A 0.275  S_B 0.149  other 0.576   [clipped: S_A 0.312  S_B 0.154]   negative entry 0.515
+   dose q = 0.5           S_A 0.210  S_B 0.203  other 0.587   [clipped: S_A 0.237  S_B 0.215]   negative entry 0.521
+   dose q = 0.55          S_A 0.156  S_B 0.265  other 0.579   [clipped: S_A 0.175  S_B 0.284]   negative entry 0.526
+   dose q = 0.65          S_A 0.068  S_B 0.427  other 0.505   [clipped: S_A 0.077  S_B 0.472]   negative entry 0.537
+   dose q = 0.8           S_A 0.007  S_B 0.739  other 0.255   [clipped: S_A 0.008  S_B 0.761]   negative entry 0.561
+   dose q = 1.0           S_A 0.001  S_B 0.938  other 0.061   [clipped: S_A 0.001  S_B 0.931]   negative entry 0.640
+
+--- T_up_hi: n = 26543
+   A intact (q = 0)       S_A 0.998  S_B 0.001  other 0.002   [clipped: S_A 0.998  S_B 0.001]   negative entry 0.000
+   only alt from B        S_A 0.989  S_B 0.001  other 0.010   [clipped: S_A 0.995  S_B 0.001]   negative entry 0.703
+   only short from B      S_A 0.755  S_B 0.037  other 0.208   [clipped: S_A 0.785  S_B 0.033]   negative entry 0.634
+   only h2 from B         S_A 0.899  S_B 0.008  other 0.094   [clipped: S_A 0.906  S_B 0.008]   negative entry 0.747
+   only h3 from B         S_A 0.776  S_B 0.024  other 0.199   [clipped: S_A 0.820  S_B 0.026]   negative entry 0.648
+   all but alt from B     S_A 0.184  S_B 0.776  other 0.040   [clipped: S_A 0.227  S_B 0.708]   negative entry 0.698
+   all but short from B   S_A 0.587  S_B 0.268  other 0.145   [clipped: S_A 0.583  S_B 0.274]   negative entry 0.581
+   all but h2 from B      S_A 0.468  S_B 0.320  other 0.212   [clipped: S_A 0.523  S_B 0.301]   negative entry 0.585
+   all but h3 from B      S_A 0.533  S_B 0.233  other 0.234   [clipped: S_A 0.539  S_B 0.277]   negative entry 0.733
+   alt+h2 from B          S_A 0.898  S_B 0.007  other 0.094   [clipped: S_A 0.932  S_B 0.010]   negative entry 0.803
+   short+h3 from B        S_A 0.633  S_B 0.155  other 0.212   [clipped: S_A 0.682  S_B 0.133]   negative entry 0.596
+   alt+short from B       S_A 0.740  S_B 0.063  other 0.198   [clipped: S_A 0.765  S_B 0.069]   negative entry 0.664
+   h2+h3 from B           S_A 0.687  S_B 0.170  other 0.144   [clipped: S_A 0.698  S_B 0.160]   negative entry 0.633
+   alt+h3 from B          S_A 0.731  S_B 0.067  other 0.202   [clipped: S_A 0.769  S_B 0.067]   negative entry 0.592
+   short+h2 from B        S_A 0.597  S_B 0.147  other 0.256   [clipped: S_A 0.601  S_B 0.158]   negative entry 0.635
+   dose q = 0.2           S_A 0.995  S_B 0.002  other 0.002   [clipped: S_A 0.995  S_B 0.002]   negative entry 0.476
+   dose q = 0.35          S_A 0.991  S_B 0.005  other 0.004   [clipped: S_A 0.991  S_B 0.005]   negative entry 0.494
+   dose q = 0.45          S_A 0.971  S_B 0.010  other 0.019   [clipped: S_A 0.979  S_B 0.010]   negative entry 0.508
+   dose q = 0.5           S_A 0.947  S_B 0.016  other 0.037   [clipped: S_A 0.965  S_B 0.015]   negative entry 0.516
+   dose q = 0.55          S_A 0.899  S_B 0.026  other 0.075   [clipped: S_A 0.935  S_B 0.022]   negative entry 0.525
+   dose q = 0.65          S_A 0.810  S_B 0.069  other 0.122   [clipped: S_A 0.856  S_B 0.063]   negative entry 0.538
+   dose q = 0.8           S_A 0.506  S_B 0.395  other 0.100   [clipped: S_A 0.546  S_B 0.387]   negative entry 0.564
+   dose q = 1.0           S_A 0.053  S_B 0.942  other 0.006   [clipped: S_A 0.077  S_B 0.913]   negative entry 0.617
+
+--- unrel: n = 142668
+   A intact (q = 0)       S_A 0.963  S_B 0.005  other 0.032   [clipped: S_A 0.963  S_B 0.005]   negative entry 0.000
+   only alt from B        S_A 0.861  S_B 0.039  other 0.100   [clipped: S_A 0.868  S_B 0.037]   negative entry 0.706
+   only short from B      S_A 0.428  S_B 0.237  other 0.336   [clipped: S_A 0.482  S_B 0.211]   negative entry 0.703
+   only h2 from B         S_A 0.663  S_B 0.108  other 0.229   [clipped: S_A 0.687  S_B 0.094]   negative entry 0.683
+   only h3 from B         S_A 0.439  S_B 0.222  other 0.339   [clipped: S_A 0.500  S_B 0.186]   negative entry 0.721
+   all but alt from B     S_A 0.049  S_B 0.806  other 0.146   [clipped: S_A 0.088  S_B 0.706]   negative entry 0.718
+   all but short from B   S_A 0.239  S_B 0.443  other 0.317   [clipped: S_A 0.258  S_B 0.407]   negative entry 0.598
+   all but h2 from B      S_A 0.113  S_B 0.622  other 0.265   [clipped: S_A 0.157  S_B 0.550]   negative entry 0.727
+   all but h3 from B      S_A 0.222  S_B 0.426  other 0.352   [clipped: S_A 0.246  S_B 0.414]   negative entry 0.754
+   alt+h2 from B          S_A 0.593  S_B 0.147  other 0.260   [clipped: S_A 0.593  S_B 0.144]   negative entry 0.726
+   short+h3 from B        S_A 0.146  S_B 0.567  other 0.288   [clipped: S_A 0.211  S_B 0.482]   negative entry 0.762
+   alt+short from B       S_A 0.372  S_B 0.303  other 0.325   [clipped: S_A 0.420  S_B 0.291]   negative entry 0.748
+   h2+h3 from B           S_A 0.311  S_B 0.385  other 0.305   [clipped: S_A 0.353  S_B 0.340]   negative entry 0.654
+   alt+h3 from B          S_A 0.387  S_B 0.261  other 0.352   [clipped: S_A 0.424  S_B 0.233]   negative entry 0.660
+   short+h2 from B        S_A 0.261  S_B 0.377  other 0.363   [clipped: S_A 0.307  S_B 0.343]   negative entry 0.725
+   dose q = 0.2           S_A 0.838  S_B 0.068  other 0.094   [clipped: S_A 0.855  S_B 0.055]   negative entry 0.498
+   dose q = 0.35          S_A 0.614  S_B 0.221  other 0.165   [clipped: S_A 0.660  S_B 0.178]   negative entry 0.523
+   dose q = 0.45          S_A 0.463  S_B 0.341  other 0.195   [clipped: S_A 0.518  S_B 0.286]   negative entry 0.539
+   dose q = 0.5           S_A 0.388  S_B 0.412  other 0.201   [clipped: S_A 0.444  S_B 0.351]   negative entry 0.548
+   dose q = 0.55          S_A 0.317  S_B 0.484  other 0.199   [clipped: S_A 0.373  S_B 0.418]   negative entry 0.556
+   dose q = 0.65          S_A 0.200  S_B 0.614  other 0.186   [clipped: S_A 0.250  S_B 0.542]   negative entry 0.577
+   dose q = 0.8           S_A 0.085  S_B 0.775  other 0.140   [clipped: S_A 0.121  S_B 0.694]   negative entry 0.613
+   dose q = 1.0           S_A 0.015  S_B 0.895  other 0.091   [clipped: S_A 0.042  S_B 0.798]   negative entry 0.666

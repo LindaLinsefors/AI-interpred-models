@@ -1,0 +1,121 @@
+C:\Users\linda\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+C:\Users\linda\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+C:\Users\linda\VS Code Workspace\AI interpred models\1-algzoo-second-argmax-432\mechanistic-report\hide\t1_transplants\a3_future.py:58: RuntimeWarning: Mean of empty slice.
+  return d.mean(), r(d, tR), r(d, tT), r(~d, tR)
+transplant at step 6, 3 further inputs; 268005 quiet states of 600000 sequences
+
+--- S_pos: n = 262297;  hybrids with a negative entry: fw 0.641, rv 0.640
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       262297  0.975  0.975 |                1.000 |     0.002   0.914  0.084 [0.005 0.916]          |     0.002   0.914 [0.005 0.915] |       nan [nan]   nan
+   nat       262297  0.962  0.962 |                0.494 |     0.002   0.880  0.118 [0.004 0.883]          |     0.002   0.881 [0.004 0.883] |       0.872 [0.861]   0.873
+   newM@1    262297  0.995  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.862 [0.854]   0.862
+   newM@3    262297  0.985  0.985 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.843 [0.784]   0.842
+   newS@1    226803  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.977 [0.984]   0.977
+   newS@3    226803  0.998  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.975 [0.987]   0.975
+   subS@1    201287  0.995  0.995 |                1.000 |     0.001   0.907  0.092 [0.004 0.913]          |     0.001   0.907 [0.004 0.913] |       nan [nan]   nan
+   subS@3    201287  0.988  0.988 |                1.000 |     0.001   0.877  0.123 [0.002 0.879]          |     0.001   0.878 [0.002 0.880] |       nan [nan]   nan
+
+--- S_val: n = 267634;  hybrids with a negative entry: fw 0.622, rv 0.502
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       267634  0.974  0.993 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.975 [0.981]   0.958
+   nat       267634  0.962  0.972 |                0.139 |     0.717   0.240  0.043 [0.731 0.243]          |     0.690   0.235 [0.696 0.237] |       0.949 [0.952]   0.941
+   newM@1    267634  0.995  0.999 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.940 [0.936]   0.911
+   newM@3    267634  0.985  0.989 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.922 [0.917]   0.914
+   newS@1    199146  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.972 [0.991]   0.985
+   newS@3    199146  0.999  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.973 [0.995]   0.985
+   subS@1    174706  0.996  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.986 [0.989]   0.980
+   subS@3    174706  0.988  0.992 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.986 [0.989]   0.982
+   midS@1    180558  0.994  0.997 |                1.000 |     0.919   0.051  0.030 [0.918 0.063]          |     0.892   0.055 [0.894 0.062] |       nan [nan]   nan
+   midS@3    180558  0.993  0.995 |                1.000 |     0.905   0.063  0.032 [0.921 0.061]          |     0.873   0.075 [0.884 0.075] |       nan [nan]   nan
+
+--- M_pos: n = 262297;  hybrids with a negative entry: fw 0.535, rv 0.535
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       262297  0.975  0.975 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.830 [0.842]   0.832
+   nat       262297  0.962  0.961 |                0.228 |     0.343   0.193  0.464 [0.347 0.191]          |     0.344   0.193 [0.349 0.190] |       0.862 [0.873]   0.863
+   newM@1    262297  0.995  0.995 |                1.000 |     0.433   0.185  0.381 [0.444 0.177]          |     0.434   0.185 [0.445 0.178] |       nan [nan]   nan
+   newM@3    262297  0.985  0.985 |                1.000 |     0.378   0.195  0.428 [0.380 0.196]          |     0.377   0.196 [0.379 0.197] |       nan [nan]   nan
+   newS@1    226803  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.959 [0.965]   0.959
+   newS@3    226803  0.998  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.967 [0.972]   0.967
+   subS@1    201287  0.995  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.869 [0.881]   0.871
+   subS@3    201287  0.988  0.988 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.855 [0.862]   0.857
+
+--- M_val: n = 268005;  hybrids with a negative entry: fw 0.584, rv 0.612
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       268005  0.973  0.966 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.952 [0.954]   0.939
+   nat       268005  0.961  0.957 |                0.094 |     0.906   0.063  0.031 [0.911 0.058]          |     0.914   0.056 [0.917 0.053] |       0.949 [0.950]   0.942
+   newM@1    268005  0.995  0.994 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.989 [0.988]   0.984
+   newM@3    268005  0.985  0.983 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.974 [0.973]   0.965
+   newS@1    217585  0.999  0.999 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.998 [0.998]   0.998
+   newS@3    217585  0.996  0.997 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.992 [0.992]   0.991
+   subS@1    203334  0.995  0.991 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.985 [0.986]   0.968
+   subS@3    203334  0.988  0.969 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.972 [0.973]   0.940
+   midM@1    165905  0.999  0.999 |                1.000 |     0.992   0.003  0.006 [0.991 0.002]          |     0.989   0.003 [0.988 0.002] |       nan [nan]   nan
+   midM@3    165905  0.997  0.996 |                1.000 |     0.973   0.003  0.024 [0.975 0.001]          |     0.970   0.004 [0.971 0.002] |       nan [nan]   nan
+
+--- T_pos: n = 33212;  hybrids with a negative entry: fw 0.570, rv 0.562
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low        33212  0.908  0.910 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.909 [0.906]   0.907
+   nat        33212  0.933  0.934 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.909 [0.906]   0.907
+   newM@1     33212  0.993  0.993 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.948 [0.951]   0.951
+   newM@3     33212  0.981  0.982 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.912 [0.895]   0.915
+   newS@1     30475  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.999 [0.998]   0.999
+   newS@3     30475  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.999 [0.999]   0.999
+   subS@1         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+   subS@3         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+
+--- T_up_lo: n = 40119;  hybrids with a negative entry: fw 0.468, rv 0.746
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low        40119  0.997  0.968 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.952 [0.946]   0.997
+   nat        40119  0.974  0.962 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.924 [0.919]   0.942
+   newM@1     40119  0.999  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.978 [0.978]   0.970
+   newM@3     40119  0.995  0.982 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.957 [0.936]   0.882
+   newS@1     40119  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.998 [1.000]   0.957
+   newS@3     40119  0.997  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.996 [1.000]   0.943
+   subS@1         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+   subS@3         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+
+--- T_up_hi: n = 40119;  hybrids with a negative entry: fw 0.612, rv 0.630
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low        40119  0.997  0.970 |                1.000 |     0.119   0.856  0.025 [0.121 0.846]          |     0.000   0.997 [0.001 0.995] |       nan [nan]   nan
+   nat        40119  0.974  0.961 |                0.507 |     0.156   0.760  0.084 [0.157 0.750]          |     0.000   0.953 [0.000 0.950] |       0.920 [0.910]   0.866
+   newM@1     40119  0.999  0.996 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.937 [0.935]   0.894
+   newM@3     40119  0.995  0.975 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.915 [0.881]   0.845
+   newS@1     35088  0.999  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.992 [1.000]   0.947
+   newS@3     35088  1.000  0.999 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.992 [1.000]   0.940
+   subS@1         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+   subS@3         0  nan  nan |                  nan |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       nan [nan]   nan
+
+--- low_val: n = 267019;  hybrids with a negative entry: fw 0.543, rv 0.574
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       267019  0.974  0.974 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.971 [0.972]   0.972
+   nat       267019  0.962  0.961 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.957 [0.957]   0.957
+   newM@1    267019  0.995  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.990 [0.989]   0.990
+   newM@3    267019  0.985  0.984 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.979 [0.977]   0.975
+   newS@1    231447  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.999 [0.999]   0.998
+   newS@3    231447  0.998  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.996 [0.997]   0.994
+   subS@1    203117  0.995  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.992 [0.992]   0.993
+   subS@3    203117  0.988  0.988 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.984 [0.984]   0.985
+
+--- low_pos: n = 232547;  hybrids with a negative entry: fw 0.561, rv 0.560
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       232547  0.978  0.978 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.977 [0.977]   0.977
+   nat       232547  0.963  0.963 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.961 [0.961]   0.961
+   newM@1    232547  0.994  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.992 [0.991]   0.992
+   newM@3    232547  0.984  0.985 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.980 [0.979]   0.981
+   newS@1    199393  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.999 [1.000]   0.999
+   newS@3    199393  0.998  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.997 [0.998]   0.998
+   subS@1    184027  0.995  0.995 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.994 [0.994]   0.994
+   subS@3    184027  0.989  0.989 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.988 [0.988]   0.988
+
+--- unrel: n = 268005;  hybrids with a negative entry: fw 0.646, rv 0.646
+   future     n      acc A  acc B | truths differ: share | fw: rest's  tape's  other [clipped rest's tape's] | rv: rest's  tape's [clipped] | truths agree: fw correct [clipped]  rv correct
+   low       268005  0.973  0.973 |                0.801 |     0.066   0.715  0.219 [0.077 0.698]          |     0.065   0.715 [0.077 0.699] |       0.833 [0.847]   0.834
+   nat       268005  0.961  0.960 |                0.686 |     0.281   0.431  0.288 [0.288 0.415]          |     0.278   0.430 [0.286 0.415] |       0.867 [0.883]   0.868
+   newM@1    268005  0.995  0.995 |                0.800 |     0.568   0.098  0.334 [0.566 0.095]          |     0.571   0.097 [0.568 0.094] |       0.820 [0.802]   0.818
+   newM@3    268005  0.985  0.985 |                0.800 |     0.525   0.133  0.342 [0.497 0.136]          |     0.526   0.133 [0.497 0.136] |       0.816 [0.763]   0.816
+   newS@1    201560  1.000  1.000 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.923 [0.960]   0.923
+   newS@3    201560  0.999  0.998 |                0.000 |     nan   nan  nan [nan nan]          |     nan   nan [nan nan] |       0.929 [0.973]   0.929
+   subS@1     88923  0.995  0.995 |                0.802 |     0.059   0.749  0.192 [0.070 0.725]          |     0.059   0.749 [0.068 0.726] |       0.906 [0.914]   0.901
+   subS@3     88923  0.990  0.990 |                0.802 |     0.056   0.742  0.202 [0.067 0.713]          |     0.055   0.742 [0.064 0.715] |       0.903 [0.909]   0.895

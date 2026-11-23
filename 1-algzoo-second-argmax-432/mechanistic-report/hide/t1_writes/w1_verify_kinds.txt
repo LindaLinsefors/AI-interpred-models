@@ -1,0 +1,88 @@
+(a) EXACTNESS
+   one-step rule  zeta(t) = lam zeta(t-1) + writes(t):  max |error| = 3.99e-13  (coordinates are O(10))
+   unrolled sum at t = 3: max |c - sum_s K[t-s] Amp[s]| = 4.16e-13
+   unrolled sum at t = 6: max |c - sum_s K[t-s] Amp[s]| = 5.22e-13
+   unrolled sum at t = 9: max |c - sum_s K[t-s] Amp[s]| = 5.47e-13
+   B = 300000 sequences, quiet final states: 184653 (0.616)
+
+(b) SHARE OF THE VARIANCE (covariance share, sums to 1 over the rows) of each tape coordinate / M_t, quiet final states
+    last column: the same for the tape scores of ages >= 2 (indices 0..7) taken together
+    kind of write            alt  Re short  Im short     Re h2     Im h2     Re h3     Im h3    scores
+    input                 -0.033     0.027     0.029     0.075     0.060     0.029     0.004     0.046
+    pulse 4               -0.445    -0.251    -0.178    -0.476    -0.433    -0.274    -0.260    -0.415
+    pulse 5                1.700     0.794     0.820     1.338     1.371     1.431     1.477     0.844
+    pulse 9                0.234    -0.042    -0.040     0.032     0.044     0.118     0.100     0.009
+    comparators off        0.057     0.594     0.440     0.458     0.319     0.124     0.063     0.791
+    wave clips            -0.512    -0.122    -0.072    -0.428    -0.361    -0.428    -0.384    -0.275
+    std of the part itself / std of the coordinate (parts cancel if these add to more than 1):
+    input                   0.06      0.11      0.08      0.16      0.12      0.11      0.08      0.16
+    pulse 4                 1.09      0.73      0.83      1.34      1.21      0.95      0.91      1.12
+    pulse 5                 2.20      1.36      1.40      1.90      1.83      1.92      1.91      1.60
+    pulse 9                 0.43      0.15      0.19      0.16      0.15      0.24      0.22      0.25
+    comparators off         0.34      0.99      0.76      0.82      0.67      0.47      0.38      1.18
+    wave clips              1.04      0.38      0.36      0.87      0.79      0.95      0.84      0.71
+    mean of the coordinate / M_t:       0.53     -0.13     -0.44      0.81     -0.25      0.74     -0.24   std:   4.84   1.83   1.79   2.84   3.25   2.23   2.66
+    mean of part input                0.00      0.10      0.02      0.13      0.02      0.06      0.02
+    mean of part pulse 4              0.75     -0.02      0.18     -0.29     -1.29     -0.34     -0.32
+    mean of part pulse 5             -0.04     -0.08     -1.41      1.20      0.50      1.14     -0.09
+    mean of part pulse 9             -0.01     -0.03      0.11      0.07      0.01      0.08      0.02
+    mean of part comparators off     -0.16     -0.19      0.76     -0.55      0.34      0.04      0.23
+    mean of part wave clips          -0.01      0.09     -0.10      0.26      0.15     -0.25     -0.09
+
+    by single channel (covariance share in the tape scores of ages >= 2; std ratio):
+      x    share   0.046   std ratio   0.16   fires in 0.504 of steps
+      p4   share  -0.415   std ratio   1.12   fires in 0.217 of steps
+      p5   share   0.844   std ratio   1.60   fires in 0.393 of steps
+      p9   share   0.009   std ratio   0.25   fires in 0.256 of steps
+      k0   share  -0.099   std ratio   0.41   fires in 0.247 of steps
+      k1   share   0.011   std ratio   1.46   fires in 0.256 of steps
+      k2   share   0.000   std ratio   0.00   fires in 0.089 of steps
+      k3   share  -0.066   std ratio   0.30   fires in 0.247 of steps
+      k6   share   0.327   std ratio   1.72   fires in 0.262 of steps
+      k7   share   0.266   std ratio   1.93   fires in 0.215 of steps
+      k8   share   0.187   std ratio   1.33   fires in 0.300 of steps
+      k10  share  -0.010   std ratio   0.06   fires in 0.114 of steps
+      k11  share  -0.008   std ratio   0.08   fires in 0.123 of steps
+      k12  share  -0.002   std ratio   0.03   fires in 0.090 of steps
+      k13  share  -0.000   std ratio   0.02   fires in 0.096 of steps
+      k14  share  -0.002   std ratio   0.04   fires in 0.141 of steps
+      k15  share  -0.088   std ratio   0.28   fires in 0.287 of steps
+
+    by age of the write (9 - s), all kinds together: covariance share in the scores, and per kind
+    age   all              input          pulse 4          pulse 5          pulse 9  comparators off       wave clips
+      0  0.105             0.015            0.000            0.100            0.022            0.002           -0.035
+      1  0.070             0.003            0.022            0.094            0.002            0.003           -0.055
+      2  0.309             0.001           -0.016            0.107           -0.004            0.261           -0.041
+      3  0.255             0.002           -0.037            0.109           -0.007            0.215           -0.027
+      4  0.166             0.003           -0.054            0.124           -0.006            0.146           -0.047
+      5  0.063             0.003           -0.071            0.087            0.001            0.067           -0.024
+      6  0.006             0.004           -0.064            0.054           -0.003            0.024           -0.008
+      7  0.133             0.003           -0.044            0.168            0.004            0.036           -0.035
+      8 -0.109             0.005           -0.151           -0.001            0.000            0.038           -0.001
+      9  0.002             0.005            0.000            0.000            0.000           -0.002           -0.001
+
+(c) LEAVE-OUT TEST on quiet final states: drop a kind of write, rebuild the tape, set it in h_9; share of changed answers
+    baseline accuracy on quiet final states 0.9627;  tape deleted entirely: changed 0.932
+    drop input                              changed 0.0526   accuracy 0.9280
+    drop pulse 4                            changed 0.6754   accuracy 0.3240
+    drop pulse 5                            changed 0.9701   accuracy 0.0272
+    drop pulse 9                            changed 0.1218   accuracy 0.8739
+    drop comparators off                    changed 0.5460   accuracy 0.4477
+    drop wave clips                         changed 0.6219   accuracy 0.3778
+    drop wave clips except unit 0           changed 0.2262   accuracy 0.7694
+    drop clip of unit 0                     changed 0.4799   accuracy 0.5172
+    drop pulses 4, 5, 9                     changed 0.7507   accuracy 0.2474
+    drop everything except pulses           changed 0.5793   accuracy 0.4198
+    drop input + wave clips except unit 0   changed 0.2333   accuracy 0.7617
+
+(d) WAVE-UNIT CLIPS: share of steps 1..9 with the unit clipped, mean clip / max(M_(s-1), 0) when clipped, by steps since the latest positive new maximum (tau)
+    unit   all steps | tau = 0     1      2      3      4      5      6      7+   (share clipped / mean size in units of the running max)
+       0   0.220     | 0.20/ 1.58 0.01/ 7.56 1.00/ 3.53 0.00/ 0.85 0.00/ 0.51 0.00/ 0.50 0.00/ 0.31 0.02/ 1.12
+       2   0.059     | 0.11/ 0.27 0.00/410.49 0.00/70.55 0.00/26.50 0.00/35.89 0.00/17.60 0.00/38.31 0.00/26.70
+       3   0.204     | 0.24/ 1.19 0.18/ 4.76 0.30/ 3.28 0.02/ 0.29 0.39/ 3.93 0.32/ 2.80 0.22/ 1.60 0.03/ 1.26
+      10   0.072     | 0.03/ 0.28 0.00/67.84 0.00/41.26 0.00/ 2.37 0.00/ 0.72 0.00/ 0.18 0.95/ 0.51 0.13/ 0.31
+      11   0.084     | 0.03/ 0.27 0.00/88.53 0.00/154.01 0.00/35.11 0.00/18.20 0.92/ 0.55 0.00/ 0.28 0.00/ 0.25
+      12   0.054     | 0.00/ 0.19 0.00/95.78 0.00/101.24 0.02/ 5.22 0.30/ 0.63 0.00/ 5.73 0.00/ 0.39 0.00/ 0.00
+      13   0.051     | 0.19/ 0.28 0.00/19.03 0.00/17.61 0.00/25.08 0.00/ 0.80 0.00/ 8.64 0.00/ 1.36 0.02/ 1.11
+      14   0.099     | 0.38/ 1.03 0.00/ 0.00 0.17/ 0.84 0.00/ 0.56 0.00/ 0.01 0.00/ 0.00 0.00/ 0.00 0.00/ 0.21
+      15   0.247     | 0.32/ 1.04 0.14/ 2.11 0.31/ 3.46 0.44/ 2.67 0.44/ 3.09 0.24/ 2.78 0.01/ 0.93 0.00/1017.80

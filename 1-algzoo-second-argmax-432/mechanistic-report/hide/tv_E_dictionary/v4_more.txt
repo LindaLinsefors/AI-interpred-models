@@ -1,0 +1,39 @@
+(a) 122918 quiet final states.  accuracy of the unmodified network 0.964
+    set V                         kept | filler 0: R2  changed  accuracy | redraw the others of age >= 2: eta2  changed  accuracy | redraw all others: eta2  changed  accuracy | V unchanged
+    M, S                          2.00 | 0.554  0.071  0.947 | 0.755  0.090  0.924 | 0.751  0.114  0.900 | -
+    top 3                         3.00 | 0.846  0.066  0.930 | 0.916  0.049  0.944 | 0.914  0.072  0.923 | -
+    top 4                         4.00 | 0.936  0.055  0.932 | 0.971  0.027  0.956 | 0.970  0.048  0.939 | -
+    candidates (investigator)     4.79 | 0.967  0.049  0.932 | 0.989  0.016  0.960 | 0.985  0.046  0.937 | -
+    x > 1.0 max(S_prev, 0)        3.21 | 0.934  0.064  0.928 | 0.961  0.039  0.950 | 0.958  0.074  0.921 | True
+    x > 0.9 max(S_prev, 0)        3.34 | 0.951  0.056  0.927 | 0.977  0.024  0.955 | 0.975  0.056  0.930 | True
+    x > 0.75 max(S_prev, 0)       3.56 | 0.960  0.052  0.929 | 0.989  0.017  0.960 | 0.986  0.047  0.938 | True
+    x > 0.6 max(S_prev, 0)        3.81 | 0.963  0.051  0.930 | 0.992  0.015  0.961 | 0.990  0.042  0.941 | True
+    x > 0.5 max(S_prev, 0)        3.99 | 0.964  0.050  0.930 | 0.993  0.014  0.962 | 0.989  0.039  0.943 | True
+    x > 0.0 max(S_prev, 0)        5.05 | 0.965  0.050  0.930 | 0.995  0.011  0.963 | 0.991  0.029  0.950 | True
+    mean tape: changed 0.915, accuracy 0.075
+
+(b) Unit 5's write threshold in random sequences.  Inputs x_p (p = 2..8) below the runner-up so far S_prev > 0: share for which unit 5 is on at step p + 1
+    (h_(p+1)[5] > 0.02 M_prev), by x_p / S_prev;  all sequences, no quiet filter
+    x_p / S_prev:        <0    0-.3   .3-.5   .5-.6   .6-.7  .7-.75  .75-.8   .8-.9    .9-1
+    all                    0.001   0.010   0.034   0.078   0.175   0.383   0.612   0.888   0.994   n = 749358
+    S_prev/M_prev < 0.5    0.002   0.025   0.070   0.167   0.359   0.602   0.767   0.922   0.988   n = 266031
+    S_prev/M_prev > 0.8    0.000   0.004   0.022   0.043   0.090   0.237   0.472   0.839   0.997   n = 196268
+    exact threshold by a sweep of x_p (grid 0.01 S_prev from -0.5 to 1) in 20000 random prefixes: Theta = first value at which unit 5 at p + 1 exceeds 0.02 M_prev
+    Theta / S_prev over 100940 prefixes: median 0.74, 10%..90% 0.45..0.85;  never on below S_prev: 0.012;  already on at -0.5 S_prev: 0.017;  within 0.65..0.85: 0.639
+      S_prev/M_prev < 0.4  median 0.62, 10%..90% 0.00..0.82   n = 29765
+      0.4..0.7             median 0.74, 10%..90% 0.60..0.84   n = 34825
+      > 0.7                median 0.78, 10%..90% 0.66..0.86   n = 36350
+
+(c1) CLAIM 6: consecutive quiet states t -> t + 1, t = 5..8
+    296088 pairs.  no non-pulse unit clipped 0.472, one 0.441, a comparator clipped 0.005
+    |c(t+1) - lam c(t)| / |c(t+1)|: median 0.095, 90% 0.427;  after subtracting direct and pulse writes: median 0.019, 90% 0.315
+    by age of the maximum (median of the second error): a_M=2: 0.000  a_M=3: 0.000  a_M=4: 0.238  a_M=5: 0.125  a_M=6: 0.000  a_M=7: 0.000  a_M=8: 0.000
+    one unit clipped: median of the second error 0.145, 90% 0.417
+
+(c2) CLAIM 8: capacity of the dictionary c = sum_e A_e kA lam^(a_e - 2)
+    singular values [2.329 1.5   1.331 1.015 0.844 0.556 0.383] condition number 6.1;  null direction [0.19 0.04 0.17 0.16 0.4  0.49 0.36 0.61]
+    noise sd 0.0: ages read back by subset least squares / by the top entries of the tape piece:  N=1: 1.00 / 0.87   N=2: 1.00 / 0.68   N=3: 1.00 / 0.39   N=4: 1.00 / 0.25   N=5: 1.00 / 0.20
+    noise sd 0.3: ages read back by subset least squares / by the top entries of the tape piece:  N=1: 0.99 / 0.85   N=2: 0.97 / 0.61   N=3: 0.92 / 0.36   N=4: 0.82 / 0.24   N=5: 0.59 / 0.19
+    noise sd 1.0: ages read back by subset least squares / by the top entries of the tape piece:  N=1: 0.74 / 0.57   N=2: 0.52 / 0.34   N=3: 0.35 / 0.22   N=4: 0.21 / 0.17   N=5: 0.12 / 0.14
+    real quiet final states: correlation of slot amplitude with unit 5's pulse of that age (ages 2..9): 0.75 0.79 0.71 0.54 0.54 0.57 0.38 0.51
+    largest slot = runner-up's age 0.737;  largest entry of the tape piece (ages >= 2) = runner-up 0.841;  full score 0.974;  R2 of c = Phi u (uncentred) -0.573

@@ -1,0 +1,178 @@
+
+==============================================================================================================
+step t = 9: 368817 quiet states of 600000 sequences;  intact accuracy on them 0.9635
+
+--- S_pos: n = 368373   |tape_B - tape_A| / |tape_A|: median 1.29 (quartiles 1.00, 1.80)   hybrids with a negative entry: forward 0.381, reverse 0.382
+   A intact          S_A 0.964  S_B 0.000  M_A 0.006  M_B 0.006  T_A 0.027  T_B 0.027  other 0.003
+   B intact          S_A 0.000  S_B 0.964  M_A 0.006  M_B 0.006  T_A 0.028  T_B 0.028  other 0.002
+   A rest + B tape   S_A 0.003  S_B 0.854  M_A 0.042  M_B 0.042  T_A 0.070  T_B 0.070  other 0.030
+     clipped         S_A 0.006  S_B 0.819  M_A 0.041  M_B 0.041  T_A 0.084  T_B 0.084  other 0.051
+   B rest + A tape   S_A 0.853  S_B 0.003  M_A 0.043  M_B 0.043  T_A 0.070  T_B 0.070  other 0.031
+     clipped         S_A 0.818  S_B 0.006  M_A 0.041  M_B 0.041  T_A 0.084  T_B 0.084  other 0.051
+   [third within 0.1 M of S, n = 111618]  A rest + B tape: S_A 0.003  S_B 0.757  M_A 0.032  M_B 0.032  T_A 0.165  T_B 0.165  other 0.042
+   [third further away, n = 256755]  A rest + B tape: S_A 0.004  S_B 0.895  M_A 0.047  M_B 0.047  T_A 0.029  T_B 0.029  other 0.025
+
+--- S_val: n = 367922   |tape_B - tape_A| / |tape_A|: median 0.27 (quartiles 0.11, 0.54)   hybrids with a negative entry: forward 0.364, reverse 0.280
+   A intact          S_A 0.964  S_B 0.964  M_A 0.006  M_B 0.006  T_A 0.027  T_B 0.027  other 0.003
+   B intact          S_A 0.990  S_B 0.990  M_A 0.001  M_B 0.001  T_A 0.008  T_B 0.008  other 0.001
+   A rest + B tape   S_A 0.960  S_B 0.960  M_A 0.018  M_B 0.018  T_A 0.013  T_B 0.013  other 0.009
+     clipped         S_A 0.959  S_B 0.959  M_A 0.016  M_B 0.016  T_A 0.014  T_B 0.014  other 0.010
+   B rest + A tape   S_A 0.939  S_B 0.939  M_A 0.020  M_B 0.020  T_A 0.028  T_B 0.028  other 0.014
+     clipped         S_A 0.940  S_B 0.940  M_A 0.018  M_B 0.018  T_A 0.028  T_B 0.028  other 0.015
+   by change of the value, (new - old) / M_A:  [-0.98,-0.12] S_A 0.941  [-0.12,-0.01] S_A 0.976  [-0.01,+0.08] S_A 0.982  [+0.08,+0.23] S_A 0.979  [+0.23,+0.97] S_A 0.922
+
+--- M_pos: n = 368373   |tape_B - tape_A| / |tape_A|: median 1.05 (quartiles 0.78, 1.45)   hybrids with a negative entry: forward 0.302, reverse 0.304
+   A intact          S_A 0.964  S_B 0.964  M_A 0.006  M_B 0.000  T_A 0.027  T_B 0.027  other 0.003
+   B intact          S_A 0.964  S_B 0.964  M_A 0.000  M_B 0.006  T_A 0.028  T_B 0.028  other 0.003
+   A rest + B tape   S_A 0.838  S_B 0.838  M_A 0.011  M_B 0.018  T_A 0.085  T_B 0.085  other 0.048
+     clipped         S_A 0.831  S_B 0.831  M_A 0.010  M_B 0.022  T_A 0.087  T_B 0.087  other 0.050
+   B rest + A tape   S_A 0.838  S_B 0.838  M_A 0.018  M_B 0.011  T_A 0.085  T_B 0.085  other 0.048
+     clipped         S_A 0.831  S_B 0.831  M_A 0.022  M_B 0.010  T_A 0.087  T_B 0.087  other 0.050
+
+--- M_val: n = 368817   |tape_B - tape_A| / |tape_A|: median 0.08 (quartiles 0.03, 0.17)   hybrids with a negative entry: forward 0.317, reverse 0.331
+   A intact          S_A 0.963  S_B 0.963  M_A 0.006  M_B 0.006  T_A 0.028  T_B 0.028  other 0.003
+   B intact          S_A 0.956  S_B 0.956  M_A 0.007  M_B 0.007  T_A 0.031  T_B 0.031  other 0.005
+   A rest + B tape   S_A 0.931  S_B 0.931  M_A 0.011  M_B 0.011  T_A 0.040  T_B 0.040  other 0.018
+     clipped         S_A 0.931  S_B 0.931  M_A 0.010  M_B 0.010  T_A 0.041  T_B 0.041  other 0.018
+   B rest + A tape   S_A 0.924  S_B 0.924  M_A 0.015  M_B 0.015  T_A 0.043  T_B 0.043  other 0.018
+     clipped         S_A 0.926  S_B 0.926  M_A 0.013  M_B 0.013  T_A 0.044  T_B 0.044  other 0.017
+   by change of the value, (new - old) / M_A:  [-0.66,-0.13] S_A 0.909  [-0.13,-0.03] S_A 0.970  [-0.03,+0.04] S_A 0.941  [+0.04,+0.24] S_A 0.966  [+0.24,+1.95] S_A 0.866
+
+--- T_pos: n = 83662   |tape_B - tape_A| / |tape_A|: median 0.97 (quartiles 0.71, 1.31)   hybrids with a negative entry: forward 0.302, reverse 0.308
+   A intact          S_A 0.910  S_B 0.910  M_A 0.005  M_B 0.005  T_A 0.075  T_B 0.000  other 0.009
+   B intact          S_A 0.909  S_B 0.909  M_A 0.006  M_B 0.006  T_A 0.000  T_B 0.076  other 0.009
+   A rest + B tape   S_A 0.854  S_B 0.854  M_A 0.021  M_B 0.021  T_A 0.002  T_B 0.094  other 0.030
+     clipped         S_A 0.846  S_B 0.846  M_A 0.023  M_B 0.023  T_A 0.002  T_B 0.095  other 0.034
+   B rest + A tape   S_A 0.854  S_B 0.854  M_A 0.019  M_B 0.019  T_A 0.096  T_B 0.002  other 0.029
+     clipped         S_A 0.846  S_B 0.846  M_A 0.021  M_B 0.021  T_A 0.097  T_B 0.002  other 0.034
+
+--- T_up_lo: n = 35156   |tape_B - tape_A| / |tape_A|: median 0.62 (quartiles 0.47, 0.84)   hybrids with a negative entry: forward 0.255, reverse 0.431
+   A intact          S_A 0.999  S_B 0.999  M_A 0.000  M_B 0.000  T_A 0.000  T_B 0.000  other 0.000
+   B intact          S_A 0.976  S_B 0.976  M_A 0.001  M_B 0.001  T_A 0.022  T_B 0.022  other 0.001
+   A rest + B tape   S_A 0.932  S_B 0.932  M_A 0.020  M_B 0.020  T_A 0.036  T_B 0.036  other 0.011
+     clipped         S_A 0.928  S_B 0.928  M_A 0.025  M_B 0.025  T_A 0.036  T_B 0.036  other 0.011
+   B rest + A tape   S_A 0.976  S_B 0.976  M_A 0.022  M_B 0.022  T_A 0.000  T_B 0.000  other 0.002
+     clipped         S_A 0.951  S_B 0.951  M_A 0.021  M_B 0.021  T_A 0.004  T_B 0.004  other 0.023
+
+--- T_up_hi: n = 35156   |tape_B - tape_A| / |tape_A|: median 0.84 (quartiles 0.66, 1.18)   hybrids with a negative entry: forward 0.329, reverse 0.408
+   A intact          S_A 0.999  S_B 0.000  M_A 0.000  M_B 0.000  T_A 0.000  T_B 0.999  other 0.000
+   B intact          S_A 0.023  S_B 0.975  M_A 0.001  M_B 0.001  T_A 0.975  T_B 0.023  other 0.001
+   A rest + B tape   S_A 0.081  S_B 0.869  M_A 0.027  M_B 0.027  T_A 0.869  T_B 0.081  other 0.022
+     clipped         S_A 0.122  S_B 0.824  M_A 0.029  M_B 0.029  T_A 0.824  T_B 0.122  other 0.024
+   B rest + A tape   S_A 0.969  S_B 0.001  M_A 0.024  M_B 0.024  T_A 0.001  T_B 0.969  other 0.006
+     clipped         S_A 0.939  S_B 0.007  M_A 0.026  M_B 0.026  T_A 0.007  T_B 0.939  other 0.028
+
+--- low_val: n = 368691   |tape_B - tape_A| / |tape_A|: median 0.16 (quartiles 0.08, 0.30)   hybrids with a negative entry: forward 0.294, reverse 0.306
+   A intact          S_A 0.964  S_B 0.964  M_A 0.006  M_B 0.006  T_A 0.028  T_B 0.028  other 0.003
+   B intact          S_A 0.963  S_B 0.963  M_A 0.006  M_B 0.006  T_A 0.028  T_B 0.028  other 0.003
+   A rest + B tape   S_A 0.942  S_B 0.942  M_A 0.016  M_B 0.016  T_A 0.037  T_B 0.037  other 0.006
+     clipped         S_A 0.940  S_B 0.940  M_A 0.016  M_B 0.016  T_A 0.037  T_B 0.037  other 0.006
+   B rest + A tape   S_A 0.941  S_B 0.941  M_A 0.016  M_B 0.016  T_A 0.037  T_B 0.037  other 0.006
+     clipped         S_A 0.939  S_B 0.939  M_A 0.017  M_B 0.017  T_A 0.037  T_B 0.037  other 0.007
+
+--- low_pos: n = 362718   |tape_B - tape_A| / |tape_A|: median 0.12 (quartiles 0.05, 0.24)   hybrids with a negative entry: forward 0.298, reverse 0.300
+   A intact          S_A 0.965  S_B 0.965  M_A 0.006  M_B 0.006  T_A 0.027  T_B 0.027  other 0.003
+   B intact          S_A 0.964  S_B 0.964  M_A 0.006  M_B 0.006  T_A 0.027  T_B 0.027  other 0.002
+   A rest + B tape   S_A 0.949  S_B 0.949  M_A 0.014  M_B 0.014  T_A 0.033  T_B 0.033  other 0.005
+     clipped         S_A 0.948  S_B 0.948  M_A 0.014  M_B 0.014  T_A 0.034  T_B 0.034  other 0.005
+   B rest + A tape   S_A 0.949  S_B 0.949  M_A 0.014  M_B 0.014  T_A 0.033  T_B 0.033  other 0.005
+     clipped         S_A 0.948  S_B 0.948  M_A 0.014  M_B 0.014  T_A 0.033  T_B 0.033  other 0.005
+
+--- unrel: n = 368817   |tape_B - tape_A| / |tape_A|: median 1.40 (quartiles 1.07, 2.04)   hybrids with a negative entry: forward 0.376, reverse 0.375
+   A intact          S_A 0.963  S_B 0.124  M_A 0.006  M_B 0.123  T_A 0.028  T_B 0.094  other 0.002
+   B intact          S_A 0.124  S_B 0.963  M_A 0.123  M_B 0.006  T_A 0.094  T_B 0.028  other 0.002
+   A rest + B tape   S_A 0.123  S_B 0.769  M_A 0.134  M_B 0.048  T_A 0.136  T_B 0.063  other 0.054
+     clipped         S_A 0.130  S_B 0.732  M_A 0.112  M_B 0.063  T_A 0.142  T_B 0.067  other 0.065
+   B rest + A tape   S_A 0.770  S_B 0.124  M_A 0.048  M_B 0.133  T_A 0.063  T_B 0.135  other 0.054
+     clipped         S_A 0.733  S_B 0.130  M_A 0.063  M_B 0.112  T_A 0.067  T_B 0.141  other 0.065
+   [third within 0.1 M of S, n = 189879]  A rest + B tape: S_A 0.119  S_B 0.703  M_A 0.136  M_B 0.046  T_A 0.153  T_B 0.096  other 0.066
+   [third further away, n = 178938]  A rest + B tape: S_A 0.128  S_B 0.840  M_A 0.131  M_B 0.050  T_A 0.117  T_B 0.027  other 0.042
+
+==============================================================================================================
+step t = 6: 267702 quiet states of 600000 sequences;  intact accuracy on them 0.9635
+
+--- S_pos: n = 261979   |tape_B - tape_A| / |tape_A|: median 1.33 (quartiles 1.07, 1.75)   hybrids with a negative entry: forward 0.640, reverse 0.640
+   A intact          S_A 0.965  S_B 0.001  M_A 0.004  M_B 0.004  T_A 0.026  T_B 0.026  other 0.003
+   B intact          S_A 0.001  S_B 0.965  M_A 0.004  M_B 0.004  T_A 0.026  T_B 0.026  other 0.003
+   A rest + B tape   S_A 0.001  S_B 0.939  M_A 0.013  M_B 0.013  T_A 0.040  T_B 0.040  other 0.007
+     clipped         S_A 0.001  S_B 0.932  M_A 0.013  M_B 0.013  T_A 0.046  T_B 0.046  other 0.008
+   B rest + A tape   S_A 0.939  S_B 0.001  M_A 0.013  M_B 0.013  T_A 0.040  T_B 0.040  other 0.007
+     clipped         S_A 0.931  S_B 0.002  M_A 0.013  M_B 0.013  T_A 0.046  T_B 0.046  other 0.008
+   [third within 0.1 M of S, n = 56109]  A rest + B tape: S_A 0.002  S_B 0.800  M_A 0.009  M_B 0.009  T_A 0.173  T_B 0.173  other 0.016
+   [third further away, n = 205870]  A rest + B tape: S_A 0.001  S_B 0.977  M_A 0.014  M_B 0.014  T_A 0.004  T_B 0.004  other 0.004
+
+--- S_val: n = 267362   |tape_B - tape_A| / |tape_A|: median 0.29 (quartiles 0.12, 0.58)   hybrids with a negative entry: forward 0.622, reverse 0.503
+   A intact          S_A 0.964  S_B 0.964  M_A 0.003  M_B 0.003  T_A 0.027  T_B 0.027  other 0.006
+   B intact          S_A 0.989  S_B 0.989  M_A 0.001  M_B 0.001  T_A 0.008  T_B 0.008  other 0.002
+   A rest + B tape   S_A 0.981  S_B 0.981  M_A 0.004  M_B 0.004  T_A 0.010  T_B 0.010  other 0.005
+     clipped         S_A 0.985  S_B 0.985  M_A 0.001  M_B 0.001  T_A 0.010  T_B 0.010  other 0.005
+   B rest + A tape   S_A 0.964  S_B 0.964  M_A 0.007  M_B 0.007  T_A 0.018  T_B 0.018  other 0.011
+     clipped         S_A 0.971  S_B 0.971  M_A 0.001  M_B 0.001  T_A 0.017  T_B 0.017  other 0.010
+   by change of the value, (new - old) / M_A:  [-0.97,-0.16] S_A 0.959  [-0.16,-0.01] S_A 0.990  [-0.01,+0.10] S_A 0.983  [+0.10,+0.28] S_A 0.993  [+0.28,+0.97] S_A 0.980
+
+--- M_pos: n = 261979   |tape_B - tape_A| / |tape_A|: median 1.09 (quartiles 0.88, 1.45)   hybrids with a negative entry: forward 0.536, reverse 0.535
+   A intact          S_A 0.965  S_B 0.965  M_A 0.004  M_B 0.001  T_A 0.026  T_B 0.026  other 0.003
+   B intact          S_A 0.966  S_B 0.966  M_A 0.001  M_B 0.004  T_A 0.026  T_B 0.026  other 0.003
+   A rest + B tape   S_A 0.919  S_B 0.919  M_A 0.010  M_B 0.009  T_A 0.048  T_B 0.048  other 0.014
+     clipped         S_A 0.911  S_B 0.911  M_A 0.010  M_B 0.013  T_A 0.051  T_B 0.051  other 0.016
+   B rest + A tape   S_A 0.920  S_B 0.920  M_A 0.009  M_B 0.010  T_A 0.047  T_B 0.047  other 0.014
+     clipped         S_A 0.912  S_B 0.912  M_A 0.013  M_B 0.010  T_A 0.050  T_B 0.050  other 0.015
+
+--- M_val: n = 267702   |tape_B - tape_A| / |tape_A|: median 0.11 (quartiles 0.04, 0.23)   hybrids with a negative entry: forward 0.585, reverse 0.610
+   A intact          S_A 0.963  S_B 0.963  M_A 0.004  M_B 0.004  T_A 0.027  T_B 0.027  other 0.006
+   B intact          S_A 0.956  S_B 0.956  M_A 0.004  M_B 0.004  T_A 0.031  T_B 0.031  other 0.009
+   A rest + B tape   S_A 0.946  S_B 0.946  M_A 0.005  M_B 0.005  T_A 0.034  T_B 0.034  other 0.014
+     clipped         S_A 0.947  S_B 0.947  M_A 0.004  M_B 0.004  T_A 0.035  T_B 0.035  other 0.014
+   B rest + A tape   S_A 0.941  S_B 0.941  M_A 0.004  M_B 0.004  T_A 0.039  T_B 0.039  other 0.016
+     clipped         S_A 0.942  S_B 0.942  M_A 0.005  M_B 0.005  T_A 0.040  T_B 0.040  other 0.014
+   by change of the value, (new - old) / M_A:  [-0.66,-0.16] S_A 0.923  [-0.16,-0.04] S_A 0.973  [-0.04,+0.05] S_A 0.961  [+0.05,+0.29] S_A 0.974  [+0.29,+1.97] S_A 0.901
+
+--- T_pos: n = 33043   |tape_B - tape_A| / |tape_A|: median 0.98 (quartiles 0.69, 1.30)   hybrids with a negative entry: forward 0.568, reverse 0.567
+   A intact          S_A 0.897  S_B 0.897  M_A 0.002  M_B 0.002  T_A 0.086  T_B 0.003  other 0.011
+   B intact          S_A 0.900  S_B 0.900  M_A 0.002  M_B 0.002  T_A 0.003  T_B 0.083  other 0.012
+   A rest + B tape   S_A 0.896  S_B 0.896  M_A 0.006  M_B 0.006  T_A 0.004  T_B 0.080  other 0.014
+     clipped         S_A 0.890  S_B 0.890  M_A 0.009  M_B 0.009  T_A 0.004  T_B 0.083  other 0.015
+   B rest + A tape   S_A 0.893  S_B 0.893  M_A 0.006  M_B 0.006  T_A 0.084  T_B 0.003  other 0.014
+     clipped         S_A 0.887  S_B 0.887  M_A 0.009  M_B 0.009  T_A 0.086  T_B 0.004  other 0.015
+
+--- T_up_lo: n = 40276   |tape_B - tape_A| / |tape_A|: median 0.56 (quartiles 0.42, 0.81)   hybrids with a negative entry: forward 0.462, reverse 0.749
+   A intact          S_A 0.997  S_B 0.997  M_A 0.001  M_B 0.001  T_A 0.001  T_B 0.001  other 0.001
+   B intact          S_A 0.957  S_B 0.957  M_A 0.000  M_B 0.000  T_A 0.042  T_B 0.042  other 0.002
+   A rest + B tape   S_A 0.958  S_B 0.958  M_A 0.000  M_B 0.000  T_A 0.041  T_B 0.041  other 0.001
+     clipped         S_A 0.960  S_B 0.960  M_A 0.000  M_B 0.000  T_A 0.038  T_B 0.038  other 0.001
+   B rest + A tape   S_A 0.997  S_B 0.997  M_A 0.001  M_B 0.001  T_A 0.001  T_B 0.001  other 0.001
+     clipped         S_A 0.996  S_B 0.996  M_A 0.001  M_B 0.001  T_A 0.001  T_B 0.001  other 0.001
+
+--- T_up_hi: n = 40276   |tape_B - tape_A| / |tape_A|: median 0.83 (quartiles 0.66, 1.21)   hybrids with a negative entry: forward 0.612, reverse 0.630
+   A intact          S_A 0.997  S_B 0.001  M_A 0.001  M_B 0.001  T_A 0.001  T_B 0.997  other 0.001
+   B intact          S_A 0.038  S_B 0.961  M_A 0.000  M_B 0.000  T_A 0.961  T_B 0.038  other 0.001
+   A rest + B tape   S_A 0.052  S_B 0.942  M_A 0.002  M_B 0.002  T_A 0.942  T_B 0.052  other 0.004
+     clipped         S_A 0.075  S_B 0.915  M_A 0.008  M_B 0.008  T_A 0.915  T_B 0.075  other 0.002
+   B rest + A tape   S_A 0.996  S_B 0.001  M_A 0.001  M_B 0.001  T_A 0.001  T_B 0.996  other 0.001
+     clipped         S_A 0.990  S_B 0.001  M_A 0.007  M_B 0.007  T_A 0.001  T_B 0.990  other 0.002
+
+--- low_val: n = 266728   |tape_B - tape_A| / |tape_A|: median 0.11 (quartiles 0.05, 0.21)   hybrids with a negative entry: forward 0.545, reverse 0.572
+   A intact          S_A 0.964  S_B 0.964  M_A 0.004  M_B 0.004  T_A 0.027  T_B 0.027  other 0.005
+   B intact          S_A 0.964  S_B 0.964  M_A 0.003  M_B 0.003  T_A 0.027  T_B 0.027  other 0.005
+   A rest + B tape   S_A 0.961  S_B 0.961  M_A 0.004  M_B 0.004  T_A 0.029  T_B 0.029  other 0.005
+     clipped         S_A 0.962  S_B 0.962  M_A 0.004  M_B 0.004  T_A 0.029  T_B 0.029  other 0.005
+   B rest + A tape   S_A 0.962  S_B 0.962  M_A 0.004  M_B 0.004  T_A 0.029  T_B 0.029  other 0.005
+     clipped         S_A 0.962  S_B 0.962  M_A 0.004  M_B 0.004  T_A 0.029  T_B 0.029  other 0.005
+
+--- low_pos: n = 232144   |tape_B - tape_A| / |tape_A|: median 0.07 (quartiles 0.03, 0.15)   hybrids with a negative entry: forward 0.562, reverse 0.558
+   A intact          S_A 0.970  S_B 0.970  M_A 0.004  M_B 0.004  T_A 0.023  T_B 0.023  other 0.003
+   B intact          S_A 0.970  S_B 0.970  M_A 0.004  M_B 0.004  T_A 0.023  T_B 0.023  other 0.003
+   A rest + B tape   S_A 0.968  S_B 0.968  M_A 0.004  M_B 0.004  T_A 0.024  T_B 0.024  other 0.004
+     clipped         S_A 0.968  S_B 0.968  M_A 0.004  M_B 0.004  T_A 0.024  T_B 0.024  other 0.004
+   B rest + A tape   S_A 0.969  S_B 0.969  M_A 0.004  M_B 0.004  T_A 0.024  T_B 0.024  other 0.004
+     clipped         S_A 0.969  S_B 0.969  M_A 0.004  M_B 0.004  T_A 0.024  T_B 0.024  other 0.004
+
+--- unrel: n = 267702   |tape_B - tape_A| / |tape_A|: median 1.30 (quartiles 1.00, 1.82)   hybrids with a negative entry: forward 0.647, reverse 0.647
+   A intact          S_A 0.963  S_B 0.197  M_A 0.004  M_B 0.196  T_A 0.027  T_B 0.122  other 0.003
+   B intact          S_A 0.197  S_B 0.963  M_A 0.197  M_B 0.004  T_A 0.121  T_B 0.027  other 0.003
+   A rest + B tape   S_A 0.194  S_B 0.898  M_A 0.199  M_B 0.022  T_A 0.146  T_B 0.033  other 0.014
+     clipped         S_A 0.214  S_B 0.820  M_A 0.127  M_B 0.074  T_A 0.163  T_B 0.041  other 0.024
+   B rest + A tape   S_A 0.899  S_B 0.194  M_A 0.021  M_B 0.198  T_A 0.033  T_B 0.147  other 0.014
+     clipped         S_A 0.821  S_B 0.215  M_A 0.073  M_B 0.126  T_A 0.042  T_B 0.164  other 0.023
+   [third within 0.1 M of S, n = 105896]  A rest + B tape: S_A 0.185  S_B 0.826  M_A 0.196  M_B 0.022  T_A 0.181  T_B 0.066  other 0.020
+   [third further away, n = 161806]  A rest + B tape: S_A 0.199  S_B 0.945  M_A 0.201  M_B 0.022  T_A 0.124  T_B 0.011  other 0.010

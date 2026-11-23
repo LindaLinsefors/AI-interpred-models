@@ -1,0 +1,41 @@
+1. Top entry among ages >= 2, 369576 quiet final states
+   full scores  runner-up 0.974  maximum 0.007  third 0.017  other 0.002
+   tape piece   runner-up 0.840  maximum 0.034  third 0.062  other 0.063
+   rest piece   runner-up 0.150  maximum 0.216  third 0.090  other 0.544
+   tape piece   entry(runner-up) - entry(maximum), in M: 10/25/50/75/90% =     2.6      5.3      9.8     15.4     21.7   share > 0: 0.955
+                entry(runner-up) - entry(third, age >= 2):        =    -0.1      4.7     11.5     19.3     29.1   share > 0: 0.898
+   rest piece   entry(runner-up) - entry(maximum), in M: 10/25/50/75/90% =    -8.5     -5.0     -1.6      1.0      3.4   share > 0: 0.361
+                entry(runner-up) - entry(third, age >= 2):        =    -6.8     -3.2      0.1      3.4      8.0   share > 0: 0.515
+   full scores  entry(runner-up) - entry(maximum), in M: 10/25/50/75/90% =     3.6      4.9      7.4     11.4     16.3   share > 0: 0.993
+                entry(runner-up) - entry(third, age >= 2):        =     2.5      5.7     10.9     17.5     28.6   share > 0: 0.976
+
+2. Unrelated donor, t = 9, A's rest + B's tape, n = 369576
+   no collision of {M,S}_A with {M,S}_B                       n = 198365  S_A 0.021  S_B 0.749  M_A 0.029  M_B 0.049  T_A 0.164  T_B 0.071  other 0.058
+   S_B = M_A (tape's runner-up sits on the rest's maximum)    n =  46158  S_A 0.015  S_B 0.830  M_A 0.830  M_B 0.028  T_A 0.051  T_B 0.040  other 0.055
+   M_B = S_A (tape's maximum sits on the rest's runner-up)    n =  46090  S_A 0.054  S_B 0.763  M_A 0.145  M_B 0.054  T_A 0.141  T_B 0.065  other 0.058
+   M_B = M_A, S_B != S_A                                      n =  39285  S_A 0.015  S_B 0.788  M_A 0.065  M_B 0.065  T_A 0.162  T_B 0.048  other 0.044
+   S_B = S_A                                                  n =  46258  S_A 0.814  S_B 0.814  M_A 0.028  M_B 0.036  T_A 0.054  T_B 0.056  other 0.043
+
+3. Position of the maximum differs (M_pos) or donor unrelated; transplant at t = 6, then a new maximum
+   --- M_pos, n = 262674 (rows with M_B = M_A dropped)
+   new maximum at step 7, then two low inputs
+      A intact         old max of A (rest) 0.995  old max of B (tape) 0.000  S_A 0.005  S_B 0.005  the new maximum 0.000  other 0.000
+      A rest + B tape  old max of A (rest) 0.431  old max of B (tape) 0.184  S_A 0.200  S_B 0.200  the new maximum 0.081  other 0.103
+        clipped        old max of A (rest) 0.442  old max of B (tape) 0.176  S_A 0.193  S_B 0.193  the new maximum 0.086  other 0.102
+      B rest + A tape  old max of B (rest) 0.432  old max of A (tape) 0.185  S_B 0.200  S_A 0.200  the new maximum 0.080  other 0.103
+   two low inputs, new maximum at step 9
+      A intact         old max of A (rest) 0.985  old max of B (tape) 0.000  S_A 0.013  S_B 0.013  the new maximum 0.000  other 0.001
+      A rest + B tape  old max of A (rest) 0.376  old max of B (tape) 0.195  S_A 0.264  S_B 0.264  the new maximum 0.000  other 0.165
+        clipped        old max of A (rest) 0.379  old max of B (tape) 0.196  S_A 0.258  S_B 0.258  the new maximum 0.000  other 0.166
+      B rest + A tape  old max of B (rest) 0.376  old max of A (tape) 0.195  S_B 0.265  S_A 0.265  the new maximum 0.000  other 0.163
+   --- unrel, n = 214555 (rows with M_B = M_A dropped)
+   new maximum at step 7, then two low inputs
+      A intact         old max of A (rest) 0.995  old max of B (tape) 0.001  S_A 0.005  S_B 0.251  the new maximum 0.000  other 0.000
+      A rest + B tape  old max of A (rest) 0.568  old max of B (tape) 0.099  S_A 0.054  S_B 0.399  the new maximum 0.102  other 0.062
+        clipped        old max of A (rest) 0.565  old max of B (tape) 0.097  S_A 0.051  S_B 0.381  the new maximum 0.111  other 0.071
+      B rest + A tape  old max of B (rest) 0.567  old max of A (tape) 0.099  S_B 0.054  S_A 0.398  the new maximum 0.103  other 0.062
+   two low inputs, new maximum at step 9
+      A intact         old max of A (rest) 0.986  old max of B (tape) 0.004  S_A 0.013  S_B 0.251  the new maximum 0.000  other 0.001
+      A rest + B tape  old max of A (rest) 0.524  old max of B (tape) 0.134  S_A 0.086  S_B 0.445  the new maximum 0.004  other 0.113
+        clipped        old max of A (rest) 0.495  old max of B (tape) 0.137  S_A 0.084  S_B 0.441  the new maximum 0.004  other 0.133
+      B rest + A tape  old max of B (rest) 0.522  old max of A (tape) 0.134  S_B 0.086  S_A 0.445  the new maximum 0.004  other 0.114

@@ -1,0 +1,20 @@
+114515 quiet states from 40000 sequences (seed 22); D exists in 86.4%
+
+check 'ages only': max and runner-up in the original columns: True ; S' > 0: True ; mean S'/M' = 0.621 (original 0.619 )
+check 'S/M only': M, S unchanged: True ; ages >= 2: True ; share with a_M > a_S: 0.499 (original 0.502 )
+check 'all values': same multiset of values: True ; padding untouched: True
+check 'ranks only': same rank of every column: True
+check 'age of D': D' in D's column: True ; V0 unchanged: True
+check 'value of D': largest early input = D: True 
+
+V                                             kept |    alt  sh.re  sh.im  h2.re  h2.im  h3.re  h3.im | FUtape FUscor FUrest | answer changed %: tape   rest  whole |  acc%  | clip   neg%
+nothing (another quiet state at the same t)   0.00 |  0.989  0.874  0.814  0.951  0.985  0.961  1.011 |  0.961  0.833  0.992 |             62.29  34.93  73.64 |  37.36 | 61.43  55.0
+ages of max and runner-up only                0.00 |  0.281  0.312  0.392  0.315  0.259  0.254  0.221 |  0.285  0.352  0.980 |             13.67  18.72  16.45 |  87.05 | 13.42  51.6
+values S/M only (ages redrawn)                0.00 |  0.970  0.801  0.616  0.903  0.966  0.909  1.000 |  0.917  0.697  0.588 |             59.94  27.49  66.51 |  39.32 | 59.27  56.4
+V0 = ages and values of max, runner-up        2.00 |  0.214  0.135  0.108  0.204  0.177  0.155  0.144 |  0.180  0.133  0.597 |              6.59   5.72   4.27 |  93.07 |  6.71  47.4
+ages of ALL inputs by rank, no values         0.00 |  0.177  0.318  0.354  0.304  0.199  0.210  0.173 |  0.221  0.362  2.745 |             12.66  17.65  16.33 |  88.00 | 12.32  50.8
+ALL values, no ages                           0.00 |  0.973  0.800  0.615  0.898  0.968  0.905  0.997 |  0.917  0.694  0.582 |             59.69  27.21  66.33 |  39.46 | 59.09  55.5
+V0 + age of D (not its value)                 0.00 |  0.141  0.111  0.085  0.140  0.142  0.124  0.115 |  0.129  0.103  0.597 |              6.25   5.48   4.18 |  93.33 |  6.35  47.2
+V0 + value of D (not its age)                 0.00 |  0.156  0.077  0.055  0.140  0.094  0.093  0.084 |  0.117  0.085  0.608 |              4.81   4.40   3.62 |  94.29 |  4.88  46.5
+V0 + D (age and value)                        2.86 |  0.055  0.044  0.025  0.056  0.047  0.048  0.045 |  0.049  0.041  0.588 |              3.95   3.83   3.15 |  94.71 |  3.98  46.1
+top 3 (V0 + third largest)                    3.00 |  0.079  0.040  0.030  0.071  0.048  0.043  0.035 |  0.059  0.044  0.362 |              3.54   3.17   1.99 |  94.58 |  3.60  45.9

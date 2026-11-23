@@ -1,0 +1,69 @@
+
+===== pulse of unit 5: mode coordinates of the kick W[o, 5] (modulus; gauge: a pulse of unit 4 has coordinate 1 in every mode)
+   level 0.07  runner 1.72  clock 0.07  h2 0.87  alt 1.09  h3 0.93  short 0.60  trans 0.17  echo 0.67
+  1 step(s) after the pulse; the input that caused it now has age 2 = score index 7
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)   -0.01    0.09   -0.35   -0.94   -0.86   -0.84   -0.55    3.37    1.08   -0.49
+     tape (alt+short+h2+h3)         3.64    0.79   -0.43   -1.51   -1.80   -1.09   -1.20    2.53   -0.47    0.03
+     trans                         -3.62   -0.77   -0.09    0.38    0.85    0.06    0.44    0.66    1.51    0.75
+     echo                           0.00   -0.02   -0.02   -0.02   -0.02   -0.02   -0.02   -0.02   -0.03    0.25
+     level+runner+clock            -0.03    0.09    0.18    0.20    0.12    0.21    0.23    0.20    0.07   -1.51
+  2 step(s) after the pulse; the input that caused it now has age 3 = score index 6
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)    0.19   -0.42   -1.33   -1.33   -1.02   -0.73    3.66    1.13    0.47   -0.48
+     tape (alt+short+h2+h3)         0.97   -0.39   -1.50   -1.60   -1.31   -0.94    3.35    0.79    0.07    0.85
+     trans                         -0.84   -0.18   -0.02    0.09    0.20    0.01    0.10    0.15    0.35    0.17
+     echo                           0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00    0.00
+     level+runner+clock             0.05    0.14    0.20    0.19    0.10    0.19    0.21    0.18    0.06   -1.50
+  3 step(s) after the pulse; the input that caused it now has age 4 = score index 5
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)   -0.41   -1.42   -1.61   -1.42   -0.87    3.82    1.11    0.50    0.81   -0.54
+     tape (alt+short+h2+h3)        -0.34   -1.54   -1.78   -1.60   -1.00    3.62    0.88    0.29    0.66    0.88
+     trans                         -0.19   -0.04   -0.00    0.02    0.05    0.00    0.02    0.04    0.08    0.04
+     echo                           0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00    0.00
+     level+runner+clock             0.12    0.17    0.18    0.16    0.08    0.20    0.21    0.18    0.07   -1.46
+  5 step(s) after the pulse; the input that caused it now has age 6 = score index 3
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)   -1.88   -1.95   -1.52    4.16    1.00    0.05    0.43    0.00    0.78   -1.07
+     tape (alt+short+h2+h3)        -1.99   -2.04   -1.63    4.03    0.90   -0.18    0.20   -0.20    0.67    0.28
+     trans                         -0.01   -0.00   -0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00
+     echo                           0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00   -0.00    0.00
+     level+runner+clock             0.13    0.10    0.11    0.13    0.09    0.22    0.23    0.21    0.11   -1.34
+
+===== pulse of unit 4: mode coordinates of the kick W[o, 4] (modulus; gauge: a pulse of unit 4 has coordinate 1 in every mode)
+   level 1.00  runner 1.00  clock 1.00  h2 1.00  alt 1.00  h3 1.00  short 1.00  trans 1.00  echo 1.00
+  1 step(s) after the pulse; the input that caused it now has age 1 = score index 8
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)    0.82    0.59    0.28    0.50    0.68    0.55    1.11    0.52   -6.63    0.74
+     tape (alt+short+h2+h3)       -21.44   -4.25    0.18    3.49    6.16    1.18    4.10    4.81    2.17    4.42
+     trans                         21.09    4.50    0.50   -2.20   -4.94   -0.36   -2.59   -3.86   -8.77   -4.34
+     echo                          -0.00    0.03    0.03    0.03    0.04    0.03    0.03    0.03    0.05   -0.37
+     level+runner+clock             1.18    0.32   -0.42   -0.82   -0.58   -0.30   -0.44   -0.47   -0.08    1.03
+  2 step(s) after the pulse; the input that caused it now has age 2 = score index 7
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)   -0.32    0.93    1.09    0.58    0.42    0.34    0.11   -3.48   -1.52    0.37
+     tape (alt+short+h2+h3)        -5.77    0.38    1.90    1.97    1.91    0.48    0.90   -2.44    0.25   -0.13
+     trans                          4.87    1.04    0.11   -0.51   -1.14   -0.08   -0.60   -0.89   -2.02   -1.00
+     echo                          -0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   -0.00
+     level+runner+clock             0.58   -0.49   -0.93   -0.88   -0.36   -0.06   -0.19   -0.15    0.25    1.50
+  3 step(s) after the pulse; the input that caused it now has age 3 = score index 6
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)    0.82    1.07    0.82    0.40    0.66    0.28   -3.84   -1.66   -0.68    0.13
+     tape (alt+short+h2+h3)         0.17    2.05    1.95    1.23    1.02    0.27   -3.65   -1.51   -0.58   -1.42
+     trans                          1.13    0.24    0.03   -0.12   -0.26   -0.02   -0.14   -0.21   -0.47   -0.23
+     echo                          -0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   -0.00
+     level+runner+clock            -0.48   -1.22   -1.16   -0.71   -0.11    0.03   -0.05    0.06    0.37    1.78
+  5 step(s) after the pulse; the input that caused it now has age 5 = score index 4
+     index:                           0       1       2       3       4       5       6       7       8       9
+     all modes (the real effect)    0.55    0.37    1.25    1.26   -3.97   -1.50   -0.65   -0.67   -0.52    0.63
+     tape (alt+short+h2+h3)         2.28    1.63    1.88    1.44   -3.97   -1.19   -0.37   -0.52   -0.40   -0.86
+     trans                          0.06    0.01    0.00   -0.01   -0.01   -0.00   -0.01   -0.01   -0.02   -0.01
+     echo                          -0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   -0.00
+     level+runner+clock            -1.79   -1.27   -0.63   -0.17    0.01   -0.31   -0.28   -0.15   -0.09    1.50
+
+Readout patterns p_m[i] - mean over indices 0..7, for the real modes that are not on the tape (logits per unit coordinate, index 0..7):
+   level      0.00   -0.06   -0.08   -0.05    0.15    0.02   -0.02    0.04    | index 8, 9 (same reference): 0.29 2.40
+   runner    -0.06   -0.04   -0.01    0.01   -0.02    0.04    0.05    0.04    | index 8, 9 (same reference): -0.02 -0.85
+   trans     19.57    2.98   -1.02   -3.72   -6.46   -1.88   -4.10   -5.37    | index 8, 9 (same reference): -10.28 -5.85
+   echo      -0.03   -0.00   -0.00    0.00    0.01    0.00    0.01    0.01    | index 8, 9 (same reference): 0.02 -0.39
+   clock: 2|p|    1.63    1.18    0.75    0.47    0.38    0.40    0.37    0.47   phase (deg)     6    47    86   146  -148   -88  -103  -111

@@ -1,0 +1,74 @@
+[claim 3] top entry among ages >= 2, 307836 quiet final states of 500000
+   full        runner-up 0.973  maximum 0.007  third 0.018
+               S entry - M entry (in M), 10/25/50/75/90%:    3.6    4.9    7.4   11.3   16.3  >0: 0.992   S entry - T entry:    2.5    5.7   10.9   17.5   28.6  >0: 0.975
+   tape piece  runner-up 0.839  maximum 0.035  third 0.062
+               S entry - M entry (in M), 10/25/50/75/90%:    2.6    5.3    9.8   15.3   21.6  >0: 0.954   S entry - T entry:   -0.1    4.7   11.5   19.2   29.1  >0: 0.897
+   rest piece  runner-up 0.151  maximum 0.214  third 0.091
+               S entry - M entry (in M), 10/25/50/75/90%:   -8.5   -5.0   -1.5    1.0    3.4  >0: 0.364   S entry - T entry:   -6.8   -3.1    0.2    3.5    8.0  >0: 0.517
+   by a_S: P(runner-up on top among ages >= 2)   a_S:          2      3      4      5      6      7      8      9
+   tape piece                                    0.505  0.823  0.837  0.939  0.919  0.911  0.889  0.893
+   rest piece                                    0.689  0.189  0.169  0.000  0.001  0.006  0.004  0.149
+
+[claim 1] S_pos, t = 9, n = 307289 pairs; intact A names its runner-up in 0.964
+   rest A + tape B: tape's S 0.854  rest's S 0.003  M 0.042  third(A) 0.070  other 0.031
+   clipped        : tape's S 0.819  rest's S 0.006  M 0.041  third(A) 0.084  other 0.051
+   rest B + tape A: tape's S 0.853  rest's S 0.004
+   [claim 9] negative entry in 0.384 of hybrids; tape's S named in 0.870 without / 0.828 with one; most negative entry / M among the latter: median -0.84, 10% quantile -3.15; rms activation of intact states / M: 11.9
+   third within 0.1 M of S (n = 92876): tape's S 0.757, third 0.164;   further away: tape's S 0.896
+   by donor's a_S:        2: 0.568  3: 0.904  4: 0.881  5: 0.924  6: 0.911  7: 0.927  8: 0.912  9: 0.804
+   by recipient's a_S:    2: 0.723  3: 0.869  4: 0.896  5: 0.887  6: 0.888  7: 0.879  8: 0.858  9: 0.832
+   donor 3 <= a_S <= 8 (n = 230618): tape's 0.910, rest's 0.0004
+   donor a_S = 2, a_M <= 7 (n = 27446): tape's 0.743, maximum 0.028
+   donor a_S = 2, a_M = 8 (n = 5489): tape's 0.216, maximum 0.024
+   donor a_S = 2, a_M = 9 (n = 5470): tape's 0.040, maximum 0.922
+   56 cells of the donor's (a_M, a_S): median 0.907, range 0.040 to 0.987
+
+[claim 1] S_pos, t = 6, n = 218572 pairs; intact A names its runner-up in 0.966
+   rest A + tape B: tape's S 0.938  rest's S 0.001  M 0.013  third(A) 0.040  other 0.007
+   clipped        : tape's S 0.931  rest's S 0.002  M 0.013  third(A) 0.046  other 0.008
+   rest B + tape A: tape's S 0.939  rest's S 0.001
+   [claim 9] negative entry in 0.638 of hybrids; tape's S named in 0.928 without / 0.944 with one; most negative entry / M among the latter: median -0.89, 10% quantile -2.21; rms activation of intact states / M: 12.5
+   third within 0.1 M of S (n = 46916): tape's S 0.796, third 0.174;   further away: tape's S 0.977
+
+[claim 1] S_pos at t = 6, then 3 low inputs, n = 218384: tape's S 0.914, rest's S 0.002   clipped: 0.917, 0.005;  intact A correct 0.975
+   by donor's a_S at t = 6: 2: 0.944  3: 0.918  4: 0.876  5: 0.862  6: 0.972
+
+[claim 1] S_pos at t = 4, then 5 low inputs, n = 73552: tape's S 0.953, rest's S 0.004   clipped: 0.946, 0.000;  intact A correct 0.984
+
+[claim 1] S_pos at t = 8, then 1 low inputs, n = 285461: tape's S 0.926, rest's S 0.003   clipped: 0.885, 0.007;  intact A correct 0.972
+
+[claim 1] unrelated donor rescaled to A's M, t = 9: runner-up positions differ in n = 269848: tape's S 0.764, rest's S 0.024;  clipped: 0.722
+   [claim 3] tape's runner-up sits on the rest's maximum (n = 38739): hybrid names that position in 0.827
+
+[claim 1] unrelated donor rescaled to A's M, t = 6: runner-up positions differ in n = 178642: tape's S 0.894, rest's S 0.015;  clipped: 0.799
+   [claim 3] tape's runner-up sits on the rest's maximum (n = 44335): hybrid names that position in 0.912
+
+[claim 7] low_val, t = 9, n = 307331: tape changes by median 0.16 of its norm (quartiles 0.09, 0.28); accuracy intact 0.964, rest A + tape B 0.941
+   CONTROL (attack 2): the tape change of ANOTHER pair, rescaled to this M (median relative size 0.16), n = 307204: accuracy 0.881
+
+[claim 7] low_pos, t = 9, n = 302392: tape changes by median 0.13 of its norm (quartiles 0.06, 0.23); accuracy intact 0.965, rest A + tape B 0.950
+   CONTROL (attack 2): the tape change of ANOTHER pair, rescaled to this M (median relative size 0.12), n = 297418: accuracy 0.906
+[claim 7] t = 9: all inputs except the top two redrawn below S in the donor: hybrid accuracy 0.901 (intact 0.964)
+
+[claim 7] low_val, t = 6, n = 222446: tape changes by median 0.10 of its norm (quartiles 0.06, 0.17); accuracy intact 0.964, rest A + tape B 0.961
+   CONTROL (attack 2): the tape change of ANOTHER pair, rescaled to this M (median relative size 0.10), n = 221626: accuracy 0.928
+   then 3 low        : intact 0.974, hybrid 0.972, control 0.944
+   then new max at 7 : intact 0.995, hybrid 0.990, control 0.986
+   then new max at 9 : intact 0.986, hybrid 0.980, control 0.964
+
+[claim 7] low_pos, t = 6, n = 193549: tape changes by median 0.07 of its norm (quartiles 0.03, 0.14); accuracy intact 0.969, rest A + tape B 0.968
+   CONTROL (attack 2): the tape change of ANOTHER pair, rescaled to this M (median relative size 0.07), n = 167746: accuracy 0.948
+   then 3 low        : intact 0.978, hybrid 0.977, control 0.961
+   then new max at 7 : intact 0.995, hybrid 0.992, control 0.988
+   then new max at 9 : intact 0.985, hybrid 0.981, control 0.970
+[claim 7] t = 6: all inputs except the top two redrawn below S in the donor: hybrid accuracy 0.955 (intact 0.963)
+
+[claim 6] M_pos at t = 6, n = 218447;  present answer of the hybrid: runner-up 0.920, tape's maximum 0.009
+   new maximum 1.3 M at step 7, then two low: intact 0.995;  hybrid: rest's old max 0.434  tape's old max 0.184  old runner-up 0.199  new max 0.081  other 0.103
+                                              clipped: rest's old max 0.444  tape's old max 0.177  old runner-up 0.191  new max 0.086  other 0.102
+      by donor's a_M: rest's / tape's   2: 0.40/0.18  3: 0.42/0.29  4: 0.39/0.28  5: 0.47/0.13  6: 0.48/0.03
+      by recipient's a_M: rest's / tape's 2: 0.50/0.09  3: 0.39/0.22  4: 0.30/0.23  5: 0.41/0.25  6: 0.57/0.13
+   two low, new maximum at step 9: intact 0.986;  hybrid: rest's old max 0.377  tape's old max 0.194  old runner-up 0.263  new max 0.000  other 0.165
+                                              clipped: rest's old max 0.380  tape's old max 0.196  old runner-up 0.258  new max 0.000  other 0.167
+      by donor's a_M: rest's / tape's   2: 0.31/0.16  3: 0.38/0.21  4: 0.35/0.35  5: 0.42/0.24  6: 0.43/0.01
+      by recipient's a_M: rest's / tape's 2: 0.61/0.11  3: 0.35/0.27  4: 0.28/0.19  5: 0.33/0.18  6: 0.32/0.22

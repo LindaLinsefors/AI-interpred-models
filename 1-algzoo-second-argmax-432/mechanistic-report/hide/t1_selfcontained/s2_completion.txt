@@ -1,0 +1,84 @@
+369185 quiet final states (600000 sequences, seed 201); fits on the first half, numbers from the second half
+
+A. entries below the runner-up, age >= 2: 1107558 test entries, 336 configurations (a, a_M, a_S)
+   piece        rms D   sd D  | share of var(D) explained by: (1) offset per config  (2) + S/M  (3) + x_9, x_8  (4) + own input
+   level         0.95   0.95  |    0.999    0.999    0.999    0.999
+   runner        3.33   3.33  |    0.936    0.986    0.990    0.992
+   clock         3.48   3.48  |    0.793    0.975    0.976    0.977
+   trans         8.31   8.29  |    0.171    0.277    0.894    0.897
+   echo          2.97   2.97  |    0.077    0.081    1.000    1.000
+   pulse         0.28   0.28  |    0.091    0.098    0.213    0.227
+   REST (sum)    8.63   8.61  |    0.542    0.698    0.906    0.911
+   TAPE         26.70  15.94  |    0.395    0.586    0.622    0.687
+   FULL         27.04  15.72  |    0.470    0.623    0.635    0.707
+   alt           3.59   3.38  |    0.638    0.692    0.699    0.713
+   short        23.42  20.28  |    0.565    0.701    0.714    0.733
+   h2           12.02  11.23  |    0.672    0.732    0.745    0.760
+   h3            9.70   8.73  |    0.706    0.759    0.769    0.786
+   correlation of the tape's D with the rest's D: -0.295;  var(tape D) 253.4, var(rest D) 69.9, var(full D) 244.9
+
+A. the maximum's own entry: 184593 test entries, 56 configurations (a, a_M, a_S)
+   piece        rms D   sd D  | share of var(D) explained by: (1) offset per config  (2) + S/M  (3) + x_9, x_8  (4) + own input
+   level         0.95   0.95  |    0.999    0.999    0.999    0.999
+   runner        3.13   3.13  |    0.933    0.980    0.984    0.984
+   clock         4.40   3.51  |    0.724    0.955    0.957    0.957
+   trans         8.55   8.51  |    0.238    0.337    0.865    0.865
+   echo          2.85   2.85  |    0.080    0.084    1.000    1.000
+   pulse         0.32   0.32  |    0.094    0.103    0.226    0.226
+   REST (sum)    7.92   7.69  |    0.421    0.633    0.863    0.863
+   TAPE         14.47   9.57  |    0.410    0.585    0.704    0.704
+   FULL         10.86   6.10  |    0.476    0.499    0.512    0.512
+   alt           2.80   2.76  |    0.543    0.574    0.583    0.583
+   short        21.14  19.62  |    0.618    0.735    0.751    0.751
+   h2           10.78  10.67  |    0.647    0.697    0.709    0.709
+   h3            8.84   8.78  |    0.725    0.770    0.780    0.780
+   correlation of the tape's D with the rest's D: -0.768;  var(tape D) 89.5, var(rest D) 55.9, var(full D) 36.8
+
+B. P(runner-up is the top entry among ages >= 2), second half of the states
+   true tape + true rest (full score): 0.973
+   true TAPE piece + REST piece replaced by a fit on ...                     P(S top)  agree with full   R2 of the fit (rest piece, indices 0-7, centred over the index)
+     nothing (rest piece deleted)                                       0.840     0.846        0.000
+     one offset pattern per (a_M, a_S), times M                         0.916     0.925        0.742
+     M and S per (a_M, a_S)                                             0.945     0.958        0.900
+     M, S, x_9 per (a_M, a_S)                                           0.957     0.970        0.934
+     M, S, x_9, x_8 per (a_M, a_S)                                      0.959     0.973        0.940
+     M, S, x_9, x_8, [x_8 - 0.75 S]+, [x_9 - 0.75 S]+ per (a_M, a_S)    0.959     0.973        0.941
+     M, S, T per (a_M, a_S)                                             0.947     0.960        0.912
+   the same with single parts replaced by 'M and S per (a_M, a_S)' and everything else true:
+     level    P(S top) 0.973   agree 1.000   R2 1.000   (deleted instead: 0.968)
+     runner   P(S top) 0.973   agree 0.996   R2 0.995   (deleted instead: 0.929)
+     clock    P(S top) 0.966   agree 0.988   R2 0.981   (deleted instead: 0.925)
+     trans    P(S top) 0.928   agree 0.937   R2 0.613   (deleted instead: 0.882)
+     echo     P(S top) 0.956   agree 0.972   R2 0.088   (deleted instead: 0.954)
+     pulse    P(S top) 0.973   agree 0.998   R2 0.102   (deleted instead: 0.973)
+   the reverse: true REST piece + TAPE piece replaced by a fit on ...
+     nothing (tape piece deleted)                                       0.151     0.150        0.000
+     M and S per (a_M, a_S)                                             0.977     0.952        0.761
+     M, S, T per (a_M, a_S, a_T)                                        0.977     0.959        0.906
+
+C. The rest piece as an offset: mean of (rest entry - rest entry of the runner-up) / M by age of the entry (columns 2..9),
+   for some configurations (a_M, a_S); entries below the runner-up only; the tape piece's mean in the same cells below it
+   a_M=2 a_S=5  rest:     --    4.5    5.3     --   -1.2   -1.7   -0.1    7.0   | sd within cell 4.0
+               tape:     --  -20.4  -17.1     --  -12.8  -28.0  -44.0  -62.2   | sd within cell 10.1
+               full:     --  -15.9  -11.7     --  -14.0  -29.7  -44.1  -55.2   | sd within cell 11.3
+   a_M=2 a_S=8  rest:     --    2.4    2.7    0.4   -1.4   -1.3     --    1.3   | sd within cell 5.8
+               tape:     --  -32.4  -44.0  -35.4  -25.2   -9.0     --  -12.8   | sd within cell 16.5
+               full:     --  -30.0  -41.4  -35.1  -26.6  -10.3     --  -11.5   | sd within cell 13.3
+   a_M=5 a_S=2  rest:     --   -1.1   -2.9     --   -3.9   -9.2  -16.4  -30.2   | sd within cell 2.4
+               tape:     --  -12.6  -13.6     --  -12.6  -16.9  -18.2  -14.9   | sd within cell 11.8
+               full:     --  -13.6  -16.5     --  -16.5  -26.2  -34.6  -45.1   | sd within cell 12.1
+   a_M=8 a_S=2  rest:     --   -1.1   -3.7    0.3   -1.4   -2.4     --  -28.7   | sd within cell 3.8
+               tape:     --  -25.2  -28.7  -32.1  -30.7  -21.1     --    8.2   | sd within cell 14.6
+               full:     --  -26.3  -32.4  -31.8  -32.1  -23.6     --  -20.5   | sd within cell 14.3
+   a_M=4 a_S=7  rest:    7.8    7.6     --    5.0    3.6     --   -3.3   -2.3   | sd within cell 2.0
+               tape:  -19.1  -21.8     --  -20.9  -16.1     --   -8.2  -25.7   | sd within cell 5.5
+               full:  -11.3  -14.1     --  -15.9  -12.5     --  -11.5  -28.0   | sd within cell 5.9
+   a_M=7 a_S=4  rest:   -0.0    0.2     --   -1.3    0.1     --   -2.2   -6.1   | sd within cell 3.2
+               tape:  -10.4   -9.9     --  -12.4  -16.2     --  -13.6  -19.1   | sd within cell 6.2
+               full:  -10.4   -9.7     --  -13.7  -16.1     --  -15.8  -25.2   | sd within cell 6.1
+   a_M=3 a_S=9  rest:    4.9     --    4.6    2.6   -0.0   -1.5   -1.5     --   | sd within cell 13.3
+               tape:  -29.1     --  -38.6  -50.0  -45.3  -30.3  -10.6     --   | sd within cell 23.4
+               full:  -24.2     --  -34.0  -47.3  -45.3  -31.8  -12.1     --   | sd within cell 16.9
+   a_M=9 a_S=3  rest:   -0.0     --   -0.2   -1.6   -2.3   -0.9    0.4     --   | sd within cell 1.7
+               tape:  -18.7     --  -30.0  -37.1  -39.3  -37.7  -25.9     --   | sd within cell 17.0
+               full:  -18.7     --  -30.3  -38.7  -41.6  -38.6  -25.5     --   | sd within cell 16.5

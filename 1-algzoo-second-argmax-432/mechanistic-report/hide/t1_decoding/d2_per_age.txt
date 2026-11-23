@@ -1,0 +1,35 @@
+quiet final states 246144; train 184608 (flexible decoder: first 60000 of the selected), test 61536
+age 2: other input in 0.750 of states; among those: third 0.126, within 0.1 M of S 0.046, sd of depth 0.265
+age 3: other input in 0.750 of states; among those: third 0.123, within 0.1 M of S 0.046, sd of depth 0.264
+age 4: other input in 0.750 of states; among those: third 0.125, within 0.1 M of S 0.046, sd of depth 0.265
+age 5: other input in 0.751 of states; among those: third 0.126, within 0.1 M of S 0.046, sd of depth 0.265
+age 6: other input in 0.751 of states; among those: third 0.126, within 0.1 M of S 0.047, sd of depth 0.265
+age 7: other input in 0.749 of states; among those: third 0.125, within 0.1 M of S 0.047, sd of depth 0.265
+age 8: other input in 0.750 of states; among those: third 0.125, within 0.1 M of S 0.046, sd of depth 0.265
+age 9: other input in 0.749 of states; among those: third 0.125, within 0.1 M of S 0.045, sd of depth 0.264
+target                              n_test   base |   T lin  T flex |   R lin  R flex |   F lin  F flex |  V3 lin V3 flex | V3+T lin V3+T flex
+age 2: depth (S - x+)/M              46269  0.000 |   0.165   0.533 |   0.310   0.544 |   0.496   0.698 |   0.691   0.752 |   0.713   0.786
+age 3: depth (S - x+)/M              46179  0.000 |   0.166   0.540 |   0.232   0.423 |   0.462   0.694 |   0.690   0.748 |   0.712   0.780
+age 4: depth (S - x+)/M              46043  0.000 |   0.147   0.569 |   0.219   0.422 |   0.479   0.719 |   0.693   0.753 |   0.714   0.795
+age 5: depth (S - x+)/M              46282  0.000 |   0.167   0.605 |   0.213   0.426 |   0.487   0.770 |   0.692   0.753 |   0.722   0.820
+age 6: depth (S - x+)/M              46351  0.000 |   0.240   0.653 |   0.213   0.429 |   0.519   0.827 |   0.689   0.750 |   0.737   0.855
+age 7: depth (S - x+)/M              46040  0.000 |   0.192   0.679 |   0.231   0.446 |   0.460   0.870 |   0.690   0.750 |   0.740   0.885
+age 8: depth (S - x+)/M              45922  0.000 |   0.192   0.675 |   0.250   0.446 |   0.411   0.877 |   0.688   0.747 |   0.736   0.881
+age 9: depth (S - x+)/M              46130  0.000 |   0.142   0.686 |   0.277   0.475 |   0.663   0.900 |   0.692   0.754 |   0.751   0.900
+age 2: is the third                  46269  0.500 |   0.771   0.872 |   0.759   0.786 |   0.810   0.910 |   1.000   1.000 |   1.000   1.000
+age 3: is the third                  46179  0.500 |   0.813   0.888 |   0.592   0.646 |   0.839   0.921 |   1.000   1.000 |   1.000   1.000
+age 4: is the third                  46043  0.500 |   0.830   0.909 |   0.600   0.653 |   0.854   0.940 |   1.000   1.000 |   1.000   1.000
+age 5: is the third                  46282  0.500 |   0.833   0.935 |   0.623   0.680 |   0.879   0.958 |   1.000   1.000 |   1.000   1.000
+age 6: is the third                  46351  0.500 |   0.862   0.950 |   0.628   0.728 |   0.905   0.971 |   1.000   1.000 |   1.000   1.000
+age 7: is the third                  46040  0.500 |   0.839   0.949 |   0.622   0.721 |   0.877   0.971 |   1.000   1.000 |   1.000   1.000
+age 8: is the third                  45922  0.500 |   0.820   0.937 |   0.593   0.712 |   0.859   0.965 |   1.000   1.000 |   1.000   1.000
+age 9: is the third                  46130  0.500 |   0.791   0.915 |   0.608   0.758 |   0.888   0.971 |   1.000   1.000 |   1.000   1.000
+age 2: within 0.1 M of S             46269  0.500 |   0.946   0.974 |   0.888   0.946 |   0.961   0.990 |   0.967   0.982 |   0.986   0.995
+age 3: within 0.1 M of S             46179  0.500 |   0.946   0.975 |   0.549   0.759 |   0.959   0.990 |   0.966   0.981 |   0.982   0.995
+age 4: within 0.1 M of S             46043  0.500 |   0.946   0.977 |   0.573   0.708 |   0.961   0.990 |   0.970   0.983 |   0.984   0.996
+age 5: within 0.1 M of S             46282  0.500 |   0.936   0.977 |   0.604   0.744 |   0.955   0.990 |   0.966   0.983 |   0.983   0.996
+age 6: within 0.1 M of S             46351  0.500 |   0.942   0.980 |   0.628   0.768 |   0.954   0.991 |   0.970   0.984 |   0.983   0.997
+age 7: within 0.1 M of S             46040  0.500 |   0.928   0.977 |   0.627   0.784 |   0.928   0.991 |   0.969   0.983 |   0.981   0.996
+age 8: within 0.1 M of S             45922  0.500 |   0.920   0.975 |   0.619   0.783 |   0.906   0.991 |   0.967   0.983 |   0.980   0.996
+age 9: within 0.1 M of S             46130  0.500 |   0.866   0.959 |   0.608   0.783 |   0.978   0.993 |   0.969   0.983 |   0.980   0.996
+   (240 fits, 175 s; cls: accuracy, base = majority class; auc: ROC AUC, base 0.5; reg: R2, base 0)

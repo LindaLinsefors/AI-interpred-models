@@ -1,0 +1,32 @@
+245759 quiet final states (400000 sequences, seed 9501); full score 0.974
+   size 1: short 0.409;  h3 0.278;  h2 0.264
+   size 2: h3+short 0.618;  h2+short 0.538;  h2+h3 0.531
+   size 3: h2+h3+short 0.786;  alt+h3+short 0.643;  runner+h3+short 0.640
+   size 4: h2+alt+h3+short 0.840;  h2+h3+short+trans 0.827;  runner+h2+h3+short 0.815
+   size 5: h2+alt+h3+short+trans 0.878;  runner+h2+alt+h3+short 0.875;  clock+h2+alt+h3+short 0.861
+   size 6: runner+h2+alt+h3+short+trans 0.908;  clock+h2+alt+h3+short+trans 0.906;  h2+alt+h3+short+trans+echo 0.897
+   size 7: runner+clock+h2+alt+h3+short+trans 0.949;  clock+h2+alt+h3+short+trans+echo 0.931;  runner+h2+alt+h3+short+trans+echo 0.923
+   size 8: runner+clock+h2+alt+h3+short+trans+echo 0.969;  level+runner+clock+h2+alt+h3+short+trans 0.954;  level+clock+h2+alt+h3+short+trans+echo 0.929
+   size 9: level+runner+clock+h2+alt+h3+short+trans+echo 0.974
+   the tape ranks 1 of 126 four-mode subsets (0.840); next h2+h3+short+trans 0.827
+   subsets reaching 0.96: runner+clock+h2+alt+h3+short+trans+echo 0.969;  level+runner+clock+h2+alt+h3+short+trans+echo 0.974
+
+Sigma = U_o A pinv(U_o): eigenvalues 0.932@180, 0.834@125, 0.834@-125, 0.925@83, 0.925@-83, 0.694@41, 0.694@-41, 0.845@0, 0.676@0, 0.257@0
+   taken as tape-like (7): 0.932@180, 0.834@125, 0.834@-125, 0.925@83, 0.925@-83, 0.694@41, 0.694@-41
+   four-mode tape piece               P(S top) 0.840  agree 0.846  slope   70.8  err sd 0.1234  half-IQR 0.0516
+   Sigma-tape                         P(S top) 0.702  agree 0.707  slope   68.9  err sd 0.1954  half-IQR 0.0628
+   scores of the 13 non-pulse units   P(S top) 0.974  agree 0.999  slope   74.0  err sd 0.0386  half-IQR 0.0213
+   full                               P(S top) 0.974  agree 1.000  slope   74.1  err sd 0.0386  half-IQR 0.0214
+   share of the Sigma-tape's power (indices 0-7) that is the four-mode tape piece: 0.812
+
+Persistence 8 -> 9 (184843 sequences, state at 8 quiet, x_9 below the runner-up; seed 9502): entries below the runner-up: corr, rms change, rms size | the maximum's entry: corr, rms change, rms size
+   four-mode tape piece   0.951   4.66  23.82   |  0.875   4.41  12.56
+   full score             0.985   2.57  24.65   |  0.969   1.49  10.52
+   Sigma-tape             0.854   9.27  24.10   |  0.721   9.07  10.68
+   rest piece             0.807   3.84   5.38   |  0.724   4.15   4.54
+   attack: the same split by whether the step 8 -> 9 is a RESTING step for the 13 non-pulse units (all gates open at 9, pulse units silent at 8)
+      share of these steps that are resting: 0.559
+      four-mode tape piece   resting      corr 0.961  rms change  3.95  rms size 23.10
+      four-mode tape piece   not resting  corr 0.940  rms change  5.43  rms size 24.71
+      full score             resting      corr 0.989  rms change  2.30  rms size 23.39
+      full score             not resting  corr 0.982  rms change  2.88  rms size 26.16

@@ -1,0 +1,20 @@
+(a) agreement with tape_common.py / common.py on 20000 sequences (seed 101)
+    forward pass, max |h9 - common.run|:         0.0
+    projector, max |P_TAPE - tape_common|:       1.7208456881689926e-15  rank 7
+    tape coordinates, max abs difference:        3.375077994860476e-14
+    tape scores, max abs difference:             3.979039320256561e-13
+    tape part, max abs difference:               1.3500311979441904e-13
+    quiet states at steps 3..9: mine 57552, tape_common.prefix_stats 57552
+    t = 9: same M, S, ages: True True True True
+    zero-prefix identity, max |h(xr) - h_t(x)| at t = 6: 2.842170943040401e-14
+
+(b) exchangeability of the redraws (40000 sequences, seed 102, one redraw per state)
+    V                            | mean of c/M (7)                                   | sd of c/M (7)                                     | acc at t=9 | kept
+    originals                    |   0.83   0.75  -0.91   0.93  -0.35   0.97  -0.28 |   4.41   1.77   2.15   2.27   2.69   2.03   2.35 |  96.36     | 7.81
+    V0                           |   0.83   0.75  -0.91   0.93  -0.36   0.97  -0.28 |   4.42   1.78   2.15   2.27   2.69   2.03   2.36 |  96.24     | 2.00
+    top 3                        |   0.83   0.75  -0.90   0.92  -0.35   0.97  -0.28 |   4.40   1.77   2.15   2.26   2.69   2.03   2.35 |  96.15     | 3.00
+    contenders 0.75              |   0.83   0.75  -0.91   0.93  -0.35   0.97  -0.28 |   4.43   1.77   2.15   2.27   2.70   2.04   2.35 |  96.21     | 3.02
+    contenders 0 (positive)      |   0.83   0.75  -0.91   0.93  -0.35   0.97  -0.28 |   4.41   1.77   2.15   2.27   2.70   2.04   2.35 |  96.32     | 4.06
+    V0 + D                       |   0.83   0.75  -0.91   0.93  -0.36   0.97  -0.29 |   4.41   1.77   2.15   2.27   2.69   2.04   2.35 |  96.17     | 2.87
+    above 0.5 S                  |   0.83   0.75  -0.91   0.93  -0.36   0.97  -0.28 |   4.40   1.77   2.15   2.27   2.69   2.03   2.35 |  96.25     | 2.88
+    (standard error of a mean is about sd / sqrt(n) = 0.006-0.013; of the accuracy about 0.12)

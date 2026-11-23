@@ -1,0 +1,63 @@
+train 300000 (seed 7303), test 200000 (seed 7304); quiet final states in the test set n = 122970; accuracy there 0.9631
+    spread to be explained: std of theta_u / running max over steps with running max > 0.3: theta_4 0.065  theta_1 0.320  theta_6 0.353  theta_7 0.089  theta_8 0.375
+
+=== L1: 10 configurations ===
+    rms threshold error / running max:  theta_4 0.016  theta_1 0.040  theta_6 0.032  theta_7 0.018  theta_8 0.041
+    answers changed (quiet final states), by modelled channels:  ALL 0.2983  pulse 4 0.0039  pulse 5 0.3445  pulse 9 0.0180  comparators 0.0395  wave clips 0.1390  | R2 of the scores of ages >= 2 (all modelled) 0.679
+
+=== L2: 82 configurations ===
+    rms threshold error / running max:  theta_4 0.010  theta_1 0.021  theta_6 0.013  theta_7 0.011  theta_8 0.023
+    answers changed (quiet final states), by modelled channels:  ALL 0.1049  pulse 4 0.0024  pulse 5 0.0612  pulse 9 0.0182  comparators 0.0154  wave clips 0.0717  | R2 of the scores of ages >= 2 (all modelled) 0.887
+
+=== L3: 586 configurations ===
+    rms threshold error / running max:  theta_4 0.009  theta_1 0.018  theta_6 0.011  theta_7 0.010  theta_8 0.020
+    answers changed (quiet final states), by modelled channels:  ALL 0.0705  pulse 4 0.0022  pulse 5 0.0523  pulse 9 0.0161  comparators 0.0133  wave clips 0.0459  | R2 of the scores of ages >= 2 (all modelled) 0.926
+
+=== M only, by age: 10 configurations ===
+    rms threshold error / running max:  theta_4 0.037  theta_1 0.164  theta_6 0.180  theta_7 0.045  theta_8 0.264
+    answers changed (quiet final states), by modelled channels:  ALL 0.4359  pulse 4 0.0121  pulse 5 0.4533  pulse 9 0.0472  comparators 0.3311  wave clips 0.1345  | R2 of the scores of ages >= 2 (all modelled) 0.004
+
+=== M and S, one mix for all ages: 2 configurations ===
+    rms threshold error / running max:  theta_4 0.058  theta_1 0.268  theta_6 0.127  theta_7 0.082  theta_8 0.198
+    answers changed (quiet final states), by modelled channels:  ALL 0.7715  pulse 4 0.0192  pulse 5 0.3586  pulse 9 0.0201  comparators 0.3836  wave clips 0.6171  | R2 of the scores of ages >= 2 (all modelled) 0.114
+
+=== L1 threshold weights by the age a of the earlier maximum (a = 1..8): alpha (on M+), beta (on S+), alpha + beta ===
+    unit 4: alpha  0.98  0.96  0.87  0.76  0.68  0.68  0.75  0.85   beta  0.00  0.03  0.10  0.20  0.26  0.26  0.20  0.13   alpha+beta 0.94 .. 0.98
+    unit 7: alpha  1.01  1.00  0.87  0.71  0.61  0.62  0.72  0.87   beta -0.00  0.00  0.12  0.26  0.34  0.32  0.23  0.11   alpha+beta 0.94 .. 1.01
+    unit 1: alpha -0.00  0.30  0.84  1.27  1.36  1.11  0.66  0.26   beta  0.93  0.62  0.14 -0.23 -0.31 -0.10  0.26  0.59   alpha+beta 0.85 .. 1.06
+    unit 6: alpha  0.70  1.05  1.17  1.07  0.82  0.57  0.45  0.50   beta  0.23 -0.05 -0.15 -0.06  0.14  0.33  0.43  0.40   alpha+beta 0.88 .. 1.02
+    unit 8: alpha  0.31  0.05  0.07  0.44  0.96  1.34  1.41  1.14   beta  0.71  0.94  0.91  0.55  0.08 -0.27 -0.34 -0.14   alpha+beta 0.98 .. 1.08
+
+=== L3 by the runner-up's lead over the third, (S - T)/M, quiet final states: answers changed ===
+    [0.00,0.05) 0.219 (n = 19803)  [0.05,0.10) 0.080 (n = 17430)  [0.10,0.20) 0.042 (n = 28239)  [0.20,0.40) 0.029 (n = 34928)  [0.40,9.00) 0.032 (n = 22567)
+    runner-up after the maximum 0.0754, before 0.0655;  share of all changed answers that have lead < 0.05: 0.500
+
+=== (B) WHERE THE THRESHOLDS COME FROM: tape part of h_(s-1) in the drive of each unit (test set, steps 1..9) ===
+    unit:                      0      1      2      3      4      5      6      7      8      9     10     11     12     13     14     15
+    std ratio:              0.33   0.19   0.04   0.98   0.03   0.06   0.04   0.04   0.23   0.01   0.25   0.17   0.26   0.54   0.51   0.67
+    covariance share:     -0.079  0.059 -0.013  0.604 -0.012  0.005 -0.012 -0.020  0.063  0.001  0.028  0.033  0.011  0.102 -0.000  0.231
+    FUNCTIONAL: amplitudes recomputed with the tape part of h_(s-1) left out of the drive (everything else real), tape rebuilt; answers changed
+      pulse 4: 0.0066   pulse 5: 0.2522   pulse 9: 0.0501   comparators 6, 7: 0.0175   comparators 1, 8: 0.1962   pulses + all comparators: 0.3793   wave clips: 0.3835   wave clips of 3, 15, 13, 14: 0.2767
+      pulse of unit 5 without the tape's part of its drive: rms change / rms of the pulse = 0.127; pulses switched on or off: 0.0068 of steps
+
+=== (C) CONTROL: the L3 description applied to the NON-tape modes of the 13 non-pulse units (real tape and real pulse units kept) ===
+    L1: answers changed with the modelled TAPE 0.2983;  with the modelled REST modes 0.0521;  with both (all 13 non-pulse units modelled) 0.2942
+    L2: answers changed with the modelled TAPE 0.1049;  with the modelled REST modes 0.0294;  with both (all 13 non-pulse units modelled) 0.1090
+    L3: answers changed with the modelled TAPE 0.0705;  with the modelled REST modes 0.0247;  with both (all 13 non-pulse units modelled) 0.0738
+    L3, tape piece of the scores of ages >= 2: R2 0.926;  rms error 3.57 M;  std of the piece 13.28 M
+    L3, rest piece of the scores of ages >= 2: R2 0.938;  rms error 1.50 M;  std of the piece 6.66 M
+
+=== (D) OTHER POPULATIONS, L3 with all channels modelled: answers changed ===
+    N(0,1), quiet states at t = 5 read out with U (n = 71058): 0.0303
+    N(0,1), quiet states at t = 7 read out with U (n = 102873): 0.0443
+    Unif(-1,1) inputs, L2 coefficients fitted on N(0,1), quiet final states (n = 122855): 0.1503
+    Unif(-1,1) inputs, L3 coefficients fitted on N(0,1), quiet final states (n = 122855): 0.1076
+
+=== UNIT 5 EVENT FORMULA: pre-activation one step after x_j ~ (x_j, Mp, Sp, Tp, x_(j+1)), per kind of x_j and age of Mp ===
+    x_j positive, below the runner-up  slope in x_j by age of Mp (0..7):  17.9  18.0  18.0  18.0  18.0  18.0  18.1  18.0   fires 0.225
+    x_j a new runner-up                slope in x_j by age of Mp (0..7):   7.8  11.1   7.9   8.1  13.2  18.3  18.5  18.6   fires 0.999
+    x_j a new maximum                  slope in x_j by age of Mp (0..7):  12.1  12.2  12.2  12.1  12.2  12.2  12.8  12.9   fires 0.998
+    below the runner-up, implied threshold weights on (Mp, Sp, Tp) by age 0..7: (-0.07 0.74 0.14)  (-0.00 0.70 0.12)  (-0.02 0.74 0.11)  (-0.04 0.80 0.09)  (-0.06 0.82 0.10)  (-0.07 0.74 0.17)  (-0.03 0.59 0.24)  (0.00 0.49 0.31)
+    rms error of the modelled pulse / final M_t on quiet sequences 0.359;  rms of the real pulse 4.654;  R2 0.9932
+    FUNCTIONAL (only unit 5's pulses replaced): formula for every pulse 0.0547;  only after new maxima 0.0175;  only after new runners-up 0.0295;  only after inputs below the runner-up 0.0189
+    pulses removed: after new maxima 0.7498;  after new runners-up 0.5031;  after positive inputs below the runner-up 0.0204

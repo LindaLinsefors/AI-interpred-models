@@ -1,0 +1,49 @@
+123437 quiet final states of 200000.   mean tape: changed 0.915
+
+A1. RESAMPLING the inputs outside V (two independent redraws; the second column pair keeps the real inputs of age 0, 1)
+    V                 | filler 0: R2, changed | redraw all others: R2_pair, eta2, changed | redraw only others of age >= 2: R2_pair, eta2, changed | V unchanged
+    M, S              |  0.565 0.072 |  0.506  0.753 0.114 [True] |  0.510  0.755 0.091 [True]
+    top 3             |  0.856 0.065 |  0.830  0.915 0.070 [True] |  0.834  0.917 0.049 [True]
+    candidates        |  0.974 0.050 |  0.978  0.989 0.046 [True] |  0.984  0.992 0.017 [True]
+    candidates + leak |  0.978 0.028 |  0.979  0.989 0.047 [True] |  0.983  0.992 0.017 [True]
+
+A2. Functional test split by the gap (S - T) / M between runner-up and third (T = third largest of all ten inputs)
+    gap bin        share   network right | changed: mean tape | skeleton M, S | skeleton top 3 | candidates | candidates + leak
+    [0.00, 0.05)   0.160   0.827         |     0.857 |     0.214 |     0.205 |     0.149 |     0.105
+    [0.05, 0.10)   0.141   0.982         |     0.911 |     0.063 |     0.065 |     0.049 |     0.023
+    [0.10, 0.20)   0.232   0.992         |     0.914 |     0.043 |     0.036 |     0.027 |     0.012
+    [0.20, 0.40)   0.285   0.994         |     0.932 |     0.035 |     0.026 |     0.022 |     0.011
+    [0.40,  inf)   0.182   0.989         |     0.945 |     0.047 |     0.041 |     0.035 |     0.013
+    where the changed answers point (share of all quiet states): to the third | to the maximum | to an input of age 0 or 1 | elsewhere;   and: answer right before -> wrong after | wrong -> right
+    mean tape          0.196 | 0.103 | 0.174 | 0.552   ;   0.893 | 0.003
+    skeleton M, S      0.010 | 0.023 | 0.008 | 0.038   ;   0.043 | 0.026
+    skeleton top 3     0.021 | 0.018 | 0.007 | 0.025   ;   0.047 | 0.015
+    candidates         0.019 | 0.014 | 0.008 | 0.016   ;   0.040 | 0.008
+    candidates + leak  0.012 | 0.005 | 0.006 | 0.010   ;   0.020 | 0.007
+    split by whether an input of age 0 or 1 is the third or better (it cannot be M or S in a quiet state):
+    third has age >= 2     share 0.748 | changed: mean tape 0.910 | skeleton M, S 0.070 | skeleton top 3 0.063 | candidates 0.051 | candidates + leak 0.026
+    third has age 0 or 1   share 0.252 | changed: mean tape 0.931 | skeleton M, S 0.075 | skeleton top 3 0.072 | candidates 0.047 | candidates + leak 0.035
+
+A3. Is it special to the tape?  Skeleton states scored on three pieces: R2 of the tape coordinates; R2 of the tape piece of the scores
+    (entries of age >= 2, each minus the mean over those 8 entries); R2 of the REST piece of the scores (same entries) and of the three pulse units.
+    rms over entries of the centred pieces / M: tape piece 13.23, rest piece 5.43
+    M, S                 tape coordinates 0.565 | tape piece of the scores 0.573 | rest piece of the scores 0.623 | pulse units -0.032
+    top 3                tape coordinates 0.856 | tape piece of the scores 0.858 | rest piece of the scores 0.736 | pulse units 0.597
+    top 4                tape coordinates 0.945 | tape piece of the scores 0.946 | rest piece of the scores 0.793 | pulse units 0.889
+    candidates           tape coordinates 0.974 | tape piece of the scores 0.970 | rest piece of the scores 0.785 | pulse units 0.701
+    all positive inputs  tape coordinates 0.973 | tape piece of the scores 0.969 | rest piece of the scores 0.790 | pulse units 0.953
+
+A4. Candidates or the positive inputs?  One class of inputs set to 0 in the otherwise real sequence (ages >= 2 only, so that the newest inputs' direct write is not involved)
+    class                                               inputs per state | states with any | R2 (all quiet) | R2 on the states with any | changed on the states with any | the same with the linear leak added back
+    positive, not a candidate                             0.86 | 0.567 | 0.995 | 0.989 | 0.008 | 0.989 0.009
+    negative candidate                                    1.23 | 0.721 | 0.993 | 0.990 | 0.010 | 0.990 0.012
+    candidate, not in the top 4                           1.57 | 0.848 | 0.963 | 0.957 | 0.018 | 0.957 0.019
+    in the top 4, not a candidate                         0.42 | 0.372 | 0.993 | 0.976 | 0.011 | 0.976 0.012
+    candidate below the runner-up of its arrival ('near')  0.21 | 0.190 | 0.971 | 0.802 | 0.079 | 0.804 0.080
+    dethroned (top two at arrival, not M or S now)        2.44 | 0.965 | 0.642 | 0.640 | 0.041 | 0.639 0.041
+    negative, not a candidate                             2.49 | 0.966 | 0.983 | 0.983 | 0.019 | 0.985 0.023
+
+A5. Robustness of R2 to the normalisation by M (skeletons with filler 0)
+    M, S         R2 of c / M 0.565 | R2 without dividing by M 0.556 | R2 of c / M on states with M above its median 0.548 | median over states of |error| / |tape| 0.486, 90th percentile 1.241
+    top 3        R2 of c / M 0.856 | R2 without dividing by M 0.860 | R2 of c / M on states with M above its median 0.859 | median over states of |error| / |tape| 0.225, 90th percentile 0.725
+    candidates   R2 of c / M 0.974 | R2 without dividing by M 0.987 | R2 of c / M on states with M above its median 0.989 | median over states of |error| / |tape| 0.094, 90th percentile 0.258

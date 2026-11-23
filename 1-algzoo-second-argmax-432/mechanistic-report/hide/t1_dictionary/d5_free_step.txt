@@ -1,0 +1,28 @@
+592060 pairs of consecutive quiet states.  |c(t+1)| / M median 5.15
+   e_free: median 0.094, 90% 0.425, share < 0.1: 0.51
+   e_lin : median 0.019, 90% 0.311, share < 0.1: 0.64
+   share of steps on which no non-pulse unit is clipped: 0.473;  a comparator is clipped: 0.005
+   by the number of clipped non-pulse units at step t + 1:
+     0  clipped (share 0.473):  e_lin median 0.000, 90% 0.000, share < 0.1: 1.00
+     1  clipped (share 0.441):  e_lin median 0.144, 90% 0.414, share < 0.1: 0.35
+     2  clipped (share 0.086):  e_lin median 0.205, 90% 0.436, share < 0.1: 0.14
+     3  clipped (share 0.001):  e_lin median 0.246, 90% 0.518, share < 0.1: 0.11
+     4+ clipped (share 0.000):  e_lin median 0.146, 90% 0.295, share < 0.1: 0.10
+   by the age of the maximum at step t:
+     a_M = 2 (n = 107832):  e_free median 0.051, 90% 0.279, share < 0.1: 0.66 | e_lin median 0.000, 90% 0.237, share < 0.1: 0.80
+     a_M = 3 (n = 107682):  e_free median 0.048, 90% 0.393, share < 0.1: 0.69 | e_lin median 0.000, 90% 0.249, share < 0.1: 0.82
+     a_M = 4 (n = 107247):  e_free median 0.268, 90% 0.652, share < 0.1: 0.14 | e_lin median 0.237, 90% 0.533, share < 0.1: 0.17
+     a_M = 5 (n = 107719):  e_free median 0.145, 90% 0.357, share < 0.1: 0.29 | e_lin median 0.124, 90% 0.279, share < 0.1: 0.39
+     a_M = 6 (n =  81228):  e_free median 0.054, 90% 0.229, share < 0.1: 0.66 | e_lin median 0.000, 90% 0.146, share < 0.1: 0.84
+     a_M = 7 (n =  53860):  e_free median 0.047, 90% 0.259, share < 0.1: 0.73 | e_lin median 0.000, 90% 0.028, share < 0.1: 0.95
+     a_M = 8 (n =  26492):  e_free median 0.040, 90% 0.267, share < 0.1: 0.76 | e_lin median 0.000, 90% 0.000, share < 0.1: 0.96
+   by the age of the runner-up at step t:
+     a_S = 2 (n = 108008):  e_lin median 0.027, 90% 0.194, share < 0.1: 0.73
+     a_S = 3 (n = 107754):  e_lin median 0.038, 90% 0.373, share < 0.1: 0.59
+     a_S = 4 (n = 107448):  e_lin median 0.088, 90% 0.320, share < 0.1: 0.52
+     a_S = 5 (n = 107647):  e_lin median 0.028, 90% 0.312, share < 0.1: 0.64
+     a_S = 6 (n =  81095):  e_lin median 0.000, 90% 0.314, share < 0.1: 0.66
+     a_S = 7 (n =  53634):  e_lin median 0.000, 90% 0.381, share < 0.1: 0.73
+     a_S = 8 (n =  26474):  e_lin median 0.000, 90% 0.368, share < 0.1: 0.71
+   unit 5 on at step t (share 0.074): e_free median 0.493, 90% 0.943, share < 0.1: 0.06 | e_lin median 0.048, 90% 0.394, share < 0.1: 0.61
+   unit 5 off at step t:                  e_free median 0.083, 90% 0.340, share < 0.1: 0.55 | e_lin median 0.016, 90% 0.305, share < 0.1: 0.64

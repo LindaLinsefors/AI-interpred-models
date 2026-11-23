@@ -1,0 +1,40 @@
+307248 quiet final states (500000 sequences, seed 9201)
+
+A. old entries below the runner-up: rms of D, and share of var(D) explained (test half) by offset per (a, a_M, a_S) | + S/M | + x_9, x_8 | + own input
+   rest    rms   8.22    0.598   0.777   0.905   0.910
+   tape    rms  26.86    0.393   0.583   0.625   0.689
+   full    rms  27.02    0.474   0.628   0.637   0.703
+   trans   rms   7.37    0.220   0.361   0.869   0.876
+   echo    rms   2.61    0.101   0.105   1.000   1.000
+   runner  rms   3.33    0.941   0.991   0.993   0.994
+   clock   rms   3.48    0.793   0.975   0.976   0.977
+   level   rms   0.95    0.999   0.999   1.000   1.000
+   correlation of tape D and rest D, entries below the runner-up: -0.306;  the maximum's entry: -0.767 (var tape 89.1, rest 54.1, full 36.7)
+
+B. true tape + fitted rest: P(S top) / agreement with the full score   [rest deleted 0.839 / 0.844; true rest 0.973 / 1.000]
+   no cells            M: 0.878 / 0.885  M, S: 0.871 / 0.878  M, S, x9: 0.879 / 0.886  M, S, x9, x8: 0.880 / 0.887  M, S, T, x9, x8: 0.881 / 0.888
+   order of arrival    M: 0.886 / 0.893  M, S: 0.882 / 0.890  M, S, x9: 0.889 / 0.897  M, S, x9, x8: 0.891 / 0.898  M, S, T, x9, x8: 0.890 / 0.898
+   a_M                 M: 0.882 / 0.892  M, S: 0.901 / 0.914  M, S, x9: 0.909 / 0.922  M, S, x9, x8: 0.912 / 0.925  M, S, T, x9, x8: 0.912 / 0.926
+   a_S                 M: 0.898 / 0.906  M, S: 0.895 / 0.901  M, S, x9: 0.903 / 0.909  M, S, x9, x8: 0.905 / 0.911  M, S, T, x9, x8: 0.905 / 0.911
+   (a_M, a_S)          M: 0.916 / 0.924  M, S: 0.945 / 0.956  M, S, x9: 0.956 / 0.969  M, S, x9, x8: 0.958 / 0.972  M, S, T, x9, x8: 0.959 / 0.973
+   (a_M, a_S, a_T)     M: 0.920 / 0.928  M, S: 0.950 / 0.962  M, S, x9: 0.962 / 0.976  M, S, x9, x8: 0.964 / 0.979  M, S, T, x9, x8: 0.966 / 0.984
+
+C. controls
+   fitted rest piece ALONE, ('(a_M, a_S)', 'M, S'): P(S top) 0.145   (true rest alone 0.151, chance about 0.125)
+   fitted rest piece ALONE, ('(a_M, a_S)', 'M, S, x9, x8'): P(S top) 0.149   (true rest alone 0.151, chance about 0.125)
+   fitted rest piece ALONE, ('(a_M, a_S, a_T)', 'M, S, T, x9, x8'): P(S top) 0.151   (true rest alone 0.151, chance about 0.125)
+   true tape + rest piece of a donor with the same no cells         (rescaled by M): P(S top) 0.813  agree 0.818
+   true tape + rest piece of a donor with the same a_S              (rescaled by M): P(S top) 0.846  agree 0.851
+   true tape + rest piece of a donor with the same (a_M, a_S)       (rescaled by M): P(S top) 0.883  agree 0.890
+   true tape + rest piece of a donor with the same (a_M, a_S, a_T)  (rescaled by M): P(S top) 0.889  agree 0.897
+   true tape + rest piece of the neighbour in S/M within (a_M, a_S) (median |d S/M| 0.0001): P(S top) 0.922  agree 0.932
+   slope of the comparison near the runner-up for entries of age 2 / age 3 / ages >= 4, by part:
+      tape      49.0     73.7     75.3
+      rest      22.4      4.4     -1.1
+      full      71.4     78.1     74.2
+      level      0.1     -0.2     -0.2
+      runner     3.0      0.9      0.8
+      clock     -1.0     -0.0     -0.8
+      trans     19.6      3.7     -1.0
+      echo       0.8     -0.2     -0.0
+      pulse     -0.1      0.2      0.0

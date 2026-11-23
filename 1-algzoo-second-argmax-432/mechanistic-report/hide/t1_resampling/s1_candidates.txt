@@ -1,0 +1,74 @@
+228596 quiet states from 80000 sequences; per step t = 3..9: [ 9124 19371 28268 35705 41326 45693 49109]
+network answers the runner-up of the whole sequence in 96.16% of them
+tape coordinates / M over these states: sd [4.43 1.77 2.15 2.27 2.69 2.04 2.36]  mean [ 0.84  0.75 -0.92  0.92 -0.35  0.97 -0.29]
+
+'kept' = mean number of inputs whose age and value are in V (a state has t + 1 = 7.81 inputs on average).  FU = unexplained fraction of variance (0 = V determines the tape).
+'answer changed' = share of states whose final answer changes when the tape part is replaced by that of a resampled state.
+
+candidate V                                     kept |      alt short.re short.im    h2.re    h2.im    h3.re    h3.im |  FU sum  FU score | answer changed %  (clipped)  neg %
+sham: own tape put back                         7.81 |    0.000    0.000    0.000    0.000    0.000    0.000    0.000 |   0.000    0.000  |       0.00         0.00      0.0
+unrelated quiet state (any t, rescaled to M)    0.00 |    1.000    1.000    1.000    1.000    1.001    1.001    1.001 |   1.000    1.000  |      63.43        62.75     53.6
+V0 = max and runner-up (ages, S/M)              2.00 |    0.212    0.135    0.107    0.206    0.179    0.157    0.144 |   0.180    0.133  |       6.64         6.75     47.5
+V1 = V0 + third largest                         3.00 |    0.079    0.039    0.028    0.070    0.049    0.045    0.036 |   0.059    0.044  |       3.67         3.71     46.0
+V2 = V1 + fourth largest                        4.00 |    0.029    0.012    0.007    0.025    0.016    0.015    0.011 |   0.020    0.017  |       2.21         2.20     42.3
+     top 5                                      4.96 |    0.010    0.005    0.002    0.010    0.007    0.007    0.005 |   0.008    0.007  |       1.47         1.46     37.0
+     top 6                                      5.84 |    0.004    0.002    0.001    0.005    0.004    0.003    0.002 |   0.003    0.004  |       0.99         0.99     29.2
+V3(0.9)  = all inputs > 0.9 S                   2.14 |    0.169    0.098    0.077    0.159    0.131    0.114    0.101 |   0.137    0.102  |       4.99         5.12     46.9
+V3(0.75) = all inputs > 0.75 S                  2.39 |    0.121    0.063    0.048    0.107    0.083    0.073    0.063 |   0.093    0.069  |       3.85         3.92     46.2
+V3(0.5)  = all inputs > 0.5 S                   2.88 |    0.063    0.029    0.019    0.052    0.038    0.036    0.029 |   0.046    0.036  |       2.74         2.76     45.4
+V3(0.25) = all inputs > 0.25 S                  3.45 |    0.025    0.014    0.006    0.026    0.018    0.020    0.014 |   0.020    0.021  |       1.99         1.98     44.7
+V3(0)    = all positive inputs                  4.07 |    0.009    0.010    0.003    0.018    0.013    0.015    0.010 |   0.011    0.016  |       1.52         1.51     43.9
+V4 = record history (top 2 on arrival)          3.75 |    0.024    0.033    0.015    0.035    0.038    0.039    0.039 |   0.030    0.030  |       3.57         3.56     46.0
+V4z = same, records above zero only             2.78 |    0.028    0.034    0.016    0.038    0.039    0.041    0.040 |   0.032    0.031  |       3.63         3.62     45.9
+     earlier maxima only (above zero)           2.39 |    0.133    0.089    0.046    0.163    0.149    0.128    0.127 |   0.126    0.071  |       5.51         5.53     46.4
+     top 3 on arrival (above zero)              3.49 |    0.010    0.012    0.003    0.020    0.015    0.017    0.011 |   0.012    0.019  |       2.13         2.10     45.0
+V5 = V4 + inputs that fired unit 5              3.96 |    0.007    0.015    0.003    0.020    0.014    0.017    0.010 |   0.011    0.021  |       2.37         2.34     45.6
+     inputs > 0.75 x runner-up on arrival       3.03 |    0.012    0.015    0.004    0.023    0.018    0.020    0.014 |   0.015    0.021  |       2.26         2.23     45.2
+     inputs > 0.5 x runner-up on arrival        3.33 |    0.011    0.013    0.004    0.020    0.015    0.017    0.012 |   0.012    0.019  |       1.98         1.96     44.9
+V4z + third largest                             3.42 |    0.012    0.012    0.004    0.021    0.016    0.017    0.013 |   0.013    0.017  |       2.34         2.33     45.3
+V4z + third + fourth largest                    4.19 |    0.007    0.007    0.002    0.013    0.009    0.009    0.006 |   0.008    0.010  |       1.75         1.73     41.9
+V4z + all inputs > 0.5 S                        3.29 |    0.011    0.013    0.004    0.021    0.015    0.017    0.012 |   0.013    0.019  |       2.00         1.98     44.9
+V4z + all positive inputs                       4.07 |    0.009    0.010    0.003    0.018    0.013    0.015    0.010 |   0.011    0.016  |       1.52         1.51     43.9
+V0 + inputs of age 0, 1                         4.00 |    0.207    0.121    0.105    0.190    0.170    0.143    0.136 |   0.172    0.112  |       5.81         5.95     43.2
+V0 + inputs of age 0..3                         5.21 |    0.172    0.103    0.090    0.158    0.137    0.120    0.073 |   0.138    0.102  |       4.70         4.83     38.9
+
+V5: share of states where the rejection sampler found no resample in 200 rounds (original kept): 0.0001
+V5: inputs that fired unit 5 per state 3.00; of these not already in V4: 0.21
+
+Reference: what the same swaps do when the REST of the state (or the whole state) is taken from the resampled state instead
+candidate V                                     kept |      alt short.re short.im    h2.re    h2.im    h3.re    h3.im |  FU sum  FU score | answer changed %  (clipped)  neg %
+rest | V0 = max and runner-up (ages, S/M)       2.00 |    0.212    0.135    0.107    0.206    0.179    0.157    0.144 |   0.180    0.133  |       5.80         6.07     47.3
+all  | V0 = max and runner-up (ages, S/M)       2.00 |    0.212    0.135    0.107    0.206    0.179    0.157    0.144 |   0.180    0.133  |       4.24         4.24      0.0
+rest | V1 = V0 + third largest                  3.00 |    0.079    0.039    0.028    0.070    0.049    0.045    0.036 |   0.059    0.044  |       3.22         3.36     45.8
+all  | V1 = V0 + third largest                  3.00 |    0.079    0.039    0.028    0.070    0.049    0.045    0.036 |   0.059    0.044  |       2.09         2.09      0.0
+rest | V3(0)    = all positive inputs           4.07 |    0.009    0.010    0.003    0.018    0.013    0.015    0.010 |   0.011    0.016  |       1.43         1.45     43.8
+all  | V3(0)    = all positive inputs           4.07 |    0.009    0.010    0.003    0.018    0.013    0.015    0.010 |   0.011    0.016  |       1.00         1.00      0.0
+
+Final states only (t = 9), same candidates
+49109 states
+candidate V                                     kept |      alt short.re short.im    h2.re    h2.im    h3.re    h3.im |  FU sum  FU score | answer changed %  (clipped)  neg %
+sham: own tape put back                        10.00 |    0.000    0.000    0.000    0.000    0.000    0.000    0.000 |   0.000    0.000  |       0.00         0.00      0.0
+unrelated quiet state (any t, rescaled to M)    0.00 |    1.047    1.074    0.945    1.110    1.102    1.042    1.058 |   1.054    1.027  |      87.34        86.59     37.3
+V0 = max and runner-up (ages, S/M)              2.00 |    0.331    0.251    0.163    0.421    0.330    0.264    0.253 |   0.305    0.220  |      11.50        12.19     32.6
+V1 = V0 + third largest                         3.00 |    0.131    0.071    0.052    0.141    0.093    0.075    0.063 |   0.103    0.071  |       7.28         7.55     31.0
+V2 = V1 + fourth largest                        4.00 |    0.051    0.020    0.015    0.043    0.028    0.022    0.017 |   0.035    0.025  |       4.79         4.83     30.0
+     top 5                                      5.00 |    0.019    0.007    0.004    0.016    0.010    0.008    0.006 |   0.013    0.010  |       3.41         3.40     29.2
+     top 6                                      6.00 |    0.008    0.004    0.002    0.008    0.005    0.004    0.003 |   0.006    0.006  |       2.49         2.49     28.9
+V3(0.9)  = all inputs > 0.9 S                   2.20 |    0.259    0.180    0.117    0.316    0.239    0.189    0.178 |   0.229    0.162  |       8.71         9.35     32.0
+V3(0.75) = all inputs > 0.75 S                  2.56 |    0.180    0.107    0.071    0.202    0.146    0.114    0.105 |   0.148    0.100  |       6.92         7.32     31.4
+V3(0.5)  = all inputs > 0.5 S                   3.27 |    0.086    0.038    0.026    0.082    0.058    0.044    0.039 |   0.064    0.040  |       5.15         5.31     30.3
+V3(0.25) = all inputs > 0.25 S                  4.12 |    0.027    0.012    0.007    0.026    0.018    0.014    0.012 |   0.020    0.015  |       3.84         3.86     29.6
+V3(0)    = all positive inputs                  5.05 |    0.006    0.006    0.002    0.012    0.008    0.007    0.006 |   0.007    0.008  |       2.94         2.93     29.1
+V4 = record history (top 2 on arrival)          4.44 |    0.042    0.046    0.027    0.048    0.058    0.052    0.062 |   0.047    0.030  |       7.50         7.51     30.6
+V4z = same, records above zero only             3.21 |    0.045    0.047    0.027    0.050    0.059    0.053    0.063 |   0.049    0.030  |       7.52         7.52     30.6
+     earlier maxima only (above zero)           2.60 |    0.219    0.162    0.103    0.338    0.278    0.224    0.224 |   0.226    0.116  |      10.40        10.83     31.7
+     top 3 on arrival (above zero)              4.08 |    0.008    0.010    0.003    0.016    0.011    0.010    0.009 |   0.009    0.012  |       4.58         4.57     29.6
+V5 = V4 + inputs that fired unit 5              4.76 |    0.005    0.012    0.004    0.017    0.010    0.010    0.007 |   0.008    0.014  |       5.14         5.13     29.9
+     inputs > 0.75 x runner-up on arrival       3.56 |    0.013    0.016    0.006    0.020    0.019    0.016    0.016 |   0.015    0.015  |       4.79         4.78     29.8
+     inputs > 0.5 x runner-up on arrival        4.00 |    0.008    0.010    0.003    0.016    0.011    0.010    0.008 |   0.009    0.012  |       4.09         4.09     29.5
+V4z + third largest                             3.74 |    0.016    0.014    0.005    0.024    0.019    0.017    0.017 |   0.016    0.014  |       5.07         5.10     29.6
+V4z + third + fourth largest                    4.39 |    0.008    0.008    0.003    0.015    0.010    0.009    0.007 |   0.008    0.010  |       3.88         3.89     29.3
+V4z + all inputs > 0.5 S                        3.91 |    0.009    0.010    0.003    0.017    0.012    0.010    0.009 |   0.010    0.012  |       4.13         4.14     29.5
+V4z + all positive inputs                       5.05 |    0.006    0.006    0.002    0.012    0.008    0.007    0.006 |   0.007    0.008  |       2.94         2.93     29.1
+V0 + inputs of age 0, 1                         4.00 |    0.328    0.240    0.160    0.410    0.325    0.258    0.248 |   0.300    0.206  |       9.14         9.92     31.9
+V0 + inputs of age 0..3                         5.50 |    0.281    0.213    0.137    0.357    0.278    0.225    0.154 |   0.252    0.193  |       7.67         8.39     31.5

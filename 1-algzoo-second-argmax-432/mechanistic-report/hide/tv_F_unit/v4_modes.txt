@@ -1,0 +1,41 @@
+307824 quiet final states (500000 sequences, seed 9401); 56 cells (a_M, a_S), 448 cells (a_M, a_S, a_T)
+
+A. share of variance of each mode's piece explained:   D2 a_M: M,S | D3 (a_M,a_S): M,S | D4 (a_M,a_S,a_T): M,S,T | D5 D4 + x9,x8
+   alt     rms   2.42     0.200   0.701   0.856   0.860
+   short   rms  13.91     0.088   0.749   0.900   0.906
+   h2      rms   7.74     0.211   0.731   0.896   0.903
+   h3      rms   5.95     0.229   0.775   0.918   0.925
+   clock   rms   2.46     0.939   0.975   0.986   0.987
+   runner  rms   2.21     0.770   0.879   0.955   0.969
+   trans   rms   4.86     0.104   0.402   0.531   0.961
+
+B. functional at the readout (test half).  full 0.973; true tape alone 0.840; tape deleted (rest alone) 0.151
+   D2 a_M: M,S                single mode replaced: alt 0.922  short 0.420  h2 0.633  h3 0.640 | all four: P(S top) 0.076 agree 0.081 | FITTED TAPE ALONE: 0.042 | network right (149760): substituted also right 0.074 | network wrong (4152): same wrong entry 0.307, runner-up on top 0.120
+   D3 (a_M,a_S): M,S          single mode replaced: alt 0.967  short 0.924  h2 0.921  h3 0.937 | all four: P(S top) 0.977 agree 0.953 | FITTED TAPE ALONE: 0.931 | network right (149760): substituted also right 0.978 | network wrong (4152): same wrong entry 0.030, runner-up on top 0.940
+   D4 (a_M,a_S,a_T): M,S,T    single mode replaced: alt 0.967  short 0.951  h2 0.948  h3 0.962 | all four: P(S top) 0.978 agree 0.958 | FITTED TAPE ALONE: 0.889 | network right (149760): substituted also right 0.982 | network wrong (4152): same wrong entry 0.115, runner-up on top 0.851
+   D5 D4 + x9,x8              single mode replaced: alt 0.967  short 0.957  h2 0.950  h3 0.963 | all four: P(S top) 0.988 agree 0.968 | FITTED TAPE ALONE: 0.883 | network right (149760): substituted also right 0.992 | network wrong (4152): same wrong entry 0.118, runner-up on top 0.864
+   single modes deleted from the full score: alt 0.926  short 0.487  h2 0.712  h3 0.683   single mode alone: alt 0.184  short 0.409  h2 0.265  h3 0.277
+
+C. short clock, shares of sum |z - mean|^2 (z = coordinate / M; the share does not depend on the gauge of the eigenvector):
+   one kappa x clock coordinate 0.030;  kappa per a_M 0.082;  alpha(a_M)(M - S) -0.007;  per a_M: M, S 0.091;  per a_S: M, S 0.504;  per (a_M, a_S): M, S 0.747;  top three 0.897;  + x9, x8 0.901
+   attack: affine in the clock coordinate with a free intercept per a_M (z = k z_clock + c0): 0.347;  the same per (a_M, a_S): 0.816
+
+E. description substituted for the tape part of the STATE at t0, run continued with the real inputs (fit on half the quiet states, numbers from the other half)
+   t0 = 6: 177952 quiet states; share of final answers changed (clipped at zero in brackets; neg = share with a negative activation)
+      variant                                       all quiet            same top two           max overtaken           new runner-up
+      tape deleted                     0.565 (0.567) n 88976  0.971 (0.955) n 43850  0.321 (0.365) n 20209  0.049 (0.045) n 20036   neg 0.401
+      fit per (a_M,a_S): M,S           0.039 (0.039) n 88976  0.032 (0.032) n 43850  0.051 (0.053) n 20209  0.044 (0.042) n 20036   neg 0.525
+      fit per (a_M,a_S,a_T): M,S,T     0.031 (0.031) n 88976  0.029 (0.029) n 43850  0.041 (0.042) n 20209  0.028 (0.026) n 20036   neg 0.538
+      donor: any quiet state           0.533 (0.523) n 88976  0.784 (0.774) n 43850  0.438 (0.464) n 20209  0.189 (0.148) n 20036   neg 0.647
+      donor: same (a_M,a_S)            0.126 (0.123) n 88976  0.119 (0.116) n 43850  0.152 (0.166) n 20209  0.128 (0.111) n 20036   neg 0.602
+      donor: same (a_M,a_S,a_T)        0.122 (0.120) n 88976  0.115 (0.114) n 43850  0.150 (0.161) n 20209  0.126 (0.109) n 20036   neg 0.594
+      donor: same cell, nearest S/M    0.048 (0.049) n 88925  0.048 (0.048) n 43842  0.050 (0.056) n 20195  0.050 (0.049) n 20016   neg 0.577
+   t0 = 8: 229070 quiet states; share of final answers changed (clipped at zero in brackets; neg = share with a negative activation)
+      variant                                       all quiet            same top two           max overtaken           new runner-up
+      tape deleted                     0.789 (0.778) n114535  0.934 (0.920) n 92309  0.308 (0.328) n 11095  0.064 (0.052) n 11131   neg 0.260
+      fit per (a_M,a_S): M,S           0.053 (0.053) n114535  0.044 (0.045) n 92309  0.099 (0.102) n 11095  0.083 (0.067) n 11131   neg 0.305
+      fit per (a_M,a_S,a_T): M,S,T     0.044 (0.044) n114535  0.038 (0.039) n 92309  0.080 (0.082) n 11095  0.050 (0.043) n 11131   neg 0.326
+      donor: any quiet state           0.769 (0.757) n114535  0.855 (0.846) n 92309  0.524 (0.533) n 11095  0.297 (0.246) n 11131   neg 0.436
+      donor: same (a_M,a_S)            0.133 (0.130) n114535  0.118 (0.116) n 92309  0.195 (0.201) n 11095  0.201 (0.167) n 11131   neg 0.410
+      donor: same (a_M,a_S,a_T)        0.125 (0.120) n114535  0.111 (0.109) n 92309  0.173 (0.183) n 11095  0.190 (0.155) n 11131   neg 0.405
+      donor: same cell, nearest S/M    0.069 (0.068) n114402  0.063 (0.063) n 92252  0.100 (0.102) n 11068  0.088 (0.072) n 11082   neg 0.373

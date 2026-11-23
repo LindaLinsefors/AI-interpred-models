@@ -1,0 +1,96 @@
+A. Deleting one mode's part from a quiet state at step t0, then continuing with the real inputs (200000 sequences, seed 401)
+   columns per t0: answers changed / accuracy after (accuracy before in the header) ; second line: share of perturbed states with a negative entry, and changed / accuracy with the state clipped at zero
+   t0 = 5: 71246 quiet states, accuracy before 0.957
+      level        changed 0.802  accuracy 0.197   | negative 1.000  clipped: changed 0.769  accuracy 0.231
+      runner       changed 0.555  accuracy 0.443   | negative 0.705  clipped: changed 0.554  accuracy 0.444
+      clock        changed 0.299  accuracy 0.701   | negative 0.041  clipped: changed 0.299  accuracy 0.701
+      h2           changed 0.104  accuracy 0.882   | negative 0.833  clipped: changed 0.101  accuracy 0.885
+      alt          changed 0.037  accuracy 0.935   | negative 0.652  clipped: changed 0.047  accuracy 0.926
+      h3           changed 0.058  accuracy 0.923   | negative 0.783  clipped: changed 0.093  accuracy 0.888
+      short        changed 0.255  accuracy 0.734   | negative 0.452  clipped: changed 0.233  accuracy 0.757
+      trans        changed 0.006  accuracy 0.955   | negative 0.615  clipped: changed 0.014  accuracy 0.953
+      echo         changed 0.003  accuracy 0.958   | negative 0.708  clipped: changed 0.010  accuracy 0.956
+      TAPE (4)     changed 0.452  accuracy 0.540   | negative 0.437  clipped: changed 0.460  accuracy 0.532
+      lvl+run+clk  changed 0.818  accuracy 0.179   | negative 1.000  clipped: changed 0.821  accuracy 0.175
+   t0 = 7: 103416 quiet states, accuracy before 0.964
+      level        changed 0.801  accuracy 0.199   | negative 1.000  clipped: changed 0.805  accuracy 0.196
+      runner       changed 0.623  accuracy 0.373   | negative 0.512  clipped: changed 0.626  accuracy 0.369
+      clock        changed 0.219  accuracy 0.776   | negative 0.057  clipped: changed 0.220  accuracy 0.775
+      h2           changed 0.188  accuracy 0.803   | negative 0.531  clipped: changed 0.174  accuracy 0.816
+      alt          changed 0.051  accuracy 0.931   | negative 0.508  clipped: changed 0.054  accuracy 0.928
+      h3           changed 0.176  accuracy 0.812   | negative 0.466  clipped: changed 0.164  accuracy 0.824
+      short        changed 0.385  accuracy 0.607   | negative 0.475  clipped: changed 0.315  accuracy 0.676
+      trans        changed 0.008  accuracy 0.962   | negative 0.469  clipped: changed 0.012  accuracy 0.960
+      echo         changed 0.005  accuracy 0.965   | negative 0.488  clipped: changed 0.008  accuracy 0.963
+      TAPE (4)     changed 0.678  accuracy 0.316   | negative 0.357  clipped: changed 0.667  accuracy 0.325
+      lvl+run+clk  changed 0.757  accuracy 0.243   | negative 1.000  clipped: changed 0.774  accuracy 0.225
+   t0 = 8: 114247 quiet states, accuracy before 0.963
+      level        changed 0.780  accuracy 0.220   | negative 1.000  clipped: changed 0.794  accuracy 0.207
+      runner       changed 0.616  accuracy 0.376   | negative 0.373  clipped: changed 0.616  accuracy 0.376
+      clock        changed 0.154  accuracy 0.837   | negative 0.057  clipped: changed 0.155  accuracy 0.836
+      h2           changed 0.242  accuracy 0.748   | negative 0.404  clipped: changed 0.235  accuracy 0.755
+      alt          changed 0.064  accuracy 0.919   | negative 0.367  clipped: changed 0.060  accuracy 0.922
+      h3           changed 0.237  accuracy 0.750   | negative 0.342  clipped: changed 0.224  accuracy 0.763
+      short        changed 0.461  accuracy 0.530   | negative 0.404  clipped: changed 0.414  accuracy 0.577
+      trans        changed 0.022  accuracy 0.954   | negative 0.373  clipped: changed 0.026  accuracy 0.951
+      echo         changed 0.005  accuracy 0.965   | negative 0.371  clipped: changed 0.008  accuracy 0.964
+      TAPE (4)     changed 0.790  accuracy 0.201   | negative 0.257  clipped: changed 0.780  accuracy 0.211
+      lvl+run+clk  changed 0.668  accuracy 0.333   | negative 1.000  clipped: changed 0.670  accuracy 0.331
+   t0 = 9: 122683 quiet states, accuracy before 0.961
+      level        changed 0.026  accuracy 0.967   | negative 1.000  clipped: changed 0.759  accuracy 0.239
+      runner       changed 0.500  accuracy 0.486   | negative 0.340  clipped: changed 0.503  accuracy 0.483
+      clock        changed 0.076  accuracy 0.909   | negative 0.077  clipped: changed 0.078  accuracy 0.907
+      h2           changed 0.304  accuracy 0.685   | negative 0.341  clipped: changed 0.296  accuracy 0.691
+      alt          changed 0.075  accuracy 0.906   | negative 0.314  clipped: changed 0.073  accuracy 0.907
+      h3           changed 0.340  accuracy 0.649   | negative 0.288  clipped: changed 0.312  accuracy 0.676
+      short        changed 0.529  accuracy 0.462   | negative 0.369  clipped: changed 0.495  accuracy 0.496
+      trans        changed 0.119  accuracy 0.868   | negative 0.333  clipped: changed 0.119  accuracy 0.867
+      echo         changed 0.042  accuracy 0.949   | negative 0.313  clipped: changed 0.043  accuracy 0.948
+      TAPE (4)     changed 0.933  accuracy 0.057   | negative 0.194  clipped: changed 0.915  accuracy 0.074
+      lvl+run+clk  changed 0.292  accuracy 0.695   | negative 1.000  clipped: changed 0.576  accuracy 0.421
+
+B. All subsets of the nine modes (246432 quiet final states, 400000 sequences, seed 402).  Full score: 0.973
+   size 1: short 0.408;  h3 0.278;  h2 0.261
+   size 2: h3+short 0.616;  h2+short 0.536;  h2+h3 0.527
+   size 3: h2+h3+short 0.786;  alt+h3+short 0.644;  runner+h3+short 0.639
+   size 4: h2+alt+h3+short 0.839;  h2+h3+short+trans 0.827;  runner+h2+h3+short 0.814
+   size 5: h2+alt+h3+short+trans 0.877;  runner+h2+alt+h3+short 0.873;  clock+h2+alt+h3+short 0.861
+   size 6: runner+h2+alt+h3+short+trans 0.906;  clock+h2+alt+h3+short+trans 0.906;  h2+alt+h3+short+trans+echo 0.896
+   size 7: runner+clock+h2+alt+h3+short+trans 0.948;  clock+h2+alt+h3+short+trans+echo 0.931;  runner+h2+alt+h3+short+trans+echo 0.921
+   size 8: runner+clock+h2+alt+h3+short+trans+echo 0.968;  level+runner+clock+h2+alt+h3+short+trans 0.953;  level+clock+h2+alt+h3+short+trans+echo 0.929
+   size 9: level+runner+clock+h2+alt+h3+short+trans+echo 0.973
+   the tape (h2+alt+h3+short) ranks 1 of 126 four-mode subsets; next best four: h2+h3+short+trans 0.827
+   every subset that reaches 0.96: runner+clock+h2+alt+h3+short+trans+echo 0.968;  level+runner+clock+h2+alt+h3+short+trans+echo 0.973
+
+C. Eigenvalues of Sigma (modulus at angle): 0.932@180, 0.834@125, 0.834@-125, 0.925@83, 0.925@-83, 0.694@41, 0.694@-41, 0.845@0, 0.676@0, 0.257@0
+   chosen as tape-like: 0.932@180, 0.925@83, 0.925@-83, 0.834@125, 0.834@-125, 0.694@41, 0.694@-41
+   candidate                                              P(S top)  agree   slope  err_sd  err_iqr
+   four-mode tape piece                                   0.839    0.844    71.7  0.1199  0.0508
+   Sigma-tape: 7 eigen-directions of Sigma                0.703    0.708    70.8  0.1857  0.0605
+   Sigma-rest: the 3 other directions                     0.146    0.145     3.2  3.9391  1.1761
+   scores of the 13 non-pulse units (readout's view)      0.973    0.999    74.0  0.0387  0.0213
+   tape + runner + clock + trans (7 modes)                0.948    0.960    73.9  0.0487  0.0270
+   all modes but level (8 modes)                          0.968    0.985    74.2  0.0407  0.0241
+   full score                                             0.973    1.000    74.1  0.0388  0.0213
+   overlap: share of the Sigma-tape piece's variance (indices 0-7, centred) that is the four-mode tape piece: 0.813
+   best linear decoder of the runner-up's position among ages >= 2 (multinomial logistic regression, no intercept, coordinates / M, fit on 100000 states, scored on the second half):
+      the 7 tape coordinates                                         accuracy 0.904
+      the 6 other coordinates (level, runner, clock, trans, echo)    accuracy 0.345
+      all 13 coordinates                                             accuracy 0.977
+      tape + clock (9)                                               accuracy 0.934
+      tape + level + runner (9)                                      accuracy 0.908
+      tape + level + runner + clock (11)                             accuracy 0.945
+      for comparison, the network's own readout of the same coordinates: tape piece 0.839, all 13 0.973
+
+D. Persistence over the step 8 -> 9 (183976 sequences: state at 8 quiet and x_9 below the runner-up; seed 403).
+   D_8(a) = (entry of age a - runner-up's entry)/M at step 8, D_9(a + 1) the same entry one step later; entries of age 2..8 at step 8, not the runner-up
+   candidate                          below the runner-up: corr, slope of D_9 on D_8, rms(D_9 - D_8), rms D_8   |  the maximum's entry: corr, rms(D_9 - D_8), rms D_8
+   four-mode tape piece               0.951  1.042    4.65   23.82                      |  0.870    4.44   12.50
+   Sigma-tape                         0.855  1.088    9.15   24.08                      |  0.721    9.04   10.67
+   tape + runner + clock + trans      0.967  0.997    3.72   24.53                      |  0.849    3.38   10.47
+   all modes but level                0.984  1.004    2.68   24.54                      |  0.931    2.17   10.43
+   full score                         0.985  0.999    2.61   24.62                      |  0.965    1.56   10.46
+   rest piece (full - tape)           0.808  0.981    3.88    5.40                      |  0.712    4.24    4.52
+   the same for entries below the runner-up, split by the age of the entry at step 8 (rms(D_9 - D_8) / rms D_8):
+      four-mode tape piece   a=2: 0.22  a=3: 0.20  a=4: 0.20  a=5: 0.24  a=6: 0.18  a=7: 0.16  a=8: 0.19
+      full score             a=2: 0.13  a=3: 0.11  a=4: 0.08  a=5: 0.19  a=6: 0.11  a=7: 0.10  a=8: 0.05

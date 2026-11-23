@@ -1,0 +1,92 @@
+A. Does the saturation scale with M or with S?  median of D by depth below the runner-up, three bins of S/M
+  depth (S - x)/M, D in units of M
+    depth bin      S/M 0.1-0.4   S/M 0.4-0.7   S/M 0.7-1.0
+    0.00- 0.05            -2.0          -2.3          -2.6
+    0.05- 0.10            -5.4          -5.9          -6.2
+    0.10- 0.15            -7.8          -9.1          -9.4
+    0.15- 0.20            -9.3         -11.3         -12.2
+    0.20- 0.30           -10.8         -13.2         -14.9
+    0.30- 0.40           -11.8         -15.1         -17.4
+    0.40- 0.60           -12.2         -16.8         -19.6
+    0.60- 1.00           -12.8         -18.0         -21.8
+    1.00- 2.00           -13.9         -18.9         -23.1
+    2.00-99.00           -17.0         -20.9         -24.6
+  depth (S - x)/S, D in units of S
+    depth bin      S/M 0.1-0.4   S/M 0.4-0.7   S/M 0.7-1.0
+    0.00- 0.05            -2.7          -2.6          -2.8
+    0.05- 0.10            -6.3          -6.4          -6.3
+    0.10- 0.15           -10.1          -9.9          -9.7
+    0.15- 0.20           -13.8         -13.5         -12.7
+    0.20- 0.30           -18.0         -17.6         -16.3
+    0.30- 0.40           -23.8         -21.4         -19.2
+    0.40- 0.60           -28.9         -24.7         -22.1
+    0.60- 1.00           -35.5         -28.8         -25.0
+    1.00- 2.00           -40.7         -31.8         -27.0
+    2.00-99.00           -46.4         -34.3         -28.4
+
+B. D = -k min(S - x, L) - h max(S - x - L, 0),  L = lM M + lS S     (400k entries below the runner-up)
+   L = lM M + lS S : k =   55.0, lM =  0.105, lS =  0.430, h =  2.45;  R2 = 0.289
+   L = lM M        : k =   53.1, lM =  0.367, lS = -0.000, h =  5.54;  R2 = 0.229
+   L = lS S        : k =   55.5, lM = -0.000, lS =  0.555, h =  3.44;  R2 = 0.280
+   residual of the first fit (median, in units of M) by order of arrival relative to the top two:
+     after both     5.62
+     between       -0.94
+     before both    2.05
+   the same formula fitted separately for each age of the entry:
+     age      k      lM      lS      h     R2
+     2    229.0   0.029   0.062   1.12  0.366
+     3    111.6   0.048   0.161   1.95  0.336
+     4     93.9   0.059   0.239   2.83  0.313
+     5     57.4   0.082   0.454   2.51  0.273
+     6     52.2   0.092   0.598   2.34  0.345
+     7     45.6   0.136   0.594   2.05  0.380
+     8     42.5   0.127   0.614   1.59  0.346
+     9     49.0   0.145   0.598   2.13  0.260
+   R2 over all ages with per-age parameters: 0.330
+   per age of the entry AND position relative to the top two (after both / between / before both):
+     age 2 after    n =  49690  k =  229.0  lM =  0.029  lS =  0.062  h =  1.12  R2 = 0.366
+     age 3 after    n =  35553  k =  140.0  lM =  0.046  lS =  0.105  h =  1.06  R2 = 0.428
+     age 3 between  n =  14309  k =   61.3  lM =  0.055  lS =  0.477  h =  1.97  R2 = 0.340
+     age 4 after    n =  24069  k =  129.4  lM =  0.038  lS =  0.141  h =  1.00  R2 = 0.529
+     age 4 between  n =  23917  k =   71.1  lM =  0.100  lS =  0.422  h =  2.49  R2 = 0.338
+     age 4 before   n =   2383  k =   34.4  lM =  0.162  lS =  0.457  h =  2.59  R2 = 0.541
+     age 5 after    n =  14152  k =   96.4  lM =  0.030  lS =  0.192  h =  0.97  R2 = 0.561
+     age 5 between  n =  28685  k =   66.3  lM =  0.112  lS =  0.449  h =  2.85  R2 = 0.301
+     age 5 before   n =   7311  k =   26.8  lM = -0.082  lS =  1.081  h =  1.93  R2 = 0.400
+     age 6 after    n =   7150  k =   92.7  lM =  0.003  lS =  0.272  h =  0.79  R2 = 0.659
+     age 6 between  n =  28722  k =   62.0  lM =  0.152  lS =  0.491  h =  2.71  R2 = 0.350
+     age 6 before   n =  14372  k =   36.2  lM = -0.033  lS =  0.993  h =  1.41  R2 = 0.465
+     age 7 after    n =   2353  k =   75.5  lM =  0.021  lS =  0.254  h =  0.57  R2 = 0.737
+     age 7 between  n =  23754  k =   51.6  lM =  0.249  lS =  0.379  h =  2.13  R2 = 0.363
+     age 7 before   n =  23649  k =   40.8  lM = -0.001  lS =  0.881  h =  1.80  R2 = 0.432
+     age 8 between  n =  14258  k =   41.0  lM =  0.400  lS =  0.067  h =  2.39  R2 = 0.315
+     age 8 before   n =  35771  k =   46.0  lM =  0.028  lS =  0.741  h =  1.80  R2 = 0.388
+     age 9 before   n =  49902  k =   49.0  lM =  0.145  lS =  0.598  h =  2.13  R2 = 0.260
+   R2 over all with per-(age, order) parameters: 0.384
+
+C. The maximum's entry, D[i_M] = alpha M + beta S fitted per cell;  R2 over all cells together
+   one cell                                       R2 = 0.190
+   age of the maximum (8 cells)                   R2 = 0.243
+   signed distance i_S - i_M (14 cells)           R2 = 0.661
+     i_S - i_M:      -7     -6     -5     -4     -3     -2     -1     +1     +2     +3     +4     +5     +6     +7
+     alpha:        38.9   -3.5  -17.6  -23.0  -18.3   -9.3   -5.7   -5.6  -15.2  -21.0  -22.1  -32.5  -29.2  -24.2
+     beta:        -83.4  -15.4   -1.2    5.6    5.7   -0.7   -0.7    2.0   11.2   15.7   10.4   19.1   27.9   52.2
+   age of maximum x age of runner-up (56 cells)   R2 = 0.723
+     alpha, rows = age of the maximum 2..9, columns = age of the runner-up 2..9
+            .   -1.8   -2.2  -12.8  -15.6  -11.8   -0.6   38.9
+         -3.4      .   -2.7   -9.3  -14.4  -21.5  -19.6   -6.2
+         -7.4   -3.6      .   -6.0  -10.2  -17.0  -24.7  -21.3
+        -15.9  -12.5   -5.9      .   -8.8  -13.0  -22.7  -29.7
+        -18.3  -19.1  -16.5   -5.8      .   -8.4  -11.1  -24.4
+        -26.5  -21.7  -21.2  -16.7   -6.3      .   -6.7  -10.6
+        -26.1  -32.9  -23.1  -22.2  -17.7   -6.6      .   -5.5
+        -24.2  -32.4  -38.0  -24.9  -26.1  -20.4   -7.9      .
+     beta, rows = age of the maximum 2..9, columns = age of the runner-up 2..9
+            .   -2.9   -2.7    4.1    2.8   -3.9  -17.3  -83.4
+          1.7      .   -1.7    1.1    3.4    5.7    0.7  -13.8
+          5.9    0.6      .   -2.0   -0.4    3.4    5.9   -0.5
+         12.4    9.2    3.4      .    3.6    2.7    8.7    7.2
+          8.0   13.7   11.1   -0.2      .    0.6   -2.2    8.8
+         13.9    9.9   16.5    9.7    2.1      .   -1.4   -2.0
+         25.7   18.7   12.9   15.8   14.4    2.9      .   -1.3
+         52.2   30.0   24.6   10.6   19.7   16.7    3.5      .

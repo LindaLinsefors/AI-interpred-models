@@ -1,0 +1,31 @@
+A. 307509 quiet final states (seed 9701), random quiet donors
+  all pairs
+   recipient's rest + DONOR's tape piece        n 307509  top old entry = recipient's runner-up 0.130   = donor's runner-up 0.815   = recipient's maximum 0.141   = donor's maximum 0.052
+   recipient's tape piece + DONOR's rest        n 307509  top old entry = recipient's runner-up 0.814   = donor's runner-up 0.131   = recipient's maximum 0.052   = donor's maximum 0.140
+  donor's runner-up elsewhere
+   recipient's rest + DONOR's tape piece        n 269316  top old entry = recipient's runner-up 0.028   = donor's runner-up 0.811   = recipient's maximum 0.156   = donor's maximum 0.054
+   recipient's tape piece + DONOR's rest        n 269316  top old entry = recipient's runner-up 0.809   = donor's runner-up 0.029   = recipient's maximum 0.054   = donor's maximum 0.156
+  ... and the same age of the maximum
+   recipient's rest + DONOR's tape piece        n  32990  top old entry = recipient's runner-up 0.016   = donor's runner-up 0.835   = recipient's maximum 0.073   = donor's maximum 0.073
+   recipient's tape piece + DONOR's rest        n  32990  top old entry = recipient's runner-up 0.833   = donor's runner-up 0.018   = recipient's maximum 0.072   = donor's maximum 0.072
+  ... and the donor's runner-up not at the recipient's maximum
+   recipient's rest + DONOR's tape piece        n 197473  top old entry = recipient's runner-up 0.024   = donor's runner-up 0.804   = recipient's maximum 0.039   = donor's maximum 0.056
+   recipient's tape piece + DONOR's rest        n 197473  top old entry = recipient's runner-up 0.803   = donor's runner-up 0.025   = recipient's maximum 0.056   = donor's maximum 0.039
+
+B. coefficient of S/M in each tape coordinate / M, fitted per cell (a_M, a_S) on [1, S/M]; ratio coefficient(a_S + 1) / coefficient(a_S) as modulus@angle
+   alt: eigenvalue 0.928@180
+      a_M = 9, a_S = [2, 3, 4, 5, 6, 7, 8] (n 5374-5575): ratios 0.94@ 180  0.48@ 180  1.83@-180  0.10@   0  6.70@  -0  0.01@   0
+      a_M = 2, a_S = [3, 4, 5, 6, 7, 8, 9] (n 5400-5635): ratios 17.15@ 180  0.19@  -0  4.87@   0  0.54@  -0  2.12@   0  0.89@   0
+      a_M = 6, a_S = [2, 3, 4, 5, 7, 8, 9] (n 5393-5589): ratios 0.12@ 180  8.54@-180  0.19@ 180  6.66@-180  0.46@   0
+   short: eigenvalue 0.735@43
+      a_M = 9, a_S = [2, 3, 4, 5, 6, 7, 8] (n 5374-5575): ratios 0.75@  12  0.37@ -12  0.44@ -49  1.91@ -16  0.95@  22  0.96@   4
+      a_M = 2, a_S = [3, 4, 5, 6, 7, 8, 9] (n 5400-5635): ratios 0.84@  11  0.42@  -3  0.95@ -57  1.96@ -10  1.76@  11  1.28@  10
+      a_M = 6, a_S = [2, 3, 4, 5, 7, 8, 9] (n 5393-5589): ratios 2.11@ -17  1.05@  16  0.90@   5  0.82@  13  0.55@   4
+   h2: eigenvalue 0.937@83
+      a_M = 9, a_S = [2, 3, 4, 5, 6, 7, 8] (n 5374-5575): ratios 1.49@  68  0.97@  86  0.65@  59  0.19@  -4  1.70@ -56  1.60@  19
+      a_M = 2, a_S = [3, 4, 5, 6, 7, 8, 9] (n 5400-5635): ratios 0.42@-174  2.52@  63  1.73@  40  1.09@  15  1.01@   1  0.92@   4
+      a_M = 6, a_S = [2, 3, 4, 5, 7, 8, 9] (n 5393-5589): ratios 0.32@  16  0.66@-105  2.38@  44  0.10@-164  14.18@  90
+   h3: eigenvalue 0.837@125
+      a_M = 9, a_S = [2, 3, 4, 5, 6, 7, 8] (n 5374-5575): ratios 1.04@ 117  0.61@ 147  0.71@ 121  0.68@ 112  0.33@ 127  1.13@  81
+      a_M = 2, a_S = [3, 4, 5, 6, 7, 8, 9] (n 5400-5635): ratios 1.82@ -82  1.12@  22  0.84@   2  1.39@  -5  1.37@   4  0.96@  -3
+      a_M = 6, a_S = [2, 3, 4, 5, 7, 8, 9] (n 5393-5589): ratios 0.94@  97  0.35@ 128  0.90@ 170  1.99@   9  1.20@   9

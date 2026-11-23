@@ -1,0 +1,44 @@
+
+===== tape piece: D = (entry - runner-up's entry) / M, inputs below the runner-up, ages 2..9
+  depth u = (S - x)/M      n     P(D < 0)   median D   10%..90% of D
+  0.00-0.01             15541   0.565      -0.7     -10.1 ..    7.9
+  0.01-0.02             15894   0.648      -1.5     -11.3 ..    6.5
+  0.02-0.05             48956   0.740      -3.0     -13.1 ..    5.0
+  0.05-0.10             85973   0.838      -5.8     -16.2 ..    2.4
+  0.10-0.20            190282   0.917      -9.9     -20.9 ..   -0.8
+  0.20-0.40            441333   0.966     -14.3     -28.5 ..   -4.6
+  0.40-9.00           2845761   0.988     -20.1     -45.1 ..   -9.6
+  near the runner-up (u < 0.1): D = 71.5 (x - S)/M -0.85;  R2 = 0.054;  residual: sd 8.61, quartiles -3.53 / +3.81
+     as an error in the input: sd 0.1204 M, quartiles -0.0494 / +0.0532 M
+     the same fit by age of the entry:  slope, R2, input-error quartile half-width (M)
+       age 2:   53.4   0.027   0.0826
+       age 3:   75.7   0.110   0.0484
+       age 4:   80.1   0.121   0.0492
+       age 5:   74.3   0.111   0.0377
+       age 6:   67.1   0.089   0.0443
+       age 7:   61.9   0.083   0.0559
+       age 8:   73.8   0.091   0.0603
+       age 9:   86.1   0.030   0.0830
+  the maximum's entry: P(D < 0) = 0.955, median -9.8, 10%..90% -21.6 .. -2.6
+
+===== full score: D = (entry - runner-up's entry) / M, inputs below the runner-up, ages 2..9
+  depth u = (S - x)/M      n     P(D < 0)   median D   10%..90% of D
+  0.00-0.01             15541   0.658      -0.8      -3.6 ..    1.7
+  0.01-0.02             15894   0.827      -1.8      -5.0 ..    0.7
+  0.02-0.05             48956   0.947      -3.3      -7.0 ..   -0.7
+  0.05-0.10             85973   0.992      -6.0     -10.8 ..   -2.7
+  0.10-0.20            190282   0.999     -10.0     -17.6 ..   -4.8
+  0.20-0.40            441333   0.999     -13.9     -28.7 ..   -7.1
+  0.40-9.00           2845761   1.000     -19.2     -47.8 ..  -10.3
+  near the runner-up (u < 0.1): D = 74.4 (x - S)/M -0.85;  R2 = 0.360;  residual: sd 2.86, quartiles -1.41 / +1.76
+     as an error in the input: sd 0.0384 M, quartiles -0.0189 / +0.0237 M
+     the same fit by age of the entry:  slope, R2, input-error quartile half-width (M)
+       age 2:   72.5   0.535   0.0161
+       age 3:   77.2   0.495   0.0162
+       age 4:   81.7   0.426   0.0165
+       age 5:   71.4   0.334   0.0209
+       age 6:   66.2   0.304   0.0248
+       age 7:   63.4   0.295   0.0277
+       age 8:   74.1   0.311   0.0269
+       age 9:   88.7   0.352   0.0269
+  the maximum's entry: P(D < 0) = 0.993, median -7.4, 10%..90% -16.3 .. -3.6

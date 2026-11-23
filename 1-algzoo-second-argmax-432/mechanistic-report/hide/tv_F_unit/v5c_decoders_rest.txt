@@ -1,0 +1,4 @@
+153936 quiet final states (seed 9521); majority class 0.126
+   7 tape coordinates     boosted trees: accuracy 0.949
+   6 other coordinates    boosted trees: accuracy 0.678
+   all 13 coordinates     boosted trees: accuracy 0.974

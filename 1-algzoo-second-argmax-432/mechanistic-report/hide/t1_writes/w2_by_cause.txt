@@ -1,0 +1,72 @@
+B = 300000, quiet final states n = 184212.  Coordinates in units of M_t.  'scores' = tape scores of ages >= 2 (indices 0..7) together.
+
+(0) WAVE CLIPS by context of the step: covariance share in the scores, std ratio, share of quiet-state steps with any wave clip in that context
+    x_s is a new max                       share  -0.024  std ratio  0.15   steps in this context 0.211, of which clipped 0.78
+    x_s is a new runner-up                 share  -0.036  std ratio  0.21   steps in this context 0.111, of which clipped 0.53
+    x_(s-1) was a new max                  share  -0.028  std ratio  0.14   steps in this context 0.128, of which clipped 0.32
+    x_(s-2) was a new max                  share  -0.107  std ratio  0.45   steps in this context 0.115, of which clipped 1.00
+    x_(s-2) was a new runner-up / near     share  -0.046  std ratio  0.31   steps in this context 0.098, of which clipped 0.82
+    x_(s-1) was a new runner-up / near     share  -0.011  std ratio  0.11   steps in this context 0.057, of which clipped 0.53
+    none of these (spontaneous)            share  -0.021  std ratio  0.12   steps in this context 0.280, of which clipped 0.63
+
+(1) SHARE OF THE VARIANCE by class of the causing input (covariance share; columns: 7 coordinates, then scores, then std ratio in the scores)
+    'present' = share of quiet final states that have such an input (for spont: such a clip)
+    class   present       alt  Re short  Im short     Re h2     Im h2     Re h3     Im h3    scores  std ratio
+    M        1.000      0.375     0.499     0.362     0.374     0.393     0.383     0.373     0.533     0.83
+    S>M      0.500      0.299     0.395     0.462     0.420     0.486     0.524     0.587     0.302     0.63
+    S<M      0.500      0.178     0.012     0.039     0.087     0.043     0.036     0.039     0.037     0.33
+    exmax    0.482      0.066    -0.001     0.004     0.010     0.006     0.006     0.003     0.009     0.16
+    exrun    0.483      0.064     0.043     0.095     0.085     0.038     0.038    -0.002     0.090     0.40
+    near     0.352      0.017     0.035     0.034     0.004     0.007     0.011     0.013     0.012     0.15
+    far      0.755      0.001     0.009     0.006    -0.000    -0.003    -0.000    -0.003     0.004     0.04
+    neg      0.999     -0.005     0.018     0.012     0.034     0.030     0.021     0.007     0.034     0.16
+    spont    0.795      0.007    -0.011    -0.014    -0.014    -0.000    -0.019    -0.016    -0.021     0.12
+    mean of each part (units of M):
+    M                    0.21     -0.11      0.05      0.27     -0.14      0.31     -0.08
+    S>M                  0.35     -0.09     -0.47      0.47     -0.30      0.40     -0.15
+    S<M                 -0.11     -0.02      0.02     -0.07      0.11     -0.02      0.04
+    exmax               -0.15      0.00      0.01     -0.09      0.02      0.01      0.04
+    exrun                0.06      0.06      0.08      0.03      0.14     -0.04      0.00
+    near                 0.06     -0.05     -0.11      0.05     -0.07      0.05     -0.04
+    far                  0.01     -0.03     -0.02     -0.01     -0.02      0.00     -0.01
+    neg                  0.13      0.11      0.06      0.09     -0.03      0.05     -0.03
+    spont               -0.01     -0.01     -0.06      0.08      0.01     -0.01     -0.00
+
+(2) INSIDE the classes M, S>M, S<M: covariance share in the scores by kind of write (the kinds cancel inside a class)
+    class              input          pulse 4          pulse 5          pulse 9  comparators off       wave clips   | std ratio of each kind
+    M                  0.005           -0.094            0.190            0.029            0.522           -0.119   |  0.03  0.96  1.41  0.24  0.86  0.46
+    S>M                0.003           -0.006            0.214            0.001            0.151           -0.061   |  0.02  0.03  0.59  0.03  0.65  0.32
+    S<M                0.007           -0.258            0.333           -0.021            0.016           -0.039   |  0.02  0.55  0.74  0.09  0.28  0.16
+    exmax              0.001           -0.051            0.072            0.000           -0.011           -0.001   |  0.01  0.36  0.44  0.04  0.13  0.07
+    exrun              0.001           -0.000            0.015            0.000            0.101           -0.027   |  0.01  0.01  0.39  0.01  0.38  0.20
+
+(3) SPLIT BY CONFIGURATION: covariance share in the scores by class, separately for runner-up after / before the maximum
+    runner-up after the maximum    n =  92014: M  0.098  S>M  0.773  S<M  0.000  exmax  0.014  exrun  0.098  near  0.010  far  0.002  neg  0.034  spont -0.029
+    runner-up before the maximum   n =  92198: M  0.808  S>M  0.000  S<M  0.062  exmax  0.006  exrun  0.087  near  0.015  far  0.005  neg  0.035  spont -0.018
+
+(4) LEAVE-OUT TEST: drop all writes caused by one class, rebuild the tape, set it in h_9 (quiet final states)
+    changed = share of answers that change (all quiet states / only those where the class is present); acc = accuracy after
+    baseline accuracy 0.9627
+    drop M                                       changed 0.4278 / 0.4278 (present in 1.000)   acc 0.5688
+    drop S>M                                     changed 0.4810 / 0.9629 (present in 0.500)   acc 0.4901
+    drop S<M                                     changed 0.3132 / 0.6257 (present in 0.500)   acc 0.6566
+    drop exmax                                   changed 0.0205 / 0.0425 (present in 0.482)   acc 0.9568
+    drop exrun                                   changed 0.0962 / 0.1990 (present in 0.483)   acc 0.8895
+    drop near                                    changed 0.0374 / 0.1061 (present in 0.352)   acc 0.9468
+    drop far                                     changed 0.0070 / 0.0092 (present in 0.755)   acc 0.9605
+    drop neg                                     changed 0.0396 / 0.0397 (present in 0.999)   acc 0.9375
+    drop spont                                   changed 0.0446 / 0.0562 (present in 0.795)   acc 0.9291
+    keep only M and S (either order)             changed 0.2013   acc 0.8077
+    keep only M, S, spont                        changed 0.1520   acc 0.8563
+    keep M, S, exmax, exrun                      changed 0.1111   acc 0.8828
+    keep M, S, exmax, exrun, spont               changed 0.0699   acc 0.9224
+    keep all but far and neg                     changed 0.0432   acc 0.9355
+    keep all but far, neg, spont                 changed 0.0870   acc 0.8957
+    (repeat) keep only M and S: where does the answer go? changed 0.2013   acc 0.8077
+       of the changed answers: to the maximum 0.711, to the third 0.059
+
+(5) R2 per coordinate of the tape rebuilt from a subset of classes (quiet final states, coordinates / M)
+    M and S only                 0.725   0.872   0.857   0.655   0.709   0.703   0.763   scores 0.755
+    M, S, exmax, exrun           0.931   0.943   0.942   0.938   0.937   0.926   0.934   scores 0.931
+    all but far, neg             0.991   0.979   0.992   0.984   0.982   0.979   0.987   scores 0.968
+    all but far, neg, spont      0.966   0.975   0.986   0.965   0.970   0.966   0.977   scores 0.955

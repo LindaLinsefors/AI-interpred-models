@@ -1,0 +1,8 @@
+modes picked: {'alt': ['0.9283@180.00'], 'short': ['0.7350@42.99', '0.7350@-42.99'], 'h2': ['0.9370@83.28', '0.9370@-83.28'], 'h3': ['0.8373@124.78', '0.8373@-124.78']}
+own projector vs tape_common.P_TAPE, max abs difference: 1.582067810090848e-15
+projector: P P = P 8.881784197001252e-16  rank 7  imaginary part dropped: 6.306796265680744e-16
+part() vs tape_common.tape_part: 1.4210854715202004e-13
+hyb() vs tape_common.swap_tape: 1.4921397450962104e-13
+quiet mask equal: True  share 0.61705
+zero-prefix identity (h_6 = h_9 of padded): 0.0
+running answer at t = 6 equals final answer of the padded sequence minus 3: 0.9453

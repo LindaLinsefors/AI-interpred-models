@@ -1,0 +1,62 @@
+C:\Users\linda\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+C:\Users\linda\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+t = 9, 307272 quiet final states; intact accuracy 0.963
+   donor                 fw = rest A + tape donor [clipped]   rv = rest donor + tape A [clipped]   neg. entry fw / rv
+   M, S (true S)         0.947 [0.932]                      0.937 [0.935]                    0.392 / 0.284
+   M, 0.1 M              0.462 [0.466]                      0.802 [0.820]                    0.101 / 0.640
+   M, 0.2 M              0.733 [0.732]                      0.838 [0.858]                    0.107 / 0.598
+   M, 0.4 M              0.923 [0.920]                      0.888 [0.901]                    0.192 / 0.490
+   M, 0.6 M              0.962 [0.957]                      0.910 [0.917]                    0.346 / 0.365
+   M, 0.8 M              0.953 [0.941]                      0.910 [0.911]                    0.486 / 0.245
+   M, 0.95 M             0.846 [0.858]                      0.896 [0.886]                    0.620 / 0.157
+   S only                0.008 [0.011]                      0.835 [0.548]                    0.216 / 0.756
+   M only                0.126 [0.129]                      0.778 [0.776]                    0.144 / 0.638
+   nothing (tape = 0)    0.056 [0.073]                      0.840 [0.460]                    0.194 / 1.000
+   M, S donor by a_S:      2: fw 0.908 rv 0.950 intact 0.950  3: fw 0.971 rv 0.954 intact 0.958  4: fw 0.971 rv 0.949 intact 0.956  5: fw 0.969 rv 0.975 intact 0.966  6: fw 0.962 rv 0.968 intact 0.967  7: fw 0.954 rv 0.972 intact 0.973  8: fw 0.926 rv 0.934 intact 0.974  9: fw 0.916 rv 0.795 intact 0.963
+   M, S donor, 56 cells (a_M, a_S): fw median 0.961, range 0.645 (9, 2) to 0.994
+   third within 0.1 M of S (share 0.302): fw 0.917 intact 0.896;  further: fw 0.960 intact 0.992
+
+ATTACK 3. real tape against the M,S-donor's tape, 307272 quiet final states
+   |tape_A - tape_donor| / |tape_A| (13 units): median 0.44, quartiles 0.22, 0.82
+   tape piece of the scores, entries of age >= 2, in M: rms real 13.3, rms donor 16.2, rms difference 8.6;  1 - SS(real - donor) / SS(real - entry mean) = 0.570
+   held-out share of the variance of the real tape piece (ages >= 2, in M) explained by: the cell (a_M, a_S) alone 0.638; cell + quadratic in S/M 0.741
+   real tape piece    : S entry - M entry (in M) 10/50/90% = 2.6 9.8 21.6
+   donor's tape piece : S entry - M entry (in M) 10/50/90% = 2.9 10.7 24.9
+
+ATTACK 4. deletion controls at t = 9 (accuracy on quiet final states; answer = maximum)
+   delete alt+short+h2+h3   : accuracy 0.056   maximum named 0.165   rms of the deleted piece of the scores / M: 12.1
+   delete clock             : accuracy 0.910   maximum named 0.009   rms of the deleted piece of the scores / M: 2.4
+   delete level             : accuracy 0.968   maximum named 0.007   rms of the deleted piece of the scores / M: 7.0
+   delete runner            : accuracy 0.489   maximum named 0.011   rms of the deleted piece of the scores / M: 15.1
+   delete trans+echo        : accuracy 0.892   maximum named 0.037   rms of the deleted piece of the scores / M: 17.8
+   delete alt               : accuracy 0.906   maximum named 0.024   rms of the deleted piece of the scores / M: 2.2
+   delete short             : accuracy 0.461   maximum named 0.323   rms of the deleted piece of the scores / M: 12.7
+   delete h2                : accuracy 0.685   maximum named 0.083   rms of the deleted piece of the scores / M: 7.0
+   delete h3                : accuracy 0.650   maximum named 0.107   rms of the deleted piece of the scores / M: 5.4
+
+t = 6, 222995 quiet states, accuracy after chosen futures [clipped]
+                                         3 low       new max @7       new max @9         new S @7     new third @7       own inputs
+   intact                      0.973 [0.973]  0.995 [0.995]  0.985 [0.985]  0.971 [0.971]  0.928 [0.928]  0.961 [0.961]
+   fw: M, S (true)             0.970 [0.972]  0.980 [0.976]  0.954 [0.947]  0.946 [0.947]  0.942 [0.944]  0.952 [0.951]
+   fw: M, 0.6 M                0.985 [0.986]  0.915 [0.913]  0.917 [0.911]  0.990 [0.991]  0.955 [0.954]  0.926 [0.925]
+   fw: tape = 0                0.015 [0.030]  0.724 [0.687]  0.795 [0.753]  0.998 [1.000]  0.008 [0.012]  0.430 [0.429]
+   rv: rest of M,S donor       0.976 [0.976]  0.977 [0.976]  0.976 [0.966]  0.965 [0.968]  0.884 [0.885]  0.951 [0.950]
+   rv: rest of M,0.6M donor    0.961 [0.966]  0.991 [0.987]  0.976 [0.957]  0.900 [0.932]  0.724 [0.726]  0.856 [0.857]
+
+ATTACK 5. other populations: S_pos follow rate and M,S-donor accuracy (running answer at step t)
+   normal   t = 3: quiet  34566;  S_pos n =      0: tape's S nan, rest's S nan [clipped nan];   intact 0.957, M,S donor 0.940, M,0.6M donor 0.977
+   normal   t = 4: quiet  72967;  S_pos n =  44137: tape's S 0.857, rest's S 0.009 [clipped 0.846];   intact 0.947, M,S donor 0.939, M,0.6M donor 0.983
+   normal   t = 5: quiet 106876;  S_pos n =  99937: tape's S 0.927, rest's S 0.003 [clipped 0.925];   intact 0.958, M,S donor 0.956, M,0.6M donor 0.984
+   normal   t = 6: quiet 133942;  S_pos n = 131121: tape's S 0.939, rest's S 0.001 [clipped 0.932];   intact 0.963, M,S donor 0.965, M,0.6M donor 0.988
+   normal   t = 7: quiet 155212;  S_pos n = 153986: tape's S 0.934, rest's S 0.001 [clipped 0.880];   intact 0.967, M,S donor 0.971, M,0.6M donor 0.989
+   normal   t = 8: quiet 172071;  S_pos n = 171546: tape's S 0.917, rest's S 0.001 [clipped 0.872];   intact 0.968, M,S donor 0.970, M,0.6M donor 0.985
+   normal   t = 9: quiet 184835;  S_pos n = 184596: tape's S 0.854, rest's S 0.003 [clipped 0.819];   intact 0.963, M,S donor 0.947, M,0.6M donor 0.962
+   uniform  t = 3: quiet  33919;  S_pos n =      0: tape's S nan, rest's S nan [clipped nan];   intact 0.967, M,S donor 0.953, M,0.6M donor 0.966
+   uniform  t = 4: quiet  73123;  S_pos n =  45730: tape's S 0.854, rest's S 0.008 [clipped 0.836];   intact 0.958, M,S donor 0.952, M,0.6M donor 0.972
+   uniform  t = 5: quiet 107056;  S_pos n = 102468: tape's S 0.921, rest's S 0.002 [clipped 0.922];   intact 0.964, M,S donor 0.963, M,0.6M donor 0.978
+   uniform  t = 6: quiet 133795;  S_pos n = 132531: tape's S 0.931, rest's S 0.001 [clipped 0.923];   intact 0.965, M,S donor 0.966, M,0.6M donor 0.982
+   uniform  t = 7: quiet 155401;  S_pos n = 155068: tape's S 0.922, rest's S 0.000 [clipped 0.868];   intact 0.966, M,S donor 0.970, M,0.6M donor 0.982
+   uniform  t = 8: quiet 171471;  S_pos n = 171392: tape's S 0.897, rest's S 0.000 [clipped 0.850];   intact 0.962, M,S donor 0.966, M,0.6M donor 0.977
+   uniform  t = 9: quiet 184592;  S_pos n = 184575: tape's S 0.832, rest's S 0.003 [clipped 0.796];   intact 0.953, M,S donor 0.931, M,0.6M donor 0.952

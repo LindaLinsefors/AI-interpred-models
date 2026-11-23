@@ -1,0 +1,8 @@
+eigenvalues matched: {'level': '1.0099@0.00', 'runner': '0.9735@0.00', 'clock': '0.9509@42.75', 'h2': '0.9370@83.28', 'alt': '0.9283@180.00', 'h3': '0.8373@124.78', 'short': '0.7350@42.99', 'trans': '0.2310@0.00', 'echo': '0.0010@0.00'}
+my P_TAPE vs tape_common.P_TAPE, max abs difference: 4.440892098500626e-16
+my single-mode projectors vs tape_common.projector: 4.440892098500626e-16
+pieces sum to U h: 6.465938895416912e-13
+my tape piece vs tape_common.tape_scores: 4.5075054799781356e-13
+quiet mask identical: True  share 0.61408
+zero-prefix identity (h_6 vs h_9 of the shifted sequence): 0.0
+accuracy: 0.953

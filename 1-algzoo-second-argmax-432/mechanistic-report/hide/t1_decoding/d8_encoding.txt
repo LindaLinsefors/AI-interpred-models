@@ -1,0 +1,25 @@
+quiet final states 246144; train 184608, test 61536.  Untouched network on the test states: answer = runner-up 0.963
+tape removed (c = 0): answer = runner-up 0.057, same as the untouched answer 0.068
+
+model of the tape                        var. expl. | answer = runner-up:  as is  clipped | same answer as untouched  unit < -0.01 M  fallback
+E0 one mean                                  -0.098 |                      0.076    0.088 |                    0.087           0.152     0.000
+E1 (a_M,a_S)                                  0.586 |                      0.949    0.944 |                    0.923           0.306     0.000
+E2 (a_M,a_S,a_T)                              0.675 |                      0.959    0.956 |                    0.931           0.304     0.000
+E3 (a_M,a_S) + S/M                            0.650 |                      0.953    0.945 |                    0.932           0.271     0.000
+E4 (a_M,a_S,a_T) + S/M, T+/M                  0.810 |                      0.959    0.956 |                    0.942           0.282     0.000
+E5 (a_M,a_S,a_T) + S/M, T+/M, Q+/M            0.829 |                      0.963    0.961 |                    0.945           0.292     0.000
+E6 (a_M,a_S,a_T,a_Q) + S/M, T+/M, Q+/M        0.854 |                      0.963    0.961 |                    0.948           0.292     0.005
+
+per coordinate, share of variance explained on the test states (alt, Re short, Im short, Re h2, Im h2, Re h3, Im h3):
+   E1 (a_M,a_S)                             [0.598 0.496 0.599 0.626 0.59  0.521 0.67 ]
+   E4 (a_M,a_S,a_T) + S/M, T+/M             [0.799 0.773 0.85  0.857 0.805 0.725 0.865]
+   E6 (a_M,a_S,a_T,a_Q) + S/M, T+/M, Q+/M   [0.854 0.812 0.897 0.913 0.844 0.761 0.895]
+
+E4 split by configuration and by the distance of the third: answer = runner-up with the modelled tape / untouched
+   S before M       n  30729   0.960 / 0.965
+   S after M        n  30807   0.958 / 0.960
+   (S-T)/M < 0.05   n  10075   0.867 / 0.826
+   0.05-0.1         n   8641   0.949 / 0.980
+   0.1-0.2          n  14046   0.978 / 0.991
+   0.2-0.4          n  17433   0.986 / 0.994
+   > 0.4            n  11341   0.984 / 0.987

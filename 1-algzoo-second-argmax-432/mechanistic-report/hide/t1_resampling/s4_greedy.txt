@@ -1,0 +1,90 @@
+115025 quiet states.  Start: V0, FU sum = 0.1789
+
+step 1: FU sum after adding one element (kept = mean number of inputs in V)
+    1. largest before the last record event      kept  2.87   FU sum 0.0480   FU score 0.0393
+    3rd largest overall                          kept  3.00   FU sum 0.0576   FU score 0.0434
+    input of age 5                               kept  2.58   FU sum 0.1479   FU score 0.1156
+    input of age 4                               kept  2.61   FU sum 0.1545   FU score 0.1220
+    input of age 6                               kept  2.52   FU sum 0.1555   FU score 0.1123
+    input of age 3                               kept  2.61   FU sum 0.1565   FU score 0.1257
+    input of age 7                               kept  2.42   FU sum 0.1606   FU score 0.1139
+    1. largest after the last record event       kept  3.00   FU sum 0.1606   FU score 0.1154
+    input of age 8                               kept  2.30   FU sum 0.1674   FU score 0.1167
+    input of age 2                               kept  2.61   FU sum 0.1681   FU score 0.1282
+    input of age 9                               kept  2.16   FU sum 0.1732   FU score 0.1227
+    input of age 0                               kept  3.00   FU sum 0.1745   FU score 0.1160
+    input of age 1                               kept  3.00   FU sum 0.1761   FU score 0.1280
+  -> add: 1. largest before the last record event
+
+step 2: FU sum after adding one element (kept = mean number of inputs in V)
+    1. largest after the last record event       kept  3.87   FU sum 0.0282   FU score 0.0217
+    3rd largest overall                          kept  3.46   FU sum 0.0296   FU score 0.0252
+    2. largest before the last record event      kept  3.54   FU sum 0.0297   FU score 0.0292
+    input of age 2                               kept  3.47   FU sum 0.0360   FU score 0.0350
+    input of age 3                               kept  3.38   FU sum 0.0430   FU score 0.0375
+    input of age 5                               kept  3.27   FU sum 0.0435   FU score 0.0372
+    input of age 0                               kept  3.87   FU sum 0.0436   FU score 0.0233
+    input of age 7                               kept  3.15   FU sum 0.0437   FU score 0.0369
+    input of age 6                               kept  3.22   FU sum 0.0439   FU score 0.0366
+    input of age 4                               kept  3.31   FU sum 0.0440   FU score 0.0378
+    input of age 8                               kept  3.07   FU sum 0.0452   FU score 0.0375
+    input of age 1                               kept  3.87   FU sum 0.0452   FU score 0.0351
+    input of age 9                               kept  2.98   FU sum 0.0464   FU score 0.0382
+  -> add: 1. largest after the last record event
+
+step 3: FU sum after adding one element (kept = mean number of inputs in V)
+    2. largest before the last record event      kept  4.54   FU sum 0.0099   FU score 0.0115
+    input of age 7                               kept  4.15   FU sum 0.0239   FU score 0.0193
+    input of age 5                               kept  4.25   FU sum 0.0241   FU score 0.0199
+    input of age 6                               kept  4.21   FU sum 0.0241   FU score 0.0191
+    2. largest after the last record event       kept  4.87   FU sum 0.0244   FU score 0.0150
+    input of age 8                               kept  4.07   FU sum 0.0254   FU score 0.0199
+    input of age 4                               kept  4.28   FU sum 0.0254   FU score 0.0207
+    input of age 0                               kept  4.51   FU sum 0.0262   FU score 0.0145
+    input of age 3                               kept  4.30   FU sum 0.0266   FU score 0.0211
+    input of age 9                               kept  3.98   FU sum 0.0267   FU score 0.0206
+    input of age 1                               kept  4.51   FU sum 0.0269   FU score 0.0201
+    input of age 2                               kept  4.31   FU sum 0.0269   FU score 0.0212
+    3rd largest overall                          kept  3.87   FU sum 0.0282   FU score 0.0217
+  -> add: 2. largest before the last record event
+
+step 4: FU sum after adding one element (kept = mean number of inputs in V)
+    2. largest after the last record event       kept  5.54   FU sum 0.0059   FU score 0.0048
+    3. largest before the last record event      kept  5.02   FU sum 0.0068   FU score 0.0102
+    input of age 0                               kept  5.18   FU sum 0.0078   FU score 0.0043
+    input of age 1                               kept  5.18   FU sum 0.0085   FU score 0.0099
+    input of age 2                               kept  4.99   FU sum 0.0085   FU score 0.0111
+    input of age 3                               kept  4.92   FU sum 0.0089   FU score 0.0111
+    input of age 7                               kept  4.72   FU sum 0.0089   FU score 0.0112
+    input of age 6                               kept  4.75   FU sum 0.0092   FU score 0.0112
+    input of age 8                               kept  4.67   FU sum 0.0092   FU score 0.0113
+    input of age 4                               kept  4.85   FU sum 0.0092   FU score 0.0112
+    input of age 5                               kept  4.79   FU sum 0.0092   FU score 0.0112
+    input of age 9                               kept  4.62   FU sum 0.0095   FU score 0.0114
+    3rd largest overall                          kept  4.54   FU sum 0.0099   FU score 0.0115
+  -> add: 2. largest after the last record event
+
+step 5: FU sum after adding one element (kept = mean number of inputs in V)
+    3. largest before the last record event      kept  6.02   FU sum 0.0030   FU score 0.0035
+    3. largest after the last record event       kept  6.15   FU sum 0.0048   FU score 0.0028
+    input of age 7                               kept  5.72   FU sum 0.0050   FU score 0.0045
+    input of age 0                               kept  5.83   FU sum 0.0052   FU score 0.0025
+    input of age 6                               kept  5.75   FU sum 0.0053   FU score 0.0045
+    input of age 8                               kept  5.67   FU sum 0.0053   FU score 0.0046
+    input of age 5                               kept  5.78   FU sum 0.0054   FU score 0.0046
+    input of age 3                               kept  5.84   FU sum 0.0054   FU score 0.0046
+    input of age 1                               kept  5.83   FU sum 0.0055   FU score 0.0045
+    input of age 4                               kept  5.81   FU sum 0.0055   FU score 0.0046
+    input of age 2                               kept  5.83   FU sum 0.0056   FU score 0.0047
+    input of age 9                               kept  5.62   FU sum 0.0056   FU score 0.0047
+    3rd largest overall                          kept  5.54   FU sum 0.0059   FU score 0.0048
+  -> add: 3. largest before the last record event
+
+The chosen path, scored with K = 3 and transplants (tape / rest / whole = answer changed %, acc = tape hybrid correct %; unswapped accuracy 96.02)
+added element                                   kept |      alt short.re short.im    h2.re    h2.im    h3.re    h3.im | FU sum FU score |   tape   rest  whole |   acc
+V0 = max and runner-up                          2.00 |    0.211    0.136    0.106    0.208    0.177    0.154    0.143 |  0.179  0.132   |   6.63   5.96   4.27 |  93.01
+1. largest before the last record event         2.87 |    0.054    0.042    0.024    0.056    0.047    0.047    0.044 |  0.048  0.040   |   3.98   3.98   3.20 |  94.57
+1. largest after the last record event          3.87 |    0.038    0.017    0.012    0.036    0.023    0.021    0.016 |  0.028  0.022   |   2.46   2.15   1.58 |  95.26
+2. largest before the last record event         4.54 |    0.011    0.008    0.003    0.014    0.010    0.011    0.008 |  0.010  0.011   |   1.90   1.84   1.24 |  95.44
+2. largest after the last record event          5.54 |    0.008    0.003    0.002    0.008    0.006    0.005    0.004 |  0.006  0.005   |   1.24   1.02   0.82 |  95.73
+3. largest before the last record event         6.02 |    0.003    0.002    0.001    0.005    0.004    0.003    0.003 |  0.003  0.003   |   1.07   0.92   0.69 |  95.76

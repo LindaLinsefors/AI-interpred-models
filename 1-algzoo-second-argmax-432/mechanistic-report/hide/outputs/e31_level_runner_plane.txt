@@ -1,0 +1,28 @@
+eigenvalues 1.0099, 0.9735; ratio after 9 steps 1.39
+cos(r_level, r_runner) = -0.565;  cos(l_level, l_runner) = +0.566
+
+readouts a*level + b*runner (no intercept), all states t = 1..9; R2 centred
+target      a        b       R2 plane | R2 level only  R2 runner only | R2 all 13 units | cos of best 13-unit readout with the plane
+M(t-1)+    +0.985   +0.016   0.996   |    0.993         0.558      |     0.998      |  0.981
+S(t-1)+    -0.129   +0.127   0.811   |    0.404         0.796      |     0.882      |  0.778
+M(t)+      +0.973   +0.026   0.717   |    0.708         0.252      |     0.739      |  0.733
+S(t)+      -0.051   +0.129   0.855   |    0.449         0.853      |     0.894      |  0.983
+
+the same plane fit per step t (does the best direction drift?)   target S(t-1)+ : a, b, b/a, R2
+  t = 2: -0.146 +0.097  ratio -1.51  R2 0.540
+  t = 3: -0.159 +0.115  ratio -1.39  R2 0.659
+  t = 4: -0.196 +0.128  ratio -1.53  R2 0.768
+  t = 5: -0.195 +0.133  ratio -1.46  R2 0.829
+  t = 6: -0.128 +0.127  ratio -1.00  R2 0.822
+  t = 7: -0.038 +0.117  ratio -0.32  R2 0.788
+  t = 8: +0.026 +0.111  ratio +0.24  R2 0.763
+  t = 9: +0.057 +0.109  ratio +0.53  R2 0.751
+
+what one step writes into a general plane coordinate q = a*level + b*runner (units of w4):
+  unit 4    : level +1.000   runner +1.000
+  unit 5    : level -0.072   runner +1.723
+  unit 9    : level -0.126   runner -0.443
+  comp 1 off: level +0.029   runner +1.409
+  comp 6 off: level +0.069   runner -0.202
+  comp 7 off: level -0.055   runner -5.385
+  comp 8 off: level -0.043   runner +4.098

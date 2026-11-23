@@ -1,15 +1,17 @@
-"""Lint ../report.md (it does not modify the report).
+"""Lint ../report.md, or another report in that folder (it does not modify the report).
 
 Checks: balanced dollar signs per line, display equations alone on their line, no pipe inside math in a table row.
-Extra arguments are words to locate:  python -B assemble_report.py "some phrase"
-(The name is historical: the report was first assembled from seven part files, which no longer exist.)
+    python -B hide/lint_report.py                    lints report.md
+    python -B hide/lint_report.py report_v2.md       lints report_v2.md
+Further arguments are words to locate:  python -B hide/lint_report.py report_v2.md "some phrase"
 """
 import sys
 from pathlib import Path
 
 sys.dont_write_bytecode = True
 sys.stdout.reconfigure(encoding="utf-8")
-REPORT = Path(__file__).resolve().parent.parent / "report.md"
+name = sys.argv.pop(1) if len(sys.argv) > 1 and sys.argv[1].endswith(".md") else "report.md"
+REPORT = Path(__file__).resolve().parent.parent / name
 txt = REPORT.read_text(encoding="utf-8")
 L = txt.split("\n")
 print(len(txt), "chars,", len(L), "lines,", len(txt.split()), "words")
